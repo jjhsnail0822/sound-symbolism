@@ -1,3 +1,5 @@
+# EXAMPLE: python data_crawler.py -l en
+
 import pandas as pd
 import requests
 from bs4 import BeautifulSoup
@@ -24,9 +26,8 @@ class DataCrawler:
         # Set base path
         self.input_csv = os.path.join('../0_raw/nat', f"{self.language}.csv")
         
+        # Set output path
         self.output_path = os.path.join("../1_preprocess/nat")
-        
-        # Set output JSON file path
         self.output_json = os.path.join(self.output_path, f"{self.language}.json")
         
         # Set language-specific default base URLs
@@ -49,14 +50,20 @@ class DataCrawler:
     def _get_default_base_urls(self):
         """Get default base URLs for the selected language"""
         default_urls = {
-            'en': ['https://en.wiktionary.org/wiki/'],
+            'en': [
+                'https://en.wiktionary.org/wiki/'
+                ],
             'fr': [
                 "https://www.le-dictionnaire.com/definition/",
                 "https://dictionnaire.lerobert.com/definition/",
                 "https://dictionnaire.reverso.net/francais-definition/",
                 ],
-            'ja': ['https://ja.wiktionary.org/wiki/'],
-            'ko': ['https://ko.wiktionary.org/wiki/']
+            'ja': [
+                'https://ja.wiktionary.org/wiki/'
+                ],
+            'ko': [
+                'https://ko.wiktionary.org/wiki/'
+                ]
         }
         return default_urls.get(self.language, [])
     
@@ -128,6 +135,7 @@ class DataCrawler:
             }
     
     def _parse_english(self, soup:BeautifulSoup, url:str, search_term:str) -> dict:
+        #### TODO: Implement English parsing
         return {
             'word': search_term,
             'meaning': [],
@@ -136,6 +144,7 @@ class DataCrawler:
         }
     
     def _parse_japanese(self, soup:BeautifulSoup, url:str, search_term:str) -> dict:
+        #### TODO: Implement Japanese parsing
         return {
             'word': search_term,
             'meaning': [],
@@ -144,6 +153,7 @@ class DataCrawler:
         }
         
     def _parse_korean(self, soup:BeautifulSoup, url:str, search_term:str) -> dict:
+        #### TODO: Implement Korean parsing
         return {
             'word': search_term,
             'meaning': [],
@@ -154,9 +164,11 @@ class DataCrawler:
     def _parse_french(self, soup:BeautifulSoup, url:str, search_term:str) -> dict:
         """Parse French dictionary pages"""
         try:
+            # le-dictionnaire.com
             if url.startswith("https://www.le-dictionnaire.com/definition/"):
                 def_boxes = soup.find_all("div", class_="defbox")
                 
+                # Pass if there is no word found in the dictionary
                 is_error = soup.find("span").text.strip().startswith("Aucun mot trouvé") or soup.find("span").text.strip().startswith("Le mot exact n'a pas été trouvé")
                 if is_error:
                     return {
@@ -166,13 +178,18 @@ class DataCrawler:
                         'found': False
                     }
                 
+                # Iterate over all the definitions
                 for def_box in def_boxes:
                     word = def_box.find("b").text.strip()
                     if word != search_term:
                         continue
                     sub_word = def_box.find("span").text.strip().split()[-1].strip("()").lower()
+                    
+                    # Only keep the definitions that are explicitly onomatopoeia or ideophone
                     if sub_word not in ["onomatopée", "idéophone"]:
                         continue
+                    
+                    # Get all the definitions
                     definitions = [p.text.strip() for p in def_box.find_all('li')]
                     found = True
                     return {
@@ -188,6 +205,8 @@ class DataCrawler:
                     'url': url,
                     "found": False,
                 }
+                
+            # lerobert.com
             elif url.startswith("https://dictionnaire.lerobert.com/definition/"):
                 def_box = soup.find("div", class_="d_ptma")
                 definitions = [p.text.strip() for p in def_box.find_all('span', class_="d_dfn")]
@@ -204,6 +223,8 @@ class DataCrawler:
                     'url': url,
                     'found': True
                 }
+            
+            # reverso.net
             elif url.startswith("https://dictionnaire.reverso.net/francais-definition/"):
                 translate_box = soup.find("div", class_="translate_box0")
                 definitions = [p.text.strip() for p in translate_box.find_all('span', id_="ID0EYB")]
@@ -241,6 +262,7 @@ class DataCrawler:
         
         # Iterate over each row with tqdm progress bar
         for index, row in tqdm(df.iterrows(), total=len(df), desc=f"Crawling {self.language} data"):
+            
             # Get search term from the word column
             search_term = row.get("word", '')
             if not search_term:
@@ -253,8 +275,9 @@ class DataCrawler:
             # Try each base URL until we find meaningful content
             found_data = None
             for base_url in self.base_urls:
+                # Search for each urls
                 url = self._build_url(search_term, base_url)
-                result = self._crawl_with_bs4(url, search_term)
+                result:dict = self._crawl_with_bs4(url, search_term)
                 
                 # If we found meaningful content, stop searching
                 if result.get('found', False):
@@ -290,7 +313,7 @@ class DataCrawler:
         
         return results
     
-    def save_to_json(self, results):
+    def save_to_json(self, results:list[dict]):
         """Save results list to JSON file"""
         if results is not None and len(results) > 0:
             try:
@@ -333,4 +356,4 @@ if __name__ == "__main__":
     if success:
         print("Crawling completed successfully.")
     else:
-        print("Error occurred during crawling.") 
+        print("Error occurred during crawling.")
