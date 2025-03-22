@@ -1,1 +1,1 @@
-echo ".env.local" >> .gitignore
+.env.local
