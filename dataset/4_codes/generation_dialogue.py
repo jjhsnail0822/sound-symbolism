@@ -69,27 +69,39 @@ class DialogueGenerator:
         templates = {
             'en': {
                 'system_prompt': "You are a helpful assistant that creates natural dialogues between two people. The dialogue should include the onomatopoeic word '{word}' which means '{meaning}'. Make the dialogue sound natural and contextually appropriate.",
-                'user_prompt': "Create a dialogue between two people that naturally incorporates the onomatopoeic word '{word}' which means '{meaning}'. The dialogue should be 5-8 exchanges long and feel natural. Make sure to highlight the onomatopoeic word in ALL CAPS when it appears in the dialogue.",
-                'dialogue_format': "Person A: {}\nPerson B: {}"
+                'user_prompt': """Condition 1: Create a dialogue between two people that naturally incorporates the onomatopoeic word '{word}' which means '{meaning}'.\n \
+                    Condition 2: The dialogue should be {num_utterances} utterances (= {num_turns} turns) long and feel natural.\n \
+                    Condition 3: The dialogue should not include greetings or farewells.\n \
+                    Condition 4: The onomatopoeic word should appear in the {ss_idx}th utterance.\n \
+                    Condition 5: The dialogue should not directly include the meaning of the onomatopoeic word.""",
+                'dialogue_format': ["John: {}\nEmma: {}", "Michael: {}\nSarah: {}", "David: {}\nOlivia: {}"]
             },
             'fr': {
                 'system_prompt': "Vous êtes un assistant utile qui crée des dialogues naturels entre deux personnes. Le dialogue doit inclure le mot onomatopéique '{word}' qui signifie '{meaning}'. Faites en sorte que le dialogue semble naturel et approprié au contexte.",
-                'user_prompt': "Créez un dialogue entre deux personnes qui incorpore naturellement le mot onomatopéique '{word}' qui signifie '{meaning}'. Le dialogue doit comporter 5 à 8 échanges et sembler naturel. Assurez-vous de mettre en évidence le mot onomatopéique en MAJUSCULES lorsqu'il apparaît dans le dialogue.",
-                'dialogue_format': "Personne A: {}\nPersonne B: {}"
+                'user_prompt': """Condition 1: Créez un dialogue entre deux personnes qui incorpore naturellement le mot onomatopéique '{word}' qui signifie '{meaning}'.\n \
+                    Condition 2: Le dialogue doit comporter {num_utterances} énoncés (= {num_turns} tours de parole) et sembler naturel.\n \
+                    Condition 3: Le dialogue ne doit pas inclure de salutations ni d'adieux.\n \
+                    Condition 4: Le mot onomatopéique doit apparaître dans le {ss_idx}ème énoncé.\n \
+                    Condition 5: Le dialogue ne doit pas inclure directement la signification du mot onomatopéique.""",
+                'dialogue_format': ["Pierre: {}\nSophie: {}", "Thomas: {}\nCamille: {}", "Antoine: {}\nJulie: {}"]
             },
             'ko': {
                 'system_prompt': "당신은 두 사람 사이의 자연스러운 대화를 만드는 도우미입니다. 대화에는 '{meaning}'을(를) 의미하는 의성어/의태어 '{word}'가 포함되어야 합니다. 대화가 자연스럽고 문맥에 적절하게 들리도록 만드세요.",
-                'user_prompt': "조건1: '{meaning}'을(를) 의미하는 의성어/의태어 '{word}'를 자연스럽게 포함하는 두 사람 사이의 대화를 만들어주세요.\n \
-                    조건2: 대화는 {}번의 교환으로 이루어져야 하며 자연스럽게 느껴져야 합니다.\n \
-                    조건3: 대화 내의 의성어/의태어는 <> 속에 입력해주세요.\n \
-                    조건4: 의성어/의태어는 {}번째 발화에 나타나야 합니다.\n \
-                    조건5: 대화 내에 포함되는 의성어/의태어를 직접적으로 유추할 수 있는 단어를 제외하세요.",
-                'dialogue_format': "A: {}\nB: {}"
+                'user_prompt': """조건1: '{meaning}'을(를) 의미하는 의성어/의태어 '{word}'를 자연스럽게 포함하는 두 사람 사이의 대화를 만들어주세요.\n \
+                    조건2: 대화는 {num_utterances}번의 발화(={num_turns}턴)로 이루어져야 하며 자연스럽게 느껴져야 합니다.\n \
+                    조건3: 대화에는 인사말과 헤어지는 표현을 포함하면 안 됩니다. \n \
+                    조건4: 의성어/의태어는 {ss_idx}번째 발화에 나타나야 합니다.\n \
+                    조건5: 대화 내에는 의성어/의태어의 의미가 직접적으로 포함되면 안 됩니다.""",
+                'dialogue_format': ["철수: {}\n영희: {}", "민수: {}\n지혜: {}", "준호: {}\n수진: {}"]
             },
             'ja': {
                 'system_prompt': "あなたは二人の間で自然な対話を作成する役立つアシスタントです。対話には「{meaning}」を意味するオノマトペ「{word}」を含める必要があります。対話が自然で文脈に適切に聞こえるようにしてください。",
-                'user_prompt': "「{meaning}」を意味するオノマトペ「{word}」を自然に取り入れた二人の間の対話を作成してください。対話は5〜8回のやり取りで構成され、自然に感じられるようにしてください。オノマトペが対話に現れるときは、大文字で強調してください。",
-                'dialogue_format': "A: {}\nB: {}"
+                'user_prompt': """条件1: 「{meaning}」を意味するオノマトペ「{word}」を自然に取り入れた二人の間の対話を作成してください。\n \
+                    条件2: 対話は{num_utterances}回の発話(={num_turns}ターン)で構成され、自然に感じられるようにしてください。\n \
+                    条件3: 対話には挨拶や別れの表現を含めないでください。\n \
+                    条件4: オノマトペは{ss_idx}番目の発話に現れるようにしてください。\n \
+                    条件5: 対話の中にオノマトペの意味を直接含めないでください。""",
+                'dialogue_format': ["太郎: {}\n花子: {}", "健太: {}\n美咲: {}", "翔太: {}\nさくら: {}"]
             }
         }
         return templates
@@ -105,9 +117,13 @@ class DialogueGenerator:
         elif not meaning:
             meaning = "an onomatopoeic word"
         
+        num_utterances = 8
+        ss_idx = random.randint(1, num_utterances)
+        num_turns = num_utterances // 2
         # Format prompts
         system_prompt = self.templates[self.language]['system_prompt'].format(word=word, meaning=meaning)
-        user_prompt = self.templates[self.language]['user_prompt'].format(word=word, meaning=meaning)
+        user_prompt = self.templates[self.language]['user_prompt'].format(word=word, meaning=meaning, num_utterances=num_utterances, num_turns=num_turns, ss_idx=ss_idx)
+        dialogue_format = self.templates[self.language]['dialogue_format']
         
         try:
             # Call OpenAI API
@@ -115,9 +131,10 @@ class DialogueGenerator:
                 model=self.model,
                 messages=[
                     {"role": "system", "content": system_prompt},
-                    {"role": "user", "content": user_prompt}
+                    {"role": "user", "content": user_prompt},
+                    {"role": "user", "content": dialogue_format}
                 ],
-                temperature=0.7,
+                temperature=1,
                 max_tokens=1000
             )
             
@@ -129,7 +146,12 @@ class DialogueGenerator:
                 'word': word,
                 'meaning': meaning,
                 'dialogue': dialogue,
-                'language': self.language
+                "meta_data": {
+                    'language': self.language,
+                    "num_utterances": num_utterances,
+                    "ss_idx": ss_idx,
+                    "success": True,
+                },
             }
             
             return result
@@ -140,8 +162,12 @@ class DialogueGenerator:
                 'word': word,
                 'meaning': meaning,
                 'dialogue': "",
-                'language': self.language,
-                'error': str(e)
+                "meta_data": {
+                    'language': self.language,
+                    "num_utterances": num_utterances,
+                    "ss_idx": ss_idx,
+                    "success": False,
+                },
             }
     
     def generate_all_dialogues(self, limit: Optional[int] = None, shuffle: bool = True) -> List[Dict[str, Any]]:
@@ -224,7 +250,6 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Dialogue Generation Tool')
     parser.add_argument('--language', '-l', required=True, choices=['en', 'fr', 'ko', 'ja'], 
                         help='Language code (en/fr/ko/ja)')
-    parser.add_argument('--api-key', '-k', help='OpenAI API key (optional, can use environment variable)')
     parser.add_argument('--model', '-m', default="gpt-3.5-turbo", 
                         help='OpenAI model to use (default: gpt-3.5-turbo)')
     parser.add_argument('--limit', '-n', type=int, help='Limit the number of dialogues to generate')
