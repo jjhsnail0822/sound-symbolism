@@ -4,6 +4,9 @@ import os
 import re
 
 DIR_PATH = 'dataset/0_raw/nat/standard_kor_dic_20250306'
+INVALID_WORD_LIST = ['-이', '-히']
+VALID_DEFINITION_LIST = [' 소리.', ' 모양.', ' 상태.', ' 느낌.'] # onomatopoeia: 소리, ideophone: 모양, 상태, 느낌 according to the Korean dictionary publishing standard
+
 files_dir = os.listdir(DIR_PATH)
 # remove hidden files
 files_dir = [f for f in files_dir if not f.startswith('.')]
@@ -27,14 +30,11 @@ def extract_definition_list(d):
                 definitions.append(definition)
     return definitions
 
-def is_onomatopoeia(original_word, definition_list):
-    invalid_word_list = ['-이', '-히']
-    valid_def_list = [' 소리.', ' 모양.', ' 상태.', ' 느낌.'] # onomatopoeia: 소리, ideophone: 모양, 상태, 느낌 according to the Korean dictionary publishing standard
-    
-    if any(invalid in original_word for invalid in invalid_word_list):
+def is_onomatopoeia(original_word, definition_list):   
+    if any(invalid in original_word for invalid in INVALID_WORD_LIST):
         return False
     for definition in definition_list:
-        if any(valid in definition for valid in valid_def_list):
+        if any(valid in definition for valid in VALID_DEFINITION_LIST):
             return True
     return False
 
@@ -50,17 +50,23 @@ for d in ds:
             else:
                 onomatopoeias.append({'word': word, 'definitions': definitions}) # add new word
 
+def extract_unique_meaning(definitions): # representative meaning should not be like 'OO의 준말.'
+    for definition in definitions:
+        if any(valid in definition for valid in VALID_DEFINITION_LIST):
+            return definition
+    return definitions[0] if definitions else ''
+
 # save to csv
 with open('dataset/0_raw/nat/ko.csv', 'w', encoding='utf-8', newline='') as f:
     writer = csv.writer(f)
     writer.writerow(['word', 'meaning', 'ref'])
     for o in onomatopoeias:
-        writer.writerow([o['word'], o['definitions'][0], '표준국어대사전 20250306'])
+        writer.writerow([o['word'], extract_unique_meaning(o['definitions']), '표준국어대사전 20250306'])
 
 for o in onomatopoeias:
     o['url'] = 'https://stdict.korean.go.kr'
     o['found'] = True
-    o['meaning'] = o['definitions'][0]
+    o['meaning'] = extract_unique_meaning(o['definitions'])
     o['ref'] = '표준국어대사전 20250306'
 
 # save to json
