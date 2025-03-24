@@ -21,7 +21,7 @@ load_dotenv(dotenv_path=env_path)
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 
 class DialogueGenerator:
-    def __init__(self, language: str, api_key: Optional[str] = None, model: str = "gpt-3.5-turbo"):
+    def __init__(self, language: str, api_key: Optional[str] = None, model: str = "gpt-4o"):
         """
         Initialize the dialogue generator
         
@@ -87,7 +87,7 @@ class DialogueGenerator:
                     Condition 2: The dialogue must be {num_utterances} utterances (= {num_turns} turns) long and feel natural.\n
                     Let's think step by step.""",
                 'user_prompt_set2': """Condition 3: The onomatopoeic word must appear in the {ss_idx}th utterance. The context can be changed as needed to naturally incorporate the word.\n
-                    Condition 4: Check if the dialogue directly includes the meaning of the onomatopoeic word, and if so, replace that utterance. There are no restrictions on contextual changes.\n
+                    Condition 4: Check if the dialogue directly includes the meaning of the onomatopoeic word, and if possible, avoid that expression by creating natural and creative examples.\n
                     Let's think step by step.""",
                 'user_prompt_set3': """Condition 5: The characters in the dialogue should have names that exist among speakers of the language. There should be 2 characters.\n
                     Condition 6: If the dialogue includes greetings or farewells, replace those utterances.\n
@@ -97,9 +97,7 @@ class DialogueGenerator:
                     {"speaker": "Person1", "utterance_number": 3, "text": "utterance content"},
                     {"speaker": "Person2", "utterance_number": 4, "text": "utterance content"},
                     {"speaker": "Person1", "utterance_number": 5, "text": "utterance content"},
-                    {"speaker": "Person2", "utterance_number": 6, "text": "utterance content"},
-                    {"speaker": "Person1", "utterance_number": 7, "text": "utterance content"},
-                    {"speaker": "Person2", "utterance_number": 8, "text": "utterance content"}
+                    {"speaker": "Person2", "utterance_number": 6, "text": "utterance content"}
                 ]"""
             },
             'fr': {
@@ -108,7 +106,7 @@ class DialogueGenerator:
                     Condition 2: Le dialogue doit comporter {num_utterances} énoncés (= {num_turns} tours de parole) et sembler naturel.\n
                     Réfléchissons étape par étape.""",
                 'user_prompt_set2': """Condition 3: Le mot onomatopéique doit apparaître dans le {ss_idx}ème énoncé. Le contexte peut être modifié si nécessaire pour incorporer naturellement le mot.\n
-                    Condition 4: Vérifiez si le dialogue inclut directement la signification du mot onomatopéique, et si c'est le cas, remplacez cet énoncé. Il n'y a pas de restrictions sur les changements contextuels.\n
+                    Condition 4: Vérifiez si le dialogue inclut directement la signification du mot onomatopéique, et si possible, évitez cette expression en créant des exemples naturels et créatifs.\n
                     Réfléchissons étape par étape.""",
                 'user_prompt_set3': """Condition 5: Les personnages du dialogue doivent avoir des noms qui existent parmi les locuteurs de la langue. Il doit y avoir 2 personnages.\n
                     Condition 6: Si le dialogue inclut des salutations ou des adieux, remplacez ces énoncés.\n
@@ -118,9 +116,7 @@ class DialogueGenerator:
                     {"speaker": "Personne1", "utterance_number": 3, "text": "contenu de l'énoncé"},
                     {"speaker": "Personne2", "utterance_number": 4, "text": "contenu de l'énoncé"},
                     {"speaker": "Personne1", "utterance_number": 5, "text": "contenu de l'énoncé"},
-                    {"speaker": "Personne2", "utterance_number": 6, "text": "contenu de l'énoncé"},
-                    {"speaker": "Personne1", "utterance_number": 7, "text": "contenu de l'énoncé"},
-                    {"speaker": "Personne2", "utterance_number": 8, "text": "contenu de l'énoncé"}
+                    {"speaker": "Personne2", "utterance_number": 6, "text": "contenu de l'énoncé"}
                 ]"""
             },
             'ko': {
@@ -129,7 +125,7 @@ class DialogueGenerator:
                     조건2: 대화는 {num_utterances}번의 발화(={num_turns}턴)로 이루어져야 합니다.\n
                     단계적으로 생각해봅시다.""",
                 'user_prompt_set2': """조건3: 의성어/의태어는 반드시 {ss_idx}번째 발화에 표기되어야 합니다. 단어가 자연스럽게 포함되기 위하여 기존의 문맥이 바뀌어도 됩니다.\n
-                    조건4: 대화에서 의성/의태어의 의미가 직접적으로 포함되어 있는지 확인하고, 그 의미가 포함된 발화를 대체해주세요. 문맥에 변화가 생기는 것에 제한은 없습니다.\n
+                    조건4: 주어진 대화에서 의성/의태어의 의미가 직접적으로 포함되어 있는지 확인하고, 가능한 경우 그 표현을 피하여 자연스럽고 창의적인 예문을 만들어주세요.\n
                     단계적으로 생각해봅시다.""",
                 'user_prompt_set3': """조건5: 대화에 등장할 수 있는 이름은 그 언어 사용자에서 존재하는 이름으로 하세요. 인물은 2명입니다.\n
                     조건6: 대화에서 인사말과 헤어지는 표현을 포함하는 경우, 그 발화를 대체해야 합니다.\n
@@ -139,9 +135,7 @@ class DialogueGenerator:
                     {"화자": "사람1", "발화 번호": 3, "발화": "발화 내용"},
                     {"화자": "사람2", "발화 번호": 4, "발화": "발화 내용"},
                     {"화자": "사람1", "발화 번호": 5, "발화": "발화 내용"},
-                    {"화자": "사람2", "발화 번호": 6, "발화": "발화 내용"},
-                    {"화자": "사람1", "발화 번호": 7, "발화": "발화 내용"},
-                    {"화자": "사람2", "발화 번호": 8, "발화": "발화 내용"}
+                    {"화자": "사람2", "발화 번호": 6, "발화": "발화 내용"}
                 ]"""
             },
             'ja': {
@@ -150,7 +144,7 @@ class DialogueGenerator:
                     条件2: 対話は{num_utterances}回の発話(={num_turns}ターン)で構成され、自然に感じられるようにしてください。\n
                     ステップバイステップで考えましょう。""",
                 'user_prompt_set2': """条件3: オノマトペは必ず{ss_idx}番目の発話に表記されるようにしてください。単語を自然に含めるために、既存の文脈が変わっても構いません。\n
-                    条件4: 対話の中にオノマトペの意味が直接含まれているかを確認し、含まれている場合はその発話を置き換えてください。文脈の変化に制限はありません。\n
+                    条件4: 対話の中にオノマトペの意味が直接含まれているかを確認し、可能であればその表現を避け、自然で創造的な例文を作成してください。\n
                     ステップバイステップで考えましょう。""",
                 'user_prompt_set3': """条件5: 対話に登場する名前はその言語の話者に存在する名前にしてください。登場人物は2人です。\n
                     条件6: 対話に挨拶や別れの表現が含まれている場合、その発話を置き換えてください。\n
@@ -160,9 +154,7 @@ class DialogueGenerator:
                     {"話者": "人物1", "発話番号": 3, "発話": "発話内容"},
                     {"話者": "人物2", "発話番号": 4, "発話": "発話内容"},
                     {"話者": "人物1", "発話番号": 5, "発話": "発話内容"},
-                    {"話者": "人物2", "発話番号": 6, "発話": "発話内容"},
-                    {"話者": "人物1", "発話番号": 7, "発話": "発話内容"},
-                    {"話者": "人物2", "発話番号": 8, "発話": "発話内容"}
+                    {"話者": "人物2", "発話番号": 6, "発話": "発話内容"}
                 ]"""
             }
         }
@@ -179,7 +171,7 @@ class DialogueGenerator:
         elif not meaning:
             meaning = "an onomatopoeic word"
         
-        num_utterances = 8
+        num_utterances = 6
         ss_idx = random.randint(1, num_utterances)
         num_turns = num_utterances // 2
         
