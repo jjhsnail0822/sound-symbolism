@@ -26,8 +26,9 @@ def extract_definition_list(d):
         for comm_pattern_info in pos_info['comm_pattern_info']:
             for sense_info in comm_pattern_info['sense_info']:
                 definition = sense_info['definition']
-                definition = definition.split(' ‘')[0].strip() # remove sentences like '‘가득01「1」’보다 센 느낌을 준다.'
-                definitions.append(definition)
+                if '. ‘' in definition:
+                    definition = definition.split(' ‘')[0] # remove sentences like '‘가득01「1」’보다 센 느낌을 준다.'
+                definitions.append(definition.strip())
     return definitions
 
 def is_onomatopoeia(original_word, definition_list):   
@@ -70,5 +71,5 @@ for o in onomatopoeias:
     o['ref'] = '표준국어대사전 20250306'
 
 # save to json
-with open('dataset/1_preprocess/nat/ko_past.json', 'w', encoding='utf-8') as f:
+with open('dataset/1_preprocess/nat/ko.json', 'w', encoding='utf-8') as f:
     json.dump(onomatopoeias, f, ensure_ascii=False, indent=4)
