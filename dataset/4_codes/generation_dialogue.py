@@ -308,7 +308,7 @@ class DialogueGenerator:
         
         results = []
         
-        temp_stop_idx = 1
+        temp_stop_idx = 7
         
         # Process data in batches
         batches = [data_to_process[i:i + self.batch_size] for i in range(0, len(data_to_process), self.batch_size)]
