@@ -56,21 +56,34 @@
     },
     {
         "word": "aï aï",
-        "meaning": [],
-        "url": "https://www.le-dictionnaire.com/definition/a%C3%AF%20a%C3%AF",
+        "meaning": [
+            "bruit de l'aboiement aigue d'un chien."
+        ],
+        "url": "dictionnaire des onomatopées",
+        "found": false,
+        "ref": "dictionnaire des onomatopées"
+    },
+    {
+        "word": "aïe",
+        "meaning": [
+            "pour marquer la douleur.",
+            "pour marquer un de<sagre<ment, un ennui, une surprise de<sagre<able, une inquie<tude.",
+            "pour marquer la rapidite< ou la soudainete< d'un proce>s."
+        ],
+        "url": "dictionnaire des onomatopées",
         "found": false,
         "ref": "dictionnaire des onomatopées"
     },
     {
         "word": "aou",
-        "meaning": [],
+        "meaning": ["bruit de l'aboiement d'un chien."],
         "url": "https://www.le-dictionnaire.com/definition/aou",
         "found": false,
         "ref": "dictionnaire des onomatopées"
     },
     {
         "word": "aouah",
-        "meaning": [],
+        "meaning": ["pour se re<crier ou, plus souvent, parai^tre se re<crier."],
         "url": "https://www.le-dictionnaire.com/definition/aouah",
         "found": false,
         "ref": "dictionnaire des onomatopées"
@@ -91,7 +104,7 @@
     },
     {
         "word": "areu-areu",
-        "meaning": [],
+        "meaning": ["premiers son du langage e<mis par un be<be< en signe de bien-e^tre."],
         "url": "https://www.le-dictionnaire.com/definition/areu-areu",
         "found": false,
         "ref": "dictionnaire des onomatopées"
@@ -105,7 +118,10 @@
     },
     {
         "word": "argh",
-        "meaning": [],
+        "meaning": [
+            "bruit de spasme pre<ce<dant le vomissement; bruit d'une personne qui s'engoue.",
+            "bruit d'un cri manifestant une tre>s vive e<motion"
+        ],
         "url": "https://www.le-dictionnaire.com/definition/argh",
         "found": false,
         "ref": "dictionnaire des onomatopées"
@@ -133,7 +149,9 @@
     },
     {
         "word": "atchi",
-        "meaning": [],
+        "meaning": [
+            "bruit produit par l'e<ternuement."
+        ],
         "url": "https://www.le-dictionnaire.com/definition/atchi",
         "found": false,
         "ref": "dictionnaire des onomatopées"
@@ -213,7 +231,8 @@
     {
         "word": "badaboum",
         "meaning": [
-            "Onomatopée exprimant le bruit d'une chute suivie de roulement."
+            "Onomatopée exprimant le bruit d'une chute suivie de roulement.",
+            "pour exprimer la soudainete< d'un proce>s."
         ],
         "url": "https://dictionnaire.lerobert.com/definition/badaboum",
         "found": true,
@@ -256,7 +275,10 @@
     },
     {
         "word": "badam",
-        "meaning": [],
+        "meaning": [
+            "bruit de cahot, de rebondissement.",
+            "bruit de fredonnement d'un air ou bruit d'instruments de musique."
+        ],
         "url": "https://www.le-dictionnaire.com/definition/badam",
         "found": false,
         "ref": "dictionnaire des onomatopées"
@@ -293,7 +315,9 @@
     },
     {
         "word": "bam",
-        "meaning": [],
+        "meaning": [
+            "bruit soudain et fort produit par une chute brutale, un choc violent, une de<tonation, une explosion."
+        ],
         "url": "https://www.le-dictionnaire.com/definition/bam",
         "found": false,
         "ref": "dictionnaire des onomatopées"
@@ -332,7 +356,10 @@
     },
     {
         "word": "baoum",
-        "meaning": [],
+        "meaning": [
+            "bruit sourd, soudain et fort, produit par une chute brutale, un choc violent, une explosion, une de<tonation.",
+            "bruit a> caracte>re musical."
+        ],
         "url": "https://www.le-dictionnaire.com/definition/baoum",
         "found": false,
         "ref": "dictionnaire des onomatopées"
@@ -368,7 +395,7 @@
     {
         "word": "bé",
         "meaning": [
-            "Symbole chimique du béryllium."
+            "bruit du be^lement des ovins et des caprins."
         ],
         "url": "https://dictionnaire.lerobert.com/definition/b%C3%A9",
         "found": true,
@@ -377,7 +404,7 @@
     {
         "word": "bè",
         "meaning": [
-            "Symbole chimique du béryllium."
+            "bruit du be^lement des ovins et des caprins."
         ],
         "url": "https://dictionnaire.lerobert.com/definition/b%C3%A8",
         "found": true,
@@ -386,7 +413,7 @@
     {
         "word": "bê",
         "meaning": [
-            "Symbole chimique du béryllium."
+            "bruit du be^lement des ovins et des caprins."
         ],
         "url": "https://dictionnaire.lerobert.com/definition/b%C3%AA",
         "found": true,
@@ -415,7 +442,10 @@
     },
     {
         "word": "beng",
-        "meaning": [],
+        "meaning": [
+            "bruit produit par une chute; bruit produit par un choc ou par un coup violent.",
+            "bruit produit par une grosse cloche."
+        ],
         "url": "https://www.le-dictionnaire.com/definition/beng",
         "found": false,
         "ref": "dictionnaire des onomatopées"
@@ -431,36 +461,45 @@
     },
     {
         "word": "berkh",
-        "meaning": [],
-        "url": "https://www.le-dictionnaire.com/definition/berkh",
+        "meaning": [
+            "marquer le de<gou^t, la re<pugnance."
+        ],
+        "url": "dictionnaire des onomatopées",
         "found": false,
         "ref": "dictionnaire des onomatopées"
     },
     {
         "word": "berque",
-        "meaning": [],
-        "url": "https://www.le-dictionnaire.com/definition/berque",
+        "meaning": [
+            "marquer le de<gou^t, la re<pugnance."
+        ],
+        "url": "dictionnaire des onomatopées",
         "found": false,
         "ref": "dictionnaire des onomatopées"
     },
     {
         "word": "beuark",
-        "meaning": [],
-        "url": "https://www.le-dictionnaire.com/definition/beuark",
+        "meaning": [
+            "marquer le de<gou^t, la re<pugnance."
+        ],
+        "url": "dictionnaire des onomatopées",
         "found": false,
         "ref": "dictionnaire des onomatopées"
     },
     {
         "word": "beuârk",
-        "meaning": [],
-        "url": "https://www.le-dictionnaire.com/definition/beu%C3%A2rk",
+        "meaning": [
+            "marquer le de<gou^t, la re<pugnance."
+        ],
+        "url": "dictionnaire des onomatopées",
         "found": false,
         "ref": "dictionnaire des onomatopées"
     },
     {
         "word": "beuh",
         "meaning": [
-            "Marijuana."
+            "bruit de beuglement d'un bovide<.",
+            "bruit de beublement d'un instrument de musique."
         ],
         "url": "https://dictionnaire.lerobert.com/definition/beuh",
         "found": true,
@@ -475,8 +514,10 @@
     },
     {
         "word": "beurck",
-        "meaning": [],
-        "url": "https://www.le-dictionnaire.com/definition/beurck",
+        "meaning": [
+            "marquer le de<gou^t, la re<pugnance."
+        ],
+        "url": "dictionnaire des onomatopées",
         "found": false,
         "ref": "dictionnaire des onomatopées"
     },
@@ -491,15 +532,19 @@
     },
     {
         "word": "beurp",
-        "meaning": [],
-        "url": "https://www.le-dictionnaire.com/definition/beurp",
-        "found": false,
+        "meaning": [
+            "bruit du rot; bruit de spasme du vomissement"
+        ],
+        "url": "dictionnaire des onomatopées",
+        "found": true,
         "ref": "dictionnaire des onomatopées"
     },
     {
         "word": "beurq",
-        "meaning": [],
-        "url": "https://www.le-dictionnaire.com/definition/beurq",
+        "meaning": [
+            "marquer le de<gou^t, la re<pugnance."
+        ],
+        "url": "dictionnaire des onomatopées",
         "found": false,
         "ref": "dictionnaire des onomatopées"
     },
@@ -512,7 +557,10 @@
     },
     {
         "word": "bim",
-        "meaning": [],
+        "meaning": [
+            "son d'une cloche.",
+            "bruit de coups, de chutes, de chocs."
+        ],
         "url": "https://www.le-dictionnaire.com/definition/bim",
         "found": false,
         "ref": "dictionnaire des onomatopées"
@@ -545,8 +593,10 @@
     },
     {
         "word": "birk",
-        "meaning": [],
-        "url": "https://www.le-dictionnaire.com/definition/birk",
+        "meaning": [
+            "marquer le de<gou^t, la re<pugnance."
+        ],
+        "url": "dictionnaire des onomatopées",
         "found": false,
         "ref": "dictionnaire des onomatopées"
     },
@@ -559,35 +609,47 @@
     },
     {
         "word": "bistanclaque",
-        "meaning": [],
-        "url": "https://www.le-dictionnaire.com/definition/bistanclaque",
+        "meaning": [
+            "bruit du me<tier a> tisser traditionnel."
+        ],
+        "url": "dictionnaire des onomatopées",
         "found": false,
         "ref": "dictionnaire des onomatopées"
     },
     {
         "word": "blam",
-        "meaning": [],
-        "url": "https://www.le-dictionnaire.com/definition/blam",
+        "meaning": [
+            "bruit d'un choc ou d'un coup violent; bruit d'un coup de feu, d'une explosion.",
+            "pour exprimer la soudainete< d'un proce>s."
+        ],
+        "url": "dictionnaire des onomatopées",
         "found": false,
         "ref": "dictionnaire des onomatopées"
     },
     {
         "word": "blang",
-        "meaning": [],
-        "url": "https://www.le-dictionnaire.com/definition/blang",
+        "meaning": [
+            "bruit d'un chot violent, qui re<sonne."
+        ],
+        "url": "dictionnaire des onomatopées",
         "found": false,
         "ref": "dictionnaire des onomatopées"
     },
     {
         "word": "bling",
-        "meaning": [],
-        "url": "https://www.le-dictionnaire.com/definition/bling",
+        "meaning": [
+            "bruit de vaisselle ou de verre brise<.",
+            "bruit de guitare."
+        ],
+        "url": "dictionnaire des onomatopées",
         "found": false,
         "ref": "dictionnaire des onomatopées"
     },
     {
         "word": "blop",
-        "meaning": [],
+        "meaning": [
+            "bruit sonore, ponctuel et discret."
+        ],
         "url": "https://www.le-dictionnaire.com/definition/blop",
         "found": false,
         "ref": "dictionnaire des onomatopées"
@@ -601,8 +663,10 @@
     },
     {
         "word": "bloum",
-        "meaning": [],
-        "url": "https://www.le-dictionnaire.com/definition/bloum",
+        "meaning": [
+            "bruit soudain, produit par une chute, par un choc, par un coup ou par une de<tonation."
+        ],
+        "url": "dictionnaire des onomatopées",
         "found": false,
         "ref": "dictionnaire des onomatopées"
     },
@@ -615,8 +679,11 @@
     },
     {
         "word": "blp",
-        "meaning": [],
-        "url": "https://www.le-dictionnaire.com/definition/blp",
+        "meaning": [
+            "bruit de bulles dans l'eau.",
+            "bruit d'un liquide qui bout."
+        ],
+        "url": "dictionnaire des onomatopées",
         "found": false,
         "ref": "dictionnaire des onomatopées"
     },
@@ -636,22 +703,30 @@
     },
     {
         "word": "boïng",
-        "meaning": [],
-        "url": "https://www.le-dictionnaire.com/definition/bo%C3%AFng",
+        "meaning": [
+            "bruit produit par un ressort sous tension brusquement libe<re<."
+        ],
+        "url": "dictionnaire des onomatopées",
         "found": false,
         "ref": "dictionnaire des onomatopées"
     },
     {
         "word": "bom",
-        "meaning": [],
-        "url": "https://www.le-dictionnaire.com/definition/bom",
+        "meaning": [
+            "bruit d'une grosse cloche, d'un bourdon au son grave.",
+            "bruit du canon.",
+            "bruit de coups."
+        ],
+        "url": "dictionnaire des onomatopées",
         "found": false,
         "ref": "dictionnaire des onomatopées"
     },
     {
         "word": "bong",
-        "meaning": [],
-        "url": "https://www.le-dictionnaire.com/definition/bong",
+        "meaning": [
+            "bruit produit par un choc violent, par un coup brutal, par une de<tonation."
+        ],
+        "url": "dictionnaire des onomatopées",
         "found": false,
         "ref": "dictionnaire des onomatopées"
     },
@@ -666,15 +741,19 @@
     },
     {
         "word": "bouac",
-        "meaning": [],
-        "url": "https://www.le-dictionnaire.com/definition/bouac",
+        "meaning": [
+            "marque le de<gou^t, la nause<e."
+        ],
+        "url": "dictionnaire des onomatopées",
         "found": false,
         "ref": "dictionnaire des onomatopées"
     },
     {
         "word": "bouah",
-        "meaning": [],
-        "url": "https://www.le-dictionnaire.com/definition/bouah",
+        "meaning": [
+            "marque le de<gou^t, la nause<e."
+        ],
+        "url": "dictionnaire des onomatopées",
         "found": false,
         "ref": "dictionnaire des onomatopées"
     },
@@ -719,9 +798,10 @@
     {
         "word": "boum",
         "meaning": [
-            "Bruit de ce qui tombe, explose."
+            "bruit sourd, soudain et fort, produit par une chute brutale, un choc violent, une de<tonation, une explosion.",
+            "pour exprimer la soudainete< ou la rapidite< d'un proce>s."
         ],
-        "url": "https://dictionnaire.lerobert.com/definition/boum",
+        "url": "dictionnaire des onomatopées",
         "found": true,
         "ref": "dictionnaire des onomatopées"
     },
@@ -784,16 +864,20 @@
     },
     {
         "word": "braoum",
-        "meaning": [],
+        "meaning": [
+            "bruit fort, produit par une chute, un choc violent, une de<tonation, une explosion."
+        ],
         "url": "https://www.le-dictionnaire.com/definition/braoum",
-        "found": false,
+        "found": true,
         "ref": "dictionnaire des onomatopées"
     },
     {
         "word": "brek brek",
-        "meaning": [],
-        "url": "https://www.le-dictionnaire.com/definition/brek%20brek",
-        "found": false,
+        "meaning": [
+            "bruit du cri de la grenouille verte."
+        ],
+        "url": "dictionnaire des onomatopées",
+        "found": true,
         "ref": "dictionnaire des onomatopées"
     },
     {
@@ -865,9 +949,17 @@
     },
     {
         "word": "brr",
-        "meaning": [],
-        "url": "https://www.le-dictionnaire.com/definition/brr",
-        "found": false,
+        "meaning": [
+            "pour exprimer un frisson de froid.",
+            "pour exprimer un frisson de peur, d'inquie<tude, d'angoisse.",
+            "pour exprimer une re<ticence, un certain de<gou^t, une certaine re<pugnance.",
+            "pour exprimer un frisson d'excitation.",
+            "Le plus souvent re<pe<te<.",
+            "bruit des roues d'un ve<hicule.",
+            "bruit produit par la bouche pour appeler personnne, pour exciter."
+        ],
+        "url": "dictionnaire des onomatopées",
+        "found": true,
         "ref": "dictionnaire des onomatopées"
     },
     {
@@ -914,9 +1006,11 @@
     },
     {
         "word": "burp",
-        "meaning": [],
-        "url": "https://www.le-dictionnaire.com/definition/burp",
-        "found": false,
+        "meaning": [
+            "bruit du rot; bruit de spasme du vomissement."
+        ],
+        "url": "dictionnaire des onomatopées",
+        "found": true,
         "ref": "dictionnaire des onomatopées"
     },
     {
@@ -944,30 +1038,39 @@
     },
     {
         "word": "bzee",
-        "meaning": [],
-        "url": "https://www.le-dictionnaire.com/definition/bzee",
-        "found": false,
+        "meaning": [
+            "bruit de dourdonnement d'un insecte aile<: abeille, frelon, gue^pe, mouche, moustique, etc."
+        ],
+        "url": "dictionnaire des onomatopées",
+        "found": true,
         "ref": "dictionnaire des onomatopées"
     },
     {
         "word": "bzeuh",
-        "meaning": [],
-        "url": "https://www.le-dictionnaire.com/definition/bzeuh",
-        "found": false,
+        "meaning": [
+            "bruit de dourdonnement d'un insecte aile<: abeille, frelon, gue^pe, mouche, moustique, etc."
+        ],
+        "url": "dictionnaire des onomatopées",
+        "found": true,
         "ref": "dictionnaire des onomatopées"
     },
     {
         "word": "bzi",
-        "meaning": [],
-        "url": "https://www.le-dictionnaire.com/definition/bzi",
-        "found": false,
+        "meaning": [
+            "bruit de dourdonnement d'un insecte aile<: abeille, frelon, gue^pe, mouche, moustique, etc."
+        ],
+        "url": "dictionnaire des onomatopées",
+        "found": true,
         "ref": "dictionnaire des onomatopées"
     },
     {
         "word": "bzim",
-        "meaning": [],
-        "url": "https://www.le-dictionnaire.com/definition/bzim",
-        "found": false,
+        "meaning": [
+            "son produit par des cymbales.",
+            "bruit cinglant produit par le sifflement d'un projectile."
+        ],
+        "url": "dictionnaire des onomatopées",
+        "found": true,
         "ref": "dictionnaire des onomatopées"
     },
     {
@@ -993,41 +1096,48 @@
     },
     {
         "word": "bzz",
-        "meaning": [],
-        "url": "https://www.le-dictionnaire.com/definition/bzz",
-        "found": false,
+        "meaning": [
+            "bruit de dourdonnement d'un insecte aile<: abeille, frelon, gue^pe, mouche, moustique, etc."
+        ],
+        "url": "dictionnaire des onomatopées",
+        "found": true,
         "ref": "dictionnaire des onomatopées"
     },
     {
         "word": "cancan",
         "meaning": [
-            "Bavardage médisant."
+            "bruit du cri du canard."
         ],
-        "url": "https://dictionnaire.lerobert.com/definition/cancan",
+        "url": "dictionnaire des onomatopées",
         "found": true,
         "ref": "dictionnaire des onomatopées"
     },
     {
         "word": "ch",
         "meaning": [
-            "Abréviation de cheval-vapeur."
+            "bruit produit par une forte expiration.",
+            "bruit d'un fluide ou d'une me>che qui fuse."
         ],
-        "url": "https://dictionnaire.lerobert.com/definition/ch",
+        "url": "dictionnaire des onomatopées",
         "found": true,
         "ref": "dictionnaire des onomatopées"
     },
     {
         "word": "ch ch",
-        "meaning": [],
-        "url": "https://www.le-dictionnaire.com/definition/ch%20ch",
-        "found": false,
+        "meaning": [
+            "pour mettre en fuite un animal."
+        ],
+        "url": "dictionnaire des onomatopées",
+        "found": true,
         "ref": "dictionnaire des onomatopées"
     },
     {
         "word": "chac",
-        "meaning": [],
-        "url": "https://www.le-dictionnaire.com/definition/chac",
-        "found": false,
+        "meaning": [
+            "bruit produit par un coup violent."
+        ],
+        "url": "dictionnaire des onomatopées",
+        "found": true,
         "ref": "dictionnaire des onomatopées"
     },
     {
@@ -1088,9 +1198,11 @@
     },
     {
         "word": "chtac",
-        "meaning": [],
-        "url": "https://www.le-dictionnaire.com/definition/chtac",
-        "found": false,
+        "meaning": [
+            "bruit d'un coup brutal, d'un geste brusque."
+        ],
+        "url": "dictionnaire des onomatopées",
+        "found": true,
         "ref": "dictionnaire des onomatopées"
     },
     {
@@ -1102,16 +1214,20 @@
     },
     {
         "word": "chtoc",
-        "meaning": [],
-        "url": "https://www.le-dictionnaire.com/definition/chtoc",
-        "found": false,
+        "meaning": [
+            "bruit d'un coup brutal, d'un geste brusque."
+        ],
+        "url": "dictionnaire des onomatopées",
+        "found": true,
         "ref": "dictionnaire des onomatopées"
     },
     {
         "word": "chtok",
-        "meaning": [],
-        "url": "https://www.le-dictionnaire.com/definition/chtok",
-        "found": false,
+        "meaning": [
+            "bruit d'un coup brutal, d'un geste brusque."
+        ],
+        "url": "dictionnaire des onomatopées",
+        "found": true,
         "ref": "dictionnaire des onomatopées"
     },
     {
@@ -1154,53 +1270,65 @@
     {
         "word": "clac",
         "meaning": [
-            "Interjection imitant un bruit sec, un claquement."
+            "bruit sec produit par un choc, une chute, un coup, un de<clic ou un me<canisme."
         ],
-        "url": "https://dictionnaire.lerobert.com/definition/clac",
+        "url": "dictionnaire des onomatopées",
         "found": true,
         "ref": "dictionnaire des onomatopées"
     },
     {
         "word": "clac cloc",
-        "meaning": [],
-        "url": "https://www.le-dictionnaire.com/definition/clac%20cloc",
-        "found": false,
+        "meaning": [
+            "bruit d'un marche fe<minine rapide."
+        ],
+        "url": "dictionnaire des onomatopées",
+        "found": true,
         "ref": "dictionnaire des onomatopées"
     },
     {
         "word": "clanc",
-        "meaning": [],
-        "url": "https://www.le-dictionnaire.com/definition/clanc",
-        "found": false,
+        "meaning": [
+            "bruit sonore, d'origine me<tallique, produit notamment par un choc, par un de<clic."
+        ],
+        "url": "dictionnaire des onomatopées",
+        "found": true,
         "ref": "dictionnaire des onomatopées"
     },
     {
         "word": "clanc clonc",
-        "meaning": [],
-        "url": "https://www.le-dictionnaire.com/definition/clanc%20clonc",
-        "found": false,
+        "meaning": [
+            "bruit sonore, d'origine me<tallique, produit notamment par un choc, par un de<clic."
+        ],
+        "url": "dictionnaire des onomatopées",
+        "found": true,
         "ref": "dictionnaire des onomatopées"
     },
     {
         "word": "clang",
-        "meaning": [],
-        "url": "https://www.le-dictionnaire.com/definition/clang",
-        "found": false,
+        "meaning": [
+            "bruit sonore, d'origine me<tallique, produit notamment par un choc, par un de<clic."
+        ],
+        "url": "dictionnaire des onomatopées",
+        "found": true,
         "ref": "dictionnaire des onomatopées"
     },
     {
         "word": "clank",
-        "meaning": [],
-        "url": "https://www.le-dictionnaire.com/definition/clank",
-        "found": false,
+        "meaning": [
+            "bruit sonore, d'origine me<tallique, produit notamment par un choc, par un de<clic."
+        ],
+        "url": "dictionnaire des onomatopées",
+        "found": true,
         "ref": "dictionnaire des onomatopées"
     },
     {
         "word": "clap",
         "meaning": [
-            "Petit tableau sur lequel est numérotée chaque prise de chaque séquence d'un film, muni d'un claquoir signalant le début de chaque tournage d'un plan."
+            "bruit, ponctuel et sonore, produit par un choc, par un me<canisme.",
+            "bruit produit par les le>vres ou par le claquement de la langue contre le palais.",
+            "bruit de claquoir annonçant une prise de vues."
         ],
-        "url": "https://dictionnaire.lerobert.com/definition/clap",
+        "url": "dictionnaire des onomatopées",
         "found": true,
         "ref": "dictionnaire des onomatopées"
     },
@@ -1244,9 +1372,11 @@
     },
     {
         "word": "clic et clac",
-        "meaning": [],
-        "url": "https://www.le-dictionnaire.com/definition/clic%20et%20clac",
-        "found": false,
+        "meaning": [
+            "bruit re<pe<te< ou a> deux temps, souvent d'origine me<tallique."
+        ],
+        "url": "dictionnaire des onomatopées",
+        "found": true,
         "ref": "dictionnaire des onomatopées"
     },
     {
@@ -1261,9 +1391,12 @@
     },
     {
         "word": "clic-cloc",
-        "meaning": [],
-        "url": "https://www.le-dictionnaire.com/definition/clic-cloc",
-        "found": false,
+        "meaning": [
+            "bruit re<pe<te< ou a> deux temps, produit par de petits chocs.",
+            "bruit des sabots d'un cheval."
+        ],
+        "url": "dictionnaire des onomatopées",
+        "found": true,
         "ref": "dictionnaire des onomatopées"
     },
     {
@@ -1275,23 +1408,32 @@
     },
     {
         "word": "clinc",
-        "meaning": [],
-        "url": "https://www.le-dictionnaire.com/definition/clinc",
-        "found": false,
+        "meaning": [
+            "bruit le<ger et ponctuel, souvent d'origine me<tallique ou re<sultant d'un choc contre un verre.",
+            "pour exprimer la soudainete< d'un proce>s."
+        ],
+        "url": "dictionnaire des onomatopées",
+        "found": true,
         "ref": "dictionnaire des onomatopées"
     },
     {
         "word": "cling",
-        "meaning": [],
-        "url": "https://www.le-dictionnaire.com/definition/cling",
-        "found": false,
+        "meaning": [
+            "bruit le<ger et ponctuel, souvent d'origine me<tallique ou re<sultant d'un choc contre un verre.",
+            "pour exprimer la soudainete< d'un proce>s."
+        ],
+        "url": "dictionnaire des onomatopées",
+        "found": true,
         "ref": "dictionnaire des onomatopées"
     },
     {
         "word": "clink",
-        "meaning": [],
-        "url": "https://www.le-dictionnaire.com/definition/clink",
-        "found": false,
+        "meaning": [
+            "bruit le<ger et ponctuel, souvent d'origine me<tallique ou re<sultant d'un choc contre un verre.",
+            "pour exprimer la soudainete< d'un proce>s."
+        ],
+        "url": "dictionnaire des onomatopées",
+        "found": true,
         "ref": "dictionnaire des onomatopées"
     },
     {
@@ -1305,51 +1447,70 @@
     },
     {
         "word": "clip clap",
-        "meaning": [],
-        "url": "https://www.le-dictionnaire.com/definition/clip%20clap",
-        "found": false,
+        "meaning": [
+            "bruit sonore produit par des chocs; bruit a> deux temps produit par un me<canisme.",
+            "bruit produit par des pas."
+        ],
+        "url": "dictionnaire des onomatopées",
+        "found": true,
         "ref": "dictionnaire des onomatopées"
     },
     {
         "word": "clip clop",
-        "meaning": [],
-        "url": "https://www.le-dictionnaire.com/definition/clip%20clop",
-        "found": false,
+        "meaning": [
+            "bruit le<ger, a> deux temps, produit par un petit choc, une chute."
+        ],
+        "url": "dictionnaire des onomatopées",
+        "found": true,
         "ref": "dictionnaire des onomatopées"
     },
     {
         "word": "cloc",
-        "meaning": [],
-        "url": "https://www.le-dictionnaire.com/definition/cloc",
-        "found": false,
+        "meaning": [
+            "petit bruit sec et sonore, produit par un de<clic, par une le<ge>re explosion, par un petit choc.",
+            "pour marquer la soudainete< d'un proce>s."
+        ],
+        "url": "dictionnaire des onomatopées",
+        "found": true,
         "ref": "dictionnaire des onomatopées"
     },
     {
         "word": "clock",
-        "meaning": [],
-        "url": "https://www.le-dictionnaire.com/definition/clock",
-        "found": false,
+        "meaning": [
+            "petit bruit sec et sonore, produit par un de<clic, par une le<ge>re explosion, par un petit choc.",
+            "pour marquer la soudainete< d'un proce>s."
+        ],
+        "url": "dictionnaire des onomatopées",
+        "found": true,
         "ref": "dictionnaire des onomatopées"
     },
     {
         "word": "clonc",
-        "meaning": [],
-        "url": "https://www.le-dictionnaire.com/definition/clonc",
-        "found": false,
+        "meaning": [
+            "bruit ponctuel et sonore, produit par un me<canisme, par un appareil.",
+            "bruit ponctuel et sonore, produit par un coup violent, par un choc."
+        ],
+        "url": "dictionnaire des onomatopées",
+        "found": true,
         "ref": "dictionnaire des onomatopées"
     },
     {
         "word": "clong",
-        "meaning": [],
-        "url": "https://www.le-dictionnaire.com/definition/clong",
-        "found": false,
+        "meaning": [
+            "bruit ponctuel et sonore, produit par un me<canisme, par un appareil.",
+            "bruit ponctuel et sonore, produit par un coup violent, par un choc."
+        ],
+        "url": "dictionnaire des onomatopées",
+        "found": true,
         "ref": "dictionnaire des onomatopées"
     },
     {
         "word": "clop",
-        "meaning": [],
-        "url": "https://www.le-dictionnaire.com/definition/clop",
-        "found": false,
+        "meaning": [
+            "bruit ponctuel, le<ger et sonore, produit par une chute, un choc, un arre^t, brutal."
+        ],
+        "url": "dictionnaire des onomatopées",
+        "found": true,
         "ref": "dictionnaire des onomatopées"
     },
     {
@@ -1361,23 +1522,29 @@
     },
     {
         "word": "cloup",
-        "meaning": [],
-        "url": "https://www.le-dictionnaire.com/definition/cloup",
-        "found": false,
+        "meaning": [
+            "le bruit des genoux de Serge, dans la flaque d'eau qui couvre le parquet."
+        ],
+        "url": "dictionnaire des onomatopées",
+        "found": true,
         "ref": "dictionnaire des onomatopées"
     },
     {
         "word": "coa",
-        "meaning": [],
-        "url": "https://www.le-dictionnaire.com/definition/coa",
-        "found": false,
+        "meaning": [
+            "bruit du cri de la grenouille."
+        ],
+        "url": "dictionnaire des onomatopées",
+        "found": true,
         "ref": "dictionnaire des onomatopées"
     },
     {
         "word": "coac",
-        "meaning": [],
-        "url": "https://www.le-dictionnaire.com/definition/coac",
-        "found": false,
+        "meaning": [
+            "bruit du cri de la grenouille."
+        ],
+        "url": "dictionnaire des onomatopées",
+        "found": true,
         "ref": "dictionnaire des onomatopées"
     },
     {
@@ -1451,30 +1618,38 @@
     },
     {
         "word": "corlui",
-        "meaning": [],
-        "url": "https://www.le-dictionnaire.com/definition/corlui",
-        "found": false,
+        "meaning": [
+            "bruit du cri du courlis."
+        ],
+        "url": "dictionnaire des onomatopées",
+        "found": true,
         "ref": "dictionnaire des onomatopées"
     },
     {
         "word": "cot cot",
-        "meaning": [],
-        "url": "https://www.le-dictionnaire.com/definition/cot%20cot",
-        "found": false,
+        "meaning": [
+            "bruit du cri de la poule."
+        ],
+        "url": "dictionnaire des onomatopées",
+        "found": true,
         "ref": "dictionnaire des onomatopées"
     },
     {
         "word": "cot cot codec",
-        "meaning": [],
-        "url": "https://www.le-dictionnaire.com/definition/cot%20cot%20codec",
-        "found": false,
+        "meaning": [
+            "poule, surtout quand elle a pondu."
+        ],
+        "url": "dictionnaire des onomatopées",
+        "found": true,
         "ref": "dictionnaire des onomatopées"
     },
     {
         "word": "coua",
-        "meaning": [],
-        "url": "https://www.le-dictionnaire.com/definition/coua",
-        "found": false,
+        "meaning": [
+            "bruit du cri rauque du corbeau et des corvide<s."
+        ],
+        "url": "dictionnaire des onomatopées",
+        "found": true,
         "ref": "dictionnaire des onomatopées"
     },
     {
@@ -1489,30 +1664,32 @@
     },
     {
         "word": "couan couan",
-        "meaning": [],
-        "url": "https://www.le-dictionnaire.com/definition/couan%20couan",
-        "found": false,
+        "meaning": [
+            "bruit du cri du canard, parfois de l'oie.",
+            "bruit d'un avertisseur sonore.",
+            "son nasillard, parfois musical, produit par une personne ou un objet manufacture<."
+        ],
+        "url": "dictionnaire des onomatopées",
+        "found": true,
         "ref": "dictionnaire des onomatopées"
     },
     {
         "word": "coucou",
         "meaning": [
-            "Oiseau grimpeur insectivore, de la taille d'un pigeon, au plumage gris cendré barré de noir, dont la femelle pond ses œufs dans le nid d'autres oiseaux.",
-            "Pendule qui imite le cri du coucou (en guise de sonnerie).",
-            "Primevère sauvage, à fleurs jaunes.",
-            "Avion (guerre de 1914-1918).",
-            "Vieil avion.",
-            "Cri émis pour annoncer son arrivée."
+            "bruit du chant du coucou."
         ],
-        "url": "https://dictionnaire.lerobert.com/definition/coucou",
+        "url": "dictionnaire des onomatopées",
         "found": true,
         "ref": "dictionnaire des onomatopées"
     },
     {
         "word": "coucourou",
-        "meaning": [],
-        "url": "https://www.le-dictionnaire.com/definition/coucourou",
-        "found": false,
+        "meaning": [
+            "bruit du roucoulement de la tourterelle, de la colombe.",
+            "bruit du cri du furet."
+        ],
+        "url": "dictionnaire des onomatopées",
+        "found": true,
         "ref": "dictionnaire des onomatopées"
     },
     {
@@ -1531,9 +1708,12 @@
     },
     {
         "word": "coui coui",
-        "meaning": [],
-        "url": "https://www.le-dictionnaire.com/definition/coui%20coui",
-        "found": false,
+        "meaning": [
+            "petit bruit aigu produit par divers animaux.",
+            "petit bruit grinc,,ant, crissement."
+        ],
+        "url": "dictionnaire des onomatopées",
+        "found": true,
         "ref": "dictionnaire des onomatopées"
     },
     {
@@ -1547,59 +1727,82 @@
     },
     {
         "word": "couik",
-        "meaning": [],
-        "url": "https://www.le-dictionnaire.com/definition/couik",
-        "found": false,
+        "meaning": [
+            "petit bruit aigu produit par un animal, particulièrement un petit oiseau, une souris.",
+            "petit bruit de couinement produit par un objet manufacturé.",
+            "pour annoncer ou pour marquer une mort brutale, notamment par strangulation."
+        ],
+        "url": "dictionnaire des onomatopées",
+        "found": true,
         "ref": "dictionnaire des onomatopées"
     },
     {
         "word": "couin-cou",
-        "meaning": [],
-        "url": "https://www.le-dictionnaire.com/definition/couin-cou",
-        "found": false,
+        "meaning": [
+            "bruit du cri du canard, parfois de l'oie.",
+            "bruit d'un avertisseur sonore.",
+            "son nasillard, parfois musical, produit par une personne ou un objet manufacture<."
+        ],
+        "url": "dictionnaire des onomatopées",
+        "found": true,
         "ref": "dictionnaire des onomatopées"
     },
     {
         "word": "couin-couin",
-        "meaning": [],
-        "url": "https://www.le-dictionnaire.com/definition/couin-couin",
-        "found": false,
+        "meaning": [
+            "bruit du cri du canard, parfois de l'oie.",
+            "bruit d'un avertisseur sonore.",
+            "son nasillard, parfois musical, produit par une personne ou un objet manufacture<."
+        ],
+        "url": "dictionnaire des onomatopées",
+        "found": true,
         "ref": "dictionnaire des onomatopées"
     },
     {
         "word": "couique",
-        "meaning": [],
-        "url": "https://www.le-dictionnaire.com/definition/couique",
-        "found": false,
+        "meaning": [
+            "petit bruit aigu produit par un animal, particulièrement un petit oiseau, une souris.",
+            "petit bruit de couinement produit par un objet manufacturé.",
+            "pour annoncer ou pour marquer une mort brutale, notamment par strangulation."
+        ],
+        "url": "dictionnaire des onomatopées",
+        "found": true,
         "ref": "dictionnaire des onomatopées"
     },
     {
         "word": "coureli",
-        "meaning": [],
-        "url": "https://www.le-dictionnaire.com/definition/coureli",
-        "found": false,
+        "meaning": [
+            "bruit du cri du courlis."
+        ],
+        "url": "dictionnaire des onomatopées",
+        "found": true,
         "ref": "dictionnaire des onomatopées"
     },
     {
         "word": "courli",
-        "meaning": [],
-        "url": "https://www.le-dictionnaire.com/definition/courli",
-        "found": false,
+        "meaning": [
+            "bruit du cri du courlis."
+        ],
+        "url": "dictionnaire des onomatopées",
+        "found": true,
         "ref": "dictionnaire des onomatopées"
     },
     {
         "word": "couroucou",
-        "meaning": [],
-        "url": "https://www.le-dictionnaire.com/definition/couroucou",
-        "found": false,
+        "meaning": [
+            "bruit du roucoulement de la tourterelle, de la colombe.",
+            "bruit du cri du furet."
+        ],
+        "url": "dictionnaire des onomatopées",
+        "found": true,
         "ref": "dictionnaire des onomatopées"
     },
     {
         "word": "cra cra",
         "meaning": [
-            "Crasseux, très sale."
+            "bruit produit par des craquements."
         ],
-        "url": "https://dictionnaire.lerobert.com/definition/cra%20cra",
+        "url": "dictionnaire des onomatopées",
         "found": true,
         "ref": "dictionnaire des onomatopées"
     },
@@ -1621,9 +1824,11 @@
     },
     {
         "word": "crac crac",
-        "meaning": [],
-        "url": "https://www.le-dictionnaire.com/definition/crac%20crac",
-        "found": false,
+        "meaning": [
+            "bruit produit par des ciseaux, par un couteau."
+        ],
+        "url": "dictionnaire des onomatopées",
+        "found": true,
         "ref": "dictionnaire des onomatopées"
     },
     {
@@ -1642,9 +1847,11 @@
     },
     {
         "word": "crc cr",
-        "meaning": [],
-        "url": "https://www.le-dictionnaire.com/definition/crc%20cr",
-        "found": false,
+        "meaning": [
+            "bruit produit par des ciseaux, par un couteau."
+        ],
+        "url": "dictionnaire des onomatopées",
+        "found": true,
         "ref": "dictionnaire des onomatopées"
     },
     {
@@ -1665,9 +1872,14 @@
     },
     {
         "word": "cric crac",
-        "meaning": [],
-        "url": "https://www.le-dictionnaire.com/definition/cric%20crac",
-        "found": false,
+        "meaning": [
+            "bruit produit par un craquement ou un grincement.",
+            "bruit de cle, souvent un double tour, dans une serrure.",
+            "bruit du me<canisme d'une pendule qu'on remonte.",
+            "pour exprimer la rapidite< d'un proce>s."
+        ],
+        "url": "dictionnaire des onomatopées",
+        "found": true,
         "ref": "dictionnaire des onomatopées"
     },
     {
@@ -1699,31 +1911,37 @@
     {
         "word": "crincrin",
         "meaning": [
-            "Mauvais violon."
+            "bruit grinc,,ant et re<pe<titif."
         ],
-        "url": "https://dictionnaire.lerobert.com/definition/crincrin",
+        "url": "dictionnaire des onomatopées",
         "found": true,
         "ref": "dictionnaire des onomatopées"
     },
     {
         "word": "criss-criss",
-        "meaning": [],
-        "url": "https://www.le-dictionnaire.com/definition/criss-criss",
-        "found": false,
+        "meaning": [
+            "bruit de crissement."
+        ],
+        "url": "dictionnaire des onomatopées",
+        "found": true,
         "ref": "dictionnaire des onomatopées"
     },
     {
         "word": "croa",
-        "meaning": [],
-        "url": "https://www.le-dictionnaire.com/definition/croa",
-        "found": false,
+        "meaning": [
+            "bruit du cri de la grenouille."
+        ],
+        "url": "dictionnaire des onomatopées",
+        "found": true,
         "ref": "dictionnaire des onomatopées"
     },
     {
         "word": "croac",
-        "meaning": [],
-        "url": "https://www.le-dictionnaire.com/definition/croac",
-        "found": false,
+        "meaning": [
+            "bruit du cri de la grenouille."
+        ],
+        "url": "dictionnaire des onomatopées",
+        "found": true,
         "ref": "dictionnaire des onomatopées"
     },
     {
@@ -1735,23 +1953,29 @@
     },
     {
         "word": "crou-crou",
-        "meaning": [],
-        "url": "https://www.le-dictionnaire.com/definition/crou-crou",
-        "found": false,
+        "meaning": [
+            "bruit du roucoulement de la tourterelle, de la colombe."
+        ],
+        "url": "dictionnaire des onomatopées",
+        "found": true,
         "ref": "dictionnaire des onomatopées"
     },
     {
         "word": "crouic",
-        "meaning": [],
-        "url": "https://www.le-dictionnaire.com/definition/crouic",
-        "found": false,
+        "meaning": [
+            "bruit de grincement, de crissement, de craquement."
+        ],
+        "url": "dictionnaire des onomatopées",
+        "found": true,
         "ref": "dictionnaire des onomatopées"
     },
     {
         "word": "crouik",
-        "meaning": [],
-        "url": "https://www.le-dictionnaire.com/definition/crouik",
-        "found": false,
+        "meaning": [
+            "bruit de grincement, de crissement, de craquement."
+        ],
+        "url": "dictionnaire des onomatopées",
+        "found": true,
         "ref": "dictionnaire des onomatopées"
     },
     {
@@ -1763,16 +1987,20 @@
     },
     {
         "word": "crr-crr",
-        "meaning": [],
-        "url": "https://www.le-dictionnaire.com/definition/crr-crr",
-        "found": false,
+        "meaning": [
+            "bruit produit par des ciseaux, par un couteau."
+        ],
+        "url": "dictionnaire des onomatopées",
+        "found": true,
         "ref": "dictionnaire des onomatopées"
     },
     {
         "word": "crunch",
-        "meaning": [],
-        "url": "https://www.le-dictionnaire.com/definition/crunch",
-        "found": false,
+        "meaning": [
+            "bruit de grignotis."
+        ],
+        "url": "dictionnaire des onomatopées",
+        "found": true,
         "ref": "dictionnaire des onomatopées"
     },
     {
@@ -1784,25 +2012,30 @@
     },
     {
         "word": "cuic",
-        "meaning": [],
-        "url": "https://www.le-dictionnaire.com/definition/cuic",
-        "found": false,
+        "meaning": [
+            "petit bruit aigue produit par un animal, particulièrement un petit oiseau."
+        ],
+        "url": "dictionnaire des onomatopées",
+        "found": true,
         "ref": "dictionnaire des onomatopées"
     },
     {
         "word": "cuicui",
         "meaning": [
-            "Pépiement d'oiseau."
+            "bruit du cri d'un petit oiseau ou d'un jeune oiseau.",
+            "petit bruit grinc,,ant, crissement."
         ],
-        "url": "https://dictionnaire.lerobert.com/definition/cuicui",
+        "url": "dictionnaire des onomatopées",
         "found": true,
         "ref": "dictionnaire des onomatopées"
     },
     {
         "word": "cuik",
-        "meaning": [],
-        "url": "https://www.le-dictionnaire.com/definition/cuik",
-        "found": false,
+        "meaning": [
+            "petit bruit aigue produit par un animal, particulièrement un petit oiseau."
+        ],
+        "url": "dictionnaire des onomatopées",
+        "found": true,
         "ref": "dictionnaire des onomatopées"
     },
     {
@@ -1858,33 +2091,38 @@
     },
     {
         "word": "dig",
-        "meaning": [],
-        "url": "https://www.le-dictionnaire.com/definition/dig",
-        "found": false,
+        "meaning": [
+            "bruit de tintement.",
+            "bruit de sonnerie, de sonnette, de clochette, de grelot."
+        ],
+        "url": "dictionnaire des onomatopées",
+        "found": true,
         "ref": "dictionnaire des onomatopées"
     },
     {
         "word": "dig dong",
-        "meaning": [],
-        "url": "https://www.le-dictionnaire.com/definition/dig%20dong",
-        "found": false,
+        "meaning": [
+            "bruit d'une sonnerie de cloche(s), d'un carillon de clochettes, d'une sonnette e<lectrique."
+        ],
+        "url": "dictionnaire des onomatopées",
+        "found": true,
         "ref": "dictionnaire des onomatopées"
     },
     {
         "word": "dign",
-        "meaning": [],
-        "url": "https://www.le-dictionnaire.com/definition/dign",
-        "found": false,
+        "meaning": [
+            "bruit de tintement."
+        ],
+        "url": "dictionnaire des onomatopées",
+        "found": true,
         "ref": "dictionnaire des onomatopées"
     },
     {
         "word": "digne",
         "meaning": [
-            "Qui mérite (qqch.).",
-            "Qui est en accord, en conformité avec (qqn ou qqch.).",
-            "Qui a de la dignité."
+            "bruit de tintement."
         ],
-        "url": "https://dictionnaire.lerobert.com/definition/digne",
+        "url": "dictionnaire des onomatopées",
         "found": true,
         "ref": "dictionnaire des onomatopées"
     },
@@ -1897,9 +2135,12 @@
     },
     {
         "word": "diligne",
-        "meaning": [],
-        "url": "https://www.le-dictionnaire.com/definition/diligne",
-        "found": false,
+        "meaning": [
+            "bruit de tintement d'une sonnette, d'une clochette.",
+            "bruit de verre brise<"
+        ],
+        "url": "dictionnaire des onomatopées",
+        "found": true,
         "ref": "dictionnaire des onomatopées"
     },
     {
@@ -1911,23 +2152,31 @@
     },
     {
         "word": "diling",
-        "meaning": [],
-        "url": "https://www.le-dictionnaire.com/definition/diling",
-        "found": false,
+        "meaning": [
+            "bruit de tintement d'une sonnette, d'une clochette.",
+            "bruit de verre brise<"
+        ],
+        "url": "dictionnaire des onomatopées",
+        "found": true,
         "ref": "dictionnaire des onomatopées"
     },
     {
         "word": "dilink",
-        "meaning": [],
-        "url": "https://www.le-dictionnaire.com/definition/dilink",
-        "found": false,
+        "meaning": [
+            "bruit de tintement d'une sonnette, d'une clochette.",
+            "bruit de verre brise<"
+        ],
+        "url": "dictionnaire des onomatopées",
+        "found": true,
         "ref": "dictionnaire des onomatopées"
     },
     {
         "word": "din",
-        "meaning": [],
-        "url": "https://www.le-dictionnaire.com/definition/din",
-        "found": false,
+        "meaning": [
+            "bruit de tintement."
+        ],
+        "url": "dictionnaire des onomatopées",
+        "found": true,
         "ref": "dictionnaire des onomatopées"
     },
     {
@@ -1957,16 +2206,20 @@
     },
     {
         "word": "ding-dom",
-        "meaning": [],
-        "url": "https://www.le-dictionnaire.com/definition/ding-dom",
-        "found": false,
+        "meaning": [
+            "bruit d'une sonnerie de cloche(s) d'e<glise."
+        ],
+        "url": "dictionnaire des onomatopées",
+        "found": true,
         "ref": "dictionnaire des onomatopées"
     },
     {
         "word": "ding-dong",
-        "meaning": [],
-        "url": "https://www.le-dictionnaire.com/definition/ding-dong",
-        "found": false,
+        "meaning": [
+            "bruit d'une sonnerie de cloche(s) d'e<glise."
+        ],
+        "url": "dictionnaire des onomatopées",
+        "found": true,
         "ref": "dictionnaire des onomatopées"
     },
     {
@@ -1978,17 +2231,23 @@
     },
     {
         "word": "dling",
-        "meaning": [],
-        "url": "https://www.le-dictionnaire.com/definition/dling",
-        "found": false,
+        "meaning": [
+            "bruit de tintement d'une sonnette, d'une clochette.",
+            "bruit de verre brise<"
+        ],
+        "url": "dictionnaire des onomatopées",
+        "found": true,
         "ref": "dictionnaire des onomatopées"
     },
     {
         "word": "dong",
         "meaning": [
-            "Unité monétaire du Viêtnam."
+            "bruit d'une cloche ou d'une horloge qui sonne.",
+            "bruit produit par un gong.",
+            "bruit d'un signal sonore introduisant un message aux voyageurs dans une gare ou un ae<roport.",
+            "bruit d'un choc sourd, d'un de<flagration sourde, qui re<sonne."
         ],
-        "url": "https://dictionnaire.lerobert.com/definition/dong",
+        "url": "dictionnaire des onomatopées",
         "found": true,
         "ref": "dictionnaire des onomatopées"
     },
@@ -2029,9 +2288,11 @@
     },
     {
         "word": "drin",
-        "meaning": [],
-        "url": "https://www.le-dictionnaire.com/definition/drin",
-        "found": false,
+        "meaning": [
+            "bruit d'une sonnerie ou d'une sonnette."
+        ],
+        "url": "dictionnaire des onomatopées",
+        "found": true,
         "ref": "dictionnaire des onomatopées"
     },
     {
@@ -2045,44 +2306,62 @@
     },
     {
         "word": "drinn",
-        "meaning": [],
-        "url": "https://www.le-dictionnaire.com/definition/drinn",
-        "found": false,
+        "meaning": [
+            "bruit d'une sonnerie ou d'une sonnette."
+        ],
+        "url": "dictionnaire des onomatopées",
+        "found": true,
         "ref": "dictionnaire des onomatopées"
     },
     {
         "word": "drng",
-        "meaning": [],
-        "url": "https://www.le-dictionnaire.com/definition/drng",
-        "found": false,
+        "meaning": [
+            "bruit d'un grelot, d'une sonnerie ou d'une sonnette, notamment d'une sonnette e<lectrique.",
+            "bruit de la sonnerie du te<le<phone.",
+            "bruit d'un petit signal sonore."
+        ],
+        "url": "dictionnaire des onomatopées",
+        "found": true,
         "ref": "dictionnaire des onomatopées"
     },
     {
         "word": "dzee",
-        "meaning": [],
-        "url": "https://www.le-dictionnaire.com/definition/dzee",
-        "found": false,
+        "meaning": [
+            "bruit de bourdonnement d'un insecte aile<: abeille, frelon, gue^pe, mouche, moustique, etc.",
+            "bruit de bourdonnement ou de sifflement d'un appareil, d'un moteur."
+        ],
+        "url": "dictionnaire des onomatopées",
+        "found": true,
         "ref": "dictionnaire des onomatopées"
     },
     {
         "word": "dzi",
-        "meaning": [],
-        "url": "https://www.le-dictionnaire.com/definition/dzi",
-        "found": false,
+        "meaning": [
+            "bruit de bourdonnement d'un insecte aile<: abeille, frelon, gue^pe, mouche, moustique, etc.",
+            "bruit de bourdonnement ou de sifflement d'un appareil, d'un moteur."
+        ],
+        "url": "dictionnaire des onomatopées",
+        "found": true,
         "ref": "dictionnaire des onomatopées"
     },
     {
         "word": "dzie",
-        "meaning": [],
-        "url": "https://www.le-dictionnaire.com/definition/dzie",
-        "found": false,
+        "meaning": [
+            "bruit de bourdonnement d'un insecte aile<: abeille, frelon, gue^pe, mouche, moustique, etc.",
+            "bruit de bourdonnement ou de sifflement d'un appareil, d'un moteur."
+        ],
+        "url": "dictionnaire des onomatopées",
+        "found": true,
         "ref": "dictionnaire des onomatopées"
     },
     {
         "word": "dzim",
-        "meaning": [],
-        "url": "https://www.le-dictionnaire.com/definition/dzim",
-        "found": false,
+        "meaning": [
+            "bruit ponctuel, souvent d'origine me<tallique, ou bruit de verre brise<.",
+            "bruit de cymbales."
+        ],
+        "url": "dictionnaire des onomatopées",
+        "found": true,
         "ref": "dictionnaire des onomatopées"
     },
     {
@@ -2094,16 +2373,24 @@
     },
     {
         "word": "dzin",
-        "meaning": [],
-        "url": "https://www.le-dictionnaire.com/definition/dzin",
-        "found": false,
+        "meaning": [
+            "bruit brusque et cinglant, produit notamment par un coup, par un choc.",
+            "bruit d'instruments de musique, notamment de cymbales.",
+            "bruit de scie électrique."
+        ],
+        "url": "dictionnaire des onomatopées",
+        "found": true,
         "ref": "dictionnaire des onomatopées"
     },
     {
         "word": "dzing",
-        "meaning": [],
-        "url": "https://www.le-dictionnaire.com/definition/dzing",
-        "found": false,
+        "meaning": [
+            "bruit brusque et cinglant, produit notamment par un coup, par un choc.",
+            "bruit d'instruments de musique, notamment de cymbales.",
+            "bruit de scie électrique."
+        ],
+        "url": "dictionnaire des onomatopées",
+        "found": true,
         "ref": "dictionnaire des onomatopées"
     },
     {
@@ -2122,9 +2409,13 @@
     },
     {
         "word": "dzingue",
-        "meaning": [],
-        "url": "https://www.le-dictionnaire.com/definition/dzingue",
-        "found": false,
+        "meaning": [
+            "bruit brusque et cinglant, produit notamment par un coup, par un choc.",
+            "bruit d'instruments de musique, notamment de cymbales.",
+            "bruit de scie électrique."
+        ],
+        "url": "dictionnaire des onomatopées",
+        "found": true,
         "ref": "dictionnaire des onomatopées"
     },
     {
@@ -2136,9 +2427,12 @@
     },
     {
         "word": "dzz",
-        "meaning": [],
-        "url": "https://www.le-dictionnaire.com/definition/dzz",
-        "found": false,
+        "meaning": [
+            "bruit de bourdonnement d'un insecte aile<: abeille, frelon, gue^pe, mouche, moustique, etc.",
+            "bruit de bourdonnement ou de sifflement d'un appareil, d'un moteur."
+        ],
+        "url": "dictionnaire des onomatopées",
+        "found": true,
         "ref": "dictionnaire des onomatopées"
     },
     {
@@ -2174,9 +2468,13 @@
     },
     {
         "word": "erk",
-        "meaning": [],
-        "url": "https://www.le-dictionnaire.com/definition/erk",
-        "found": false,
+        "meaning": [
+            "bruit du rot.",
+            "marque la nausée physique.",
+            "marque le de<gou^t, la re<pugnance."
+        ],
+        "url": "dictionnaire des onomatopées",
+        "found": true,
         "ref": "dictionnaire des onomatopées"
     },
     {
@@ -2197,9 +2495,13 @@
     },
     {
         "word": "eurk",
-        "meaning": [],
-        "url": "https://www.le-dictionnaire.com/definition/eurk",
-        "found": false,
+        "meaning": [
+            "bruit du rot.",
+            "marque la nausée physique.",
+            "marque le de<gou^t, la re<pugnance."
+        ],
+        "url": "dictionnaire des onomatopées",
+        "found": true,
         "ref": "dictionnaire des onomatopées"
     },
     {
@@ -2211,30 +2513,47 @@
     },
     {
         "word": "fff",
-        "meaning": [],
-        "url": "https://www.le-dictionnaire.com/definition/fff",
-        "found": false,
+        "meaning": [
+            "bruit produit par l'expiration.",
+            "bruit produit par un pe<tard, une fuse<e.",
+            "marque d'indiffe<rence, de de<sinvolture, de de<dain ; marque de lassitude.",
+            "bruit de crachement du chat en cole>re."
+        ],
+        "url": "dictionnaire des onomatopées",
+        "found": true,
         "ref": "dictionnaire des onomatopées"
     },
     {
         "word": "ffh",
-        "meaning": [],
-        "url": "https://www.le-dictionnaire.com/definition/ffh",
-        "found": false,
+        "meaning": [
+            "bruit produit par l'expiration.",
+            "bruit produit par un pe<tard, une fuse<e.",
+            "marque d'indiffe<rence, de de<sinvolture, de de<dain ; marque de lassitude."
+        ],
+        "url": "dictionnaire des onomatopées",
+        "found": true,
         "ref": "dictionnaire des onomatopées"
     },
     {
         "word": "fft",
-        "meaning": [],
-        "url": "https://www.le-dictionnaire.com/definition/fft",
-        "found": false,
+        "meaning": [
+            "bruit de l'expiration.",
+            "bruit d'absorption rapide d'une boisson.",
+            "pour marquer ou accompagner un de<part rapide, une disparition.",
+            "pour marquer l'indiffe<rence."
+        ],
+        "url": "dictionnaire des onomatopées",
+        "found": true,
         "ref": "dictionnaire des onomatopées"
     },
     {
         "word": "fla",
-        "meaning": [],
-        "url": "https://www.le-dictionnaire.com/definition/fla",
-        "found": false,
+        "meaning": [
+            "bruit produit par un choc.",
+            "bruit de la frappe d'un double coup de baguette sur un tambour, d'abord le<ge>rement de la main droite, puis fortement de la main gauche."
+        ],
+        "url": "dictionnaire des onomatopées",
+        "found": true,
         "ref": "dictionnaire des onomatopées"
     },
     {
@@ -2248,9 +2567,11 @@
     },
     {
         "word": "flaf",
-        "meaning": [],
-        "url": "https://www.le-dictionnaire.com/definition/flaf",
-        "found": false,
+        "meaning": [
+            "bruit d'un coup, notamment d'une gifle."
+        ],
+        "url": "dictionnaire des onomatopées",
+        "found": true,
         "ref": "dictionnaire des onomatopées"
     },
     {
@@ -2288,16 +2609,25 @@
     },
     {
         "word": "flic flac",
-        "meaning": [],
-        "url": "https://www.le-dictionnaire.com/definition/flic%20flac",
-        "found": false,
+        "meaning": [
+            "bruit de coups re<pe<te<s, en particulier d'une double gifle.",
+            "bruit de coups de fouet.",
+            "bruit d'eau, de clapotis; bruit d'une marche dans l'eau.",
+            "bruit d'e<le<ments qui s'entrechoquent."
+        ],
+        "url": "dictionnaire des onomatopées",
+        "found": true,
         "ref": "dictionnaire des onomatopées"
     },
     {
         "word": "flic floc",
-        "meaning": [],
-        "url": "https://www.le-dictionnaire.com/definition/flic%20floc",
-        "found": false,
+        "meaning": [
+            "bruit de coups re<pe<te<s, en particulier d'une double gifle.",
+            "bruit de chute ou d'e<le<ments qui s'entrechoquent.",
+            "bruit de clapotis."
+        ],
+        "url": "dictionnaire des onomatopées",
+        "found": true,
         "ref": "dictionnaire des onomatopées"
     },
     {
@@ -2316,9 +2646,14 @@
     },
     {
         "word": "flique-flaque",
-        "meaning": [],
-        "url": "https://www.le-dictionnaire.com/definition/flique-flaque",
-        "found": false,
+        "meaning": [
+            "bruit de coups re<pe<te<s, en particulier d'une double gifle.",
+            "bruit de coups de fouet.",
+            "bruit d'eau, de clapotis; bruit d'une marche dans l'eau.",
+            "bruit d'e<le<ments qui s'entrechoquent."
+        ],
+        "url": "dictionnaire des onomatopées",
+        "found": true,
         "ref": "dictionnaire des onomatopées"
     },
     {
@@ -2332,17 +2667,19 @@
     },
     {
         "word": "floch",
-        "meaning": [],
-        "url": "https://www.le-dictionnaire.com/definition/floch",
-        "found": false,
+        "meaning": [
+            "bruit produit par un corps dur qui heurte une surface molle ou par la projection d'un liquide."
+        ],
+        "url": "dictionnaire des onomatopées",
+        "found": true,
         "ref": "dictionnaire des onomatopées"
     },
     {
         "word": "floche",
         "meaning": [
-            "Dont la torsion est faible."
+            "bruit produit par un corps dur qui heurte une surface molle ou par la projection d'un liquide."
         ],
-        "url": "https://dictionnaire.lerobert.com/definition/floche",
+        "url": "dictionnaire des onomatopées",
         "found": true,
         "ref": "dictionnaire des onomatopées"
     },
@@ -2372,9 +2709,11 @@
     },
     {
         "word": "flou flou",
-        "meaning": [],
-        "url": "https://www.le-dictionnaire.com/definition/flou%20flou",
-        "found": false,
+        "meaning": [
+            "bruit de barbotement dans l'eau."
+        ],
+        "url": "dictionnaire des onomatopées",
+        "found": true,
         "ref": "dictionnaire des onomatopées"
     },
     {
@@ -2414,9 +2753,11 @@
     },
     {
         "word": "fout",
-        "meaning": [],
-        "url": "https://www.le-dictionnaire.com/definition/fout",
-        "found": false,
+        "meaning": [
+            "bruit de crachement du chat en cole>re."
+        ],
+        "url": "dictionnaire des onomatopées",
+        "found": true,
         "ref": "dictionnaire des onomatopées"
     },
     {
@@ -2431,23 +2772,30 @@
     },
     {
         "word": "from from",
-        "meaning": [],
-        "url": "https://www.le-dictionnaire.com/definition/from%20from",
-        "found": false,
+        "meaning": [
+            "son produit par divers instruments de musique, notamment guitare, tambour de basque, violon."
+        ],
+        "url": "dictionnaire des onomatopées",
+        "found": true,
         "ref": "dictionnaire des onomatopées"
     },
     {
         "word": "fron fron",
-        "meaning": [],
-        "url": "https://www.le-dictionnaire.com/definition/fron%20fron",
-        "found": false,
+        "meaning": [
+            "son produit par divers instruments de musique, notamment guitare, tambour de basque, violon."
+        ],
+        "url": "dictionnaire des onomatopées",
+        "found": true,
         "ref": "dictionnaire des onomatopées"
     },
     {
         "word": "frou",
-        "meaning": [],
-        "url": "https://www.le-dictionnaire.com/definition/frou",
-        "found": false,
+        "meaning": [
+            "bruit de crachement du chat en cole>re ou en rut.",
+            "bruit que fait le chat pour manifester un grand contentement."
+        ],
+        "url": "dictionnaire des onomatopées",
+        "found": true,
         "ref": "dictionnaire des onomatopées"
     },
     {
@@ -2472,9 +2820,11 @@
     },
     {
         "word": "froum froum",
-        "meaning": [],
-        "url": "https://www.le-dictionnaire.com/definition/froum%20froum",
-        "found": false,
+        "meaning": [
+            "son produit par divers instruments de musique, notamment guitare, tambour de basque, violon."
+        ],
+        "url": "dictionnaire des onomatopées",
+        "found": true,
         "ref": "dictionnaire des onomatopées"
     },
     {
@@ -2486,16 +2836,25 @@
     },
     {
         "word": "frr",
-        "meaning": [],
-        "url": "https://www.le-dictionnaire.com/definition/frr",
-        "found": false,
+        "meaning": [
+            "bruit de de froissement, de frottement.",
+            "bruit de de<chirure.",
+            "bruit de crachement du chat en cole>re ou en rut.",
+            "bruit que fait le chat pour manifester un grand contentement."
+        ],
+        "url": "dictionnaire des onomatopées",
+        "found": true,
         "ref": "dictionnaire des onomatopées"
     },
     {
         "word": "frrt",
-        "meaning": [],
-        "url": "https://www.le-dictionnaire.com/definition/frrt",
-        "found": false,
+        "meaning": [
+            "bruit le<ger signalant une apparition ou une disparition rapide d'un animal sauvage.",
+            "bruit produit par un froissement, un frottement, un glissement.",
+            "bruit pour chasser un animal."
+        ],
+        "url": "dictionnaire des onomatopées",
+        "found": true,
         "ref": "dictionnaire des onomatopées"
     },
     {
@@ -2507,30 +2866,50 @@
     },
     {
         "word": "fu",
-        "meaning": [],
+        "meaning": [
+            "bruit produit par un souffle d'air.",
+            "bruit produit par un pe<tard, une fuse<e.",
+            "marque d'indiffe<rence, de de<sinvolture, de de<dain ; marque de lassitude.",
+            "bruit de crachement du chat en cole>re."
+        ],
         "url": "https://www.le-dictionnaire.com/definition/fu",
         "found": false,
         "ref": "dictionnaire des onomatopées"
     },
     {
         "word": "fue",
-        "meaning": [],
-        "url": "https://www.le-dictionnaire.com/definition/fue",
-        "found": false,
+        "meaning": [
+            "bruit produit par un souffle d'air.",
+            "bruit produit par un pe<tard, une fuse<e.",
+            "marque d'indiffe<rence, de de<sinvolture, de de<dain ; marque de lassitude.",
+            "bruit de crachement du chat en cole>re."
+        ],
+        "url": "dictionnaire des onomatopées",
+        "found": true,
         "ref": "dictionnaire des onomatopées"
     },
     {
         "word": "fuh",
-        "meaning": [],
-        "url": "https://www.le-dictionnaire.com/definition/fuh",
-        "found": false,
+        "meaning": [
+            "bruit produit par l'expiration.",
+            "bruit produit par un pe<tard, une fuse<e.",
+            "marque d'indiffe<rence, de de<sinvolture, de de<dain ; marque de lassitude.",
+            "bruit de crachement du chat en cole>re."
+        ],
+        "url": "dictionnaire des onomatopées",
+        "found": true,
         "ref": "dictionnaire des onomatopées"
     },
     {
         "word": "fui",
-        "meaning": [],
-        "url": "https://www.le-dictionnaire.com/definition/fui",
-        "found": false,
+        "meaning": [
+            "bruit produit par l'expiration.",
+            "bruit produit par un pe<tard, une fuse<e.",
+            "marque d'indiffe<rence, de de<sinvolture, de de<dain ; marque de lassitude.",
+            "bruit de crachement du chat en cole>re."
+        ],
+        "url": "dictionnaire des onomatopées",
+        "found": true,
         "ref": "dictionnaire des onomatopées"
     },
     {
@@ -2577,9 +2956,11 @@
     },
     {
         "word": "gling",
-        "meaning": [],
-        "url": "https://www.le-dictionnaire.com/definition/gling",
-        "found": false,
+        "meaning": [
+            "petit bruit ponctuel, souvent d'origine me<tallique, produit par un choc."
+        ],
+        "url": "dictionnaire des onomatopées",
+        "found": true,
         "ref": "dictionnaire des onomatopées"
     },
     {
@@ -2615,9 +2996,11 @@
     },
     {
         "word": "gloup",
-        "meaning": [],
-        "url": "https://www.le-dictionnaire.com/definition/gloup",
-        "found": false,
+        "meaning": [
+            "bruit ponctuel de succion rapide, de de<glutition soudaine."
+        ],
+        "url": "dictionnaire des onomatopées",
+        "found": true,
         "ref": "dictionnaire des onomatopées"
     },
     {
@@ -2664,9 +3047,11 @@
     },
     {
         "word": "gouzi-gouzi",
-        "meaning": [],
-        "url": "https://www.le-dictionnaire.com/definition/gouzi-gouzi",
-        "found": false,
+        "meaning": [
+            "accompagne un chatouillement, notamment sur un be<be<."
+        ],
+        "url": "dictionnaire des onomatopées",
+        "found": true,
         "ref": "dictionnaire des onomatopées"
     },
     {
@@ -2685,72 +3070,99 @@
     },
     {
         "word": "groaw",
-        "meaning": [],
-        "url": "https://www.le-dictionnaire.com/definition/groaw",
-        "found": false,
+        "meaning": [
+            "bruit de grognement du lion, du tigre."
+        ],
+        "url": "dictionnaire des onomatopées",
+        "found": true,
         "ref": "dictionnaire des onomatopées"
     },
     {
         "word": "groin-groin",
-        "meaning": [],
-        "url": "https://www.le-dictionnaire.com/definition/groin-groin",
-        "found": false,
+        "meaning": [
+            "bruit de ronflement d'un dormeur.",
+            "bruit de grognement du porc ou du sanglier."
+        ],
+        "url": "dictionnaire des onomatopées",
+        "found": true,
         "ref": "dictionnaire des onomatopées"
     },
     {
         "word": "grou",
-        "meaning": [],
-        "url": "https://www.le-dictionnaire.com/definition/grou",
-        "found": false,
+        "meaning": [
+            "bruit de grognement du lion, du tigre."
+        ],
+        "url": "dictionnaire des onomatopées",
+        "found": true,
         "ref": "dictionnaire des onomatopées"
     },
     {
         "word": "grou-grou",
-        "meaning": [],
-        "url": "https://www.le-dictionnaire.com/definition/grou-grou",
-        "found": false,
+        "meaning": [
+            "bruit du roucoulement de la tourterelle, de la colombe."
+        ],
+        "url": "dictionnaire des onomatopées",
+        "found": true,
         "ref": "dictionnaire des onomatopées"
     },
     {
         "word": "grouic",
-        "meaning": [],
-        "url": "https://www.le-dictionnaire.com/definition/grouic",
-        "found": false,
+        "meaning": [
+            "bruit produit par un borborygme.",
+            "bruit du cri du porc."
+        ],
+        "url": "dictionnaire des onomatopées",
+        "found": true,
         "ref": "dictionnaire des onomatopées"
     },
     {
         "word": "grouïk",
-        "meaning": [],
-        "url": "https://www.le-dictionnaire.com/definition/grou%C3%AFk",
-        "found": false,
+        "meaning": [
+            "bruit produit par un borborygme.",
+            "bruit du cri du porc."
+        ],
+        "url": "dictionnaire des onomatopées",
+        "found": true,
         "ref": "dictionnaire des onomatopées"
     },
     {
         "word": "grouin",
-        "meaning": [],
-        "url": "https://www.le-dictionnaire.com/definition/grouin",
-        "found": false,
+        "meaning": [
+            "bruit de ronflement d'un dormeur.",
+            "bruit de grognement du porc ou du sanglier."
+        ],
+        "url": "dictionnaire des onomatopées",
+        "found": true,
         "ref": "dictionnaire des onomatopées"
     },
     {
         "word": "grr",
-        "meaning": [],
-        "url": "https://www.le-dictionnaire.com/definition/grr",
-        "found": false,
+        "meaning": [
+            "bruit de grognement du chien.",
+            "bruit de grognement du lion, du tigre.",
+            "marque l'irritation, l'agressivite< d'une personne.",
+            "bruit du cri de la grenouille rousse."
+        ],
+        "url": "dictionnaire des onomatopées",
+        "found": true,
         "ref": "dictionnaire des onomatopées"
     },
     {
         "word": "grr grr",
-        "meaning": [],
-        "url": "https://www.le-dictionnaire.com/definition/grr%20grr",
-        "found": false,
+        "meaning": [
+            "bruit du cri de la grenouille rousse."
+        ],
+        "url": "dictionnaire des onomatopées",
+        "found": true,
         "ref": "dictionnaire des onomatopées"
     },
     {
         "word": "guili-guili",
-        "meaning": [],
-        "url": "https://www.le-dictionnaire.com/definition/guili-guili",
-        "found": false,
+        "meaning": [
+            "accompagne un chatouillement, le plus souvent sur un be<be<."
+        ],
+        "url": "dictionnaire des onomatopées",
+        "found": true,
         "ref": "dictionnaire des onomatopées"
     },
     {
@@ -2917,16 +3329,22 @@
     },
     {
         "word": "heurgh",
-        "meaning": [],
-        "url": "https://www.le-dictionnaire.com/definition/heurgh",
-        "found": false,
+        "meaning": [
+            "bruit du rot."
+        ],
+        "url": "dictionnaire des onomatopées",
+        "found": true,
         "ref": "dictionnaire des onomatopées"
     },
     {
         "word": "heurque",
-        "meaning": [],
-        "url": "https://www.le-dictionnaire.com/definition/heurque",
-        "found": false,
+        "meaning": [
+            "bruit du rot.",
+            "marque la nausée physique.",
+            "marque le de<gou^t, la re<pugnance."
+        ],
+        "url": "dictionnaire des onomatopées",
+        "found": true,
         "ref": "dictionnaire des onomatopées"
     },
     {
@@ -3221,9 +3639,11 @@
     },
     {
         "word": "hurk",
-        "meaning": [],
-        "url": "https://www.le-dictionnaire.com/definition/hurk",
-        "found": false,
+        "meaning": [
+            "bruit du rot."
+        ],
+        "url": "dictionnaire des onomatopées",
+        "found": true,
         "ref": "dictionnaire des onomatopées"
     },
     {
@@ -3256,9 +3676,11 @@
     },
     {
         "word": "kan kan",
-        "meaning": [],
-        "url": "https://www.le-dictionnaire.com/definition/kan%20kan",
-        "found": false,
+        "meaning": [
+            "bruit du cri du canard."
+        ],
+        "url": "dictionnaire des onomatopées",
+        "found": true,
         "ref": "dictionnaire des onomatopées"
     },
     {
@@ -3284,9 +3706,12 @@
     },
     {
         "word": "kling",
-        "meaning": [],
-        "url": "https://www.le-dictionnaire.com/definition/kling",
-        "found": false,
+        "meaning": [
+            "bruit le<ger et ponctuel, souvent d'origine me<tallique ou re<sultant d'un choc contre un verre.",
+            "pour exprimer la soudainete< d'un proce>s."
+        ],
+        "url": "dictionnaire des onomatopées",
+        "found": true,
         "ref": "dictionnaire des onomatopées"
     },
     {
@@ -3298,9 +3723,11 @@
     },
     {
         "word": "klop",
-        "meaning": [],
-        "url": "https://www.le-dictionnaire.com/definition/klop",
-        "found": false,
+        "meaning": [
+            "bruit le<ger, a> deux temps, produit par un petit choc, une chute."
+        ],
+        "url": "dictionnaire des onomatopées",
+        "found": true,
         "ref": "dictionnaire des onomatopées"
     },
     {
@@ -3333,23 +3760,33 @@
     },
     {
         "word": "kouï",
-        "meaning": [],
-        "url": "https://www.le-dictionnaire.com/definition/kou%C3%AF",
-        "found": false,
+        "meaning": [
+            "petit bruit aigu produit par divers animaux.",
+            "petit bruit grinc,,ant, crissement."
+        ],
+        "url": "dictionnaire des onomatopées",
+        "found": true,
         "ref": "dictionnaire des onomatopées"
     },
     {
         "word": "kouik",
-        "meaning": [],
-        "url": "https://www.le-dictionnaire.com/definition/kouik",
-        "found": false,
+        "meaning": [
+            "petit bruit aigu produit par un animal, particulièrement un petit oiseau, une souris.",
+            "petit bruit de couinement produit par un objet manufacturé.",
+            "pour annoncer ou pour marquer une mort brutale, notamment par strangulation."
+        ],
+        "url": "dictionnaire des onomatopées",
+        "found": true,
         "ref": "dictionnaire des onomatopées"
     },
     {
         "word": "kra",
-        "meaning": [],
-        "url": "https://www.le-dictionnaire.com/definition/kra",
-        "found": false,
+        "meaning": [
+            "bruit du cri du corbeau et des corvide<s.",
+            "marque d'anticle<ricalisme primaire."
+        ],
+        "url": "dictionnaire des onomatopées",
+        "found": true,
         "ref": "dictionnaire des onomatopées"
     },
     {
@@ -4252,23 +4689,38 @@
     },
     {
         "word": "phou",
-        "meaning": [],
-        "url": "https://www.le-dictionnaire.com/definition/phou",
-        "found": false,
+        "meaning": [
+            "bruit produit par l'expiration.",
+            "bruit produit par un pe<tard, une fuse<e.",
+            "marque d'indiffe<rence, de de<sinvolture, de de<dain ; marque de lassitude.",
+            "bruit de crachement du chat en cole>re."
+        ],
+        "url": "dictionnaire des onomatopées",
+        "found": true,
         "ref": "dictionnaire des onomatopées"
     },
     {
         "word": "phouh",
-        "meaning": [],
-        "url": "https://www.le-dictionnaire.com/definition/phouh",
-        "found": false,
+        "meaning": [
+            "bruit produit par l'expiration.",
+            "bruit produit par un pe<tard, une fuse<e.",
+            "marque d'indiffe<rence, de de<sinvolture, de de<dain ; marque de lassitude.",
+            "bruit de crachement du chat en cole>re."
+        ],
+        "url": "dictionnaire des onomatopées",
+        "found": true,
         "ref": "dictionnaire des onomatopées"
     },
     {
         "word": "phu",
-        "meaning": [],
-        "url": "https://www.le-dictionnaire.com/definition/phu",
-        "found": false,
+        "meaning": [
+            "bruit produit par l'expiration.",
+            "bruit produit par un pe<tard, une fuse<e.",
+            "marque d'indiffe<rence, de de<sinvolture, de de<dain ; marque de lassitude.",
+            "bruit de crachement du chat en cole>re."
+        ],
+        "url": "dictionnaire des onomatopées",
+        "found": true,
         "ref": "dictionnaire des onomatopées"
     },
     {
@@ -5053,9 +5505,11 @@
     },
     {
         "word": "quanquan",
-        "meaning": [],
-        "url": "https://www.le-dictionnaire.com/definition/quanquan",
-        "found": false,
+        "meaning": [
+            "bruit du cri du canard."
+        ],
+        "url": "dictionnaire des onomatopées",
+        "found": true,
         "ref": "dictionnaire des onomatopées"
     },
     {
@@ -5067,9 +5521,11 @@
     },
     {
         "word": "quot quot",
-        "meaning": [],
-        "url": "https://www.le-dictionnaire.com/definition/quot%20quot",
-        "found": false,
+        "meaning": [
+            "bruit du cri de la poule."
+        ],
+        "url": "dictionnaire des onomatopées",
+        "found": true,
         "ref": "dictionnaire des onomatopées"
     },
     {
@@ -5299,9 +5755,12 @@
     },
     {
         "word": "roucoucou",
-        "meaning": [],
-        "url": "https://www.le-dictionnaire.com/definition/roucoucou",
-        "found": false,
+        "meaning": [
+            "bruit du roucoulement de la tourterelle, de la colombe.",
+            "bruit du cri du furet."
+        ],
+        "url": "dictionnaire des onomatopées",
+        "found": true,
         "ref": "dictionnaire des onomatopées"
     },
     {
@@ -5348,9 +5807,12 @@
     },
     {
         "word": "sch",
-        "meaning": [],
-        "url": "https://www.le-dictionnaire.com/definition/sch",
-        "found": false,
+        "meaning": [
+            "bruit produit par une forte expiration.",
+            "bruit d'un fluide ou d'une me>che qui fuse."
+        ],
+        "url": "dictionnaire des onomatopées",
+        "found": true,
         "ref": "dictionnaire des onomatopées"
     },
     {
@@ -6098,7 +6560,9 @@
     },
     {
         "word": "tring",
-        "meaning": [],
+        "meaning": [
+            "bruit de la sonnerie du téléphone."
+        ],
         "url": "https://www.le-dictionnaire.com/definition/tring",
         "found": false,
         "ref": "dictionnaire des onomatopées"
@@ -7041,9 +7505,13 @@
     },
     {
         "word": "zing",
-        "meaning": [],
-        "url": "https://www.le-dictionnaire.com/definition/zing",
-        "found": false,
+        "meaning": [
+            "bruit brusque et cinglant, produit notamment par un coup, par un choc.",
+            "bruit d'instruments de musique, notamment de cymbales.",
+            "bruit de scie électrique."
+        ],
+        "url": "dictionnaire des onomatopées",
+        "found": true,
         "ref": "dictionnaire des onomatopées"
     },
     {
@@ -8492,9 +8960,13 @@
     },
     {
         "word": "erck",
-        "meaning": [],
-        "url": "https://www.le-dictionnaire.com/definition/erck",
-        "found": false,
+        "meaning": [
+            "bruit du rot.",
+            "marque la nausée physique.",
+            "marque le de<gou^t, la re<pugnance."
+        ],
+        "url": "dictionnaire des onomatopées",
+        "found": true,
         "ref": "https://collegefrancais8.weebly.com/uploads/8/7/3/6/87366548/les_onomatop%C3%A9es_et_les_id%C3%A9ogrammes.pdf"
     },
     {

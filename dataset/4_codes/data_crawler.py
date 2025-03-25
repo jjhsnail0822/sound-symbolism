@@ -57,6 +57,7 @@ class DataCrawler:
                 "https://www.le-dictionnaire.com/definition/",
                 "https://dictionnaire.lerobert.com/definition/",
                 "https://dictionnaire.reverso.net/francais-definition/",
+                "https://www.dictionnaire-academie.fr/article/"
                 ],
             'ja': [
                 'https://ja.wiktionary.org/wiki/'
