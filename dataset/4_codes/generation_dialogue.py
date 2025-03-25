@@ -386,25 +386,155 @@ class DialogueGenerator:
                                         "text": text
                                     })
                             elif self.language == 'ja':
-                                speaker = item.get('話者', '')
-                                utterance_num = item.get('発話番号', 0)
-                                text = item.get('発話', '')
-                                
-                                result.append({
-                                    "speaker": speaker,
-                                    "index": utterance_num,
-                                    "text": text
-                                })
-                            else:  # en, fr
-                                speaker = item.get('speaker', '')
-                                utterance_num = item.get('utterance_number', 0)
-                                text = item.get('text', '')
-                                
-                                result.append({
-                                    "speaker": speaker,
-                                    "index": utterance_num,
-                                    "text": text
-                                })
+                                # Check if we need to parse from the text field
+                                if 'speaker' in item and 'text' in item and item['text'].startswith('{"話者"'):
+                                    try:
+                                        # Extract the embedded JSON from the text field
+                                        text_content = item['text']
+                                        # Find where the actual text part begins
+                                        parts = text_content.split('発話": "', 1)
+                                        if len(parts) == 2:
+                                            # Extract the actual text (removing the trailing "})
+                                            actual_text = parts[1].rsplit('"}', 1)[0]
+                                            
+                                            # Extract speaker name
+                                            speaker_match = re.search(r'"話者"\s*:\s*"([^"]+)"', text_content)
+                                            speaker = speaker_match.group(1) if speaker_match else ""
+                                            
+                                            # Extract index
+                                            index_match = re.search(r'"発話番号"\s*:\s*(\d+)', text_content)
+                                            index = int(index_match.group(1)) if index_match else 0
+                                            
+                                            result.append({
+                                                "speaker": speaker,
+                                                "index": index,
+                                                "text": actual_text
+                                            })
+                                        else:
+                                            # Fallback if parsing fails
+                                            result.append({
+                                                "speaker": item.get('speaker', ''),
+                                                "index": item.get('index', 0),
+                                                "text": item.get('text', '')
+                                            })
+                                    except Exception as e:
+                                        print(f"Error parsing Japanese dialogue: {e}")
+                                        result.append({
+                                            "speaker": item.get('speaker', ''),
+                                            "index": item.get('index', 0),
+                                            "text": item.get('text', '')
+                                        })
+                                else:
+                                    # Normal case where fields are already properly separated
+                                    speaker = item.get('話者', '')
+                                    utterance_num = item.get('発話番号', 0)
+                                    text = item.get('発話', '')
+                                    
+                                    result.append({
+                                        "speaker": speaker,
+                                        "index": utterance_num,
+                                        "text": text
+                                    })
+                            elif self.language == 'fr':
+                                # Check if we need to parse from the text field
+                                if 'speaker' in item and 'text' in item and item['text'].startswith('{"speaker"'):
+                                    try:
+                                        # Extract the embedded JSON from the text field
+                                        text_content = item['text']
+                                        # Find where the actual text part begins
+                                        parts = text_content.split('text": "', 1)
+                                        if len(parts) == 2:
+                                            # Extract the actual text (removing the trailing "})
+                                            actual_text = parts[1].rsplit('"}', 1)[0]
+                                            
+                                            # Extract speaker name
+                                            speaker_match = re.search(r'"speaker"\s*:\s*"([^"]+)"', text_content)
+                                            speaker = speaker_match.group(1) if speaker_match else ""
+                                            
+                                            # Extract index
+                                            index_match = re.search(r'"utterance_number"\s*:\s*(\d+)', text_content)
+                                            index = int(index_match.group(1)) if index_match else 0
+                                            
+                                            result.append({
+                                                "speaker": speaker,
+                                                "index": index,
+                                                "text": actual_text
+                                            })
+                                        else:
+                                            # Fallback if parsing fails
+                                            result.append({
+                                                "speaker": item.get('speaker', ''),
+                                                "index": item.get('index', 0),
+                                                "text": item.get('text', '')
+                                            })
+                                    except Exception as e:
+                                        print(f"Error parsing French dialogue: {e}")
+                                        result.append({
+                                            "speaker": item.get('speaker', ''),
+                                            "index": item.get('index', 0),
+                                            "text": item.get('text', '')
+                                        })
+                                else:
+                                    # Normal case where fields are already properly separated
+                                    speaker = item.get('speaker', '')
+                                    utterance_num = item.get('utterance_number', 0)
+                                    text = item.get('text', '')
+                                    
+                                    result.append({
+                                        "speaker": speaker,
+                                        "index": utterance_num,
+                                        "text": text
+                                    })
+                            else:  # en
+                                # Check if we need to parse from the text field
+                                if 'speaker' in item and 'text' in item and item['text'].startswith('{"speaker"'):
+                                    try:
+                                        # Extract the embedded JSON from the text field
+                                        text_content = item['text']
+                                        # Find where the actual text part begins
+                                        parts = text_content.split('text": "', 1)
+                                        if len(parts) == 2:
+                                            # Extract the actual text (removing the trailing "})
+                                            actual_text = parts[1].rsplit('"}', 1)[0]
+                                            
+                                            # Extract speaker name
+                                            speaker_match = re.search(r'"speaker"\s*:\s*"([^"]+)"', text_content)
+                                            speaker = speaker_match.group(1) if speaker_match else ""
+                                            
+                                            # Extract index
+                                            index_match = re.search(r'"utterance_number"\s*:\s*(\d+)', text_content)
+                                            index = int(index_match.group(1)) if index_match else 0
+                                            
+                                            result.append({
+                                                "speaker": speaker,
+                                                "index": index,
+                                                "text": actual_text
+                                            })
+                                        else:
+                                            # Fallback if parsing fails
+                                            result.append({
+                                                "speaker": item.get('speaker', ''),
+                                                "index": item.get('index', 0),
+                                                "text": item.get('text', '')
+                                            })
+                                    except Exception as e:
+                                        print(f"Error parsing English dialogue: {e}")
+                                        result.append({
+                                            "speaker": item.get('speaker', ''),
+                                            "index": item.get('index', 0),
+                                            "text": item.get('text', '')
+                                        })
+                                else:
+                                    # Normal case where fields are already properly separated
+                                    speaker = item.get('speaker', '')
+                                    utterance_num = item.get('utterance_number', 0)
+                                    text = item.get('text', '')
+                                    
+                                    result.append({
+                                        "speaker": speaker,
+                                        "index": utterance_num,
+                                        "text": text
+                                    })
                     return result
             except json.JSONDecodeError:
                 # If JSON parsing fails, continue to other methods
