@@ -1,5 +1,5 @@
 # EXAMPLE: python data_crawler.py -l en
-
+# Remove " "
 import pandas as pd
 import requests
 from bs4 import BeautifulSoup
@@ -52,19 +52,20 @@ class DataCrawler:
         default_urls = {
             'en': [
                 'https://en.wiktionary.org/wiki/'
-                ],
+            ],
             'fr': [
                 "https://www.le-dictionnaire.com/definition/",
                 "https://dictionnaire.lerobert.com/definition/",
                 "https://dictionnaire.reverso.net/francais-definition/",
-                "https://www.dictionnaire-academie.fr/article/"
+                "https://www.dictionnaire-academie.fr/article/",
+                "https://fr.wiktionary.org/wiki/"
                 ],
             'ja': [
                 'https://ja.wiktionary.org/wiki/'
-                ],
+            ],
             'ko': [
                 'https://ko.wiktionary.org/wiki/'
-                ]
+            ]
         }
         return default_urls.get(self.language, [])
     
@@ -163,10 +164,49 @@ class DataCrawler:
         }
     
     def _parse_french(self, soup:BeautifulSoup, url:str, search_term:str) -> dict:
-        """Parse French dictionary pages"""
+        """Parse French websites for onomatopoeic words"""
         try:
+            # Wiktionary
+            if url.startswith("https://fr.wiktionary.org/wiki/"):
+                # Check for etymology sections containing onomatopoeia-related words
+                etymology_sections = soup.find_all("span", id=lambda x: x and "tymologie" in x)
+                has_onomatopoeia_etymology = False
+                
+                for section in etymology_sections:
+                    section_content = section.find_next("p")
+                    if section_content:
+                        text = section_content.text.lower()
+                        if any(word in text for word in ["onomatopée", "cri", "bruit", "son", "idéophone"]):
+                            has_onomatopoeia_etymology = True
+                            break
+                
+                if not has_onomatopoeia_etymology:
+                    return {
+                        'word': search_term,
+                        'meaning': [],
+                        'url': url,
+                        'found': False
+                    }
+                
+                # Find meaning sections
+                meanings = []
+                definition_lists = soup.find_all("ol", class_="liste_de_traductions")
+                
+                for dl in definition_lists:
+                    for li in dl.find_all("li"):
+                        text = li.text.strip()
+                        if any(word in text.lower() for word in ["onomatopée", "cri", "bruit", "son", "idéophone"]):
+                            meanings.append(text)
+                
+                return {
+                    'word': search_term,
+                    'meaning': meanings,
+                    'url': url,
+                    'found': len(meanings) > 0
+                }
+                
             # le-dictionnaire.com
-            if url.startswith("https://www.le-dictionnaire.com/definition/"):
+            elif url.startswith("https://www.le-dictionnaire.com/definition/"):
                 def_boxes = soup.find_all("div", class_="defbox")
                 
                 # Pass if there is no word found in the dictionary
@@ -235,9 +275,8 @@ class DataCrawler:
                     'url': url,
                     'found': False
                 }
-
+            
             else:
-                breakpoint()
                 raise ValueError(f"Unsupported url: {url}")
         except Exception as e:
             # Handle parsing errors
@@ -252,67 +291,41 @@ class DataCrawler:
         """Read CSV file and perform crawling for each row"""
         # Read CSV file
         try:
-            df = pd.read_csv(self.input_csv)
-            print(f"Successfully read CSV file. Total {len(df)} rows.")
+            # Read existing JSON file
+            with open(self.output_json, 'r', encoding='utf-8') as f:
+                results = json.load(f)
+            print(f"Successfully read JSON file. Total {len(results)} items.")
+            
+            # Process each item
+            for item in tqdm(results, desc=f"Processing {self.language} data"):
+                # Skip if already found
+                if item['found']:
+                    continue
+                    
+                # Fix items with "dictionnaire des onomatopées" url
+                if item['url'] == "dictionnaire des onomatopées" and not item['found']:
+                    item['found'] = True
+                    continue
+                    
+                # Try Wiktionary for items still not found
+                if not item['found'] and self.language == 'fr':
+                    search_term = item['word']
+                    url = self._build_url(search_term, "https://fr.wiktionary.org/wiki/")
+                    result = self._crawl_with_bs4(url, search_term)
+                    
+                    if result['found']:
+                        item['meaning'].extend(result['meaning'])
+                        item['url'] = result['url']
+                        item['found'] = True
+                    
+                    # Add a delay between requests
+                    time.sleep(uniform(1, 2))
+            
+            return results
+            
         except Exception as e:
-            print(f"Error reading CSV file: {e}")
+            print(f"Error processing data: {e}")
             return None
-        
-        # List to store results
-        results = []
-        
-        # Iterate over each row with tqdm progress bar
-        for index, row in tqdm(df.iterrows(), total=len(df), desc=f"Crawling {self.language} data"):
-            
-            # Get search term from the word column
-            search_term = row.get("word", '')
-            if not search_term:
-                print(f"No search term in row {index+1}. Skipping.")
-                continue
-            
-            # Get reference from the ref column for tracking purposes
-            ref = row.get("ref", '')
-            
-            # Try each base URL until we find meaningful content
-            found_data = None
-            for base_url in self.base_urls:
-                # Search for each urls
-                url = self._build_url(search_term, base_url)
-                result:dict = self._crawl_with_bs4(url, search_term)
-                
-                # If we found meaningful content, stop searching
-                if result.get('found', False):
-                    found_data = result
-                    break
-                
-                # Add a delay between requests to different sites
-                time.sleep(uniform(1, 2))
-            
-            # If no meaningful content was found, use the last result or create a default one
-            if not found_data:
-                if len(self.base_urls) > 0:
-                    url = self._build_url(search_term, self.base_urls[0])
-                    found_data = {
-                        'word': search_term,
-                        'meaning': [],
-                        'url': url,
-                        'found': False
-                    }
-                else:
-                    found_data = {
-                        'word': search_term,
-                        'meaning': [],
-                        'url': '',
-                        'found': False,
-                    }
-            
-            # Add reference to the result for tracking purposes
-            found_data['ref'] = ref
-            
-            # Add to results
-            results.append(found_data)
-        
-        return results
     
     def save_to_json(self, results:list[dict]):
         """Save results list to JSON file"""
