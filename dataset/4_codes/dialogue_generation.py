@@ -17,14 +17,14 @@ from openai import AsyncOpenAI
 import concurrent.futures
 
 # Load environment variables from .env.local file
-env_path = Path('/scratch2/sheepswool/workspace/.env.local')
+env_path = Path('.env.local')
 load_dotenv(dotenv_path=env_path)
 
 # Get API key from environment variables
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 
 class DialogueGenerator:
-    def __init__(self, language: str, api_key: Optional[str] = None, model: str = "gpt-4o", batch_size: int = 16):
+    def __init__(self, language: str, api_key: Optional[str] = None, model: str = "chatgpt-4o-latest", batch_size: int = 16):
         """
         Initialize the dialogue generator
         
@@ -42,8 +42,8 @@ class DialogueGenerator:
         self.batch_size = batch_size
         
         # Set paths
-        self.input_path = os.path.join('../1_preprocess/nat', f"{self.language}.json")
-        self.output_path = '../2_dialogue/nat'
+        self.input_path = os.path.join('dataset/1_preprocess/nat', f"{self.language}.json")
+        self.output_path = 'dataset/2_dialogue/nat'
         self.output_file = os.path.join(self.output_path, f"{self.language}.json")
         
         # Create output directory if it doesn't exist
@@ -764,8 +764,8 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Dialogue Generation Tool')
     parser.add_argument('--language', '-l', required=True, choices=['en', 'fr', 'ko', 'ja'], 
                         help='Language code (en/fr/ko/ja)')
-    parser.add_argument('--model', '-m', default="gpt-4o", 
-                        help='OpenAI model to use (default: gpt-4o)')
+    parser.add_argument('--model', '-m', default="chatgpt-4o-latest", 
+                        help='OpenAI model to use (default: chatgpt-4o-latest)')
     parser.add_argument('--limit', '-n', type=int, help='Limit the number of dialogues to generate')
     parser.add_argument('--no-shuffle', action='store_true', help='Do not shuffle the data before processing')
     parser.add_argument('--batch-size', '-b', type=int, default=16, 
@@ -779,4 +779,4 @@ if __name__ == "__main__":
         batch_size=args.batch_size
     )
     
-    generator.run(limit=args.limit, shuffle=not args.no_shuffle) 
+    generator.run(limit=args.limit, shuffle=not args.no_shuffle)

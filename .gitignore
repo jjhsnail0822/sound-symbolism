@@ -1,1 +1,6 @@
+.gitignore
 .env.local
+dataset/0_raw/nat/daijirin_4ed/
+dataset/0_raw/nat/digital_daijisen/
+dataset/0_raw/nat/kojien_7ed/
+dataset/0_raw/nat/seisenban_nikkoku/
