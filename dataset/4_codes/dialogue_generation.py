@@ -24,7 +24,7 @@ load_dotenv(dotenv_path=env_path)
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 
 class DialogueGenerator:
-    def __init__(self, language: str, api_key: Optional[str] = None, model: str = "chatgpt-4o-latest", batch_size: int = 16):
+    def __init__(self, language: str, api_key: Optional[str] = None, model: str = "chatgpt-4o-latest", batch_size: int = 16, dialogues_per_word: int = 5):
         """
         Initialize the dialogue generator
         
@@ -33,17 +33,20 @@ class DialogueGenerator:
             api_key (str, optional): OpenAI API key. If None, will try to get from environment variable
             model (str): OpenAI model to use
             batch_size (int): Number of dialogues to generate in a single batch
+            dialogues_per_word (int): Number of dialogues to generate for each word
         """
         self.language = language.lower()
         if self.language not in ['en', 'fr', 'ko', 'ja']:
             raise ValueError("Language must be one of 'en', 'fr', 'ko', 'ja'.")
         
-        # Set batch size
+        # Set batch size and dialogues per word
         self.batch_size = batch_size
+        self.dialogues_per_word = dialogues_per_word
         
         # Set paths
-        self.input_path = os.path.join('dataset/1_preprocess/nat', f"{self.language}.json")
-        self.output_path = 'dataset/2_dialogue/nat'
+        self.input_path = os.path.join('../1_preprocess/nat', f"{self.language}.json")
+        # /scratch2/sheepswool/workspace/sound-symbolism/dataset/1_preprocess/nat/ko.json
+        self.output_path = '../2_dialogue/nat'
         self.output_file = os.path.join(self.output_path, f"{self.language}.json")
         
         # Create output directory if it doesn't exist
@@ -119,7 +122,7 @@ class DialogueGenerator:
         }
         return templates
     
-    async def _generate_dialogue_async(self, word_data: Dict[str, Any]) -> Dict[str, Any]:
+    async def _generate_dialogue_async(self, word_data: Dict[str, Any], dialogue_num: int = 1) -> Dict[str, Any]:
         """Generate dialogue for a given word asynchronously"""
         word = word_data.get('word', '')
         
@@ -171,7 +174,8 @@ class DialogueGenerator:
                     {"role": "system", "content": system_prompt},
                     {"role": "user", "content": user_prompt_set1},
                     {"role": "assistant", "content": dialogue1},
-                    {"role": "user", "content": user_prompt_set2}
+                    {"role": "user", "content": user_prompt_set2},
+                    {"role": "user", "content": self.templates[self.language]['dialogue_format']}
                 ],
                 temperature=1,
                 max_tokens=1000
@@ -187,10 +191,10 @@ class DialogueGenerator:
                 messages=[
                     {"role": "system", "content": system_prompt},
                     {"role": "user", "content": user_prompt_set1},
-                    {"role": "assistant", "content": dialogue1},
                     {"role": "user", "content": user_prompt_set2},
                     {"role": "assistant", "content": dialogue2},
-                    {"role": "user", "content": user_prompt_set3}
+                    {"role": "user", "content": user_prompt_set3},
+                    {"role": "user", "content": self.templates[self.language]['dialogue_format']}
                 ],
                 temperature=1,
                 max_tokens=1000
@@ -202,7 +206,7 @@ class DialogueGenerator:
             parsed_dialogue = self._parse_dialogue(final_dialogue)
             
             # Verify that the word appears in the correct utterance
-            retry_count = 0
+            retry_count = 0 
             max_retries = 3
             
             while retry_count < max_retries:
@@ -247,39 +251,54 @@ class DialogueGenerator:
                 if retry_count >= max_retries:
                     print(f"Warning: Could not place '{word}' correctly after {max_retries} attempts.")
             
-            # Create result dictionary
+            # Create result dictionary with dialogue_num
             result = {
-                'word': word,
-                'meaning': meaning,
                 'dialogue': parsed_dialogue,
-                "meta_data": {
+                'meta_data': {
+                    'dialogue_num': dialogue_num,
                     'language': self.language,
-                    "num_utterances": num_utterances,
-                    "ss_idx": ss_idx,
-                    "success": True,
+                    'num_utterances': num_utterances,
+                    'ss_idx': ss_idx,
+                    'success': True,
                 },
             }
             
             return result
         except Exception as e:
-            print(f"Error generating dialogue for word '{word}': {e}")
-            breakpoint()
+            print(f"Error generating dialogue {dialogue_num} for word '{word}': {e}")
             # Return empty dialogue on error
             return {
-                'word': word,
-                'meaning': meaning,
                 'dialogue': [],
-                "meta_data": {
+                'meta_data': {
+                    'dialogue_num': dialogue_num,
                     'language': self.language,
-                    "num_utterances": num_utterances,
-                    "ss_idx": ss_idx,
-                    "success": False,
+                    'num_utterances': num_utterances,
+                    'ss_idx': ss_idx,
+                    'success': False,
                 },
             }
     
+    async def _generate_multiple_dialogues_async(self, word_data: Dict[str, Any]) -> Dict[str, Any]:
+        """Generate multiple dialogues for a given word asynchronously"""
+        word = word_data.get('word', '')
+        meaning = word_data.get('meaning', [])
+        
+        # Generate multiple dialogues for the word
+        dialogue_tasks = [self._generate_dialogue_async(word_data, i+1) for i in range(self.dialogues_per_word)]
+        dialogue_results = await asyncio.gather(*dialogue_tasks)
+        
+        # Create result with multiple dialogues
+        result = {
+            'word': word,
+            'meaning': meaning,
+            'dialogues': dialogue_results
+        }
+        
+        return result
+    
     async def _process_batch_async(self, batch: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
         """Process a batch of words asynchronously"""
-        tasks = [self._generate_dialogue_async(item) for item in batch]
+        tasks = [self._generate_multiple_dialogues_async(item) for item in batch]
         return await asyncio.gather(*tasks)
     
     def _process_batch(self, batch: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
@@ -443,6 +462,7 @@ class DialogueGenerator:
                                         # Extract the embedded JSON from the text field
                                         text_content = item['text']
                                         # Find where the actual text part begins
+                                        breakpoint()
                                         parts = text_content.split('発話": "', 1)
                                         if len(parts) == 2:
                                             # Extract the actual text (removing the trailing "})
@@ -770,13 +790,16 @@ if __name__ == "__main__":
     parser.add_argument('--no-shuffle', action='store_true', help='Do not shuffle the data before processing')
     parser.add_argument('--batch-size', '-b', type=int, default=16, 
                         help='Number of dialogues to generate in a single batch (default: 16)')
+    parser.add_argument('--dialogues-per-word', '-d', type=int, default=5,
+                        help='Number of dialogues to generate for each word (default: 5)')
     
     args = parser.parse_args()
     
     generator = DialogueGenerator(
         language=args.language,
         model=args.model,
-        batch_size=args.batch_size
+        batch_size=args.batch_size,
+        dialogues_per_word=args.dialogues_per_word
     )
     
     generator.run(limit=args.limit, shuffle=not args.no_shuffle)

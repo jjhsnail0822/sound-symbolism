@@ -184,7 +184,7 @@ class DataCrawler:
                     return {
                         'word': search_term,
                         'meaning': [],
-                        'url': url,
+                        'url': "",
                         'found': False
                     }
                 
