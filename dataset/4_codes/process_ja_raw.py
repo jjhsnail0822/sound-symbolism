@@ -113,6 +113,8 @@ def get_nikkoku_senses(text):
     # make duplicate \n's to \n
     text = re.sub(r'\n+', '\n', text)
     text = text.split('\n')
+    if len(text) == 1:
+        return text[0]
     if text[1][-1] != '。' and len(text) > 2:
         text[1] += text[2] # add the next line if the current line does not end with '。' (e.g., parentheses)
     sense = re.sub(r'(〘副〙|〘感動〙|１|２|３|４|５|６|７|８|９|①|②|③|④|⑤|⑥|⑦|⑧|⑨)', '', text[1]).strip()
@@ -120,7 +122,7 @@ def get_nikkoku_senses(text):
     sense = re.sub(r'(（[^）]*）|「[^」]*」)', '', sense).strip()
     # remove if any onopatopoeia word is in the sense with look-ahead
     for o in onomatopoeias:
-        sense = re.sub(f'(?<=。){o['word']}。', '', sense).strip()
+        sense = re.sub(f"(?<=。){o['word']}。", '', sense).strip()
     return sense
 
 sense_keys = [
@@ -141,9 +143,9 @@ for o in tqdm(onomatopoeias):
 # save to csv file
 with open('dataset/0_raw/nat/ja_temp.csv', 'w', encoding='utf-8', newline='') as f:
     writer = csv.writer(f)
-    writer.writerow(['word', 'meaning', 'ref', 'revised', 'nikkoku_simple', 'nikkoku', 'kojien', 'daijisen', 'daijirin'])
+    writer.writerow(['word', 'meaning', 'ref', 'nikkoku_simple', 'nikkoku', 'kojien', 'daijisen', 'daijirin'])
     for o in onomatopoeias:
-        writer.writerow([o['word'], o['nikkoku_simple'], o['ref'], '', o['nikkoku_simple'], str(o['nikkoku']), str(o['kojien']), str(o['daijisen']), str(o['daijirin'])])
+        writer.writerow([o['word'], o['nikkoku_simple'], o['ref'], o['nikkoku_simple'], str(o['nikkoku']), str(o['kojien']), str(o['daijisen']), str(o['daijirin'])])
 
 # now, manually check the csv file and fix the meanings
 
