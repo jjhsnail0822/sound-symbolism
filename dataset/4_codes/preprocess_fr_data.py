@@ -3,6 +3,34 @@ import os
 import argparse
 from collections import defaultdict, Counter
 
+def check_word_in_meaning(data):
+    """단어가 의미 안에 포함되어 있는지 확인"""
+    problematic_items = []
+    
+    for item in data:
+        word = item.get('word', '').strip().lower()
+        meanings = item.get('meaning', [])
+        
+        # 한 글자 단어는 검사에서 제외
+        if len(word) <= 1:
+            continue
+            
+        for meaning in meanings:
+            # 의미가 문자열인지 확인
+            if not isinstance(meaning, str):
+                continue
+                
+            # 단어가 의미 안에 포함되어 있는지 확인 (대소문자 구분 없이)
+            if word in meaning.lower():
+                problematic_items.append({
+                    'word': word,
+                    'meaning': meaning,
+                    'full_item': item
+                })
+                break
+    
+    return problematic_items
+
 def process_fr_data(input_file=None, output_file=None):
     # 기본 파일 경로
     if input_file is None:
@@ -28,6 +56,22 @@ def process_fr_data(input_file=None, output_file=None):
         return
     
     print(f"원본 데이터 항목 수: {len(data)}")
+    
+    # 단어가 의미 안에 포함되어 있는지 확인
+    problematic_items = check_word_in_meaning(data)
+    if problematic_items:
+        print(f"\n=== 단어가 의미 안에 포함된 항목 ({len(problematic_items)}개) ===")
+        for i, item in enumerate(problematic_items, 1):
+            print(f"{i}. 단어: '{item['word']}', 의미: '{item['meaning']}'")
+            if i >= 20:  # 처음 20개만 출력
+                print(f"... 외 {len(problematic_items) - 20}개")
+                break
+        
+        # 문제가 있는 단어 목록
+        problem_words = set(item['word'] for item in problematic_items)
+        print(f"\n문제가 있는 단어 목록 ({len(problem_words)}개): {', '.join(sorted(problem_words))}")
+    else:
+        print("\n단어가 의미 안에 포함된 항목이 없습니다.")
     
     # 단어별로 항목 그룹화
     word_groups = defaultdict(list)
