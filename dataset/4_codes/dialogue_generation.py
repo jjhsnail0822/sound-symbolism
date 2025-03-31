@@ -1,3 +1,4 @@
+# Example: python dialogue_generation.py -l ko -b 1 -s 1
 import os
 import json
 import argparse
@@ -97,28 +98,28 @@ class DialogueGenerator:
                 "user_prompt_set1": "Condition 1: Generate a conversation between two people that naturally includes the onomatopoeic or mimetic word '{word}', which means '{meaning}'.\nCondition 2: The conversation must consist of {num_turns} turns ({num_utterances} utterances in total).\nFirst, consider the overall flow and structure of the conversation before constructing your response step by step.",
                 "user_prompt_set2": "Condition 3: The word '{word}' must be included in the {ss_idx}th utterance. Adjust the surrounding context if necessary to ensure smooth integration.\nCondition 4: Avoid overemphasizing the meaning of the onomatopoeic/mimetic word in other parts of the conversation—make sure it blends naturally into the dialogue.\nThink step by step before constructing your response.",
                 "user_prompt_set3": "Condition 5: Character names must be commonly used in the target language. There must be exactly two characters.\nCondition 6: Replace standard greetings or farewells (e.g., 'Hello', 'Goodbye') with contextually appropriate expressions that match the flow of the conversation and the personalities of the characters.\nThink logically and proceed step by step to generate your response.",
-                "dialogue_format": "Please format your response as a JSON array like this:\n[\n    {\"Speaker\": \"Person1\", \"Utterance Number\": 1, \"Utterance\": \"Content\"},\n    {\"Speaker\": \"Person2\", \"Utterance Number\": 2, \"Utterance\": \"Content\"},\n    {\"Speaker\": \"Person1\", \"Utterance Number\": 3, \"Utterance\": \"Content\"},\n    {\"Speaker\": \"Person2\", \"Utterance Number\": 4, \"Utterance\": \"Content\"},\n    {\"Speaker\": \"Person1\", \"Utterance Number\": 5, \"Utterance\": \"Content\"},\n    {\"Speaker\": \"Person2\", \"Utterance Number\": 6, \"Utterance\": \"Content\"}\n]"
+                "dialogue_format": "Please format your response as a JSON array like this:\n```json[\n    {\"Speaker\": \"Person1\", \"Utterance Number\": 1, \"Utterance\": \"Content\"},\n    {\"Speaker\": \"Person2\", \"Utterance Number\": 2, \"Utterance\": \"Content\"},\n    {\"Speaker\": \"Person1\", \"Utterance Number\": 3, \"Utterance\": \"Content\"},\n    {\"Speaker\": \"Person2\", \"Utterance Number\": 4, \"Utterance\": \"Content\"},\n    {\"Speaker\": \"Person1\", \"Utterance Number\": 5, \"Utterance\": \"Content\"},\n    {\"Speaker\": \"Person2\", \"Utterance Number\": 6, \"Utterance\": \"Content\"}\n]```"
             },
             "fr": {
                 "system_prompt": "Vous êtes un assistant chargé de générer un dialogue naturel entre deux personnes. Le dialogue doit inclure l'onomatopée ou le mot expressif '{word}', qui exprime '{meaning}', de manière fluide et naturelle dans le contexte. Veillez à ce que l'ensemble du dialogue soit cohérent et contextuellement approprié.",
                 "user_prompt_set1": "Condition 1 : Générez un dialogue entre deux personnes qui inclut naturellement l'onomatopée ou le mot expressif '{word}', qui signifie '{meaning}'.\nCondition 2 : Le dialogue doit comporter {num_turns} tours de parole ({num_utterances} répliques).\nRéfléchissez d'abord à la structure générale du dialogue avant de le rédiger étape par étape.",
                 "user_prompt_set2": "Condition 3 : '{word}' doit obligatoirement apparaître dans la réplique numéro {ss_idx}. Adaptez le contexte si nécessaire pour assurer une intégration fluide.\nCondition 4 : Dans les autres parties du dialogue, évitez de trop insister sur le sens de l'onomatopée/mot expressif et privilégiez une intégration naturelle.\nRaisonnez étape par étape avant de rédiger votre réponse.",
                 "user_prompt_set3": "Condition 5 : Les noms des personnages doivent être réalistes et couramment utilisés dans la langue française. Il doit y avoir exactement deux personnages.\nCondition 6 : Remplacez les salutations et les adieux standards (ex. : « Bonjour », « Au revoir ») par des formulations adaptées au contexte et aux personnalités des personnages.\nRéfléchissez de manière logique et procédez par étapes pour générer votre réponse.",
-                "dialogue_format": "Veuillez formater votre réponse comme un tableau JSON comme ceci :\n[\n    {\"Locuteur\": \"Personne1\", \"Numéro de réplique\": 1, \"Réplique\": \"Contenu\"},\n    {\"Locuteur\": \"Personne2\", \"Numéro de réplique\": 2, \"Réplique\": \"Contenu\"},\n    {\"Locuteur\": \"Personne1\", \"Numéro de réplique\": 3, \"Réplique\": \"Contenu\"},\n    {\"Locuteur\": \"Personne2\", \"Numéro de réplique\": 4, \"Réplique\": \"Contenu\"},\n    {\"Locuteur\": \"Personne1\", \"Numéro de réplique\": 5, \"Réplique\": \"Contenu\"},\n    {\"Locuteur\": \"Personne2\", \"Numéro de réplique\": 6, \"Réplique\": \"Contenu\"}\n]"
+                "dialogue_format": "Veuillez formater votre réponse comme un tableau JSON comme ceci :\n```json[\n    {\"Locuteur\": \"Personne1\", \"Numéro de réplique\": 1, \"Réplique\": \"Contenu\"},\n    {\"Locuteur\": \"Personne2\", \"Numéro de réplique\": 2, \"Réplique\": \"Contenu\"},\n    {\"Locuteur\": \"Personne1\", \"Numéro de réplique\": 3, \"Réplique\": \"Contenu\"},\n    {\"Locuteur\": \"Personne2\", \"Numéro de réplique\": 4, \"Réplique\": \"Contenu\"},\n    {\"Locuteur\": \"Personne1\", \"Numéro de réplique\": 5, \"Réplique\": \"Contenu\"},\n    {\"Locuteur\": \"Personne2\", \"Numéro de réplique\": 6, \"Réplique\": \"Contenu\"}\n]```"
             },
             "ko": {
                 "system_prompt": "당신은 두 사람의 대화를 자연스럽게 생성하는 도우미입니다. 대화에는 반드시 '{meaning}'의 의미를 전달하는 의성어/의태어 '{word}'가 자연스레 녹아들어야 합니다. 전체 대화가 문맥에 맞고 일관된 흐름을 유지하도록 해주세요.",
                 "user_prompt_set1": "조건 1: '{meaning}'의 의미를 전달하는 의성어/의태어 '{word}'가 자연스럽게 포함된 두 사람 간의 대화를 생성합니다.\n조건 2: 대화는 총 {num_turns}턴(발화 {num_utterances}회)으로 구성됩니다.\n먼저 전체적인 대화의 흐름과 구조를 구상해보고, 단계별로 답안을 구성해 주세요.",
                 "user_prompt_set2": "조건 3: '{word}'는 반드시 {ss_idx}번째 발화 내에 포함되어야 합니다. 해당 발화가 자연스러운 문맥 내에서 이루어지도록 앞뒤 내용도 필요시 조정할 수 있습니다.\n조건 4: 대화의 다른 부분에서는 의성어/의태어의 의미가 절대 등장하지 않도록 주의하며, 문맥에 녹아들도록 표현해 주세요.\n각 단계별로 생각하며 답안을 도출해 주세요.",
                 "user_prompt_set3": "조건 5: 등장 인물의 이름은 해당 언어권에서 실제로 사용되는 이름으로 선택합니다. 인물은 총 2명이어야 합니다.\n조건 6: 전형적인 인사말이나 작별 인사(예: '안녕', '잘 가') 대신 대화의 맥락과 개성을 반영한 표현을 사용하여 문장을 구성해 주세요.\n각 단계별로 논리적으로 생각하고 답안을 구성해 주세요.",
-                "dialogue_format": "응답을 다음과 같은 JSON 배열 형식으로 작성해주세요: \n[\n    {\"화자\": \"사람1\", \"발화 번호\": 1, \"발화\": \"발화 내용\"},\n    {\"화자\": \"사람2\", \"발화 번호\": 2, \"발화\": \"발화 내용\"},\n    {\"화자\": \"사람1\", \"발화 번호\": 3, \"발화\": \"발화 내용\"},\n    {\"화자\": \"사람2\", \"발화 번호\": 4, \"발화\": \"발화 내용\"},\n    {\"화자\": \"사람1\", \"발화 번호\": 5, \"발화\": \"발화 내용\"},\n    {\"화자\": \"사람2\", \"발화 번호\": 6, \"발화\": \"발화 내용\"}\n]"
+                "dialogue_format": "응답을 다음과 같은 JSON 배열 형식으로 작성해주세요: \n```json[\n    {\"화자\": \"사람1\", \"발화 번호\": 1, \"발화\": \"발화 내용\"},\n    {\"화자\": \"사람2\", \"발화 번호\": 2, \"발화\": \"발화 내용\"},\n    {\"화자\": \"사람1\", \"발화 번호\": 3, \"발화\": \"발화 내용\"},\n    {\"화자\": \"사람2\", \"발화 번호\": 4, \"발화\": \"발화 내용\"},\n    {\"화자\": \"사람1\", \"발화 번호\": 5, \"발화\": \"발화 내용\"},\n    {\"화자\": \"사람2\", \"발화 번호\": 6, \"발화\": \"발화 내용\"}\n]```"
             },
             'ja': {
                 "system_prompt": "あなたは二人の自然な会話を作成するアシスタントです。会話には、必ず '{meaning}' を表す擬音語・擬態語 '{word}' を自然な形で含める必要があります。全体の会話が文脈に適しており、一貫性のある流れになるようにしてください。",
                 "user_prompt_set1": "条件1: '{meaning}' を意味する擬音語・擬態語 '{word}' を自然に含む二人の会話を作成してください。\n条件2: 会話は合計 {num_turns}ターン（{num_utterances}回の発話）で構成してください。\nまず、全体の会話の流れや構成を考え、段階的に回答を作成してください。",
                 "user_prompt_set2": "条件3: '{word}' は必ず {ss_idx} 番目の発話に含めてください。必要に応じて前後の文脈を調整し、自然に馴染むようにしてください。\n条件4: ほかの発話では、擬音語・擬態語の意味を直接的に強調しすぎず、文脈に溶け込むようにしてください。\n段階的に考えながら回答を作成してください。",
                 "user_prompt_set3": "条件5: 登場人物の名前は、その言語圏で実際に使われるものにしてください。登場人物は二人です。\n条件6: 一般的な挨拶や別れの言葉（例：「こんにちは」「さようなら」）は使わず、会話の流れやキャラクターに適した表現を使用してください。\n論理的に考え、段階的に回答を作成してください。",
-                "dialogue_format": "回答を次のようなJSON配列の形式で作成してください:\n[\n    {\"話者\": \"人物1\", \"発話番号\": 1, \"発話\": \"発話内容\"},\n    {\"話者\": \"人物2\", \"発話番号\": 2, \"発話\": \"発話内容\"},\n    {\"話者\": \"人物1\", \"発話番号\": 3, \"発話\": \"発話内容\"},\n    {\"話者\": \"人物2\", \"発話番号\": 4, \"発話\": \"発話内容\"},\n    {\"話者\": \"人物1\", \"発話番号\": 5, \"発話\": \"発話内容\"},\n    {\"話者\": \"人物2\", \"発話番号\": 6, \"発話\": \"発話内容\"}\n]"
+                "dialogue_format": "回答を次のようなJSON配列の形式で作成してください:\n```json[\n    {\"話者\": \"人物1\", \"発話番号\": 1, \"発話\": \"発話内容\"},\n    {\"話者\": \"人物2\", \"発話番号\": 2, \"発話\": \"発話内容\"},\n    {\"話者\": \"人物1\", \"発話番号\": 3, \"発話\": \"発話内容\"},\n    {\"話者\": \"人物2\", \"発話番号\": 4, \"発話\": \"発話内容\"},\n    {\"話者\": \"人物1\", \"発話番号\": 5, \"発話\": \"発話内容\"},\n    {\"話者\": \"人物2\", \"発話番号\": 6, \"発話\": \"発話内容\"}\n]```"
             }
         }
         return templates
@@ -238,7 +239,7 @@ class DialogueGenerator:
             retry_count = 0 
             max_retries = 3
             
-            breakpoint()
+            # breakpoint()
             
             while retry_count < max_retries:
                 # Check if the word is in the correct utterance and not in others
@@ -487,6 +488,9 @@ class DialogueGenerator:
         # Standardize keys to English
         dialogue_text = self._replace_keys(dialogue_text)
         
+        # Standardize keys to English
+        dialogue_text = self._replace_keys(dialogue_text)
+        
         # Try to parse as JSON if it looks like a JSON array
         if dialogue_text.startswith('[') and dialogue_text.endswith(']'):
             try:
@@ -651,7 +655,7 @@ if __name__ == "__main__":
                         help='Number of dialogues to generate in a single batch (default: 16)')
     parser.add_argument('--dialogues-per-word', '-d', type=int, default=5,
                         help='Number of dialogues to generate for each word (default: 5)')
-    parser.add_argument('--step-by-step', '-s', default=True, action='store_true', help='Generate dialogues step by step (default: False)')
+    parser.add_argument('--step-by-step', '-s', default=1, type=int, help='Generate dialogues step by step. 0 is False and 1 is True. (default: 1)')
     
     args = parser.parse_args()
     
