@@ -24,7 +24,7 @@ load_dotenv(dotenv_path=env_path)
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 
 class DialogueGenerator:
-    def __init__(self, language: str, api_key: Optional[str] = None, model: str = "chatgpt-4o-latest", batch_size: int = 16, dialogues_per_word: int = 5):
+    def __init__(self, language: str, api_key: Optional[str] = None, model: str = "chatgpt-4o-latest", batch_size: int = 16, dialogues_per_word: int = 5, step_by_step: bool = False):
         """
         Initialize the dialogue generator
         
@@ -42,6 +42,7 @@ class DialogueGenerator:
         # Set batch size and dialogues per word
         self.batch_size = batch_size
         self.dialogues_per_word = dialogues_per_word
+        self.step_by_step = step_by_step
         
         # Set paths
         self.input_path = os.path.join('../1_preprocess/nat', f"{self.language}.json")
@@ -96,28 +97,28 @@ class DialogueGenerator:
                 "user_prompt_set1": "Condition 1: Generate a conversation between two people that naturally includes the onomatopoeic or mimetic word '{word}', which means '{meaning}'.\nCondition 2: The conversation must consist of {num_turns} turns ({num_utterances} utterances in total).\nFirst, consider the overall flow and structure of the conversation before constructing your response step by step.",
                 "user_prompt_set2": "Condition 3: The word '{word}' must be included in the {ss_idx}th utterance. Adjust the surrounding context if necessary to ensure smooth integration.\nCondition 4: Avoid overemphasizing the meaning of the onomatopoeic/mimetic word in other parts of the conversation—make sure it blends naturally into the dialogue.\nThink step by step before constructing your response.",
                 "user_prompt_set3": "Condition 5: Character names must be commonly used in the target language. There must be exactly two characters.\nCondition 6: Replace standard greetings or farewells (e.g., 'Hello', 'Goodbye') with contextually appropriate expressions that match the flow of the conversation and the personalities of the characters.\nThink logically and proceed step by step to generate your response.",
-                "dialogue_format": "[\n    {\"Speaker\": \"Person1\", \"Utterance Number\": 1, \"Utterance\": \"Content\"},\n    {\"Speaker\": \"Person2\", \"Utterance Number\": 2, \"Utterance\": \"Content\"},\n    {\"Speaker\": \"Person1\", \"Utterance Number\": 3, \"Utterance\": \"Content\"},\n    {\"Speaker\": \"Person2\", \"Utterance Number\": 4, \"Utterance\": \"Content\"},\n    {\"Speaker\": \"Person1\", \"Utterance Number\": 5, \"Utterance\": \"Content\"},\n    {\"Speaker\": \"Person2\", \"Utterance Number\": 6, \"Utterance\": \"Content\"}\n]"
+                "dialogue_format": "Please format your response as a JSON array like this:\n[\n    {\"Speaker\": \"Person1\", \"Utterance Number\": 1, \"Utterance\": \"Content\"},\n    {\"Speaker\": \"Person2\", \"Utterance Number\": 2, \"Utterance\": \"Content\"},\n    {\"Speaker\": \"Person1\", \"Utterance Number\": 3, \"Utterance\": \"Content\"},\n    {\"Speaker\": \"Person2\", \"Utterance Number\": 4, \"Utterance\": \"Content\"},\n    {\"Speaker\": \"Person1\", \"Utterance Number\": 5, \"Utterance\": \"Content\"},\n    {\"Speaker\": \"Person2\", \"Utterance Number\": 6, \"Utterance\": \"Content\"}\n]"
             },
             "fr": {
                 "system_prompt": "Vous êtes un assistant chargé de générer un dialogue naturel entre deux personnes. Le dialogue doit inclure l'onomatopée ou le mot expressif '{word}', qui exprime '{meaning}', de manière fluide et naturelle dans le contexte. Veillez à ce que l'ensemble du dialogue soit cohérent et contextuellement approprié.",
                 "user_prompt_set1": "Condition 1 : Générez un dialogue entre deux personnes qui inclut naturellement l'onomatopée ou le mot expressif '{word}', qui signifie '{meaning}'.\nCondition 2 : Le dialogue doit comporter {num_turns} tours de parole ({num_utterances} répliques).\nRéfléchissez d'abord à la structure générale du dialogue avant de le rédiger étape par étape.",
                 "user_prompt_set2": "Condition 3 : '{word}' doit obligatoirement apparaître dans la réplique numéro {ss_idx}. Adaptez le contexte si nécessaire pour assurer une intégration fluide.\nCondition 4 : Dans les autres parties du dialogue, évitez de trop insister sur le sens de l'onomatopée/mot expressif et privilégiez une intégration naturelle.\nRaisonnez étape par étape avant de rédiger votre réponse.",
                 "user_prompt_set3": "Condition 5 : Les noms des personnages doivent être réalistes et couramment utilisés dans la langue française. Il doit y avoir exactement deux personnages.\nCondition 6 : Remplacez les salutations et les adieux standards (ex. : « Bonjour », « Au revoir ») par des formulations adaptées au contexte et aux personnalités des personnages.\nRéfléchissez de manière logique et procédez par étapes pour générer votre réponse.",
-                "dialogue_format": "[\n    {\"Locuteur\": \"Personne1\", \"Numéro de réplique\": 1, \"Réplique\": \"Contenu\"},\n    {\"Locuteur\": \"Personne2\", \"Numéro de réplique\": 2, \"Réplique\": \"Contenu\"},\n    {\"Locuteur\": \"Personne1\", \"Numéro de réplique\": 3, \"Réplique\": \"Contenu\"},\n    {\"Locuteur\": \"Personne2\", \"Numéro de réplique\": 4, \"Réplique\": \"Contenu\"},\n    {\"Locuteur\": \"Personne1\", \"Numéro de réplique\": 5, \"Réplique\": \"Contenu\"},\n    {\"Locuteur\": \"Personne2\", \"Numéro de réplique\": 6, \"Réplique\": \"Contenu\"}\n]"
+                "dialogue_format": "Veuillez formater votre réponse comme un tableau JSON comme ceci :\n[\n    {\"Locuteur\": \"Personne1\", \"Numéro de réplique\": 1, \"Réplique\": \"Contenu\"},\n    {\"Locuteur\": \"Personne2\", \"Numéro de réplique\": 2, \"Réplique\": \"Contenu\"},\n    {\"Locuteur\": \"Personne1\", \"Numéro de réplique\": 3, \"Réplique\": \"Contenu\"},\n    {\"Locuteur\": \"Personne2\", \"Numéro de réplique\": 4, \"Réplique\": \"Contenu\"},\n    {\"Locuteur\": \"Personne1\", \"Numéro de réplique\": 5, \"Réplique\": \"Contenu\"},\n    {\"Locuteur\": \"Personne2\", \"Numéro de réplique\": 6, \"Réplique\": \"Contenu\"}\n]"
             },
             "ko": {
                 "system_prompt": "당신은 두 사람의 대화를 자연스럽게 생성하는 도우미입니다. 대화에는 반드시 '{meaning}'의 의미를 전달하는 의성어/의태어 '{word}'가 자연스레 녹아들어야 합니다. 전체 대화가 문맥에 맞고 일관된 흐름을 유지하도록 해주세요.",
                 "user_prompt_set1": "조건 1: '{meaning}'의 의미를 전달하는 의성어/의태어 '{word}'가 자연스럽게 포함된 두 사람 간의 대화를 생성합니다.\n조건 2: 대화는 총 {num_turns}턴(발화 {num_utterances}회)으로 구성됩니다.\n먼저 전체적인 대화의 흐름과 구조를 구상해보고, 단계별로 답안을 구성해 주세요.",
                 "user_prompt_set2": "조건 3: '{word}'는 반드시 {ss_idx}번째 발화 내에 포함되어야 합니다. 해당 발화가 자연스러운 문맥 내에서 이루어지도록 앞뒤 내용도 필요시 조정할 수 있습니다.\n조건 4: 대화의 다른 부분에서는 의성어/의태어의 의미가 절대 등장하지 않도록 주의하며, 문맥에 녹아들도록 표현해 주세요.\n각 단계별로 생각하며 답안을 도출해 주세요.",
                 "user_prompt_set3": "조건 5: 등장 인물의 이름은 해당 언어권에서 실제로 사용되는 이름으로 선택합니다. 인물은 총 2명이어야 합니다.\n조건 6: 전형적인 인사말이나 작별 인사(예: '안녕', '잘 가') 대신 대화의 맥락과 개성을 반영한 표현을 사용하여 문장을 구성해 주세요.\n각 단계별로 논리적으로 생각하고 답안을 구성해 주세요.",
-                "dialogue_format": "[\n    {\"화자\": \"사람1\", \"발화 번호\": 1, \"발화\": \"발화 내용\"},\n    {\"화자\": \"사람2\", \"발화 번호\": 2, \"발화\": \"발화 내용\"},\n    {\"화자\": \"사람1\", \"발화 번호\": 3, \"발화\": \"발화 내용\"},\n    {\"화자\": \"사람2\", \"발화 번호\": 4, \"발화\": \"발화 내용\"},\n    {\"화자\": \"사람1\", \"발화 번호\": 5, \"발화\": \"발화 내용\"},\n    {\"화자\": \"사람2\", \"발화 번호\": 6, \"발화\": \"발화 내용\"}\n]"
+                "dialogue_format": "응답을 다음과 같은 JSON 배열 형식으로 작성해주세요: \n[\n    {\"화자\": \"사람1\", \"발화 번호\": 1, \"발화\": \"발화 내용\"},\n    {\"화자\": \"사람2\", \"발화 번호\": 2, \"발화\": \"발화 내용\"},\n    {\"화자\": \"사람1\", \"발화 번호\": 3, \"발화\": \"발화 내용\"},\n    {\"화자\": \"사람2\", \"발화 번호\": 4, \"발화\": \"발화 내용\"},\n    {\"화자\": \"사람1\", \"발화 번호\": 5, \"발화\": \"발화 내용\"},\n    {\"화자\": \"사람2\", \"발화 번호\": 6, \"발화\": \"발화 내용\"}\n]"
             },
             'ja': {
                 "system_prompt": "あなたは二人の自然な会話を作成するアシスタントです。会話には、必ず '{meaning}' を表す擬音語・擬態語 '{word}' を自然な形で含める必要があります。全体の会話が文脈に適しており、一貫性のある流れになるようにしてください。",
                 "user_prompt_set1": "条件1: '{meaning}' を意味する擬音語・擬態語 '{word}' を自然に含む二人の会話を作成してください。\n条件2: 会話は合計 {num_turns}ターン（{num_utterances}回の発話）で構成してください。\nまず、全体の会話の流れや構成を考え、段階的に回答を作成してください。",
                 "user_prompt_set2": "条件3: '{word}' は必ず {ss_idx} 番目の発話に含めてください。必要に応じて前後の文脈を調整し、自然に馴染むようにしてください。\n条件4: ほかの発話では、擬音語・擬態語の意味を直接的に強調しすぎず、文脈に溶け込むようにしてください。\n段階的に考えながら回答を作成してください。",
                 "user_prompt_set3": "条件5: 登場人物の名前は、その言語圏で実際に使われるものにしてください。登場人物は二人です。\n条件6: 一般的な挨拶や別れの言葉（例：「こんにちは」「さようなら」）は使わず、会話の流れやキャラクターに適した表現を使用してください。\n論理的に考え、段階的に回答を作成してください。",
-                "dialogue_format": "[\n    {\"話者\": \"人物1\", \"発話番号\": 1, \"発話\": \"発話内容\"},\n    {\"話者\": \"人物2\", \"発話番号\": 2, \"発話\": \"発話内容\"},\n    {\"話者\": \"人物1\", \"発話番号\": 3, \"発話\": \"発話内容\"},\n    {\"話者\": \"人物2\", \"発話番号\": 4, \"発話\": \"発話内容\"},\n    {\"話者\": \"人物1\", \"発話番号\": 5, \"発話\": \"発話内容\"},\n    {\"話者\": \"人物2\", \"発話番号\": 6, \"発話\": \"発話内容\"}\n]"
+                "dialogue_format": "回答を次のようなJSON配列の形式で作成してください:\n[\n    {\"話者\": \"人物1\", \"発話番号\": 1, \"発話\": \"発話内容\"},\n    {\"話者\": \"人物2\", \"発話番号\": 2, \"発話\": \"発話内容\"},\n    {\"話者\": \"人物1\", \"発話番号\": 3, \"発話\": \"発話内容\"},\n    {\"話者\": \"人物2\", \"発話番号\": 4, \"発話\": \"発話内容\"},\n    {\"話者\": \"人物1\", \"発話番号\": 5, \"発話\": \"発話内容\"},\n    {\"話者\": \"人物2\", \"発話番号\": 6, \"発話\": \"発話内容\"}\n]"
             }
         }
         return templates
@@ -149,70 +150,101 @@ class DialogueGenerator:
                 num_turns=num_turns
             )
             
-            response1 = await self.async_client.chat.completions.create(
-                model=self.model,
-                messages=[
-                    {"role": "system", "content": system_prompt},
-                    {"role": "user", "content": user_prompt_set1},
-                    {"role": "user", "content": self.templates[self.language]['dialogue_format']}
-                ],
-                temperature=1,
-                max_tokens=1000
-            )
-
-            dialogue1 = response1.choices[0].message.content.strip()
-            
             # STEP 2: Apply second set of conditions to the initial dialogue
             user_prompt_set2 = self.templates[self.language]['user_prompt_set2'].format(
                 word=word,
                 ss_idx=ss_idx
             )
-            
-            response2 = await self.async_client.chat.completions.create(
-                model=self.model,
-                messages=[
-                    {"role": "system", "content": system_prompt},
-                    {"role": "user", "content": user_prompt_set1},
-                    {"role": "assistant", "content": dialogue1},
-                    {"role": "user", "content": user_prompt_set2},
-                    {"role": "user", "content": self.templates[self.language]['dialogue_format']}
-                ],
-                temperature=1,
-                max_tokens=1000
-            )
-            
-            dialogue2 = response2.choices[0].message.content.strip()
 
             # STEP 3: Apply final set of conditions
             user_prompt_set3 = self.templates[self.language]['user_prompt_set3']
+                       
+            if self.step_by_step:
+                
+                response1 = await self.async_client.chat.completions.create(
+                    model=self.model,
+                    messages=[
+                        {"role": "system", "content": system_prompt},
+                        {"role": "user", "content": user_prompt_set1},
+                        {"role": "user", "content": self.templates[self.language]['dialogue_format']}
+                    ],
+                    temperature=1,
+                    max_tokens=1000
+                )
+
+                dialogue1 = response1.choices[0].message.content.strip()
+                
+                response2 = await self.async_client.chat.completions.create(
+                    model=self.model,
+                    messages=[
+                        {"role": "system", "content": system_prompt},
+                        {"role": "user", "content": user_prompt_set1},
+                        {"role": "assistant", "content": dialogue1},
+                        {"role": "user", "content": user_prompt_set2},
+                        {"role": "user", "content": self.templates[self.language]['dialogue_format']}
+                    ],
+                    temperature=1,
+                    max_tokens=1000
+                )
+                
+                dialogue2 = response2.choices[0].message.content.strip()
+                
+                response3 = await self.async_client.chat.completions.create(
+                    model=self.model,
+                    messages=[
+                        {"role": "system", "content": system_prompt},
+                        {"role": "user", "content": user_prompt_set1},
+                        {"role": "user", "content": user_prompt_set2},
+                        {"role": "assistant", "content": dialogue2},
+                        {"role": "user", "content": user_prompt_set3},
+                        {"role": "user", "content": self.templates[self.language]['dialogue_format']}
+                    ],
+                    temperature=1,
+                    max_tokens=1000
+                )
             
-            response3 = await self.async_client.chat.completions.create(
-                model=self.model,
-                messages=[
-                    {"role": "system", "content": system_prompt},
-                    {"role": "user", "content": user_prompt_set1},
-                    {"role": "user", "content": user_prompt_set2},
-                    {"role": "assistant", "content": dialogue2},
-                    {"role": "user", "content": user_prompt_set3},
-                    {"role": "user", "content": self.templates[self.language]['dialogue_format']}
-                ],
-                temperature=1,
-                max_tokens=1000
-            )
+            else:
+                response3 = await self.async_client.chat.completions.create(
+                    model=self.model,
+                    messages=[
+                        {"role": "system", "content": system_prompt},
+                        {"role": "user", "content": user_prompt_set1},
+                        {"role": "user", "content": user_prompt_set2},
+                        {"role": "user", "content": user_prompt_set3},
+                        {"role": "user", "content": self.templates[self.language]['dialogue_format']}
+                    ],
+                    temperature=1,
+                    max_tokens=1000
+                )
             
             final_dialogue = response3.choices[0].message.content.strip()
             
             # Parse the final dialogue
             parsed_dialogue = self._parse_dialogue(final_dialogue)
             
+            # Check for JSON code blocks and extract content if needed
+            match = re.search(r"```json.*?\n(\[.*?\])", final_dialogue, re.DOTALL)
+            if match:
+                json_content = match.group(1)
+                # Replace keys to standardized English format
+                json_content = self._replace_keys(json_content)
+                try:
+                    parsed_dialogue = json.loads(json_content)
+                except json.JSONDecodeError:
+                    # If parsing fails, keep the original parsed dialogue
+                    pass
+            
             # Verify that the word appears in the correct utterance
             retry_count = 0 
             max_retries = 3
+            
+            breakpoint()
             
             while retry_count < max_retries:
                 # Check if the word is in the correct utterance and not in others
                 word_in_correct_place = False
                 word_in_wrong_place = False
+                correct_utterance_num = False
                 
                 for i, utterance in enumerate(parsed_dialogue):
                     utterance_text = utterance.get("text", "") if isinstance(utterance, dict) else ""
@@ -222,18 +254,48 @@ class DialogueGenerator:
                     else:
                         if word in utterance_text:
                             word_in_wrong_place = True
+                    if len(parsed_dialogue) == num_utterances:
+                        correct_utterance_num = True
+                        
                 
-                if word_in_correct_place and not word_in_wrong_place:
+                if word_in_correct_place and not word_in_wrong_place and correct_utterance_num:
                     break
                 
                 # If validation fails, retry with more explicit instructions
                 retry_count += 1
                 
-                # Create a more explicit prompt for fixing the dialogue
-                fix_prompt = f"""The dialogue needs to be fixed. The word '{word}' must ONLY appear in the {ss_idx}th utterance, not in any other utterance.
-                    Current dialogue: {final_dialogue}
-                    Please rewrite the dialogue to fix this issue. Make sure the word '{word}' appears only in utterance #{ss_idx}.
-                    {self.templates[self.language]['dialogue_format']}"""
+                # Create language-specific fix prompts
+                if self.language == 'en':
+                    fix_prompt = f"""The dialogue needs to be fixed. The word '{word}' must ONLY appear in the {ss_idx}th utterance, not in any other utterance.
+                        Current dialogue: {parsed_dialogue}
+                        Please rewrite the dialogue to fix this issue. Make sure the word '{word}' appears only in utterance #{ss_idx}.
+                        #### Please format your response as a JSON array like this:
+                        {self.templates[self.language]['dialogue_format'].split('####')[1]}"""
+                elif self.language == 'fr':
+                    fix_prompt = f"""Le dialogue doit être corrigé. Le mot '{word}' doit apparaître UNIQUEMENT dans la {ss_idx}ème réplique, et dans aucune autre.
+                        Dialogue actuel : {parsed_dialogue}
+                        Veuillez réécrire le dialogue pour corriger ce problème. Assurez-vous que le mot '{word}' n'apparaît que dans la réplique n°{ss_idx}.
+                        #### Veuillez formater votre réponse comme un tableau JSON comme ceci :
+                        {self.templates[self.language]['dialogue_format'].split('####')[1]}"""
+                elif self.language == 'ko':
+                    fix_prompt = f"""대화를 수정해야 합니다. '{word}' 단어는 반드시 {ss_idx}번째 발화에만 나타나야 하며, 다른 발화에는 나타나면 안 됩니다.
+                        현재 대화: {parsed_dialogue}
+                        이 문제를 해결하기 위해 대화를 다시 작성해 주세요. '{word}' 단어가 {ss_idx}번째 발화에만 나타나도록 해주세요.
+                        #### 응답을 다음과 같은 JSON 배열 형식으로 작성해주세요:
+                        {self.templates[self.language]['dialogue_format'].split('####')[1]}"""
+                elif self.language == 'ja':
+                    fix_prompt = f"""対話を修正する必要があります。単語「{word}」は{ss_idx}番目の発話にのみ出現し、他の発話には出現してはいけません。
+                        現在の対話: {parsed_dialogue}
+                        この問題を修正するために対話を書き直してください。「{word}」が{ss_idx}番目の発話にのみ出現するようにしてください。
+                        #### 回答を次のようなJSON配列の形式で作成してください:
+                        {self.templates[self.language]['dialogue_format'].split('####')[1]}"""
+                else:
+                    # Fallback to English if language is not supported
+                    fix_prompt = f"""The dialogue needs to be fixed. The word '{word}' must ONLY appear in the {ss_idx}th utterance, not in any other utterance.
+                        Current dialogue: {parsed_dialogue}
+                        Please rewrite the dialogue to fix this issue. Make sure the word '{word}' appears only in utterance #{ss_idx}.
+                        #### Please format your response as a JSON array like this:
+                        {self.templates[self.language]['dialogue_format'].split('####')[1]}"""
                 
                 fix_response = await self.async_client.chat.completions.create(
                     model=self.model,
@@ -373,6 +435,44 @@ class DialogueGenerator:
             # Keep English letters and numbers
             return re.sub(r'[^a-zA-Z0-9\s]', '', speaker).strip()
     
+    def _replace_keys(self, dialogue_text: str) -> str:
+        """
+        Replace language-specific keys with standardized English keys
+        
+        Args:
+            dialogue_text (str): The dialogue text with language-specific keys
+            
+        Returns:
+            str: The dialogue text with standardized English keys
+        """
+        if self.language == 'ko':
+            # Korean key replacements
+            dialogue_text = dialogue_text.replace('"화자"', '"speaker"')
+            dialogue_text = dialogue_text.replace('"발화 번호"', '"index"')
+            dialogue_text = dialogue_text.replace('"발화"', '"text"')
+        elif self.language == 'ja':
+            # Japanese key replacements
+            dialogue_text = dialogue_text.replace('"話者"', '"speaker"')
+            dialogue_text = dialogue_text.replace('"発話番号"', '"index"')
+            dialogue_text = dialogue_text.replace('"発話"', '"text"')
+        elif self.language == 'fr':
+            # French key replacements
+            dialogue_text = dialogue_text.replace('"Locuteur"', '"speaker"')
+            dialogue_text = dialogue_text.replace('"Numéro de réplique"', '"index"')
+            dialogue_text = dialogue_text.replace('"Réplique"', '"text"')
+        elif self.language == 'en':
+            # English key replacements (might have different formats)
+            dialogue_text = dialogue_text.replace('"Speaker"', '"speaker"')
+            dialogue_text = dialogue_text.replace('"Utterance Number"', '"index"')
+            dialogue_text = dialogue_text.replace('"Utterance"', '"text"')
+            
+        # Additional replacements for other possible key formats
+        dialogue_text = dialogue_text.replace('"utterance_number"', '"index"')
+        dialogue_text = dialogue_text.replace('"speaker_name"', '"speaker"')
+        dialogue_text = dialogue_text.replace('"utterance_text"', '"text"')
+        
+        return dialogue_text
+    
     def _parse_dialogue(self, dialogue_text: str) -> List[Dict[str, str]]:
         """Parse dialogue text into a structured list of utterances"""
         result = []
@@ -380,8 +480,12 @@ class DialogueGenerator:
         # Clean up the dialogue text
         dialogue_text = dialogue_text.strip()
         
-        # Remove any markdown code block formatting
+        # Remove any markdown code block formatting and #### headers
         dialogue_text = re.sub(r'```(?:json)?\s*|\s*```', '', dialogue_text)
+        dialogue_text = re.sub(r'####.*?\n', '', dialogue_text)
+        
+        # Standardize keys to English
+        dialogue_text = self._replace_keys(dialogue_text)
         
         # Try to parse as JSON if it looks like a JSON array
         if dialogue_text.startswith('[') and dialogue_text.endswith(']'):
@@ -391,261 +495,21 @@ class DialogueGenerator:
                 if isinstance(parsed_list, list):
                     for item in parsed_list:
                         if isinstance(item, dict):
-                            # Handle different key formats based on language
-                            if self.language == 'ko':
-                                # Check if we need to parse from the text field
-                                if 'speaker' in item and 'text' in item and item['text'].startswith('{"화자"'):
-                                    try:
-                                        # Extract the embedded JSON from the text field
-                                        text_content = item['text']
-                                        # Find where the actual text part begins
-                                        parts = text_content.split('발화": "', 1)
-                                        if len(parts) == 2:
-                                            # Extract the actual text (removing the trailing "})
-                                            actual_text = parts[1].rsplit('"}', 1)[0]
-                                            
-                                            # Extract speaker name
-                                            speaker_match = re.search(r'"화자"\s*:\s*"([^"]+)"', text_content)
-                                            speaker = speaker_match.group(1) if speaker_match else ""
-                                            # Clean speaker name
-                                            speaker = self._clean_speaker_name(speaker)
-                                            
-                                            # Extract index
-                                            index_match = re.search(r'"발화 번호"\s*:\s*(\d+)', text_content)
-                                            index = int(index_match.group(1)) if index_match else 0
-                                            
-                                            result.append({
-                                                "speaker": speaker,
-                                                "index": index,
-                                                "text": actual_text
-                                            })
-                                        else:
-                                            # Fallback if parsing fails
-                                            speaker = item.get('speaker', '')
-                                            # Clean speaker name
-                                            speaker = self._clean_speaker_name(speaker)
-                                            
-                                            result.append({
-                                                "speaker": speaker,
-                                                "index": item.get('index', 0),
-                                                "text": item.get('text', '')
-                                            })
-                                    except Exception as e:
-                                        print(f"Error parsing Korean dialogue: {e}")
-                                        speaker = item.get('speaker', '')
-                                        # Clean speaker name
-                                        speaker = self._clean_speaker_name(speaker)
-                                        
-                                        result.append({
-                                            "speaker": speaker,
-                                            "index": item.get('index', 0),
-                                            "text": item.get('text', '')
-                                        })
-                                else:
-                                    # Normal case where fields are already properly separated
-                                    speaker = item.get('화자', '')
-                                    # Clean speaker name
-                                    speaker = self._clean_speaker_name(speaker)
-                                    
-                                    utterance_num = item.get('발화 번호', 0)
-                                    text = item.get('발화', '')
-                                    
-                                    result.append({
-                                        "speaker": speaker,
-                                        "index": utterance_num,
-                                        "text": text
-                                    })
-                            elif self.language == 'ja':
-                                # Check if we need to parse from the text field
-                                if 'speaker' in item and 'text' in item and item['text'].startswith('{"話者"'):
-                                    try:
-                                        # Extract the embedded JSON from the text field
-                                        text_content = item['text']
-                                        # Find where the actual text part begins
-                                        breakpoint()
-                                        parts = text_content.split('発話": "', 1)
-                                        if len(parts) == 2:
-                                            # Extract the actual text (removing the trailing "})
-                                            actual_text = parts[1].rsplit('"}', 1)[0]
-                                            
-                                            # Extract speaker name
-                                            speaker_match = re.search(r'"話者"\s*:\s*"([^"]+)"', text_content)
-                                            speaker = speaker_match.group(1) if speaker_match else ""
-                                            # Clean speaker name
-                                            speaker = self._clean_speaker_name(speaker)
-                                            
-                                            # Extract index
-                                            index_match = re.search(r'"発話番号"\s*:\s*(\d+)', text_content)
-                                            index = int(index_match.group(1)) if index_match else 0
-                                            
-                                            result.append({
-                                                "speaker": speaker,
-                                                "index": index,
-                                                "text": actual_text
-                                            })
-                                        else:
-                                            # Fallback if parsing fails
-                                            speaker = item.get('speaker', '')
-                                            # Clean speaker name
-                                            speaker = self._clean_speaker_name(speaker)
-                                            
-                                            result.append({
-                                                "speaker": speaker,
-                                                "index": item.get('index', 0),
-                                                "text": item.get('text', '')
-                                            })
-                                    except Exception as e:
-                                        print(f"Error parsing Japanese dialogue: {e}")
-                                        speaker = item.get('speaker', '')
-                                        # Clean speaker name
-                                        speaker = self._clean_speaker_name(speaker)
-                                        
-                                        result.append({
-                                            "speaker": speaker,
-                                            "index": item.get('index', 0),
-                                            "text": item.get('text', '')
-                                        })
-                                else:
-                                    # Normal case where fields are already properly separated
-                                    speaker = item.get('話者', '')
-                                    # Clean speaker name
-                                    speaker = self._clean_speaker_name(speaker)
-                                    
-                                    utterance_num = item.get('発話番号', 0)
-                                    text = item.get('発話', '')
-                                    
-                                    result.append({
-                                        "speaker": speaker,
-                                        "index": utterance_num,
-                                        "text": text
-                                    })
-                            elif self.language == 'fr':
-                                # Check if we need to parse from the text field
-                                if 'speaker' in item and 'text' in item and isinstance(item['text'], str) and item['text'].startswith('{"speaker"'):
-                                    try:
-                                        # Extract the embedded JSON from the text field
-                                        text_content = item['text']
-                                        # Find where the actual text part begins
-                                        parts = text_content.split('text": "', 1)
-                                        if len(parts) == 2:
-                                            # Extract the actual text (removing the trailing "})
-                                            actual_text = parts[1].rsplit('"}', 1)[0]
-                                            
-                                            # Extract speaker name
-                                            speaker_match = re.search(r'"speaker"\s*:\s*"([^"]+)"', text_content)
-                                            speaker = speaker_match.group(1) if speaker_match else ""
-                                            # Clean speaker name
-                                            speaker = self._clean_speaker_name(speaker)
-                                            
-                                            # Extract index
-                                            index_match = re.search(r'"utterance_number"\s*:\s*(\d+)', text_content)
-                                            index = int(index_match.group(1)) if index_match else 0
-                                            
-                                            result.append({
-                                                "speaker": speaker,
-                                                "index": index,
-                                                "text": actual_text
-                                            })
-                                        else:
-                                            # Fallback if parsing fails
-                                            speaker = item.get('speaker', '')
-                                            # Clean speaker name
-                                            speaker = self._clean_speaker_name(speaker)
-                                            
-                                            result.append({
-                                                "speaker": speaker,
-                                                "index": item.get('index', 0),
-                                                "text": item.get('text', '')
-                                            })
-                                    except Exception as e:
-                                        print(f"Error parsing French dialogue: {e}")
-                                        speaker = item.get('speaker', '')
-                                        # Clean speaker name
-                                        speaker = self._clean_speaker_name(speaker)
-                                        
-                                        result.append({
-                                            "speaker": speaker,
-                                            "index": item.get('index', 0),
-                                            "text": item.get('text', '')
-                                        })
-                                else:
-                                    # Normal case where fields are already properly separated
-                                    speaker = item.get('speaker', '')
-                                    # Clean speaker name
-                                    speaker = self._clean_speaker_name(speaker)
-                                    
-                                    utterance_num = item.get('utterance_number', 0)
-                                    text = item.get('text', '')
-                                    
-                                    result.append({
-                                        "speaker": speaker,
-                                        "index": utterance_num,
-                                        "text": text
-                                    })
-                            else:  # en
-                                # Check if we need to parse from the text field
-                                if 'speaker' in item and 'text' in item and isinstance(item['text'], str) and item['text'].startswith('{"speaker"'):
-                                    try:
-                                        # Extract the embedded JSON from the text field
-                                        text_content = item['text']
-                                        # Find where the actual text part begins
-                                        parts = text_content.split('text": "', 1)
-                                        if len(parts) == 2:
-                                            # Extract the actual text (removing the trailing "})
-                                            actual_text = parts[1].rsplit('"}', 1)[0]
-                                            
-                                            # Extract speaker name
-                                            speaker_match = re.search(r'"speaker"\s*:\s*"([^"]+)"', text_content)
-                                            speaker = speaker_match.group(1) if speaker_match else ""
-                                            # Clean speaker name
-                                            speaker = self._clean_speaker_name(speaker)
-                                            
-                                            # Extract index
-                                            index_match = re.search(r'"utterance_number"\s*:\s*(\d+)', text_content)
-                                            index = int(index_match.group(1)) if index_match else 0
-                                            
-                                            result.append({
-                                                "speaker": speaker,
-                                                "index": index,
-                                                "text": actual_text
-                                            })
-                                        else:
-                                            # Fallback if parsing fails
-                                            speaker = item.get('speaker', '')
-                                            # Clean speaker name
-                                            speaker = self._clean_speaker_name(speaker)
-                                            
-                                            result.append({
-                                                "speaker": speaker,
-                                                "index": item.get('index', 0),
-                                                "text": item.get('text', '')
-                                            })
-                                    except Exception as e:
-                                        print(f"Error parsing English dialogue: {e}")
-                                        speaker = item.get('speaker', '')
-                                        # Clean speaker name
-                                        speaker = self._clean_speaker_name(speaker)
-                                        
-                                        result.append({
-                                            "speaker": speaker,
-                                            "index": item.get('index', 0),
-                                            "text": item.get('text', '')
-                                        })
-                                else:
-                                    # Normal case where fields are already properly separated
-                                    speaker = item.get('speaker', '')
-                                    # Clean speaker name
-                                    speaker = self._clean_speaker_name(speaker)
-                                    
-                                    utterance_num = item.get('utterance_number', 0)
-                                    text = item.get('text', '')
-                                    
-                                    result.append({
-                                        "speaker": speaker,
-                                        "index": utterance_num,
-                                        "text": text
-                                    })
-                return result
+                            # Keys should now be standardized to English
+                            speaker = item.get('speaker', '')
+                            # Clean speaker name
+                            speaker = self._clean_speaker_name(speaker)
+                            
+                            # Get index and text with standardized keys
+                            utterance_num = item.get('index', 0)
+                            text = item.get('text', '')
+                            
+                            result.append({
+                                "speaker": speaker,
+                                "index": utterance_num,
+                                "text": text
+                            })
+                    return result
             except json.JSONDecodeError:
                 # If JSON parsing fails, continue to other methods
                 pass
@@ -656,19 +520,14 @@ class DialogueGenerator:
             if isinstance(parsed_list, list):
                 for item in parsed_list:
                     if isinstance(item, dict):
-                        # Similar handling as above
-                        if self.language == 'ko':
-                            speaker = item.get('화자', '')
-                            utterance_num = item.get('발화 번호', 0)
-                            text = item.get('발화', '')
-                        elif self.language == 'ja':
-                            speaker = item.get('話者', '')
-                            utterance_num = item.get('発話番号', 0)
-                            text = item.get('発話', '')
-                        else:  # en, fr
-                            speaker = item.get('speaker', '')
-                            utterance_num = item.get('utterance_number', 0)
-                            text = item.get('text', '')
+                        # Keys should now be standardized to English
+                        speaker = item.get('speaker', '')
+                        # Clean speaker name
+                        speaker = self._clean_speaker_name(speaker)
+                        
+                        # Get index and text with standardized keys
+                        utterance_num = item.get('index', 0)
+                        text = item.get('text', '')
                         
                         result.append({
                             "speaker": speaker,
@@ -792,6 +651,7 @@ if __name__ == "__main__":
                         help='Number of dialogues to generate in a single batch (default: 16)')
     parser.add_argument('--dialogues-per-word', '-d', type=int, default=5,
                         help='Number of dialogues to generate for each word (default: 5)')
+    parser.add_argument('--step-by-step', '-s', default=True, action='store_true', help='Generate dialogues step by step (default: False)')
     
     args = parser.parse_args()
     
@@ -799,7 +659,8 @@ if __name__ == "__main__":
         language=args.language,
         model=args.model,
         batch_size=args.batch_size,
-        dialogues_per_word=args.dialogues_per_word
+        dialogues_per_word=args.dialogues_per_word,
+        step_by_step=args.step_by_step
     )
     
     generator.run(limit=args.limit, shuffle=not args.no_shuffle)
