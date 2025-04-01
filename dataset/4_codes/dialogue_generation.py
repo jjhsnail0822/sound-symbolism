@@ -483,6 +483,10 @@ class DialogueGenerator:
         
         # Remove any markdown code block formatting and #### headers
         dialogue_text = re.sub(r'```(?:json)?\s*|\s*```', '', dialogue_text)
+        dialogue_text = re.sub(r'####.*?\n', '', dialogue_text)
+        
+        # Standardize keys to English
+        dialogue_text = self._replace_keys(dialogue_text)
         
         # Standardize keys to English
         dialogue_text = self._replace_keys(dialogue_text)
