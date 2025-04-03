@@ -94,25 +94,25 @@ class DialogueGenerator:
         """Get language-specific templates for prompts"""
         templates = {
             'en': {
-                "system_prompt": "You are an assistant tasked with generating a natural conversation between two people. The dialogue must naturally include the onomatopoeic or mimetic word '{word}', which conveys the meaning '{meaning}'. Ensure that the entire conversation is contextually appropriate and maintains a coherent flow.",
-                "user_prompt_set1": "Condition 1: Generate a conversation between two people that naturally includes the onomatopoeic or mimetic word '{word}', which means '{meaning}'.\nCondition 2: The conversation must consist of {num_turns} turns ({num_utterances} utterances in total).\nFirst, consider the overall flow and structure of the conversation before constructing your response step by step.",
-                "user_prompt_set2": "Condition 3: The word '{word}' must be included in the {ss_idx}th utterance. Adjust the surrounding context if necessary to ensure smooth integration.\nCondition 4: Avoid overemphasizing the meaning of the onomatopoeic/mimetic word in other parts of the conversation—make sure it blends naturally into the dialogue.\nThink step by step before constructing your response.",
-                "user_prompt_set3": "Condition 5: Character names must be commonly used in the target language. There must be exactly two characters.\nCondition 6: Replace standard greetings or farewells (e.g., 'Hello', 'Goodbye') with contextually appropriate expressions that match the flow of the conversation and the personalities of the characters.\nThink logically and proceed step by step to generate your response.",
+                "system_prompt": "You are an assistant that generates a natural conversation between two people. The dialog should be naturally infused with onomatopoeia/mimetic word '{word}' that conveys the meaning of '{meaning}'. Make sure the whole dialog is contextualized and has a consistent flow.",
+                "user_prompt_set1": "Condition 1: Generate a dialog between two people that naturally contains the onomatopoeia/mimetic word '{word}' that conveys the meaning of '{meaning}'.\nCondition 2: The dialog consists of a total of {num_turns} turns ({num_utterances} utterances).\nFirst try to envision the overall flow and structure of the dialog, and then organize your answer step by step.",
+                "user_prompt_set2": "Condition 3: '{word}' must be contained within the {ss_idx}th utterance; the preceding and following utterances can be adjusted as needed to keep the utterance within its natural context.\nCondition 4: Make sure that the meaning of the onomatopoeia/mimetic word never appears in any other part of the conversation, and that it fits into the context.\nThink through each step to deduce at your answer.",
+                "user_prompt_set3": "Condition 5: Choose names for your characters that are actually used in their language group. There must be a total of two characters.\nCondition 6: Instead of using typical greetings or farewells (e.g., “hello” or “goodbye”), construct sentences using expressions that reflect the context and personality of the conversation.\nThink logically through each step and organize your answer.",
                 "dialogue_format": "Please format your response as a JSON array like this:\n```json[\n    {\"Speaker\": \"Person1\", \"Utterance Number\": 1, \"Utterance\": \"Content\"},\n    {\"Speaker\": \"Person2\", \"Utterance Number\": 2, \"Utterance\": \"Content\"},\n    {\"Speaker\": \"Person1\", \"Utterance Number\": 3, \"Utterance\": \"Content\"},\n    {\"Speaker\": \"Person2\", \"Utterance Number\": 4, \"Utterance\": \"Content\"},\n    {\"Speaker\": \"Person1\", \"Utterance Number\": 5, \"Utterance\": \"Content\"},\n    {\"Speaker\": \"Person2\", \"Utterance Number\": 6, \"Utterance\": \"Content\"}\n]```"
             },
             "fr": {
-                "system_prompt": "Vous êtes un assistant chargé de générer un dialogue naturel entre deux personnes. Le dialogue doit inclure l'onomatopée ou le mot expressif '{word}', qui exprime '{meaning}', de manière fluide et naturelle dans le contexte. Veillez à ce que l'ensemble du dialogue soit cohérent et contextuellement approprié.",
-                "user_prompt_set1": "Condition 1 : Générez un dialogue entre deux personnes qui inclut naturellement l'onomatopée ou le mot expressif '{word}', qui signifie '{meaning}'.\nCondition 2 : Le dialogue doit comporter {num_turns} tours de parole ({num_utterances} répliques).\nRéfléchissez d'abord à la structure générale du dialogue avant de le rédiger étape par étape.",
-                "user_prompt_set2": "Condition 3 : '{word}' doit obligatoirement apparaître dans la réplique numéro {ss_idx}. Adaptez le contexte si nécessaire pour assurer une intégration fluide.\nCondition 4 : Dans les autres parties du dialogue, évitez de trop insister sur le sens de l'onomatopée/mot expressif et privilégiez une intégration naturelle.\nRaisonnez étape par étape avant de rédiger votre réponse.",
-                "user_prompt_set3": "Condition 5 : Les noms des personnages doivent être réalistes et couramment utilisés dans la langue française. Il doit y avoir exactement deux personnages.\nCondition 6 : Remplacez les salutations et les adieux standards (ex. : « Bonjour », « Au revoir ») par des formulations adaptées au contexte et aux personnalités des personnages.\nRéfléchissez de manière logique et procédez par étapes pour générer votre réponse.",
-                "dialogue_format": "Veuillez formater votre réponse comme un tableau JSON comme ceci :\n```json[\n    {\"Locuteur\": \"Personne1\", \"Numéro de réplique\": 1, \"Réplique\": \"Contenu\"},\n    {\"Locuteur\": \"Personne2\", \"Numéro de réplique\": 2, \"Réplique\": \"Contenu\"},\n    {\"Locuteur\": \"Personne1\", \"Numéro de réplique\": 3, \"Réplique\": \"Contenu\"},\n    {\"Locuteur\": \"Personne2\", \"Numéro de réplique\": 4, \"Réplique\": \"Contenu\"},\n    {\"Locuteur\": \"Personne1\", \"Numéro de réplique\": 5, \"Réplique\": \"Contenu\"},\n    {\"Locuteur\": \"Personne2\", \"Numéro de réplique\": 6, \"Réplique\": \"Contenu\"}\n]```"
+                "system_prompt": "Vous êtes un assistant qui crée un dialogue naturel entre deux personnes. Le dialogue doit être naturellement imprégné d'onomatopées/idéophones « {word} » qui véhiculent le sens de « {meaning} ». Veillez à ce que l'ensemble du dialogue soit contextuel et s'enchaîne de manière cohérente.",
+                "user_prompt_set1": "Condition 1 : Générer un dialogue entre deux personnes qui contient naturellement l'onomatopée/idéophones « {word} » qui transmet le sens de « {meaning} ».\nCondition 2 : Le dialogue consiste en un total de {num_turns} tours ({num_utterances} énoncés).\nTentez d'abord d'imaginer le flux et la structure du dialogue global, puis organisez votre réponse étape par étape.",
+                "user_prompt_set2": "Condition 3 : « {word} » doit être contenu dans le {ss_idx}ème énoncé ; les énoncés précédents et suivants peuvent être ajustés si nécessaire pour garantir que l'énoncé se trouve dans son contexte naturel.\nCondition 4 : Veillez à ne pas utiliser l'onomatopée/idéophone dans une autre partie du dialogue, et essayez de l'intégrer dans le contexte.\nRéfléchissez à chaque étape pour parvenir à votre réponse.",
+                "user_prompt_set3": "Condition 5 : Choisissez pour vos personnages des noms qui sont réellement utilisés dans leur zone linguistique. Il doit y avoir deux personnages au total.\nCondition 6 : Au lieu d'utiliser des salutations ou des adieux typiques (par exemple, « bonjour », « au revoir »), construisez des phrases en utilisant des expressions qui reflètent le contexte et la personnalité du dialogue.\nRéfléchissez logiquement à chaque étape et structurez votre réponse.",
+                "dialogue_format": "Veuillez formater votre réponse sous la forme d'un tableau JSON comme suit:\n```json[\n    {\"Locuteur\": \"Personne1\", \"Numéro de réplique\": 1, \"Réplique\": \"Contenu\"},\n    {\"Locuteur\": \"Personne2\", \"Numéro de réplique\": 2, \"Réplique\": \"Contenu\"},\n    {\"Locuteur\": \"Personne1\", \"Numéro de réplique\": 3, \"Réplique\": \"Contenu\"},\n    {\"Locuteur\": \"Personne2\", \"Numéro de réplique\": 4, \"Réplique\": \"Contenu\"},\n    {\"Locuteur\": \"Personne1\", \"Numéro de réplique\": 5, \"Réplique\": \"Contenu\"},\n    {\"Locuteur\": \"Personne2\", \"Numéro de réplique\": 6, \"Réplique\": \"Contenu\"}\n]```"
             },
             "ko": {
                 "system_prompt": "당신은 두 사람의 대화를 자연스럽게 생성하는 도우미입니다. 대화에는 반드시 '{meaning}'의 의미를 전달하는 의성어/의태어 '{word}'가 자연스레 녹아들어야 합니다. 전체 대화가 문맥에 맞고 일관된 흐름을 유지하도록 해주세요.",
                 "user_prompt_set1": "조건 1: '{meaning}'의 의미를 전달하는 의성어/의태어 '{word}'가 자연스럽게 포함된 두 사람 간의 대화를 생성합니다.\n조건 2: 대화는 총 {num_turns}턴(발화 {num_utterances}회)으로 구성됩니다.\n먼저 전체적인 대화의 흐름과 구조를 구상해보고, 단계별로 답안을 구성해 주세요.",
                 "user_prompt_set2": "조건 3: '{word}'는 반드시 {ss_idx}번째 발화 내에 포함되어야 합니다. 해당 발화가 자연스러운 문맥 내에서 이루어지도록 앞뒤 내용도 필요시 조정할 수 있습니다.\n조건 4: 대화의 다른 부분에서는 의성어/의태어의 의미가 절대 등장하지 않도록 주의하며, 문맥에 녹아들도록 표현해 주세요.\n각 단계별로 생각하며 답안을 도출해 주세요.",
                 "user_prompt_set3": "조건 5: 등장 인물의 이름은 해당 언어권에서 실제로 사용되는 이름으로 선택합니다. 인물은 총 2명이어야 합니다.\n조건 6: 전형적인 인사말이나 작별 인사(예: '안녕', '잘 가') 대신 대화의 맥락과 개성을 반영한 표현을 사용하여 문장을 구성해 주세요.\n각 단계별로 논리적으로 생각하고 답안을 구성해 주세요.",
-                "dialogue_format": "응답을 다음과 같은 JSON 배열 형식으로 작성해주세요: \n```json[\n    {\"화자\": \"사람1\", \"발화 번호\": 1, \"발화\": \"발화 내용\"},\n    {\"화자\": \"사람2\", \"발화 번호\": 2, \"발화\": \"발화 내용\"},\n    {\"화자\": \"사람1\", \"발화 번호\": 3, \"발화\": \"발화 내용\"},\n    {\"화자\": \"사람2\", \"발화 번호\": 4, \"발화\": \"발화 내용\"},\n    {\"화자\": \"사람1\", \"발화 번호\": 5, \"발화\": \"발화 내용\"},\n    {\"화자\": \"사람2\", \"발화 번호\": 6, \"발화\": \"발화 내용\"}\n]```"
+                "dialogue_format": "응답을 다음과 같은 JSON 배열 형식으로 작성해주세요:\n```json[\n    {\"화자\": \"사람1\", \"발화 번호\": 1, \"발화\": \"내용\"},\n    {\"화자\": \"사람2\", \"발화 번호\": 2, \"발화\": \"내용\"},\n    {\"화자\": \"사람1\", \"발화 번호\": 3, \"발화\": \"내용\"},\n    {\"화자\": \"사람2\", \"발화 번호\": 4, \"발화\": \"내용\"},\n    {\"화자\": \"사람1\", \"발화 번호\": 5, \"발화\": \"내용\"},\n    {\"화자\": \"사람2\", \"발화 번호\": 6, \"발화\": \"내용\"}\n]```"
             },
             'ja': {
                 "system_prompt": "あなたは二人の自然な会話を作成するアシスタントです。会話には、必ず '{meaning}' を表す擬音語・擬態語 '{word}' を自然な形で含める必要があります。全体の会話が文脈に適しており、一貫性のある流れになるようにしてください。",
@@ -270,26 +270,26 @@ class DialogueGenerator:
                     fix_prompt = f"""The dialogue needs to be fixed. The word '{word}' must ONLY appear in the {ss_idx}th utterance, not in any other utterance.
                         Current dialogue: {parsed_dialogue}
                         Please rewrite the dialogue to fix this issue. Make sure the word '{word}' appears only in utterance #{ss_idx}.
-                        #### Please format your response as a JSON array like this:
-                        {self.templates[self.language]['dialogue_format'].split('####')[1]}"""
+                        Please format your response as a JSON array like this:
+                        {self.templates[self.language]['dialogue_format']}"""
                 elif self.language == 'fr':
                     fix_prompt = f"""Le dialogue doit être corrigé. Le mot '{word}' doit apparaître UNIQUEMENT dans la {ss_idx}ème réplique, et dans aucune autre.
                         Dialogue actuel : {parsed_dialogue}
                         Veuillez réécrire le dialogue pour corriger ce problème. Assurez-vous que le mot '{word}' n'apparaît que dans la réplique n°{ss_idx}.
-                        #### Veuillez formater votre réponse comme un tableau JSON comme ceci :
-                        {self.templates[self.language]['dialogue_format'].split('####')[1]}"""
+                        Veuillez formater votre réponse comme un tableau JSON comme ceci :
+                        {self.templates[self.language]['dialogue_format']}"""
                 elif self.language == 'ko':
                     fix_prompt = f"""대화를 수정해야 합니다. '{word}' 단어는 반드시 {ss_idx}번째 발화에만 나타나야 하며, 다른 발화에는 나타나면 안 됩니다.
                         현재 대화: {parsed_dialogue}
                         이 문제를 해결하기 위해 대화를 다시 작성해 주세요. '{word}' 단어가 {ss_idx}번째 발화에만 나타나도록 해주세요.
-                        #### 응답을 다음과 같은 JSON 배열 형식으로 작성해주세요:
-                        {self.templates[self.language]['dialogue_format'].split('####')[1]}"""
+                        응답을 다음과 같은 JSON 배열 형식으로 작성해주세요:
+                        {self.templates[self.language]['dialogue_format']}"""
                 elif self.language == 'ja':
                     fix_prompt = f"""対話を修正する必要があります。単語「{word}」は{ss_idx}番目の発話にのみ出現し、他の発話には出現してはいけません。
                         現在の対話: {parsed_dialogue}
                         この問題を修正するために対話を書き直してください。「{word}」が{ss_idx}番目の発話にのみ出現するようにしてください。
-                        #### 回答を次のようなJSON配列の形式で作成してください:
-                        {self.templates[self.language]['dialogue_format'].split('####')[1]}"""
+                        回答を次のようなJSON配列の形式で作成してください:
+                        {self.templates[self.language]['dialogue_format']}"""
                 else:
                     # Fallback to English if language is not supported
                     fix_prompt = f"""The dialogue needs to be fixed. The word '{word}' must ONLY appear in the {ss_idx}th utterance, not in any other utterance.
