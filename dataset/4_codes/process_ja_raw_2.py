@@ -24,13 +24,13 @@ for word in ja_words:
                     else '大辞林 第四版' if word[2] == 'daijirin' \
                         else word[2],
         'found': True if word[1] != '' else False,
-        'definitions': {
-            'nikkoku_simple': word[3],
-            'nikkoku': eval(word[4]),
-            'kojien': eval(word[5]),
-            'daijisen': eval(word[6]),
-            'daijirin': eval(word[7]),
-        }
+        # 'definitions': {
+        #     'nikkoku_simple': word[3],
+        #     'nikkoku': eval(word[4]),
+        #     'kojien': eval(word[5]),
+        #     'daijisen': eval(word[6]),
+        #     'daijirin': eval(word[7]),
+        # }
     }
     data.append(word_dict)
 
