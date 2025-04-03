@@ -272,32 +272,27 @@ class DialogueGenerator:
                         Current dialogue: {parsed_dialogue}
                         Please rewrite the dialogue to fix this issue. Make sure the word '{word}' appears only in utterance #{ss_idx}.
                         Please format your response as a JSON array like this:
-                        {self.templates[self.language]['dialogue_format']}"""
+                        {self.templates[self.language]['dialogue_format'].split("\n", 1)[1]}"""
                 elif self.language == 'fr':
-                    fix_prompt = f"""Le dialogue doit être corrigé. Le mot '{word}' doit apparaître UNIQUEMENT dans la {ss_idx}ème réplique, et dans aucune autre.
+                    fix_prompt = f"""Le dialogue doit être corrigé. Le mot « {word} » doit apparaître UNIQUEMENT dans la {ss_idx}ème réplique, et dans aucune autre.
                         Dialogue actuel : {parsed_dialogue}
-                        Veuillez réécrire le dialogue pour corriger ce problème. Assurez-vous que le mot '{word}' n'apparaît que dans la réplique n°{ss_idx}.
+                        Veuillez réécrire le dialogue pour corriger ce problème. Assurez-vous que le mot « {word} » n'apparaît que dans la réplique n°{ss_idx}.
                         Veuillez formater votre réponse comme un tableau JSON comme ceci :
-                        {self.templates[self.language]['dialogue_format']}"""
+                        {self.templates[self.language]['dialogue_format'].split("\n", 1)[1]}"""
                 elif self.language == 'ko':
                     fix_prompt = f"""대화를 수정해야 합니다. '{word}' 단어는 반드시 {ss_idx}번째 발화에만 나타나야 하며, 다른 발화에는 나타나면 안 됩니다.
                         현재 대화: {parsed_dialogue}
                         이 문제를 해결하기 위해 대화를 다시 작성해 주세요. '{word}' 단어가 {ss_idx}번째 발화에만 나타나도록 해주세요.
                         응답을 다음과 같은 JSON 배열 형식으로 작성해주세요:
-                        {self.templates[self.language]['dialogue_format']}"""
+                        {self.templates[self.language]['dialogue_format'].split("\n", 1)[1]}"""
                 elif self.language == 'ja':
                     fix_prompt = f"""対話を修正する必要があります。単語「{word}」は{ss_idx}番目の発話にのみ出現し、他の発話には出現してはいけません。
                         現在の対話: {parsed_dialogue}
                         この問題を修正するために対話を書き直してください。「{word}」が{ss_idx}番目の発話にのみ出現するようにしてください。
                         回答を次のようなJSON配列の形式で作成してください:
-                        {self.templates[self.language]['dialogue_format']}"""
+                        {self.templates[self.language]['dialogue_format'].split("\n", 1)[1]}"""
                 else:
-                    # Fallback to English if language is not supported
-                    fix_prompt = f"""The dialogue needs to be fixed. The word '{word}' must ONLY appear in the {ss_idx}th utterance, not in any other utterance.
-                        Current dialogue: {parsed_dialogue}
-                        Please rewrite the dialogue to fix this issue. Make sure the word '{word}' appears only in utterance #{ss_idx}.
-                        #### Please format your response as a JSON array like this:
-                        {self.templates[self.language]['dialogue_format'].split('####')[1]}"""
+                    raise "Unsupported language code used."
                 
                 fix_response = await self.async_client.chat.completions.create(
                     model=self.model,
@@ -484,7 +479,6 @@ class DialogueGenerator:
         
         # Remove any markdown code block formatting and #### headers
         dialogue_text = re.sub(r'```(?:json)?\s*|\s*```', '', dialogue_text)
-        dialogue_text = re.sub(r'####.*?\n', '', dialogue_text)
         
         # Standardize keys to English
         dialogue_text = self._replace_keys(dialogue_text)
@@ -583,7 +577,7 @@ class DialogueGenerator:
         
         results = []
         
-        temp_stop_idx = 10
+        # temp_stop_idx = 10
         # Process each word with progress bar
         for i, item in tqdm(enumerate(data_to_process), desc=f"Generating {self.language} dialogues", total=len(data_to_process)):
             # Generate dialogue
@@ -599,8 +593,8 @@ class DialogueGenerator:
             # Add a delay to avoid rate limiting
             time.sleep(1)
             
-            if i == temp_stop_idx:
-                break
+            # if i == temp_stop_idx:
+            #     break
         
         return results
     
