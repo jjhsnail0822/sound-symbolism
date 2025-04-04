@@ -1,0 +1,38 @@
+[
+    {
+        "word": "hue",
+        "meaning": [
+            "Mot dont on se sert pour faire avancer un cheval, ou le faire tourner à droite."
+        ],
+        "dialogues": [
+            {
+                "dialogue": [],
+                "meta_data": {
+                    "dialogue_num": 1,
+                    "language": "fr",
+                    "num_utterances": 6,
+                    "ss_idx": 4,
+                    "success": false
+                }
+            }
+        ]
+    },
+    {
+        "word": "tchut tchut",
+        "meaning": [
+            "bruit d'une locomotive à vapeur."
+        ],
+        "dialogues": [
+            {
+                "dialogue": [],
+                "meta_data": {
+                    "dialogue_num": 1,
+                    "language": "fr",
+                    "num_utterances": 6,
+                    "ss_idx": 5,
+                    "success": false
+                }
+            }
+        ]
+    }
+]
