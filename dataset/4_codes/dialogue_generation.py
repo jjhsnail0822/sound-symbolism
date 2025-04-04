@@ -290,9 +290,9 @@ class DialogueGenerator:
                         Current dialogue: {parsed_dialogue}
                         
                         Please rewrite the dialogue to fix these issues. Remember:
-                        1. The word '{word}' must ONLY appear in the {ss_idx}th utterance
-                        2. The dialogue must have exactly {num_utterances} utterances
-                        3. Use the exact JSON format specified below
+                        1. The word '{word}' must ONLY appear in the {ss_idx}th utterance.
+                        2. The dialogue must have exactly {num_utterances} utterances.
+                        3. Use the exact JSON format specified below.
                         
                         Please format your response as a JSON array like this:
                         {json_format}"""
@@ -303,9 +303,9 @@ class DialogueGenerator:
                         Dialogue actuel : {parsed_dialogue}
                         
                         Veuillez réécrire le dialogue pour corriger ces problèmes. Rappelez-vous :
-                        1. Le mot « {word} » doit apparaître UNIQUEMENT dans la {ss_idx}ème réplique
-                        2. Le dialogue doit comporter exactement {num_utterances} répliques
-                        3. Utilisez le format JSON exact spécifié ci-dessous
+                        1. Le mot « {word} » doit apparaître UNIQUEMENT dans la {ss_idx}ème réplique.
+                        2. Le dialogue doit comporter exactement {num_utterances} répliques.
+                        3. Utilisez le format JSON exact spécifié ci-dessous.
                         
                         Veuillez formater votre réponse comme un tableau JSON comme ceci :
                         {json_format}"""
@@ -316,22 +316,22 @@ class DialogueGenerator:
                         현재 대화: {parsed_dialogue}
                         
                         이러한 문제를 해결하기 위해 대화를 다시 작성해 주세요. 다음 사항을 기억하세요:
-                        1. '{word}' 단어는 반드시 {ss_idx}번째 발화에만 나타나야 합니다
-                        2. 대화는 정확히 {num_utterances}개의 발화로 구성되어야 합니다
-                        3. 아래에 지정된 정확한 JSON 형식을 사용하세요
+                        1. '{word}' 단어는 반드시 {ss_idx}번째 발화에만 나타나야 합니다.
+                        2. 대화는 정확히 {num_utterances}개의 발화로 구성되어야 합니다.
+                        3. 아래에 지정된 정확한 JSON 형식을 사용하세요.
                         
                         응답을 다음과 같은 JSON 배열 형식으로 작성해주세요:
                         {json_format}"""
                 elif self.language == 'ja':
-                    fix_prompt = f"""次の理由で対話を修正する必要があります:
+                    fix_prompt = f"""次の理由で会話を修正する必要があります:
                         {issues_text}
                         
-                        現在の対話: {parsed_dialogue}
+                        現在の会話: {parsed_dialogue}
                         
-                        これらの問題を修正するために対話を書き直してください。以下の点に注意してください:
-                        1. 単語「{word}」は{ss_idx}番目の発話にのみ出現する必要があります
-                        2. 対話は正確に{num_utterances}の発話で構成する必要があります
-                        3. 以下に指定された正確なJSON形式を使用してください
+                        このような問題を修正するために会話を書き直してください。以下の点に注意してください:
+                        1. 単語「{word}」は、{ss_idx}番目の発話にのみ出現する必要があります。
+                        2. 会話は正確に{num_utterances}つの発話で構成する必要があります。
+                        3. 以下に指定された正確なJSON形式を使用してください。
                         
                         回答を次のようなJSON配列の形式で作成してください:
                         {json_format}"""
