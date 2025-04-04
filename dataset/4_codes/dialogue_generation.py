@@ -621,9 +621,11 @@ class DialogueGenerator:
             with open(self.output_file, 'w', encoding='utf-8') as f:
                 json.dump(dialogues, f, ensure_ascii=False, indent=4)
             print(f"All dialogues saved to {self.output_file}")
+            breakpoint()
             return True
         except Exception as e:
             print(f"Error saving dialogues to file: {e}")
+            breakpoint()
             return False
     
     def run(self, limit: Optional[int] = None, shuffle: bool = True) -> None:
