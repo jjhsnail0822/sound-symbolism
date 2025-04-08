@@ -1,0 +1,354 @@
+[
+    {
+        "word": "scride",
+        "meaning": "To make a shrill sound.",
+        "dialogues": [
+            {
+                "dialogue": [
+                    {
+                        "speaker": "Megan",
+                        "index": 1,
+                        "text": "I yanked open the basement door and it went 'scride' so loud I dropped my flashlight."
+                    },
+                    {
+                        "speaker": "Thomas",
+                        "index": 2,
+                        "text": "That horrible noise just now was you? I nearly jumped out of my skin."
+                    },
+                    {
+                        "speaker": "Megan",
+                        "index": 3,
+                        "text": "Yeah, guess that ancient hinge wasn’t ready for action."
+                    },
+                    {
+                        "speaker": "Thomas",
+                        "index": 4,
+                        "text": "I thought we had a haunted violinist lurking down there or something."
+                    },
+                    {
+                        "speaker": "Megan",
+                        "index": 5,
+                        "text": "Honestly, that’s not far off. This house could audition for creepy sound effects."
+                    },
+                    {
+                        "speaker": "Thomas",
+                        "index": 6,
+                        "text": "Just warn me next time before you summon the soundtrack to my nightmares."
+                    }
+                ],
+                "meta_data": {
+                    "dialogue_num": 1,
+                    "language": "en",
+                    "num_utterances": 6,
+                    "ss_idx": 1,
+                    "success": true
+                }
+            },
+            {
+                "dialogue": [
+                    {
+                        "speaker": "Liam",
+                        "index": 1,
+                        "text": "Okay, battery's in place and wires are connected. Moment of truth—ready to test it?"
+                    },
+                    {
+                        "speaker": "Sophie",
+                        "index": 2,
+                        "text": "Just a sec—let me tighten this clamp so the coil doesn't shift. Alright, go for it."
+                    },
+                    {
+                        "speaker": "Liam",
+                        "index": 3,
+                        "text": "Powering up in three... two... one—there it goes! Lights are on."
+                    },
+                    {
+                        "speaker": "Sophie",
+                        "index": 4,
+                        "text": "Yikes! Did you hear that? It made a high-pitched scride the second the motor started spinning."
+                    },
+                    {
+                        "speaker": "Liam",
+                        "index": 5,
+                        "text": "Yeah, that didn't sound right. Maybe something’s misaligned inside near the spindle."
+                    },
+                    {
+                        "speaker": "Sophie",
+                        "index": 6,
+                        "text": "Let’s shut it down and open it back up. I’d rather fix it now than risk permanent damage."
+                    }
+                ],
+                "meta_data": {
+                    "dialogue_num": 2,
+                    "language": "en",
+                    "num_utterances": 6,
+                    "ss_idx": 4,
+                    "success": true
+                }
+            }
+        ]
+    },
+    {
+        "word": "blodge",
+        "meaning": "A large irregular spot or patch of light, colour, or the like; a blot, smear, or stain.",
+        "dialogues": [
+            {
+                "dialogue": [
+                    {
+                        "speaker": "Clara",
+                        "index": 1,
+                        "text": "I finally tackled that messy corner of the attic—check out the old lamp I cleaned up!"
+                    },
+                    {
+                        "speaker": "Ben",
+                        "index": 2,
+                        "text": "Whoa, look at that—there’s a weird blue blodge on the shade. Was that always there?"
+                    },
+                    {
+                        "speaker": "Clara",
+                        "index": 3,
+                        "text": "That's actually what caught my eye in the first place. It almost glows when the light hits it."
+                    },
+                    {
+                        "speaker": "Ben",
+                        "index": 4,
+                        "text": "It's strangely beautiful… like it was meant to be part of the design."
+                    },
+                    {
+                        "speaker": "Clara",
+                        "index": 5,
+                        "text": "Exactly! I couldn't bring myself to scrub it off—it gives the lamp some weird charm."
+                    },
+                    {
+                        "speaker": "Ben",
+                        "index": 6,
+                        "text": "Well, if we ever have a décor theme called ‘mystery attic chic,’ this piece is front and center."
+                    }
+                ],
+                "meta_data": {
+                    "dialogue_num": 1,
+                    "language": "en",
+                    "num_utterances": 6,
+                    "ss_idx": 2,
+                    "success": true
+                }
+            },
+            {
+                "dialogue": [
+                    {
+                        "speaker": "Rachel",
+                        "index": 1,
+                        "text": "Careful with that brush, Mark—this shirt has survived three years of paint-free luck."
+                    },
+                    {
+                        "speaker": "Mark",
+                        "index": 2,
+                        "text": "Uh-oh... too late. There’s a royal purple blodge right across your shoulder now."
+                    },
+                    {
+                        "speaker": "Rachel",
+                        "index": 3,
+                        "text": "Seriously? This was my ‘safe from the chaos’ shirt!"
+                    },
+                    {
+                        "speaker": "Mark",
+                        "index": 4,
+                        "text": "Think of it as an impromptu wardrobe upgrade. Very avant-garde."
+                    },
+                    {
+                        "speaker": "Rachel",
+                        "index": 5,
+                        "text": "If avant-garde means looking like a grape exploded on me, then sure."
+                    },
+                    {
+                        "speaker": "Mark",
+                        "index": 6,
+                        "text": "Hey, fashion is just confidence wrapped in disaster. You're halfway there!"
+                    }
+                ],
+                "meta_data": {
+                    "dialogue_num": 2,
+                    "language": "en",
+                    "num_utterances": 6,
+                    "ss_idx": 2,
+                    "success": true
+                }
+            }
+        ]
+    },
+    {
+        "word": "ting-tang",
+        "meaning": "A succession of two ringing sounds, differing in tone or force.",
+        "dialogues": [
+            {
+                "dialogue": [
+                    {
+                        "speaker": "Claire",
+                        "index": 1,
+                        "text": "I swear, if I sit here any longer, I might just melt into this chair."
+                    },
+                    {
+                        "speaker": "Ethan",
+                        "index": 2,
+                        "text": "Honestly, it’s the perfect kind of lazy afternoon—no rush, no emails, just the murmur of coffee machines."
+                    },
+                    {
+                        "speaker": "Claire",
+                        "index": 3,
+                        "text": "Wait—did that sound come from behind the counter just now?"
+                    },
+                    {
+                        "speaker": "Ethan",
+                        "index": 4,
+                        "text": "Yeah, the little ting-tang from the service bell—they must’ve finished someone’s order."
+                    },
+                    {
+                        "speaker": "Claire",
+                        "index": 5,
+                        "text": "Mmm, that’s probably my lemon tart calling—I’d recognize that timing anywhere."
+                    },
+                    {
+                        "speaker": "Ethan",
+                        "index": 6,
+                        "text": "You and your sixth sense for desserts never fail to amaze me."
+                    }
+                ],
+                "meta_data": {
+                    "dialogue_num": 1,
+                    "language": "en",
+                    "num_utterances": 6,
+                    "ss_idx": 4,
+                    "success": true
+                }
+            },
+            {
+                "dialogue": [
+                    {
+                        "speaker": "Emily",
+                        "index": 1,
+                        "text": "Just when I was getting to the good part of my book..."
+                    },
+                    {
+                        "speaker": "Jack",
+                        "index": 2,
+                        "text": "Ting-tang! That old shop bell never fails to announce me with flair."
+                    },
+                    {
+                        "speaker": "Emily",
+                        "index": 3,
+                        "text": "You scared the life out of me—and probably the barista too!"
+                    },
+                    {
+                        "speaker": "Jack",
+                        "index": 4,
+                        "text": "Couldn’t let you read in peace without a little drama, could I?"
+                    },
+                    {
+                        "speaker": "Emily",
+                        "index": 5,
+                        "text": "Well, sit down then, before your next entrance involves a brass band."
+                    },
+                    {
+                        "speaker": "Jack",
+                        "index": 6,
+                        "text": "Deal—as long as you don't mind colorful commentary through chapter five."
+                    }
+                ],
+                "meta_data": {
+                    "dialogue_num": 2,
+                    "language": "en",
+                    "num_utterances": 6,
+                    "ss_idx": 2,
+                    "success": true
+                }
+            }
+        ]
+    },
+    {
+        "word": "splurt",
+        "meaning": "To squirt or spirt out (liquid).",
+        "dialogues": [
+            {
+                "dialogue": [
+                    {
+                        "speaker": "Megan",
+                        "index": 1,
+                        "text": "Ugh, this mustard bottle is impossible to squeeze—my sandwich is going dry over here."
+                    },
+                    {
+                        "speaker": "Jake",
+                        "index": 2,
+                        "text": "Let me try—I'll just give it a firm press—whoa, *splurt!* It got all over the counter!"
+                    },
+                    {
+                        "speaker": "Megan",
+                        "index": 3,
+                        "text": "Well, at least the counter’s well-seasoned now."
+                    },
+                    {
+                        "speaker": "Jake",
+                        "index": 4,
+                        "text": "Sorry, guess I don’t know my own condiment-strength."
+                    },
+                    {
+                        "speaker": "Megan",
+                        "index": 5,
+                        "text": "That was an impressive launch, though—I think some hit the fridge."
+                    },
+                    {
+                        "speaker": "Jake",
+                        "index": 6,
+                        "text": "If this whole cooking thing fails, I’ve clearly got a future in abstract mustard art."
+                    }
+                ],
+                "meta_data": {
+                    "dialogue_num": 1,
+                    "language": "en",
+                    "num_utterances": 6,
+                    "ss_idx": 2,
+                    "success": true
+                }
+            },
+            {
+                "dialogue": [
+                    {
+                        "speaker": "Maya",
+                        "index": 1,
+                        "text": "Ugh—when I twisted the juice carton, it went splurt right onto my socks."
+                    },
+                    {
+                        "speaker": "Jake",
+                        "index": 2,
+                        "text": "That's what you get for showing off your one-handed pour technique."
+                    },
+                    {
+                        "speaker": "Maya",
+                        "index": 3,
+                        "text": "It’s not showing off if it works… ninety percent of the time."
+                    },
+                    {
+                        "speaker": "Jake",
+                        "index": 4,
+                        "text": "Well, congratulations, you're now wearing a fruit salad."
+                    },
+                    {
+                        "speaker": "Maya",
+                        "index": 5,
+                        "text": "Great. Sticky feet and a bruised ego—breakfast of champions."
+                    },
+                    {
+                        "speaker": "Jake",
+                        "index": 6,
+                        "text": "Let’s just call it ‘juicy character development’ and get you new socks."
+                    }
+                ],
+                "meta_data": {
+                    "dialogue_num": 2,
+                    "language": "en",
+                    "num_utterances": 6,
+                    "ss_idx": 1,
+                    "success": true
+                }
+            }
+        ]
+    }
+]
