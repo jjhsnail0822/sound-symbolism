@@ -88,6 +88,7 @@ class DialogueGenerator:
             return filtered_data
         except Exception as e:
             print(f"Error loading data: {e}")
+            
             return []
     
     def _get_language_templates(self) -> Dict[str, Dict[str, str]]:
@@ -99,7 +100,10 @@ class DialogueGenerator:
                 "user_prompt_set2": "Condition 4: Make sure that the meaning of the onomatopoeia/mimetic word never appears in any other part of the conversation, and that it fits into the context.\nThink through each step to deduce at your answer.\nCondition 5: Choose names for your characters that are actually used in English-speaking world. There must be a total of two characters.\nCondition 6: Instead of using typical greetings or farewells (e.g., 'hello' or 'goodbye'), construct sentences using expressions that reflect the context and personality of the conversation.\nThink logically through each step and organize your answer.",
                 "dialogue_format": "Please format your response as a JSON array like this:\n```json[\n    {\"Speaker\": \"Person1\", \"Utterance Number\": 1, \"Utterance\": \"Content\"},\n    {\"Speaker\": \"Person2\", \"Utterance Number\": 2, \"Utterance\": \"Content\"},\n    {\"Speaker\": \"Person1\", \"Utterance Number\": 3, \"Utterance\": \"Content\"},\n    {\"Speaker\": \"Person2\", \"Utterance Number\": 4, \"Utterance\": \"Content\"},\n    {\"Speaker\": \"Person1\", \"Utterance Number\": 5, \"Utterance\": \"Content\"},\n    {\"Speaker\": \"Person2\", \"Utterance Number\": 6, \"Utterance\": \"Content\"}\n]```",
                 "test_prompt": "<dialog generation condition>\n{user_prompt_set1}\n</dialog generation condition>\n\n<generated dialogue>\n{parsed_dialogue}\n</generated dialogue>\n Return only True or False if the <generated_dialogue> meets all of the <dialog generation condition>.",
-                "fix_prompt": "The dialog needs to be modified for the following reasons:\n{issues_text}\n\nCurrent dialog: {final_dialogue}\n\nTo fix these issues, please rewrite the dialog according to the following conditions:\n1. '{word}' must only appear in the {ss_idx}th utterance.\n2. The dialog must consist of exactly {num_utterances} utterances.\n3. Choose names for your characters that are actually used in English-speaking world.\nUse the exact JSON format specified below.\n{json_format}"
+                "fix_prompt": "The dialog needs to be modified for the following reasons:\n{issues_text}\n\nCurrent dialog: {final_dialogue}\n\nTo fix these issues, please rewrite the dialog according to the following conditions:\n1. '{word}' must only appear in the {ss_idx}th utterance.\n2. The dialog must consist of exactly {num_utterances} utterances.\n3. Choose names for your characters that are actually used in English-speaking world.\nUse the exact JSON format specified below.\n{json_format}",
+                "word_in_correct_place": "The word '{word}' must appear in the {ss_idx}th utterance.",
+                "word_in_wrong_place": "The word '{word}' must ONLY appear in the {ss_idx}th utterance, not in any other utterance.",
+                "correct_utterance_num": "The dialog must consist of exactly {num_utterances} utterances."
             },
             "fr": {
                 "system_prompt": "Vous êtes un assistant qui crée un dialogue naturel entre deux personnes. Le dialogue doit être naturellement imprégné d'onomatopées/idéophones « {word} » qui véhiculent le sens de « {meaning} ». Veillez à ce que l'ensemble du dialogue soit contextuel et s'enchaîne de manière cohérente.",
@@ -107,7 +111,10 @@ class DialogueGenerator:
                 "user_prompt_set2": "Condition 4 : Veillez à ne pas utiliser l'onomatopée/idéophone dans une autre partie du dialogue, et essayez de l'intégrer dans le contexte.\nRéfléchissez à chaque étape pour parvenir à votre réponse.\nCondition 5 : Choisissez pour vos personnages des noms qui sont réellement utilisés dans le monde francophone. Il doit y avoir deux personnages au total.\nCondition 6 : Au lieu d'utiliser des salutations ou des adieux typiques (par exemple, « bonjour », « au revoir »), construisez des phrases en utilisant des expressions qui reflètent le contexte et la personnalité du dialogue.\nRéfléchissez logiquement à chaque étape et structurez votre réponse.",
                 "dialogue_format": "Veuillez formater votre réponse sous la forme d'un tableau JSON comme suit:\n```json[\n    {\"Locuteur\": \"Personne1\", \"Numéro de réplique\": 1, \"Réplique\": \"Contenu\"},\n    {\"Locuteur\": \"Personne2\", \"Numéro de réplique\": 2, \"Réplique\": \"Contenu\"},\n    {\"Locuteur\": \"Personne1\", \"Numéro de réplique\": 3, \"Réplique\": \"Contenu\"},\n    {\"Locuteur\": \"Personne2\", \"Numéro de réplique\": 4, \"Réplique\": \"Contenu\"},\n    {\"Locuteur\": \"Personne1\", \"Numéro de réplique\": 5, \"Réplique\": \"Contenu\"},\n    {\"Locuteur\": \"Personne2\", \"Numéro de réplique\": 6, \"Réplique\": \"Contenu\"}\n]```",
                 "test_prompt": "<conditions de génération du dialogue>\n{user_prompt_set1}\n</conditions de génération du dialogue>\n<dialogue généré>\n{dialogue_parsé}\n</dialogue généré>\nRetourne uniquement True ou False si le <dialogue généré> remplit toutes les <conditions de génération du dialogue>.",
-                "fix_prompt": "Le dialogue doit être modifié pour les raisons suivantes:\n{issues_text}\n\nLe dialogue actuel : {final_dialogue}\n\nPour résoudre ces problèmes, veuillez réécrire le dialogue conformément aux conditions suivantes:\n1. '{word}' doit apparaître UNIQUEMENT dans la {ss_idx}ème énonciation.\n2. Le dialogue doit comporter exactement {num_utterances} énonciations.\n3. Choisissez pour vos personnages des noms qui sont réellement utilisés dans le monde francophone.\nUtilisez le format JSON exact spécifié ci-dessous.\n{json_format}"
+                "fix_prompt": "Le dialogue doit être modifié pour les raisons suivantes:\n{issues_text}\n\nLe dialogue actuel : {final_dialogue}\n\nPour résoudre ces problèmes, veuillez réécrire le dialogue conformément aux conditions suivantes:\n1. '{word}' doit apparaître UNIQUEMENT dans la {ss_idx}ème énonciation.\n2. Le dialogue doit comporter exactement {num_utterances} énonciations.\n3. Choisissez pour vos personnages des noms qui sont réellement utilisés dans le monde francophone.\nUtilisez le format JSON exact spécifié ci-dessous.\n{json_format}",
+                "word_in_correct_place": "Le mot '{word}' doit apparaître dans la {ss_idx}ème énonciation.",
+                "word_in_wrong_place": "Le mot '{word}' doit apparaître UNIQUEMENT dans la {ss_idx}ème énonciation, pas dans une autre énonciation.",
+                "correct_utterance_num": "Le dialogue doit comporter exactement {num_utterances} énonciations."
             },
             "ko": {
                 "system_prompt": "당신은 두 사람의 대화를 자연스럽게 생성하는 도우미입니다. 대화에는 반드시 '{meaning}'의 의미를 전달하는 의성어/의태어 '{word}'가 자연스레 녹아들어야 합니다. 전체 대화가 문맥에 맞고 일관된 흐름을 유지하도록 해주세요.",
@@ -115,7 +122,10 @@ class DialogueGenerator:
                 "user_prompt_set2": "조건 4: 대화의 다른 부분에서는 의성어/의태어의 의미가 절대 등장하지 않도록 주의하며, 문맥에 녹아들도록 표현해 주세요.\n각 단계별로 생각하며 답안을 도출해 주세요.\n조건 5: 등장 인물의 이름은 한국어권에서 실제로 사용되는 이름으로 선택합니다. 인물은 총 2명이어야 합니다.\n조건 6: 전형적인 인사말이나 작별 인사(예: '안녕', '잘 가') 대신 대화의 맥락과 개성을 반영한 표현을 사용하여 문장을 구성해 주세요.\n각 단계별로 논리적으로 생각하고 답안을 구성해 주세요.",
                 "dialogue_format": "응답을 다음과 같은 JSON 배열 형식으로 작성해주세요:\n```json[\n    {\"화자\": \"사람1\", \"발화 번호\": 1, \"발화\": \"내용\"},\n    {\"화자\": \"사람2\", \"발화 번호\": 2, \"발화\": \"내용\"},\n    {\"화자\": \"사람1\", \"발화 번호\": 3, \"발화\": \"내용\"},\n    {\"화자\": \"사람2\", \"발화 번호\": 4, \"발화\": \"내용\"},\n    {\"화자\": \"사람1\", \"발화 번호\": 5, \"발화\": \"내용\"},\n    {\"화자\": \"사람2\", \"발화 번호\": 6, \"발화\": \"내용\"}\n]```",
                 "test_prompt": "<대화문 생성 조건>\n{user_prompt_set1}\n</대화문 생성 조건>\n\n<생성된 대화문>\n{parsed_dialogue}\n</생성된 대화문>\n<생성된 대화문>이 <대화문 생성 조건>을 모두 충족하는지 True 또는 False로만 반환하세요.",
-                "fix_prompt": "다음과 같은 이유로 대화를 수정해야 합니다.\n{issues_text}\n\n현재 대화: {final_dialogue}\n\n이러한 문제를 해결하기 위해 다음의 조건에 따라 대화를 다시 작성해주세요.\n1. '{word}'는 반드시 {ss_idx}번째 발화에만 나타나야 합니다.\n2. 대화는 정확히 {num_utterances}개의 발화로 구성되어야 합니다.\n3. 등장 인물의 이름은 한국어권에서 실제로 사용되는 이름으로 선택합니다.\n아래에 지정된 정확한 JSON 형식을 사용하세요.\n{json_format}"
+                "fix_prompt": "다음과 같은 이유로 대화를 수정해야 합니다.\n{issues_text}\n\n현재 대화: {final_dialogue}\n\n이러한 문제를 해결하기 위해 다음의 조건에 따라 대화를 다시 작성해주세요.\n1. '{word}'는 반드시 {ss_idx}번째 발화에만 나타나야 합니다.\n2. 대화는 정확히 {num_utterances}개의 발화로 구성되어야 합니다.\n3. 등장 인물의 이름은 한국어권에서 실제로 사용되는 이름으로 선택합니다.\n아래에 지정된 정확한 JSON 형식을 사용하세요.\n{json_format}",
+                "word_in_correct_place": "단어 '{word}'는 반드시 {ss_idx}번째 발화에만 나타나야 합니다.",
+                "word_in_wrong_place": "단어 '{word}'는 반드시 {ss_idx}번째 발화에만 나타나야 합니다. 다른 발화에는 나타나지 않아야 합니다.",
+                "correct_utterance_num": "대화는 반드시 {num_utterances}개의 발화로 구성되어야 합니다."
             },
             'ja': {
                 "system_prompt": "あなたは二人の自然な会話を作成するアシスタントです。会話には、必ず「{meaning}」を表す擬音語・擬態語の「{word}」を自然な形で含める必要があります。全体の会話が文脈に適しており、一貫性のある流れになるようにしてください。",
@@ -123,7 +133,10 @@ class DialogueGenerator:
                 "user_prompt_set2": "条件4: 会話の他の部分では、擬音語・擬態語の意味が絶対に現れないように注意し、文脈に溶け込むように表現してください。\n段階的に考えながら回答を導出してください。\n条件5: 登場人物の名前は、日本語圏で広く使われるものにしてください。登場人物は合わせて二人です。\n条件6: 典型的な挨拶や別れの時の言葉（例：「こんにちは」、「さようなら」）は使わず、会話の流れやキャラクターに適した表現を使用してください。\n論理的に考え、段階的に回答を作成してください。",
                 "dialogue_format": "回答を次のようなJSON配列の形式で作成してください:\n```json[\n    {\"話者\": \"人物1\", \"発話番号\": 1, \"発話\": \"発話内容\"},\n    {\"話者\": \"人物2\", \"発話番号\": 2, \"発話\": \"発話内容\"},\n    {\"話者\": \"人物1\", \"発話番号\": 3, \"発話\": \"発話内容\"},\n    {\"話者\": \"人物2\", \"発話番号\": 4, \"発話\": \"発話内容\"},\n    {\"話者\": \"人物1\", \"発話番号\": 5, \"発話\": \"発話内容\"},\n    {\"話者\": \"人物2\", \"発話番号\": 6, \"発話\": \"発話内容\"}\n]```",
                 "test_prompt": "<ダイアログ生成条件>\n{user_prompt_set1}\n</ダイアログ生成条件>\n\n<生成されたダイアログ>\n{parsed_dialogue}\n</生成されたダイアログ>\n<生成されたダイアログ>\n<生成されたダイアログ>が<ダイアログ生成条件>を全て満たすかどうかTrueまたはFalseのみ返してください。",
-                "fix_prompt": "以下の理由でダイアログを修正する必要があります:\n{issues_text}\n\n現在のダイアログ: {final_dialogue}\n\nこのような問題を解決するために、以下の条件に従ってダイアログを再作成してください.\n1.'{word}'は必ず{ss_idx}番目の発話にのみ表示されます.\n2.ダイアログは正確に{num_utterances}個の発話で構成されている必要があります.\n3. 登場人物の名前は、日本語圏で広く使われるものにしてください。\n以下に指定された正確なJSON形式を使用してください.\n{json_format}。"
+                "fix_prompt": "以下の理由でダイアログを修正する必要があります:\n{issues_text}\n\n現在のダイアログ: {final_dialogue}\n\nこのような問題を解決するために、以下の条件に従ってダイアログを再作成してください.\n1.'{word}'は必ず{ss_idx}番目の発話にのみ表示されます.\n2.ダイアログは正確に{num_utterances}個の発話で構成されている必要があります.\n3. 登場人物の名前は、日本語圏で広く使われるものにしてください。\n以下に指定された正確なJSON形式を使用してください.\n{json_format}。",
+                "word_in_correct_place": "単語'{word}'は必ず{ss_idx}番目の発話にのみ表示されます.",
+                "word_in_wrong_place": "単語'{word}'は必ず{ss_idx}番目の発話にのみ表示されます. 他の発話には表示されません.",
+                "correct_utterance_num": "ダイアログは必ず{num_utterances}個の発話で構成されている必要があります."
             }
         }
         return templates
@@ -147,14 +160,16 @@ class DialogueGenerator:
             print(f"Utterance {i+1}: {utterance.get('speaker', 'Unknown')}: {utterance_text[:50]}...")
             
             if i == ss_idx - 1:
-                if word in utterance_text:
+                if word in utterance_text.lower():
                     word_in_correct_place = True
                     print(f"✅ Word '{word}' found in correct utterance {i+1}")
                 else:
+                    
                     print(f"❌ Word '{word}' NOT found in target utterance {i+1}")
             else:
                 if word in utterance_text:
                     word_in_wrong_place = True
+                    
                     print(f"⚠️ Word '{word}' found in wrong utterance {i+1}")
             
             if len(parsed_dialogue) == num_utterances:
@@ -214,16 +229,17 @@ class DialogueGenerator:
         
         # If test failed, fix the dialogue
         if not test_passed:
+            
             print("❌ Test failed, fixing dialogue...")
             
             # Create a more comprehensive fix prompt based on what failed
             fix_issues = []
             if not word_in_correct_place:
-                fix_issues.append(f"The word '{word}' must appear in the {ss_idx}th utterance.")
+                fix_issues.append(self._get_language_templates()[self.language]['word_in_correct_place'].format(word=word, ss_idx=ss_idx))
             if word_in_wrong_place:
-                fix_issues.append(f"The word '{word}' must ONLY appear in the {ss_idx}th utterance, not in any other utterance.")
+                fix_issues.append(self._get_language_templates()[self.language]['word_in_wrong_place'].format(word=word, ss_idx=ss_idx))
             if not correct_utterance_num:
-                fix_issues.append(f"The dialogue must have exactly {num_utterances} utterances.")
+                fix_issues.append(self._get_language_templates()[self.language]['correct_utterance_num'].format(num_utterances=num_utterances))
             
             issues_text = "\n".join([f"- {issue}" for issue in fix_issues])
             print(f"Issues to fix:\n{issues_text}")
@@ -243,7 +259,7 @@ class DialogueGenerator:
             print(f"Fix prompt (truncated):\n{fix_prompt[:200]}...")
             
             # Uncomment for interactive debugging
-            # breakpoint()
+            # 
             
             fix_response = await self.async_client.chat.completions.create(
                 model=self.model,
@@ -269,6 +285,7 @@ class DialogueGenerator:
                 print("✅ Fixed dialogue parsed successfully")
                 return fixed_parsed_dialogue, True
             else:
+                
                 print("❌ Failed to parse fixed dialogue")
                 return parsed_dialogue, False
         
@@ -389,6 +406,7 @@ class DialogueGenerator:
                         print(f"✅ Successfully parsed JSON code block with {len(parsed_json)} items")
                 except json.JSONDecodeError as e:
                     parsing_success = False
+                    
                     print(f"❌ Failed to parse JSON code block: {e}")
             
             # Test and revise the dialogue if necessary
@@ -401,7 +419,7 @@ class DialogueGenerator:
                 
                 # Uncomment for interactive debugging
                 # if retry_count > 0:
-                #     breakpoint()
+                #     
                 
                 revised_dialogue, revision_success = await self.test_revise(
                     word=word,
@@ -600,8 +618,23 @@ class DialogueGenerator:
         # Clean up the dialogue text
         dialogue_text = dialogue_text.strip()
         
-        # Remove any markdown code block formatting
+        # First trial, Remove any markdown code block formatting
         dialogue_text = re.sub(r'```(?:json)?\s*|\s*```', '', dialogue_text)
+
+        # Second trial, extract the JSON array by finding the outermost [ and ]
+        if not (dialogue_text.startswith('[') and dialogue_text.endswith(']')):
+            # Find the first [ and last ] in the text
+            start_idx = dialogue_text.find('[')
+            end_idx = dialogue_text.rfind(']')
+            
+            if start_idx != -1 and end_idx != -1 and start_idx < end_idx:
+                # Extract just the content between the first [ and last ]
+                dialogue_text = dialogue_text[start_idx:end_idx+1]
+            else:
+                # If no brackets found, try alternative regex approach
+                match = re.search(r'\[(.*?)\]', dialogue_text, re.DOTALL)
+                if match:
+                    dialogue_text = f"[{match.group(1)}]"
         
         # Standardize keys to English
         dialogue_text = self._replace_keys(dialogue_text)
@@ -640,6 +673,7 @@ class DialogueGenerator:
             except json.JSONDecodeError as e:
                 # If JSON parsing fails, continue to other methods
                 print(f"❌ JSON parsing failed: {e}")
+                
                 pass
         
         # If JSON parsing failed, try to parse using ast.literal_eval
@@ -674,6 +708,7 @@ class DialogueGenerator:
         except (SyntaxError, ValueError) as e:
             # If ast parsing fails, continue to line-by-line parsing
             print(f"❌ ast.literal_eval parsing failed: {e}")
+            
             pass
         
         # If structured parsing failed, try line-by-line parsing as a last resort
@@ -702,6 +737,7 @@ class DialogueGenerator:
             parsing_success = True
             print(f"✅ Line-by-line parsing successful, created {len(result)} utterances")
         else:
+            
             print("❌ All parsing methods failed")
         
         print("=== PARSE_DIALOGUE END ===\n")
@@ -768,11 +804,11 @@ class DialogueGenerator:
             with open(self.output_file, 'w', encoding='utf-8') as f:
                 json.dump(dialogues, f, ensure_ascii=False, indent=4)
             print(f"All dialogues saved to {self.output_file}")
-            breakpoint()
+            
             return True
         except Exception as e:
             print(f"Error saving dialogues to file: {e}")
-            breakpoint()
+            
             return False
     
     def run(self, limit: Optional[int] = None, shuffle: bool = True) -> None:
