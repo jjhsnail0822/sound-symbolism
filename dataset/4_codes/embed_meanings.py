@@ -9,9 +9,11 @@ from tqdm import tqdm
 
 parser = argparse.ArgumentParser(description='Get embeddings for meanings')
 parser.add_argument('-l', '--language', type=str, default='ko', help='Language code (default: ko)', choices=['ko', 'en', 'ja', 'fr'])
+parser.add_argument('-d', '--dimension', type=int, default=256, help='Dimension of the embeddings (default: 256)')
 args = parser.parse_args()
 
 LANGUAGE = args.language
+DIMENSION = args.dimension
 
 # Load environment variables from .env.local file
 env_path = Path('.env.local')
@@ -28,7 +30,8 @@ def get_embedding(text):
     """
     response = client.embeddings.create(
         input=text,
-        model="text-embedding-3-large"
+        model="text-embedding-3-large",
+        dimensions=DIMENSION,
     )
     return response.data[0].embedding
 
