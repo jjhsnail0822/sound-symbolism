@@ -4,12 +4,14 @@ from vllm import LLM, SamplingParams
 from tqdm import tqdm
 import os
 from datetime import datetime
+import re
 
 def run_mcq_experiment(
     model_path: str, 
     data_path: str, 
     output_dir: str,
     max_tokens: int = 32,
+    max_model_len: int = 8192,
     temperature: float = 0.0,
 ):
     # Load MCQ data
@@ -20,7 +22,7 @@ def run_mcq_experiment(
     
     # Initialize VLLM model
     print(f"Loading model from {model_path}")
-    model = LLM(model=model_path)
+    model = LLM(model=model_path, max_model_len=max_model_len)
     sampling_params = SamplingParams(
         temperature=temperature, 
         max_tokens=max_tokens,
@@ -34,11 +36,27 @@ def run_mcq_experiment(
     for query in tqdm(mcq_data):
         response = model.generate(query['question'], sampling_params=sampling_params)
         
-        # Extract answer
-        model_answer = response.outputs[0].text.strip()
+        # Extract answer from the first element of the response list
+        model_answer = response[0].outputs[0].text.strip()
+
+        # First integer is the answer
+        model_answer = re.search(r'\d+', model_answer)
+        if model_answer:
+            model_answer = model_answer.group(0)
+        else:
+            model_answer = None
+        # Handle cases where the model output is empty or None
+        if model_answer is None:
+            print(f"Warning: Model output is empty for query: {query['question']}")
+            model_answer = "0"
         
         # Check correctness
-        is_correct = int(model_answer) == query['answer']
+        try:
+            is_correct = int(model_answer) == query['answer']
+        except ValueError:
+            # Handle cases where the model output is not a number
+            print(f"Warning: Model output '{model_answer}' is not a valid integer. Marking as incorrect.")
+            is_correct = False
 
         print(query['question'])
         print(f"Model answer: {model_answer}, Correct answer: {query['answer']}, Is correct: {is_correct}")
@@ -82,6 +100,7 @@ if __name__ == "__main__":
     parser.add_argument("--data", '-d', type=str, required=True, help="Path to the MCQ data JSON file")
     parser.add_argument("--output", '-o', type=str, default="analysis/experiments/understanding", help="Directory to save results")
     parser.add_argument("--max-tokens", type=int, default=32, help="Maximum tokens to generate")
+    parser.add_argument("--max-model-len", type=int, default=8192, help="Maximum model length")
     parser.add_argument("--temperature", type=float, default=0.0, help="Sampling temperature")
     
     args = parser.parse_args()
@@ -91,5 +110,6 @@ if __name__ == "__main__":
         data_path=args.data,
         output_dir=args.output,
         max_tokens=args.max_tokens,
+        max_model_len=args.max_model_len,
         temperature=args.temperature
     )

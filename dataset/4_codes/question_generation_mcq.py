@@ -7,16 +7,16 @@ MASKING_WORD = "[__]"
 MAX_OPTION = 4
 
 PROMPT = """Given the following [DIALOGUE] and a [WORD], which option is the most appropriate meaning of the word in the context of the dialogue?
-Answer with the number only (1-{MAX_OPTION}).\n
 
 [WORD]
-{word}\n
+{word}
 
 [DIALOGUE]
-{dialogue}\n
+{dialogue}
 
 [OPTIONS]
-{options}"""
+{options}
+Answer with the number only (1-{MAX_OPTION})."""
 
 random.seed(42)
 
