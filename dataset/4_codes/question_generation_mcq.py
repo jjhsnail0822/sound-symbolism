@@ -1,12 +1,12 @@
 import json
 import random
 
-LANGUAGE = "ja"
+LANGUAGE = "en"
 TASK = "understanding"
 EXPERIMENT_NAME = "unmasked_word_to_meaning_mcq"
 # EXPERIMENT_NAME = "masked_meaning_to_word_mcq"
 PROMPT_ROLE = "user_prompt"
-IS_OPTION_MEANING = False if EXPERIMENT_NAME == "unmasked_word_to_meaning_mcq" else True # whether the options are meaning or word
+IS_OPTION_MEANING = True if EXPERIMENT_NAME == "unmasked_word_to_meaning_mcq" else False # whether the options are meaning or word
 MASKING = False if EXPERIMENT_NAME == "unmasked_word_to_meaning_mcq" else True # whether to mask the subject word
 MASKING_WORD = "[__]"
 MAX_OPTION = 4
