@@ -2,21 +2,12 @@ import json
 import random
 
 LANGUAGE = "ko"
+TASK = "understanding"
+EXPERIMENT_NAME = "unmasked_word_to_meaning_mcq"
+PROMPT_ROLE = "user_prompt"
 MASKING = False
 MASKING_WORD = "[__]"
 MAX_OPTION = 4
-
-PROMPT = """Given the following [DIALOGUE] and a [WORD], which option is the most appropriate meaning of the word in the context of the dialogue?
-
-[WORD]
-{word}
-
-[DIALOGUE]
-{dialogue}
-
-[OPTIONS]
-{options}
-Answer with the number only (1-{MAX_OPTION})."""
 
 random.seed(42)
 
@@ -25,6 +16,9 @@ with open(f'dataset/2_dialogue/nat/{LANGUAGE}.json', 'r', encoding='utf-8') as f
 
 with open(f'dataset/1_preprocess/nat/{LANGUAGE}_clustered.json', 'r', encoding='utf-8') as f:
     clustered_words = json.load(f)
+
+with open('analysis/experiments/prompts.json', 'r', encoding='utf-8') as f:
+    prompts = json.load(f)
 
 # Generate word to cluster mapping
 word_to_cluster = {}
@@ -72,7 +66,7 @@ for subject_word in dialogues:
             option_string += f"{i + 1}: {option}\n"
         option_string = option_string.strip()
         # create the prompt
-        question = PROMPT.format(word=word_text, dialogue=dialogue_text, options=option_string, MAX_OPTION=MAX_OPTION)
+        question = prompts[TASK][EXPERIMENT_NAME][LANGUAGE][PROMPT_ROLE].format(word=word_text, dialogue=dialogue_text, options=option_string, MAX_OPTION=MAX_OPTION)
         # create the result data
         result_data.append({
             "question": question,
@@ -89,7 +83,7 @@ for subject_word in dialogues:
         })
 
 # Save the result data to a JSON file
-with open(f'dataset/3_questions/nat/{LANGUAGE}_mcq_{'masked' if MASKING else 'unmasked'}.json', 'w', encoding='utf-8') as f:
+with open(f'dataset/3_questions/nat/{TASK}-{EXPERIMENT_NAME}-{LANGUAGE}.json', 'w', encoding='utf-8') as f:
     json.dump(result_data, f, ensure_ascii=False, indent=4)
     
 print(f"Generated {len(result_data)} MCQ questions.")

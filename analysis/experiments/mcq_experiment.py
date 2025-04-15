@@ -3,7 +3,6 @@ import argparse
 from vllm import LLM, SamplingParams
 from tqdm import tqdm
 import os
-from datetime import datetime
 import re
 
 def run_mcq_experiment(
@@ -77,9 +76,8 @@ def run_mcq_experiment(
     print(f"Experiment completed. Accuracy: {accuracy:.2%} ({correct_count}/{total_count})")
     
     # Save results
-    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
     model_name = os.path.basename(model_path)
-    results_file = f"{output_dir}/mcq_results_{model_name}_{timestamp}.json"
+    results_file = f"{output_dir}/{data_path.split('/')[-1].replace('.json', '')}_{model_name}.json"
     
     results_dict = {
         "model": model_path,
