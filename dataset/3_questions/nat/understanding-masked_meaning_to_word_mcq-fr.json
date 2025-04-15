@@ -1,7 +1,7 @@
 [
     {
         "question": "",
-        "answer": 2,
+        "answer": 3,
         "meta_data": {
             "language": "fr",
             "word": "tui-tui",
@@ -16,7 +16,7 @@
     },
     {
         "question": "",
-        "answer": 4,
+        "answer": 3,
         "meta_data": {
             "language": "fr",
             "word": "tui-tui",
@@ -48,7 +48,7 @@
     },
     {
         "question": "",
-        "answer": 3,
+        "answer": 2,
         "meta_data": {
             "language": "fr",
             "word": "couin-couin",
@@ -65,7 +65,7 @@
     },
     {
         "question": "",
-        "answer": 4,
+        "answer": 3,
         "meta_data": {
             "language": "fr",
             "word": "atchou",
@@ -80,7 +80,7 @@
     },
     {
         "question": "",
-        "answer": 3,
+        "answer": 4,
         "meta_data": {
             "language": "fr",
             "word": "atchou",
@@ -133,7 +133,7 @@
     },
     {
         "question": "",
-        "answer": 2,
+        "answer": 3,
         "meta_data": {
             "language": "fr",
             "word": "bzee",
@@ -148,7 +148,7 @@
     },
     {
         "question": "",
-        "answer": 3,
+        "answer": 2,
         "meta_data": {
             "language": "fr",
             "word": "bzee",
@@ -163,7 +163,7 @@
     },
     {
         "question": "",
-        "answer": 4,
+        "answer": 3,
         "meta_data": {
             "language": "fr",
             "word": "vlof",
@@ -179,7 +179,7 @@
     },
     {
         "question": "",
-        "answer": 3,
+        "answer": 1,
         "meta_data": {
             "language": "fr",
             "word": "vlof",
@@ -195,7 +195,7 @@
     },
     {
         "question": "",
-        "answer": 3,
+        "answer": 2,
         "meta_data": {
             "language": "fr",
             "word": "bzi",
@@ -210,7 +210,7 @@
     },
     {
         "question": "",
-        "answer": 1,
+        "answer": 4,
         "meta_data": {
             "language": "fr",
             "word": "bzi",
@@ -225,7 +225,7 @@
     },
     {
         "question": "",
-        "answer": 2,
+        "answer": 3,
         "meta_data": {
             "language": "fr",
             "word": "crc cr",
@@ -240,7 +240,7 @@
     },
     {
         "question": "",
-        "answer": 2,
+        "answer": 3,
         "meta_data": {
             "language": "fr",
             "word": "crc cr",
@@ -255,7 +255,7 @@
     },
     {
         "question": "",
-        "answer": 4,
+        "answer": 1,
         "meta_data": {
             "language": "fr",
             "word": "beurq",
@@ -270,7 +270,7 @@
     },
     {
         "question": "",
-        "answer": 2,
+        "answer": 1,
         "meta_data": {
             "language": "fr",
             "word": "beurq",
@@ -285,7 +285,7 @@
     },
     {
         "question": "",
-        "answer": 3,
+        "answer": 1,
         "meta_data": {
             "language": "fr",
             "word": "uh",
@@ -300,7 +300,7 @@
     },
     {
         "question": "",
-        "answer": 4,
+        "answer": 2,
         "meta_data": {
             "language": "fr",
             "word": "uh",
@@ -315,7 +315,7 @@
     },
     {
         "question": "",
-        "answer": 3,
+        "answer": 2,
         "meta_data": {
             "language": "fr",
             "word": "tam-tam",
@@ -366,7 +366,7 @@
     },
     {
         "question": "",
-        "answer": 3,
+        "answer": 4,
         "meta_data": {
             "language": "fr",
             "word": "hmm",
@@ -398,7 +398,7 @@
     },
     {
         "question": "",
-        "answer": 1,
+        "answer": 2,
         "meta_data": {
             "language": "fr",
             "word": "tchic tchac",
@@ -428,7 +428,7 @@
     },
     {
         "question": "",
-        "answer": 1,
+        "answer": 3,
         "meta_data": {
             "language": "fr",
             "word": "tagada tagada tagada",
@@ -443,7 +443,7 @@
     },
     {
         "question": "",
-        "answer": 4,
+        "answer": 2,
         "meta_data": {
             "language": "fr",
             "word": "cx cx",
@@ -459,7 +459,7 @@
     },
     {
         "question": "",
-        "answer": 2,
+        "answer": 4,
         "meta_data": {
             "language": "fr",
             "word": "cx cx",
@@ -486,120 +486,120 @@
             "num_utterances": 6,
             "dialogue_num": 1,
             "ss_idx": 3
-        }
-    },
-    {
-        "question": "",
-        "answer": 3,
-        "meta_data": {
-            "language": "fr",
-            "word": "tagadan",
-            "meaning": [
-                "bruit de galop du cheval."
-            ],
-            "cluster_id": 212,
-            "num_utterances": 6,
-            "dialogue_num": 2,
-            "ss_idx": 6
-        }
-    },
-    {
-        "question": "",
-        "answer": 4,
-        "meta_data": {
-            "language": "fr",
-            "word": "ha hou ha",
-            "meaning": [
-                "bruit produit par le bâillement.",
-                "bruit produit par le suffoquement.",
-                "bruit d'une personne qui pleure, qui sanglote."
-            ],
-            "cluster_id": 380,
-            "num_utterances": 6,
-            "dialogue_num": 1,
-            "ss_idx": 5
-        }
-    },
-    {
-        "question": "",
-        "answer": 4,
-        "meta_data": {
-            "language": "fr",
-            "word": "ha hou ha",
-            "meaning": [
-                "bruit produit par le bâillement.",
-                "bruit produit par le suffoquement.",
-                "bruit d'une personne qui pleure, qui sanglote."
-            ],
-            "cluster_id": 380,
-            "num_utterances": 6,
-            "dialogue_num": 2,
-            "ss_idx": 3
-        }
-    },
-    {
-        "question": "",
-        "answer": 2,
-        "meta_data": {
-            "language": "fr",
-            "word": "cloup",
-            "meaning": [
-                "le bruit des genoux de Serge, dans la flaque d'eau qui couvre le parquet."
-            ],
-            "cluster_id": 191,
-            "num_utterances": 6,
-            "dialogue_num": 1,
-            "ss_idx": 6
-        }
-    },
-    {
-        "question": "",
-        "answer": 3,
-        "meta_data": {
-            "language": "fr",
-            "word": "cloup",
-            "meaning": [
-                "le bruit des genoux de Serge, dans la flaque d'eau qui couvre le parquet."
-            ],
-            "cluster_id": 191,
-            "num_utterances": 6,
-            "dialogue_num": 2,
-            "ss_idx": 3
-        }
-    },
-    {
-        "question": "",
-        "answer": 4,
-        "meta_data": {
-            "language": "fr",
-            "word": "miamiaoux",
-            "meaning": [
-                "bruit du cri du chat."
-            ],
-            "cluster_id": 36,
-            "num_utterances": 6,
-            "dialogue_num": 1,
-            "ss_idx": 6
-        }
-    },
-    {
-        "question": "",
-        "answer": 3,
-        "meta_data": {
-            "language": "fr",
-            "word": "miamiaoux",
-            "meaning": [
-                "bruit du cri du chat."
-            ],
-            "cluster_id": 36,
-            "num_utterances": 6,
-            "dialogue_num": 2,
-            "ss_idx": 4
         }
     },
     {
         "question": "",
         "answer": 1,
+        "meta_data": {
+            "language": "fr",
+            "word": "tagadan",
+            "meaning": [
+                "bruit de galop du cheval."
+            ],
+            "cluster_id": 212,
+            "num_utterances": 6,
+            "dialogue_num": 2,
+            "ss_idx": 6
+        }
+    },
+    {
+        "question": "",
+        "answer": 1,
+        "meta_data": {
+            "language": "fr",
+            "word": "ha hou ha",
+            "meaning": [
+                "bruit produit par le bâillement.",
+                "bruit produit par le suffoquement.",
+                "bruit d'une personne qui pleure, qui sanglote."
+            ],
+            "cluster_id": 380,
+            "num_utterances": 6,
+            "dialogue_num": 1,
+            "ss_idx": 5
+        }
+    },
+    {
+        "question": "",
+        "answer": 3,
+        "meta_data": {
+            "language": "fr",
+            "word": "ha hou ha",
+            "meaning": [
+                "bruit produit par le bâillement.",
+                "bruit produit par le suffoquement.",
+                "bruit d'une personne qui pleure, qui sanglote."
+            ],
+            "cluster_id": 380,
+            "num_utterances": 6,
+            "dialogue_num": 2,
+            "ss_idx": 3
+        }
+    },
+    {
+        "question": "",
+        "answer": 2,
+        "meta_data": {
+            "language": "fr",
+            "word": "cloup",
+            "meaning": [
+                "le bruit des genoux de Serge, dans la flaque d'eau qui couvre le parquet."
+            ],
+            "cluster_id": 191,
+            "num_utterances": 6,
+            "dialogue_num": 1,
+            "ss_idx": 6
+        }
+    },
+    {
+        "question": "",
+        "answer": 1,
+        "meta_data": {
+            "language": "fr",
+            "word": "cloup",
+            "meaning": [
+                "le bruit des genoux de Serge, dans la flaque d'eau qui couvre le parquet."
+            ],
+            "cluster_id": 191,
+            "num_utterances": 6,
+            "dialogue_num": 2,
+            "ss_idx": 3
+        }
+    },
+    {
+        "question": "",
+        "answer": 2,
+        "meta_data": {
+            "language": "fr",
+            "word": "miamiaoux",
+            "meaning": [
+                "bruit du cri du chat."
+            ],
+            "cluster_id": 36,
+            "num_utterances": 6,
+            "dialogue_num": 1,
+            "ss_idx": 6
+        }
+    },
+    {
+        "question": "",
+        "answer": 2,
+        "meta_data": {
+            "language": "fr",
+            "word": "miamiaoux",
+            "meaning": [
+                "bruit du cri du chat."
+            ],
+            "cluster_id": 36,
+            "num_utterances": 6,
+            "dialogue_num": 2,
+            "ss_idx": 4
+        }
+    },
+    {
+        "question": "",
+        "answer": 4,
         "meta_data": {
             "language": "fr",
             "word": "tsik",
@@ -614,7 +614,7 @@
     },
     {
         "question": "",
-        "answer": 2,
+        "answer": 1,
         "meta_data": {
             "language": "fr",
             "word": "tsik",
@@ -629,7 +629,7 @@
     },
     {
         "question": "",
-        "answer": 1,
+        "answer": 4,
         "meta_data": {
             "language": "fr",
             "word": "myaoû",
@@ -645,7 +645,7 @@
     },
     {
         "question": "",
-        "answer": 4,
+        "answer": 3,
         "meta_data": {
             "language": "fr",
             "word": "myaoû",
@@ -661,7 +661,7 @@
     },
     {
         "question": "",
-        "answer": 3,
+        "answer": 2,
         "meta_data": {
             "language": "fr",
             "word": "dzing boum boum",
@@ -676,7 +676,7 @@
     },
     {
         "question": "",
-        "answer": 2,
+        "answer": 3,
         "meta_data": {
             "language": "fr",
             "word": "dzing boum boum",
@@ -691,7 +691,7 @@
     },
     {
         "question": "",
-        "answer": 4,
+        "answer": 2,
         "meta_data": {
             "language": "fr",
             "word": "aouah",
@@ -706,7 +706,7 @@
     },
     {
         "question": "",
-        "answer": 2,
+        "answer": 4,
         "meta_data": {
             "language": "fr",
             "word": "aouah",
@@ -721,7 +721,7 @@
     },
     {
         "question": "",
-        "answer": 3,
+        "answer": 2,
         "meta_data": {
             "language": "fr",
             "word": "pfwit",
@@ -761,7 +761,7 @@
     },
     {
         "question": "",
-        "answer": 1,
+        "answer": 2,
         "meta_data": {
             "language": "fr",
             "word": "glup",
@@ -776,7 +776,7 @@
     },
     {
         "question": "",
-        "answer": 1,
+        "answer": 3,
         "meta_data": {
             "language": "fr",
             "word": "glup",
@@ -791,7 +791,7 @@
     },
     {
         "question": "",
-        "answer": 3,
+        "answer": 2,
         "meta_data": {
             "language": "fr",
             "word": "beng",
@@ -807,7 +807,7 @@
     },
     {
         "question": "",
-        "answer": 4,
+        "answer": 2,
         "meta_data": {
             "language": "fr",
             "word": "beng",
@@ -823,7 +823,7 @@
     },
     {
         "question": "",
-        "answer": 2,
+        "answer": 3,
         "meta_data": {
             "language": "fr",
             "word": "flou flou",
@@ -868,7 +868,7 @@
     },
     {
         "question": "",
-        "answer": 1,
+        "answer": 3,
         "meta_data": {
             "language": "fr",
             "word": "ouarf",
@@ -883,7 +883,7 @@
     },
     {
         "question": "",
-        "answer": 4,
+        "answer": 2,
         "meta_data": {
             "language": "fr",
             "word": "pof",
@@ -901,7 +901,7 @@
     },
     {
         "question": "",
-        "answer": 2,
+        "answer": 3,
         "meta_data": {
             "language": "fr",
             "word": "pof",
@@ -919,7 +919,7 @@
     },
     {
         "question": "",
-        "answer": 3,
+        "answer": 4,
         "meta_data": {
             "language": "fr",
             "word": "pan-pan",
@@ -934,7 +934,7 @@
     },
     {
         "question": "",
-        "answer": 4,
+        "answer": 1,
         "meta_data": {
             "language": "fr",
             "word": "pla",
@@ -949,7 +949,7 @@
     },
     {
         "question": "",
-        "answer": 1,
+        "answer": 2,
         "meta_data": {
             "language": "fr",
             "word": "pla",
@@ -964,7 +964,7 @@
     },
     {
         "question": "",
-        "answer": 3,
+        "answer": 4,
         "meta_data": {
             "language": "fr",
             "word": "brou",
@@ -979,7 +979,7 @@
     },
     {
         "question": "",
-        "answer": 3,
+        "answer": 2,
         "meta_data": {
             "language": "fr",
             "word": "aouh",
@@ -1009,7 +1009,7 @@
     },
     {
         "question": "",
-        "answer": 1,
+        "answer": 3,
         "meta_data": {
             "language": "fr",
             "word": "platch",
@@ -1020,26 +1020,26 @@
             "num_utterances": 6,
             "dialogue_num": 1,
             "ss_idx": 5
+        }
+    },
+    {
+        "question": "",
+        "answer": 4,
+        "meta_data": {
+            "language": "fr",
+            "word": "platch",
+            "meaning": [
+                "bruit d'un coup violent, d'une chute, d'un corps qui s'écrase."
+            ],
+            "cluster_id": 429,
+            "num_utterances": 6,
+            "dialogue_num": 2,
+            "ss_idx": 1
         }
     },
     {
         "question": "",
         "answer": 2,
-        "meta_data": {
-            "language": "fr",
-            "word": "platch",
-            "meaning": [
-                "bruit d'un coup violent, d'une chute, d'un corps qui s'écrase."
-            ],
-            "cluster_id": 429,
-            "num_utterances": 6,
-            "dialogue_num": 2,
-            "ss_idx": 1
-        }
-    },
-    {
-        "question": "",
-        "answer": 3,
         "meta_data": {
             "language": "fr",
             "word": "prout",
@@ -1055,7 +1055,7 @@
     },
     {
         "question": "",
-        "answer": 1,
+        "answer": 3,
         "meta_data": {
             "language": "fr",
             "word": "prout",
@@ -1071,7 +1071,7 @@
     },
     {
         "question": "",
-        "answer": 4,
+        "answer": 3,
         "meta_data": {
             "language": "fr",
             "word": "vraoum",
@@ -1103,7 +1103,7 @@
     },
     {
         "question": "",
-        "answer": 3,
+        "answer": 4,
         "meta_data": {
             "language": "fr",
             "word": "pling",
@@ -1118,7 +1118,7 @@
     },
     {
         "question": "",
-        "answer": 2,
+        "answer": 4,
         "meta_data": {
             "language": "fr",
             "word": "tagadagada",
@@ -1148,7 +1148,7 @@
     },
     {
         "question": "",
-        "answer": 3,
+        "answer": 4,
         "meta_data": {
             "language": "fr",
             "word": "clip clap",
@@ -1164,7 +1164,7 @@
     },
     {
         "question": "",
-        "answer": 3,
+        "answer": 2,
         "meta_data": {
             "language": "fr",
             "word": "zwip",
@@ -1196,7 +1196,7 @@
     },
     {
         "question": "",
-        "answer": 2,
+        "answer": 1,
         "meta_data": {
             "language": "fr",
             "word": "bvreum",
@@ -1211,7 +1211,7 @@
     },
     {
         "question": "",
-        "answer": 3,
+        "answer": 4,
         "meta_data": {
             "language": "fr",
             "word": "bvreum",
@@ -1226,7 +1226,7 @@
     },
     {
         "question": "",
-        "answer": 1,
+        "answer": 3,
         "meta_data": {
             "language": "fr",
             "word": "prouât",
@@ -1241,7 +1241,7 @@
     },
     {
         "question": "",
-        "answer": 3,
+        "answer": 2,
         "meta_data": {
             "language": "fr",
             "word": "prouât",
@@ -1288,7 +1288,7 @@
     },
     {
         "question": "",
-        "answer": 1,
+        "answer": 2,
         "meta_data": {
             "language": "fr",
             "word": "fuh",
@@ -1306,7 +1306,7 @@
     },
     {
         "question": "",
-        "answer": 1,
+        "answer": 4,
         "meta_data": {
             "language": "fr",
             "word": "fuh",
@@ -1324,7 +1324,7 @@
     },
     {
         "question": "",
-        "answer": 4,
+        "answer": 3,
         "meta_data": {
             "language": "fr",
             "word": "brékèke",
@@ -1339,7 +1339,7 @@
     },
     {
         "question": "",
-        "answer": 1,
+        "answer": 4,
         "meta_data": {
             "language": "fr",
             "word": "brékèke",
@@ -1369,7 +1369,7 @@
     },
     {
         "question": "",
-        "answer": 1,
+        "answer": 2,
         "meta_data": {
             "language": "fr",
             "word": "direling",
@@ -1384,7 +1384,7 @@
     },
     {
         "question": "",
-        "answer": 3,
+        "answer": 1,
         "meta_data": {
             "language": "fr",
             "word": "rouaf",
@@ -1414,7 +1414,7 @@
     },
     {
         "question": "",
-        "answer": 2,
+        "answer": 4,
         "meta_data": {
             "language": "fr",
             "word": "badadam",
@@ -1444,7 +1444,7 @@
     },
     {
         "question": "",
-        "answer": 1,
+        "answer": 2,
         "meta_data": {
             "language": "fr",
             "word": "cocorico",
@@ -1459,7 +1459,7 @@
     },
     {
         "question": "",
-        "answer": 4,
+        "answer": 1,
         "meta_data": {
             "language": "fr",
             "word": "cocorico",
@@ -1474,7 +1474,7 @@
     },
     {
         "question": "",
-        "answer": 3,
+        "answer": 1,
         "meta_data": {
             "language": "fr",
             "word": "flouf",
@@ -1504,7 +1504,7 @@
     },
     {
         "question": "",
-        "answer": 2,
+        "answer": 1,
         "meta_data": {
             "language": "fr",
             "word": "vrom",
@@ -1534,7 +1534,7 @@
     },
     {
         "question": "",
-        "answer": 1,
+        "answer": 4,
         "meta_data": {
             "language": "fr",
             "word": "heurgh",
@@ -1549,7 +1549,7 @@
     },
     {
         "question": "",
-        "answer": 2,
+        "answer": 3,
         "meta_data": {
             "language": "fr",
             "word": "brouaou",
@@ -1564,7 +1564,7 @@
     },
     {
         "question": "",
-        "answer": 4,
+        "answer": 1,
         "meta_data": {
             "language": "fr",
             "word": "brouaou",
@@ -1594,7 +1594,7 @@
     },
     {
         "question": "",
-        "answer": 4,
+        "answer": 2,
         "meta_data": {
             "language": "fr",
             "word": "ouah-ouah",
@@ -1609,7 +1609,7 @@
     },
     {
         "question": "",
-        "answer": 4,
+        "answer": 1,
         "meta_data": {
             "language": "fr",
             "word": "quanquan",
@@ -1624,7 +1624,7 @@
     },
     {
         "question": "",
-        "answer": 1,
+        "answer": 2,
         "meta_data": {
             "language": "fr",
             "word": "clic-clac",
@@ -1640,7 +1640,7 @@
     },
     {
         "question": "",
-        "answer": 4,
+        "answer": 2,
         "meta_data": {
             "language": "fr",
             "word": "clic-clac",
@@ -1656,7 +1656,7 @@
     },
     {
         "question": "",
-        "answer": 1,
+        "answer": 3,
         "meta_data": {
             "language": "fr",
             "word": "crin crin",
@@ -1703,7 +1703,7 @@
     },
     {
         "question": "",
-        "answer": 4,
+        "answer": 1,
         "meta_data": {
             "language": "fr",
             "word": "pop",
@@ -1721,7 +1721,7 @@
     },
     {
         "question": "",
-        "answer": 4,
+        "answer": 3,
         "meta_data": {
             "language": "fr",
             "word": "kaï kaï",
@@ -1781,7 +1781,7 @@
     },
     {
         "question": "",
-        "answer": 1,
+        "answer": 4,
         "meta_data": {
             "language": "fr",
             "word": "zp",
@@ -1796,7 +1796,7 @@
     },
     {
         "question": "",
-        "answer": 1,
+        "answer": 4,
         "meta_data": {
             "language": "fr",
             "word": "zp",
@@ -1841,7 +1841,7 @@
     },
     {
         "question": "",
-        "answer": 1,
+        "answer": 3,
         "meta_data": {
             "language": "fr",
             "word": "berque",
@@ -1856,7 +1856,7 @@
     },
     {
         "question": "",
-        "answer": 4,
+        "answer": 2,
         "meta_data": {
             "language": "fr",
             "word": "berque",
@@ -1871,7 +1871,7 @@
     },
     {
         "question": "",
-        "answer": 1,
+        "answer": 2,
         "meta_data": {
             "language": "fr",
             "word": "pif paf pouf",
@@ -1916,7 +1916,7 @@
     },
     {
         "question": "",
-        "answer": 3,
+        "answer": 2,
         "meta_data": {
             "language": "fr",
             "word": "vrum",
@@ -1931,7 +1931,7 @@
     },
     {
         "question": "",
-        "answer": 3,
+        "answer": 1,
         "meta_data": {
             "language": "fr",
             "word": "acz acz",
@@ -1947,7 +1947,7 @@
     },
     {
         "question": "",
-        "answer": 3,
+        "answer": 4,
         "meta_data": {
             "language": "fr",
             "word": "acz acz",
@@ -1963,7 +1963,7 @@
     },
     {
         "question": "",
-        "answer": 2,
+        "answer": 4,
         "meta_data": {
             "language": "fr",
             "word": "couac",
@@ -1979,7 +1979,7 @@
     },
     {
         "question": "",
-        "answer": 1,
+        "answer": 3,
         "meta_data": {
             "language": "fr",
             "word": "couac",
@@ -2010,7 +2010,7 @@
     },
     {
         "question": "",
-        "answer": 3,
+        "answer": 1,
         "meta_data": {
             "language": "fr",
             "word": "badaboumer",
@@ -2025,7 +2025,7 @@
     },
     {
         "question": "",
-        "answer": 3,
+        "answer": 4,
         "meta_data": {
             "language": "fr",
             "word": "flop",
@@ -2041,7 +2041,7 @@
     },
     {
         "question": "",
-        "answer": 2,
+        "answer": 4,
         "meta_data": {
             "language": "fr",
             "word": "flop",
@@ -2057,7 +2057,7 @@
     },
     {
         "question": "",
-        "answer": 1,
+        "answer": 2,
         "meta_data": {
             "language": "fr",
             "word": "dzz",
@@ -2121,7 +2121,7 @@
     },
     {
         "question": "",
-        "answer": 4,
+        "answer": 3,
         "meta_data": {
             "language": "fr",
             "word": "hap",
@@ -2136,7 +2136,7 @@
     },
     {
         "question": "",
-        "answer": 4,
+        "answer": 2,
         "meta_data": {
             "language": "fr",
             "word": "hap",
@@ -2151,7 +2151,7 @@
     },
     {
         "question": "",
-        "answer": 4,
+        "answer": 1,
         "meta_data": {
             "language": "fr",
             "word": "tit",
@@ -2166,7 +2166,7 @@
     },
     {
         "question": "",
-        "answer": 1,
+        "answer": 2,
         "meta_data": {
             "language": "fr",
             "word": "tit",
@@ -2226,7 +2226,7 @@
     },
     {
         "question": "",
-        "answer": 2,
+        "answer": 3,
         "meta_data": {
             "language": "fr",
             "word": "smac",
@@ -2256,7 +2256,7 @@
     },
     {
         "question": "",
-        "answer": 4,
+        "answer": 3,
         "meta_data": {
             "language": "fr",
             "word": "rantanplan",
@@ -2271,7 +2271,7 @@
     },
     {
         "question": "",
-        "answer": 3,
+        "answer": 1,
         "meta_data": {
             "language": "fr",
             "word": "badabiam",
@@ -2286,7 +2286,7 @@
     },
     {
         "question": "",
-        "answer": 2,
+        "answer": 4,
         "meta_data": {
             "language": "fr",
             "word": "badabiam",
@@ -2301,7 +2301,7 @@
     },
     {
         "question": "",
-        "answer": 2,
+        "answer": 3,
         "meta_data": {
             "language": "fr",
             "word": "tché",
@@ -2316,7 +2316,7 @@
     },
     {
         "question": "",
-        "answer": 4,
+        "answer": 1,
         "meta_data": {
             "language": "fr",
             "word": "cot cot codec",
@@ -2331,7 +2331,7 @@
     },
     {
         "question": "",
-        "answer": 4,
+        "answer": 1,
         "meta_data": {
             "language": "fr",
             "word": "cot cot codec",
@@ -2346,7 +2346,7 @@
     },
     {
         "question": "",
-        "answer": 1,
+        "answer": 4,
         "meta_data": {
             "language": "fr",
             "word": "tsine",
@@ -2362,7 +2362,7 @@
     },
     {
         "question": "",
-        "answer": 4,
+        "answer": 1,
         "meta_data": {
             "language": "fr",
             "word": "tsine",
@@ -2378,7 +2378,7 @@
     },
     {
         "question": "",
-        "answer": 1,
+        "answer": 2,
         "meta_data": {
             "language": "fr",
             "word": "cz",
@@ -2393,7 +2393,7 @@
     },
     {
         "question": "",
-        "answer": 3,
+        "answer": 4,
         "meta_data": {
             "language": "fr",
             "word": "cz",
@@ -2408,7 +2408,7 @@
     },
     {
         "question": "",
-        "answer": 4,
+        "answer": 2,
         "meta_data": {
             "language": "fr",
             "word": "oû",
@@ -2423,7 +2423,7 @@
     },
     {
         "question": "",
-        "answer": 4,
+        "answer": 2,
         "meta_data": {
             "language": "fr",
             "word": "oû",
@@ -2438,7 +2438,7 @@
     },
     {
         "question": "",
-        "answer": 2,
+        "answer": 4,
         "meta_data": {
             "language": "fr",
             "word": "pout",
@@ -2456,7 +2456,7 @@
     },
     {
         "question": "",
-        "answer": 4,
+        "answer": 2,
         "meta_data": {
             "language": "fr",
             "word": "pschitt-pschitt",
@@ -2486,7 +2486,7 @@
     },
     {
         "question": "",
-        "answer": 4,
+        "answer": 3,
         "meta_data": {
             "language": "fr",
             "word": "plop",
@@ -2501,7 +2501,7 @@
     },
     {
         "question": "",
-        "answer": 4,
+        "answer": 2,
         "meta_data": {
             "language": "fr",
             "word": "braoum",
@@ -2516,7 +2516,7 @@
     },
     {
         "question": "",
-        "answer": 1,
+        "answer": 2,
         "meta_data": {
             "language": "fr",
             "word": "braoum",
@@ -2561,7 +2561,7 @@
     },
     {
         "question": "",
-        "answer": 4,
+        "answer": 2,
         "meta_data": {
             "language": "fr",
             "word": "vrouh",
@@ -2576,7 +2576,7 @@
     },
     {
         "question": "",
-        "answer": 4,
+        "answer": 2,
         "meta_data": {
             "language": "fr",
             "word": "vrouh",
@@ -2591,7 +2591,7 @@
     },
     {
         "question": "",
-        "answer": 3,
+        "answer": 4,
         "meta_data": {
             "language": "fr",
             "word": "badabang",
@@ -2621,7 +2621,7 @@
     },
     {
         "question": "",
-        "answer": 3,
+        "answer": 4,
         "meta_data": {
             "language": "fr",
             "word": "tchac",
@@ -2653,7 +2653,7 @@
     },
     {
         "question": "",
-        "answer": 3,
+        "answer": 1,
         "meta_data": {
             "language": "fr",
             "word": "hu",
@@ -2668,7 +2668,7 @@
     },
     {
         "question": "",
-        "answer": 3,
+        "answer": 1,
         "meta_data": {
             "language": "fr",
             "word": "hu",
@@ -2683,7 +2683,7 @@
     },
     {
         "question": "",
-        "answer": 1,
+        "answer": 3,
         "meta_data": {
             "language": "fr",
             "word": "trr",
@@ -2698,7 +2698,7 @@
     },
     {
         "question": "",
-        "answer": 2,
+        "answer": 1,
         "meta_data": {
             "language": "fr",
             "word": "bêê",
@@ -2713,7 +2713,7 @@
     },
     {
         "question": "",
-        "answer": 1,
+        "answer": 3,
         "meta_data": {
             "language": "fr",
             "word": "bêê",
@@ -2728,7 +2728,7 @@
     },
     {
         "question": "",
-        "answer": 3,
+        "answer": 1,
         "meta_data": {
             "language": "fr",
             "word": "bahoum",
@@ -2760,7 +2760,7 @@
     },
     {
         "question": "",
-        "answer": 4,
+        "answer": 2,
         "meta_data": {
             "language": "fr",
             "word": "schloup",
@@ -2775,7 +2775,7 @@
     },
     {
         "question": "",
-        "answer": 1,
+        "answer": 3,
         "meta_data": {
             "language": "fr",
             "word": "dzee",
@@ -2791,7 +2791,7 @@
     },
     {
         "question": "",
-        "answer": 2,
+        "answer": 3,
         "meta_data": {
             "language": "fr",
             "word": "pouêt",
@@ -2806,7 +2806,7 @@
     },
     {
         "question": "",
-        "answer": 2,
+        "answer": 3,
         "meta_data": {
             "language": "fr",
             "word": "pouêt",
@@ -2821,7 +2821,7 @@
     },
     {
         "question": "",
-        "answer": 2,
+        "answer": 3,
         "meta_data": {
             "language": "fr",
             "word": "tût",
@@ -2836,7 +2836,7 @@
     },
     {
         "question": "",
-        "answer": 4,
+        "answer": 3,
         "meta_data": {
             "language": "fr",
             "word": "tût",
@@ -2851,7 +2851,7 @@
     },
     {
         "question": "",
-        "answer": 1,
+        "answer": 2,
         "meta_data": {
             "language": "fr",
             "word": "wa-wa",
@@ -2881,7 +2881,7 @@
     },
     {
         "question": "",
-        "answer": 3,
+        "answer": 1,
         "meta_data": {
             "language": "fr",
             "word": "vrin",
@@ -2896,7 +2896,7 @@
     },
     {
         "question": "",
-        "answer": 3,
+        "answer": 1,
         "meta_data": {
             "language": "fr",
             "word": "vrin",
@@ -2911,7 +2911,7 @@
     },
     {
         "question": "",
-        "answer": 2,
+        "answer": 1,
         "meta_data": {
             "language": "fr",
             "word": "zzz",
@@ -2958,7 +2958,7 @@
     },
     {
         "question": "",
-        "answer": 1,
+        "answer": 2,
         "meta_data": {
             "language": "fr",
             "word": "mheuw",
@@ -2975,7 +2975,7 @@
     },
     {
         "question": "",
-        "answer": 2,
+        "answer": 1,
         "meta_data": {
             "language": "fr",
             "word": "hô",
@@ -2991,7 +2991,7 @@
     },
     {
         "question": "",
-        "answer": 3,
+        "answer": 4,
         "meta_data": {
             "language": "fr",
             "word": "hô",
@@ -3007,7 +3007,7 @@
     },
     {
         "question": "",
-        "answer": 1,
+        "answer": 2,
         "meta_data": {
             "language": "fr",
             "word": "hue",
@@ -3037,7 +3037,7 @@
     },
     {
         "question": "",
-        "answer": 3,
+        "answer": 4,
         "meta_data": {
             "language": "fr",
             "word": "digne",
@@ -3052,7 +3052,7 @@
     },
     {
         "question": "",
-        "answer": 2,
+        "answer": 4,
         "meta_data": {
             "language": "fr",
             "word": "digne",
@@ -3082,7 +3082,7 @@
     },
     {
         "question": "",
-        "answer": 3,
+        "answer": 2,
         "meta_data": {
             "language": "fr",
             "word": "bouaoue",
@@ -3097,7 +3097,7 @@
     },
     {
         "question": "",
-        "answer": 1,
+        "answer": 3,
         "meta_data": {
             "language": "fr",
             "word": "aï aï",
@@ -3112,7 +3112,7 @@
     },
     {
         "question": "",
-        "answer": 4,
+        "answer": 1,
         "meta_data": {
             "language": "fr",
             "word": "aï aï",
@@ -3127,7 +3127,7 @@
     },
     {
         "question": "",
-        "answer": 4,
+        "answer": 2,
         "meta_data": {
             "language": "fr",
             "word": "wrum",
@@ -3157,7 +3157,7 @@
     },
     {
         "question": "",
-        "answer": 1,
+        "answer": 4,
         "meta_data": {
             "language": "fr",
             "word": "pin-pon-pin",
@@ -3172,7 +3172,7 @@
     },
     {
         "question": "",
-        "answer": 3,
+        "answer": 4,
         "meta_data": {
             "language": "fr",
             "word": "pin-pon-pin",
@@ -3202,7 +3202,7 @@
     },
     {
         "question": "",
-        "answer": 2,
+        "answer": 4,
         "meta_data": {
             "language": "fr",
             "word": "la, la, la",
@@ -3232,7 +3232,7 @@
     },
     {
         "question": "",
-        "answer": 1,
+        "answer": 3,
         "meta_data": {
             "language": "fr",
             "word": "tacata",
@@ -3262,7 +3262,7 @@
     },
     {
         "question": "",
-        "answer": 1,
+        "answer": 3,
         "meta_data": {
             "language": "fr",
             "word": "crouik",
@@ -3277,7 +3277,7 @@
     },
     {
         "question": "",
-        "answer": 1,
+        "answer": 3,
         "meta_data": {
             "language": "fr",
             "word": "rrho",
@@ -3292,7 +3292,7 @@
     },
     {
         "question": "",
-        "answer": 2,
+        "answer": 1,
         "meta_data": {
             "language": "fr",
             "word": "rrho",
@@ -3307,7 +3307,7 @@
     },
     {
         "question": "",
-        "answer": 4,
+        "answer": 3,
         "meta_data": {
             "language": "fr",
             "word": "gling",
@@ -3322,7 +3322,7 @@
     },
     {
         "question": "",
-        "answer": 1,
+        "answer": 4,
         "meta_data": {
             "language": "fr",
             "word": "gling",
@@ -3337,7 +3337,7 @@
     },
     {
         "question": "",
-        "answer": 1,
+        "answer": 2,
         "meta_data": {
             "language": "fr",
             "word": "chut chut",
@@ -3352,7 +3352,7 @@
     },
     {
         "question": "",
-        "answer": 2,
+        "answer": 1,
         "meta_data": {
             "language": "fr",
             "word": "chut chut",
@@ -3382,7 +3382,7 @@
     },
     {
         "question": "",
-        "answer": 4,
+        "answer": 3,
         "meta_data": {
             "language": "fr",
             "word": "gling glang",
@@ -3397,7 +3397,7 @@
     },
     {
         "question": "",
-        "answer": 2,
+        "answer": 4,
         "meta_data": {
             "language": "fr",
             "word": "kss",
@@ -3412,7 +3412,7 @@
     },
     {
         "question": "",
-        "answer": 3,
+        "answer": 4,
         "meta_data": {
             "language": "fr",
             "word": "kss",
@@ -3427,7 +3427,7 @@
     },
     {
         "question": "",
-        "answer": 2,
+        "answer": 1,
         "meta_data": {
             "language": "fr",
             "word": "gouzi-gouzi",
@@ -3442,7 +3442,7 @@
     },
     {
         "question": "",
-        "answer": 4,
+        "answer": 1,
         "meta_data": {
             "language": "fr",
             "word": "gouzi-gouzi",
@@ -3472,7 +3472,7 @@
     },
     {
         "question": "",
-        "answer": 2,
+        "answer": 3,
         "meta_data": {
             "language": "fr",
             "word": "panpan",
@@ -3487,7 +3487,7 @@
     },
     {
         "question": "",
-        "answer": 3,
+        "answer": 4,
         "meta_data": {
             "language": "fr",
             "word": "tic",
@@ -3519,7 +3519,7 @@
     },
     {
         "question": "",
-        "answer": 2,
+        "answer": 1,
         "meta_data": {
             "language": "fr",
             "word": "clic-clic",
@@ -3534,7 +3534,7 @@
     },
     {
         "question": "",
-        "answer": 1,
+        "answer": 4,
         "meta_data": {
             "language": "fr",
             "word": "clic-clic",
@@ -3549,7 +3549,7 @@
     },
     {
         "question": "",
-        "answer": 2,
+        "answer": 4,
         "meta_data": {
             "language": "fr",
             "word": "wrao",
@@ -3564,7 +3564,7 @@
     },
     {
         "question": "",
-        "answer": 4,
+        "answer": 1,
         "meta_data": {
             "language": "fr",
             "word": "wrao",

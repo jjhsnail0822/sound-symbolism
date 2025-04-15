@@ -5,93 +5,102 @@ from tqdm import tqdm
 import os
 import re
 
-def run_mcq_experiment(
-    model_path: str, 
-    data_path: str, 
-    output_dir: str,
-    tensor_parallel_size: int = 1,
-    max_tokens: int = 32,
-    max_model_len: int = 8192,
-    temperature: float = 0.0,
-):
-    # Load MCQ data
-    print(f"Loading MCQ data from {data_path}")
-    with open(data_path, 'r', encoding='utf-8') as f:
-        mcq_data = json.load(f)
-    print(f"Loaded {len(mcq_data)} questions.")
+class MCQExperiment:
+    def __init__(
+            self,
+            model_path: str,
+            data_path: str,
+            output_dir: str,
+            tensor_parallel_size: int = 1,
+            max_tokens: int = 32,
+            max_model_len: int = 8192,
+            temperature: float = 0.0,
+    ):
+        self.model_path = model_path
+        self.data_path = data_path
+        self.output_dir = output_dir
+        self.tensor_parallel_size = tensor_parallel_size
+        self.max_tokens = max_tokens
+        self.max_model_len = max_model_len
+        self.temperature = temperature
+        pass
     
-    # Initialize VLLM model
-    print(f"Loading model from {model_path}")
-    model = LLM(model=model_path, max_model_len=max_model_len, tensor_parallel_size=tensor_parallel_size)
-    sampling_params = SamplingParams(
-        temperature=temperature, 
-        max_tokens=max_tokens,
-    )
-    
-    # Run experiment
-    print(f"Running MCQ experiment on {len(mcq_data)} questions...")
-    all_results = []
-    
-    # Process in batches
-    for query in tqdm(mcq_data):
-        response = model.generate(query['question'], sampling_params=sampling_params)
+    def run_mcq_experiment(self):
+        # Load MCQ data
+        print(f"Loading MCQ data from {self.data_path}")
+        with open(self.data_path, 'r', encoding='utf-8') as f:
+            mcq_data = json.load(f)
+        print(f"Loaded {len(mcq_data)} questions.")
         
-        # Extract answer from the first element of the response list
-        model_answer = response[0].outputs[0].text.strip()
-
-        # First integer is the answer
-        model_answer = re.search(r'\d+', model_answer)
-        if model_answer:
-            model_answer = model_answer.group(0)
-        else:
-            model_answer = None
-        # Handle cases where the model output is empty or None
-        if model_answer is None:
-            print(f"Warning: Model output is empty for query: {query['question']}")
-            model_answer = "0"
+        # Initialize VLLM model
+        print(f"Loading model from {self.model_path}")
+        model = LLM(model=self.model_path, max_model_len=self.max_model_len, tensor_parallel_size=self.tensor_parallel_size)
+        sampling_params = SamplingParams(
+            temperature=self.temperature, 
+            max_tokens=self.max_tokens,
+        )
         
-        # Check correctness
-        try:
-            is_correct = int(model_answer) == query['answer']
-        except ValueError:
-            # Handle cases where the model output is not a number
-            print(f"Warning: Model output '{model_answer}' is not a valid integer. Marking as incorrect.")
-            is_correct = False
-
-        print(query['question'])
-        print(f"Model answer: {model_answer}, Correct answer: {query['answer']}, Is correct: {is_correct}")
+        # Run experiment
+        print(f"Running MCQ experiment on {len(mcq_data)} questions...")
+        all_results = []
         
-        # Store result
-        all_results.append({
-            "query": query['question'],
-            "correct_answer": query['answer'],
-            "model_answer": model_answer,
-            "is_correct": is_correct
-        })
-    
-    # Calculate accuracy
-    correct_count = sum(1 for r in all_results if r["is_correct"])
-    total_count = len(all_results)
-    accuracy = correct_count / total_count if total_count > 0 else 0
-    
-    print(f"Experiment completed. Accuracy: {accuracy:.2%} ({correct_count}/{total_count})")
-    
-    # Save results
-    model_name = os.path.basename(model_path)
-    results_file = f"{output_dir}/{data_path.split('/')[-1].replace('.json', '')}_{model_name}.json"
-    
-    results_dict = {
-        "model": model_path,
-        "accuracy": accuracy,
-        "correct_count": correct_count,
-        "total_count": total_count,
-        "results": all_results
-    }
-    
-    with open(results_file, 'w', encoding='utf-8') as f:
-        json.dump(results_dict, f, ensure_ascii=False, indent=4)
+        # Process in batches
+        for query in tqdm(mcq_data):
+            response = model.generate(query['question'], sampling_params=sampling_params)
+            
+            # Extract answer from the first element of the response list
+            model_answer = response[0].outputs[0].text.strip()
 
-    return
+            # First integer is the answer
+            model_answer = re.search(r'\d+', model_answer)
+            if model_answer:
+                model_answer = model_answer.group(0)
+            else:
+                model_answer = None
+            # Handle cases where the model output is empty or None
+            if model_answer is None:
+                print(f"Warning: Model output is empty for query: {query['question']}")
+                model_answer = "0"
+            
+            # Check correctness
+            try:
+                is_correct = int(model_answer) == query['answer']
+            except ValueError:
+                # Handle cases where the model output is not a number
+                print(f"Warning: Model output '{model_answer}' is not a valid integer. Marking as incorrect.")
+                is_correct = False
+
+            print(query['question'])
+            print(f"Model answer: {model_answer}, Correct answer: {query['answer']}, Is correct: {is_correct}")
+            
+            # Store result
+            all_results.append({
+                "query": query['question'],
+                "correct_answer": query['answer'],
+                "model_answer": model_answer,
+                "is_correct": is_correct
+            })
+        
+        # Calculate accuracy
+        correct_count = sum(1 for r in all_results if r["is_correct"])
+        total_count = len(all_results)
+        accuracy = correct_count / total_count if total_count > 0 else 0
+        
+        print(f"Experiment completed. Accuracy: {accuracy:.2%} ({correct_count}/{total_count})")
+        
+        # Save results
+        model_name = os.path.basename(self.model_path)
+        results_filename = f"{self.output_dir}/{self.data_path.split('/')[-1].replace('.json', '')}_{model_name}.json"
+        
+        results_dict = {
+            "model": self.model_path,
+            "accuracy": accuracy,
+            "correct_count": correct_count,
+            "total_count": total_count,
+            "results": all_results,
+        }
+
+        return results_dict, results_filename
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Run MCQ experiment")
@@ -104,8 +113,8 @@ if __name__ == "__main__":
     parser.add_argument("--temperature", type=float, default=0.0, help="Sampling temperature")
     
     args = parser.parse_args()
-    
-    run_mcq_experiment(
+
+    mcq_experiment = MCQExperiment(
         model_path=args.model,
         data_path=args.data,
         output_dir=args.output,
@@ -114,3 +123,4 @@ if __name__ == "__main__":
         max_model_len=args.max_model_len,
         temperature=args.temperature
     )
+    results, results_filename = mcq_experiment.run_mcq_experiment()
