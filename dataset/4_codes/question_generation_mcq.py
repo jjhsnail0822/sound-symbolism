@@ -1,7 +1,7 @@
 import json
 import random
 
-LANGUAGE = "ko"
+LANGUAGE = "en"
 TASK = "understanding"
 EXPERIMENT_NAME = "unmasked_word_to_meaning_mcq"
 PROMPT_ROLE = "user_prompt"
@@ -48,7 +48,7 @@ for subject_word in dialogues:
         for cluster_id in random_clusters:
             cluster = next((c for c in clustered_words if c['cluster_id'] == cluster_id), None)
             if cluster:
-                random_meaning = random.choice(cluster['words'])['definitions']
+                random_meaning = random.choice(cluster['words'])['meaning']
                 if isinstance(random_meaning, list):
                     random_meaning = random_meaning[0]
                 random_meanings.append(random_meaning)
