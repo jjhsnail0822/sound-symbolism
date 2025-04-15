@@ -4,8 +4,10 @@ import random
 LANGUAGE = "ja"
 TASK = "understanding"
 EXPERIMENT_NAME = "unmasked_word_to_meaning_mcq"
+# EXPERIMENT_NAME = "masked_meaning_to_word_mcq"
 PROMPT_ROLE = "user_prompt"
-MASKING = False
+IS_OPTION_MEANING = False if EXPERIMENT_NAME == "unmasked_word_to_meaning_mcq" else True # whether the options are meaning or word
+MASKING = False if EXPERIMENT_NAME == "unmasked_word_to_meaning_mcq" else True # whether to mask the subject word
 MASKING_WORD = "[__]"
 MAX_OPTION = 4
 
@@ -19,6 +21,33 @@ with open(f'dataset/1_preprocess/nat/{LANGUAGE}_clustered.json', 'r', encoding='
 
 with open('analysis/experiments/prompts.json', 'r', encoding='utf-8') as f:
     prompts = json.load(f)
+
+def generate_options(random_clusters, is_option_meaning=False):
+    # choose random meanings from the clusters
+    random_options = []
+    for cluster_id in random_clusters:
+        cluster = next((c for c in clustered_words if c['cluster_id'] == cluster_id), None)
+        if cluster:
+            random_meaning = random.choice(cluster['words'])['meaning'] if is_option_meaning else random.choice(cluster['words'])['word']
+            if isinstance(random_meaning, list):
+                random_meaning = random_meaning[0]
+            random_options.append(random_meaning)
+            continue
+        raise ValueError(f"Cluster ID {cluster_id} not found in clustered words.")
+    meaning = subject_word['meaning'][0] if isinstance(subject_word['meaning'], list) else subject_word['meaning']
+    right_option = meaning if is_option_meaning else subject_word['word']
+    options = [right_option] + random_options
+    answer_idx = [i for i in range(MAX_OPTION)]
+    # shuffle the options and answer index together
+    random.shuffle(answer_idx)
+    shuffled_options = [options[i] for i in answer_idx]
+    answer = answer_idx.index(0) + 1
+    # create the option string
+    option_string = ""
+    for i, option in enumerate(shuffled_options):
+        option_string += f"{i + 1}: {option}\n"
+    option_string = option_string.strip()
+    return option_string, answer, meaning
 
 # Generate word to cluster mapping
 word_to_cluster = {}
@@ -40,34 +69,15 @@ for subject_word in dialogues:
             else: # keep the subject word
                 dialogue_text += f"{utterance['speaker']}: {utterance['text']}\n"
         dialogue_text = dialogue_text.strip()
+        if MASKING:
+            dialogue_text = dialogue_text.replace(subject_word['word'], MASKING_WORD)
         word_text = subject_word['word']
         # choose clusters randomly 0 to len(clustered_words), not including the current cluster
         random_clusters = random.sample([c['cluster_id'] for c in clustered_words if c['cluster_id'] != word_to_cluster[word_text]], MAX_OPTION - 1)
-        # choose random meanings from the clusters
-        random_meanings = []
-        for cluster_id in random_clusters:
-            cluster = next((c for c in clustered_words if c['cluster_id'] == cluster_id), None)
-            if cluster:
-                random_meaning = random.choice(cluster['words'])['meaning']
-                if isinstance(random_meaning, list):
-                    random_meaning = random_meaning[0]
-                random_meanings.append(random_meaning)
-                continue
-            raise ValueError(f"Cluster ID {cluster_id} not found in clustered words.")
-        answer_meaning = subject_word['meaning'][0] if isinstance(subject_word['meaning'], list) else subject_word['meaning']
-        options = [answer_meaning] + random_meanings
-        answer_idx = [i for i in range(MAX_OPTION)]
-        # shuffle the options and answer index together
-        random.shuffle(answer_idx)
-        shuffled_options = [options[i] for i in answer_idx]
-        answer = answer_idx.index(0) + 1
-        # create the option string
-        option_string = ""
-        for i, option in enumerate(shuffled_options):
-            option_string += f"{i + 1}: {option}\n"
-        option_string = option_string.strip()
+        # generate options
+        option_string, answer, meaning_text = generate_options(random_clusters, is_option_meaning=IS_OPTION_MEANING)
         # create the prompt
-        question = prompts[TASK][EXPERIMENT_NAME][LANGUAGE][PROMPT_ROLE].format(word=word_text, dialogue=dialogue_text, options=option_string, MAX_OPTION=MAX_OPTION)
+        question = prompts[TASK][EXPERIMENT_NAME][LANGUAGE][PROMPT_ROLE].format(word=word_text, meaning=meaning_text, dialogue=dialogue_text, options=option_string, MAX_OPTION=MAX_OPTION, MASKING_WORD=MASKING_WORD)
         # create the result data
         result_data.append({
             "question": question,

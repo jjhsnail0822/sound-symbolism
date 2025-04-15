@@ -48,30 +48,30 @@
     "understanding": {
         "unmasked_word_to_meaning_mcq": {
             "en": {
-                "user_prompt": "Given the following [DIALOGUE] and a [WORD], which option is the most appropriate meaning of the word in the context of the dialogue?\n\n[WORD]\n{word}\n\n[DIALOGUE]\n{dialogue}\n\n[OPTIONS]\n{options}\n\nAnswer with the number only. (1-{MAX_OPTION})"
+                "user_prompt": "Given the following [DIALOGUE] and a [WORD], which option is the most appropriate meaning of this onomatopoeic/mimetic word in the context of the dialogue?\n\n[WORD]\n{word}\n\n[DIALOGUE]\n{dialogue}\n\n[OPTIONS]\n{options}\n\nAnswer with the number only. (1-{MAX_OPTION})"
             },
             "fr": {
                 "user_prompt": ""
             },
             "ko": {
-                "user_prompt": "다음 [대화]와 [단어]가 주어졌을 때, 대화의 문맥상 이 단어의 가장 적절한 의미는 어느 것입니까?\n\n[단어]\n{word}\n\n[대화]\n{dialogue}\n\n[옵션]\n{options}\n\n오직 숫자로만 대답하세요. (1-{MAX_OPTION})"
+                "user_prompt": "다음 [대화]와 [단어]가 주어졌을 때, 대화의 문맥상 이 의성어/의태어의 가장 적절한 의미는 어느 것입니까?\n\n[단어]\n{word}\n\n[대화]\n{dialogue}\n\n[옵션]\n{options}\n\n오직 숫자로만 대답하세요. (1-{MAX_OPTION})"
             },
             "ja": {
-                "user_prompt": "次の[会話]と[単語]に対して、対話の文脈における単語の意味として最も適切な選択肢はどれですか。\n\n[単語]\n{word}\n\n[会話]\n{dialogue}\n\n[選択肢]\n{options}\n\n数字のみで答えてください。 (1-{MAX_OPTION})"
+                "user_prompt": "次の[会話]と[単語]に対して、対話の文脈におけるこの擬音語・擬態語の意味として最も適切な選択肢はどれですか。\n\n[単語]\n{word}\n\n[会話]\n{dialogue}\n\n[選択肢]\n{options}\n\n数字のみで答えてください。 (1-{MAX_OPTION})"
             }
         },
         "masked_meaning_to_word_mcq": {
             "en": {
-                "user_prompt": ""
+                "user_prompt": "Given the following [DIALOGUE], which option is the most appropriate onomatopoeic/mimetic word that has the [MEANING] of the masked ({MASKING_WORD}) part of the dialogue in context?\n\n[MEANING]\n{meaning}\n\n[DIALOGUE]\n{dialogue}\n\n[OPTIONS]\n{options}\n\nAnswer with the number only. (1-{MAX_OPTION})"
             },
             "fr": {
                 "user_prompt": ""
             },
             "ko": {
-                "user_prompt": ""
+                "user_prompt": "다음 [대화]가 주어졌을 때, 대화의 문맥상 마스킹된 ({MASKING_WORD}) 부분에 들어갈 [의미]를 가지는 가장 적절한 의성어/의태어는 어느 것입니까?\n\n[의미]\n{meaning}\n\n[대화]\n{dialogue}\n\n[옵션]\n{options}\n\n오직 숫자로만 대답하세요. (1-{MAX_OPTION})"
             },
             "ja": {
-                "user_prompt": ""
+                "user_prompt": "次の[会話]に対して、対話の文脈上、マスキング({MASKING_WORD})された部分に入る[意味]を持つ最も適切な擬音語・擬態語はどれですか。\n\n[意味]\n{meaning}\n\n[会話]\n{dialogue}\n\n[選択肢]\n{options}\n\n数字のみで答えてください。 (1-{MAX_OPTION})"
             }
         }
     }
