@@ -9,6 +9,7 @@ def run_mcq_experiment(
     model_path: str, 
     data_path: str, 
     output_dir: str,
+    tensor_parallel_size: int = 1,
     max_tokens: int = 32,
     max_model_len: int = 8192,
     temperature: float = 0.0,
@@ -21,7 +22,7 @@ def run_mcq_experiment(
     
     # Initialize VLLM model
     print(f"Loading model from {model_path}")
-    model = LLM(model=model_path, max_model_len=max_model_len)
+    model = LLM(model=model_path, max_model_len=max_model_len, tensor_parallel_size=tensor_parallel_size)
     sampling_params = SamplingParams(
         temperature=temperature, 
         max_tokens=max_tokens,
@@ -96,6 +97,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Run MCQ experiment")
     parser.add_argument("--model", '-m', type=str, required=True, help="Path to the LLM")
     parser.add_argument("--data", '-d', type=str, required=True, help="Path to the MCQ data JSON file")
+    parser.add_argument("--gpu", type=int, required=True, help="Tensor parallel size")
     parser.add_argument("--output", '-o', type=str, default="analysis/experiments/understanding", help="Directory to save results")
     parser.add_argument("--max-tokens", type=int, default=32, help="Maximum tokens to generate")
     parser.add_argument("--max-model-len", type=int, default=8192, help="Maximum model length")
@@ -107,6 +109,7 @@ if __name__ == "__main__":
         model_path=args.model,
         data_path=args.data,
         output_dir=args.output,
+        tensor_parallel_size=args.gpu,
         max_tokens=args.max_tokens,
         max_model_len=args.max_model_len,
         temperature=args.temperature
