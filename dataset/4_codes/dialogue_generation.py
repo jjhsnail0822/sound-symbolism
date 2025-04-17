@@ -6,7 +6,6 @@ import time
 from pprint import pprint
 from tqdm import tqdm
 from openai import OpenAI
-import pandas as pd
 import random
 import re
 import ast
@@ -15,7 +14,6 @@ from pathlib import Path
 from dotenv import load_dotenv
 import asyncio
 from openai import AsyncOpenAI
-import concurrent.futures
 
 # Load environment variables from .env.local file
 env_path = Path('.env.local')
@@ -167,7 +165,7 @@ class DialogueGenerator:
                     
                     print(f"❌ Word '{word}' NOT found in target utterance {i+1}")
             else:
-                if word in utterance_text:
+                if word in utterance_text.lower():
                     word_in_wrong_place = True
                     
                     print(f"⚠️ Word '{word}' found in wrong utterance {i+1}")
@@ -493,54 +491,49 @@ class DialogueGenerator:
         tasks = [self._generate_multiple_dialogues_async(item) for item in batch]
         return await asyncio.gather(*tasks)
     
-    def _process_batch(self, batch: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
-        """Process a batch of words using asyncio event loop"""
-        loop = asyncio.new_event_loop()
-        asyncio.set_event_loop(loop)
-        try:
-            return loop.run_until_complete(self._process_batch_async(batch))
-        finally:
-            loop.close()
-    
-    def generate_all_dialogues(self, limit: Optional[int] = None, shuffle: bool = True) -> List[Dict[str, Any]]:
-        """Generate dialogues for all words in the data using batch processing"""
+    async def _generate_all_batches_async(self,
+            data_to_process: List[Dict[str, Any]]
+        ) -> List[Dict[str, Any]]:
+        """Process all batches of data asynchronously"""
+        results = []
+        batches = [data_to_process[i:i + self.batch_size]
+                   for i in range(0, len(data_to_process), self.batch_size)]
+        pbar = tqdm(total=len(data_to_process), desc=f"Generating {self.language} dialogues", unit="word")
+        for batch_idx, batch in enumerate(batches):
+            # Process each batch
+            batch_results = await self._process_batch_async(batch)
+            results.extend(batch_results)
+            # Save intermediate results
+            self._save_intermediate_results(results)
+            pbar.update(len(batch))
+            # Prevent overloading the API
+            if batch_idx < len(batches) - 1:
+                await asyncio.sleep(2)
+        pbar.close()
+        return results
+
+    def generate_all_dialogues(self,
+            limit: Optional[int] = None, shuffle: bool = True
+        ) -> List[Dict[str, Any]]:
+        """Generate dialogues for all words in the data using a single event loop."""
         if not self.data:
             print("No data available to generate dialogues")
             return []
-        
-        # Optionally shuffle the data
         data_to_process = self.data.copy()
         if shuffle:
             random.shuffle(data_to_process)
-        
-        # Limit the number of items to process if specified
         if limit and limit > 0:
             data_to_process = data_to_process[:limit]
-        
-        results = []
-        
-        temp_stop_idx = 7
-        
-        # Process data in batches
-        batches = [data_to_process[i:i + self.batch_size] for i in range(0, len(data_to_process), self.batch_size)]
-        
-        for batch_idx, batch in enumerate(tqdm(batches, desc=f"Processing batches ({self.language})")):
-            # Process the batch
-            batch_results = self._process_batch(batch)
-            
-            # Add batch results to overall results
-            results.extend(batch_results)
-            
-            # Save intermediate results after each batch
-            self._save_intermediate_results(results)
-            
-            # Add a delay between batches to avoid rate limiting
-            if batch_idx < len(batches) - 1:
-                time.sleep(2)
-            
-            if batch_idx == temp_stop_idx:
-                break
-        
+
+        # Create the event loop once and process all batches
+        loop = asyncio.new_event_loop()
+        asyncio.set_event_loop(loop)
+        try:
+            results = loop.run_until_complete(
+                self._generate_all_batches_async(data_to_process)
+            )
+        finally:
+            loop.close()
         return results
     
     def _clean_speaker_name(self, speaker: str) -> str:
