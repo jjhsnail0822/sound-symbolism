@@ -25,7 +25,7 @@ load_dotenv(dotenv_path=env_path)
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 
 class DialogueGenerator:
-    def __init__(self, language: str, api_key: Optional[str] = None, model: str = "chatgpt-4o-latest", batch_size: int = 16, dialogues_per_word: int = 5, step_by_step: bool = False):
+    def __init__(self, language: str, api_key: Optional[str] = None, model: str = "gpt-4.1", batch_size: int = 16, dialogues_per_word: int = 5, step_by_step: bool = True):
         """
         Initialize the dialogue generator
         
@@ -46,9 +46,9 @@ class DialogueGenerator:
         self.step_by_step = step_by_step
         
         # Set paths
-        self.input_path = os.path.join('../1_preprocess/nat', f"{self.language}.json")
+        self.input_path = os.path.join('dataset/1_preprocess/nat', f"{self.language}.json")
         # /scratch2/sheepswool/workspace/sound-symbolism/dataset/1_preprocess/nat/ko.json
-        self.output_path = '../2_dialogue/nat'
+        self.output_path = 'dataset/2_dialogue/nat'
         self.output_file = os.path.join(self.output_path, f"{self.language}.json")
         
         # Create output directory if it doesn't exist
@@ -337,9 +337,9 @@ class DialogueGenerator:
             print("Generating initial dialogue...")
             
             # Generate dialogue
-            if self.model == "chatgpt-4o-latest":
-                # For GPT-4o, break into multiple steps
-                print("Using multi-step generation with chatgpt-4o-latest")
+            if self.step_by_step:
+                # break into multiple steps
+                print(f"Using multi-step generation with {self.model}")
                 response1 = await self.async_client.chat.completions.create(
                     model=self.model,
                     messages=[
@@ -369,7 +369,7 @@ class DialogueGenerator:
                 final_dialogue = response2.choices[0].message.content.strip()
                 print(f"Step 2 dialogue received (length: {len(final_dialogue)})")
             else:
-                # For other models, do it in one step
+                # do it in one step
                 print(f"Using single-step generation with {self.model}")
                 response = await self.async_client.chat.completions.create(
                     model=self.model,
@@ -827,8 +827,8 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Dialogue Generation Tool')
     parser.add_argument('--language', '-l', required=True, choices=['en', 'fr', 'ko', 'ja'], 
                         help='Language code (en/fr/ko/ja)')
-    parser.add_argument('--model', '-m', default="chatgpt-4o-latest", 
-                        help='OpenAI model to use (default: chatgpt-4o-latest)')
+    parser.add_argument('--model', '-m', default="gpt-4.1", 
+                        help='OpenAI model to use (default: gpt-4.1)')
     parser.add_argument('--limit', '-n', type=int, help='Limit the number of dialogues to generate')
     parser.add_argument('--no-shuffle', action='store_true', help='Do not shuffle the data before processing')
     parser.add_argument('--batch-size', '-b', type=int, default=16, 

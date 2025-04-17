@@ -13,6 +13,7 @@ def generate_datasets(language, task, experiment_name):
     MASKING = False if EXPERIMENT_NAME == "unmasked_word_to_meaning_mcq" else True # whether to mask the subject word
     MASKING_WORD = "[__]"
     MAX_OPTION = 4
+    NONE_OF_THE_OTHERS = True # whether to substitute an answer with "none of the others" option
 
     with open(f'dataset/2_dialogue/nat/{LANGUAGE}.json', 'r', encoding='utf-8') as f:
         dialogues = json.load(f)
@@ -37,6 +38,8 @@ def generate_datasets(language, task, experiment_name):
             raise ValueError(f"Cluster ID {cluster_id} not found in clustered words.")
         meaning = subject_word['meaning'][0] if isinstance(subject_word['meaning'], list) else subject_word['meaning']
         right_option = meaning if is_option_meaning else subject_word['word']
+        if NONE_OF_THE_OTHERS:
+            right_option = "None of the others"
         options = [right_option] + random_options
         answer_idx = [i for i in range(MAX_OPTION)]
         # shuffle the options and answer index together

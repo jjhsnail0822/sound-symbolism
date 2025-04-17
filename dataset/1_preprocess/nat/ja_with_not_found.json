@@ -42,6 +42,13 @@
         "found": true
     },
     {
+        "word": "あっはっは",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "あっぷあっぷ",
         "meaning": "水に溺れて苦しむさまを表わす語。転じて、困難に苦しむさまにもいう。",
         "ref": "nikkoku",
@@ -54,6 +61,13 @@
         "ref": "nikkoku",
         "url": "精選版 日本国語大辞典",
         "found": true
+    },
+    {
+        "word": "あはははは",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
     },
     {
         "word": "あぶあぶ",
@@ -140,11 +154,53 @@
         "found": true
     },
     {
+        "word": "うーっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "うーむ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "うーん",
         "meaning": "全身に力を入れるときに発することば。",
         "ref": "nikkoku",
         "url": "精選版 日本国語大辞典",
         "found": true
+    },
+    {
+        "word": "うえーん",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "うおー",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "うおーっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "うおーん",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
     },
     {
         "word": "うかうか",
@@ -252,6 +308,13 @@
         "found": true
     },
     {
+        "word": "うとっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "うねうね",
         "meaning": "畑のうねのように高くなったり低くなったりして続いているさまにいう。",
         "ref": "nikkoku",
@@ -266,11 +329,60 @@
         "found": true
     },
     {
+        "word": "うはは",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "うひひ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "うひょうひょ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "うふっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "うふふ",
         "meaning": "おさえていた笑いが思わず出るときに発する声。",
         "ref": "nikkoku",
         "url": "精選版 日本国語大辞典",
         "found": true
+    },
+    {
+        "word": "うふふっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "うふふふー",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "うふふふふ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
     },
     {
         "word": "うようよ",
@@ -315,6 +427,13 @@
         "found": true
     },
     {
+        "word": "うわーん",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "うん",
         "meaning": "相手の意向を了解、あるいは承諾したことを表わすことば。",
         "ref": "nikkoku",
@@ -336,11 +455,25 @@
         "found": true
     },
     {
+        "word": "えーんえーん",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "えっちらおっちら",
         "meaning": "つらそうに歩くさま、やっとのことで歩いているさまを表わす語。",
         "ref": "nikkoku",
         "url": "精選版 日本国語大辞典",
         "found": true
+    },
+    {
+        "word": "えっへん",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
     },
     {
         "word": "えへへ",
@@ -364,6 +497,13 @@
         "found": true
     },
     {
+        "word": "えへんえへん",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "えんえん",
         "meaning": "大声をあげて泣くさまを表わす語。",
         "ref": "nikkoku",
@@ -385,11 +525,60 @@
         "found": true
     },
     {
+        "word": "おうしいつくつく",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "おおしいつくつく",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "おーしんつくつく",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "おぎゃ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "おぎゃー",
         "meaning": "赤子の泣き声を表わす語。",
         "ref": "nikkoku",
         "url": "精選版 日本国語大辞典",
         "found": true
+    },
+    {
+        "word": "おぎゃーおぎゃー",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "おぎゃおぎゃ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "おしいつくつく",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
     },
     {
         "word": "おずおず",
@@ -469,6 +658,13 @@
         "found": true
     },
     {
+        "word": "がー",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "かーかー",
         "meaning": "カラスの鳴き声を表わした語。",
         "ref": "nikkoku",
@@ -481,6 +677,13 @@
         "ref": "nikkoku",
         "url": "精選版 日本国語大辞典",
         "found": true
+    },
+    {
+        "word": "がーっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
     },
     {
         "word": "かーん",
@@ -504,11 +707,25 @@
         "found": true
     },
     {
+        "word": "がきがき",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "がくがく",
         "meaning": "物がしっかり静止、固定していないで、ゆるんで動きやすくなっているさま、または小刻みにふるえるさまを表わす語。",
         "ref": "nikkoku",
         "url": "精選版 日本国語大辞典",
         "found": true
+    },
+    {
+        "word": "かくっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
     },
     {
         "word": "がくっ",
@@ -525,11 +742,32 @@
         "found": true
     },
     {
+        "word": "かくん",
+        "meaning": "",
+        "ref": "nikkoku",
+        "url": "精選版 日本国語大辞典",
+        "found": false
+    },
+    {
         "word": "がくん",
         "meaning": "物が急に動いたり、揺れたり、はずれたりするさま。また、衝動を受けて、人が急に弱るさまや、ある物事の段階が急に落ちるさまを表わす語。",
         "ref": "nikkoku",
         "url": "精選版 日本国語大辞典",
         "found": true
+    },
+    {
+        "word": "かくんかくん",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "がくんっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
     },
     {
         "word": "かさかさ",
@@ -546,6 +784,13 @@
         "found": true
     },
     {
+        "word": "かさかさっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "かさこそ",
         "meaning": "ひからびた木の葉とか、薄い紙などが触れ合って発するような、かすかな音を表わす語。",
         "ref": "nikkoku",
@@ -558,6 +803,27 @@
         "ref": "nikkoku",
         "url": "精選版 日本国語大辞典",
         "found": true
+    },
+    {
+        "word": "かさっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "がさっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "かさり",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
     },
     {
         "word": "がさり",
@@ -581,6 +847,13 @@
         "found": true
     },
     {
+        "word": "かしっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "がしっ",
         "meaning": "物の構造や体格がしっかりしていて、頑丈なさま。",
         "ref": "daijisen",
@@ -595,6 +868,20 @@
         "found": true
     },
     {
+        "word": "かしゃっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "がしゃっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "がしゃん",
         "meaning": "物が落ちてこわれる音を表す語。",
         "ref": "daijirin",
@@ -602,11 +889,25 @@
         "found": true
     },
     {
+        "word": "がじゃん",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "かすかす",
         "meaning": "食物などに水分がなく、うまみのないさま、また、うるおいのないさまを表わす語。",
         "ref": "nikkoku",
         "url": "精選版 日本国語大辞典",
         "found": true
+    },
+    {
+        "word": "かすっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
     },
     {
         "word": "がた",
@@ -651,11 +952,25 @@
         "found": true
     },
     {
+        "word": "かたっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "がたぴし",
         "meaning": "造りが悪かったり、古くなったりした木造の家具、建具などの立てる音を表わす語。",
         "ref": "nikkoku",
         "url": "精選版 日本国語大辞典",
         "found": true
+    },
+    {
+        "word": "がたぴしゃ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
     },
     {
         "word": "がたぴち",
@@ -693,6 +1008,48 @@
         "found": true
     },
     {
+        "word": "かたんかたん",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "がたんがたん",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "かち",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "がち",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "かちーん",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "がちーん",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "かちかち",
         "meaning": "堅い物がぶつかってたてる音を表わす語。規則的に、また、軽く、打ち合う音で、火打ち石や拍子木の音、時計の秒針が時を刻む音などにいうことが多い。",
         "ref": "nikkoku",
@@ -719,6 +1076,13 @@
         "ref": "daijisen",
         "url": "デジタル大辞泉",
         "found": true
+    },
+    {
+        "word": "かちゃ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
     },
     {
         "word": "がちゃ",
@@ -819,6 +1183,13 @@
         "found": true
     },
     {
+        "word": "がちんがちん",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "かっ",
         "meaning": "禅宗で、修行者の迷いや誤りをしかりつけたり、悟りに導いたりする時に師が発する語。",
         "ref": "daijirin",
@@ -861,6 +1232,13 @@
         "found": true
     },
     {
+        "word": "がっがっがっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "がっかり",
         "meaning": "ひどく疲労するさま、張りつめていた気が一時にゆるんで、元気がぬけるさまを表わす語。",
         "ref": "nikkoku",
@@ -875,6 +1253,13 @@
         "found": true
     },
     {
+        "word": "かっくり",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "がっくり",
         "meaning": "物や体が急に折れ曲がったり、くじけたりするさまを表わす語。",
         "ref": "nikkoku",
@@ -882,11 +1267,32 @@
         "found": true
     },
     {
+        "word": "かっくん",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "がっしり",
         "meaning": "体、構造などがしっかりとして、強くたくましいさま、ゆるぎのないさまを表わす語。",
         "ref": "nikkoku",
         "url": "精選版 日本国語大辞典",
         "found": true
+    },
+    {
+        "word": "がったがた",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "がったがった",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
     },
     {
         "word": "がったり",
@@ -901,6 +1307,48 @@
         "ref": "nikkoku",
         "url": "精選版 日本国語大辞典",
         "found": true
+    },
+    {
+        "word": "がったん",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "がったんがったん",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "かったんこっとん",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "かっちかち",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "かっちかっち",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "かっちゃん",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
     },
     {
         "word": "がっちゃん",
@@ -924,11 +1372,53 @@
         "found": true
     },
     {
+        "word": "かっちん",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "がっちん",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "がつっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "がっつん",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "がっはっはっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "がっぷり",
         "meaning": "しっかり組み合ったり、かみついたりするさまを表わす語。",
         "ref": "nikkoku",
         "url": "精選版 日本国語大辞典",
         "found": true
+    },
+    {
+        "word": "かっぽかっぽ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
     },
     {
         "word": "がっぽがっぽ",
@@ -945,6 +1435,13 @@
         "found": true
     },
     {
+        "word": "かつん",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "がつん",
         "meaning": "堅い物同士が勢いよくぶつかる音を表わす語。また、強い衝撃を与えるさま。",
         "ref": "nikkoku",
@@ -959,11 +1456,25 @@
         "found": true
     },
     {
+        "word": "かぱかぱ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "がばがば",
         "meaning": "水などがはげしく揺れ動いてたてる音、水が勢いよく流れ出る音などを表わす語。",
         "ref": "nikkoku",
         "url": "精選版 日本国語大辞典",
         "found": true
+    },
+    {
+        "word": "がばっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
     },
     {
         "word": "がはは",
@@ -1001,11 +1512,25 @@
         "found": true
     },
     {
+        "word": "かぽかぽ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "がぼがぼ",
         "meaning": "大量の水などを勢いよく飲み込む時の音や、大きく水が流れるさまを表わす語。",
         "ref": "nikkoku",
         "url": "精選版 日本国語大辞典",
         "found": true
+    },
+    {
+        "word": "がぼりがぼり",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
     },
     {
         "word": "がみがみ",
@@ -1041,6 +1566,20 @@
         "ref": "nikkoku",
         "url": "精選版 日本国語大辞典",
         "found": true
+    },
+    {
+        "word": "からころり",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "からこん",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
     },
     {
         "word": "からっ",
@@ -1092,6 +1631,20 @@
         "found": true
     },
     {
+        "word": "がらりごろり",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "がらりっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "からん",
         "meaning": "堅い物やかわいた物が他のものに触れて発する余韻のある音を表わす語。金属的で明るく澄んだ音にいう。",
         "ref": "nikkoku",
@@ -1106,11 +1659,46 @@
         "found": true
     },
     {
+        "word": "からんからん",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "がらんがらん",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "からんころん",
         "meaning": "高下駄などで堅い道を歩くときに響く、高く澄んだ連続音。",
         "ref": "kojien",
         "url": "広辞苑 第七版",
         "found": true
+    },
+    {
+        "word": "がらんごろん",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "かり",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "がり",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
     },
     {
         "word": "かりかり",
@@ -1127,6 +1715,13 @@
         "found": true
     },
     {
+        "word": "かりかりっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "かりっ",
         "meaning": "食べ物がほどよく堅く、歯切れよく嚙めるさま。",
         "ref": "kojien",
@@ -1139,6 +1734,48 @@
         "ref": "daijisen",
         "url": "デジタル大辞泉",
         "found": true
+    },
+    {
+        "word": "かりり",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "がりり",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "かりりっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "がりりっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "かりん",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "かりんっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
     },
     {
         "word": "かん",
@@ -1169,6 +1806,13 @@
         "found": true
     },
     {
+        "word": "かんっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "きー",
         "meaning": "堅い物がすれ合って立てるかん高い音。きしる音、また、きしるような声を表わす語。",
         "ref": "nikkoku",
@@ -1195,6 +1839,27 @@
         "ref": "nikkoku",
         "url": "精選版 日本国語大辞典",
         "found": true
+    },
+    {
+        "word": "きーっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "ぎーっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "ぎーとん",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
     },
     {
         "word": "きーん",
@@ -1246,6 +1911,13 @@
         "found": true
     },
     {
+        "word": "きこきこ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "ぎこぎこ",
         "meaning": "のこぎりで木を切ったり、舟を櫓でこいだりする時などのような、固いものが互いにこすれあってたてる音を表わす語。",
         "ref": "nikkoku",
@@ -1281,6 +1953,20 @@
         "found": true
     },
     {
+        "word": "きしっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "ぎしっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "ぎすぎす",
         "meaning": "愛嬌がなく、かどがあって、親しみにくいさまを表わす語。",
         "ref": "nikkoku",
@@ -1309,11 +1995,39 @@
         "found": true
     },
     {
+        "word": "ぎちっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "ぎちゃぎちゃ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "きちり",
         "meaning": "物がよく当てはまるさま。また、いれものに余地のないまでにつまるさまを表わす語。",
         "ref": "nikkoku",
         "url": "精選版 日本国語大辞典",
         "found": true
+    },
+    {
+        "word": "ぎちり",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "きちん",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
     },
     {
         "word": "きっ",
@@ -1344,6 +2058,13 @@
         "found": true
     },
     {
+        "word": "ぎっくん",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "きっしり",
         "meaning": "物がよく適合するさまを表わす語。",
         "ref": "nikkoku",
@@ -1356,6 +2077,34 @@
         "ref": "nikkoku",
         "url": "精選版 日本国語大辞典",
         "found": true
+    },
+    {
+        "word": "ぎったん",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "ぎっちら",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "ぎっちらぎっちら",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "ぎっちらこ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
     },
     {
         "word": "きっちり",
@@ -1372,6 +2121,20 @@
         "found": true
     },
     {
+        "word": "ぎっとり",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "ぎっとん",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "きっぱり",
         "meaning": "言動や様子が明確なさまを表わす語。",
         "ref": "nikkoku",
@@ -1384,6 +2147,13 @@
         "ref": "nikkoku",
         "url": "精選版 日本国語大辞典",
         "found": true
+    },
+    {
+        "word": "ぎとっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
     },
     {
         "word": "きびきび",
@@ -1421,6 +2191,13 @@
         "found": true
     },
     {
+        "word": "ぎゃーっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "きゃっ",
         "meaning": "驚きおそれて思わずたてる叫び声。",
         "ref": "nikkoku",
@@ -1447,6 +2224,13 @@
         "ref": "nikkoku",
         "url": "精選版 日本国語大辞典",
         "found": true
+    },
+    {
+        "word": "ぎゃん",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
     },
     {
         "word": "きゃんきゃん",
@@ -1491,6 +2275,34 @@
         "found": true
     },
     {
+        "word": "きゅーっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "ぎゅーっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "きゅーん",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "ぎゅーん",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "きゅっ",
         "meaning": "強く、また一息に、こすったり、締めたり、押えつけたり、握ったりするさまを表わす語。",
         "ref": "nikkoku",
@@ -1533,6 +2345,13 @@
         "found": true
     },
     {
+        "word": "ぎゅんぎゅん",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "ぎょっ",
         "meaning": "飲食物を吐きもどす時に発する音を表わす語。",
         "ref": "nikkoku",
@@ -1545,6 +2364,13 @@
         "ref": "nikkoku",
         "url": "精選版 日本国語大辞典",
         "found": true
+    },
+    {
+        "word": "きょとり",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
     },
     {
         "word": "きょとん",
@@ -1568,6 +2394,13 @@
         "found": true
     },
     {
+        "word": "きょろっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "ぎょろっ",
         "meaning": "大きい目玉が鋭く光るさま、また、大きい目玉で、鋭く一にらみするさまを表わす語。",
         "ref": "nikkoku",
@@ -1589,6 +2422,27 @@
         "found": true
     },
     {
+        "word": "きょろん",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "ぎょろん",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "ぎらあり",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "きらきら",
         "meaning": "光り輝くさまを表わす語。",
         "ref": "nikkoku",
@@ -1603,11 +2457,32 @@
         "found": true
     },
     {
+        "word": "きらきらっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "ぎらぎらっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "きらっ",
         "meaning": "一瞬光るさまを表わす語。",
         "ref": "nikkoku",
         "url": "精選版 日本国語大辞典",
         "found": true
+    },
+    {
+        "word": "ぎらっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
     },
     {
         "word": "きらり",
@@ -1622,6 +2497,20 @@
         "ref": "nikkoku",
         "url": "精選版 日本国語大辞典",
         "found": true
+    },
+    {
+        "word": "きらりきらり",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "ぎらりぎらり",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
     },
     {
         "word": "きりきり",
@@ -1643,6 +2532,13 @@
         "ref": "nikkoku",
         "url": "精選版 日本国語大辞典",
         "found": true
+    },
+    {
+        "word": "きりきりっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
     },
     {
         "word": "きりっ",
@@ -1678,6 +2574,13 @@
         "ref": "nikkoku",
         "url": "精選版 日本国語大辞典",
         "found": true
+    },
+    {
+        "word": "きりりっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
     },
     {
         "word": "きろきろ",
@@ -1757,6 +2660,20 @@
         "found": true
     },
     {
+        "word": "くいっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "ぐいっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "ぐー",
         "meaning": "呼吸がつまったり、物がのどにつかえたりした苦しい時に発する声や、苦しい状況に追いこまれて発する声を表わす語。",
         "ref": "nikkoku",
@@ -1785,11 +2702,74 @@
         "found": true
     },
     {
+        "word": "くーっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "ぐーっ",
         "meaning": "力をいれて、また、一息に事を行なうさまを表わす語。",
         "ref": "nikkoku",
         "url": "精選版 日本国語大辞典",
         "found": true
+    },
+    {
+        "word": "くーん",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "ぐーん",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "ぐおんぐおん",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "ぐがっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "くくー",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "くくくっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "くくっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "ぐぐっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
     },
     {
         "word": "くさくさ",
@@ -1841,6 +2821,20 @@
         "found": true
     },
     {
+        "word": "くしゃくしゃっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "くしゃっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "ぐしゃっ",
         "meaning": "湿った柔らかいものが、たたきつけられたりして、つぶれるさまを表わす語。",
         "ref": "nikkoku",
@@ -1855,11 +2849,46 @@
         "found": true
     },
     {
+        "word": "ぐじゃり",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "くしゃん",
         "meaning": "くしゃみの音を表わす語。",
         "ref": "nikkoku",
         "url": "精選版 日本国語大辞典",
         "found": true
+    },
+    {
+        "word": "ぐしゃん",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "ぐしゅぐしゅ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "ぐじゅぐじゅ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "くしゅん",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
     },
     {
         "word": "ぐしょぐしょ",
@@ -1946,11 +2975,25 @@
         "found": true
     },
     {
+        "word": "くたっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "ぐたっ",
         "meaning": "弱り切って力の抜けたさまを表わす語。",
         "ref": "nikkoku",
         "url": "精選版 日本国語大辞典",
         "found": true
+    },
+    {
+        "word": "くたり",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
     },
     {
         "word": "ぐたり",
@@ -2121,11 +3164,25 @@
         "found": true
     },
     {
+        "word": "くにゃり",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "ぐにゃり",
         "meaning": "力が抜けてしっかりしていないさま、柔らかで、手ごたえのないさまを表わす語。",
         "ref": "nikkoku",
         "url": "精選版 日本国語大辞典",
         "found": true
+    },
+    {
+        "word": "ぐにょ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
     },
     {
         "word": "くねくね",
@@ -2177,6 +3234,13 @@
         "found": true
     },
     {
+        "word": "ぐらぐらっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "くらっ",
         "meaning": "急にめまいのするさまや急に大きくゆれ動くさまを表わす語。",
         "ref": "nikkoku",
@@ -2189,6 +3253,13 @@
         "ref": "nikkoku",
         "url": "精選版 日本国語大辞典",
         "found": true
+    },
+    {
+        "word": "ぐらっぐらっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
     },
     {
         "word": "くらり",
@@ -2226,11 +3297,32 @@
         "found": true
     },
     {
+        "word": "くりくりっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "くりっ",
         "meaning": "小さくて丸いさま。",
         "ref": "kojien",
         "url": "広辞苑 第七版",
         "found": true
+    },
+    {
+        "word": "ぐりっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "ぐりり",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
     },
     {
         "word": "くるくる",
@@ -2289,6 +3381,27 @@
         "found": true
     },
     {
+        "word": "くるん",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "ぐるん",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "ぐるんぐるん",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "ぐん",
         "meaning": "力を入れて物事を行なうさまを表わす語。",
         "ref": "nikkoku",
@@ -2345,6 +3458,13 @@
         "found": true
     },
     {
+        "word": "けーんけーん",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "けざけざ",
         "meaning": "はっきりときわだっているさまを表わす語。",
         "ref": "nikkoku",
@@ -2373,6 +3493,13 @@
         "found": true
     },
     {
+        "word": "けっきょ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "げっそり",
         "meaning": "にわかに減少するさま、また、顔、体などがにわかに痩せ衰えるさまを表わす語。",
         "ref": "nikkoku",
@@ -2385,6 +3512,27 @@
         "ref": "nikkoku",
         "url": "精選版 日本国語大辞典",
         "found": true
+    },
+    {
+        "word": "げぶげぶ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "げほげほ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "げほんげほん",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
     },
     {
         "word": "けらけら",
@@ -2436,6 +3584,13 @@
         "found": true
     },
     {
+        "word": "けんけんほろろ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "げんなり",
         "meaning": "それ以上、物事をする意欲を失ったさまを表わす語。",
         "ref": "nikkoku",
@@ -2443,11 +3598,53 @@
         "found": true
     },
     {
+        "word": "ごー",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "こーこー",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "ごーごー",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "ごーっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "こーん",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "ごーん",
         "meaning": "つり鐘などの音を表わす語。",
         "ref": "nikkoku",
         "url": "精選版 日本国語大辞典",
         "found": true
+    },
+    {
+        "word": "こーんこーん",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
     },
     {
         "word": "こくこく",
@@ -2469,6 +3666,13 @@
         "ref": "nikkoku",
         "url": "精選版 日本国語大辞典",
         "found": true
+    },
+    {
+        "word": "ごくっごくっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
     },
     {
         "word": "こくり",
@@ -2518,6 +3722,27 @@
         "ref": "kojien",
         "url": "広辞苑 第七版",
         "found": true
+    },
+    {
+        "word": "こけこっこ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "ここ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "ここここ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
     },
     {
         "word": "こざっぱり",
@@ -2581,6 +3806,13 @@
         "ref": "nikkoku",
         "url": "精選版 日本国語大辞典",
         "found": true
+    },
+    {
+        "word": "こそっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
     },
     {
         "word": "ごそっ",
@@ -2660,6 +3892,13 @@
         "found": true
     },
     {
+        "word": "ごちん",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "こちんこちん",
         "meaning": "頑固で融通のきかないさまを表わす語。",
         "ref": "nikkoku",
@@ -2681,6 +3920,13 @@
         "found": true
     },
     {
+        "word": "ごっくごっく",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "こっくり",
         "meaning": "頭を急に前後に動かすさまを表わす語。いねむりをしたり、大きくうなずく様子などにいう。",
         "ref": "nikkoku",
@@ -2693,6 +3939,27 @@
         "ref": "nikkoku",
         "url": "精選版 日本国語大辞典",
         "found": true
+    },
+    {
+        "word": "こっくりこっくり",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "ごっくん",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "こっここっこ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
     },
     {
         "word": "こつこつ",
@@ -2723,6 +3990,20 @@
         "found": true
     },
     {
+        "word": "こつっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "ごつっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "こってり",
         "meaning": "味や色や化粧、また男女関係などがしつこいほどに濃厚なさまを表わす語。",
         "ref": "nikkoku",
@@ -2744,6 +4025,13 @@
         "found": true
     },
     {
+        "word": "ごっとりごっとり",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "こっとん",
         "meaning": "堅い物がぶつかったり、落ちたりして立てる、軽やかな感じの音を表わす語。",
         "ref": "nikkoku",
@@ -2756,6 +4044,27 @@
         "ref": "nikkoku",
         "url": "精選版 日本国語大辞典",
         "found": true
+    },
+    {
+        "word": "こっとんこっとん",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "ごっとんごっとん",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "ごっぽり",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
     },
     {
         "word": "こつん",
@@ -2793,6 +4102,20 @@
         "found": true
     },
     {
+        "word": "こてんぱあ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "こたんぱん",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "ことこと",
         "meaning": "戸などをかるくたたく音や、箱の中などで固いものがかるく触れあってたてる音などを表わす語。多くは、木製のもののたてる音にいう。",
         "ref": "nikkoku",
@@ -2821,6 +4144,20 @@
         "found": true
     },
     {
+        "word": "ことりことり",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "ごとりごとり",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "ことん",
         "meaning": "固く小さい物が落ちた時の音、また、固い物が他の固い物に触れてたてる小さい音などを表わす語。はずみのついた感じを表わす。",
         "ref": "nikkoku",
@@ -2835,11 +4172,32 @@
         "found": true
     },
     {
+        "word": "ことんごとん",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "ごとんごとん",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "ごにょごにょ",
         "meaning": "ことばが、口ごもってはっきり聞きとれないさま、また、ちょっとした行為をするさまを表わす語。",
         "ref": "nikkoku",
         "url": "精選版 日本国語大辞典",
         "found": true
+    },
+    {
+        "word": "ごはごは",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
     },
     {
         "word": "ごほごほ",
@@ -2863,11 +4221,39 @@
         "found": true
     },
     {
+        "word": "ごぼっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "ごぼり",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "ごぼりこぼり",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "ごほん",
         "meaning": "咳をする音。咳払いにもいう。",
         "ref": "kojien",
         "url": "広辞苑 第七版",
         "found": true
+    },
+    {
+        "word": "ごぼん",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
     },
     {
         "word": "ごほんごほん",
@@ -2889,6 +4275,13 @@
         "ref": "kojien",
         "url": "広辞苑 第七版",
         "found": true
+    },
+    {
+        "word": "こりこりっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
     },
     {
         "word": "こりっ",
@@ -2940,11 +4333,39 @@
         "found": true
     },
     {
+        "word": "ころりからり",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "ごろりごろり",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "ころりっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "ころりん",
         "meaning": "琴の弾き方およびその音を表わす語。三本の糸を手前から向こうへ順番に鳴らす弾き方。下向旋律でやさしい音がする。",
         "ref": "nikkoku",
         "url": "精選版 日本国語大辞典",
         "found": true
+    },
+    {
+        "word": "ごろりん",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
     },
     {
         "word": "ころりんしゃん",
@@ -2954,11 +4375,25 @@
         "found": true
     },
     {
+        "word": "ころん",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "ごろん",
         "meaning": "はずみをつけて転がるさま、また、人が横たわるさまを表わす語。",
         "ref": "nikkoku",
         "url": "精選版 日本国語大辞典",
         "found": true
+    },
+    {
+        "word": "ごろんごろん",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
     },
     {
         "word": "ごわごわ",
@@ -3087,6 +4522,27 @@
         "found": true
     },
     {
+        "word": "さくりさくり",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "ささっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "ざざっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "さっ",
         "meaning": "風や雨などが急に吹いたり降ったりするさまを表わす語。",
         "ref": "nikkoku",
@@ -3106,6 +4562,13 @@
         "ref": "nikkoku",
         "url": "精選版 日本国語大辞典",
         "found": true
+    },
+    {
+        "word": "ざっくざく",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
     },
     {
         "word": "ざっくざっく",
@@ -3171,6 +4634,20 @@
         "found": true
     },
     {
+        "word": "ざぶー",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "ざぶーん",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "ざぶざぶ",
         "meaning": "川を渡ったり、風呂の湯を使ったり、洗濯したりする時などの、水を大きく動かす音を表わす語。",
         "ref": "nikkoku",
@@ -3178,11 +4655,25 @@
         "found": true
     },
     {
+        "word": "ざぶっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "ざぶり",
         "meaning": "水に勢いよく飛びこんだり、また、物を勢いよく水に投げこんだり、水をかけたりする時の音、また、波がはげしくうちよせたりする時などの水の音を表わす語。",
         "ref": "nikkoku",
         "url": "精選版 日本国語大辞典",
         "found": true
+    },
+    {
+        "word": "ざぶりざぶり",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
     },
     {
         "word": "ざぶん",
@@ -3227,6 +4718,13 @@
         "found": true
     },
     {
+        "word": "ざらっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "さらり",
         "meaning": "さらさらと軽く音のするさまを表わす語。",
         "ref": "nikkoku",
@@ -3253,6 +4751,13 @@
         "ref": "nikkoku",
         "url": "精選版 日本国語大辞典",
         "found": true
+    },
+    {
+        "word": "さゐさゐ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
     },
     {
         "word": "ざんざん",
@@ -3346,6 +4851,20 @@
         "found": true
     },
     {
+        "word": "しこしこっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "しこっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "しずしず",
         "meaning": "いかにもしずかに事をするさま。",
         "ref": "kojien",
@@ -3386,6 +4905,13 @@
         "ref": "nikkoku",
         "url": "精選版 日本国語大辞典",
         "found": true
+    },
+    {
+        "word": "しっこり",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
     },
     {
         "word": "しっとり",
@@ -3435,6 +4961,13 @@
         "ref": "nikkoku",
         "url": "精選版 日本国語大辞典",
         "found": true
+    },
+    {
+        "word": "じぶじぶ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
     },
     {
         "word": "しみじみ",
@@ -3501,6 +5034,13 @@
     },
     {
         "word": "しゃきしゃき",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "しゃきしゃき",
         "meaning": "歯ぎれよく物をかむ音、規則正しく動く機械などの小さな音、また、そのさまを表わす語。",
         "ref": "nikkoku",
         "url": "精選版 日本国語大辞典",
@@ -3519,6 +5059,13 @@
         "ref": "nikkoku",
         "url": "精選版 日本国語大辞典",
         "found": true
+    },
+    {
+        "word": "しゃっしゃっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
     },
     {
         "word": "しゃなりしゃなり",
@@ -3542,6 +5089,20 @@
         "found": true
     },
     {
+        "word": "じゃぼーん",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "じゃぼじゃぼ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "じゃぼん",
         "meaning": "物が水中に落ち入って水のはねる音。",
         "ref": "kojien",
@@ -3561,6 +5122,20 @@
         "ref": "nikkoku",
         "url": "精選版 日本国語大辞典",
         "found": true
+    },
+    {
+        "word": "じゃらり",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "じゃらんじゃらん",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
     },
     {
         "word": "しゃりしゃり",
@@ -3633,11 +5208,32 @@
         "found": true
     },
     {
+        "word": "しゅーしゅー",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "じゅーじゅー",
         "meaning": "油、魚や肉のあぶら身などが焼ける音、熱したものを水につけた時の音、また、そのさまを表わす語。",
         "ref": "nikkoku",
         "url": "精選版 日本国語大辞典",
         "found": true
+    },
+    {
+        "word": "じゅーっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "しゅーん",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
     },
     {
         "word": "じゅくじゅく",
@@ -3666,6 +5262,55 @@
         "ref": "nikkoku",
         "url": "精選版 日本国語大辞典",
         "found": true
+    },
+    {
+        "word": "しゅっぽしゅっぽ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "じゅぼっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "しゅるしゅる",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "じゅるっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "じゅわーっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "じゅわじゅわ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "じゅわっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
     },
     {
         "word": "しゅん",
@@ -3717,6 +5362,13 @@
         "found": true
     },
     {
+        "word": "じょりっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "しょんぼり",
         "meaning": "元気なくしおれているさま、意気消沈したさま、わびしくさびしそうなさまを表わす語。",
         "ref": "nikkoku",
@@ -3724,11 +5376,39 @@
         "found": true
     },
     {
+        "word": "しょんぼりしょんぼり",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "じりじり",
         "meaning": "ゆっくりと少しずつ、しかも確実にせまるさまを表わす語。また、緊張した状態で徐々に引き退くさまにもいう。",
         "ref": "nikkoku",
         "url": "精選版 日本国語大辞典",
         "found": true
+    },
+    {
+        "word": "じりじりっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "じりっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "じろーっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
     },
     {
         "word": "じろじろ",
@@ -3759,6 +5439,20 @@
         "found": true
     },
     {
+        "word": "じろりっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "じわーっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "しわくちゃ",
         "meaning": "ひどくしわがよっていること。しわができて、縮れていること。また、そのさま。",
         "ref": "nikkoku",
@@ -3778,6 +5472,13 @@
         "ref": "nikkoku",
         "url": "精選版 日本国語大辞典",
         "found": true
+    },
+    {
+        "word": "じわじわっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
     },
     {
         "word": "じわっ",
@@ -3864,6 +5565,20 @@
         "found": true
     },
     {
+        "word": "すいーつ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "ずいーっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "すいすい",
         "meaning": "気持よく軽やかに、滞りなく進んでゆくさまを表わす語。",
         "ref": "nikkoku",
@@ -3878,6 +5593,20 @@
         "found": true
     },
     {
+        "word": "すいっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "ずいっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "すいっちょ",
         "meaning": "馬追虫の鳴き声を表わす語。",
         "ref": "nikkoku",
@@ -3885,11 +5614,32 @@
         "found": true
     },
     {
+        "word": "すー",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "ずー",
         "meaning": "滞りなくまっすぐに動作をおこすさま、状態がまっすぐであるさまなどを表わす語。",
         "ref": "nikkoku",
         "url": "精選版 日本国語大辞典",
         "found": true
+    },
+    {
+        "word": "すーす",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "ずーず",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
     },
     {
         "word": "すーっ",
@@ -3904,6 +5654,13 @@
         "ref": "nikkoku",
         "url": "精選版 日本国語大辞典",
         "found": true
+    },
+    {
+        "word": "すーはー",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
     },
     {
         "word": "すかすか",
@@ -3948,6 +5705,13 @@
         "found": true
     },
     {
+        "word": "ずきっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "ずきん",
         "meaning": "うずくような激しい痛みが体を走るさまを表わす語。",
         "ref": "nikkoku",
@@ -3967,6 +5731,13 @@
         "ref": "nikkoku",
         "url": "精選版 日本国語大辞典",
         "found": true
+    },
+    {
+        "word": "すくっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
     },
     {
         "word": "すけすけ",
@@ -3997,11 +5768,25 @@
         "found": true
     },
     {
+        "word": "すこん",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "ずしずし",
         "meaning": "重いものが、地響きをたてて動く音を表わす語。また、雪の上などを歩く足の音を表わす語。",
         "ref": "nikkoku",
         "url": "精選版 日本国語大辞典",
         "found": true
+    },
+    {
+        "word": "ずしっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
     },
     {
         "word": "ずしり",
@@ -4016,6 +5801,27 @@
         "ref": "nikkoku",
         "url": "精選版 日本国語大辞典",
         "found": true
+    },
+    {
+        "word": "ずしんずしん",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "ずずーん",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "ずずん",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
     },
     {
         "word": "すたこら",
@@ -4081,6 +5887,13 @@
         "found": true
     },
     {
+        "word": "すっくら",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "すっくり",
         "meaning": "まっすぐに突っ立つさまを表わす語。",
         "ref": "nikkoku",
@@ -4116,11 +5929,25 @@
         "found": true
     },
     {
+        "word": "すってんころりん",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "すってんてん",
         "meaning": "所有していた金や物などがすっかりなくなるさま。無一文または無一物になるさま。",
         "ref": "nikkoku",
         "url": "精選版 日本国語大辞典",
         "found": true
+    },
+    {
+        "word": "すってんどー",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
     },
     {
         "word": "すっぱすっぱ",
@@ -4144,6 +5971,13 @@
         "found": true
     },
     {
+        "word": "すっぺらぽ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "すっぽり",
         "meaning": "物が、ぐあいよく、はまったり、かぶさったり、はずれたり、抜けたりなどするさまを表わす語。",
         "ref": "nikkoku",
@@ -4165,6 +5999,20 @@
         "found": true
     },
     {
+        "word": "ずでんど",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "ずどーん",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "すとん",
         "meaning": "物がはずみをつけて、落ちたり、打ち当たったり、倒れたりする音、また、そのさまを表わす語。",
         "ref": "nikkoku",
@@ -4177,6 +6025,20 @@
         "ref": "nikkoku",
         "url": "精選版 日本国語大辞典",
         "found": true
+    },
+    {
+        "word": "すとんすとん",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "すぱ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
     },
     {
         "word": "すぱすぱ",
@@ -4249,6 +6111,13 @@
         "found": true
     },
     {
+        "word": "ずぼずぼ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "すぽっ",
         "meaning": "物が、勢いよく一気に、またははずみをつけて、抜けたり、落ちこんだり、かぶさったりするさまを表わす語。",
         "ref": "nikkoku",
@@ -4256,11 +6125,39 @@
         "found": true
     },
     {
+        "word": "ずぼっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "ずぽっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "すぽっすぽっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "すぽり",
         "meaning": "物が容易に調子よく、または一気に、全部、抜けたり、はまったり、かぶさったり、はずれたりなどするさまを表わす語。",
         "ref": "nikkoku",
         "url": "精選版 日本国語大辞典",
         "found": true
+    },
+    {
+        "word": "ずぼり",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
     },
     {
         "word": "すぽん",
@@ -4338,6 +6235,20 @@
         "ref": "nikkoku",
         "url": "精選版 日本国語大辞典",
         "found": true
+    },
+    {
+        "word": "するするするっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "するするっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
     },
     {
         "word": "ずるずるべったり",
@@ -4424,6 +6335,20 @@
         "found": true
     },
     {
+        "word": "せーせー",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "ぜーぜー",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "せかせか",
         "meaning": "せせこましいさま、こせこせしているさまを表わす語。",
         "ref": "nikkoku",
@@ -4438,11 +6363,32 @@
         "found": true
     },
     {
+        "word": "そーっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "ぞーっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "ぞくぞく",
         "meaning": "嬉しさに心が浮きたつさまを表わす語。",
         "ref": "nikkoku",
         "url": "精選版 日本国語大辞典",
         "found": true
+    },
+    {
+        "word": "ぞくぞくっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
     },
     {
         "word": "ぞくっ",
@@ -4501,11 +6447,25 @@
         "found": true
     },
     {
+        "word": "そよりそより",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "ぞりぞり",
         "meaning": "ひげなどを剃る音を表わす語。",
         "ref": "nikkoku",
         "url": "精選版 日本国語大辞典",
         "found": true
+    },
+    {
+        "word": "そろーり",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
     },
     {
         "word": "そろそろ",
@@ -4564,6 +6524,34 @@
         "found": true
     },
     {
+        "word": "ぞわり",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "たーっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "だーっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "たーっぷり",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "だーん",
         "meaning": "銃などを撃ち放つ音を表わす語。",
         "ref": "nikkoku",
@@ -4585,11 +6573,53 @@
         "found": true
     },
     {
+        "word": "たたーっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "だだーっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "だだだっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "たたっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "だっ",
         "meaning": "重い物が落ちたりぶつかったりする音、また、勢いよくとび出すさまなどを表わす語。",
         "ref": "nikkoku",
         "url": "精選版 日本国語大辞典",
         "found": true
+    },
+    {
+        "word": "たったっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "だっだっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
     },
     {
         "word": "たっぷり",
@@ -4613,11 +6643,32 @@
         "found": true
     },
     {
+        "word": "たぽたぽ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "だぼだぼ",
         "meaning": "容器の中で液体が揺れ動く音。そのさま。",
         "ref": "kojien",
         "url": "広辞苑 第七版",
         "found": true
+    },
+    {
+        "word": "たらーっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "だらーん",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
     },
     {
         "word": "たらたら",
@@ -4634,6 +6685,20 @@
         "found": true
     },
     {
+        "word": "たらっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "だらっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "たらり",
         "meaning": "物の垂れ下がるさま、また、だらしないさまを表わす語。",
         "ref": "nikkoku",
@@ -4648,6 +6713,20 @@
         "found": true
     },
     {
+        "word": "たらりたらり",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "たらん",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "だらん",
         "meaning": "力なく垂れ下がるさまを表わす語。",
         "ref": "nikkoku",
@@ -4655,11 +6734,25 @@
         "found": true
     },
     {
+        "word": "たをたを",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "たんたん",
         "meaning": "ものを連続して打つ音を表わす語。",
         "ref": "nikkoku",
         "url": "精選版 日本国語大辞典",
         "found": true
+    },
+    {
+        "word": "たんぽぽ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
     },
     {
         "word": "たんまり",
@@ -4676,6 +6769,13 @@
         "found": true
     },
     {
+        "word": "ちーちーぱっぱ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "ちーん",
         "meaning": "鐘や振り子など金属性のものが高く鳴る音を表わす語。",
         "ref": "nikkoku",
@@ -4690,11 +6790,25 @@
         "found": true
     },
     {
+        "word": "ちかちかっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "ちかっ",
         "meaning": "一瞬光るさまを表わす語。",
         "ref": "nikkoku",
         "url": "精選版 日本国語大辞典",
         "found": true
+    },
+    {
+        "word": "ちかり",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
     },
     {
         "word": "ちくたく",
@@ -4730,6 +6844,20 @@
         "ref": "nikkoku",
         "url": "精選版 日本国語大辞典",
         "found": true
+    },
+    {
+        "word": "ちくん",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "ちちちち",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
     },
     {
         "word": "ちちっかい",
@@ -4823,6 +6951,20 @@
         "found": true
     },
     {
+        "word": "ちゃぷん",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "ちゃぽちゃぽ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "ちやほや",
         "meaning": "ことばや動作でおだてたり甘やかしたりするさまを表わす語。",
         "ref": "nikkoku",
@@ -4830,11 +6972,25 @@
         "found": true
     },
     {
+        "word": "ちゃぽん",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "ちゃらちゃら",
         "meaning": "金属やかたい物がふれ合って出す音を表わす語。雪駄で歩く音、鈴の鳴る音、貨幣の立てる音など。",
         "ref": "nikkoku",
         "url": "精選版 日本国語大辞典",
         "found": true
+    },
+    {
+        "word": "ちゃりーん",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
     },
     {
         "word": "ちゃりん",
@@ -4879,6 +7035,20 @@
         "found": true
     },
     {
+        "word": "ちゅっちゅっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "ちゅんちゅく",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "ちゅんちゅん",
         "meaning": "雀の鳴き声。",
         "ref": "kojien",
@@ -4921,6 +7091,13 @@
         "found": true
     },
     {
+        "word": "ちょこちょこっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "ちょこっ",
         "meaning": "すこしばかり。",
         "ref": "nikkoku",
@@ -4949,11 +7126,25 @@
         "found": true
     },
     {
+        "word": "ちよちよ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "ちょっきり",
         "meaning": "過不足のないさま。",
         "ref": "daijisen",
         "url": "デジタル大辞泉",
         "found": true
+    },
+    {
+        "word": "ちょっきん",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
     },
     {
         "word": "ちょっくら",
@@ -4998,11 +7189,25 @@
         "found": true
     },
     {
+        "word": "ちょびりちょびり",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "ちょぼちょぼ",
         "meaning": "量や程度が少ないさまを表わす語。",
         "ref": "nikkoku",
         "url": "精選版 日本国語大辞典",
         "found": true
+    },
+    {
+        "word": "ちょぼっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
     },
     {
         "word": "ちょろちょろ",
@@ -5024,6 +7229,13 @@
         "ref": "nikkoku",
         "url": "精選版 日本国語大辞典",
         "found": true
+    },
+    {
+        "word": "ちょろりっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
     },
     {
         "word": "ちょん",
@@ -5082,6 +7294,13 @@
         "found": true
     },
     {
+        "word": "ちりっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "ちりりん",
         "meaning": "金属が軽くふれ合って立てる音を表わす語。また、鈴などの軽快な音にいう。",
         "ref": "nikkoku",
@@ -5115,6 +7334,20 @@
         "ref": "nikkoku",
         "url": "精選版 日本国語大辞典",
         "found": true
+    },
+    {
+        "word": "ちろりっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "ちろりん",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
     },
     {
         "word": "ちん",
@@ -5159,6 +7392,13 @@
         "found": true
     },
     {
+        "word": "つーか",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "つーっ",
         "meaning": "速さなどの程度がはなはだしいさまを表わす語。",
         "ref": "nikkoku",
@@ -5173,6 +7413,20 @@
         "found": true
     },
     {
+        "word": "つーん",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "つか",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "つかつか",
         "meaning": "ためらわないで勢いよく動くさま、遠慮なく進み出るさまを表わす語。",
         "ref": "nikkoku",
@@ -5180,11 +7434,39 @@
         "found": true
     },
     {
+        "word": "つくつくほーし",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "つくつくぼうし",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "つけつけ",
         "meaning": "遠慮や加減なしに言うさま、感情を丸出しにして思った通り言い切るさまを表わす語。",
         "ref": "nikkoku",
         "url": "精選版 日本国語大辞典",
         "found": true
+    },
+    {
+        "word": "つつー",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "つつーっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
     },
     {
         "word": "つつっ",
@@ -5243,11 +7525,39 @@
         "found": true
     },
     {
+        "word": "つるつるっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "つるてん",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "つるり",
         "meaning": "全体に凹凸がなくなめらかなさまを表わす語。",
         "ref": "nikkoku",
         "url": "精選版 日本国語大辞典",
         "found": true
+    },
+    {
+        "word": "つるりっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "つるりん",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
     },
     {
         "word": "つるん",
@@ -5283,6 +7593,13 @@
         "ref": "nikkoku",
         "url": "精選版 日本国語大辞典",
         "found": true
+    },
+    {
+        "word": "でーん",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
     },
     {
         "word": "てかてか",
@@ -5341,6 +7658,13 @@
         "found": true
     },
     {
+        "word": "てふてふ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "でぶでぶ",
         "meaning": "しまりがなく極端に太っているさまを表わす語。",
         "ref": "nikkoku",
@@ -5353,6 +7677,13 @@
         "ref": "nikkoku",
         "url": "精選版 日本国語大辞典",
         "found": true
+    },
+    {
+        "word": "でれーっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
     },
     {
         "word": "でれっ",
@@ -5418,11 +7749,46 @@
         "found": true
     },
     {
+        "word": "どー",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "どーっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "どーど",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "どーどー",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "どーん",
         "meaning": "大砲・鉄砲などの弾丸を発する音を表わす語。",
         "ref": "nikkoku",
         "url": "精選版 日本国語大辞典",
         "found": true
+    },
+    {
+        "word": "どかーん",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
     },
     {
         "word": "どかっ",
@@ -5481,6 +7847,13 @@
         "found": true
     },
     {
+        "word": "どきんどきん",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "とくとく",
         "meaning": "水、しずく、涙などがしたたり落ちるさまを表わす語。現在では普通、口の小さな入れものから液体が流れ出るさまをいうことが多い。",
         "ref": "nikkoku",
@@ -5523,6 +7896,13 @@
         "found": true
     },
     {
+        "word": "どさどさっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "どさり",
         "meaning": "重いものが落ちたり倒れたりする音、また、重いものを一度におろす音、力づよく打ったり踏んだりする音など、また、それらのさまを表わす語。",
         "ref": "nikkoku",
@@ -5537,6 +7917,20 @@
         "found": true
     },
     {
+        "word": "どしーん",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "どしっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "どしどし",
         "meaning": "力強く地をふみつけて歩く音、また、そのさまを表わす語。",
         "ref": "nikkoku",
@@ -5544,11 +7938,32 @@
         "found": true
     },
     {
+        "word": "どしゃどしゃ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "どしん",
         "meaning": "重い物が落ちたり倒れたりぶつかったりする音、また、そのさまを表わす語。",
         "ref": "nikkoku",
         "url": "精選版 日本国語大辞典",
         "found": true
+    },
+    {
+        "word": "どしんどしん",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "どすーん",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
     },
     {
         "word": "どすどす",
@@ -5570,6 +7985,20 @@
         "ref": "nikkoku",
         "url": "精選版 日本国語大辞典",
         "found": true
+    },
+    {
+        "word": "どたーっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "どたーん",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
     },
     {
         "word": "どたっ",
@@ -5649,6 +8078,20 @@
         "found": true
     },
     {
+        "word": "どっきん",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "どっきんどっきん",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "とっくり",
         "meaning": "得心がゆくまで念入りに物事を行うさま。",
         "ref": "kojien",
@@ -5698,6 +8141,13 @@
         "found": true
     },
     {
+        "word": "どでっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "どてん",
         "meaning": "あおむけにひっくりかえるさま、また、行儀悪くすわり込んだり、ひっくりかえったり、ねころんだりするさまを表わす語。",
         "ref": "nikkoku",
@@ -5705,11 +8155,53 @@
         "found": true
     },
     {
+        "word": "どでん",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "どどっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "とととと",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "どどん",
         "meaning": "激しく鳴りわたる音やそのさまを表わす語。大砲・太鼓、あるいは地響きの音などについていう。",
         "ref": "nikkoku",
         "url": "精選版 日本国語大辞典",
         "found": true
+    },
+    {
+        "word": "ととんとんとん",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "どばーっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "どばっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
     },
     {
         "word": "どぶどぶ",
@@ -5738,6 +8230,20 @@
         "ref": "nikkoku",
         "url": "精選版 日本国語大辞典",
         "found": true
+    },
+    {
+        "word": "とろーり",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "どろーり",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
     },
     {
         "word": "とろっ",
@@ -5796,6 +8302,20 @@
         "found": true
     },
     {
+        "word": "とをてくう",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "とをるもう",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "とん",
         "meaning": "はずみをつけて軽く突き当たったり、たたいたり、倒れたりする時の音や様子を表わす語。",
         "ref": "nikkoku",
@@ -5822,6 +8342,13 @@
         "ref": "nikkoku",
         "url": "精選版 日本国語大辞典",
         "found": true
+    },
+    {
+        "word": "どんどどん",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
     },
     {
         "word": "とんとん",
@@ -5915,6 +8442,13 @@
         "found": true
     },
     {
+        "word": "にたりにたり",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "にちゃにちゃ",
         "meaning": "唾液まじりの音をたててかんだり食べたりするさまを表わす語。",
         "ref": "nikkoku",
@@ -5936,6 +8470,13 @@
         "found": true
     },
     {
+        "word": "にっこにこ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "にっこり",
         "meaning": "嬉しそうな素直な笑みを浮かべるさま。",
         "ref": "nikkoku",
@@ -5943,11 +8484,46 @@
         "found": true
     },
     {
+        "word": "にゃーごにゃーご",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "にゃーっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "にゃーにゃー",
         "meaning": "猫の鳴き声を表わす語。",
         "ref": "nikkoku",
         "url": "精選版 日本国語大辞典",
         "found": true
+    },
+    {
+        "word": "にゃごーにゃごー",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "にゃごにゃご",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "にゃっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
     },
     {
         "word": "にやにや",
@@ -5971,6 +8547,13 @@
         "found": true
     },
     {
+        "word": "にゃん",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "にゃんにゃん",
         "meaning": "猫の鳴き声を表わす語。",
         "ref": "nikkoku",
@@ -5985,11 +8568,39 @@
         "found": true
     },
     {
+        "word": "にゅーっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "にゅっ",
         "meaning": "だしぬけに現われたり行なわれたり、とびぬけて突き出ていたりするさまを表わす語。",
         "ref": "nikkoku",
         "url": "精選版 日本国語大辞典",
         "found": true
+    },
+    {
+        "word": "にゅるっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "にゅるにゅる",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "にゅるり",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
     },
     {
         "word": "にょきっ",
@@ -6006,11 +8617,25 @@
         "found": true
     },
     {
+        "word": "にょっき",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "にょっきり",
         "meaning": "平らな所から、物がとび出るさま、ぬきんでて高いさまなどを表わす語。",
         "ref": "nikkoku",
         "url": "精選版 日本国語大辞典",
         "found": true
+    },
+    {
+        "word": "にょろっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
     },
     {
         "word": "にょろにょろ",
@@ -6069,6 +8694,13 @@
         "found": true
     },
     {
+        "word": "ぬめー",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "ぬめっ",
         "meaning": "なめらかでぬるぬるしたさまを表わす語。",
         "ref": "nikkoku",
@@ -6081,6 +8713,13 @@
         "ref": "kojien",
         "url": "広辞苑 第七版",
         "found": true
+    },
+    {
+        "word": "ぬらっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
     },
     {
         "word": "ぬらぬら",
@@ -6125,11 +8764,25 @@
         "found": true
     },
     {
+        "word": "ぬるりぬるり",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "ねちねち",
         "meaning": "粘液状のものなどがついて、不快にねばつくさまを表わす語。",
         "ref": "nikkoku",
         "url": "精選版 日本国語大辞典",
         "found": true
+    },
+    {
+        "word": "ねちゃねちゃ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
     },
     {
         "word": "ねっちり",
@@ -6158,6 +8811,20 @@
         "ref": "nikkoku",
         "url": "精選版 日本国語大辞典",
         "found": true
+    },
+    {
+        "word": "のーのー",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "のーびのび",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
     },
     {
         "word": "のこのこ",
@@ -6230,6 +8897,13 @@
         "found": true
     },
     {
+        "word": "のっぺら",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "のっぺり",
         "meaning": "平らに広がっているさまを表わす語。",
         "ref": "nikkoku",
@@ -6242,6 +8916,13 @@
         "ref": "nikkoku",
         "url": "精選版 日本国語大辞典",
         "found": true
+    },
+    {
+        "word": "のぺっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
     },
     {
         "word": "のほほん",
@@ -6258,6 +8939,13 @@
         "found": true
     },
     {
+        "word": "のらり",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "のらりくらり",
         "meaning": "とらえどころがなく漫然としているさま、これといった仕事もしないで日を送るさまを表わす語。",
         "ref": "nikkoku",
@@ -6265,11 +8953,25 @@
         "found": true
     },
     {
+        "word": "のらりのらり",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "のろくさ",
         "meaning": "動作がてきぱきしないでにぶいさまを表わす語。",
         "ref": "nikkoku",
         "url": "精選版 日本国語大辞典",
         "found": true
+    },
+    {
+        "word": "のろっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
     },
     {
         "word": "のろのろ",
@@ -6298,6 +9000,13 @@
         "ref": "nikkoku",
         "url": "精選版 日本国語大辞典",
         "found": true
+    },
+    {
+        "word": "ばーっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
     },
     {
         "word": "ぱーっ",
@@ -6349,6 +9058,13 @@
         "found": true
     },
     {
+        "word": "ばかっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "ぱかっ",
         "meaning": "口や物が裂けたりして大きく開くさまを表わす語。",
         "ref": "nikkoku",
@@ -6356,11 +9072,25 @@
         "found": true
     },
     {
+        "word": "ばかばか",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "ぱかぱか",
         "meaning": "馬のかろやかに歩む蹄の音を表わす語。",
         "ref": "nikkoku",
         "url": "精選版 日本国語大辞典",
         "found": true
+    },
+    {
+        "word": "ばきっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
     },
     {
         "word": "はきはき",
@@ -6419,6 +9149,13 @@
         "found": true
     },
     {
+        "word": "ぱさっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "ばさばさ",
         "meaning": "乾いた物が触れて発する音を表わす語。",
         "ref": "nikkoku",
@@ -6447,11 +9184,32 @@
         "found": true
     },
     {
+        "word": "ばさりばさり",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "ばしっ",
         "meaning": "固い物が、何かに強く当たったり、割れたりする音を表わす語。転じて、非常に強い調子で物事にあたるさまをいう。",
         "ref": "nikkoku",
         "url": "精選版 日本国語大辞典",
         "found": true
+    },
+    {
+        "word": "ぱしっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "ばしばし",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
     },
     {
         "word": "ばしゃばしゃ",
@@ -6466,6 +9224,20 @@
         "ref": "daijisen",
         "url": "デジタル大辞泉",
         "found": true
+    },
+    {
+        "word": "ばしゃん",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "ぱしゃん",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
     },
     {
         "word": "はた",
@@ -6510,6 +9282,20 @@
         "found": true
     },
     {
+        "word": "ばたばたっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "ぱたぱたっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "はたり",
         "meaning": "物の落ちる軽い音、軽く打ち合わされる音、またそのさまを表わす語。",
         "ref": "nikkoku",
@@ -6531,6 +9317,20 @@
         "found": true
     },
     {
+        "word": "はたりはたり",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "ばたりばたり",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "ばたん",
         "meaning": "音をたてて人・動物・物が倒れたり、扉が開閉したりするさま。",
         "ref": "kojien",
@@ -6543,6 +9343,20 @@
         "ref": "kojien",
         "url": "広辞苑 第七版",
         "found": true
+    },
+    {
+        "word": "ばたんばたん",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "ぱたんぱたん",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
     },
     {
         "word": "ぱちくり",
@@ -6580,6 +9394,27 @@
         "found": true
     },
     {
+        "word": "ぱちゃぱちゃ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "ばちゃん",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "ぱちゃん",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "ぱちり",
         "meaning": "硬いものが発する鋭く小さい音を表わす語。",
         "ref": "nikkoku",
@@ -6615,6 +9450,13 @@
         "found": true
     },
     {
+        "word": "ぱっかり",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "はっきり",
         "meaning": "他との区別が明らかできわだち、あざやかに認識できる状態を表わす語。",
         "ref": "nikkoku",
@@ -6627,6 +9469,13 @@
         "ref": "nikkoku",
         "url": "精選版 日本国語大辞典",
         "found": true
+    },
+    {
+        "word": "ばっさばっさ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
     },
     {
         "word": "ばっさり",
@@ -6671,6 +9520,13 @@
         "found": true
     },
     {
+        "word": "ばったん",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "ばっちり",
         "meaning": "抜け目なく、十分であるさまを表わす語。",
         "ref": "nikkoku",
@@ -6692,6 +9548,13 @@
         "found": true
     },
     {
+        "word": "ぱっぱか",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "はっはっ",
         "meaning": "危ぶみ気づかうさまを表わす語。",
         "ref": "nikkoku",
@@ -6706,6 +9569,13 @@
         "found": true
     },
     {
+        "word": "はっはっは",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "ばてばて",
         "meaning": "俗に、疲れ果てるさま。",
         "ref": "daijirin",
@@ -6713,11 +9583,39 @@
         "found": true
     },
     {
+        "word": "ばばーっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "ぱぱっ",
         "meaning": "動作が手際よく、素早いさま。",
         "ref": "kojien",
         "url": "広辞苑 第七版",
         "found": true
+    },
+    {
+        "word": "ははは",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "ばばばばば",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "はらっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
     },
     {
         "word": "ばらっ",
@@ -6755,6 +9653,13 @@
         "found": true
     },
     {
+        "word": "ばらばらっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "はらり",
         "meaning": "軽い物が他の物にかすかに当たったり落ちたりするさまを表わす語。",
         "ref": "nikkoku",
@@ -6781,6 +9686,13 @@
         "ref": "nikkoku",
         "url": "精選版 日本国語大辞典",
         "found": true
+    },
+    {
+        "word": "ぱらん",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
     },
     {
         "word": "ばらんばらん",
@@ -6818,6 +9730,48 @@
         "found": true
     },
     {
+        "word": "ばりばりっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "ばりぼり",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "ぱりぽり",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "ばりん",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "ぱりん",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "ばん",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "ぱん",
         "meaning": "物を勢いよく打ったり置いたりする高い音やそのさまを表わす語。",
         "ref": "nikkoku",
@@ -6853,11 +9807,46 @@
         "found": true
     },
     {
+        "word": "ぴー",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "ぴーちく",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "ぴーちくぱーちく",
         "meaning": "小鳥などのさえずり、また、かん高い鳴き声を表す語。",
         "ref": "daijisen",
         "url": "デジタル大辞泉",
         "found": true
+    },
+    {
+        "word": "ぴーちょほい",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "ひーっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "びーっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
     },
     {
         "word": "ひーひー",
@@ -6879,6 +9868,48 @@
         "ref": "nikkoku",
         "url": "精選版 日本国語大辞典",
         "found": true
+    },
+    {
+        "word": "ぴーひゃら",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "ぴーひょろ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "ぴーぽーぴーぽー",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "ひいよろよろ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "ひーん",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "びーん",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
     },
     {
         "word": "ぴーん",
@@ -6914,6 +9945,13 @@
         "ref": "nikkoku",
         "url": "精選版 日本国語大辞典",
         "found": true
+    },
+    {
+        "word": "ひくっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
     },
     {
         "word": "びくっ",
@@ -6965,11 +10003,25 @@
         "found": true
     },
     {
+        "word": "びくん",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "ぴくん",
         "meaning": "一瞬、小さくはねるように動くさま。",
         "ref": "kojien",
         "url": "広辞苑 第七版",
         "found": true
+    },
+    {
+        "word": "ひし",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
     },
     {
         "word": "びしっ",
@@ -7112,6 +10164,13 @@
         "found": true
     },
     {
+        "word": "ぴたん",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "びちびち",
         "meaning": "柔らかな物が、水に混じって排出する音やさまを表わす語。",
         "ref": "nikkoku",
@@ -7126,6 +10185,20 @@
         "found": true
     },
     {
+        "word": "びちゃっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "ぴちゃっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "びちゃびちゃ",
         "meaning": "水などをはねかえすさま、また、すっかり水にぬれるさまなどを表わす語。",
         "ref": "nikkoku",
@@ -7138,6 +10211,13 @@
         "ref": "nikkoku",
         "url": "精選版 日本国語大辞典",
         "found": true
+    },
+    {
+        "word": "びちゃり",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
     },
     {
         "word": "ぴちゃり",
@@ -7182,11 +10262,25 @@
         "found": true
     },
     {
+        "word": "ぴっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "ぴっかぴか",
         "meaning": "断続的に強い光を放つさま。また、光り輝くさま。",
         "ref": "daijisen",
         "url": "デジタル大辞泉",
         "found": true
+    },
+    {
+        "word": "ぴっかぴっか",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
     },
     {
         "word": "ひっかり",
@@ -7238,11 +10332,46 @@
         "found": true
     },
     {
+        "word": "ぴったりこん",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "ぴっちぴち",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "びっちり",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "ぴっちり",
         "meaning": "すきまなく密着しているさまを表わす語。",
         "ref": "nikkoku",
         "url": "精選版 日本国語大辞典",
         "found": true
+    },
+    {
+        "word": "ぴっぴっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "ひとくひとく",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
     },
     {
         "word": "ひひ",
@@ -7252,11 +10381,53 @@
         "found": true
     },
     {
+        "word": "ひひーん",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "ぴぴっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "ひひひ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "びびびっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "ひひひん",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "ひひん",
         "meaning": "馬のいななく声を表わす語。",
         "ref": "nikkoku",
         "url": "精選版 日本国語大辞典",
         "found": true
+    },
+    {
+        "word": "ひやーっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
     },
     {
         "word": "ひやっ",
@@ -7271,6 +10442,13 @@
         "ref": "kojien",
         "url": "広辞苑 第七版",
         "found": true
+    },
+    {
+        "word": "ひゃらら",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
     },
     {
         "word": "ひやり",
@@ -7301,6 +10479,27 @@
         "found": true
     },
     {
+        "word": "ひゅーっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "びゅーっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "ぴゅーっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "ひゅーどろどろ",
         "meaning": "芝居で、幽霊の出没する際に鳴らす下座音楽の音を表わす語。",
         "ref": "nikkoku",
@@ -7329,6 +10528,34 @@
         "found": true
     },
     {
+        "word": "ひゅーん",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "びゅーん",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "ぴゅーん",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "びゅーんびゅーん",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "ひゅっ",
         "meaning": "風を切って飛ぶ音を表わす語。",
         "ref": "nikkoku",
@@ -7350,6 +10577,55 @@
         "found": true
     },
     {
+        "word": "ぴゅっぴゅっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "ひゅるひゅる",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "ひゅるるーん",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "ひゅん",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "びゅん",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "ぴゅん",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "ひゅんひゅん",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "びゅんびゅん",
         "meaning": "連続的に強風が吹いたり、物が強く風を切って動いたりするときなどに生ずる音、また、そのさまを表わす語。",
         "ref": "nikkoku",
@@ -7357,11 +10633,25 @@
         "found": true
     },
     {
+        "word": "ぴゅんぴゅん",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "ひょい",
         "meaning": "事を行なうのに、身軽に、また、気軽に、簡単にするさまを表わす語。",
         "ref": "nikkoku",
         "url": "精選版 日本国語大辞典",
         "found": true
+    },
+    {
+        "word": "ぴょいっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
     },
     {
         "word": "ひょいひょい",
@@ -7376,6 +10666,27 @@
         "ref": "nikkoku",
         "url": "精選版 日本国語大辞典",
         "found": true
+    },
+    {
+        "word": "ぴょーん",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "ひょこっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "ぴょこっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
     },
     {
         "word": "ひょこひょこ",
@@ -7404,6 +10715,41 @@
         "ref": "nikkoku",
         "url": "精選版 日本国語大辞典",
         "found": true
+    },
+    {
+        "word": "ひょこりひょこり",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "ひょこん",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "ぴよこん",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "ひょこんひょこん",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "ぴょこんぴょこん",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
     },
     {
         "word": "ひょっ",
@@ -7469,11 +10815,25 @@
         "found": true
     },
     {
+        "word": "ひょろりひょろり",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "ぴょん",
         "meaning": "身軽に飛び上がったり、飛び越えたりするさまを表わす語。",
         "ref": "nikkoku",
         "url": "精選版 日本国語大辞典",
         "found": true
+    },
+    {
+        "word": "ひょんひょん",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
     },
     {
         "word": "ぴょんぴょん",
@@ -7511,6 +10871,13 @@
         "found": true
     },
     {
+        "word": "ひらりっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "ひらりひらり",
         "meaning": "軽く飛び越えていくさま、軽やかに行くさまを表わす語。",
         "ref": "nikkoku",
@@ -7539,6 +10906,13 @@
         "found": true
     },
     {
+        "word": "ぴりっぴりっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "ひりひり",
         "meaning": "細長いもの、小さいものなどが小刻みに動くさま、ひるがえるさまを表わす語。",
         "ref": "nikkoku",
@@ -7558,6 +10932,20 @@
         "ref": "nikkoku",
         "url": "精選版 日本国語大辞典",
         "found": true
+    },
+    {
+        "word": "びりびりっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "ぴりぴりっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
     },
     {
         "word": "ひりり",
@@ -7581,6 +10969,20 @@
         "found": true
     },
     {
+        "word": "ぴろぴろぴ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "ぴろろん",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "ひん",
         "meaning": "馬のいななく声を表わす語。",
         "ref": "nikkoku",
@@ -7600,6 +11002,13 @@
         "ref": "nikkoku",
         "url": "精選版 日本国語大辞典",
         "found": true
+    },
+    {
+        "word": "ぴんひょろ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
     },
     {
         "word": "ひんひん",
@@ -7623,6 +11032,13 @@
         "found": true
     },
     {
+        "word": "ぴんぽーん",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "ぴんぽん",
         "meaning": "インターホンなどのチャイムの鳴る音を表わす語。",
         "ref": "nikkoku",
@@ -7637,11 +11053,46 @@
         "found": true
     },
     {
+        "word": "ぴんよろ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "ふあーっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "ふあっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "ぷい",
         "meaning": "行為、動作が突然で素早いさまを表わす語。",
         "ref": "nikkoku",
         "url": "精選版 日本国語大辞典",
         "found": true
+    },
+    {
+        "word": "ふいっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "ぷいっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
     },
     {
         "word": "ふー",
@@ -7672,6 +11123,27 @@
         "found": true
     },
     {
+        "word": "ぶーっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "ぷーっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "ふうはり",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "ふーふー",
         "meaning": "猫が怒ったり、さかったりした時に毛を逆立ててする鳴き声を表わす語。",
         "ref": "nikkoku",
@@ -7686,6 +11158,13 @@
         "found": true
     },
     {
+        "word": "ぶーぶー",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "ぷーぷー",
         "meaning": "煙や湯気が吹き出すさま、口をとがらして息を強く吐くさまなどを表わす語。",
         "ref": "nikkoku",
@@ -7698,6 +11177,13 @@
         "ref": "nikkoku",
         "url": "精選版 日本国語大辞典",
         "found": true
+    },
+    {
+        "word": "ぷかーり",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
     },
     {
         "word": "ふかふか",
@@ -7728,11 +11214,32 @@
         "found": true
     },
     {
+        "word": "ぷかり",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "ぷかりぷかり",
         "meaning": "ゆっくりとタバコをふかすさまを表わす語。",
         "ref": "nikkoku",
         "url": "精選版 日本国語大辞典",
         "found": true
+    },
+    {
+        "word": "ふぎゃああ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "ふぐっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
     },
     {
         "word": "ぷくっ",
@@ -7777,6 +11284,13 @@
         "found": true
     },
     {
+        "word": "ぷすっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "ぶすぶす",
         "meaning": "炎をあげないで、くすぶっているさまを表わす語。",
         "ref": "nikkoku",
@@ -7803,6 +11317,20 @@
         "ref": "nikkoku",
         "url": "精選版 日本国語大辞典",
         "found": true
+    },
+    {
+        "word": "ぶすりぶすり",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "ぷすん",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
     },
     {
         "word": "ぷちぷち",
@@ -7833,6 +11361,13 @@
         "found": true
     },
     {
+        "word": "ぶっくさ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "ふっくら",
         "meaning": "柔らかくふくらんでいるさまを表わす語。",
         "ref": "nikkoku",
@@ -7852,6 +11387,13 @@
         "ref": "nikkoku",
         "url": "精選版 日本国語大辞典",
         "found": true
+    },
+    {
+        "word": "ぶつっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
     },
     {
         "word": "ぷつっ",
@@ -7896,6 +11438,13 @@
         "found": true
     },
     {
+        "word": "ふっふっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "ぶつぶつ",
         "meaning": "綱や縄などを勢いよく切断する音、また、物を細かく切るさま、切れ切れになるさまを表わす語。",
         "ref": "nikkoku",
@@ -7915,6 +11464,20 @@
         "ref": "nikkoku",
         "url": "精選版 日本国語大辞典",
         "found": true
+    },
+    {
+        "word": "ふっふっふ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "ふっふっふっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
     },
     {
         "word": "ふつり",
@@ -7945,11 +11508,53 @@
         "found": true
     },
     {
+        "word": "ふにゃっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "ふにゃふにゃ",
         "meaning": "柔らかくて張りのないさまを表わす語。",
         "ref": "nikkoku",
         "url": "精選版 日本国語大辞典",
         "found": true
+    },
+    {
+        "word": "ふにゃり",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "ふにゃん",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "ふはふは",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "ふはり",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "ふふふ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
     },
     {
         "word": "ふふん",
@@ -8043,6 +11648,13 @@
         "found": true
     },
     {
+        "word": "ぷりんぷりん",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "ぶるっ",
         "meaning": "恐怖や寒さなどのために、瞬間的に身をふるわすさまを表わす語。",
         "ref": "nikkoku",
@@ -8055,6 +11667,13 @@
         "ref": "nikkoku",
         "url": "精選版 日本国語大辞典",
         "found": true
+    },
+    {
+        "word": "ぶるるっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
     },
     {
         "word": "ぶるん",
@@ -8071,11 +11690,39 @@
         "found": true
     },
     {
+        "word": "ぷるんぷるん",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "ぶろろろ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "ふわ",
         "meaning": "軽くて柔らかいさま。また、軽く浮くさま。",
         "ref": "daijisen",
         "url": "デジタル大辞泉",
         "found": true
+    },
+    {
+        "word": "ふわー",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "ふわーっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
     },
     {
         "word": "ふわっ",
@@ -8148,6 +11795,13 @@
         "found": true
     },
     {
+        "word": "ぺかぺか",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "へこへこ",
         "meaning": "弱々しくたわみやすいさまを表わす語。",
         "ref": "nikkoku",
@@ -8181,6 +11835,20 @@
         "ref": "nikkoku",
         "url": "精選版 日本国語大辞典",
         "found": true
+    },
+    {
+        "word": "ぺしゃっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "ぺしゃり",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
     },
     {
         "word": "ぺしゃんこ",
@@ -8295,6 +11963,13 @@
         "found": true
     },
     {
+        "word": "へっくしょん",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "べったり",
         "meaning": "ねばりけのあるもの、水を含んだものなどが、ぶつかったり、広くねばりついたりするさまを表わす語。",
         "ref": "nikkoku",
@@ -8309,11 +11984,25 @@
         "found": true
     },
     {
+        "word": "ぺったん",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "ぺったんこ",
         "meaning": "靴の底や鼻などが平らで凹凸のないさま。",
         "ref": "kojien",
         "url": "広辞苑 第七版",
         "found": true
+    },
+    {
+        "word": "ぺったんぺったん",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
     },
     {
         "word": "ぺっちゃんこ",
@@ -8330,11 +12019,25 @@
         "found": true
     },
     {
+        "word": "へっへっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "ぺっぺっ",
         "meaning": "唾や痰などを吐き出すさまを表わす語。",
         "ref": "nikkoku",
         "url": "精選版 日本国語大辞典",
         "found": true
+    },
+    {
+        "word": "へっへっへっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
     },
     {
         "word": "へとへと",
@@ -8365,6 +12068,13 @@
         "found": true
     },
     {
+        "word": "へへへ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "へらへら",
         "meaning": "炎をあげてよく燃えるさまを表わす語。",
         "ref": "nikkoku",
@@ -8386,11 +12096,32 @@
         "found": true
     },
     {
+        "word": "ぺらぺらっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "べらべらべらべら",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "べりべり",
         "meaning": "よくしゃべるさまを表わす語。",
         "ref": "nikkoku",
         "url": "精選版 日本国語大辞典",
         "found": true
+    },
+    {
+        "word": "べろっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
     },
     {
         "word": "ぺろっ",
@@ -8421,6 +12152,13 @@
         "found": true
     },
     {
+        "word": "ぺろぺろっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "べろり",
         "meaning": "舌を長く出すさま。また、舌を出してなめるさま。",
         "ref": "kojien",
@@ -8433,6 +12171,20 @@
         "ref": "nikkoku",
         "url": "精選版 日本国語大辞典",
         "found": true
+    },
+    {
+        "word": "べろりべろり",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "ぺろりぺろり",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
     },
     {
         "word": "べろんべろん",
@@ -8456,6 +12208,13 @@
         "found": true
     },
     {
+        "word": "ぽいっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "ほいほい",
         "meaning": "軽い気持で調子よく物事をするさまを表わす語。",
         "ref": "nikkoku",
@@ -8475,6 +12234,48 @@
         "ref": "nikkoku",
         "url": "精選版 日本国語大辞典",
         "found": true
+    },
+    {
+        "word": "ほーっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "ぼーっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "ぽーっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "ほーほー",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "ぼーぼー",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "ほーほーけきょー",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
     },
     {
         "word": "ぽかーん",
@@ -8540,6 +12341,13 @@
         "found": true
     },
     {
+        "word": "ぼきっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "ぽきっ",
         "meaning": "細いものが折れたり、薄くて堅いものが割れたりする音を表わす語。",
         "ref": "nikkoku",
@@ -8568,6 +12376,13 @@
         "found": true
     },
     {
+        "word": "ほぎゃーほぎゃー",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "ぼきり",
         "meaning": "太くて丈夫なものが折れる音、また、そのさまを表わす語。",
         "ref": "nikkoku",
@@ -8580,6 +12395,13 @@
         "ref": "nikkoku",
         "url": "精選版 日本国語大辞典",
         "found": true
+    },
+    {
+        "word": "ぽきりぽきり",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
     },
     {
         "word": "ほくほく",
@@ -8603,6 +12425,20 @@
         "found": true
     },
     {
+        "word": "ぼけーっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "ぽけーっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "ぼけっ",
         "meaning": "何もしないで、ただぼんやりとしているさまを表わす語。",
         "ref": "nikkoku",
@@ -8615,6 +12451,20 @@
         "ref": "nikkoku",
         "url": "精選版 日本国語大辞典",
         "found": true
+    },
+    {
+        "word": "ぼこっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "ぽこっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
     },
     {
         "word": "ぼこぼこ",
@@ -8631,6 +12481,27 @@
         "found": true
     },
     {
+        "word": "ぼこり",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "ぽこり",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "ぼこん",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "ぽこん",
         "meaning": "中空なものをたたいたときの音を表わす語。",
         "ref": "nikkoku",
@@ -8643,6 +12514,13 @@
         "ref": "nikkoku",
         "url": "精選版 日本国語大辞典",
         "found": true
+    },
+    {
+        "word": "ぼさーっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
     },
     {
         "word": "ぼさっ",
@@ -8659,11 +12537,53 @@
         "found": true
     },
     {
+        "word": "ぼしゃっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "ぽしゃっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "ぼじゃぼじゃ",
         "meaning": "ゆとりのあるさまを表わす語。",
         "ref": "nikkoku",
         "url": "精選版 日本国語大辞典",
         "found": true
+    },
+    {
+        "word": "ぼしゃり",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "ぽしゃり",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "ぼしゃん",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "ぽしゃん",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
     },
     {
         "word": "ぼそっ",
@@ -8687,11 +12607,39 @@
         "found": true
     },
     {
+        "word": "ぼそりぼそり",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "ほぞんかけたか",
         "meaning": "ホトトギスの鳴声を表わす語。",
         "ref": "nikkoku",
         "url": "精選版 日本国語大辞典",
         "found": true
+    },
+    {
+        "word": "ぼたっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "ぽたっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "ぽたっぽたっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
     },
     {
         "word": "ぼたぼた",
@@ -8757,6 +12705,20 @@
         "found": true
     },
     {
+        "word": "ぼちゃっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "ぽちゃっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "ぼちゃぼちゃ",
         "meaning": "愛想よくねんごろであるさまを表わす語。",
         "ref": "nikkoku",
@@ -8769,6 +12731,20 @@
         "ref": "nikkoku",
         "url": "精選版 日本国語大辞典",
         "found": true
+    },
+    {
+        "word": "ぼちゃり",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "ぽちゃり",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
     },
     {
         "word": "ぼちゃん",
@@ -8806,6 +12782,20 @@
         "found": true
     },
     {
+        "word": "ほっかほか",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "ほっかほっか",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "ほっかり",
         "meaning": "口や穴が大きくあいているさま、また、口を大きくあけてかぶりつくさまを表わす語。",
         "ref": "nikkoku",
@@ -8841,6 +12831,13 @@
         "found": true
     },
     {
+        "word": "ぽっくりぽっくり",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "ぽっこり",
         "meaning": "急に現われるさまを表わす語。",
         "ref": "nikkoku",
@@ -8867,6 +12864,13 @@
         "ref": "nikkoku",
         "url": "精選版 日本国語大辞典",
         "found": true
+    },
+    {
+        "word": "ぼっちゃん",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
     },
     {
         "word": "ほっちり",
@@ -8911,6 +12915,13 @@
         "found": true
     },
     {
+        "word": "ほっほ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "ぼつぼつ",
         "meaning": "小さい点や粒が散在するさま、散らばっているさまを表わす語。",
         "ref": "nikkoku",
@@ -8930,6 +12941,27 @@
         "ref": "nikkoku",
         "url": "精選版 日本国語大辞典",
         "found": true
+    },
+    {
+        "word": "ほっほっほ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "ぽっぽっぽ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "ぼつり",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
     },
     {
         "word": "ぽつり",
@@ -8967,6 +12999,13 @@
         "found": true
     },
     {
+        "word": "ぽとっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "ぼとぼと",
         "meaning": "液体が続けざまにしたたり落ちるさまを表わす語。",
         "ref": "nikkoku",
@@ -8995,6 +13034,20 @@
         "found": true
     },
     {
+        "word": "ぼとん",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "ぽとん",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "ほのぼの",
         "meaning": "わずかに見たり聞いたり知ったりするさまを表わす語。",
         "ref": "nikkoku",
@@ -9014,6 +13067,20 @@
         "ref": "nikkoku",
         "url": "精選版 日本国語大辞典",
         "found": true
+    },
+    {
+        "word": "ほほほ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "ぼやーっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
     },
     {
         "word": "ぼやっ",
@@ -9042,6 +13109,13 @@
         "ref": "nikkoku",
         "url": "精選版 日本国語大辞典",
         "found": true
+    },
+    {
+        "word": "ぼよよん",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
     },
     {
         "word": "ぼりぼり",
@@ -9149,6 +13223,13 @@
         "found": true
     },
     {
+        "word": "ぽんっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "ほんのり",
         "meaning": "形、色、香りなどがかすかに現われるさまを表わす語。",
         "ref": "nikkoku",
@@ -9161,6 +13242,20 @@
         "ref": "nikkoku",
         "url": "精選版 日本国語大辞典",
         "found": true
+    },
+    {
+        "word": "ぽんぽこぽん",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "ぽんぽこりん",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
     },
     {
         "word": "ぼんぼん",
@@ -9189,6 +13284,13 @@
         "ref": "nikkoku",
         "url": "精選版 日本国語大辞典",
         "found": true
+    },
+    {
+        "word": "ほんわり",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
     },
     {
         "word": "まごまご",
@@ -9266,6 +13368,13 @@
         "ref": "nikkoku",
         "url": "精選版 日本国語大辞典",
         "found": true
+    },
+    {
+        "word": "むーっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
     },
     {
         "word": "むかっ",
@@ -9394,6 +13503,13 @@
         "found": true
     },
     {
+        "word": "むつっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "むっつり",
         "meaning": "おし黙って、愛想のないさまを表わす語。",
         "ref": "nikkoku",
@@ -9415,6 +13531,20 @@
         "found": true
     },
     {
+        "word": "むらむらっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "むん",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "むんず",
         "meaning": "状態や程度のはなはだしいさまを表わす語。",
         "ref": "nikkoku",
@@ -9434,6 +13564,13 @@
         "ref": "nikkoku",
         "url": "精選版 日本国語大辞典",
         "found": true
+    },
+    {
+        "word": "めーめ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
     },
     {
         "word": "めきめき",
@@ -9485,6 +13622,13 @@
         "found": true
     },
     {
+        "word": "めりっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "めりめり",
         "meaning": "物がもろく裂け破れたり、砕けたりする音、また、そのさまを表わす語。",
         "ref": "nikkoku",
@@ -9504,6 +13648,20 @@
         "ref": "nikkoku",
         "url": "精選版 日本国語大辞典",
         "found": true
+    },
+    {
+        "word": "もー",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "もーもー",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
     },
     {
         "word": "もがもが",
@@ -9611,6 +13769,20 @@
         "found": true
     },
     {
+        "word": "もやーっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "もやっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "もやもや",
         "meaning": "のぼせさせたり、欲情を起こさせたりするさま。",
         "ref": "nikkoku",
@@ -9623,6 +13795,13 @@
         "ref": "nikkoku",
         "url": "精選版 日本国語大辞典",
         "found": true
+    },
+    {
+        "word": "もわーっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
     },
     {
         "word": "もわっ",
@@ -9660,6 +13839,13 @@
         "found": true
     },
     {
+        "word": "やはやは",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "やわやわ",
         "meaning": "やわらかなさま、しなやかなさまを表わす語。",
         "ref": "nikkoku",
@@ -9674,6 +13860,13 @@
         "found": true
     },
     {
+        "word": "ゆーらり",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "ゆさゆさ",
         "meaning": "物が揺れ動くさまを表わす語。",
         "ref": "nikkoku",
@@ -9686,6 +13879,13 @@
         "ref": "nikkoku",
         "url": "精選版 日本国語大辞典",
         "found": true
+    },
+    {
+        "word": "ゆっさゆっさ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
     },
     {
         "word": "ゆっさり",
@@ -9709,11 +13909,25 @@
         "found": true
     },
     {
+        "word": "ゆらっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "ゆらゆら",
         "meaning": "ゆれうごくさま、ゆりうごかすさまを表わす語。",
         "ref": "nikkoku",
         "url": "精選版 日本国語大辞典",
         "found": true
+    },
+    {
+        "word": "ゆらゆらっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
     },
     {
         "word": "ゆらり",
@@ -9786,11 +14000,25 @@
         "found": true
     },
     {
+        "word": "よろりよろり",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "りーん",
         "meaning": "鈴やベルなどの鳴る音を表わす語。",
         "ref": "nikkoku",
         "url": "精選版 日本国語大辞典",
         "found": true
+    },
+    {
+        "word": "りりーん",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
     },
     {
         "word": "りん",
@@ -9842,6 +14070,13 @@
         "found": true
     },
     {
+        "word": "わーん",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
         "word": "わいわい",
         "meaning": "大声をあげて泣き叫ぶさまを表わす語。",
         "ref": "nikkoku",
@@ -9889,6 +14124,20 @@
         "ref": "nikkoku",
         "url": "精選版 日本国語大辞典",
         "found": true
+    },
+    {
+        "word": "わはははは",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
+    },
+    {
+        "word": "わわーっ",
+        "meaning": "",
+        "ref": "",
+        "url": "",
+        "found": false
     },
     {
         "word": "わん",
