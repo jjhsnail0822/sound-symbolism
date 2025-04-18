@@ -2,8 +2,7 @@ from mcq_experiment import MCQExperiment
 import argparse
 import json
 
-langs = ['en', 'ko', 'ja'] # since fr is not in the question dataset yet
-# langs = ['en', 'fr', 'ko', 'ja']
+langs = ['en', 'fr', 'ko', 'ja']
 data_paths = [
     'dataset/3_questions/nat/understanding-unmasked_word_to_meaning_mcq-{language}.json',
     'dataset/3_questions/nat/understanding-masked_meaning_to_word_mcq-{language}.json'
