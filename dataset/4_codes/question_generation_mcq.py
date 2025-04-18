@@ -14,6 +14,7 @@ def generate_datasets(language, task, experiment_name):
     MASKING_WORD = "[__]"
     MAX_OPTION = 4
     NONE_OF_THE_OTHERS = False # whether to substitute an answer with "none of the others" option
+    ONE_DIALOGUE = False # whether to use only one dialogue for each word
 
     with open(f'dataset/2_dialogue/nat/{LANGUAGE}.json', 'r', encoding='utf-8') as f:
         dialogues = json.load(f)
@@ -65,6 +66,8 @@ def generate_datasets(language, task, experiment_name):
         for dialogue in subject_word['dialogues']:
             if not dialogue['meta_data']['success']:
                 print(f"Skipping dialogue for: {subject_word['word']}, num: {dialogue['meta_data']['dialogue_num']}")
+                continue
+            if ONE_DIALOGUE and dialogue['meta_data']['dialogue_num'] != 1:
                 continue
             dialogue_text = ""
             for utterance in dialogue['dialogue']:

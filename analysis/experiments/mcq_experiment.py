@@ -4,6 +4,13 @@ from vllm import LLM, SamplingParams
 from tqdm import tqdm
 import os
 import re
+import contextlib
+import gc
+import torch
+from vllm.distributed import (destroy_distributed_environment, destroy_model_parallel)
+from openai import OpenAI
+from dotenv import load_dotenv
+from pathlib import Path
 
 class MCQExperiment:
     def __init__(
@@ -11,6 +18,7 @@ class MCQExperiment:
             model_path: str,
             data_path: str,
             output_dir: str,
+            use_api: bool = False,
             tensor_parallel_size: int = 1,
             max_tokens: int = 32,
             max_model_len: int = 8192,
@@ -19,12 +27,30 @@ class MCQExperiment:
         self.model_path = model_path
         self.data_path = data_path
         self.output_dir = output_dir
+        self.use_api = use_api
         self.tensor_parallel_size = tensor_parallel_size
         self.max_tokens = max_tokens
         self.max_model_len = max_model_len
         self.temperature = temperature
+
+        # Load environment variables from .env.local file
+        env_path = Path('.env.local')
+        load_dotenv(dotenv_path=env_path)
+
+        # Get API key from environment variables
+        self.client = OpenAI(
+            api_key=os.getenv("OPENAI_API_KEY"),
+        )
         pass
-    
+
+    def _cleanup(self):
+        destroy_model_parallel()
+        destroy_distributed_environment()
+        with contextlib.suppress(AssertionError):
+            torch.distributed.destroy_process_group()
+        gc.collect()
+        torch.cuda.empty_cache()
+
     def run_mcq_experiment(self):
         # Load MCQ data
         print(f"Loading MCQ data from {self.data_path}")
@@ -33,12 +59,15 @@ class MCQExperiment:
         print(f"Loaded {len(mcq_data)} questions.")
         
         # Initialize VLLM model
-        print(f"Loading model from {self.model_path}")
-        model = LLM(model=self.model_path, max_model_len=self.max_model_len, tensor_parallel_size=self.tensor_parallel_size)
-        sampling_params = SamplingParams(
-            temperature=self.temperature, 
-            max_tokens=self.max_tokens,
-        )
+        if self.use_api:
+            print(f"Using OpenAI API with model {self.model_path}")
+        else:
+            print(f"Loading model from {self.model_path}")
+            model = LLM(model=self.model_path, max_model_len=self.max_model_len, tensor_parallel_size=self.tensor_parallel_size)
+            sampling_params = SamplingParams(
+                temperature=self.temperature, 
+                max_tokens=self.max_tokens,
+            )
         
         # Run experiment
         print(f"Running MCQ experiment on {len(mcq_data)} questions...")
@@ -46,10 +75,20 @@ class MCQExperiment:
         
         # Process in batches
         for query in tqdm(mcq_data):
-            response = model.generate(query['question'], sampling_params=sampling_params)
-            
-            # Extract answer from the first element of the response list
-            model_answer = response[0].outputs[0].text.strip()
+            if self.use_api:
+                # Use OpenAI API
+                response = self.client.responses.create(
+                    model=self.model_path,
+                    input=query['question'],
+                    # temperature=self.temperature, # not supported with o4-mini
+                )
+                model_answer = response.output_text
+            else:
+                # Use VLLM model
+                response = model.generate(query['question'], sampling_params=sampling_params)
+                
+                # Extract answer from the first element of the response list
+                model_answer = response[0].outputs[0].text.strip()
 
             # First integer is the answer
             model_answer = re.search(r'\d+', model_answer)
@@ -100,6 +139,10 @@ class MCQExperiment:
             "results": all_results,
         }
 
+        if not self.use_api:
+            del model
+            self._cleanup()
+
         return results_dict, results_filename
 
 if __name__ == "__main__":
@@ -111,6 +154,7 @@ if __name__ == "__main__":
     parser.add_argument("--max-tokens", type=int, default=32, help="Maximum tokens to generate")
     parser.add_argument("--max-model-len", type=int, default=8192, help="Maximum model length")
     parser.add_argument("--temperature", type=float, default=0.0, help="Sampling temperature")
+    parser.add_argument("--api", action='store_true', help="Use OpenAI API instead of local model")
     
     args = parser.parse_args()
 
@@ -118,6 +162,7 @@ if __name__ == "__main__":
         model_path=args.model,
         data_path=args.data,
         output_dir=args.output,
+        use_api=args.api,
         tensor_parallel_size=args.gpu,
         max_tokens=args.max_tokens,
         max_model_len=args.max_model_len,

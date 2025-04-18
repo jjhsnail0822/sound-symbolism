@@ -23,6 +23,11 @@ parser.add_argument(
     default=1,
     help="Number of GPUs to use for the experiment",
 )
+parser.add_argument(
+    "--api",
+    action="store_true",
+    help="Use OpenAI API instead of local model",
+)
 args = parser.parse_args()
 
 all_brief_results = []
@@ -34,6 +39,7 @@ for lang in langs:
             model_path=args.model,
             data_path=formatted_path,
             output_dir='analysis/experiments/understanding',
+            use_api=args.api,
             tensor_parallel_size=args.gpu,
             max_tokens=32,
             max_model_len=8192,
