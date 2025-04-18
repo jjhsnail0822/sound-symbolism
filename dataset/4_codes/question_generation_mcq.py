@@ -13,7 +13,7 @@ def generate_datasets(language, task, experiment_name):
     MASKING = False if EXPERIMENT_NAME == "unmasked_word_to_meaning_mcq" else True # whether to mask the subject word
     MASKING_WORD = "[__]"
     MAX_OPTION = 4
-    NONE_OF_THE_OTHERS = True # whether to substitute an answer with "none of the others" option
+    NONE_OF_THE_OTHERS = False # whether to substitute an answer with "none of the others" option
 
     with open(f'dataset/2_dialogue/nat/{LANGUAGE}.json', 'r', encoding='utf-8') as f:
         dialogues = json.load(f)

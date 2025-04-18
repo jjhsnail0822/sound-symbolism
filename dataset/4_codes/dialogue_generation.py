@@ -416,11 +416,12 @@ class DialogueGenerator:
             
             # Test and revise the dialogue if necessary
             retry_count = 0
-            max_retries = 3
+            # max_retries = 3
+            warning_retries = 3
             
-            while retry_count < max_retries:
+            while True:
                 # Use the new test_revise function
-                print(f"\n=== REVISION ATTEMPT {retry_count + 1}/{max_retries} for dialogue {dialogue_num}, word '{word}' ===")
+                print(f"\n=== REVISION ATTEMPT {retry_count + 1} for dialogue {dialogue_num}, word '{word}' ===")
                 
                 # Uncomment for interactive debugging
                 # if retry_count > 0:
@@ -444,8 +445,8 @@ class DialogueGenerator:
                 retry_count += 1
                 
                 # If we've reached max retries, log a warning
-                if retry_count >= max_retries:
-                    print(f"⚠️ WARNING: Could not fix dialogue for '{word}' after {max_retries} attempts.")
+                if retry_count >= warning_retries:
+                    print(f"⚠️ WARNING: Could not fix dialogue for '{word}' after {retry_count} attempts.")
             
             # Create result dictionary with dialogue_num
             result = {
