@@ -3,7 +3,6 @@ import os
 import json
 import argparse
 import time
-from pprint import pprint
 from tqdm import tqdm
 from openai import OpenAI
 import random
@@ -23,7 +22,13 @@ load_dotenv(dotenv_path=env_path)
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 
 class DialogueGenerator:
-    def __init__(self, language: str, api_key: Optional[str] = None, model: str = "gpt-4.1", batch_size: int = 16, dialogues_per_word: int = 5, step_by_step: bool = True):
+    def __init__(self, language: str,
+                 api_key: Optional[str] = None,
+                 model: str = "gpt-4.1",
+                 batch_size: int = 16,
+                 dialogues_per_word: int = 5,
+                 step_by_step: bool = True,
+                 resume: bool = False):
         """
         Initialize the dialogue generator
         
@@ -33,6 +38,8 @@ class DialogueGenerator:
             model (str): OpenAI model to use
             batch_size (int): Number of dialogues to generate in a single batch
             dialogues_per_word (int): Number of dialogues to generate for each word
+            step_by_step (bool): Whether to generate dialogues step by step
+            resume (bool): Whether to resume from the last checkpoint
         """
         self.language = language.lower()
         if self.language not in ['en', 'fr', 'ko', 'ja']:
@@ -42,10 +49,10 @@ class DialogueGenerator:
         self.batch_size = batch_size
         self.dialogues_per_word = dialogues_per_word
         self.step_by_step = step_by_step
+        self.resume = resume
         
         # Set paths
         self.input_path = os.path.join('dataset/1_preprocess/nat', f"{self.language}.json")
-        # /scratch2/sheepswool/workspace/sound-symbolism/dataset/1_preprocess/nat/ko.json
         self.output_path = 'dataset/2_dialogue/nat'
         self.output_file = os.path.join(self.output_path, f"{self.language}.json")
         
@@ -496,6 +503,19 @@ class DialogueGenerator:
         ) -> List[Dict[str, Any]]:
         """Process all batches of data asynchronously"""
         results = []
+        temp_file = f"{self.output_file}.temp"
+        if self.resume and os.path.exists(temp_file):
+            with open(temp_file, 'r') as f:
+                results = json.load(f)
+            processed = len(results)
+            print(f"Resuming from {processed} dialogues")
+        else:
+            processed = 0
+            print("Starting fresh, no previous dialogues found")
+            if os.path.exists(temp_file):
+                os.remove(temp_file)
+        
+        data_to_process = data_to_process[processed:]
         batches = [data_to_process[i:i + self.batch_size]
                    for i in range(0, len(data_to_process), self.batch_size)]
         pbar = tqdm(total=len(data_to_process), desc=f"Generating {self.language} dialogues", unit="word")
@@ -829,7 +849,8 @@ if __name__ == "__main__":
     parser.add_argument('--dialogues-per-word', '-d', type=int, default=5,
                         help='Number of dialogues to generate for each word (default: 5)')
     parser.add_argument('--step-by-step', '-s', default=1, type=int, help='Generate dialogues step by step. 0 is False and 1 is True. (default: 1)')
-    
+    parser.add_argument('--resume', action='store_true', help='Resume from the last saved state')
+
     args = parser.parse_args()
     
     generator = DialogueGenerator(
@@ -837,7 +858,7 @@ if __name__ == "__main__":
         model=args.model,
         batch_size=args.batch_size,
         dialogues_per_word=args.dialogues_per_word,
-        step_by_step=args.step_by_step
+        resume=args.resume,
     )
     
     generator.run(limit=args.limit, shuffle=not args.no_shuffle)
