@@ -71,14 +71,22 @@ def generate_datasets(language, task, experiment_name):
                 continue
             dialogue_text = ""
             for utterance in dialogue['dialogue']:
-                if MASKING and utterance['index'] == dialogue['meta_data']['ss_idx']: # mask the subject word
-                        dialogue_text += f"{utterance['speaker']}: {utterance['text'].replace(subject_word['word'], MASKING_WORD)}\n"
-                else: # keep the subject word
+                if utterance['index'] == dialogue['meta_data']['ss_idx']:
+                    pattern = r'\b' + re.escape(subject_word['word']) + r'\b'
+                    if MASKING:
+                        replaced_text = re.sub(pattern, MASKING_WORD, utterance['text'], flags=re.IGNORECASE)
+                        if MASKING_WORD not in replaced_text:
+                            replaced_text = utterance['text'].replace(subject_word['word'], MASKING_WORD)
+                        dialogue_text += f"{utterance['speaker']}: {replaced_text}\n"
+                    else: # keep the subject word
+                        replaced_text = re.sub(pattern, '[' + subject_word['word'] + ']', utterance['text'], flags=re.IGNORECASE)
+                        if '[' + subject_word['word'] + ']' not in replaced_text:
+                            replaced_text = utterance['text'].replace(subject_word['word'], '[' + subject_word['word'] + ']')
+                        dialogue_text += f"{utterance['speaker']}: {replaced_text}\n"
+                else:
                     dialogue_text += f"{utterance['speaker']}: {utterance['text']}\n"
             dialogue_text = dialogue_text.strip()
             word_text = subject_word['word']
-            if MASKING:
-                dialogue_text = re.sub(re.escape(word_text), MASKING_WORD, dialogue_text, flags=re.IGNORECASE)
             # choose clusters randomly 0 to len(clustered_words), not including the current cluster
             random_clusters = random.sample([c['cluster_id'] for c in clustered_words if c['cluster_id'] != word_to_cluster[word_text]], MAX_OPTION - 1)
             # generate options
@@ -108,6 +116,6 @@ def generate_datasets(language, task, experiment_name):
     return
 
 if __name__ == "__main__":
-    for lang in ["en", "fr", "ko", "ja"]:
+    for lang in ["en", "fr", "ja", "ko"]:
         generate_datasets(language=lang, task="understanding", experiment_name="unmasked_word_to_meaning_mcq")
         generate_datasets(language=lang, task="understanding", experiment_name="masked_meaning_to_word_mcq")
