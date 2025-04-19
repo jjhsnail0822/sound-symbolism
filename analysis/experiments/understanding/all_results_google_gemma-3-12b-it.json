@@ -1,0 +1,58 @@
+[
+    {
+        "model": "google/gemma-3-12b-it",
+        "accuracy": 0.9536928487690504,
+        "correct_count": 1627,
+        "total_count": 1706,
+        "data_path": "dataset/3_questions/nat/understanding-unmasked_word_to_meaning_mcq-en.json"
+    },
+    {
+        "model": "google/gemma-3-12b-it",
+        "accuracy": 0.7268464243845252,
+        "correct_count": 1240,
+        "total_count": 1706,
+        "data_path": "dataset/3_questions/nat/understanding-masked_meaning_to_word_mcq-en.json"
+    },
+    {
+        "model": "google/gemma-3-12b-it",
+        "accuracy": 0.8960915157292659,
+        "correct_count": 1880,
+        "total_count": 2098,
+        "data_path": "dataset/3_questions/nat/understanding-unmasked_word_to_meaning_mcq-fr.json"
+    },
+    {
+        "model": "google/gemma-3-12b-it",
+        "accuracy": 0.67302192564347,
+        "correct_count": 1412,
+        "total_count": 2098,
+        "data_path": "dataset/3_questions/nat/understanding-masked_meaning_to_word_mcq-fr.json"
+    },
+    {
+        "model": "google/gemma-3-12b-it",
+        "accuracy": 0.9706941388277656,
+        "correct_count": 9705,
+        "total_count": 9998,
+        "data_path": "dataset/3_questions/nat/understanding-unmasked_word_to_meaning_mcq-ko.json"
+    },
+    {
+        "model": "google/gemma-3-12b-it",
+        "accuracy": 0.7014402880576115,
+        "correct_count": 7013,
+        "total_count": 9998,
+        "data_path": "dataset/3_questions/nat/understanding-masked_meaning_to_word_mcq-ko.json"
+    },
+    {
+        "model": "google/gemma-3-12b-it",
+        "accuracy": 0.9608603667136812,
+        "correct_count": 2725,
+        "total_count": 2836,
+        "data_path": "dataset/3_questions/nat/understanding-unmasked_word_to_meaning_mcq-ja.json"
+    },
+    {
+        "model": "google/gemma-3-12b-it",
+        "accuracy": 0.8314527503526093,
+        "correct_count": 2358,
+        "total_count": 2836,
+        "data_path": "dataset/3_questions/nat/understanding-masked_meaning_to_word_mcq-ja.json"
+    }
+]

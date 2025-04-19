@@ -1,0 +1,58 @@
+[
+    {
+        "model": "Qwen/Qwen2.5-32B-Instruct",
+        "accuracy": 0.9753810082063306,
+        "correct_count": 1664,
+        "total_count": 1706,
+        "data_path": "dataset/3_questions/nat/understanding-unmasked_word_to_meaning_mcq-en.json"
+    },
+    {
+        "model": "Qwen/Qwen2.5-32B-Instruct",
+        "accuracy": 0.7930832356389215,
+        "correct_count": 1353,
+        "total_count": 1706,
+        "data_path": "dataset/3_questions/nat/understanding-masked_meaning_to_word_mcq-en.json"
+    },
+    {
+        "model": "Qwen/Qwen2.5-32B-Instruct",
+        "accuracy": 0.9275500476644424,
+        "correct_count": 1946,
+        "total_count": 2098,
+        "data_path": "dataset/3_questions/nat/understanding-unmasked_word_to_meaning_mcq-fr.json"
+    },
+    {
+        "model": "Qwen/Qwen2.5-32B-Instruct",
+        "accuracy": 0.7659675881792183,
+        "correct_count": 1607,
+        "total_count": 2098,
+        "data_path": "dataset/3_questions/nat/understanding-masked_meaning_to_word_mcq-fr.json"
+    },
+    {
+        "model": "Qwen/Qwen2.5-32B-Instruct",
+        "accuracy": 0.9786957391478296,
+        "correct_count": 9785,
+        "total_count": 9998,
+        "data_path": "dataset/3_questions/nat/understanding-unmasked_word_to_meaning_mcq-ko.json"
+    },
+    {
+        "model": "Qwen/Qwen2.5-32B-Instruct",
+        "accuracy": 0.7160432086417283,
+        "correct_count": 7159,
+        "total_count": 9998,
+        "data_path": "dataset/3_questions/nat/understanding-masked_meaning_to_word_mcq-ko.json"
+    },
+    {
+        "model": "Qwen/Qwen2.5-32B-Instruct",
+        "accuracy": 0.9760225669957687,
+        "correct_count": 2768,
+        "total_count": 2836,
+        "data_path": "dataset/3_questions/nat/understanding-unmasked_word_to_meaning_mcq-ja.json"
+    },
+    {
+        "model": "Qwen/Qwen2.5-32B-Instruct",
+        "accuracy": 0.8843441466854725,
+        "correct_count": 2508,
+        "total_count": 2836,
+        "data_path": "dataset/3_questions/nat/understanding-masked_meaning_to_word_mcq-ja.json"
+    }
+]
