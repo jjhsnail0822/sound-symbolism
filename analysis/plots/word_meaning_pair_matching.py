@@ -3,6 +3,7 @@ import glob
 import json
 import numpy as np
 import matplotlib.pyplot as plt
+from matplotlib.ticker import PercentFormatter
 
 # 1) Collect result file paths
 exp_dir = 'analysis/experiments/understanding'
@@ -73,6 +74,7 @@ def plot_group(ax, subcats, title):
     x = np.arange(len(subcats)) * group_width
     gemma_idx = 0
     qwen_idx = 0
+    gpt_idx = 0
     for i, m in enumerate(models):
         y = [data[m].get(c, np.nan) for c in subcats]
         # Assign color based on model family
@@ -82,6 +84,9 @@ def plot_group(ax, subcats, title):
         elif 'qwen' in m.lower():
             color = qwen_colors[qwen_idx % len(qwen_colors)]
             qwen_idx += 1
+        elif 'gpt' in m.lower() or 'o' in m.lower():
+            color = gpt_colors[gpt_idx % len(gpt_colors)]
+            gpt_idx += 1
         else:
             color = plt.get_cmap('tab10').colors[i % 10]
 
@@ -94,7 +99,7 @@ def plot_group(ax, subcats, title):
                 h + 0.005,
                 f'{h*100:.1f}',
                 ha='center', va='bottom',
-                fontsize=5
+                fontsize=4
             )
     ax.set_xticks(x + (width * num_models) / 2)
     ax.set_xticklabels([c.split()[0] for c in subcats], rotation=0, ha='center')
@@ -103,8 +108,29 @@ def plot_group(ax, subcats, title):
 plot_group(ax1, w2m_cats, 'Word→Meaning Accuracy')
 plot_group(ax2, m2w_cats, 'Meaning→Word Accuracy')
 
+# 5) Draw average lines for left/right 4 bars
+avg_w2m = np.nanmean([data[m].get(c, np.nan) for m in models for c in w2m_cats])
+avg_m2w = np.nanmean([data[m].get(c, np.nan) for m in models for c in m2w_cats])
+
+ax1.axhline(avg_w2m, color='red', linestyle='--', linewidth=1)
+ax1.text(
+    0.01, avg_w2m - 0.01,  # Move text slightly below the line
+    f'Avg {avg_w2m*100:.1f}%', color='red',
+    transform=ax1.get_yaxis_transform(),
+    va='top', ha='left', fontsize=6
+)
+
+ax2.axhline(avg_m2w, color='red', linestyle='--', linewidth=1)
+ax2.text(
+    0.01, avg_m2w - 0.01,  # Move text slightly below the line
+    f'Avg {avg_m2w*100:.1f}%', color='red',
+    transform=ax2.get_yaxis_transform(),
+    va='top', ha='left', fontsize=6
+)
+
 for ax in (ax1, ax2):
-    ax.set_ylabel('Accuracy')
+    ax.set_ylabel('Accuracy (%)')
+    ax.yaxis.set_major_formatter(PercentFormatter(xmax=1))
     ax.set_ylim(0, 1.02)
 
 ax2.legend(loc='upper left', bbox_to_anchor=(1,1))

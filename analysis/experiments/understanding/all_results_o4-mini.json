@@ -1,0 +1,58 @@
+[
+    {
+        "model": "o4-mini",
+        "accuracy": 0.9806565064478312,
+        "correct_count": 1673,
+        "total_count": 1706,
+        "data_path": "dataset/3_questions/nat/understanding-unmasked_word_to_meaning_mcq-en.json"
+    },
+    {
+        "model": "o4-mini",
+        "accuracy": 0.8341148886283705,
+        "correct_count": 1423,
+        "total_count": 1706,
+        "data_path": "dataset/3_questions/nat/understanding-masked_meaning_to_word_mcq-en.json"
+    },
+    {
+        "model": "o4-mini",
+        "accuracy": 0.9418493803622497,
+        "correct_count": 1976,
+        "total_count": 2098,
+        "data_path": "dataset/3_questions/nat/understanding-unmasked_word_to_meaning_mcq-fr.json"
+    },
+    {
+        "model": "o4-mini",
+        "accuracy": 0.8427073403241182,
+        "correct_count": 1768,
+        "total_count": 2098,
+        "data_path": "dataset/3_questions/nat/understanding-masked_meaning_to_word_mcq-fr.json"
+    },
+    {
+        "model": "o4-mini",
+        "accuracy": 0.9878975795159032,
+        "correct_count": 9877,
+        "total_count": 9998,
+        "data_path": "dataset/3_questions/nat/understanding-unmasked_word_to_meaning_mcq-ko.json"
+    },
+    {
+        "model": "o4-mini",
+        "accuracy": 0.842868573714743,
+        "correct_count": 8427,
+        "total_count": 9998,
+        "data_path": "dataset/3_questions/nat/understanding-masked_meaning_to_word_mcq-ko.json"
+    },
+    {
+        "model": "o4-mini",
+        "accuracy": 0.9802538787023978,
+        "correct_count": 2780,
+        "total_count": 2836,
+        "data_path": "dataset/3_questions/nat/understanding-unmasked_word_to_meaning_mcq-ja.json"
+    },
+    {
+        "model": "o4-mini",
+        "accuracy": 0.9449929478138223,
+        "correct_count": 2680,
+        "total_count": 2836,
+        "data_path": "dataset/3_questions/nat/understanding-masked_meaning_to_word_mcq-ja.json"
+    }
+]
