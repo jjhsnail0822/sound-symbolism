@@ -144,10 +144,104 @@ def process_fr_data(input_file=None, output_file=None):
     for count, freq in sorted(meaning_counter.items()):
         print(f"의미 {count}개: {freq}개 단어 ({freq / total_words * 100:.2f}%)")
 
+def filter_wiktionary_and_duplicates(input_file=None, output_file=None):
+    """
+    Wiktionary URL을 가진 항목 제거 및 중복 단어 처리
+    
+    Args:
+        input_file (str): 입력 JSON 파일 경로
+        output_file (str): 출력 JSON 파일 경로
+    """
+    # 기본 파일 경로
+    if input_file is None:
+        input_file = "/scratch2/sheepswool/workspace/sound-symbolism/dataset/1_preprocess/nat/fr_ipa.json"
+    if output_file is None:
+        output_file = "/scratch2/sheepswool/workspace/sound-symbolism/dataset/1_preprocess/nat/fr_ipa_filtered.json"
+    
+    # 파일 존재 확인
+    if not os.path.exists(input_file):
+        print(f"Error: 파일을 찾을 수 없습니다: {input_file}")
+        return
+    
+    # JSON 파일 읽기
+    try:
+        with open(input_file, 'r', encoding='utf-8') as f:
+            data = json.load(f)
+    except Exception as e:
+        print(f"Error: 파일을 읽는 중 오류가 발생했습니다: {e}")
+        return
+    
+    print(f"원본 데이터 항목 수: {len(data)}")
+    
+    # 1. Wiktionary URL 제거
+    filtered_data = []
+    for item in data:
+        url = item.get('url', '')
+        if not url.startswith("https://fr.wiktionary.org"):
+            filtered_data.append(item)
+    
+    print(f"Wiktionary URL 제거 후 항목 수: {len(filtered_data)}")
+    
+    # 2. 중복 단어 처리
+    word_groups = defaultdict(list)
+    for item in filtered_data:
+        word = item.get('word', '')
+        if word:
+            word_groups[word].append(item)
+    
+    # 중복 단어가 있는 경우 처리
+    final_data = []
+    for word, items in word_groups.items():
+        if len(items) > 1:
+            print(f"\n중복 단어 발견: '{word}' ({len(items)}개)")
+            
+            # 각 항목 정보 출력
+            for i, item in enumerate(items, 1):
+                print(f"\n[{i}] 항목 정보:")
+                for key, value in item.items():
+                    if isinstance(value, list) and len(value) > 3:
+                        print(f"  {key}: {value[:3]}... (총 {len(value)}개)")
+                    else:
+                        print(f"  {key}: {value}")
+            
+            # 사용자 선택
+            choice = input("\n유지할 항목 번호를 선택하세요 (1-{0}): ".format(len(items)))
+            try:
+                choice_idx = int(choice) - 1
+                if 0 <= choice_idx < len(items):
+                    final_data.append(items[choice_idx])
+                    print(f"항목 {choice_idx + 1}을(를) 유지합니다.")
+                else:
+                    print(f"잘못된 선택입니다. 첫 번째 항목을 유지합니다.")
+                    final_data.append(items[0])
+            except ValueError:
+                print(f"잘못된 입력입니다. 첫 번째 항목을 유지합니다.")
+                final_data.append(items[0])
+        else:
+            # 중복이 없는 경우 그대로 추가
+            final_data.append(items[0])
+    
+    print(f"\n최종 데이터 항목 수: {len(final_data)}")
+    
+    # 처리된 데이터 저장
+    try:
+        with open(output_file, 'w', encoding='utf-8') as f:
+            json.dump(final_data, f, ensure_ascii=False, indent=2)
+        print(f"\n필터링된 데이터가 저장되었습니다: {output_file}")
+        return True
+    except Exception as e:
+        print(f"Error: 파일을 저장하는 중 오류가 발생했습니다: {e}")
+        return False
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='프랑스어 의성어/의태어 데이터 전처리')
     parser.add_argument('--input', help='입력 JSON 파일 경로')
     parser.add_argument('--output', help='출력 JSON 파일 경로')
+    parser.add_argument('--filter', action='store_true', help='Wiktionary URL 제거 및 중복 단어 처리')
     
     args = parser.parse_args()
-    process_fr_data(args.input, args.output) 
+    
+    if args.filter:
+        filter_wiktionary_and_duplicates(args.input, args.output)
+    else:
+        process_fr_data(args.input, args.output) 
