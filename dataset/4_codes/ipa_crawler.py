@@ -59,7 +59,7 @@ class IPACrawler(DataCrawler):
                 item_with_ipa['ipa'] = ''
                 
                 # Only process items with found=true and empty IPA
-                if item.get('found', False) and not item.get('ipa'):
+                if not item.get('ipa'):
                     word = item.get('word', '')
                     ipa_data = self._get_ipa_for_word(word)
                     
@@ -67,11 +67,13 @@ class IPACrawler(DataCrawler):
                     if ipa_data.get('ipa'):
                         item_with_ipa['ipa'] = ipa_data.get('ipa', '')
                         item_with_ipa['ipa_source'] = ipa_data.get('ipa_source', '')
+                    # time.sleep(uniform(1, 2))
+                    # breakpoint()
                 
                 results.append(item_with_ipa)
                 
                 # Add a delay between requests to avoid overloading the server
-                time.sleep(uniform(1, 2))
+                
             
             return results
         
