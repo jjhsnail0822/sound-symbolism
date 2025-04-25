@@ -1,10 +1,12 @@
 import json
 import itertools
+import argparse
 
 LANG = 'ko'
+# LANG = 'fr'
 
-def find_same_pronunciations(json_path):
-    with open(json_path, 'r', encoding='utf-8') as f:
+def find_same_pronunciations(input_path):
+    with open(input_path, 'r', encoding='utf-8') as f:
         records = json.load(f)
     ipa_map = {}
     for rec in records:
@@ -20,5 +22,10 @@ def find_same_pronunciations(json_path):
                     f.write(f"{w1}\t{w2}\t{ipa}\n")
 
 if __name__ == "__main__":
-    ipa_file = f'dataset/1_preprocess/nat/{LANG}_ipa.json'
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--lang", type=str, default='ko', help='Language to process')
+    parser.add_argument("--input", type=str, help="Input file path")
+    args = parser.parse_args()
+    ipa_file = f'dataset/1_preprocess/nat/{args.lang}_ipa.json'
+    # ipa_file = f'/scratch2/sheepswool/workspace/sound-symbolism/dataset/1_preprocess/nat/{args.lang}_ipa_filtered.json'
     find_same_pronunciations(ipa_file)
