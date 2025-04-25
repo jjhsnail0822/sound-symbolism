@@ -168,18 +168,6 @@
         "romanization": "bangarang"
     },
     {
-        "word": "baugh",
-        "meaning": [
-            "To bark, as a dog."
-        ],
-        "ref": "Rhyme Over Reason : Phonological Motivation in English",
-        "url": "Rhyme Over Reason : Phonological Motivation in English",
-        "found": true,
-        "ipa": "b ɔ",
-        "ipa_source": "epitran",
-        "romanization": "baugh"
-    },
-    {
         "word": "baw",
         "meaning": [
             "To bark, as a dog."
@@ -227,18 +215,6 @@
         "ipa": "b ɪ w",
         "ipa_source": "epitran",
         "romanization": "bewh"
-    },
-    {
-        "word": "bif",
-        "meaning": [
-            "An exclamation uttered when something strikes an object, or a sound imitative of such a blow."
-        ],
-        "ref": "Rhyme Over Reason : Phonological Motivation in English",
-        "url": "Rhyme Over Reason : Phonological Motivation in English",
-        "found": true,
-        "ipa": "b ɪ f",
-        "ipa_source": "epitran",
-        "romanization": "bif"
     },
     {
         "word": "biff",
@@ -409,18 +385,6 @@
         "ipa": "b l ɪ p",
         "ipa_source": "epitran",
         "romanization": "blip"
-    },
-    {
-        "word": "blirt",
-        "meaning": [
-            "To burst into tears, weep violently; disfigure with tears."
-        ],
-        "ref": "Rhyme Over Reason : Phonological Motivation in English",
-        "url": "Rhyme Over Reason : Phonological Motivation in English",
-        "found": true,
-        "ipa": "b l ɹ̩ t",
-        "ipa_source": "epitran",
-        "romanization": "blirt"
     },
     {
         "word": "blizzard",
@@ -1970,7 +1934,7 @@
         "ref": "Rhyme Over Reason : Phonological Motivation in English",
         "url": "Rhyme Over Reason : Phonological Motivation in English",
         "found": true,
-        "ipa": "u",
+        "ipa": "ɪ w",
         "ipa_source": "epitran",
         "romanization": "ew"
     },
@@ -2035,18 +1999,6 @@
         "romanization": "fissle"
     },
     {
-        "word": "fistle",
-        "meaning": [
-            "To make a slight continued noise; to rustle; to move with such a noise."
-        ],
-        "ref": "Rhyme Over Reason : Phonological Motivation in English",
-        "url": "Rhyme Over Reason : Phonological Motivation in English",
-        "found": true,
-        "ipa": "f ɪ s ə l",
-        "ipa_source": "epitran",
-        "romanization": "fistle"
-    },
-    {
         "word": "fix-fax",
         "meaning": [
             "Hurry, the middle of any business."
@@ -2057,18 +2009,6 @@
         "ipa": "f ɪ k s f æ k s",
         "ipa_source": "epitran",
         "romanization": "fix-fax"
-    },
-    {
-        "word": "fiz",
-        "meaning": [
-            "To make a hissing or sputtering sound."
-        ],
-        "ref": "Rhyme Over Reason : Phonological Motivation in English",
-        "url": "Rhyme Over Reason : Phonological Motivation in English",
-        "found": true,
-        "ipa": "f ɪ z",
-        "ipa_source": "epitran",
-        "romanization": "fiz"
     },
     {
         "word": "fizz",
@@ -2904,18 +2844,6 @@
         "romanization": "giggle"
     },
     {
-        "word": "ging",
-        "meaning": [
-            "To jingle, to tinkle."
-        ],
-        "ref": "Rhyme Over Reason : Phonological Motivation in English",
-        "url": "Rhyme Over Reason : Phonological Motivation in English",
-        "found": true,
-        "ipa": "d͡ʒ ɪ ŋ",
-        "ipa_source": "epitran",
-        "romanization": "ging"
-    },
-    {
         "word": "glash",
         "meaning": [
             "To come like a flash of light."
@@ -3048,18 +2976,6 @@
         "romanization": "gnacche"
     },
     {
-        "word": "gnap",
-        "meaning": [
-            "To bite in a snapping fashion."
-        ],
-        "ref": "Rhyme Over Reason : Phonological Motivation in English",
-        "url": "Rhyme Over Reason : Phonological Motivation in English",
-        "found": true,
-        "ipa": "n æ p",
-        "ipa_source": "epitran",
-        "romanization": "gnap"
-    },
-    {
         "word": "gnar",
         "meaning": [
             "To snarl, growl."
@@ -3132,18 +3048,6 @@
         "ipa": "ɡ ɑ l ɹ̩",
         "ipa_source": "epitran",
         "romanization": "gollar"
-    },
-    {
-        "word": "goller",
-        "meaning": [
-            "To utter loud but thick and scarcely articulate sounds; to shout."
-        ],
-        "ref": "Oxford English Dictionary",
-        "url": "https://www.oed.com",
-        "found": true,
-        "ipa": "ɡ ɑ l ɹ̩",
-        "ipa_source": "epitran",
-        "romanization": "goller"
     },
     {
         "word": "golly",
@@ -3384,18 +3288,6 @@
         "ipa": "ɡ ʌ f ɔ",
         "ipa_source": "epitran",
         "romanization": "guffaw"
-    },
-    {
-        "word": "gugg",
-        "meaning": [
-            "To wound, gall."
-        ],
-        "ref": "Rhyme Over Reason : Phonological Motivation in English",
-        "url": "Rhyme Over Reason : Phonological Motivation in English",
-        "found": true,
-        "ipa": "ɡ u",
-        "ipa_source": "epitran",
-        "romanization": "gugg"
     },
     {
         "word": "guggle",
@@ -3917,18 +3809,6 @@
         "romanization": "jaup"
     },
     {
-        "word": "jawp",
-        "meaning": [
-            "To dash and rebound like water with splashing of the vicinity; to move with splashing; to splash; to make a light splashing sound."
-        ],
-        "ref": "Rhyme Over Reason : Phonological Motivation in English",
-        "url": "Rhyme Over Reason : Phonological Motivation in English",
-        "found": true,
-        "ipa": "d͡ʒ ɔ p",
-        "ipa_source": "epitran",
-        "romanization": "jawp"
-    },
-    {
         "word": "jing",
         "meaning": [
             "A sharp ring, a jingle."
@@ -4155,18 +4035,6 @@
         "ipa": "k i j i",
         "ipa_source": "epitran",
         "romanization": "ki-yi"
-    },
-    {
-        "word": "klop",
-        "meaning": [
-            "The sound of the impact of something solid on a hard surface."
-        ],
-        "ref": "Rhyme Over Reason : Phonological Motivation in English",
-        "url": "Rhyme Over Reason : Phonological Motivation in English",
-        "found": true,
-        "ipa": "k l ɑ p",
-        "ipa_source": "epitran",
-        "romanization": "klop"
     },
     {
         "word": "knal",
@@ -4700,18 +4568,6 @@
         "romanization": "murr"
     },
     {
-        "word": "murre",
-        "meaning": [
-            "To make a harsh noise."
-        ],
-        "ref": "Oxford English Dictionary",
-        "url": "https://www.oed.com",
-        "found": true,
-        "ipa": "m",
-        "ipa_source": "epitran",
-        "romanization": "murre"
-    },
-    {
         "word": "mustle",
         "meaning": [
             "To murmur, make a noise."
@@ -4914,18 +4770,6 @@
         "ipa": "o w f",
         "ipa_source": "epitran",
         "romanization": "ouff"
-    },
-    {
-        "word": "ough",
-        "meaning": [
-            "In early use: used in imitation of a sound denoting various sentiments."
-        ],
-        "ref": "Rhyme Over Reason : Phonological Motivation in English",
-        "url": "Rhyme Over Reason : Phonological Motivation in English",
-        "found": true,
-        "ipa": "ɔ",
-        "ipa_source": "epitran",
-        "romanization": "ough"
     },
     {
         "word": "paff",
@@ -5132,18 +4976,6 @@
         "ipa": "f u",
         "ipa_source": "epitran",
         "romanization": "phoo"
-    },
-    {
-        "word": "phu",
-        "meaning": [
-            "A brief plosive sound, such as the noise made by the escape of a small quantity of air under pressure, or by the passage of a bullet, or the sound of a small muffled explosion."
-        ],
-        "ref": "Rhyme Over Reason : Phonological Motivation in English",
-        "url": "Rhyme Over Reason : Phonological Motivation in English",
-        "found": true,
-        "ipa": "f u",
-        "ipa_source": "epitran",
-        "romanization": "phu"
     },
     {
         "word": "phwoar",
@@ -5773,21 +5605,9 @@
         "ref": "Rhyme Over Reason : Phonological Motivation in English",
         "url": "Rhyme Over Reason : Phonological Motivation in English",
         "found": true,
-        "ipa": "s t",
+        "ipa": "p s t",
         "ipa_source": "epitran",
         "romanization": "psst"
-    },
-    {
-        "word": "pst",
-        "meaning": [
-            "Expressing a whispered signal for silence."
-        ],
-        "ref": "Rhyme Over Reason : Phonological Motivation in English",
-        "url": "Rhyme Over Reason : Phonological Motivation in English",
-        "found": true,
-        "ipa": "s t",
-        "ipa_source": "epitran",
-        "romanization": "pst"
     },
     {
         "word": "ptish",
@@ -5974,18 +5794,6 @@
         "ipa": "k w æ k",
         "ipa_source": "epitran",
         "romanization": "quack"
-    },
-    {
-        "word": "quake",
-        "meaning": [
-            "Representing the characteristic harsh sound of a duck, or a noise resembling this."
-        ],
-        "ref": "Rhyme Over Reason : Phonological Motivation in English",
-        "url": "Rhyme Over Reason : Phonological Motivation in English",
-        "found": true,
-        "ipa": "k w e j k",
-        "ipa_source": "epitran",
-        "romanization": "quake"
     },
     {
         "word": "quafer",
@@ -6604,18 +6412,6 @@
         "romanization": "scraugh"
     },
     {
-        "word": "scraw",
-        "meaning": [
-            "To clear the throat."
-        ],
-        "ref": "Rhyme Over Reason : Phonological Motivation in English",
-        "url": "Rhyme Over Reason : Phonological Motivation in English",
-        "found": true,
-        "ipa": "s k ɹ ɔ",
-        "ipa_source": "epitran",
-        "romanization": "scraw"
-    },
-    {
         "word": "screed",
         "meaning": [
             "To make a loud, harsh, screeching noise as of something ripping or scraping."
@@ -7218,18 +7014,6 @@
         "ipa": "s n ɔ ɹ t",
         "ipa_source": "epitran",
         "romanization": "snort"
-    },
-    {
-        "word": "snurt",
-        "meaning": [
-            "Of the nose: to turn up, as in sniffing."
-        ],
-        "ref": "Rhyme Over Reason : Phonological Motivation in English",
-        "url": "Rhyme Over Reason : Phonological Motivation in English",
-        "found": true,
-        "ipa": "s n ɹ̩ t",
-        "ipa_source": "epitran",
-        "romanization": "snurt"
     },
     {
         "word": "snush",
@@ -7907,18 +7691,6 @@
         "romanization": "swap"
     },
     {
-        "word": "swop",
-        "meaning": [
-            "To strike, hit, smite (occasionally used of kissing)."
-        ],
-        "ref": "Rhyme Over Reason : Phonological Motivation in English",
-        "url": "Rhyme Over Reason : Phonological Motivation in English",
-        "found": true,
-        "ipa": "s w ɑ p",
-        "ipa_source": "epitran",
-        "romanization": "swop"
-    },
-    {
         "word": "swash",
         "meaning": [
             "Expressive of the fall of a heavy body or blow: with a crash.",
@@ -8136,18 +7908,6 @@
         "romanization": "tcha"
     },
     {
-        "word": "tchah",
-        "meaning": [
-            "An exclamation of impatience or contempt."
-        ],
-        "ref": "Rhyme Over Reason : Phonological Motivation in English",
-        "url": "Rhyme Over Reason : Phonological Motivation in English",
-        "found": true,
-        "ipa": "t͡ʃ ə",
-        "ipa_source": "epitran",
-        "romanization": "tchah"
-    },
-    {
         "word": "teedle",
         "meaning": [
             "To sing (a tune) without words; to hum."
@@ -8170,18 +7930,6 @@
         "ipa": "t i h i",
         "ipa_source": "epitran",
         "romanization": "tee-hee"
-    },
-    {
-        "word": "tewhit",
-        "meaning": [
-            "Imitations of the cry of some birds."
-        ],
-        "ref": "Oxford English Dictionary",
-        "url": "https://www.oed.com",
-        "found": true,
-        "ipa": "t u w ɪ t",
-        "ipa_source": "epitran",
-        "romanization": "tewhit"
     },
     {
         "word": "tewit",
@@ -8885,18 +8633,6 @@
         "romanization": "umph"
     },
     {
-        "word": "ur",
-        "meaning": [
-            "An inarticulate sound, uttered instead of a word that the speaker is unable to remember or bring out."
-        ],
-        "ref": "Rhyme Over Reason : Phonological Motivation in English",
-        "url": "Rhyme Over Reason : Phonological Motivation in English",
-        "found": true,
-        "ipa": "ɹ̩",
-        "ipa_source": "epitran",
-        "romanization": "ur"
-    },
-    {
         "word": "voom",
         "meaning": [
             "Indicating the sound of an explosion."
@@ -9136,30 +8872,6 @@
         "ipa": "w ɑ ɹ l",
         "ipa_source": "epitran",
         "romanization": "wharl"
-    },
-    {
-        "word": "wheak",
-        "meaning": [
-            "To squeak, whine."
-        ],
-        "ref": "Rhyme Over Reason : Phonological Motivation in English",
-        "url": "Rhyme Over Reason : Phonological Motivation in English",
-        "found": true,
-        "ipa": "w i k",
-        "ipa_source": "epitran",
-        "romanization": "wheak"
-    },
-    {
-        "word": "whee",
-        "meaning": [
-            "An exclamation of joy, exhilaration, astonishment, etc."
-        ],
-        "ref": "Rhyme Over Reason : Phonological Motivation in English",
-        "url": "Rhyme Over Reason : Phonological Motivation in English",
-        "found": true,
-        "ipa": "w i",
-        "ipa_source": "epitran",
-        "romanization": "whee"
     },
     {
         "word": "wheech",
@@ -9405,18 +9117,6 @@
         "romanization": "whitter"
     },
     {
-        "word": "whiz",
-        "meaning": [
-            "To make a sound as of a body rushing through the air."
-        ],
-        "ref": "Rhyme Over Reason : Phonological Motivation in English",
-        "url": "Rhyme Over Reason : Phonological Motivation in English",
-        "found": true,
-        "ipa": "w ɪ z",
-        "ipa_source": "epitran",
-        "romanization": "whiz"
-    },
-    {
         "word": "whizz",
         "meaning": [
             "To make a sound as of a body rushing through the air."
@@ -9520,7 +9220,7 @@
         "ref": "Rhyme Over Reason : Phonological Motivation in English",
         "url": "Rhyme Over Reason : Phonological Motivation in English",
         "found": true,
-        "ipa": "w ʌ f",
+        "ipa": "h w ʌ f",
         "ipa_source": "epitran",
         "romanization": "whuff"
     },
@@ -9676,7 +9376,7 @@
         "ref": "Rhyme Over Reason : Phonological Motivation in English",
         "url": "Rhyme Over Reason : Phonological Motivation in English",
         "found": true,
-        "ipa": "w ɔ",
+        "ipa": "w ʊ f",
         "ipa_source": "epitran",
         "romanization": "wough"
     },
@@ -9946,18 +9646,6 @@
         "romanization": "yawp"
     },
     {
-        "word": "yaup",
-        "meaning": [
-            "To shout or exclaim hoarsely; to yelp, as a dog; to cry harshly or querulously, as a bird."
-        ],
-        "ref": "Rhyme Over Reason : Phonological Motivation in English",
-        "url": "Rhyme Over Reason : Phonological Motivation in English",
-        "found": true,
-        "ipa": "j ɔ p",
-        "ipa_source": "epitran",
-        "romanization": "yaup"
-    },
-    {
         "word": "yech",
         "meaning": [
             "An expression of strong distaste or disgust."
@@ -9968,18 +9656,6 @@
         "ipa": "j ɛ k",
         "ipa_source": "epitran",
         "romanization": "yech"
-    },
-    {
-        "word": "yuck",
-        "meaning": [
-            "An expression of strong distaste or disgust."
-        ],
-        "ref": "Rhyme Over Reason : Phonological Motivation in English",
-        "url": "Rhyme Over Reason : Phonological Motivation in English",
-        "found": true,
-        "ipa": "j ʌ k",
-        "ipa_source": "epitran",
-        "romanization": "yuck"
     },
     {
         "word": "yeep",
