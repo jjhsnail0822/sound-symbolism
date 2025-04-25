@@ -58,3 +58,28 @@ for word in tqdm(data):
 # Save the embeddings to a file
 with open(f'dataset/1_preprocess/nat/{LANGUAGE}_embeddings.pkl', 'wb') as f:
     pickle.dump(embeddings, f)
+
+
+
+########################
+
+
+# LANGUAGE = 'en'
+
+# with open(f'dataset/1_preprocess/nat/{LANGUAGE}_ipa.json', 'r', encoding='utf-8') as f:
+#     data = json.load(f)
+
+# with open(f'dataset/1_preprocess/nat/{LANGUAGE}_embeddings_old.pkl', 'rb') as f:
+#     pickle_data = pickle.load(f)
+
+# # if pickle_data['word'] not in data['word'], drop it
+# new_pickle_data = []
+# for word in data:
+#     for item in pickle_data:
+#         if word['word'] == item['word']:
+#             new_pickle_data.append(item)
+#             break
+
+# # Save the new embeddings to a file
+# with open(f'dataset/1_preprocess/nat/{LANGUAGE}_embeddings.pkl', 'wb') as f:
+#     pickle.dump(pickle_data, f)

@@ -2528,28 +2528,28 @@
         "romanization": "fruz"
     },
     {
-        "word": "fub(b)",
+        "word": "fubb",
         "meaning": [
             "A small chubby person. Chiefly used as a term of endearment."
         ],
         "ref": "Rhyme Over Reason : Phonological Motivation in English",
         "url": "Rhyme Over Reason : Phonological Motivation in English",
         "found": true,
-        "ipa": "f ʌ b ( b i )",
+        "ipa": "f ʌ b",
         "ipa_source": "epitran",
-        "romanization": "fub(b)"
+        "romanization": "fubb"
     },
     {
-        "word": "fub(b)s",
+        "word": "fubbs",
         "meaning": [
             "A small chubby person. Chiefly used as a term of endearment."
         ],
         "ref": "Rhyme Over Reason : Phonological Motivation in English",
         "url": "Rhyme Over Reason : Phonological Motivation in English",
         "found": true,
-        "ipa": "f ʌ b ( b i ) ɛ s",
+        "ipa": "f ʌ b s",
         "ipa_source": "epitran",
-        "romanization": "fub(b)s"
+        "romanization": "fubbs"
     },
     {
         "word": "fubble",
@@ -9321,16 +9321,16 @@
         "romanization": "wift"
     },
     {
-        "word": "wim(m)ick",
+        "word": "wimick",
         "meaning": [
             "To cry."
         ],
         "ref": "Rhyme Over Reason : Phonological Motivation in English",
         "url": "Rhyme Over Reason : Phonological Motivation in English",
         "found": true,
-        "ipa": "w ɪ m ( ɛ m ) ɪ k",
+        "ipa": "w ɪ m ɪ k",
         "ipa_source": "epitran",
-        "romanization": "wim(m)ick"
+        "romanization": "wimick"
     },
     {
         "word": "wlite",
