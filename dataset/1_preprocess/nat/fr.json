@@ -1,17 +1,5 @@
 [
   {
-    "word": "aah",
-    "meaning": [
-      "Sigle de allocation aux adultes handicapés."
-    ],
-    "url": "https://dictionnaire.lerobert.com/definition/aah",
-    "found": true,
-    "ref": "https://fr.wiktionary.org/wiki/Cat%C3%A9goriëOnomatop%C3%A9es_en_fran%C3%A7ais",
-    "ipa": "a a",
-    "ipa_source": "epitran",
-    "romanization": "aah"
-  },
-  {
     "word": "ach",
     "meaning": [
       "bruit marquant la satisfaction d'une personne après qu'elle a bu."
@@ -86,18 +74,6 @@
     "ipa": "a ɑ̃",
     "ipa_source": "epitran",
     "romanization": "ahan"
-  },
-  {
-    "word": "ahou",
-    "meaning": [
-      "pour marquer une vive douleur."
-    ],
-    "url": "dictionnaire des onomatopées",
-    "found": true,
-    "ref": "dictionnaire des onomatopées",
-    "ipa": "a u",
-    "ipa_source": "epitran",
-    "romanization": "ahou"
   },
   {
     "word": "ahouahou",
@@ -525,19 +501,6 @@
     "romanization": "bam"
   },
   {
-    "word": "bang",
-    "meaning": [
-      "Bruit d'explosion.",
-      "Déflagration accompagnant le franchissement du mur du son."
-    ],
-    "url": "https://dictionnaire.lerobert.com/definition/bang",
-    "found": true,
-    "ref": "dictionnaire des onomatopées",
-    "ipa": "b ɑ̃ ɡ",
-    "ipa_source": "epitran",
-    "romanization": "bang"
-  },
-  {
     "word": "baou baou",
     "meaning": [
       "bruit de l'aboiement du chien."
@@ -561,18 +524,6 @@
     "ipa": "b a u m",
     "ipa_source": "epitran",
     "romanization": "baoum"
-  },
-  {
-    "word": "baoun",
-    "meaning": [
-      "dans les restaurants et les cafés: pour enregistrer une commande ou pour annoncer qu'elle arrive."
-    ],
-    "url": "dictionnaire des onomatopées",
-    "found": true,
-    "ref": "dictionnaire des onomatopées",
-    "ipa": "b a u n",
-    "ipa_source": "epitran",
-    "romanization": "baoun"
   },
   {
     "word": "baound",
@@ -636,18 +587,6 @@
     "romanization": "berk"
   },
   {
-    "word": "berque",
-    "meaning": [
-      "marquer le dégoût, la répugnance."
-    ],
-    "url": "dictionnaire des onomatopées",
-    "found": true,
-    "ref": "dictionnaire des onomatopées",
-    "ipa": "b ɛ ʀ k",
-    "ipa_source": "epitran",
-    "romanization": "berque"
-  },
-  {
     "word": "beuark",
     "meaning": [
       "marquer le dégoût, la répugnance."
@@ -697,6 +636,18 @@
     "romanization": "beurck"
   },
   {
+    "word": "beurk",
+    "meaning": [
+      "Interjection exprimant le dégoût."
+    ],
+    "url": "https://dictionnaire.lerobert.com/definition/beurk",
+    "found": true,
+    "ref": "dictionnaire des onomatopées",
+    "ipa": "b œ ʀ k",
+    "ipa_source": "epitran",
+    "romanization": "beurk"
+  },
+  {
     "word": "beurp",
     "meaning": [
       "bruit du rot; bruit de spasme du vomissement"
@@ -707,18 +658,6 @@
     "ipa": "b œ ʀ",
     "ipa_source": "epitran",
     "romanization": "beurp"
-  },
-  {
-    "word": "beurq",
-    "meaning": [
-      "marquer le dégoût, la répugnance."
-    ],
-    "url": "dictionnaire des onomatopées",
-    "found": true,
-    "ref": "dictionnaire des onomatopées",
-    "ipa": "b œ ʀ k",
-    "ipa_source": "epitran",
-    "romanization": "beurq"
   },
   {
     "word": "bff",
@@ -783,7 +722,7 @@
     "romanization": "birk"
   },
   {
-    "word": "bistanclaque",
+    "word": "bistanclac",
     "meaning": [
       "bruit du métier à tisser traditionnel."
     ],
@@ -792,7 +731,7 @@
     "ref": "dictionnaire des onomatopées",
     "ipa": "b i s t ɑ̃ k l a k",
     "ipa_source": "epitran",
-    "romanization": "bistanclaque"
+    "romanization": "bistanclac"
   },
   {
     "word": "bla bla bla",
@@ -1555,6 +1494,18 @@
     "romanization": "bzzz"
   },
   {
+    "word": "bè",
+    "meaning": [
+      "bruit du bêlement des ovins et des caprins."
+    ],
+    "url": "dictionnaire des onomatopées",
+    "found": true,
+    "ref": "dictionnaire des onomatopées",
+    "ipa": "b ɛ",
+    "ipa_source": "epitran",
+    "romanization": "bè"
+  },
+  {
     "word": "bé",
     "meaning": [
       "bruit du bêlement des ovins et des caprins."
@@ -1577,18 +1528,6 @@
     "ipa": "b e ɡ t ə ʀ",
     "ipa_source": "epitran",
     "romanization": "bégueter"
-  },
-  {
-    "word": "bê",
-    "meaning": [
-      "bruit du bêlement des ovins et des caprins."
-    ],
-    "url": "dictionnaire des onomatopées",
-    "found": true,
-    "ref": "dictionnaire des onomatopées",
-    "ipa": "b ɛ",
-    "ipa_source": "epitran",
-    "romanization": "bê"
   },
   {
     "word": "bêêx",
@@ -1674,20 +1613,6 @@
     "ipa": "ʃ a k b u m",
     "ipa_source": "epitran",
     "romanization": "chac boum"
-  },
-  {
-    "word": "chlac",
-    "meaning": [
-      "bruit soudain et sec d'un déclic ou d'un coup, notamment d'un coup de fouet.",
-      "pour marquer une ablation brutale ou une mort violente, notamment par décapitation.",
-      "pour exprimer la soudaineté d'un procès."
-    ],
-    "url": "dictionnaire des onomatopées",
-    "found": true,
-    "ref": "https://fr.wiktionary.org/wiki/Cat%C3%A9goriëMots_en_fran%C3%A7ais_issus_d%E2%80%99une_onomatop%C3%A9e",
-    "ipa": "ʃ l a k",
-    "ipa_source": "epitran",
-    "romanization": "chlac"
   },
   {
     "word": "chlag",
@@ -1861,18 +1786,6 @@
     "ipa": "ʃ ɥ ɛ̃ t ə ʀ",
     "ipa_source": "epitran",
     "romanization": "chuinter"
-  },
-  {
-    "word": "chut",
-    "meaning": [
-      "Se dit pour demander le silence."
-    ],
-    "url": "https://dictionnaire.lerobert.com/definition/chut",
-    "found": true,
-    "ref": "https://fr.wiktionary.org/wiki/Cat%C3%A9goriëMots_en_fran%C3%A7ais_issus_d%E2%80%99une_onomatop%C3%A9e",
-    "ipa": "ʃ y",
-    "ipa_source": "epitran",
-    "romanization": "chut"
   },
   {
     "word": "chut chut",
@@ -2229,7 +2142,7 @@
     "romanization": "coa"
   },
   {
-    "word": "coac",
+    "word": "coaque",
     "meaning": [
       "bruit du cri de la grenouille."
     ],
@@ -2238,7 +2151,7 @@
     "ref": "dictionnaire des onomatopées",
     "ipa": "k ɔ a k",
     "ipa_source": "epitran",
-    "romanization": "coac"
+    "romanization": "coaque"
   },
   {
     "word": "coasser",
@@ -2373,6 +2286,19 @@
     "romanization": "coua"
   },
   {
+    "word": "couac",
+    "meaning": [
+      "Son faux et discordant dans une ligne musicale.",
+      "Maladresse, incident qui rompt l'harmonie d'un processus."
+    ],
+    "url": "https://dictionnaire.lerobert.com/definition/couac",
+    "found": true,
+    "ref": "dictionnaire des onomatopées",
+    "ipa": "k w a k",
+    "ipa_source": "epitran",
+    "romanization": "couac"
+  },
+  {
     "word": "couan couan",
     "meaning": [
       "bruit du cri du canard, parfois de l'oie.",
@@ -2411,18 +2337,6 @@
     "ipa": "k w i k w i",
     "ipa_source": "epitran",
     "romanization": "coui coui"
-  },
-  {
-    "word": "couic",
-    "meaning": [
-      "Onomatopée imitant un petit cri, un cri étranglé."
-    ],
-    "url": "https://dictionnaire.lerobert.com/definition/couic",
-    "found": true,
-    "ref": "dictionnaire des onomatopées",
-    "ipa": "k w i k",
-    "ipa_source": "epitran",
-    "romanization": "couic"
   },
   {
     "word": "couin-cou",
@@ -2767,18 +2681,6 @@
     "romanization": "crouler"
   },
   {
-    "word": "croâ",
-    "meaning": [
-      "bruit du cri du corbeau et des corvidés."
-    ],
-    "url": "dictionnaire des onomatopées",
-    "found": true,
-    "ref": "https://fr.wiktionary.org/wiki/Cat%C3%A9goriëMots_en_fran%C3%A7ais_issus_d%E2%80%99une_onomatop%C3%A9e",
-    "ipa": "k ʀ ɔ a",
-    "ipa_source": "epitran",
-    "romanization": "croâ"
-  },
-  {
     "word": "crr-crr",
     "meaning": [
       "bruit produit par des ciseaux, par un couteau."
@@ -2850,19 +2752,6 @@
     "ipa": "k ɥ i k",
     "ipa_source": "epitran",
     "romanization": "cuic"
-  },
-  {
-    "word": "cuicui",
-    "meaning": [
-      "bruit du cri d'un petit oiseau ou d'un jeune oiseau.",
-      "petit bruit grinçant, crissement."
-    ],
-    "url": "dictionnaire des onomatopées",
-    "found": true,
-    "ref": "dictionnaire des onomatopées",
-    "ipa": "k ɥ i k ɥ i",
-    "ipa_source": "epitran",
-    "romanization": "cuicui"
   },
   {
     "word": "cuit cuit",
@@ -3287,19 +3176,6 @@
     "romanization": "dzi"
   },
   {
-    "word": "dzim",
-    "meaning": [
-      "bruit ponctuel, souvent d'origine métallique, ou bruit de verre brisé.",
-      "bruit de cymbales."
-    ],
-    "url": "dictionnaire des onomatopées",
-    "found": true,
-    "ref": "dictionnaire des onomatopées",
-    "ipa": "d z ɛ̃",
-    "ipa_source": "epitran",
-    "romanization": "dzim"
-  },
-  {
     "word": "dzim boum boum",
     "meaning": [
       "bruit produit par des cymbales."
@@ -3326,20 +3202,6 @@
     "romanization": "dzin"
   },
   {
-    "word": "dzing",
-    "meaning": [
-      "bruit brusque et cinglant, produit notamment par un coup, par un choc.",
-      "bruit d'instruments de musique, notamment de cymbales.",
-      "bruit de scie électrique."
-    ],
-    "url": "dictionnaire des onomatopées",
-    "found": true,
-    "ref": "dictionnaire des onomatopées",
-    "ipa": "d z ɛ̃ ɡ",
-    "ipa_source": "epitran",
-    "romanization": "dzing"
-  },
-  {
     "word": "dzing boum boum",
     "meaning": [
       "bruit des cymbales et de la grosse caisse."
@@ -3350,6 +3212,20 @@
     "ipa": "d z ɛ̃ ɡ b u m b u m",
     "ipa_source": "epitran",
     "romanization": "dzing boum boum"
+  },
+  {
+    "word": "dzingue",
+    "meaning": [
+      "bruit brusque et cinglant, produit notamment par un coup, par un choc.",
+      "bruit d'instruments de musique, notamment de cymbales.",
+      "bruit de scie électrique."
+    ],
+    "url": "dictionnaire des onomatopées",
+    "found": true,
+    "ref": "dictionnaire des onomatopées",
+    "ipa": "d z ɛ̃ ɡ",
+    "ipa_source": "epitran",
+    "romanization": "dzingue"
   },
   {
     "word": "dziou",
@@ -3441,18 +3317,6 @@
     "romanization": "euh"
   },
   {
-    "word": "euhe",
-    "meaning": [
-      "bruit d'une personne qui pleure."
-    ],
-    "url": "dictionnaire des onomatopées",
-    "found": true,
-    "ref": "dictionnaire des onomatopées",
-    "ipa": "ə y",
-    "ipa_source": "epitran",
-    "romanization": "euhe"
-  },
-  {
     "word": "eurk",
     "meaning": [
       "bruit du rot.",
@@ -3482,20 +3346,6 @@
     "romanization": "fff"
   },
   {
-    "word": "ffh",
-    "meaning": [
-      "bruit produit par l'expiration.",
-      "bruit produit par un pétard, une fusée.",
-      "marque d'indifférence, de désinvolture, de dédain ; marque de lassitude."
-    ],
-    "url": "dictionnaire des onomatopées",
-    "found": true,
-    "ref": "dictionnaire des onomatopées",
-    "ipa": "f",
-    "ipa_source": "epitran",
-    "romanization": "ffh"
-  },
-  {
     "word": "fft",
     "meaning": [
       "bruit de l'expiration.",
@@ -3511,18 +3361,6 @@
     "romanization": "fft"
   },
   {
-    "word": "ffue",
-    "meaning": [
-      "bruit de sifflet, de sifflement."
-    ],
-    "url": "dictionnaire des onomatopées",
-    "found": true,
-    "ref": "https://collegefrancais8.weebly.com/uploads/8/7/3/6/87366548/les_onomatop%C3%A9es_et_les_id%C3%A9ogrammes.pdf",
-    "ipa": "f y",
-    "ipa_source": "epitran",
-    "romanization": "ffue"
-  },
-  {
     "word": "fiou fiou",
     "meaning": [
       "bruit de coups en rafale, bruit de martèlement."
@@ -3533,19 +3371,6 @@
     "ipa": "f j u f j u",
     "ipa_source": "epitran",
     "romanization": "fiou fiou"
-  },
-  {
-    "word": "fla",
-    "meaning": [
-      "bruit produit par un choc.",
-      "bruit de la frappe d'un double coup de baguette sur un tambour, d'abord légèrement de la main droite, puis fortement de la main gauche."
-    ],
-    "url": "dictionnaire des onomatopées",
-    "found": true,
-    "ref": "dictionnaire des onomatopées",
-    "ipa": "f l a",
-    "ipa_source": "epitran",
-    "romanization": "fla"
   },
   {
     "word": "flac",
@@ -3821,18 +3646,6 @@
     "romanization": "fouf"
   },
   {
-    "word": "fout",
-    "meaning": [
-      "bruit de crachement du chat en colère."
-    ],
-    "url": "dictionnaire des onomatopées",
-    "found": true,
-    "ref": "dictionnaire des onomatopées",
-    "ipa": "f u",
-    "ipa_source": "epitran",
-    "romanization": "fout"
-  },
-  {
     "word": "from from",
     "meaning": [
       "son produit par divers instruments de musique, notamment guitare, tambour de basque, violon."
@@ -3908,18 +3721,6 @@
     "romanization": "froum froum"
   },
   {
-    "word": "frout",
-    "meaning": [
-      "bruit léger signalant une apparition ou une disparition rapide d'un animal sauvage."
-    ],
-    "url": "dictionnaire des onomatopées",
-    "found": true,
-    "ref": "dictionnaire des onomatopées",
-    "ipa": "f ʀ u",
-    "ipa_source": "epitran",
-    "romanization": "frout"
-  },
-  {
     "word": "frr",
     "meaning": [
       "bruit de de froissement, de frottement.",
@@ -3974,21 +3775,6 @@
     "ipa": "f y",
     "ipa_source": "epitran",
     "romanization": "fu"
-  },
-  {
-    "word": "fui",
-    "meaning": [
-      "bruit produit par l'expiration.",
-      "bruit produit par un pétard, une fusée.",
-      "marque d'indifférence, de désinvolture, de dédain ; marque de lassitude.",
-      "bruit de crachement du chat en colère."
-    ],
-    "url": "dictionnaire des onomatopées",
-    "found": true,
-    "ref": "dictionnaire des onomatopées",
-    "ipa": "f ɥ i",
-    "ipa_source": "epitran",
-    "romanization": "fui"
   },
   {
     "word": "futh",
@@ -4136,18 +3922,6 @@
     "ipa": "ɡ l y",
     "ipa_source": "epitran",
     "romanization": "glup"
-  },
-  {
-    "word": "glups",
-    "meaning": [
-      "pour souligner un énoncé et marquer une distance à son égard."
-    ],
-    "url": "dictionnaire des onomatopées",
-    "found": true,
-    "ref": "dictionnaire des onomatopées",
-    "ipa": "ɡ l y",
-    "ipa_source": "epitran",
-    "romanization": "glups"
   },
   {
     "word": "glurps",
@@ -4460,18 +4234,6 @@
     "romanization": "ha hou ha"
   },
   {
-    "word": "hach",
-    "meaning": [
-      "bruit produit par l'éternuement."
-    ],
-    "url": "dictionnaire des onomatopées",
-    "found": true,
-    "ref": "dictionnaire des onomatopées",
-    "ipa": "a ʃ",
-    "ipa_source": "epitran",
-    "romanization": "hach"
-  },
-  {
     "word": "hagn",
     "meaning": [
       "bruit de morsure."
@@ -4482,30 +4244,6 @@
     "ipa": "a ɲ",
     "ipa_source": "epitran",
     "romanization": "hagn"
-  },
-  {
-    "word": "ham",
-    "meaning": [
-      "bruit d'une personne ou d'un animal qui avale un aliment d'une seule bouchée; pour exprimer la soudaineté de ce procès et/ou la voracité."
-    ],
-    "url": "dictionnaire des onomatopées",
-    "found": true,
-    "ref": "dictionnaire des onomatopées",
-    "ipa": "ɑ̃",
-    "ipa_source": "epitran",
-    "romanization": "ham"
-  },
-  {
-    "word": "han",
-    "meaning": [
-      "Onomatopée traduisant le cri sourd d'une personne qui fait un violent effort."
-    ],
-    "url": "https://dictionnaire.lerobert.com/definition/han",
-    "found": true,
-    "ref": "dictionnaire des onomatopées",
-    "ipa": "ɑ̃",
-    "ipa_source": "epitran",
-    "romanization": "han"
   },
   {
     "word": "hang",
@@ -4532,18 +4270,6 @@
     "romanization": "haow"
   },
   {
-    "word": "hap",
-    "meaning": [
-      "marque un élan, un saut, une escalade, un geste rapide."
-    ],
-    "url": "dictionnaire des onomatopées",
-    "found": true,
-    "ref": "dictionnaire des onomatopées",
-    "ipa": "a",
-    "ipa_source": "epitran",
-    "romanization": "hap"
-  },
-  {
     "word": "haw",
     "meaning": [
       "bruit de l'aboiement d'un chien."
@@ -4554,19 +4280,6 @@
     "ipa": "a w",
     "ipa_source": "epitran",
     "romanization": "haw"
-  },
-  {
-    "word": "hein",
-    "meaning": [
-      "Pour faire répéter qqn, ou pour l'interrompre avec impatience.",
-      "Renforce une phrase interrogative ou exclamative."
-    ],
-    "url": "https://dictionnaire.lerobert.com/definition/hein",
-    "found": true,
-    "ref": "dictionnaire des onomatopées",
-    "ipa": "ɛ̃",
-    "ipa_source": "epitran",
-    "romanization": "hein"
   },
   {
     "word": "hem",
@@ -4592,18 +4305,6 @@
     "ipa": "ɛ",
     "ipa_source": "epitran",
     "romanization": "hep"
-  },
-  {
-    "word": "heu",
-    "meaning": [
-      "Marque l'embarras, la difficulté à trouver ses mots."
-    ],
-    "url": "https://dictionnaire.lerobert.com/definition/heu",
-    "found": true,
-    "ref": "dictionnaire des onomatopées",
-    "ipa": "ø",
-    "ipa_source": "epitran",
-    "romanization": "heu"
   },
   {
     "word": "heue",
@@ -4718,7 +4419,7 @@
   {
     "word": "hin",
     "meaning": [
-      "bruit du cri de l'âne."
+      "bruit du cri de l'a^ne."
     ],
     "url": "dictionnaire des onomatopées",
     "found": true,
@@ -4738,19 +4439,6 @@
     "ipa": "j u j u",
     "ipa_source": "epitran",
     "romanization": "hiou hiou"
-  },
-  {
-    "word": "hips",
-    "meaning": [
-      "bruit de hoquet.",
-      "bruit de hoquet d'ivrogne."
-    ],
-    "url": "dictionnaire des onomatopées",
-    "found": true,
-    "ref": "dictionnaire des onomatopées",
-    "ipa": "i",
-    "ipa_source": "epitran",
-    "romanization": "hips"
   },
   {
     "word": "hk",
@@ -4777,18 +4465,6 @@
     "ipa": "m",
     "ipa_source": "epitran",
     "romanization": "hmm"
-  },
-  {
-    "word": "hmmm",
-    "meaning": [
-      "sons indistincts émis par une personne qui est dans l'impossibilité d'ouvrir la bouche."
-    ],
-    "url": "dictionnaire des onomatopées",
-    "found": true,
-    "ref": "https://collegefrancais8.weebly.com/uploads/8/7/3/6/87366548/les_onomatop%C3%A9es_et_les_id%C3%A9ogrammes.pdf",
-    "ipa": "m m",
-    "ipa_source": "epitran",
-    "romanization": "hmmm"
   },
   {
     "word": "hmpf",
@@ -4841,18 +4517,6 @@
     "romanization": "ho hou"
   },
   {
-    "word": "hop",
-    "meaning": [
-      "Interjection servant à stimuler, à faire sauter, à évoquer une action brusque."
-    ],
-    "url": "https://dictionnaire.lerobert.com/definition/hop",
-    "found": true,
-    "ref": "dictionnaire des onomatopées",
-    "ipa": "o",
-    "ipa_source": "epitran",
-    "romanization": "hop"
-  },
-  {
     "word": "hoquet",
     "meaning": [
       "Contraction spasmodique du diaphragme produisant un appel d'air sonore ; bruit qui en résulte."
@@ -4903,30 +4567,6 @@
     "romanization": "houla"
   },
   {
-    "word": "houp",
-    "meaning": [
-      "Interjection servant à stimuler, à faire sauter, à évoquer une action brusque."
-    ],
-    "url": "https://dictionnaire.lerobert.com/definition/houp",
-    "found": true,
-    "ref": "dictionnaire des onomatopées",
-    "ipa": "u",
-    "ipa_source": "epitran",
-    "romanization": "houp"
-  },
-  {
-    "word": "houps",
-    "meaning": [
-      "bruit produit par le hoquet."
-    ],
-    "url": "dictionnaire des onomatopées",
-    "found": true,
-    "ref": "dictionnaire des onomatopées",
-    "ipa": "u",
-    "ipa_source": "epitran",
-    "romanization": "houps"
-  },
-  {
     "word": "hourra",
     "meaning": [
       "Cri d'enthousiasme, d'acclamation."
@@ -4939,18 +4579,6 @@
     "romanization": "hourra"
   },
   {
-    "word": "houâ",
-    "meaning": [
-      "bruit produit par une forte expiration."
-    ],
-    "url": "dictionnaire des onomatopées",
-    "found": true,
-    "ref": "dictionnaire des onomatopées",
-    "ipa": "w a",
-    "ipa_source": "epitran",
-    "romanization": "houâ"
-  },
-  {
     "word": "hoùmpf",
     "meaning": [
       "bruit d'un cri étranglé."
@@ -4961,18 +4589,6 @@
     "ipa": "u m p f",
     "ipa_source": "epitran",
     "romanization": "hoùmpf"
-  },
-  {
-    "word": "hu",
-    "meaning": [
-      "bruit de sifflet, de sifflement."
-    ],
-    "url": "dictionnaire des onomatopées",
-    "found": true,
-    "ref": "dictionnaire des onomatopées",
-    "ipa": "y",
-    "ipa_source": "epitran",
-    "romanization": "hu"
   },
   {
     "word": "hu hu",
@@ -5000,18 +4616,6 @@
     "romanization": "hucher"
   },
   {
-    "word": "hue",
-    "meaning": [
-      "Mot dont on se sert pour faire avancer un cheval, ou le faire tourner à droite."
-    ],
-    "url": "https://dictionnaire.lerobert.com/definition/hue",
-    "found": true,
-    "ref": "https://www.aproposdecriture.com/wp-content/uploads/2018/09/Liste-non-exhaustive-d.pdf",
-    "ipa": "y",
-    "ipa_source": "epitran",
-    "romanization": "hue"
-  },
-  {
     "word": "huer",
     "meaning": [
       "Pousser des cris de dérision, des cris hostiles contre (qqn).",
@@ -5023,6 +4627,18 @@
     "ipa": "y ʀ",
     "ipa_source": "epitran",
     "romanization": "huer"
+  },
+  {
+    "word": "hug",
+    "meaning": [
+      "bruit d'un hoquet, le plus souvent d'un hoquet d'ivrogne."
+    ],
+    "url": "dictionnaire des onomatopées",
+    "found": true,
+    "ref": "dictionnaire des onomatopées",
+    "ipa": "y ɡ",
+    "ipa_source": "epitran",
+    "romanization": "hug"
   },
   {
     "word": "hui hui",
@@ -5159,18 +4775,6 @@
     "romanization": "klop klip"
   },
   {
-    "word": "kouac",
-    "meaning": [
-      "bruit du cri rauque d'un oiseau, particulièrement du corbeau et des corvidés."
-    ],
-    "url": "dictionnaire des onomatopées",
-    "found": true,
-    "ref": "dictionnaire des onomatopées",
-    "ipa": "k w a k",
-    "ipa_source": "epitran",
-    "romanization": "kouac"
-  },
-  {
     "word": "kouï kouï",
     "meaning": [
       "petit bruit aigu produit par divers animaux.",
@@ -5220,18 +4824,6 @@
     "ipa": "k s i k s i",
     "ipa_source": "epitran",
     "romanization": "ksi ksi"
-  },
-  {
-    "word": "kss kss",
-    "meaning": [
-      "pour exciter un chien à attaquer, à mordre."
-    ],
-    "url": "dictionnaire des onomatopées",
-    "found": true,
-    "ref": "dictionnaire des onomatopées",
-    "ipa": "k s k s",
-    "ipa_source": "epitran",
-    "romanization": "kss kss"
   },
   {
     "word": "kékéké",
@@ -5422,18 +5014,6 @@
     "romanization": "miao"
   },
   {
-    "word": "miaou",
-    "meaning": [
-      "Cri du chat."
-    ],
-    "url": "https://dictionnaire.lerobert.com/definition/miaou",
-    "found": true,
-    "ref": "dictionnaire des onomatopées",
-    "ipa": "m j a u",
-    "ipa_source": "epitran",
-    "romanization": "miaou"
-  },
-  {
     "word": "miaoux",
     "meaning": [
       "bruit du cri du chat.",
@@ -5494,21 +5074,6 @@
     "ipa": "m j u",
     "ipa_source": "epitran",
     "romanization": "miou"
-  },
-  {
-    "word": "mmh",
-    "meaning": [
-      "marque une appréciation gustative favorable.",
-      "marque une appréciation olfactive favorable.",
-      "marque une appréciation gustative et olfactive favorable.",
-      "en contexte métaphorique, marque une expression de satisfaction."
-    ],
-    "url": "dictionnaire des onomatopées",
-    "found": true,
-    "ref": "dictionnaire des onomatopées",
-    "ipa": "m",
-    "ipa_source": "epitran",
-    "romanization": "mmh"
   },
   {
     "word": "mmm",
@@ -5844,18 +5409,6 @@
     "romanization": "ouaf"
   },
   {
-    "word": "ouah",
-    "meaning": [
-      "Interjection évoquant les aboiements d'un chien."
-    ],
-    "url": "https://dictionnaire.lerobert.com/definition/ouah",
-    "found": true,
-    "ref": "dictionnaire des onomatopées",
-    "ipa": "w a",
-    "ipa_source": "epitran",
-    "romanization": "ouah"
-  },
-  {
     "word": "ouah-ouah",
     "meaning": [
       "bruit du cri du chien."
@@ -5866,18 +5419,6 @@
     "ipa": "w a - w a",
     "ipa_source": "epitran",
     "romanization": "ouah-ouah"
-  },
-  {
-    "word": "ouaou",
-    "meaning": [
-      "bruit du cri du chien."
-    ],
-    "url": "dictionnaire des onomatopées",
-    "found": true,
-    "ref": "dictionnaire des onomatopées",
-    "ipa": "w a u",
-    "ipa_source": "epitran",
-    "romanization": "ouaou"
   },
   {
     "word": "ouaouh",
@@ -5916,18 +5457,6 @@
     "romanization": "ouarf"
   },
   {
-    "word": "ouaw",
-    "meaning": [
-      "bruit du cri du chien."
-    ],
-    "url": "dictionnaire des onomatopées",
-    "found": true,
-    "ref": "dictionnaire des onomatopées",
-    "ipa": "w a w",
-    "ipa_source": "epitran",
-    "romanization": "ouaw"
-  },
-  {
     "word": "ouerk",
     "meaning": [
       "marque la nausée physique."
@@ -5950,42 +5479,6 @@
     "ipa": "u f",
     "ipa_source": "epitran",
     "romanization": "ouf"
-  },
-  {
-    "word": "ouh",
-    "meaning": [
-      "pour marquer une vive douleur."
-    ],
-    "url": "dictionnaire des onomatopées",
-    "found": true,
-    "ref": "dictionnaire des onomatopées",
-    "ipa": "u",
-    "ipa_source": "epitran",
-    "romanization": "ouh"
-  },
-  {
-    "word": "ouh ouh",
-    "meaning": [
-      "bruit du cri d'un oiseau de nuit."
-    ],
-    "url": "dictionnaire des onomatopées",
-    "found": true,
-    "ref": "dictionnaire des onomatopées",
-    "ipa": "u u",
-    "ipa_source": "epitran",
-    "romanization": "ouh ouh"
-  },
-  {
-    "word": "ouhe",
-    "meaning": [
-      "bruit d'aboiement ou de hurlement."
-    ],
-    "url": "dictionnaire des onomatopées",
-    "found": true,
-    "ref": "dictionnaire des onomatopées",
-    "ipa": "u",
-    "ipa_source": "epitran",
-    "romanization": "ouhe"
   },
   {
     "word": "ouille",
@@ -6012,16 +5505,16 @@
     "romanization": "ouin"
   },
   {
-    "word": "oups",
+    "word": "ouiz",
     "meaning": [
-      "Exclamation de surprise devant une maladresse, un raté."
+      "bruit cinglant ou sifflant d'un projectile."
     ],
-    "url": "https://dictionnaire.lerobert.com/definition/oups",
+    "url": "dictionnaire des onomatopées",
     "found": true,
     "ref": "dictionnaire des onomatopées",
-    "ipa": "u",
+    "ipa": "w i",
     "ipa_source": "epitran",
-    "romanization": "oups"
+    "romanization": "ouiz"
   },
   {
     "word": "oye",
@@ -6072,18 +5565,6 @@
     "ipa": "p ɑ̃",
     "ipa_source": "epitran",
     "romanization": "pam"
-  },
-  {
-    "word": "pan",
-    "meaning": [
-      "Grand morceau d'étoffe ; partie flottante ou tombante (d'un vêtement)."
-    ],
-    "url": "https://dictionnaire.lerobert.com/definition/pan",
-    "found": true,
-    "ref": "dictionnaire des onomatopées",
-    "ipa": "p ɑ̃",
-    "ipa_source": "epitran",
-    "romanization": "pan"
   },
   {
     "word": "pan pan",
@@ -6259,18 +5740,6 @@
     "ipa": "p a t a t ʀ a k",
     "ipa_source": "epitran",
     "romanization": "patatraque"
-  },
-  {
-    "word": "patatras",
-    "meaning": [
-      "Évoque le bruit d'un corps qui tombe avec fracas."
-    ],
-    "url": "https://dictionnaire.lerobert.com/definition/patatras",
-    "found": true,
-    "ref": "dictionnaire des onomatopées",
-    "ipa": "p a t a t ʀ a",
-    "ipa_source": "epitran",
-    "romanization": "patatras"
   },
   {
     "word": "patatrot",
@@ -6581,18 +6050,6 @@
     "romanization": "pfui"
   },
   {
-    "word": "pfuit",
-    "meaning": [
-      "bruit de sifflet, de sifflement."
-    ],
-    "url": "dictionnaire des onomatopées",
-    "found": true,
-    "ref": "dictionnaire des onomatopées",
-    "ipa": "p f ɥ i",
-    "ipa_source": "epitran",
-    "romanization": "pfuit"
-  },
-  {
     "word": "pfuith",
     "meaning": [
       "bruit de sifflement d'un projectile.",
@@ -6608,23 +6065,6 @@
     "ipa": "p f ɥ i t",
     "ipa_source": "epitran",
     "romanization": "pfuith"
-  },
-  {
-    "word": "pfut",
-    "meaning": [
-      "bruit de sifflement d'un projectile.",
-      "bruit de l'air ou d'un gaz.",
-      "bruit d'un moteur en difficulté.",
-      "pour marquer un départ rapide, une disparition soudaine.",
-      "marque l'indifférence, le dédain.",
-      "marque l'aisance, la rapidité."
-    ],
-    "url": "dictionnaire des onomatopées",
-    "found": true,
-    "ref": "dictionnaire des onomatopées",
-    "ipa": "p f y",
-    "ipa_source": "epitran",
-    "romanization": "pfut"
   },
   {
     "word": "pfwit",
@@ -6685,20 +6125,6 @@
     "ipa": "f ɥ i",
     "ipa_source": "epitran",
     "romanization": "phui"
-  },
-  {
-    "word": "phut",
-    "meaning": [
-      "bruit de l'expiration.",
-      "bruit d'une locomotive à vapeur.",
-      "bruit d'absorption rapide d'une boisson."
-    ],
-    "url": "dictionnaire des onomatopées",
-    "found": true,
-    "ref": "dictionnaire des onomatopées",
-    "ipa": "f y",
-    "ipa_source": "epitran",
-    "romanization": "phut"
   },
   {
     "word": "pi pi",
@@ -6822,18 +6248,6 @@
     "ipa": "p i f p a f p u f",
     "ipa_source": "epitran",
     "romanization": "pif paf pouf"
-  },
-  {
-    "word": "pif, paf",
-    "meaning": [
-      "bruit de détonation, d'explosion."
-    ],
-    "url": "dictionnaire des onomatopées",
-    "found": true,
-    "ref": "https://fr.wikipedia.org/wiki/Onomatop%C3%A9e",
-    "ipa": "p i f p a f",
-    "ipa_source": "epitran",
-    "romanization": "pif, paf"
   },
   {
     "word": "pil-ouit",
@@ -7018,18 +6432,6 @@
     "ipa": "p i ʀ w i t",
     "ipa_source": "epitran",
     "romanization": "pirouite"
-  },
-  {
-    "word": "pla",
-    "meaning": [
-      "bruit d'un roulement de tambour."
-    ],
-    "url": "dictionnaire des onomatopées",
-    "found": true,
-    "ref": "dictionnaire des onomatopées",
-    "ipa": "p l a",
-    "ipa_source": "epitran",
-    "romanization": "pla"
   },
   {
     "word": "plac",
@@ -7369,21 +6771,6 @@
     "romanization": "pong"
   },
   {
-    "word": "pop",
-    "meaning": [
-      "bruit d'un bouteille que l'on débouche.",
-      "bruit d'une arme à feu équipée d'un silencieux.",
-      "bruit de lèvres d'un fumeur de pipe.",
-      "bruit d'un moteur."
-    ],
-    "url": "dictionnaire des onomatopées",
-    "found": true,
-    "ref": "dictionnaire des onomatopées",
-    "ipa": "p o",
-    "ipa_source": "epitran",
-    "romanization": "pop"
-  },
-  {
     "word": "pot",
     "meaning": [
       "bruit de claquement de lèvres d'un fumeur de pipe.",
@@ -7551,18 +6938,6 @@
     "romanization": "pout"
   },
   {
-    "word": "pouêt",
-    "meaning": [
-      "Onomatopée, souvent répétée, évoquant un bruit de trompe, de klaxon."
-    ],
-    "url": "https://dictionnaire.lerobert.com/definition/pou%C3%AAt",
-    "found": true,
-    "ref": "https://fr.wikipedia.org/wiki/Onomatop%C3%A9e",
-    "ipa": "p u",
-    "ipa_source": "epitran",
-    "romanization": "pouêt"
-  },
-  {
     "word": "pouêtte",
     "meaning": [
       "bruit de trompe, de trompette."
@@ -7635,19 +7010,6 @@
     "ipa": "p ʀ u m",
     "ipa_source": "epitran",
     "romanization": "proum"
-  },
-  {
-    "word": "prout",
-    "meaning": [
-      "Bruit de pet.",
-      "Pet."
-    ],
-    "url": "https://dictionnaire.lerobert.com/definition/prout",
-    "found": true,
-    "ref": "dictionnaire des onomatopées",
-    "ipa": "p ʀ u",
-    "ipa_source": "epitran",
-    "romanization": "prout"
   },
   {
     "word": "prouth",
@@ -7731,20 +7093,6 @@
     "romanization": "pschi"
   },
   {
-    "word": "pschit",
-    "meaning": [
-      "Onomatopée évoquant le bruit d'un liquide qui fuse.",
-      "Atomiseur.",
-      "Dose de liquide atomisé."
-    ],
-    "url": "https://dictionnaire.lerobert.com/definition/pschit",
-    "found": true,
-    "ref": "dictionnaire des onomatopées",
-    "ipa": "p s ʃ i",
-    "ipa_source": "epitran",
-    "romanization": "pschit"
-  },
-  {
     "word": "pschitt",
     "meaning": [
       "Onomatopée évoquant le bruit d'un liquide qui fuse.",
@@ -7826,20 +7174,6 @@
     "romanization": "psheu"
   },
   {
-    "word": "psht",
-    "meaning": [
-      "bruit d'un gaz ou d'un liquide qui jaillit, qui fuse.",
-      "bruit produit par une locomotive à vapeur.",
-      "bruit produit par une boisson gazeuse ou mousseuse."
-    ],
-    "url": "dictionnaire des onomatopées",
-    "found": true,
-    "ref": "dictionnaire des onomatopées",
-    "ipa": "p s t",
-    "ipa_source": "epitran",
-    "romanization": "psht"
-  },
-  {
     "word": "pshuit",
     "meaning": [
       "bruit d'un gaz ou d'un liquide qui jaillit, qui fuse.",
@@ -7892,30 +7226,6 @@
     "romanization": "psi psi"
   },
   {
-    "word": "psit",
-    "meaning": [
-      "sifflement bref destiné à attirer l'attention ou à appeler une personne ou un animal."
-    ],
-    "url": "dictionnaire des onomatopées",
-    "found": true,
-    "ref": "dictionnaire des onomatopées",
-    "ipa": "p s i",
-    "ipa_source": "epitran",
-    "romanization": "psit"
-  },
-  {
-    "word": "pss",
-    "meaning": [
-      "bruit de marmonnement ; bruit d'une conversation à voix basse."
-    ],
-    "url": "dictionnaire des onomatopées",
-    "found": true,
-    "ref": "dictionnaire des onomatopées",
-    "ipa": "p s",
-    "ipa_source": "epitran",
-    "romanization": "pss"
-  },
-  {
     "word": "pss pss",
     "meaning": [
       "bruit de bourdonnement ou de sifflement produit par la bouche.",
@@ -7930,18 +7240,6 @@
     "ipa": "p s p s",
     "ipa_source": "epitran",
     "romanization": "pss pss"
-  },
-  {
-    "word": "psst",
-    "meaning": [
-      "Interjection servant à appeler, à attirer l'attention, etc."
-    ],
-    "url": "https://dictionnaire.lerobert.com/definition/psst",
-    "found": true,
-    "ref": "http://www.les-onomatopees.fr/liste-onomatopees.php",
-    "ipa": "p s t",
-    "ipa_source": "epitran",
-    "romanization": "psst"
   },
   {
     "word": "pst",
@@ -8022,18 +7320,6 @@
     "ipa": "ʀ a",
     "ipa_source": "epitran",
     "romanization": "ra"
-  },
-  {
-    "word": "rah",
-    "meaning": [
-      "bruit d'un râle profond."
-    ],
-    "url": "dictionnaire des onomatopées",
-    "found": true,
-    "ref": "dictionnaire des onomatopées",
-    "ipa": "ʀ a",
-    "ipa_source": "epitran",
-    "romanization": "rah"
   },
   {
     "word": "rampataplan",
@@ -8195,18 +7481,6 @@
     "ipa": "ʀ ə y",
     "ipa_source": "epitran",
     "romanization": "reuh"
-  },
-  {
-    "word": "rhan",
-    "meaning": [
-      "bruit d'un coup brutal."
-    ],
-    "url": "dictionnaire des onomatopées",
-    "found": true,
-    "ref": "dictionnaire des onomatopées",
-    "ipa": "ʀ ɑ̃",
-    "ipa_source": "epitran",
-    "romanization": "rhan"
   },
   {
     "word": "rin",
@@ -8899,7 +8173,7 @@
     "romanization": "tagadagada"
   },
   {
-    "word": "tagadam",
+    "word": "tagadan",
     "meaning": [
       "bruit de galop du cheval."
     ],
@@ -8908,7 +8182,7 @@
     "ref": "dictionnaire des onomatopées",
     "ipa": "t a ɡ a d ɑ̃",
     "ipa_source": "epitran",
-    "romanization": "tagadam"
+    "romanization": "tagadan"
   },
   {
     "word": "tagalan",
@@ -9100,18 +8374,6 @@
     "romanization": "tchakatchak"
   },
   {
-    "word": "tchi",
-    "meaning": [
-      "bruit de vapeur d'eau."
-    ],
-    "url": "dictionnaire des onomatopées",
-    "found": true,
-    "ref": "dictionnaire des onomatopées",
-    "ipa": "t ʃ i",
-    "ipa_source": "epitran",
-    "romanization": "tchi"
-  },
-  {
     "word": "tchi tchi",
     "meaning": [
       "bruit d'une locomotive à vapeur."
@@ -9160,18 +8422,6 @@
     "ipa": "t ʃ i k t ʃ a k",
     "ipa_source": "epitran",
     "romanization": "tchic tchac"
-  },
-  {
-    "word": "tchip",
-    "meaning": [
-      "Fait d'émettre un bruit de succion en signe de désapprobation ou de mépris ; ce bruit."
-    ],
-    "url": "https://dictionnaire.lerobert.com/definition/tchip",
-    "found": true,
-    "ref": "http://www.les-onomatopees.fr/liste-onomatopees.php",
-    "ipa": "t ʃ i",
-    "ipa_source": "epitran",
-    "romanization": "tchip"
   },
   {
     "word": "tchit",
@@ -9330,19 +8580,6 @@
     "ipa": "t i",
     "ipa_source": "epitran",
     "romanization": "ti"
-  },
-  {
-    "word": "tic",
-    "meaning": [
-      "Mouvement convulsif, geste bref automatique, répété involontairement.",
-      "Geste, attitude habituels, que la répétition rend plus ou moins ridicules."
-    ],
-    "url": "https://dictionnaire.lerobert.com/definition/tic",
-    "found": true,
-    "ref": "dictionnaire des onomatopées",
-    "ipa": "t i k",
-    "ipa_source": "epitran",
-    "romanization": "tic"
   },
   {
     "word": "tic tac",
@@ -9520,18 +8757,6 @@
     "romanization": "tirlili"
   },
   {
-    "word": "tit",
-    "meaning": [
-      "bruit de déclic d'un répondeur téléphonique."
-    ],
-    "url": "dictionnaire des onomatopées",
-    "found": true,
-    "ref": "dictionnaire des onomatopées",
-    "ipa": "t i",
-    "ipa_source": "epitran",
-    "romanization": "tit"
-  },
-  {
     "word": "titi tata",
     "meaning": [
       "bruits de signaux télégraphiques en morse."
@@ -9617,19 +8842,6 @@
     "romanization": "top"
   },
   {
-    "word": "tot",
-    "meaning": [
-      "Au bout de peu de temps et sensiblement avant le moment habituel ou normal (opposé à tard).",
-      "Au commencement d'une portion déterminée de temps."
-    ],
-    "url": "https://dictionnaire.lerobert.com/definition/tot",
-    "found": true,
-    "ref": "dictionnaire des onomatopées",
-    "ipa": "t o",
-    "ipa_source": "epitran",
-    "romanization": "tot"
-  },
-  {
     "word": "tougoudoug",
     "meaning": [
       "bruit de galop du cheval."
@@ -9712,19 +8924,6 @@
     "ipa": "t s i k",
     "ipa_source": "epitran",
     "romanization": "tsik"
-  },
-  {
-    "word": "tsim",
-    "meaning": [
-      "bruit ponctuel, souvent d'origine métallique, ou bruit de verre brisé.",
-      "bruit d'une cymbale ou d'une paire de cymbales."
-    ],
-    "url": "dictionnaire des onomatopées",
-    "found": true,
-    "ref": "dictionnaire des onomatopées",
-    "ipa": "t s ɛ̃",
-    "ipa_source": "epitran",
-    "romanization": "tsim"
   },
   {
     "word": "tsin",
@@ -9963,54 +9162,6 @@
     "romanization": "tziou"
   },
   {
-    "word": "tû tû",
-    "meaning": [
-      "bruit strident d'un petit instrument de musique ou d'une trompe d'automobile."
-    ],
-    "url": "dictionnaire des onomatopées",
-    "found": true,
-    "ref": "dictionnaire des onomatopées",
-    "ipa": "t y t y",
-    "ipa_source": "epitran",
-    "romanization": "tû tû"
-  },
-  {
-    "word": "tût",
-    "meaning": [
-      "bruit strident d'un petit instrument de musique ou d'une trompe d'automobile."
-    ],
-    "url": "dictionnaire des onomatopées",
-    "found": true,
-    "ref": "dictionnaire des onomatopées",
-    "ipa": "t y",
-    "ipa_source": "epitran",
-    "romanization": "tût"
-  },
-  {
-    "word": "ugh",
-    "meaning": [
-      "bruit d'un hoquet, le plus souvent d'un hoquet d'ivrogne."
-    ],
-    "url": "dictionnaire des onomatopées",
-    "found": true,
-    "ref": "dictionnaire des onomatopées",
-    "ipa": "y ɡ",
-    "ipa_source": "epitran",
-    "romanization": "ugh"
-  },
-  {
-    "word": "uh",
-    "meaning": [
-      "bruit de sirène d'alarme."
-    ],
-    "url": "dictionnaire des onomatopées",
-    "found": true,
-    "ref": "dictionnaire des onomatopées",
-    "ipa": "y",
-    "ipa_source": "epitran",
-    "romanization": "uh"
-  },
-  {
     "word": "uit",
     "meaning": [
       "bruit léger produit par un glissement.",
@@ -10099,18 +9250,6 @@
     "ipa": "v l ɑ̃",
     "ipa_source": "epitran",
     "romanization": "vlam"
-  },
-  {
-    "word": "vlan",
-    "meaning": [
-      "Onomatopée imitant un bruit fort et sec."
-    ],
-    "url": "https://dictionnaire.lerobert.com/definition/vlan",
-    "found": true,
-    "ref": "dictionnaire des onomatopées",
-    "ipa": "v l ɑ̃",
-    "ipa_source": "epitran",
-    "romanization": "vlan"
   },
   {
     "word": "vlang",
@@ -10423,19 +9562,6 @@
     "romanization": "vroum vroum"
   },
   {
-    "word": "vrout",
-    "meaning": [
-      "bruit produit par un mouvement rapide.",
-      "pour marquer la soudaineté ou la rapidité d'un procès."
-    ],
-    "url": "dictionnaire des onomatopées",
-    "found": true,
-    "ref": "dictionnaire des onomatopées",
-    "ipa": "v ʀ u",
-    "ipa_source": "epitran",
-    "romanization": "vrout"
-  },
-  {
     "word": "vrr",
     "meaning": [
       "bruit produit par un moteur."
@@ -10497,18 +9623,6 @@
     "romanization": "vrum"
   },
   {
-    "word": "vzi",
-    "meaning": [
-      "bruit de bouche imitant une sonnerie."
-    ],
-    "url": "dictionnaire des onomatopées",
-    "found": true,
-    "ref": "dictionnaire des onomatopées",
-    "ipa": "v z i",
-    "ipa_source": "epitran",
-    "romanization": "vzi"
-  },
-  {
     "word": "vzif",
     "meaning": [
       "bruit de sifflement d'un projectile avant son point d'impact."
@@ -10557,54 +9671,6 @@
     "romanization": "vzz"
   },
   {
-    "word": "wa-wa",
-    "meaning": [
-      "son d'une trompette, d'un trombone de jazz ou d'une guitare électrique muni(e) d'une sourdine."
-    ],
-    "url": "dictionnaire des onomatopées",
-    "found": true,
-    "ref": "dictionnaire des onomatopées",
-    "ipa": "w a - w a",
-    "ipa_source": "epitran",
-    "romanization": "wa-wa"
-  },
-  {
-    "word": "waf",
-    "meaning": [
-      "marque soit un mérpis goguenard, soit le recul que l'on entend prendre par rapport à ce qu'on observe ou à ce qui vient d'être dit."
-    ],
-    "url": "dictionnaire des onomatopées",
-    "found": true,
-    "ref": "dictionnaire des onomatopées",
-    "ipa": "w a f",
-    "ipa_source": "epitran",
-    "romanization": "waf"
-  },
-  {
-    "word": "wah",
-    "meaning": [
-      "marque le contentement, l'admiration, l'enthousiasme, la joie, la surprise."
-    ],
-    "url": "dictionnaire des onomatopées",
-    "found": true,
-    "ref": "dictionnaire des onomatopées",
-    "ipa": "w a",
-    "ipa_source": "epitran",
-    "romanization": "wah"
-  },
-  {
-    "word": "wao",
-    "meaning": [
-      "bruit du cri du chien."
-    ],
-    "url": "dictionnaire des onomatopées",
-    "found": true,
-    "ref": "dictionnaire des onomatopées",
-    "ipa": "w a o",
-    "ipa_source": "epitran",
-    "romanization": "wao"
-  },
-  {
     "word": "waoh",
     "meaning": [
       "marque la joie, l'enthousiasme, l'admiration."
@@ -10615,18 +9681,6 @@
     "ipa": "w a ɔ",
     "ipa_source": "epitran",
     "romanization": "waoh"
-  },
-  {
-    "word": "waouh",
-    "meaning": [
-      "Exclamation exprimant l'admiration."
-    ],
-    "url": "https://dictionnaire.lerobert.com/definition/waouh",
-    "found": true,
-    "ref": "dictionnaire des onomatopées",
-    "ipa": "w a u",
-    "ipa_source": "epitran",
-    "romanization": "waouh"
   },
   {
     "word": "waouw",
@@ -10651,6 +9705,18 @@
     "ipa": "w a ɔ w",
     "ipa_source": "epitran",
     "romanization": "waow"
+  },
+  {
+    "word": "waw",
+    "meaning": [
+      "bruit du cri du chien."
+    ],
+    "url": "dictionnaire des onomatopées",
+    "found": true,
+    "ref": "dictionnaire des onomatopées",
+    "ipa": "w a w",
+    "ipa_source": "epitran",
+    "romanization": "waw"
   },
   {
     "word": "wham",
@@ -10678,18 +9744,6 @@
     "romanization": "whao"
   },
   {
-    "word": "wharf",
-    "meaning": [
-      "Appontement formant jetée."
-    ],
-    "url": "https://dictionnaire.lerobert.com/definition/wharf",
-    "found": true,
-    "ref": "dictionnaire des onomatopées",
-    "ipa": "w a ʀ f",
-    "ipa_source": "epitran",
-    "romanization": "wharf"
-  },
-  {
     "word": "whou",
     "meaning": [
       "bruit d'aboiement ou de hurlement."
@@ -10700,18 +9754,6 @@
     "ipa": "w u",
     "ipa_source": "epitran",
     "romanization": "whou"
-  },
-  {
-    "word": "wiz",
-    "meaning": [
-      "bruit cinglant ou sifflant d'un projectile."
-    ],
-    "url": "dictionnaire des onomatopées",
-    "found": true,
-    "ref": "dictionnaire des onomatopées",
-    "ipa": "w i",
-    "ipa_source": "epitran",
-    "romanization": "wiz"
   },
   {
     "word": "wlaouf",
@@ -10760,18 +9802,6 @@
     "ipa": "w ɔ ɔ w ɔ o",
     "ipa_source": "epitran",
     "romanization": "woowoo"
-  },
-  {
-    "word": "wou",
-    "meaning": [
-      "bruit du cri d'un oiseau de nuit."
-    ],
-    "url": "dictionnaire des onomatopées",
-    "found": true,
-    "ref": "dictionnaire des onomatopées",
-    "ipa": "w u",
-    "ipa_source": "epitran",
-    "romanization": "wou"
   },
   {
     "word": "wou ouh ouh",
@@ -10881,18 +9911,6 @@
     "ipa": "w w i",
     "ipa_source": "epitran",
     "romanization": "wouit"
-  },
-  {
-    "word": "woups",
-    "meaning": [
-      "pour s'excuser d'un geste malencontreux ; pour parer à une chute, à un faux mouvement."
-    ],
-    "url": "dictionnaire des onomatopées",
-    "found": true,
-    "ref": "dictionnaire des onomatopées",
-    "ipa": "w u",
-    "ipa_source": "epitran",
-    "romanization": "woups"
   },
   {
     "word": "wouw",
@@ -11054,18 +10072,6 @@
     "romanization": "zap"
   },
   {
-    "word": "zi",
-    "meaning": [
-      "bruit de bourdonnement."
-    ],
-    "url": "dictionnaire des onomatopées",
-    "found": true,
-    "ref": "dictionnaire des onomatopées",
-    "ipa": "z i",
-    "ipa_source": "epitran",
-    "romanization": "zi"
-  },
-  {
     "word": "zi zi",
     "meaning": [
       "pour exciter un chien à attaquer, à mordre.",
@@ -11126,18 +10132,6 @@
     "ipa": "z i m b u m b u m",
     "ipa_source": "epitran",
     "romanization": "zim boum boum"
-  },
-  {
-    "word": "zimz",
-    "meaning": [
-      "bruit de sifflement d'un objet qu'on lance."
-    ],
-    "url": "dictionnaire des onomatopées",
-    "found": true,
-    "ref": "dictionnaire des onomatopées",
-    "ipa": "z ɛ̃",
-    "ipa_source": "epitran",
-    "romanization": "zimz"
   },
   {
     "word": "zin zin",
@@ -11240,6 +10234,19 @@
     "romanization": "zonzon"
   },
   {
+    "word": "zouip",
+    "meaning": [
+      "bruit de siflement d'un fouet.",
+      "bruit de glissade, de frottement, de crissement."
+    ],
+    "url": "dictionnaire des onomatopées",
+    "found": true,
+    "ref": "dictionnaire des onomatopées",
+    "ipa": "z w i",
+    "ipa_source": "epitran",
+    "romanization": "zouip"
+  },
+  {
     "word": "zoum",
     "meaning": [
       "pour exprimer la rapidité d'un procès, impliquant une action plus violente."
@@ -11286,43 +10293,6 @@
     "ipa": "z œ̃",
     "ipa_source": "epitran",
     "romanization": "zum"
-  },
-  {
-    "word": "zwip",
-    "meaning": [
-      "bruit de siflement d'un fouet.",
-      "bruit de glissade, de frottement, de crissement."
-    ],
-    "url": "dictionnaire des onomatopées",
-    "found": true,
-    "ref": "dictionnaire des onomatopées",
-    "ipa": "z w i",
-    "ipa_source": "epitran",
-    "romanization": "zwip"
-  },
-  {
-    "word": "zwit",
-    "meaning": [
-      "bruit produit par un instrument tranchant."
-    ],
-    "url": "dictionnaire des onomatopées",
-    "found": true,
-    "ref": "dictionnaire des onomatopées",
-    "ipa": "z w i",
-    "ipa_source": "epitran",
-    "romanization": "zwit"
-  },
-  {
-    "word": "zwiz",
-    "meaning": [
-      "bruit cinglant ou sifflant d'un projectile."
-    ],
-    "url": "dictionnaire des onomatopées",
-    "found": true,
-    "ref": "dictionnaire des onomatopées",
-    "ipa": "z w i",
-    "ipa_source": "epitran",
-    "romanization": "zwiz"
   },
   {
     "word": "zzss",
