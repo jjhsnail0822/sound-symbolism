@@ -41,9 +41,16 @@ desired_order = [
     'Qwen2.5-14B-Instruct',
     'Qwen2.5-32B-Instruct',
     'Qwen2.5-72B-Instruct',
+    'Qwen3-4B',
+    'Qwen3-8B',
+    'Qwen3-14B',
+    'Qwen3-32B',
     'gpt-4o',
     'gpt-4.1',
     'o4-mini',
+    'OLMo-2-1124-7B-Instruct',
+    'OLMo-2-1124-13B-Instruct',
+    'OLMo-2-0325-32B-Instruct',
 ]
 # Sort models based on desired_order
 models = [m for m in desired_order if m in models] + [m for m in models if m not in desired_order]
@@ -61,7 +68,9 @@ fig.suptitle('Word-Meaning Pair Matching', fontsize=16, y=0.98)
 
 # Define color palettes for model families
 gemma_colors = plt.get_cmap('Blues')([0.4, 0.6, 0.8]) # Lighter to darker blues
+qwen25_colors = plt.get_cmap('Reds')([0.3, 0.5, 0.7, 0.9]) # Lighter to darker reds
 qwen_colors = plt.get_cmap('Oranges')([0.3, 0.5, 0.7, 0.9]) # Lighter to darker oranges/browns
+olmo_colors = plt.get_cmap('Purples')([0.4, 0.6, 0.8]) # Lighter to darker purples
 gpt_colors = plt.get_cmap('Greens')([0.4, 0.6, 0.8]) # Lighter to darker greens
 # Add more colors if needed, e.g., from 'Greens'
 # qwen_colors = plt.get_cmap('Greens')([0.3, 0.5, 0.7, 0.9])
@@ -73,7 +82,9 @@ def plot_group(ax, subcats, title):
     group_width = width * num_models + gap
     x = np.arange(len(subcats)) * group_width
     gemma_idx = 0
+    qwen25_idx = 0
     qwen_idx = 0
+    olmo_idx = 0
     gpt_idx = 0
     for i, m in enumerate(models):
         y = [data[m].get(c, np.nan) for c in subcats]
@@ -81,9 +92,15 @@ def plot_group(ax, subcats, title):
         if 'gemma' in m.lower():
             color = gemma_colors[gemma_idx % len(gemma_colors)]
             gemma_idx += 1
-        elif 'qwen' in m.lower():
+        elif 'qwen2.5' in m.lower():
+            color = qwen25_colors[qwen_idx % len(qwen25_colors)]
+            qwen25_idx += 1
+        elif 'qwen3' in m.lower():
             color = qwen_colors[qwen_idx % len(qwen_colors)]
             qwen_idx += 1
+        elif 'olmo' in m.lower():
+            color = olmo_colors[olmo_idx % len(olmo_colors)]
+            olmo_idx += 1
         elif 'gpt' in m.lower() or 'o' in m.lower():
             color = gpt_colors[gpt_idx % len(gpt_colors)]
             gpt_idx += 1

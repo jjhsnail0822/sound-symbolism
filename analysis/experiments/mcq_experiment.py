@@ -1,6 +1,7 @@
 import json
 import argparse
 from vllm import LLM, SamplingParams
+from transformers import AutoTokenizer
 from tqdm import tqdm
 import os
 import re
@@ -21,7 +22,7 @@ class MCQExperiment:
             use_api: bool = False,
             tensor_parallel_size: int = 1,
             max_tokens: int = 32,
-            max_model_len: int = 8192,
+            max_model_len: int = 4096,
             temperature: float = 0.0,
     ):
         self.model_path = model_path
@@ -63,6 +64,7 @@ class MCQExperiment:
             print(f"Using OpenAI API with model {self.model_path}")
         else:
             print(f"Loading model from {self.model_path}")
+            tokenizer = AutoTokenizer.from_pretrained(self.model_path)
             model = LLM(model=self.model_path, max_model_len=self.max_model_len, tensor_parallel_size=self.tensor_parallel_size)
             sampling_params = SamplingParams(
                 temperature=self.temperature, 
@@ -85,7 +87,24 @@ class MCQExperiment:
                 model_answer = response.output_text
             else:
                 # Use VLLM model
-                response = model.generate(query['question'], sampling_params=sampling_params)
+                # response = model.generate(query['question'], sampling_params=sampling_params)
+                conversation = [
+                    {
+                        "role": "user",
+                        "content": query['question']
+                    }
+                ]
+                if 'Qwen3' in self.model_path:
+                    # For Qwen3, use a different prompt format
+                    text = tokenizer.apply_chat_template(
+                        conversation,
+                        tokenize=False,
+                        add_generation_prompt=True,
+                        enable_thinking=False  # Setting enable_thinking=False disables thinking mode
+                    )
+                    response = model.generate(text, sampling_params=sampling_params)
+                else:
+                    response = model.chat(conversation, sampling_params=sampling_params)
                 
                 # Extract answer from the first element of the response list
                 model_answer = response[0].outputs[0].text.strip()
@@ -152,7 +171,7 @@ if __name__ == "__main__":
     parser.add_argument("--gpu", type=int, required=True, help="Tensor parallel size")
     parser.add_argument("--output", '-o', type=str, default="analysis/experiments/understanding", help="Directory to save results")
     parser.add_argument("--max-tokens", type=int, default=32, help="Maximum tokens to generate")
-    parser.add_argument("--max-model-len", type=int, default=8192, help="Maximum model length")
+    parser.add_argument("--max-model-len", type=int, default=4096, help="Maximum model length")
     parser.add_argument("--temperature", type=float, default=0.0, help="Sampling temperature")
     parser.add_argument("--api", action='store_true', help="Use OpenAI API instead of local model")
     

@@ -66,7 +66,7 @@ with open(f'dataset/1_preprocess/nat/{LANGUAGE}_embeddings.pkl', 'wb') as f:
 
 # LANGUAGE = 'en'
 
-# with open(f'dataset/1_preprocess/nat/{LANGUAGE}_ipa.json', 'r', encoding='utf-8') as f:
+# with open(f'dataset/1_preprocess/nat/{LANGUAGE}.json', 'r', encoding='utf-8') as f:
 #     data = json.load(f)
 
 # with open(f'dataset/1_preprocess/nat/{LANGUAGE}_embeddings_old.pkl', 'rb') as f:
@@ -82,4 +82,4 @@ with open(f'dataset/1_preprocess/nat/{LANGUAGE}_embeddings.pkl', 'wb') as f:
 
 # # Save the new embeddings to a file
 # with open(f'dataset/1_preprocess/nat/{LANGUAGE}_embeddings.pkl', 'wb') as f:
-#     pickle.dump(pickle_data, f)
+#     pickle.dump(new_pickle_data, f)

@@ -9,8 +9,8 @@ def parse_args():
     parser = argparse.ArgumentParser(description='K-means clustering for word embeddings')
     parser.add_argument('-l', '--language', type=str, default='ko', 
                         help='Language code (default: ko)', choices=['ko', 'en', 'ja', 'fr'])
-    parser.add_argument('-k', '--num-clusters', type=int, default=451, 
-                        help='Number of clusters (default: 451)')
+    parser.add_argument('-k', '--num-clusters', type=int, default=435, 
+                        help='Number of clusters (default: 435)')
     parser.add_argument('-o', '--output-dir', type=str, default='dataset/1_preprocess/nat',
                         help='Output directory for clustered data')
     return parser.parse_args()
@@ -25,7 +25,7 @@ with open(embeddings_path, 'rb') as f:
     embeddings = pickle.load(f)
 
 # Load original data
-data_path = f'dataset/1_preprocess/nat/{args.language}_ipa.json'
+data_path = f'dataset/1_preprocess/nat/{args.language}.json'
 print(f"Loading original data from {data_path}")
 with open(data_path, 'r', encoding='utf-8') as f:
     original_data = json.load(f)

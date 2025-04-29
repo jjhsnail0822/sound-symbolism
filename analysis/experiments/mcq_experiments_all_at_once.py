@@ -2,7 +2,9 @@ from mcq_experiment import MCQExperiment
 import argparse
 import json
 
-langs = ['en', 'fr', 'ko', 'ja']
+OUTPUT_DIR = "analysis/experiments/understanding/word_meaning_pair_matching"
+
+langs = ['en', 'fr', 'ja', 'ko']
 data_paths = [
     'dataset/3_questions/nat/understanding-unmasked_word_to_meaning_mcq-{language}.json',
     'dataset/3_questions/nat/understanding-masked_meaning_to_word_mcq-{language}.json'
@@ -38,11 +40,11 @@ for lang in langs:
         experiment = MCQExperiment(
             model_path=args.model,
             data_path=formatted_path,
-            output_dir='analysis/experiments/understanding',
+            output_dir=OUTPUT_DIR,
             use_api=args.api,
             tensor_parallel_size=args.gpu,
             max_tokens=32,
-            max_model_len=8192,
+            max_model_len=4096,
             temperature=0.0,
         )
         results_dict, results_filename = experiment.run_mcq_experiment()
@@ -57,7 +59,7 @@ for lang in langs:
             "data_path": formatted_path,
         })
 # Save all brief results to a single file
-all_results_filename = f"analysis/experiments/understanding/all_results_{args.model.replace('/', '_')}.json"
+all_results_filename = f"{OUTPUT_DIR}/all_results_{args.model.replace('/', '_')}.json"
 with open(all_results_filename, 'w', encoding='utf-8') as f:
     json.dump(all_brief_results, f, ensure_ascii=False, indent=4)
 print(f"All results saved to {all_results_filename}")
