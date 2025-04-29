@@ -981,18 +981,6 @@
     "romanization": "bouah-hou"
   },
   {
-    "word": "bouaoue",
-    "meaning": [
-      "bruit du cri du chien."
-    ],
-    "url": "dictionnaire des onomatopées",
-    "found": true,
-    "ref": "dictionnaire des onomatopées",
-    "ipa": "b w a u",
-    "ipa_source": "epitran",
-    "romanization": "bouaoue"
-  },
-  {
     "word": "bouf",
     "meaning": [
       "bruit de coup donné à une personne."
@@ -2190,18 +2178,6 @@
     "romanization": "cocorikè"
   },
   {
-    "word": "coin coin",
-    "meaning": [
-      "bruit du cri du canard, parfois de l'oie."
-    ],
-    "url": "dictionnaire des onomatopées",
-    "found": true,
-    "ref": "https://fr.wiktionary.org/wiki/Cat%C3%A9goriëMots_en_fran%C3%A7ais_issus_d%E2%80%99une_onomatop%C3%A9e",
-    "ipa": "k w a n k ɔ ɛ̃",
-    "ipa_source": "epitran",
-    "romanization": "coin coin"
-  },
-  {
     "word": "coin-coin",
     "meaning": [
       "Cri du canard."
@@ -2495,19 +2471,6 @@
     "romanization": "cree"
   },
   {
-    "word": "cri cri",
-    "meaning": [
-      "Cri du grillon, de la cigale.",
-      "Grillon."
-    ],
-    "url": "https://dictionnaire.lerobert.com/definition/cri%20cri",
-    "found": true,
-    "ref": "https://fr.wiktionary.org/wiki/Cat%C3%A9goriëMots_en_fran%C3%A7ais_issus_d%E2%80%99une_onomatop%C3%A9e",
-    "ipa": "k ʀ i k ʀ i",
-    "ipa_source": "epitran",
-    "romanization": "cri cri"
-  },
-  {
     "word": "cri-cri",
     "meaning": [
       "Cri du grillon, de la cigale.",
@@ -2681,18 +2644,6 @@
     "romanization": "crouler"
   },
   {
-    "word": "crr-crr",
-    "meaning": [
-      "bruit produit par des ciseaux, par un couteau."
-    ],
-    "url": "dictionnaire des onomatopées",
-    "found": true,
-    "ref": "dictionnaire des onomatopées",
-    "ipa": "k ʀ ʀ k ʀ ʀ",
-    "ipa_source": "epitran",
-    "romanization": "crr-crr"
-  },
-  {
     "word": "crunch",
     "meaning": [
       "bruit de grignotis."
@@ -2716,18 +2667,6 @@
     "ipa": "k s k s",
     "ipa_source": "epitran",
     "romanization": "css css"
-  },
-  {
-    "word": "cui cui",
-    "meaning": [
-      "Pépiement d'oiseau."
-    ],
-    "url": "https://dictionnaire.lerobert.com/definition/cui%20cui",
-    "found": true,
-    "ref": "https://fr.wiktionary.org/wiki/Cat%C3%A9goriëMots_en_fran%C3%A7ais_issus_d%E2%80%99une_onomatop%C3%A9e",
-    "ipa": "k ɥ i k ɥ i",
-    "ipa_source": "epitran",
-    "romanization": "cui cui"
   },
   {
     "word": "cui-cui",
@@ -3474,18 +3413,6 @@
     "romanization": "flic floc"
   },
   {
-    "word": "flic-flac",
-    "meaning": [
-      "Interjection exprimant un clapotement, un bruit d'eau."
-    ],
-    "url": "https://dictionnaire.lerobert.com/definition/flic-flac",
-    "found": true,
-    "ref": "https://collegefrancais8.weebly.com/uploads/8/7/3/6/87366548/les_onomatop%C3%A9es_et_les_id%C3%A9ogrammes.pdf",
-    "ipa": "f l i k f l a k",
-    "ipa_source": "epitran",
-    "romanization": "flic-flac"
-  },
-  {
     "word": "fliouc",
     "meaning": [
       "bruit d'une goutte d'eau ou de la pluie qui tombe."
@@ -3694,19 +3621,6 @@
     "ipa": "f ʀ u f ʀ u",
     "ipa_source": "epitran",
     "romanization": "frou-frou"
-  },
-  {
-    "word": "froufrou",
-    "meaning": [
-      "Bruit léger produit par le frôlement ou le froissement d'une étoffe soyeuse.",
-      "Ornement en tissu d'un vêtement féminin."
-    ],
-    "url": "https://dictionnaire.lerobert.com/definition/froufrou",
-    "found": true,
-    "ref": "dictionnaire des onomatopées",
-    "ipa": "f ʀ u f ʀ u",
-    "ipa_source": "epitran",
-    "romanization": "froufrou"
   },
   {
     "word": "froum froum",
@@ -3996,19 +3910,6 @@
     "romanization": "groaw"
   },
   {
-    "word": "groin groin",
-    "meaning": [
-      "bruit de ronflement d'un dormeur.",
-      "bruit de grognement du porc ou du sanglier."
-    ],
-    "url": "dictionnaire des onomatopées",
-    "found": true,
-    "ref": "https://collegefrancais8.weebly.com/uploads/8/7/3/6/87366548/les_onomatop%C3%A9es_et_les_id%C3%A9ogrammes.pdf",
-    "ipa": "ɡ ʀ w a n ɡ ʀ ɔ ɛ̃",
-    "ipa_source": "epitran",
-    "romanization": "groin groin"
-  },
-  {
     "word": "groin-groin",
     "meaning": [
       "bruit de ronflement d'un dormeur.",
@@ -4134,18 +4035,6 @@
     "ipa": "ɡ ʀ ʀ ʀ",
     "ipa_source": "epitran",
     "romanization": "grrr"
-  },
-  {
-    "word": "guili guili",
-    "meaning": [
-      "accompagne un chatouillement, le plus souvent sur un bébé."
-    ],
-    "url": "dictionnaire des onomatopées",
-    "found": true,
-    "ref": "https://collegefrancais8.weebly.com/uploads/8/7/3/6/87366548/les_onomatop%C3%A9es_et_les_id%C3%A9ogrammes.pdf",
-    "ipa": "ɡ j i ɡ j i",
-    "ipa_source": "epitran",
-    "romanization": "guili guili"
   },
   {
     "word": "guili-guili",
@@ -4353,18 +4242,6 @@
     "ipa": "i",
     "ipa_source": "epitran",
     "romanization": "hi"
-  },
-  {
-    "word": "hi han",
-    "meaning": [
-      "Onomatopée évoquant le cri de l'âne."
-    ],
-    "url": "https://dictionnaire.lerobert.com/definition/hi%20han",
-    "found": true,
-    "ref": "dictionnaire des onomatopées",
-    "ipa": "i ɑ̃",
-    "ipa_source": "epitran",
-    "romanization": "hi han"
   },
   {
     "word": "hi hi",
@@ -4964,19 +4841,6 @@
     "romanization": "miam"
   },
   {
-    "word": "miam miam",
-    "meaning": [
-      "marque une appréciation gustative favorable.",
-      "pour inviter à manger; pour exprimer le désir ou le fait de manger."
-    ],
-    "url": "dictionnaire des onomatopées",
-    "found": true,
-    "ref": "https://www.aproposdecriture.com/wp-content/uploads/2018/09/Liste-non-exhaustive-d.pdf",
-    "ipa": "m j a m m j ɑ̃",
-    "ipa_source": "epitran",
-    "romanization": "miam miam"
-  },
-  {
     "word": "miam-miam",
     "meaning": [
       "Exclamation qui exprime le plaisir de manger.",
@@ -5360,18 +5224,6 @@
     "romanization": "oua"
   },
   {
-    "word": "oua oua",
-    "meaning": [
-      "bruit de gros rire."
-    ],
-    "url": "dictionnaire des onomatopées",
-    "found": true,
-    "ref": "dictionnaire des onomatopées",
-    "ipa": "w a w a",
-    "ipa_source": "epitran",
-    "romanization": "oua oua"
-  },
-  {
     "word": "ouab",
     "meaning": [
       "aboiement d'un chien."
@@ -5577,18 +5429,6 @@
     "ipa": "p a n p ɑ̃",
     "ipa_source": "epitran",
     "romanization": "pan pan"
-  },
-  {
-    "word": "pan-pan",
-    "meaning": [
-      "bruit d'un fessée; fessée."
-    ],
-    "url": "dictionnaire des onomatopées",
-    "found": true,
-    "ref": "dictionnaire des onomatopées",
-    "ipa": "p a n p ɑ̃",
-    "ipa_source": "epitran",
-    "romanization": "pan-pan"
   },
   {
     "word": "pang",
@@ -6323,18 +6163,6 @@
     "romanization": "pin pan pon"
   },
   {
-    "word": "pin pon",
-    "meaning": [
-      "bruit de l'avertisseur à deux tons des véhicules d'urgence : pompiers, police, ambulances."
-    ],
-    "url": "dictionnaire des onomatopées",
-    "found": true,
-    "ref": "https://fr.wikipedia.org/wiki/Onomatop%C3%A9e",
-    "ipa": "p i n p ɔ̃",
-    "ipa_source": "epitran",
-    "romanization": "pin pon"
-  },
-  {
     "word": "pin-pon",
     "meaning": [
       "Onomatopée qui exprime le bruit des avertisseurs à deux tons des voitures de pompiers (en France)."
@@ -6407,18 +6235,6 @@
     "ipa": "p j u p j u",
     "ipa_source": "epitran",
     "romanization": "piou piou"
-  },
-  {
-    "word": "piou-piou",
-    "meaning": [
-      "bruit du cri du poussin."
-    ],
-    "url": "dictionnaire des onomatopées",
-    "found": true,
-    "ref": "https://fr.wikipedia.org/wiki/Onomatop%C3%A9e",
-    "ipa": "p j u p j u",
-    "ipa_source": "epitran",
-    "romanization": "piou-piou"
   },
   {
     "word": "pirouite",
@@ -6923,21 +6739,6 @@
     "romanization": "poum tchac"
   },
   {
-    "word": "pout",
-    "meaning": [
-      "bruit de claquement de lèvres d'un fumeur de pipe.",
-      "bruit de bulles qui éclatent à la surface d'un aliment en train de cuire.",
-      "bruit de moteur, notamment d'une petite embarcation.",
-      "bruit produit par un pet."
-    ],
-    "url": "dictionnaire des onomatopées",
-    "found": true,
-    "ref": "dictionnaire des onomatopées",
-    "ipa": "p u",
-    "ipa_source": "epitran",
-    "romanization": "pout"
-  },
-  {
     "word": "pouêtte",
     "meaning": [
       "bruit de trompe, de trompette."
@@ -6974,18 +6775,6 @@
     "ipa": "p u t p u",
     "ipa_source": "epitran",
     "romanization": "pouët pouët"
-  },
-  {
-    "word": "pouët-pouët",
-    "meaning": [
-      "bruit produit le plus souvent par un objet manufacturé."
-    ],
-    "url": "dictionnaire des onomatopées",
-    "found": true,
-    "ref": "https://fr.wikipedia.org/wiki/Onomatop%C3%A9e",
-    "ipa": "p u t p u",
-    "ipa_source": "epitran",
-    "romanization": "pouët-pouët"
   },
   {
     "word": "prou",
@@ -8137,18 +7926,6 @@
     "romanization": "tagada tsoin tsoin"
   },
   {
-    "word": "tagada tsoin-tsoin",
-    "meaning": [
-      "bruit de fredonnement d'un air de musique."
-    ],
-    "url": "dictionnaire des onomatopées",
-    "found": true,
-    "ref": "http://www.les-onomatopees.fr/liste-onomatopees.php",
-    "ipa": "t a ɡ a d a t s w a n t s ɔ ɛ̃",
-    "ipa_source": "epitran",
-    "romanization": "tagada tsoin-tsoin"
-  },
-  {
     "word": "tagadac",
     "meaning": [
       "bruit de galop du cheval."
@@ -8436,18 +8213,6 @@
     "romanization": "tchit"
   },
   {
-    "word": "tchou tchou",
-    "meaning": [
-      "bruit d'une locomotive à vapeur."
-    ],
-    "url": "dictionnaire des onomatopées",
-    "found": true,
-    "ref": "dictionnaire des onomatopées",
-    "ipa": "t ʃ u t ʃ u",
-    "ipa_source": "epitran",
-    "romanization": "tchou tchou"
-  },
-  {
     "word": "tchou-tchou",
     "meaning": [
       "bruit d'une locomotive à vapeur."
@@ -8619,18 +8384,6 @@
     "ipa": "t i k t a k t ɔ k",
     "ipa_source": "epitran",
     "romanization": "tic tac toc"
-  },
-  {
-    "word": "tic-tac",
-    "meaning": [
-      "Bruit sec et uniformément répété d'un mécanisme (surtout d'horlogerie)."
-    ],
-    "url": "https://dictionnaire.lerobert.com/definition/tic-tac",
-    "found": true,
-    "ref": "dictionnaire des onomatopées",
-    "ipa": "t i k t a k",
-    "ipa_source": "epitran",
-    "romanization": "tic-tac"
   },
   {
     "word": "tic-toc",
