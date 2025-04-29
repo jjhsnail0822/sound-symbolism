@@ -8,7 +8,7 @@ def extract_segments():
     segments = {}
 
     for lang in langs:
-        json_path = os.path.join(base_dir, f'{lang}_ipa.json')
+        json_path = os.path.join(base_dir, f'{lang}.json')
         if not os.path.exists(json_path):
             continue
         with open(json_path, 'r', encoding='utf-8') as f:

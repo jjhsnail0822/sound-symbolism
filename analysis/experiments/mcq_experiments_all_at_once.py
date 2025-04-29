@@ -4,7 +4,7 @@ import json
 
 OUTPUT_DIR = "analysis/experiments/understanding/word_meaning_pair_matching"
 
-langs = ['en', 'fr', 'ko', 'ja']
+langs = ['en', 'fr', 'ja', 'ko']
 data_paths = [
     'dataset/3_questions/nat/understanding-unmasked_word_to_meaning_mcq-{language}.json',
     'dataset/3_questions/nat/understanding-masked_meaning_to_word_mcq-{language}.json'
@@ -44,7 +44,7 @@ for lang in langs:
             use_api=args.api,
             tensor_parallel_size=args.gpu,
             max_tokens=32,
-            max_model_len=8192,
+            max_model_len=4096,
             temperature=0.0,
         )
         results_dict, results_filename = experiment.run_mcq_experiment()

@@ -318,7 +318,7 @@
                 "url": "dictionnaire des onomatopées",
                 "found": true,
                 "ref": "dictionnaire des onomatopées",
-                "ipa": "d ɛ̃ ɡ - d ɑ̃ ɡ",
+                "ipa": "d ɛ̃ ɡ d ɑ̃ ɡ",
                 "ipa_source": "epitran",
                 "romanization": "ding-dang"
             },
@@ -330,7 +330,7 @@
                 "url": "dictionnaire des onomatopées",
                 "found": true,
                 "ref": "dictionnaire des onomatopées",
-                "ipa": "d ɛ̃ ɡ - d ɔ̃",
+                "ipa": "d ɛ̃ ɡ d ɔ̃",
                 "ipa_source": "epitran",
                 "romanization": "ding-dom"
             },
@@ -342,7 +342,7 @@
                 "url": "dictionnaire des onomatopées",
                 "found": true,
                 "ref": "dictionnaire des onomatopées",
-                "ipa": "d ɛ̃ ɡ - d ɔ̃ ɡ",
+                "ipa": "d ɛ̃ ɡ d ɔ̃ ɡ",
                 "ipa_source": "epitran",
                 "romanization": "ding-dong"
             }
@@ -372,7 +372,7 @@
                 "url": "dictionnaire des onomatopées",
                 "found": true,
                 "ref": "dictionnaire des onomatopées",
-                "ipa": "b w a - u",
+                "ipa": "b w a u",
                 "ipa_source": "epitran",
                 "romanization": "bouah-hou"
             }
@@ -1830,7 +1830,7 @@
                 "url": "dictionnaire des onomatopées",
                 "found": true,
                 "ref": "dictionnaire des onomatopées",
-                "ipa": "p u - ʃ u",
+                "ipa": "p u ʃ u",
                 "ipa_source": "epitran",
                 "romanization": "pou-chou"
             },
@@ -1866,7 +1866,7 @@
                 "url": "dictionnaire des onomatopées",
                 "found": true,
                 "ref": "http://www.les-onomatopees.fr/liste-onomatopees.php",
-                "ipa": "t ʃ u - t ʃ u",
+                "ipa": "t ʃ u t ʃ u",
                 "ipa_source": "epitran",
                 "romanization": "tchou-tchou"
             },
@@ -2019,7 +2019,7 @@
                 "url": "dictionnaire des onomatopées",
                 "found": true,
                 "ref": "dictionnaire des onomatopées",
-                "ipa": "ɡ ʀ w a n - ɡ ʀ ɔ ɛ̃",
+                "ipa": "ɡ ʀ w a n ɡ ʀ ɔ ɛ̃",
                 "ipa_source": "epitran",
                 "romanization": "groin-groin"
             },
@@ -2114,7 +2114,7 @@
                 "url": "dictionnaire des onomatopées",
                 "found": true,
                 "ref": "dictionnaire des onomatopées",
-                "ipa": "p ɔ n - p ɔ̃",
+                "ipa": "p ɔ n p ɔ̃",
                 "ipa_source": "epitran",
                 "romanization": "pon-pon"
             },
@@ -2138,7 +2138,7 @@
                 "url": "dictionnaire des onomatopées",
                 "found": true,
                 "ref": "http://www.les-onomatopees.fr/liste-onomatopees.php",
-                "ipa": "t a ɡ a d a t s w a n - t s ɔ ɛ̃",
+                "ipa": "t a ɡ a d a t s w a n t s ɔ ɛ̃",
                 "ipa_source": "epitran",
                 "romanization": "tagada tsoin-tsoin"
             }
@@ -2431,7 +2431,7 @@
                 "url": "dictionnaire des onomatopées",
                 "found": true,
                 "ref": "https://www.aproposdecriture.com/wp-content/uploads/2018/09/Liste-non-exhaustive-d.pdf",
-                "ipa": "w a - w a",
+                "ipa": "w a w a",
                 "ipa_source": "epitran",
                 "romanization": "ouah-ouah"
             },
@@ -2838,7 +2838,7 @@
                 "url": "dictionnaire des onomatopées",
                 "found": true,
                 "ref": "dictionnaire des onomatopées",
-                "ipa": "ɡ u z i - ɡ u z i",
+                "ipa": "ɡ u z i ɡ u z i",
                 "ipa_source": "epitran",
                 "romanization": "gouzi-gouzi"
             }
@@ -2899,7 +2899,7 @@
                 "url": "dictionnaire des onomatopées",
                 "found": true,
                 "ref": "dictionnaire des onomatopées",
-                "ipa": "f l i k ə - f l a k",
+                "ipa": "f l i k ə f l a k",
                 "ipa_source": "epitran",
                 "romanization": "flique-flaque"
             }
@@ -3007,7 +3007,7 @@
                 "url": "dictionnaire des onomatopées",
                 "found": true,
                 "ref": "dictionnaire des onomatopées",
-                "ipa": "k ʀ u - k ʀ u",
+                "ipa": "k ʀ u k ʀ u",
                 "ipa_source": "epitran",
                 "romanization": "crou-crou"
             },
@@ -3019,7 +3019,7 @@
                 "url": "dictionnaire des onomatopées",
                 "found": true,
                 "ref": "dictionnaire des onomatopées",
-                "ipa": "ɡ ʀ u - ɡ ʀ u",
+                "ipa": "ɡ ʀ u ɡ ʀ u",
                 "ipa_source": "epitran",
                 "romanization": "grou-grou"
             },
@@ -3073,7 +3073,7 @@
                 "url": "dictionnaire des onomatopées",
                 "found": true,
                 "ref": "https://fr.wikipedia.org/wiki/Onomatop%C3%A9e",
-                "ipa": "p i n - p ɔ n - p ɛ̃",
+                "ipa": "p i n p ɔ n p ɛ̃",
                 "ipa_source": "epitran",
                 "romanization": "pin-pon-pin"
             }
@@ -3220,7 +3220,7 @@
                 "url": "dictionnaire des onomatopées",
                 "found": true,
                 "ref": "dictionnaire des onomatopées",
-                "ipa": "a ʀ ə - a ʀ",
+                "ipa": "a ʀ ə a ʀ",
                 "ipa_source": "epitran",
                 "romanization": "are-are"
             },
@@ -3232,7 +3232,7 @@
                 "url": "dictionnaire des onomatopées",
                 "found": true,
                 "ref": "dictionnaire des onomatopées",
-                "ipa": "a ʀ ə y - a ʀ ø",
+                "ipa": "a ʀ ə y a ʀ ø",
                 "ipa_source": "epitran",
                 "romanization": "areu-areu"
             },
@@ -3244,7 +3244,7 @@
                 "url": "dictionnaire des onomatopées",
                 "found": true,
                 "ref": "dictionnaire des onomatopées",
-                "ipa": "a ʀ ə y - a ʀ ə y",
+                "ipa": "a ʀ ə y a ʀ ə y",
                 "ipa_source": "epitran",
                 "romanization": "areuh-areuh"
             }
@@ -3567,7 +3567,7 @@
                 "url": "dictionnaire des onomatopées",
                 "found": true,
                 "ref": "dictionnaire des onomatopées",
-                "ipa": "k w i n - k u",
+                "ipa": "k w i n k u",
                 "ipa_source": "epitran",
                 "romanization": "couin-cou"
             },
@@ -3581,7 +3581,7 @@
                 "url": "dictionnaire des onomatopées",
                 "found": true,
                 "ref": "dictionnaire des onomatopées",
-                "ipa": "k w i n - k w ɛ̃",
+                "ipa": "k w i n k w ɛ̃",
                 "ipa_source": "epitran",
                 "romanization": "couin-couin"
             }
@@ -3772,7 +3772,7 @@
                 "url": "dictionnaire des onomatopées",
                 "found": true,
                 "ref": "dictionnaire des onomatopées",
-                "ipa": "d ʀ ə l i n - d ʀ ə l ɛ̃",
+                "ipa": "d ʀ ə l i n d ʀ ə l ɛ̃",
                 "ipa_source": "epitran",
                 "romanization": "drelin-drelin"
             },
@@ -3981,7 +3981,7 @@
                 "url": "dictionnaire des onomatopées",
                 "found": true,
                 "ref": "https://fr.wikipedia.org/wiki/Onomatop%C3%A9e",
-                "ipa": "p ü t - p ü",
+                "ipa": "p ü t p ü",
                 "ipa_source": "epitran",
                 "romanization": "pouët-pouët"
             }
@@ -4449,7 +4449,7 @@
                 "url": "dictionnaire des onomatopées",
                 "found": true,
                 "ref": "dictionnaire des onomatopées",
-                "ipa": "p i - ɥ i",
+                "ipa": "p i ɥ i",
                 "ipa_source": "epitran",
                 "romanization": "pi-huit"
             },
@@ -4462,7 +4462,7 @@
                 "url": "dictionnaire des onomatopées",
                 "found": true,
                 "ref": "dictionnaire des onomatopées",
-                "ipa": "p i - w i",
+                "ipa": "p i w i",
                 "ipa_source": "epitran",
                 "romanization": "pi-ouit"
             },
@@ -4475,7 +4475,7 @@
                 "url": "dictionnaire des onomatopées",
                 "found": true,
                 "ref": "dictionnaire des onomatopées",
-                "ipa": "p i l - w i",
+                "ipa": "p i l w i",
                 "ipa_source": "epitran",
                 "romanization": "pil-ouit"
             },
@@ -4721,7 +4721,7 @@
                 "url": "https://dictionnaire.lerobert.com/definition/cri-cri",
                 "found": true,
                 "ref": "https://fr.wiktionary.org/wiki/Cat%C3%A9goriëMots_en_fran%C3%A7ais_issus_d%E2%80%99une_onomatop%C3%A9e",
-                "ipa": "k ʀ i - k ʀ i",
+                "ipa": "k ʀ i k ʀ i",
                 "ipa_source": "epitran",
                 "romanization": "cri-cri"
             }
@@ -4840,7 +4840,7 @@
                 "url": "https://dictionnaire.lerobert.com/definition/frou-frou",
                 "found": true,
                 "ref": "dictionnaire des onomatopées",
-                "ipa": "f ʀ u - f ʀ u",
+                "ipa": "f ʀ u f ʀ u",
                 "ipa_source": "epitran",
                 "romanization": "frou-frou"
             },
@@ -4940,7 +4940,7 @@
                 "url": "dictionnaire des onomatopées",
                 "found": true,
                 "ref": "dictionnaire des onomatopées",
-                "ipa": "p a n - p ɑ̃",
+                "ipa": "p a n p ɑ̃",
                 "ipa_source": "epitran",
                 "romanization": "pan-pan"
             },
@@ -4969,7 +4969,7 @@
                 "url": "https://dictionnaire.lerobert.com/definition/coin-coin",
                 "found": true,
                 "ref": "dictionnaire des onomatopées",
-                "ipa": "k w a n - k ɔ ɛ̃",
+                "ipa": "k w a n k ɔ ɛ̃",
                 "ipa_source": "epitran",
                 "romanization": "coin-coin"
             },
@@ -5047,7 +5047,7 @@
                 "url": "https://dictionnaire.lerobert.com/definition/tam-tam",
                 "found": true,
                 "ref": "http://www.les-onomatopees.fr/liste-onomatopees.php",
-                "ipa": "t a m - t ɑ̃",
+                "ipa": "t a m t ɑ̃",
                 "ipa_source": "epitran",
                 "romanization": "tam-tam"
             },
@@ -5177,7 +5177,7 @@
                 "url": "https://dictionnaire.lerobert.com/definition/hi-han",
                 "found": true,
                 "ref": "dictionnaire des onomatopées",
-                "ipa": "i - ɑ̃",
+                "ipa": "i ɑ̃",
                 "ipa_source": "epitran",
                 "romanization": "hi-han"
             }
@@ -5280,7 +5280,7 @@
                 "url": "https://dictionnaire.lerobert.com/definition/miam-miam",
                 "found": true,
                 "ref": "dictionnaire des onomatopées",
-                "ipa": "m j a m - m j ɑ̃",
+                "ipa": "m j a m m j ɑ̃",
                 "ipa_source": "epitran",
                 "romanization": "miam-miam"
             }
@@ -5422,7 +5422,7 @@
                 "url": "dictionnaire des onomatopées",
                 "found": true,
                 "ref": "dictionnaire des onomatopées",
-                "ipa": "k ʀ ʀ - k ʀ ʀ",
+                "ipa": "k ʀ ʀ k ʀ ʀ",
                 "ipa_source": "epitran",
                 "romanization": "crr-crr"
             }
@@ -5553,7 +5553,7 @@
                 "url": "https://dictionnaire.lerobert.com/definition/teuf-teuf",
                 "found": true,
                 "ref": "dictionnaire des onomatopées",
-                "ipa": "t œ f - t œ f",
+                "ipa": "t œ f t œ f",
                 "ipa_source": "epitran",
                 "romanization": "teuf-teuf"
             },
@@ -5909,7 +5909,7 @@
                 "url": "dictionnaire des onomatopées",
                 "found": true,
                 "ref": "dictionnaire des onomatopées",
-                "ipa": "t i k - t ɔ k",
+                "ipa": "t i k t ɔ k",
                 "ipa_source": "epitran",
                 "romanization": "tic-toc"
             }
@@ -5990,7 +5990,7 @@
                 "url": "dictionnaire des onomatopées",
                 "found": true,
                 "ref": "dictionnaire des onomatopées",
-                "ipa": "k l i k - k l ɔ k",
+                "ipa": "k l i k k l ɔ k",
                 "ipa_source": "epitran",
                 "romanization": "clic-cloc"
             }
@@ -6377,7 +6377,7 @@
                 "url": "dictionnaire des onomatopées",
                 "found": true,
                 "ref": "http://www.les-onomatopees.fr/liste-onomatopees.php",
-                "ipa": "t ɔ k - t ɔ k",
+                "ipa": "t ɔ k t ɔ k",
                 "ipa_source": "epitran",
                 "romanization": "toc-toc"
             }
@@ -6614,7 +6614,7 @@
                 "url": "https://dictionnaire.lerobert.com/definition/tsoin-tsoin",
                 "found": true,
                 "ref": "dictionnaire des onomatopées",
-                "ipa": "t s w a n - t s ɔ ɛ̃",
+                "ipa": "t s w a n t s ɔ ɛ̃",
                 "ipa_source": "epitran",
                 "romanization": "tsoin-tsoin"
             }
@@ -6694,7 +6694,7 @@
                 "url": "https://dictionnaire.lerobert.com/definition/cui-cui",
                 "found": true,
                 "ref": "https://lasonotheque.org/dossiers/dossier-liste-onomatopees.html",
-                "ipa": "k ɥ i - k ɥ i",
+                "ipa": "k ɥ i k ɥ i",
                 "ipa_source": "epitran",
                 "romanization": "cui-cui"
             }
@@ -7735,7 +7735,7 @@
                 "url": "dictionnaire des onomatopées",
                 "found": true,
                 "ref": "dictionnaire des onomatopées",
-                "ipa": "t y t y - p ɑ̃ p ɑ̃",
+                "ipa": "t y t y p ɑ̃ p ɑ̃",
                 "ipa_source": "epitran",
                 "romanization": "tutu-panpan"
             }
@@ -8521,7 +8521,7 @@
                 "url": "dictionnaire des onomatopées",
                 "found": true,
                 "ref": "dictionnaire des onomatopées",
-                "ipa": "p i - y",
+                "ipa": "p i y",
                 "ipa_source": "epitran",
                 "romanization": "pi-u"
             },
@@ -8533,7 +8533,7 @@
                 "url": "dictionnaire des onomatopées",
                 "found": true,
                 "ref": "dictionnaire des onomatopées",
-                "ipa": "p j ə - ÿ",
+                "ipa": "p j ə ÿ",
                 "ipa_source": "epitran",
                 "romanization": "pie-ü"
             }
@@ -8614,7 +8614,7 @@
                 "url": "dictionnaire des onomatopées",
                 "found": true,
                 "ref": "https://collegefrancais8.weebly.com/uploads/8/7/3/6/87366548/les_onomatop%C3%A9es_et_les_id%C3%A9ogrammes.pdf",
-                "ipa": "f l a p - f l a",
+                "ipa": "f l a p f l a",
                 "ipa_source": "epitran",
                 "romanization": "flap-flap"
             }
@@ -8812,7 +8812,7 @@
                 "url": "dictionnaire des onomatopées",
                 "found": true,
                 "ref": "dictionnaire des onomatopées",
-                "ipa": "f l i p - f l a",
+                "ipa": "f l i p f l a",
                 "ipa_source": "epitran",
                 "romanization": "flip-flap"
             }
@@ -8960,7 +8960,7 @@
                 "url": "dictionnaire des onomatopées",
                 "found": true,
                 "ref": "dictionnaire des onomatopées",
-                "ipa": "t y m p - t y m",
+                "ipa": "t y m p t y m",
                 "ipa_source": "epitran",
                 "romanization": "thump-thump"
             },
@@ -8973,7 +8973,7 @@
                 "url": "dictionnaire des onomatopées",
                 "found": true,
                 "ref": "dictionnaire des onomatopées",
-                "ipa": "t ɔ m - t ɔ̃",
+                "ipa": "t ɔ m t ɔ̃",
                 "ipa_source": "epitran",
                 "romanization": "tom-tom"
             }
@@ -9143,7 +9143,7 @@
                 "url": "dictionnaire des onomatopées",
                 "found": true,
                 "ref": "dictionnaire des onomatopées",
-                "ipa": "t s w i n - t s w ɛ̃",
+                "ipa": "t s w i n t s w ɛ̃",
                 "ipa_source": "epitran",
                 "romanization": "tsouin-tsouin"
             }
@@ -9178,7 +9178,7 @@
                 "url": "dictionnaire des onomatopées",
                 "found": true,
                 "ref": "dictionnaire des onomatopées",
-                "ipa": "ɡ l i - ɡ l i",
+                "ipa": "ɡ l i ɡ l i",
                 "ipa_source": "epitran",
                 "romanization": "gli-gli"
             }
@@ -9368,7 +9368,7 @@
                 "url": "https://dictionnaire.lerobert.com/definition/flic-flac",
                 "found": true,
                 "ref": "https://collegefrancais8.weebly.com/uploads/8/7/3/6/87366548/les_onomatop%C3%A9es_et_les_id%C3%A9ogrammes.pdf",
-                "ipa": "f l i k - f l a k",
+                "ipa": "f l i k f l a k",
                 "ipa_source": "epitran",
                 "romanization": "flic-flac"
             }
@@ -9519,7 +9519,7 @@
                 "url": "dictionnaire des onomatopées",
                 "found": true,
                 "ref": "https://fr.wikipedia.org/wiki/Onomatop%C3%A9e",
-                "ipa": "p s ʃ i t - p s ʃ i t",
+                "ipa": "p s ʃ i t p s ʃ i t",
                 "ipa_source": "epitran",
                 "romanization": "pschitt-pschitt"
             }
@@ -9623,7 +9623,7 @@
                 "url": "dictionnaire des onomatopées",
                 "found": true,
                 "ref": "dictionnaire des onomatopées",
-                "ipa": "p j a - p j a",
+                "ipa": "p j a p j a",
                 "ipa_source": "epitran",
                 "romanization": "pia-pia"
             }
@@ -9674,7 +9674,7 @@
                 "url": "https://dictionnaire.lerobert.com/definition/pin-pon",
                 "found": true,
                 "ref": "https://fr.wikipedia.org/wiki/Onomatop%C3%A9e",
-                "ipa": "p i n - p ɔ̃",
+                "ipa": "p i n p ɔ̃",
                 "ipa_source": "epitran",
                 "romanization": "pin-pon"
             }
@@ -9969,7 +9969,7 @@
                 "url": "dictionnaire des onomatopées",
                 "found": true,
                 "ref": "dictionnaire des onomatopées",
-                "ipa": "k ʀ i s - k ʀ i s",
+                "ipa": "k ʀ i s k ʀ i s",
                 "ipa_source": "epitran",
                 "romanization": "criss-criss"
             }
@@ -10051,7 +10051,7 @@
                 "url": "dictionnaire des onomatopées",
                 "found": true,
                 "ref": "dictionnaire des onomatopées",
-                "ipa": "t ɥ i - t ɥ i",
+                "ipa": "t ɥ i t ɥ i",
                 "ipa_source": "epitran",
                 "romanization": "tui-tui"
             },
@@ -10269,7 +10269,7 @@
                 "url": "https://dictionnaire.lerobert.com/definition/tic-tac",
                 "found": true,
                 "ref": "dictionnaire des onomatopées",
-                "ipa": "t i k - t a k",
+                "ipa": "t i k t a k",
                 "ipa_source": "epitran",
                 "romanization": "tic-tac"
             }
@@ -10644,7 +10644,7 @@
                 "url": "https://dictionnaire.lerobert.com/definition/clic-clac",
                 "found": true,
                 "ref": "dictionnaire des onomatopées",
-                "ipa": "k l i k - k l a k",
+                "ipa": "k l i k k l a k",
                 "ipa_source": "epitran",
                 "romanization": "clic-clac"
             }
@@ -11094,7 +11094,7 @@
                 "url": "dictionnaire des onomatopées",
                 "found": true,
                 "ref": "https://fr.wikipedia.org/wiki/Onomatop%C3%A9e",
-                "ipa": "p j u - p j u",
+                "ipa": "p j u p j u",
                 "ipa_source": "epitran",
                 "romanization": "piou-piou"
             }
@@ -11778,7 +11778,7 @@
                 "url": "dictionnaire des onomatopées",
                 "found": true,
                 "ref": "dictionnaire des onomatopées",
-                "ipa": "ɡ j i - ɡ j i",
+                "ipa": "ɡ j i ɡ j i",
                 "ipa_source": "epitran",
                 "romanization": "guili-guili"
             }
