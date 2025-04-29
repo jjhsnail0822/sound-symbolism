@@ -15,8 +15,12 @@ def convert_to_ipa(input_word, epi):
                 word += segment
             elif word and word[-1] == '͡':
                 word += segment
-            elif segment == "," or segment == "̀" or segment == "̂" or segment == " ":
+            elif segment == "," or segment == "-" or segment == "̀" or segment == "̂" or segment == " ":
                 continue
+            elif segment == "ÿ":
+                word += "y"
+            elif segment == "ü":
+                word += "u"
             else:
                 word = word + ' ' + segment
         return word.strip()

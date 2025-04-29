@@ -24,6 +24,7 @@ class MCQExperiment:
             max_tokens: int = 32,
             max_model_len: int = 4096,
             temperature: float = 0.0,
+            thinking: bool = False,
     ):
         self.model_path = model_path
         self.data_path = data_path
@@ -33,6 +34,7 @@ class MCQExperiment:
         self.max_tokens = max_tokens
         self.max_model_len = max_model_len
         self.temperature = temperature
+        self.thinking = thinking
 
         # Load environment variables from .env.local file
         env_path = Path('.env.local')
@@ -73,6 +75,8 @@ class MCQExperiment:
         
         # Run experiment
         print(f"Running MCQ experiment on {len(mcq_data)} questions...")
+        if self.thinking:
+            print("Thinking mode enabled for Qwen3.")
         all_results = []
         
         # Process in batches
@@ -100,7 +104,7 @@ class MCQExperiment:
                         conversation,
                         tokenize=False,
                         add_generation_prompt=True,
-                        enable_thinking=False  # Setting enable_thinking=False disables thinking mode
+                        enable_thinking=self.thinking,
                     )
                     response = model.generate(text, sampling_params=sampling_params)
                 else:
@@ -108,6 +112,9 @@ class MCQExperiment:
                 
                 # Extract answer from the first element of the response list
                 model_answer = response[0].outputs[0].text.strip()
+                # remove <think> ... </think> tags
+                if self.thinking:
+                    model_answer = re.sub(r'<think>.*?</think>', '', model_answer, flags=re.DOTALL)
 
             # First integer is the answer
             model_answer = re.search(r'\d+', model_answer)
@@ -148,13 +155,14 @@ class MCQExperiment:
         
         # Save results
         model_name = os.path.basename(self.model_path)
-        results_filename = f"{self.output_dir}/{self.data_path.split('/')[-1].replace('.json', '')}_{model_name}.json"
+        results_filename = f"{self.output_dir}/{self.data_path.split('/')[-1].replace('.json', '')}_{model_name}{'-thinking' if self.thinking else ''}.json"
         
         results_dict = {
             "model": self.model_path,
             "accuracy": accuracy,
             "correct_count": correct_count,
             "total_count": total_count,
+            "thinking": self.thinking,
             "results": all_results,
         }
 
@@ -174,6 +182,7 @@ if __name__ == "__main__":
     parser.add_argument("--max-model-len", type=int, default=4096, help="Maximum model length")
     parser.add_argument("--temperature", type=float, default=0.0, help="Sampling temperature")
     parser.add_argument("--api", action='store_true', help="Use OpenAI API instead of local model")
+    parser.add_argument("--thinking", action='store_true', help="Enable thinking mode for Qwen3")
     
     args = parser.parse_args()
 
@@ -185,6 +194,7 @@ if __name__ == "__main__":
         tensor_parallel_size=args.gpu,
         max_tokens=args.max_tokens,
         max_model_len=args.max_model_len,
-        temperature=args.temperature
+        temperature=args.temperature,
+        thinking=args.thinking,
     )
     results, results_filename = mcq_experiment.run_mcq_experiment()

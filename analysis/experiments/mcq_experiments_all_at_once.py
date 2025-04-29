@@ -30,6 +30,11 @@ parser.add_argument(
     action="store_true",
     help="Use OpenAI API instead of local model",
 )
+parser.add_argument(
+    "--thinking",
+    action="store_true",
+    help="Enable thinking mode for Qwen3",
+)
 args = parser.parse_args()
 
 all_brief_results = []
@@ -46,6 +51,7 @@ for lang in langs:
             max_tokens=32,
             max_model_len=4096,
             temperature=0.0,
+            thinking=args.thinking,
         )
         results_dict, results_filename = experiment.run_mcq_experiment()
         with open(results_filename, 'w', encoding='utf-8') as f:
@@ -57,9 +63,10 @@ for lang in langs:
             "correct_count": results_dict["correct_count"],
             "total_count": results_dict["total_count"],
             "data_path": formatted_path,
+            "thinking": args.thinking,
         })
 # Save all brief results to a single file
-all_results_filename = f"{OUTPUT_DIR}/all_results_{args.model.replace('/', '_')}.json"
+all_results_filename = f"{OUTPUT_DIR}/all_results_{args.model.replace('/', '_')}{'-thinking' if args.thinking else ''}.json"
 with open(all_results_filename, 'w', encoding='utf-8') as f:
     json.dump(all_brief_results, f, ensure_ascii=False, indent=4)
 print(f"All results saved to {all_results_filename}")

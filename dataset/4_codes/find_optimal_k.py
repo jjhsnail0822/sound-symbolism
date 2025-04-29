@@ -10,7 +10,7 @@ from tqdm import tqdm
 
 parser = argparse.ArgumentParser(description='Get optimal k using silhouette method')
 parser.add_argument('-l', '--language', type=str, default='ko', help='Language code (default: ko)', choices=['ko', 'en', 'ja', 'fr'])
-parser.add_argument('-k', '--max-k', type=int, default=650, help='Max k for silhouette method (default: 650)')
+parser.add_argument('-k', '--max-k', type=int, default=600, help='Max k for silhouette method (default: 600)')
 args = parser.parse_args()
 
 LANGUAGE = args.language

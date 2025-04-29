@@ -64,7 +64,7 @@ with open(f'dataset/1_preprocess/nat/{LANGUAGE}_embeddings.pkl', 'wb') as f:
 ########################
 
 
-# LANGUAGE = 'en'
+# LANGUAGE = 'fr'
 
 # with open(f'dataset/1_preprocess/nat/{LANGUAGE}.json', 'r', encoding='utf-8') as f:
 #     data = json.load(f)
