@@ -31,7 +31,7 @@ class MCQExperiment:
         self.output_dir = output_dir
         self.use_api = use_api
         self.tensor_parallel_size = tensor_parallel_size
-        self.max_tokens = max_tokens
+        self.max_tokens = max_tokens if 'Qwen3' not in model_path else max_model_len # for thinking mode
         self.max_model_len = max_model_len
         self.temperature = temperature
         self.thinking = thinking
@@ -135,7 +135,7 @@ class MCQExperiment:
                 print(f"Warning: Model output '{model_answer}' is not a valid integer. Marking as incorrect.")
                 is_correct = False
 
-            print(query['question'])
+            # print(query['question'])
             print(f"Model answer: {model_answer}, Correct answer: {query['answer']}, Is correct: {is_correct}")
             
             # Store result

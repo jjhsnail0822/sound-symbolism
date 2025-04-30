@@ -45,6 +45,10 @@ desired_order = [
     'Qwen3-8B',
     'Qwen3-14B',
     'Qwen3-32B',
+    'Qwen3-4B-thinking',
+    'Qwen3-8B-thinking',
+    'Qwen3-14B-thinking',
+    'Qwen3-32B-thinking',
     'gpt-4o',
     'gpt-4.1',
     'o4-mini',
@@ -84,6 +88,7 @@ def plot_group(ax, subcats, title):
     gemma_idx = 0
     qwen25_idx = 0
     qwen_idx = 0
+    qwen_thinking_idx = 0
     olmo_idx = 0
     gpt_idx = 0
     for i, m in enumerate(models):
@@ -98,6 +103,9 @@ def plot_group(ax, subcats, title):
         elif 'qwen3' in m.lower():
             color = qwen_colors[qwen_idx % len(qwen_colors)]
             qwen_idx += 1
+        elif 'qwen3' in m.lower() and 'thinking' in m.lower():
+            color = qwen_colors[qwen_thinking_idx % len(qwen_colors)]
+            qwen_thinking_idx += 1
         elif 'olmo' in m.lower():
             color = olmo_colors[olmo_idx % len(olmo_colors)]
             olmo_idx += 1
