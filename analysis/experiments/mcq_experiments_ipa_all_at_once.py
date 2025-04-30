@@ -2,7 +2,7 @@ from mcq_experiment import MCQExperiment
 import argparse
 import json
 
-OUTPUT_DIR = "analysis/experiments/understanding/word_meaning_pair_matching"
+OUTPUT_DIR = "analysis/experiments/understanding/ipa_word_meaning_pair_matching"
 
 langs = ['en', 'fr', 'ja', 'ko']
 data_paths = [
