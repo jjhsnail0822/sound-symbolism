@@ -1,0 +1,4266 @@
+[
+    {
+        "word": "pow",
+        "meaning": [
+            "Representing the sound of a blow, punch, shot, etc."
+        ],
+        "dialogues": [
+            {
+                "dialogue": [
+                    {
+                        "speaker": "Liam",
+                        "index": 1,
+                        "text": "Did you catch that last sequence? The choreography was insane!"
+                    },
+                    {
+                        "speaker": "Emma",
+                        "index": 2,
+                        "text": "Absolutely! That guy just nailed his opponent with a spinning punch. What a move!"
+                    },
+                    {
+                        "speaker": "Liam",
+                        "index": 3,
+                        "text": "Right? And when he countered with that elbow strike, it was like, wow! I felt that hit."
+                    },
+                    {
+                        "speaker": "Emma",
+                        "index": 4,
+                        "text": "Exactly! It's those little moments that really amp up the tension. You almost lean forward when it happens."
+                    },
+                    {
+                        "speaker": "Liam",
+                        "index": 5,
+                        "text": "Totally! And the sound effects were on point. Every time a fist connected, it was so impactful."
+                    },
+                    {
+                        "speaker": "Emma",
+                        "index": 6,
+                        "text": "Right? It was like, pow! You could practically feel it in your bones!"
+                    }
+                ],
+                "meta_data": {
+                    "dialogue_num": 1,
+                    "language": "en",
+                    "num_utterances": 6,
+                    "ss_idx": 6,
+                    "success": true
+                }
+            },
+            {
+                "dialogue": [
+                    {
+                        "speaker": "Liam",
+                        "index": 1,
+                        "text": "That fight was something else! Did you see how quick those punches were flying?"
+                    },
+                    {
+                        "speaker": "Emma",
+                        "index": 2,
+                        "text": "Right? I was surprised by how fierce they both were. I thought someone might get knocked out in the first round!"
+                    },
+                    {
+                        "speaker": "Liam",
+                        "index": 3,
+                        "text": "I know! But when he finally landed that shot—pow!—it was like the whole room shook! I was on my feet!"
+                    },
+                    {
+                        "speaker": "Emma",
+                        "index": 4,
+                        "text": "Exactly! That moment was insane! How can you not love that kind of energy?"
+                    },
+                    {
+                        "speaker": "Liam",
+                        "index": 5,
+                        "text": "Totally! And can you believe some people think boxing is boring? They clearly haven't seen these fighters."
+                    },
+                    {
+                        "speaker": "Emma",
+                        "index": 6,
+                        "text": "Right? They should experience that kind of excitement live! It's unbeatable."
+                    }
+                ],
+                "meta_data": {
+                    "dialogue_num": 2,
+                    "language": "en",
+                    "num_utterances": 6,
+                    "ss_idx": 3,
+                    "success": true
+                }
+            },
+            {
+                "dialogue": [
+                    {
+                        "speaker": "Lucas",
+                        "index": 1,
+                        "text": "You ready for another round of Street Fighter, Sarah?"
+                    },
+                    {
+                        "speaker": "Sarah",
+                        "index": 2,
+                        "text": "Of course! Last time, I think you underestimated my kicks."
+                    },
+                    {
+                        "speaker": "Lucas",
+                        "index": 3,
+                        "text": "Maybe a little, but this time, I’ve got a secret move up my sleeve."
+                    },
+                    {
+                        "speaker": "Sarah",
+                        "index": 4,
+                        "text": "Oh, is that so? Bring it on! I'm not backing down."
+                    },
+                    {
+                        "speaker": "Lucas",
+                        "index": 5,
+                        "text": "Here it comes! Pow! Take that!"
+                    },
+                    {
+                        "speaker": "Sarah",
+                        "index": 6,
+                        "text": "Ah, you got me good! But I’m not done yet!"
+                    }
+                ],
+                "meta_data": {
+                    "dialogue_num": 3,
+                    "language": "en",
+                    "num_utterances": 6,
+                    "ss_idx": 5,
+                    "success": true
+                }
+            },
+            {
+                "dialogue": [
+                    {
+                        "speaker": "Laura",
+                        "index": 1,
+                        "text": "I can't believe how wild that boxing match was! Every punch felt like it could change everything."
+                    },
+                    {
+                        "speaker": "Jack",
+                        "index": 2,
+                        "text": "Totally agree! That moment when the underdog ducked and then swung back was surreal. It was like *wham*!"
+                    },
+                    {
+                        "speaker": "Laura",
+                        "index": 3,
+                        "text": "Exactly! And when the main fighter landed that final hit, it made the whole crowd go crazy!"
+                    },
+                    {
+                        "speaker": "Jack",
+                        "index": 4,
+                        "text": "Oh, for sure! You could feel the tension in the air. I mean, when he struck, it sounded like *boom*!"
+                    },
+                    {
+                        "speaker": "Laura",
+                        "index": 5,
+                        "text": "And the way the crowd erupted after that... I was on my feet! It was such a rush."
+                    },
+                    {
+                        "speaker": "Jack",
+                        "index": 6,
+                        "text": "Right? That punch was something else—just *pow*! What a night!"
+                    }
+                ],
+                "meta_data": {
+                    "dialogue_num": 4,
+                    "language": "en",
+                    "num_utterances": 6,
+                    "ss_idx": 6,
+                    "success": true
+                }
+            },
+            {
+                "dialogue": [
+                    {
+                        "speaker": "Chris",
+                        "index": 1,
+                        "text": "So, Emma, how's it been feeling to train in that new martial arts class?"
+                    },
+                    {
+                        "speaker": "Emma",
+                        "index": 2,
+                        "text": "It's been a blast! I just learned this awesome side kick that I've been dying to show you."
+                    },
+                    {
+                        "speaker": "Chris",
+                        "index": 3,
+                        "text": "Let's see it! I bet it's going to look super impressive."
+                    },
+                    {
+                        "speaker": "Emma",
+                        "index": 4,
+                        "text": "Alright, check this out! *Emma executes the kick* POW! How was that?"
+                    },
+                    {
+                        "speaker": "Chris",
+                        "index": 5,
+                        "text": "Wow! That was incredible! You really packed a punch."
+                    },
+                    {
+                        "speaker": "Emma",
+                        "index": 6,
+                        "text": "Thanks! I'm really getting into the groove of it all. Can't wait for the next class!"
+                    }
+                ],
+                "meta_data": {
+                    "dialogue_num": 5,
+                    "language": "en",
+                    "num_utterances": 6,
+                    "ss_idx": 4,
+                    "success": true
+                }
+            }
+        ]
+    },
+    {
+        "word": "plout",
+        "meaning": [
+            "To fall with a splash; to plunge or splash in water.",
+            "The action of plunging or submerging."
+        ],
+        "dialogues": [
+            {
+                "dialogue": [
+                    {
+                        "speaker": "Samantha",
+                        "index": 1,
+                        "text": "Last time I dove in, I went right off the edge and it went *plout*!"
+                    },
+                    {
+                        "speaker": "Michael",
+                        "index": 2,
+                        "text": "That sounds like so much fun! We definitely need to dive together this time."
+                    },
+                    {
+                        "speaker": "Samantha",
+                        "index": 3,
+                        "text": "For sure! Let’s make it interesting—whoever can make the biggest splash gets to choose our toppings!"
+                    },
+                    {
+                        "speaker": "Michael",
+                        "index": 4,
+                        "text": "I’m down for that! Just wait until you see my cannonball; it’s going to create a *huge* splash!"
+                    },
+                    {
+                        "speaker": "Samantha",
+                        "index": 5,
+                        "text": "Oh, it’s on! I’ll be doing flips, so prepare to be amazed!"
+                    },
+                    {
+                        "speaker": "Michael",
+                        "index": 6,
+                        "text": "Let’s do this! May the best diver win!"
+                    }
+                ],
+                "meta_data": {
+                    "dialogue_num": 1,
+                    "language": "en",
+                    "num_utterances": 6,
+                    "ss_idx": 1,
+                    "success": true
+                }
+            },
+            {
+                "dialogue": [
+                    {
+                        "speaker": "Emily",
+                        "index": 1,
+                        "text": "Wow, that frog just went plout into the pond! Did you see that?"
+                    },
+                    {
+                        "speaker": "Jake",
+                        "index": 2,
+                        "text": "Yeah! It’s like they’re showing off their diving skills. It’s hilarious!"
+                    },
+                    {
+                        "speaker": "Emily",
+                        "index": 3,
+                        "text": "We should totally try jumping in and see who can make the biggest splash!"
+                    },
+                    {
+                        "speaker": "Jake",
+                        "index": 4,
+                        "text": "I’m in! Get ready for an epic showdown!"
+                    },
+                    {
+                        "speaker": "Emily",
+                        "index": 5,
+                        "text": "Okay, on the count of three then! One, two, three!"
+                    },
+                    {
+                        "speaker": "Jake",
+                        "index": 6,
+                        "text": "Here goes nothing! Splash zone, here we come!"
+                    }
+                ],
+                "meta_data": {
+                    "dialogue_num": 2,
+                    "language": "en",
+                    "num_utterances": 6,
+                    "ss_idx": 1,
+                    "success": true
+                }
+            },
+            {
+                "dialogue": [
+                    {
+                        "speaker": "Alice",
+                        "index": 1,
+                        "text": "I can hardly believe we're going to the lake this weekend! Just thinking about the warm sun and splashing around gets me so pumped!"
+                    },
+                    {
+                        "speaker": "Jake",
+                        "index": 2,
+                        "text": "Right? I'm excited too! Hopefully, the weather holds up. Last time it was so unpredictable; one moment it was perfect, then suddenly it was like a scene from a storm movie."
+                    },
+                    {
+                        "speaker": "Alice",
+                        "index": 3,
+                        "text": "Oh, I remember that! I got so fed up waiting for it to clear, that I just leaped in! I was like, 'Why not?' And plout! I soaked everyone."
+                    },
+                    {
+                        "speaker": "Jake",
+                        "index": 4,
+                        "text": "Haha, yes! You were a total daredevil. I can't believe I hesitated. Everyone looked so surprised, especially me."
+                    },
+                    {
+                        "speaker": "Alice",
+                        "index": 5,
+                        "text": "It was such a spontaneous moment! We should totally do something like that again."
+                    },
+                    {
+                        "speaker": "Jake",
+                        "index": 6,
+                        "text": "Absolutely! This time, I'm diving in with you, no second thoughts!"
+                    }
+                ],
+                "meta_data": {
+                    "dialogue_num": 3,
+                    "language": "en",
+                    "num_utterances": 6,
+                    "ss_idx": 3,
+                    "success": true
+                }
+            },
+            {
+                "dialogue": [
+                    {
+                        "speaker": "Mia",
+                        "index": 1,
+                        "text": "It's such a beautiful day! The water over there looks awfully tempting."
+                    },
+                    {
+                        "speaker": "Liam",
+                        "index": 2,
+                        "text": "Absolutely! I think we should go for a swim and cool down."
+                    },
+                    {
+                        "speaker": "Mia",
+                        "index": 3,
+                        "text": "I love watching someone plout into the water first; it always adds to the excitement."
+                    },
+                    {
+                        "speaker": "Liam",
+                        "index": 4,
+                        "text": "Alright, here goes nothing! *splash* Did you see that? I totally just jumped in!"
+                    },
+                    {
+                        "speaker": "Mia",
+                        "index": 5,
+                        "text": "That was awesome! You looked like you were flying before you hit the water."
+                    },
+                    {
+                        "speaker": "Liam",
+                        "index": 6,
+                        "text": "Thanks! You have to try it too. Just jump in; it’s the best way to beat the heat!"
+                    }
+                ],
+                "meta_data": {
+                    "dialogue_num": 4,
+                    "language": "en",
+                    "num_utterances": 6,
+                    "ss_idx": 3,
+                    "success": true
+                }
+            },
+            {
+                "dialogue": [
+                    {
+                        "speaker": "Jake",
+                        "index": 1,
+                        "text": "Look at those kids having a blast! We should definitely join them."
+                    },
+                    {
+                        "speaker": "Sophie",
+                        "index": 2,
+                        "text": "Absolutely! I'm ready to just plout into that water without a second thought."
+                    },
+                    {
+                        "speaker": "Jake",
+                        "index": 3,
+                        "text": "Just watch out for those big waves! They seem really powerful."
+                    },
+                    {
+                        "speaker": "Sophie",
+                        "index": 4,
+                        "text": "Pffft, waves can't stop me! I live for moments like this!"
+                    },
+                    {
+                        "speaker": "Jake",
+                        "index": 5,
+                        "text": "Alright then! Let’s make a dash before we lose the moment."
+                    },
+                    {
+                        "speaker": "Sophie",
+                        "index": 6,
+                        "text": "On the count of three—one, two, three—splash!"
+                    }
+                ],
+                "meta_data": {
+                    "dialogue_num": 5,
+                    "language": "en",
+                    "num_utterances": 6,
+                    "ss_idx": 2,
+                    "success": true
+                }
+            }
+        ]
+    },
+    {
+        "word": "wap",
+        "meaning": [
+            "To bark."
+        ],
+        "dialogues": [
+            {
+                "dialogue": [
+                    {
+                        "speaker": "Emily",
+                        "index": 1,
+                        "text": "I just saw you at the park with your dog, Jake! How is he doing?"
+                    },
+                    {
+                        "speaker": "Jake",
+                        "index": 2,
+                        "text": "He's great! Just a little hyper today. Wap! Wap! You should see how he gets when he spots a squirrel."
+                    },
+                    {
+                        "speaker": "Emily",
+                        "index": 3,
+                        "text": "That sounds like so much fun! What's his name again?"
+                    },
+                    {
+                        "speaker": "Jake",
+                        "index": 4,
+                        "text": "His name is Rocky. He's a bundle of energy, always ready to play."
+                    },
+                    {
+                        "speaker": "Emily",
+                        "index": 5,
+                        "text": "I can tell! He looks like he could run for hours. What breed is he?"
+                    },
+                    {
+                        "speaker": "Jake",
+                        "index": 6,
+                        "text": "He's an Australian Shepherd. Smart and super playful!"
+                    }
+                ],
+                "meta_data": {
+                    "dialogue_num": 1,
+                    "language": "en",
+                    "num_utterances": 6,
+                    "ss_idx": 2,
+                    "success": true
+                }
+            },
+            {
+                "dialogue": [
+                    {
+                        "speaker": "Emma",
+                        "index": 1,
+                        "text": "Look at Charlie over there! He's fixated on something."
+                    },
+                    {
+                        "speaker": "Liam",
+                        "index": 2,
+                        "text": "I think he’s spotted a bird. He always goes into this intense mode."
+                    },
+                    {
+                        "speaker": "Emma",
+                        "index": 3,
+                        "text": "Right? I just love how he gets all serious about it."
+                    },
+                    {
+                        "speaker": "Liam",
+                        "index": 4,
+                        "text": "Exactly! You can practically see the gears turning in his head."
+                    },
+                    {
+                        "speaker": "Emma",
+                        "index": 5,
+                        "text": "Oh, here it comes! He's getting ready!"
+                    },
+                    {
+                        "speaker": "Liam",
+                        "index": 6,
+                        "text": "Wap! There it is! Classic Charlie!"
+                    }
+                ],
+                "meta_data": {
+                    "dialogue_num": 2,
+                    "language": "en",
+                    "num_utterances": 6,
+                    "ss_idx": 6,
+                    "success": true
+                }
+            },
+            {
+                "dialogue": [
+                    {
+                        "speaker": "Emily",
+                        "index": 1,
+                        "text": "Look at that big pup over there! Isn't he just the most playful thing?"
+                    },
+                    {
+                        "speaker": "Mark",
+                        "index": 2,
+                        "text": "Totally! He looks like he’s eager to get a game going."
+                    },
+                    {
+                        "speaker": "Emily",
+                        "index": 3,
+                        "text": "I know! I can already imagine him bouncing around, making his presence known."
+                    },
+                    {
+                        "speaker": "Mark",
+                        "index": 4,
+                        "text": "Wap! There it is! He's definitely trying to rally everyone for fun."
+                    },
+                    {
+                        "speaker": "Emily",
+                        "index": 5,
+                        "text": "Exactly! It’s like he’s on a mission to find a playmate."
+                    },
+                    {
+                        "speaker": "Mark",
+                        "index": 6,
+                        "text": "Dogs really have a knack for letting us know when they want to engage."
+                    }
+                ],
+                "meta_data": {
+                    "dialogue_num": 3,
+                    "language": "en",
+                    "num_utterances": 6,
+                    "ss_idx": 4,
+                    "success": true
+                }
+            },
+            {
+                "dialogue": [
+                    {
+                        "speaker": "Jake",
+                        "index": 1,
+                        "text": "Did you hear Bella? She just went *wap*! I think she saw a butterfly!"
+                    },
+                    {
+                        "speaker": "Emma",
+                        "index": 2,
+                        "text": "Oh, she’s so curious! Bella has a knack for spotting everything, doesn’t she?"
+                    },
+                    {
+                        "speaker": "Jake",
+                        "index": 3,
+                        "text": "Absolutely! Speaking of spotting things, how did your presentation go yesterday?"
+                    },
+                    {
+                        "speaker": "Emma",
+                        "index": 4,
+                        "text": "It went really well! But I was a bit *wap* nervous before walking on stage."
+                    },
+                    {
+                        "speaker": "Jake",
+                        "index": 5,
+                        "text": "I can totally relate! You always shine under pressure, just like Bella getting all that attention."
+                    },
+                    {
+                        "speaker": "Emma",
+                        "index": 6,
+                        "text": "Haha, thanks! If only I could be as bold as she is when meeting new people!"
+                    }
+                ],
+                "meta_data": {
+                    "dialogue_num": 4,
+                    "language": "en",
+                    "num_utterances": 6,
+                    "ss_idx": 1,
+                    "success": true
+                }
+            },
+            {
+                "dialogue": [
+                    {
+                        "speaker": "Clara",
+                        "index": 1,
+                        "text": "I can’t believe how many dogs are out today! Look at them having so much fun."
+                    },
+                    {
+                        "speaker": "Noah",
+                        "index": 2,
+                        "text": "Right? I love seeing them play together. Makes me want to adopt one."
+                    },
+                    {
+                        "speaker": "Clara",
+                        "index": 3,
+                        "text": "Same here! I actually want a dog that’s a little goofy. *Wap!* Did you hear that one?"
+                    },
+                    {
+                        "speaker": "Noah",
+                        "index": 4,
+                        "text": "I did! He sounds like he’s ready for a game of fetch."
+                    },
+                    {
+                        "speaker": "Clara",
+                        "index": 5,
+                        "text": "Totally! A playful spirit can really brighten up a day."
+                    },
+                    {
+                        "speaker": "Noah",
+                        "index": 6,
+                        "text": "Absolutely! Let’s just hope the owner knows how to keep up with him!"
+                    }
+                ],
+                "meta_data": {
+                    "dialogue_num": 5,
+                    "language": "en",
+                    "num_utterances": 6,
+                    "ss_idx": 3,
+                    "success": true
+                }
+            }
+        ]
+    },
+    {
+        "word": "mwah",
+        "meaning": [
+            "An exaggerated kiss, esp. one given on the cheek to a social acquaintance; an air kiss."
+        ],
+        "dialogues": [
+            {
+                "dialogue": [
+                    {
+                        "speaker": "Emily",
+                        "index": 1,
+                        "text": "Max! Fancy running into you here! I thought you'd be off somewhere brewing your next big project."
+                    },
+                    {
+                        "speaker": "Max",
+                        "index": 2,
+                        "text": "Emily! I almost didn't recognize you without your paintbrush! What have you been creating lately?"
+                    },
+                    {
+                        "speaker": "Emily",
+                        "index": 3,
+                        "text": "Oh, just some vibrant landscapes and a few abstract pieces. Trying to capture the chaos of city life!"
+                    },
+                    {
+                        "speaker": "Max",
+                        "index": 4,
+                        "text": "That sounds amazing! Mwah! You have to bring one of those pieces to the gallery soon."
+                    },
+                    {
+                        "speaker": "Emily",
+                        "index": 5,
+                        "text": "Absolutely! And we should grab coffee soon—it's been too long since our last art talk."
+                    },
+                    {
+                        "speaker": "Max",
+                        "index": 6,
+                        "text": "Deal! Can't wait to catch up more. Stay inspired, Emily!"
+                    }
+                ],
+                "meta_data": {
+                    "dialogue_num": 1,
+                    "language": "en",
+                    "num_utterances": 6,
+                    "ss_idx": 4,
+                    "success": true
+                }
+            },
+            {
+                "dialogue": [
+                    {
+                        "speaker": "Sophie",
+                        "index": 1,
+                        "text": "Oh my goodness, Mark! Mwah! It feels like forever since we last crossed paths! What’s new with you?"
+                    },
+                    {
+                        "speaker": "Mark",
+                        "index": 2,
+                        "text": "It really has been ages! I've been wrapped up in work and trying my hand at cooking. It’s messier than I expected, but quite enjoyable!"
+                    },
+                    {
+                        "speaker": "Sophie",
+                        "index": 3,
+                        "text": "Cooking? That sounds exciting! Have you made any delicious dishes or just a couple of culinary experiments gone wrong?"
+                    },
+                    {
+                        "speaker": "Mark",
+                        "index": 4,
+                        "text": "Mostly experiments! But it’s a fun way to relax. Remember our baking fiasco last autumn?"
+                    },
+                    {
+                        "speaker": "Sophie",
+                        "index": 5,
+                        "text": "How could I forget? You were so determined to make those fancy cupcakes!"
+                    },
+                    {
+                        "speaker": "Mark",
+                        "index": 6,
+                        "text": "Haha, and they ended up looking like little monsters! We need to cook together again soon!"
+                    }
+                ],
+                "meta_data": {
+                    "dialogue_num": 2,
+                    "language": "en",
+                    "num_utterances": 6,
+                    "ss_idx": 1,
+                    "success": true
+                }
+            },
+            {
+                "dialogue": [
+                    {
+                        "speaker": "Emily",
+                        "index": 1,
+                        "text": "Wow, Jake! It’s been ages since we last hung out."
+                    },
+                    {
+                        "speaker": "Jake",
+                        "index": 2,
+                        "text": "I know! We really need to catch up soon."
+                    },
+                    {
+                        "speaker": "Emily",
+                        "index": 3,
+                        "text": "Absolutely! *mwah* It’s wonderful to see you!"
+                    },
+                    {
+                        "speaker": "Jake",
+                        "index": 4,
+                        "text": "You too! I’ve missed our little adventures."
+                    },
+                    {
+                        "speaker": "Emily",
+                        "index": 5,
+                        "text": "Same here! And I adore your new haircut, it suits you!"
+                    },
+                    {
+                        "speaker": "Jake",
+                        "index": 6,
+                        "text": "Thanks a lot! You always know how to make me smile."
+                    }
+                ],
+                "meta_data": {
+                    "dialogue_num": 3,
+                    "language": "en",
+                    "num_utterances": 6,
+                    "ss_idx": 3,
+                    "success": true
+                }
+            },
+            {
+                "dialogue": [
+                    {
+                        "speaker": "Olivia",
+                        "index": 1,
+                        "text": "Hey, Liam! That tie looks fantastic with your suit."
+                    },
+                    {
+                        "speaker": "Liam",
+                        "index": 2,
+                        "text": "Thanks, Olivia! I wanted to look sharp for our meeting."
+                    },
+                    {
+                        "speaker": "Olivia",
+                        "index": 3,
+                        "text": "You always impress! I’m really looking forward to the conference. Mwah!"
+                    },
+                    {
+                        "speaker": "Liam",
+                        "index": 4,
+                        "text": "Me too! It’s going to be great to see everyone again."
+                    },
+                    {
+                        "speaker": "Olivia",
+                        "index": 5,
+                        "text": "Absolutely! We have so much to discuss."
+                    },
+                    {
+                        "speaker": "Liam",
+                        "index": 6,
+                        "text": "I know, right? Can’t wait to catch up!"
+                    }
+                ],
+                "meta_data": {
+                    "dialogue_num": 4,
+                    "language": "en",
+                    "num_utterances": 6,
+                    "ss_idx": 3,
+                    "success": true
+                }
+            },
+            {
+                "dialogue": [
+                    {
+                        "speaker": "Olivia",
+                        "index": 1,
+                        "text": "Ethan! It’s been ages since we ran into each other at one of these shindigs!"
+                    },
+                    {
+                        "speaker": "Ethan",
+                        "index": 2,
+                        "text": "I know, right? *mwah* You still light up the room like always!"
+                    },
+                    {
+                        "speaker": "Olivia",
+                        "index": 3,
+                        "text": "You’re such a sweetheart! Have you caught up with Mia yet? I heard she brought her famous cupcakes."
+                    },
+                    {
+                        "speaker": "Ethan",
+                        "index": 4,
+                        "text": "Not yet, but I can smell them from here. I might have to make a beeline for her!"
+                    },
+                    {
+                        "speaker": "Olivia",
+                        "index": 5,
+                        "text": "Definitely! You know how she bakes. We can’t let her treat us without a little cake drama!"
+                    },
+                    {
+                        "speaker": "Ethan",
+                        "index": 6,
+                        "text": "Cake drama sounds like the best kind. Let’s go grab a slice!"
+                    }
+                ],
+                "meta_data": {
+                    "dialogue_num": 5,
+                    "language": "en",
+                    "num_utterances": 6,
+                    "ss_idx": 2,
+                    "success": true
+                }
+            }
+        ]
+    },
+    {
+        "word": "queef",
+        "meaning": [
+            "An audible release of air from the vagina, typically during or after sexual intercourse."
+        ],
+        "dialogues": [
+            {
+                "dialogue": [
+                    {
+                        "speaker": "Alice",
+                        "index": 1,
+                        "text": "You won't believe the moment that totally derailed my date last night!"
+                    },
+                    {
+                        "speaker": "Tom",
+                        "index": 2,
+                        "text": "Oh man, now I'm curious! What happened?"
+                    },
+                    {
+                        "speaker": "Alice",
+                        "index": 3,
+                        "text": "We were getting all comfy on the couch, and out of nowhere, there was this sound. I froze, thinking it was the couch creaking, but... *queef*!"
+                    },
+                    {
+                        "speaker": "Tom",
+                        "index": 4,
+                        "text": "No way! That's such a classic! Did he react?"
+                    },
+                    {
+                        "speaker": "Alice",
+                        "index": 5,
+                        "text": "Yeah, he totally cracked up! He said it added to the ambiance, whatever that means."
+                    },
+                    {
+                        "speaker": "Tom",
+                        "index": 6,
+                        "text": "That's hilarious! At least it turned into a memorable moment instead of an awkward silence!"
+                    }
+                ],
+                "meta_data": {
+                    "dialogue_num": 1,
+                    "language": "en",
+                    "num_utterances": 6,
+                    "ss_idx": 3,
+                    "success": true
+                }
+            },
+            {
+                "dialogue": [
+                    {
+                        "speaker": "Emily",
+                        "index": 1,
+                        "text": "Can you believe what happened at that karaoke night last week?"
+                    },
+                    {
+                        "speaker": "Liam",
+                        "index": 2,
+                        "text": "Oh yes! I nearly lost it when Jess had that loud queef right after her big finish! It caught everyone off guard."
+                    },
+                    {
+                        "speaker": "Emily",
+                        "index": 3,
+                        "text": "I know, right? It totally broke the seriousness of the competition!"
+                    },
+                    {
+                        "speaker": "Liam",
+                        "index": 4,
+                        "text": "And the look on her face was priceless! I was laughing so hard."
+                    },
+                    {
+                        "speaker": "Emily",
+                        "index": 5,
+                        "text": "For a moment, I thought she might actually pass out from embarrassment!"
+                    },
+                    {
+                        "speaker": "Liam",
+                        "index": 6,
+                        "text": "But she took it in stride, which is what I love about her!"
+                    }
+                ],
+                "meta_data": {
+                    "dialogue_num": 2,
+                    "language": "en",
+                    "num_utterances": 6,
+                    "ss_idx": 2,
+                    "success": true
+                }
+            },
+            {
+                "dialogue": [
+                    {
+                        "speaker": "Sophie",
+                        "index": 1,
+                        "text": "You won't believe the night I had! Things got pretty silly on my date."
+                    },
+                    {
+                        "speaker": "Mike",
+                        "index": 2,
+                        "text": "Oh really? I can only imagine! Was it one of those nights where everything just spirals into chaos?"
+                    },
+                    {
+                        "speaker": "Sophie",
+                        "index": 3,
+                        "text": "Exactly! So, we were getting all close for a kiss, and suddenly, there was this *pfft* sound, and I totally queefed. It was so unexpected!"
+                    },
+                    {
+                        "speaker": "Mike",
+                        "index": 4,
+                        "text": "No way! That must have turned everything into a laughing fit! It's like the universe had other plans."
+                    },
+                    {
+                        "speaker": "Sophie",
+                        "index": 5,
+                        "text": "Right? I just couldn't help but laugh, and thankfully, so did he. It made it one of the most memorable moments!"
+                    },
+                    {
+                        "speaker": "Mike",
+                        "index": 6,
+                        "text": "That's fantastic! Sometimes those little surprises turn out to be the best stories."
+                    }
+                ],
+                "meta_data": {
+                    "dialogue_num": 3,
+                    "language": "en",
+                    "num_utterances": 6,
+                    "ss_idx": 3,
+                    "success": true
+                }
+            },
+            {
+                "dialogue": [
+                    {
+                        "speaker": "Kate",
+                        "index": 1,
+                        "text": "You won’t believe what happened during our date last week!"
+                    },
+                    {
+                        "speaker": "Jake",
+                        "index": 2,
+                        "text": "Oh, I’m all ears! Did something awkward go down?"
+                    },
+                    {
+                        "speaker": "Kate",
+                        "index": 3,
+                        "text": "Well, we tried to make it super romantic, you know, candlelight and soft music."
+                    },
+                    {
+                        "speaker": "Jake",
+                        "index": 4,
+                        "text": "That sounds lovely, but I can guess it didn’t go as planned!"
+                    },
+                    {
+                        "speaker": "Kate",
+                        "index": 5,
+                        "text": "Just as things got intense, there was this unexpected little queef!"
+                    },
+                    {
+                        "speaker": "Jake",
+                        "index": 6,
+                        "text": "Oh man, that must have been hilarious! Talk about a mood changer!"
+                    }
+                ],
+                "meta_data": {
+                    "dialogue_num": 4,
+                    "language": "en",
+                    "num_utterances": 6,
+                    "ss_idx": 5,
+                    "success": true
+                }
+            },
+            {
+                "dialogue": [
+                    {
+                        "speaker": "Emily",
+                        "index": 1,
+                        "text": "You won't believe the crazy date I had last night!"
+                    },
+                    {
+                        "speaker": "Mark",
+                        "index": 2,
+                        "text": "Oh, do tell! I love a good dating disaster story."
+                    },
+                    {
+                        "speaker": "Emily",
+                        "index": 3,
+                        "text": "So, we were getting intimate, and right as things were heating up, I totally queefed."
+                    },
+                    {
+                        "speaker": "Mark",
+                        "index": 4,
+                        "text": "No way! How did he react to that?"
+                    },
+                    {
+                        "speaker": "Emily",
+                        "index": 5,
+                        "text": "He just laughed and said, 'Well, this is unexpected!'"
+                    },
+                    {
+                        "speaker": "Mark",
+                        "index": 6,
+                        "text": "That's actually hilarious! At least he handled it with humor."
+                    }
+                ],
+                "meta_data": {
+                    "dialogue_num": 5,
+                    "language": "en",
+                    "num_utterances": 6,
+                    "ss_idx": 3,
+                    "success": true
+                }
+            }
+        ]
+    },
+    {
+        "word": "moo",
+        "meaning": [
+            "The lowing sound made by a cow or other bovine animal; an imitation of this."
+        ],
+        "dialogues": [
+            {
+                "dialogue": [
+                    {
+                        "speaker": "Emily",
+                        "index": 1,
+                        "text": "Look at those cows over there! Moo! They’re so big and adorable!"
+                    },
+                    {
+                        "speaker": "Jake",
+                        "index": 2,
+                        "text": "Right? They really do have their own vibes—like some kind of pasture performers!"
+                    },
+                    {
+                        "speaker": "Emily",
+                        "index": 3,
+                        "text": "Haha! And just look at them standing there, as if they’re judging our picnic!"
+                    },
+                    {
+                        "speaker": "Jake",
+                        "index": 4,
+                        "text": "If they could speak, I bet they’d have some pretty funny feedback on our snacks!"
+                    },
+                    {
+                        "speaker": "Emily",
+                        "index": 5,
+                        "text": "Absolutely! Can you imagine if they popped over for a bite?"
+                    },
+                    {
+                        "speaker": "Jake",
+                        "index": 6,
+                        "text": "Now that would be a memorable moment, wouldn’t it?"
+                    }
+                ],
+                "meta_data": {
+                    "dialogue_num": 1,
+                    "language": "en",
+                    "num_utterances": 6,
+                    "ss_idx": 1,
+                    "success": true
+                }
+            },
+            {
+                "dialogue": [
+                    {
+                        "speaker": "Ella",
+                        "index": 1,
+                        "text": "Look at those cows! They're just standing there, munching away without a care in the world."
+                    },
+                    {
+                        "speaker": "Jack",
+                        "index": 2,
+                        "text": "Absolutely! It’s like they’re hosting their own little conference. What do you think they’re chatting about?"
+                    },
+                    {
+                        "speaker": "Ella",
+                        "index": 3,
+                        "text": "Maybe they're discussing who gets to enjoy the best spot for sunbathing later!"
+                    },
+                    {
+                        "speaker": "Jack",
+                        "index": 4,
+                        "text": "Or perhaps they’re waiting for a moment to shine! Moo!"
+                    },
+                    {
+                        "speaker": "Ella",
+                        "index": 5,
+                        "text": "Haha! Can you picture them responding in harmony, like a moo-sical number?"
+                    },
+                    {
+                        "speaker": "Jack",
+                        "index": 6,
+                        "text": "That would be quite the spectacle! 'The Moo-sical at the Pasture'—I'd be there for sure!"
+                    }
+                ],
+                "meta_data": {
+                    "dialogue_num": 2,
+                    "language": "en",
+                    "num_utterances": 6,
+                    "ss_idx": 4,
+                    "success": true
+                }
+            },
+            {
+                "dialogue": [
+                    {
+                        "speaker": "Liam",
+                        "index": 1,
+                        "text": "You’ll never guess what I saw at the petting zoo yesterday! They had the cutest baby cows."
+                    },
+                    {
+                        "speaker": "Sophie",
+                        "index": 2,
+                        "text": "Oh, how adorable! I can just hear them going 'moo' in my head!"
+                    },
+                    {
+                        "speaker": "Liam",
+                        "index": 3,
+                        "text": "Right? And they were all so curious, sticking their noses through the fence."
+                    },
+                    {
+                        "speaker": "Sophie",
+                        "index": 4,
+                        "text": "I love how they nuzzle you! Did you get to pet them?"
+                    },
+                    {
+                        "speaker": "Liam",
+                        "index": 5,
+                        "text": "Definitely! It was such a fun experience, and I learned they have really good memories."
+                    },
+                    {
+                        "speaker": "Sophie",
+                        "index": 6,
+                        "text": "That's fascinating! Cows always manage to make my day brighter."
+                    }
+                ],
+                "meta_data": {
+                    "dialogue_num": 3,
+                    "language": "en",
+                    "num_utterances": 6,
+                    "ss_idx": 2,
+                    "success": true
+                }
+            },
+            {
+                "dialogue": [
+                    {
+                        "speaker": "Liam",
+                        "index": 1,
+                        "text": "Can you believe how peaceful this farm is? I think I could stay here forever."
+                    },
+                    {
+                        "speaker": "Emma",
+                        "index": 2,
+                        "text": "Right? I just heard one of the cows go moo! It’s like they know we’re here."
+                    },
+                    {
+                        "speaker": "Liam",
+                        "index": 3,
+                        "text": "I love that! They seem so relaxed, just grazing and enjoying the day."
+                    },
+                    {
+                        "speaker": "Emma",
+                        "index": 4,
+                        "text": "Absolutely! And look at those little calves running around. It's adorable."
+                    },
+                    {
+                        "speaker": "Liam",
+                        "index": 5,
+                        "text": "I know, right? I can't help but smile at how playful they are."
+                    },
+                    {
+                        "speaker": "Emma",
+                        "index": 6,
+                        "text": "It really makes you appreciate life on a farm, doesn’t it?"
+                    }
+                ],
+                "meta_data": {
+                    "dialogue_num": 4,
+                    "language": "en",
+                    "num_utterances": 6,
+                    "ss_idx": 2,
+                    "success": true
+                }
+            },
+            {
+                "dialogue": [
+                    {
+                        "speaker": "Noah",
+                        "index": 1,
+                        "text": "You know, watching the cows out in the field really brings me peace. It’s calming to see them just wandering about."
+                    },
+                    {
+                        "speaker": "Olivia",
+                        "index": 2,
+                        "text": "I know what you mean! They definitely have their own little world out there."
+                    },
+                    {
+                        "speaker": "Noah",
+                        "index": 3,
+                        "text": "It's funny how they seem to communicate with each other. Sometimes it looks like they're sharing secrets."
+                    },
+                    {
+                        "speaker": "Olivia",
+                        "index": 4,
+                        "text": "Absolutely! I can just imagine them chatting away, then one suddenly making a noise that catches everyone's attention."
+                    },
+                    {
+                        "speaker": "Noah",
+                        "index": 5,
+                        "text": "Right? It seems like such a carefree life for them, just hanging out, enjoying the grass."
+                    },
+                    {
+                        "speaker": "Olivia",
+                        "index": 6,
+                        "text": "And when they start mooing like that, it’s like they're serenading the whole farm!"
+                    }
+                ],
+                "meta_data": {
+                    "dialogue_num": 5,
+                    "language": "en",
+                    "num_utterances": 6,
+                    "ss_idx": 6,
+                    "success": true
+                }
+            }
+        ]
+    },
+    {
+        "word": "splutter",
+        "meaning": [
+            "A noise or fuss."
+        ],
+        "dialogues": [
+            {
+                "dialogue": [
+                    {
+                        "speaker": "Sarah",
+                        "index": 1,
+                        "text": "Wow, this project turned into a total disaster. It's like a paint bomb went off!"
+                    },
+                    {
+                        "speaker": "Tom",
+                        "index": 2,
+                        "text": "Right? I half expect to see a raccoon dive into the mess looking for snacks!"
+                    },
+                    {
+                        "speaker": "Sarah",
+                        "index": 3,
+                        "text": "Oh, can you imagine? It would be there, clawing through all the chaos, trying to make sense of it!"
+                    },
+                    {
+                        "speaker": "Tom",
+                        "index": 4,
+                        "text": "Exactly! It would look utterly bewildered, like it just walked into an abstract art exhibit!"
+                    },
+                    {
+                        "speaker": "Sarah",
+                        "index": 5,
+                        "text": "I can picture it now, splutter and all, trying to figure out what happened in here!"
+                    },
+                    {
+                        "speaker": "Tom",
+                        "index": 6,
+                        "text": "Haha! That raccoon would definitely win the prize for the most confused visitor!"
+                    }
+                ],
+                "meta_data": {
+                    "dialogue_num": 1,
+                    "language": "en",
+                    "num_utterances": 6,
+                    "ss_idx": 5,
+                    "success": true
+                }
+            },
+            {
+                "dialogue": [
+                    {
+                        "speaker": "Sara",
+                        "index": 1,
+                        "text": "You won't believe the disaster I caused in the kitchen yesterday!"
+                    },
+                    {
+                        "speaker": "Tom",
+                        "index": 2,
+                        "text": "Oh really? What happened this time? Did you manage to splutter flour everywhere again?"
+                    },
+                    {
+                        "speaker": "Sara",
+                        "index": 3,
+                        "text": "Worse! I was trying to make pancakes, but when I flipped one, it went splat! Right onto the floor!"
+                    },
+                    {
+                        "speaker": "Tom",
+                        "index": 4,
+                        "text": "Yikes! That sounds messy! Were you also dealing with eggs?"
+                    },
+                    {
+                        "speaker": "Sara",
+                        "index": 5,
+                        "text": "Definitely! It turned into a full-blown fiasco! I had syrup smeared everywhere, and I think I even left a trail of batter into the living room."
+                    },
+                    {
+                        "speaker": "Tom",
+                        "index": 6,
+                        "text": "Oh man, that's a bigger mess than my attempt at soufflés! At least we have some hilarious stories now. Let's just order takeout next time!"
+                    }
+                ],
+                "meta_data": {
+                    "dialogue_num": 2,
+                    "language": "en",
+                    "num_utterances": 6,
+                    "ss_idx": 2,
+                    "success": true
+                }
+            },
+            {
+                "dialogue": [
+                    {
+                        "speaker": "Sophie",
+                        "index": 1,
+                        "text": "You won't believe the chaos we had while trying to fix the leaky faucet last night!"
+                    },
+                    {
+                        "speaker": "Liam",
+                        "index": 2,
+                        "text": "Did water just splutter everywhere again?"
+                    },
+                    {
+                        "speaker": "Sophie",
+                        "index": 3,
+                        "text": "It was truly like a slapstick comedy! We ended up drenched."
+                    },
+                    {
+                        "speaker": "Liam",
+                        "index": 4,
+                        "text": "I can totally imagine it! Did you guys ever get it sorted out?"
+                    },
+                    {
+                        "speaker": "Sophie",
+                        "index": 5,
+                        "text": "Eventually, yes, but not without a lot of shouting over who messed it up!"
+                    },
+                    {
+                        "speaker": "Liam",
+                        "index": 6,
+                        "text": "At least you have a great story to tell now! What’s the next adventure?"
+                    }
+                ],
+                "meta_data": {
+                    "dialogue_num": 3,
+                    "language": "en",
+                    "num_utterances": 6,
+                    "ss_idx": 2,
+                    "success": true
+                }
+            },
+            {
+                "dialogue": [
+                    {
+                        "speaker": "Sophie",
+                        "index": 1,
+                        "text": "I can't believe we're actually going on this weekend adventure! I've been looking forward to this for weeks."
+                    },
+                    {
+                        "speaker": "Liam",
+                        "index": 2,
+                        "text": "Absolutely! Just imagine all the hiking and the campfire stories. I'm a bit nervous though. What if we forget something important?"
+                    },
+                    {
+                        "speaker": "Sophie",
+                        "index": 3,
+                        "text": "Don't worry, we'll figure it out! Besides, a little chaos just makes it more fun, right?"
+                    },
+                    {
+                        "speaker": "Liam",
+                        "index": 4,
+                        "text": "Right! But knowing us, it’ll probably end up with us spluttering over what we forgot."
+                    },
+                    {
+                        "speaker": "Sophie",
+                        "index": 5,
+                        "text": "Exactly! And then we’ll just throw everything together in a panic and end up creating a hilarious story."
+                    },
+                    {
+                        "speaker": "Liam",
+                        "index": 6,
+                        "text": "True that! Just imagine the splutter when we realize we forgot the marshmallows!"
+                    }
+                ],
+                "meta_data": {
+                    "dialogue_num": 4,
+                    "language": "en",
+                    "num_utterances": 6,
+                    "ss_idx": 5,
+                    "success": true
+                }
+            },
+            {
+                "dialogue": [
+                    {
+                        "speaker": "Ben",
+                        "index": 1,
+                        "text": "I can already picture the splutter of our campfire, flickering beneath the stars!"
+                    },
+                    {
+                        "speaker": "Maya",
+                        "index": 2,
+                        "text": "That sounds incredible! But did you remember to check the weather? I’d hate for us to get caught in a storm."
+                    },
+                    {
+                        "speaker": "Ben",
+                        "index": 3,
+                        "text": "Yeah, I did! If it rains, we'll have to deal with a mess, that's for sure!"
+                    },
+                    {
+                        "speaker": "Maya",
+                        "index": 4,
+                        "text": "Exactly! And we should think of some games to keep the mood light, especially if we end up stuck inside."
+                    },
+                    {
+                        "speaker": "Ben",
+                        "index": 5,
+                        "text": "Absolutely! I’d rather spend the night playing games than just listening to the rain patter against the tent."
+                    },
+                    {
+                        "speaker": "Maya",
+                        "index": 6,
+                        "text": "Totally agree! Let's make sure we have everything ready, so nothing gets in the way of our fun."
+                    }
+                ],
+                "meta_data": {
+                    "dialogue_num": 5,
+                    "language": "en",
+                    "num_utterances": 6,
+                    "ss_idx": 1,
+                    "success": true
+                }
+            }
+        ]
+    },
+    {
+        "word": "tottle",
+        "meaning": [
+            "To move and bubble, as a boiling liquid."
+        ],
+        "dialogues": [
+            {
+                "dialogue": [
+                    {
+                        "speaker": "Jake",
+                        "index": 1,
+                        "text": "This soup smells incredible, doesn’t it?"
+                    },
+                    {
+                        "speaker": "Sophie",
+                        "index": 2,
+                        "text": "Definitely! I can’t wait to taste it after it simmers."
+                    },
+                    {
+                        "speaker": "Jake",
+                        "index": 3,
+                        "text": "I can feel the flavors melding together nicely."
+                    },
+                    {
+                        "speaker": "Sophie",
+                        "index": 4,
+                        "text": "And just listen to that pot—it’s starting to tottle!"
+                    },
+                    {
+                        "speaker": "Jake",
+                        "index": 5,
+                        "text": "It’s bubbling and frothing like it’s alive!"
+                    },
+                    {
+                        "speaker": "Sophie",
+                        "index": 6,
+                        "text": "Let’s grab some bowls before it overflows!"
+                    }
+                ],
+                "meta_data": {
+                    "dialogue_num": 1,
+                    "language": "en",
+                    "num_utterances": 6,
+                    "ss_idx": 5,
+                    "success": true
+                }
+            },
+            {
+                "dialogue": [
+                    {
+                        "speaker": "Liam",
+                        "index": 1,
+                        "text": "Wow, this stew is really coming together! Can you smell those herbs?"
+                    },
+                    {
+                        "speaker": "Emma",
+                        "index": 2,
+                        "text": "Absolutely! It makes me so hungry. How long until it’s ready?"
+                    },
+                    {
+                        "speaker": "Liam",
+                        "index": 3,
+                        "text": "It should be just about there. Listen to it tottle over there; it’s bubbling perfectly."
+                    },
+                    {
+                        "speaker": "Emma",
+                        "index": 4,
+                        "text": "That sounds amazing! I can't wait to taste it! What’s the secret ingredient again?"
+                    },
+                    {
+                        "speaker": "Liam",
+                        "index": 5,
+                        "text": "A splash of red wine for richness! It always makes a difference."
+                    },
+                    {
+                        "speaker": "Emma",
+                        "index": 6,
+                        "text": "I’ll grab some bowls. We’re definitely going to enjoy this together!"
+                    }
+                ],
+                "meta_data": {
+                    "dialogue_num": 2,
+                    "language": "en",
+                    "num_utterances": 6,
+                    "ss_idx": 3,
+                    "success": true
+                }
+            },
+            {
+                "dialogue": [
+                    {
+                        "speaker": "Mia",
+                        "index": 1,
+                        "text": "You know, every time I make this pasta sauce, it reminds me of that time we tried to cook together."
+                    },
+                    {
+                        "speaker": "Ethan",
+                        "index": 2,
+                        "text": "Oh, you mean the time I almost set your mom's kitchen on fire? I still can't believe that garlic went flying!"
+                    },
+                    {
+                        "speaker": "Mia",
+                        "index": 3,
+                        "text": "Ha! Yes! But right now, the pot is starting to tottle nicely, just like I remember."
+                    },
+                    {
+                        "speaker": "Ethan",
+                        "index": 4,
+                        "text": "That bubbling sounds like music! I can already taste it."
+                    },
+                    {
+                        "speaker": "Mia",
+                        "index": 5,
+                        "text": "And it’ll go perfectly with the garlic bread I’m making. It’s a winning combination!"
+                    },
+                    {
+                        "speaker": "Ethan",
+                        "index": 6,
+                        "text": "Can’t wait! This is going to be an epic dinner."
+                    }
+                ],
+                "meta_data": {
+                    "dialogue_num": 3,
+                    "language": "en",
+                    "num_utterances": 6,
+                    "ss_idx": 3,
+                    "success": true
+                }
+            },
+            {
+                "dialogue": [
+                    {
+                        "speaker": "Liam",
+                        "index": 1,
+                        "text": "This chili is starting to look like a masterpiece. Who knew you could actually cook?"
+                    },
+                    {
+                        "speaker": "Emma",
+                        "index": 2,
+                        "text": "Just wait until it starts to tottle! It’ll be bubbling with flavor in no time."
+                    },
+                    {
+                        "speaker": "Liam",
+                        "index": 3,
+                        "text": "I can already smell those spices! It’s like the kitchen is a magic potion workshop."
+                    },
+                    {
+                        "speaker": "Emma",
+                        "index": 4,
+                        "text": "Exactly! And remember the last time we cooked together? It was chaotic, but so much fun."
+                    },
+                    {
+                        "speaker": "Liam",
+                        "index": 5,
+                        "text": "Totally! I just hope we don’t set off the smoke alarm again."
+                    },
+                    {
+                        "speaker": "Emma",
+                        "index": 6,
+                        "text": "Ha! As long as we keep the heat at a simmer, we should be just fine!"
+                    }
+                ],
+                "meta_data": {
+                    "dialogue_num": 4,
+                    "language": "en",
+                    "num_utterances": 6,
+                    "ss_idx": 2,
+                    "success": true
+                }
+            },
+            {
+                "dialogue": [
+                    {
+                        "speaker": "Jack",
+                        "index": 1,
+                        "text": "I'm so excited to get started on this chicken soup recipe! Just like Grandma used to make."
+                    },
+                    {
+                        "speaker": "Sophie",
+                        "index": 2,
+                        "text": "Oh, I love that! It’s such a comforting dish for a cold day."
+                    },
+                    {
+                        "speaker": "Jack",
+                        "index": 3,
+                        "text": "Right? The way it simmers is so soothing. You can just imagine it tottle as it bubbles away."
+                    },
+                    {
+                        "speaker": "Sophie",
+                        "index": 4,
+                        "text": "I can already picture us enjoying it together! And what about those garlic breadsticks?"
+                    },
+                    {
+                        "speaker": "Jack",
+                        "index": 5,
+                        "text": "Absolutely! We need those to soak up all the broth. It’s going to be perfect."
+                    },
+                    {
+                        "speaker": "Sophie",
+                        "index": 6,
+                        "text": "I can’t wait to dig in! Let’s get cooking!"
+                    }
+                ],
+                "meta_data": {
+                    "dialogue_num": 5,
+                    "language": "en",
+                    "num_utterances": 6,
+                    "ss_idx": 4,
+                    "success": true
+                }
+            }
+        ]
+    },
+    {
+        "word": "squirm",
+        "meaning": [
+            "To wriggle or writhe."
+        ],
+        "dialogues": [
+            {
+                "dialogue": [
+                    {
+                        "speaker": "James",
+                        "index": 1,
+                        "text": "Did you see that fire-breather at the carnival? It was like watching a dragon come to life!"
+                    },
+                    {
+                        "speaker": "Sara",
+                        "index": 2,
+                        "text": "Absolutely! And remember how that tightrope walker seemed to teeter back and forth? I thought my heart would stop!"
+                    },
+                    {
+                        "speaker": "James",
+                        "index": 3,
+                        "text": "I know! I was on the edge of my seat, just waiting for something dramatic to happen!"
+                    },
+                    {
+                        "speaker": "Sara",
+                        "index": 4,
+                        "text": "Exactly! The thrill of it all makes you feel so alive yet so anxious at the same time."
+                    },
+                    {
+                        "speaker": "James",
+                        "index": 5,
+                        "text": "And the crowd's reactions added to the excitement! You could see people trying not to fidget too much!"
+                    },
+                    {
+                        "speaker": "Sara",
+                        "index": 6,
+                        "text": "Totally! Those moments really make you squirm a bit, don’t they? But it’s all in good fun!"
+                    }
+                ],
+                "meta_data": {
+                    "dialogue_num": 1,
+                    "language": "en",
+                    "num_utterances": 6,
+                    "ss_idx": 6,
+                    "success": true
+                }
+            },
+            {
+                "dialogue": [
+                    {
+                        "speaker": "Emily",
+                        "index": 1,
+                        "text": "Can you believe how wild that last roller coaster was? My heart's still racing!"
+                    },
+                    {
+                        "speaker": "Jack",
+                        "index": 2,
+                        "text": "I know! I felt like I was being tossed around like a rag doll. Such a thrill!"
+                    },
+                    {
+                        "speaker": "Emily",
+                        "index": 3,
+                        "text": "And check out that little goat over there! It keeps leaping around and trying to get the food."
+                    },
+                    {
+                        "speaker": "Jack",
+                        "index": 4,
+                        "text": "It’s so amusing to watch it squirm around trying to grab the hay! Such a character!"
+                    },
+                    {
+                        "speaker": "Emily",
+                        "index": 5,
+                        "text": "I hope it gets some treats soon. It looks like it’s entertaining everyone with those antics!"
+                    },
+                    {
+                        "speaker": "Jack",
+                        "index": 6,
+                        "text": "For sure! Animals always steal the show at places like this, don't they?"
+                    }
+                ],
+                "meta_data": {
+                    "dialogue_num": 2,
+                    "language": "en",
+                    "num_utterances": 6,
+                    "ss_idx": 4,
+                    "success": true
+                }
+            },
+            {
+                "dialogue": [
+                    {
+                        "speaker": "Mia",
+                        "index": 1,
+                        "text": "Can you believe how excited the kids are over there at the pond?"
+                    },
+                    {
+                        "speaker": "Lucas",
+                        "index": 2,
+                        "text": "I know! Look at that little one trying to catch that fish. It's like he’s in a race with it!"
+                    },
+                    {
+                        "speaker": "Mia",
+                        "index": 3,
+                        "text": "Seriously! If I was in his shoes, I’d be flailing all over the place!"
+                    },
+                    {
+                        "speaker": "Lucas",
+                        "index": 4,
+                        "text": "Right? I can see him squirming every time the fish makes a jump!"
+                    },
+                    {
+                        "speaker": "Mia",
+                        "index": 5,
+                        "text": "It’s hilarious! He's so determined, but that fish just won't stay still."
+                    },
+                    {
+                        "speaker": "Lucas",
+                        "index": 6,
+                        "text": "For sure! That kid’s got the heart of a fisherman, even if he can’t catch a break!"
+                    }
+                ],
+                "meta_data": {
+                    "dialogue_num": 3,
+                    "language": "en",
+                    "num_utterances": 6,
+                    "ss_idx": 4,
+                    "success": true
+                }
+            },
+            {
+                "dialogue": [
+                    {
+                        "speaker": "Claire",
+                        "index": 1,
+                        "text": "Did you see that amazing snake at the pet store yesterday? It was so colorful, just weaving through the branches."
+                    },
+                    {
+                        "speaker": "Jake",
+                        "index": 2,
+                        "text": "Yeah, I saw it! But honestly, it kind of freaked me out. The way it moved just made me uneasy."
+                    },
+                    {
+                        "speaker": "Claire",
+                        "index": 3,
+                        "text": "You’re missing out! Owning a snake could be thrilling! Imagine watching it explore your home."
+                    },
+                    {
+                        "speaker": "Jake",
+                        "index": 4,
+                        "text": "I get that, but the idea of having one wrap around me like that seems a bit overwhelming. I still think about how that little one twisted around its owner's arm."
+                    },
+                    {
+                        "speaker": "Claire",
+                        "index": 5,
+                        "text": "Come on, that's part of the fun! Just picture it, moving around, checking out everything in sight—like a little explorer!"
+                    },
+                    {
+                        "speaker": "Jake",
+                        "index": 6,
+                        "text": "Alright, it did look kind of cool the way it seemed to squirm when we were there... maybe I could think about it."
+                    }
+                ],
+                "meta_data": {
+                    "dialogue_num": 4,
+                    "language": "en",
+                    "num_utterances": 6,
+                    "ss_idx": 6,
+                    "success": true
+                }
+            },
+            {
+                "dialogue": [
+                    {
+                        "speaker": "Jake",
+                        "index": 1,
+                        "text": "You won't believe how uncomfortable I felt during that movie last night."
+                    },
+                    {
+                        "speaker": "Sophie",
+                        "index": 2,
+                        "text": "Oh man, I was right there with you! That scene with the giant worm had me on edge."
+                    },
+                    {
+                        "speaker": "Jake",
+                        "index": 3,
+                        "text": "I could feel my heart racing like crazy! I just wanted to look away from the screen."
+                    },
+                    {
+                        "speaker": "Sophie",
+                        "index": 4,
+                        "text": "Same here! Every time it slithered, I could almost feel it squirming in my stomach."
+                    },
+                    {
+                        "speaker": "Jake",
+                        "index": 5,
+                        "text": "And when it lunged, my popcorn went flying! I was ready to jump out of my seat."
+                    },
+                    {
+                        "speaker": "Sophie",
+                        "index": 6,
+                        "text": "We really need to choose something less intense next time! My nerves can't take another round like that!"
+                    }
+                ],
+                "meta_data": {
+                    "dialogue_num": 5,
+                    "language": "en",
+                    "num_utterances": 6,
+                    "ss_idx": 4,
+                    "success": true
+                }
+            }
+        ]
+    },
+    {
+        "word": "flish",
+        "meaning": [
+            "To slash or cut."
+        ],
+        "dialogues": [
+            {
+                "dialogue": [
+                    {
+                        "speaker": "Emily",
+                        "index": 1,
+                        "text": "*flish* Perfect cut! This onion is going to add so much flavor."
+                    },
+                    {
+                        "speaker": "Michael",
+                        "index": 2,
+                        "text": "You make it look so easy! I just end up crying over mine."
+                    },
+                    {
+                        "speaker": "Emily",
+                        "index": 3,
+                        "text": "Hey, it’s all about technique. Just focus on the blade."
+                    },
+                    {
+                        "speaker": "Michael",
+                        "index": 4,
+                        "text": "I swear the onions are plotting against me. They know I can't handle it."
+                    },
+                    {
+                        "speaker": "Emily",
+                        "index": 5,
+                        "text": "Just think of it as a mini challenge! Survive the onion, win dinner."
+                    },
+                    {
+                        "speaker": "Michael",
+                        "index": 6,
+                        "text": "Challenge accepted! But if I start sobbing, I’m blaming you."
+                    }
+                ],
+                "meta_data": {
+                    "dialogue_num": 1,
+                    "language": "en",
+                    "num_utterances": 6,
+                    "ss_idx": 1,
+                    "success": true
+                }
+            },
+            {
+                "dialogue": [
+                    {
+                        "speaker": "Liam",
+                        "index": 1,
+                        "text": "I can't believe we're finally going on this trip! Have you checked if the axe is sharp yet?"
+                    },
+                    {
+                        "speaker": "Emma",
+                        "index": 2,
+                        "text": "Absolutely! A good axe is a lifesaver for setting up camp. It makes everything so much easier."
+                    },
+                    {
+                        "speaker": "Liam",
+                        "index": 3,
+                        "text": "Right? Here, let me show you how it cuts through this wood. *flish*! Just like that."
+                    },
+                    {
+                        "speaker": "Emma",
+                        "index": 4,
+                        "text": "Nice! That was quick! We’ll definitely need to work on the firewood soon."
+                    },
+                    {
+                        "speaker": "Liam",
+                        "index": 5,
+                        "text": "Yeah, and with this axe, we'll be ready in no time. Can't wait for our campfire!"
+                    },
+                    {
+                        "speaker": "Emma",
+                        "index": 6,
+                        "text": "Same here! This is going to be an unforgettable trip."
+                    }
+                ],
+                "meta_data": {
+                    "dialogue_num": 2,
+                    "language": "en",
+                    "num_utterances": 6,
+                    "ss_idx": 3,
+                    "success": true
+                }
+            },
+            {
+                "dialogue": [
+                    {
+                        "speaker": "Jamie",
+                        "index": 1,
+                        "text": "Let's start with the carrots; they're going to add a nice crunch to our stir-fry."
+                    },
+                    {
+                        "speaker": "Alex",
+                        "index": 2,
+                        "text": "Watch me flish through this carrot – it's all about the angle!"
+                    },
+                    {
+                        "speaker": "Jamie",
+                        "index": 3,
+                        "text": "That was impressive! You’ve got the technique down."
+                    },
+                    {
+                        "speaker": "Alex",
+                        "index": 4,
+                        "text": "Thanks! I just need to keep practicing so they’re evenly cut."
+                    },
+                    {
+                        "speaker": "Jamie",
+                        "index": 5,
+                        "text": "For sure! And remember, we want everything to cook evenly."
+                    },
+                    {
+                        "speaker": "Alex",
+                        "index": 6,
+                        "text": "Absolutely! The quicker we prep, the sooner we can enjoy this meal!"
+                    }
+                ],
+                "meta_data": {
+                    "dialogue_num": 3,
+                    "language": "en",
+                    "num_utterances": 6,
+                    "ss_idx": 2,
+                    "success": true
+                }
+            },
+            {
+                "dialogue": [
+                    {
+                        "speaker": "Liam",
+                        "index": 1,
+                        "text": "Are you ready to prep the gear for our hiking trip?"
+                    },
+                    {
+                        "speaker": "Emily",
+                        "index": 2,
+                        "text": "Absolutely! I just need to grab my favorite camping knife and some snack supplies."
+                    },
+                    {
+                        "speaker": "Liam",
+                        "index": 3,
+                        "text": "That knife is a lifesaver! I love how it handles everything we need."
+                    },
+                    {
+                        "speaker": "Emily",
+                        "index": 4,
+                        "text": "I know, right? When I used it last time, it went *flish* through those veggies like it was nothing."
+                    },
+                    {
+                        "speaker": "Liam",
+                        "index": 5,
+                        "text": "Exactly! Plus, it’ll be perfect for cutting some string for our tents."
+                    },
+                    {
+                        "speaker": "Emily",
+                        "index": 6,
+                        "text": "Let’s make sure we get everything packed then; adventure awaits!"
+                    }
+                ],
+                "meta_data": {
+                    "dialogue_num": 4,
+                    "language": "en",
+                    "num_utterances": 6,
+                    "ss_idx": 4,
+                    "success": true
+                }
+            },
+            {
+                "dialogue": [
+                    {
+                        "speaker": "Mia",
+                        "index": 1,
+                        "text": "Alright, Ethan, can you hand me that knife over there? We need to prep for the pasta dish."
+                    },
+                    {
+                        "speaker": "Ethan",
+                        "index": 2,
+                        "text": "Of course! *flish* Wow, look at that zucchini slice perfectly falling apart!"
+                    },
+                    {
+                        "speaker": "Mia",
+                        "index": 3,
+                        "text": "That’s exactly what we need! Let’s get the tomatoes diced next."
+                    },
+                    {
+                        "speaker": "Ethan",
+                        "index": 4,
+                        "text": "Got it! I'm on it. I love how fresh everything smells."
+                    },
+                    {
+                        "speaker": "Mia",
+                        "index": 5,
+                        "text": "It really does! Once the veggies are ready, we can start mixing it all together."
+                    },
+                    {
+                        "speaker": "Ethan",
+                        "index": 6,
+                        "text": "Can't wait! Let’s make this the best dinner ever."
+                    }
+                ],
+                "meta_data": {
+                    "dialogue_num": 5,
+                    "language": "en",
+                    "num_utterances": 6,
+                    "ss_idx": 2,
+                    "success": true
+                }
+            }
+        ]
+    },
+    {
+        "word": "nyaff",
+        "meaning": [
+            "Of a (small) dog: to yelp, bark. Hence, of a child or small or insignificant person: to speak in a cheeky or peevish manner; to whinge."
+        ],
+        "dialogues": [
+            {
+                "dialogue": [
+                    {
+                        "speaker": "Sophie",
+                        "index": 1,
+                        "text": "Look at that little dog over there! He’s barking like crazy!"
+                    },
+                    {
+                        "speaker": "Jake",
+                        "index": 2,
+                        "text": "I know! It's almost like he’s trying to audition for a part in a movie or something."
+                    },
+                    {
+                        "speaker": "Sophie",
+                        "index": 3,
+                        "text": "And check out that kid nearby. He’s been at it for ages, trying to get his mom to buy him ice cream."
+                    },
+                    {
+                        "speaker": "Jake",
+                        "index": 4,
+                        "text": "Right? You’d think he lost a treasure! It’s like all I can hear is him *nyaff*-ing for that treat."
+                    },
+                    {
+                        "speaker": "Sophie",
+                        "index": 5,
+                        "text": "Exactly! With all that fuss, you’d think he was the only one in the park."
+                    },
+                    {
+                        "speaker": "Jake",
+                        "index": 6,
+                        "text": "Maybe he could learn a thing or two from that pup and just have some fun!"
+                    }
+                ],
+                "meta_data": {
+                    "dialogue_num": 1,
+                    "language": "en",
+                    "num_utterances": 6,
+                    "ss_idx": 5,
+                    "success": true
+                }
+            },
+            {
+                "dialogue": [
+                    {
+                        "speaker": "Emma",
+                        "index": 1,
+                        "text": "You won't believe the chaos I saw at the park today! You know that little dog with the red collar?"
+                    },
+                    {
+                        "speaker": "Lucas",
+                        "index": 2,
+                        "text": "The one that looks like a fuzzy tennis ball? I can just picture it bouncing around all over the place."
+                    },
+                    {
+                        "speaker": "Emma",
+                        "index": 3,
+                        "text": "Yes! It was nyaffing like crazy, chasing after some pigeons like it owned the place."
+                    },
+                    {
+                        "speaker": "Lucas",
+                        "index": 4,
+                        "text": "Sounds like it had a mission! Were the pigeons taking it seriously at all?"
+                    },
+                    {
+                        "speaker": "Emma",
+                        "index": 5,
+                        "text": "Not at all! They ignored it completely, which made it run around even more wildly."
+                    },
+                    {
+                        "speaker": "Lucas",
+                        "index": 6,
+                        "text": "That must have been hilarious to watch! It's like they knew the tiny fluffball couldn't catch them."
+                    }
+                ],
+                "meta_data": {
+                    "dialogue_num": 2,
+                    "language": "en",
+                    "num_utterances": 6,
+                    "ss_idx": 3,
+                    "success": true
+                }
+            },
+            {
+                "dialogue": [
+                    {
+                        "speaker": "Sophie",
+                        "index": 1,
+                        "text": "You won't believe what happened at the park today! My neighbor's dog was acting like a total goofball."
+                    },
+                    {
+                        "speaker": "Jake",
+                        "index": 2,
+                        "text": "Oh really? That sounds entertaining! Was it getting into mischief?"
+                    },
+                    {
+                        "speaker": "Sophie",
+                        "index": 3,
+                        "text": "Oh, for sure! It was yapping ‘nyaff, nyaff’ every time a squirrel ran by."
+                    },
+                    {
+                        "speaker": "Jake",
+                        "index": 4,
+                        "text": "Those little dogs really know how to steal the show! Did the owner have to chase it around?"
+                    },
+                    {
+                        "speaker": "Sophie",
+                        "index": 5,
+                        "text": "Not at all. It just reminded me of my little brother when he's hungry—always a bit of a nyaffer!"
+                    },
+                    {
+                        "speaker": "Jake",
+                        "index": 6,
+                        "text": "Ha! That’s a perfect comparison! They both sound like little troublemakers."
+                    }
+                ],
+                "meta_data": {
+                    "dialogue_num": 3,
+                    "language": "en",
+                    "num_utterances": 6,
+                    "ss_idx": 3,
+                    "success": true
+                }
+            },
+            {
+                "dialogue": [
+                    {
+                        "speaker": "Emma",
+                        "index": 1,
+                        "text": "You won’t believe what I heard from Tom today! He said Mrs. Wilson is at it again."
+                    },
+                    {
+                        "speaker": "Luke",
+                        "index": 2,
+                        "text": "Oh no, what’s she been complaining about now? She can't really expect us to keep her happy all the time."
+                    },
+                    {
+                        "speaker": "Emma",
+                        "index": 3,
+                        "text": "She was saying our kids are too loud while playing outside. Like, come on, it’s just some laughter!"
+                    },
+                    {
+                        "speaker": "Luke",
+                        "index": 4,
+                        "text": "Seriously? She needs to chill. It’s not like we can put a volume limit on them."
+                    },
+                    {
+                        "speaker": "Emma",
+                        "index": 5,
+                        "text": "Right? And you know Max was barking a little earlier just as she passed by."
+                    },
+                    {
+                        "speaker": "Luke",
+                        "index": 6,
+                        "text": "Haha! She probably thought he was nyaffing at her like an annoying little guard dog."
+                    }
+                ],
+                "meta_data": {
+                    "dialogue_num": 4,
+                    "language": "en",
+                    "num_utterances": 6,
+                    "ss_idx": 6,
+                    "success": true
+                }
+            },
+            {
+                "dialogue": [
+                    {
+                        "speaker": "Emily",
+                        "index": 1,
+                        "text": "Look at that little dog over there, bouncing around like he owns the whole park!"
+                    },
+                    {
+                        "speaker": "Jack",
+                        "index": 2,
+                        "text": "I know! It’s like they forget how small they are. So confident, it’s actually adorable."
+                    },
+                    {
+                        "speaker": "Emily",
+                        "index": 3,
+                        "text": "You should have seen my nephew last weekend. He was throwing a tantrum over a cookie!"
+                    },
+                    {
+                        "speaker": "Jack",
+                        "index": 4,
+                        "text": "Oh boy, kids sure know how to make their voices heard! I can only imagine."
+                    },
+                    {
+                        "speaker": "Emily",
+                        "index": 5,
+                        "text": "Exactly! He started to cry and just *nyaff* like that spirited pup over there."
+                    },
+                    {
+                        "speaker": "Jack",
+                        "index": 6,
+                        "text": "That’s classic! It’s wild how they can compete with those little yelps!"
+                    }
+                ],
+                "meta_data": {
+                    "dialogue_num": 5,
+                    "language": "en",
+                    "num_utterances": 6,
+                    "ss_idx": 6,
+                    "success": true
+                }
+            }
+        ]
+    },
+    {
+        "word": "gag",
+        "meaning": [
+            "To jerk; to strike with a sharp blow. Also, to toss up (the head).",
+            "To strangle, suffocate.",
+            "A ‘made-up’ story; a piece of deception, an imposture, a lie."
+        ],
+        "dialogues": [
+            {
+                "dialogue": [
+                    {
+                        "speaker": "Sophie",
+                        "index": 1,
+                        "text": "Did you see the new roller coaster they put in? It's called the Gaggle Twister!"
+                    },
+                    {
+                        "speaker": "Jake",
+                        "index": 2,
+                        "text": "Yeah, I saw that! It looks like a total thrill ride, but I'm a little nervous about the height."
+                    },
+                    {
+                        "speaker": "Sophie",
+                        "index": 3,
+                        "text": "Come on! Remember when we went on that drop tower? The way my heart raced as we plunged down was unforgettable."
+                    },
+                    {
+                        "speaker": "Jake",
+                        "index": 4,
+                        "text": "True! But that moment when you’re hanging at the top? I thought I might lose my lunch!"
+                    },
+                    {
+                        "speaker": "Sophie",
+                        "index": 5,
+                        "text": "Let's just go for it! Worst case, we scream all the way up!"
+                    },
+                    {
+                        "speaker": "Jake",
+                        "index": 6,
+                        "text": "Absolutely! And if you start to gag, I’ll just laugh and toss my head back, enjoying the ride!"
+                    }
+                ],
+                "meta_data": {
+                    "dialogue_num": 1,
+                    "language": "en",
+                    "num_utterances": 6,
+                    "ss_idx": 6,
+                    "success": true
+                }
+            },
+            {
+                "dialogue": [
+                    {
+                        "speaker": "Lily",
+                        "index": 1,
+                        "text": "I can’t believe how fast that ride was! My stomach still feels like it's in free fall!"
+                    },
+                    {
+                        "speaker": "Tom",
+                        "index": 2,
+                        "text": "I know, right? The sudden drops had me gripping the bar so tight, I thought I might gag!"
+                    },
+                    {
+                        "speaker": "Lily",
+                        "index": 3,
+                        "text": "Exactly! I was jerking my head around, trying to spot where we were going next! What a ride!"
+                    },
+                    {
+                        "speaker": "Tom",
+                        "index": 4,
+                        "text": "It felt like my brain was doing somersaults! I wouldn’t hesitate to go again."
+                    },
+                    {
+                        "speaker": "Lily",
+                        "index": 5,
+                        "text": "Totally! I love the thrill—even if my heart is still racing!"
+                    },
+                    {
+                        "speaker": "Tom",
+                        "index": 6,
+                        "text": "Let’s find the next one! I’m ready for another heart-stopping gag!"
+                    }
+                ],
+                "meta_data": {
+                    "dialogue_num": 2,
+                    "language": "en",
+                    "num_utterances": 6,
+                    "ss_idx": 3,
+                    "success": true
+                }
+            },
+            {
+                "dialogue": [
+                    {
+                        "speaker": "Sara",
+                        "index": 1,
+                        "text": "Did you catch that street performer? He’s incredible with the way he juggles those flaming torches!"
+                    },
+                    {
+                        "speaker": "Mark",
+                        "index": 2,
+                        "text": "I know, right? I nearly held my breath when he fumbled one for a second there."
+                    },
+                    {
+                        "speaker": "Sara",
+                        "index": 3,
+                        "text": "Exactly! It looked like he was about to gag, but then he did this quick flick with his head and kept going. Pure skill!"
+                    },
+                    {
+                        "speaker": "Mark",
+                        "index": 4,
+                        "text": "Totally! It was like he turned it into part of his act."
+                    },
+                    {
+                        "speaker": "Sara",
+                        "index": 5,
+                        "text": "For sure! It’s amazing how he can improvise under pressure."
+                    },
+                    {
+                        "speaker": "Mark",
+                        "index": 6,
+                        "text": "Absolutely! I’d love to learn a few tricks like that myself."
+                    }
+                ],
+                "meta_data": {
+                    "dialogue_num": 3,
+                    "language": "en",
+                    "num_utterances": 6,
+                    "ss_idx": 3,
+                    "success": true
+                }
+            },
+            {
+                "dialogue": [
+                    {
+                        "speaker": "Michael",
+                        "index": 1,
+                        "text": "I’m telling you, if I get this throw right, we could totally beat our record!"
+                    },
+                    {
+                        "speaker": "Sarah",
+                        "index": 2,
+                        "text": "Just focus, Michael! No gagging your aim like the last time—remember when the frisbee hit that window?"
+                    },
+                    {
+                        "speaker": "Michael",
+                        "index": 3,
+                        "text": "Ugh, I know! That distraction really threw me off. *sighs* I didn’t see that bird coming!"
+                    },
+                    {
+                        "speaker": "Sarah",
+                        "index": 4,
+                        "text": "Haha! You always manage to attract attention, don’t you? Just watch out for those windows this time!"
+                    },
+                    {
+                        "speaker": "Michael",
+                        "index": 5,
+                        "text": "Absolutely! I can't wait to show you this new technique I learned. It’s going to be incredible!"
+                    },
+                    {
+                        "speaker": "Sarah",
+                        "index": 6,
+                        "text": "I’m all in! Let’s make sure our only audience today is the sky!"
+                    }
+                ],
+                "meta_data": {
+                    "dialogue_num": 4,
+                    "language": "en",
+                    "num_utterances": 6,
+                    "ss_idx": 2,
+                    "success": true
+                }
+            },
+            {
+                "dialogue": [
+                    {
+                        "speaker": "Emily",
+                        "index": 1,
+                        "text": "Do you remember those epic games of capture the flag we used to have at the schoolyard?"
+                    },
+                    {
+                        "speaker": "Mark",
+                        "index": 2,
+                        "text": "Oh, for sure! I can picture it now — running around, trying not to get caught while you flailed your arms like a windmill!"
+                    },
+                    {
+                        "speaker": "Emily",
+                        "index": 3,
+                        "text": "Right? And then there was that one time you went charging at me and tripped over a rock, *gag!* It was so dramatic!"
+                    },
+                    {
+                        "speaker": "Mark",
+                        "index": 4,
+                        "text": "Ha! I remember that! One moment I was all confident, and the next, *poof*! There I was, flat on my back!"
+                    },
+                    {
+                        "speaker": "Emily",
+                        "index": 5,
+                        "text": "And I was laughing so hard that I nearly ran straight into a tree!"
+                    },
+                    {
+                        "speaker": "Mark",
+                        "index": 6,
+                        "text": "The good ol' days! I kind of miss those ridiculous moments."
+                    }
+                ],
+                "meta_data": {
+                    "dialogue_num": 5,
+                    "language": "en",
+                    "num_utterances": 6,
+                    "ss_idx": 3,
+                    "success": true
+                }
+            }
+        ]
+    },
+    {
+        "word": "pewewe",
+        "meaning": [
+            "Representing the plaintive call of some birds of prey."
+        ],
+        "dialogues": [
+            {
+                "dialogue": [
+                    {
+                        "speaker": "Emily",
+                        "index": 1,
+                        "text": "Can you believe how vibrant the colors are today? The trees look so alive."
+                    },
+                    {
+                        "speaker": "Liam",
+                        "index": 2,
+                        "text": "I know! And listen to the way the wind whispers through them. It’s almost magical."
+                    },
+                    {
+                        "speaker": "Emily",
+                        "index": 3,
+                        "text": "It really is. Have you ever seen one of those hawks around here? I heard they glide beautifully."
+                    },
+                    {
+                        "speaker": "Liam",
+                        "index": 4,
+                        "text": "Yeah, they do! When they circle overhead, it’s like they own the sky. They have this unique call, too."
+                    },
+                    {
+                        "speaker": "Emily",
+                        "index": 5,
+                        "text": "That sounds amazing! So they just sit high up and watch everything unfold below?"
+                    },
+                    {
+                        "speaker": "Liam",
+                        "index": 6,
+                        "text": "Exactly! And if you listen closely, you might even hear their call—pewewe! It’s quite haunting."
+                    }
+                ],
+                "meta_data": {
+                    "dialogue_num": 1,
+                    "language": "en",
+                    "num_utterances": 6,
+                    "ss_idx": 6,
+                    "success": true
+                }
+            },
+            {
+                "dialogue": [
+                    {
+                        "speaker": "Liam",
+                        "index": 1,
+                        "text": "Isn't this trail breathtaking? It feels like we're stepping into another world!"
+                    },
+                    {
+                        "speaker": "Ava",
+                        "index": 2,
+                        "text": "Absolutely! Just listen to that call—pewewe! It sounds like the birds are welcoming us."
+                    },
+                    {
+                        "speaker": "Liam",
+                        "index": 3,
+                        "text": "I love how each bird's call has its own personality. It’s like nature's orchestra."
+                    },
+                    {
+                        "speaker": "Ava",
+                        "index": 4,
+                        "text": "Exactly! Every sound feels like a little story waiting to be told. I wonder what they’re communicating."
+                    },
+                    {
+                        "speaker": "Liam",
+                        "index": 5,
+                        "text": "We should stop for a moment and soak it all in. It’s the perfect spot to connect with nature."
+                    },
+                    {
+                        "speaker": "Ava",
+                        "index": 6,
+                        "text": "Great idea! Let’s keep an ear out for that pewewe call. Maybe we can catch a glimpse of the bird."
+                    }
+                ],
+                "meta_data": {
+                    "dialogue_num": 2,
+                    "language": "en",
+                    "num_utterances": 6,
+                    "ss_idx": 2,
+                    "success": true
+                }
+            },
+            {
+                "dialogue": [
+                    {
+                        "speaker": "Jake",
+                        "index": 1,
+                        "text": "This place is incredible! I can’t believe how expansive everything looks."
+                    },
+                    {
+                        "speaker": "Sophie",
+                        "index": 2,
+                        "text": "Right? And listen! I think I can hear that bird again—pewewe! It’s such a haunting sound."
+                    },
+                    {
+                        "speaker": "Jake",
+                        "index": 3,
+                        "text": "It really does evoke a sense of wonder. It feels like we’re stepping into nature's grand design."
+                    },
+                    {
+                        "speaker": "Sophie",
+                        "index": 4,
+                        "text": "Exactly! It’s as if every sound is telling a story, revealing the beauty around us."
+                    },
+                    {
+                        "speaker": "Jake",
+                        "index": 5,
+                        "text": "Let’s take a moment to soak it all in. Maybe we’ll see some wildlife."
+                    },
+                    {
+                        "speaker": "Sophie",
+                        "index": 6,
+                        "text": "I’d love that! Just being here, surrounded by all this beauty, makes me feel alive."
+                    }
+                ],
+                "meta_data": {
+                    "dialogue_num": 3,
+                    "language": "en",
+                    "num_utterances": 6,
+                    "ss_idx": 2,
+                    "success": true
+                }
+            },
+            {
+                "dialogue": [
+                    {
+                        "speaker": "Emily",
+                        "index": 1,
+                        "text": "Can you hear that rustling in the leaves? It feels like the forest is alive!"
+                    },
+                    {
+                        "speaker": "Daniel",
+                        "index": 2,
+                        "text": "Definitely! It's almost like nature is trying to tell us something. Listen closely!"
+                    },
+                    {
+                        "speaker": "Emily",
+                        "index": 3,
+                        "text": "Wait! I think I just caught the sound of a bird. It had this haunting call that lingers."
+                    },
+                    {
+                        "speaker": "Daniel",
+                        "index": 4,
+                        "text": "Oh, I bet that's a hawk! Their calls are so unique, echoing through the air."
+                    },
+                    {
+                        "speaker": "Emily",
+                        "index": 5,
+                        "text": "Exactly! I love that sound. It's like... pewewe! Do you think we can spot it soaring through the sky?"
+                    },
+                    {
+                        "speaker": "Daniel",
+                        "index": 6,
+                        "text": "Let's keep our eyes peeled! Moments like this remind us how beautiful nature can be."
+                    }
+                ],
+                "meta_data": {
+                    "dialogue_num": 4,
+                    "language": "en",
+                    "num_utterances": 6,
+                    "ss_idx": 5,
+                    "success": true
+                }
+            },
+            {
+                "dialogue": [
+                    {
+                        "speaker": "Sophie",
+                        "index": 1,
+                        "text": "Can you believe how quiet it is out here? The only sounds are the wind and a few distant birds."
+                    },
+                    {
+                        "speaker": "Jake",
+                        "index": 2,
+                        "text": "Yeah, it's almost meditative. I really enjoy hearing the unique calls of birds, especially the raptors."
+                    },
+                    {
+                        "speaker": "Sophie",
+                        "index": 3,
+                        "text": "Exactly! Those birds always manage to capture my attention. Their calls are so captivating."
+                    },
+                    {
+                        "speaker": "Jake",
+                        "index": 4,
+                        "text": "Totally! They blend their voices effortlessly with the atmosphere. Oh! I think I just heard one."
+                    },
+                    {
+                        "speaker": "Sophie",
+                        "index": 5,
+                        "text": "That sound, pewewe, really resonates, doesn’t it? It makes everything feel so alive."
+                    },
+                    {
+                        "speaker": "Jake",
+                        "index": 6,
+                        "text": "Absolutely! Nature communicates in such beautiful ways, connecting us with each call."
+                    }
+                ],
+                "meta_data": {
+                    "dialogue_num": 5,
+                    "language": "en",
+                    "num_utterances": 6,
+                    "ss_idx": 5,
+                    "success": true
+                }
+            }
+        ]
+    },
+    {
+        "word": "poot",
+        "meaning": [
+            "An act of breaking wind, a fart."
+        ],
+        "dialogues": [
+            {
+                "dialogue": [
+                    {
+                        "speaker": "Mike",
+                        "index": 1,
+                        "text": "Can you believe that time we went to the barbecue at Sarah's place and you accidentally spilled ketchup all over yourself?"
+                    },
+                    {
+                        "speaker": "Emily",
+                        "index": 2,
+                        "text": "Oh, don't remind me! I still have nightmares about how everyone laughed. At least the food was good!"
+                    },
+                    {
+                        "speaker": "Mike",
+                        "index": 3,
+                        "text": "And to top it off, right after I made that joke, I heard a distinct 'poot,' which made the whole thing even more hilarious!"
+                    },
+                    {
+                        "speaker": "Emily",
+                        "index": 4,
+                        "text": "You really know how to set the stage for a comedy show! That moment will stick with us forever."
+                    },
+                    {
+                        "speaker": "Mike",
+                        "index": 5,
+                        "text": "I think people started to look at me as the barbecue joke machine after that!"
+                    },
+                    {
+                        "speaker": "Emily",
+                        "index": 6,
+                        "text": "Well, if you keep this up, they might ask you to host the next one!"
+                    }
+                ],
+                "meta_data": {
+                    "dialogue_num": 1,
+                    "language": "en",
+                    "num_utterances": 6,
+                    "ss_idx": 3,
+                    "success": true
+                }
+            },
+            {
+                "dialogue": [
+                    {
+                        "speaker": "Emily",
+                        "index": 1,
+                        "text": "Can you believe how hot it is today? Perfect weather for a picnic!"
+                    },
+                    {
+                        "speaker": "Jake",
+                        "index": 2,
+                        "text": "Absolutely! Remember last summer when we grilled those burgers and nearly burnt them?"
+                    },
+                    {
+                        "speaker": "Emily",
+                        "index": 3,
+                        "text": "Haha, yes! And I always thought your grilling skills were top-notch until that day."
+                    },
+                    {
+                        "speaker": "Jake",
+                        "index": 4,
+                        "text": "Right? And then when you let out a little *poot* while laughing, it was hilarious!"
+                    },
+                    {
+                        "speaker": "Emily",
+                        "index": 5,
+                        "text": "I was so embarrassed! I thought I could just play it cool, but that didn’t work out."
+                    },
+                    {
+                        "speaker": "Jake",
+                        "index": 6,
+                        "text": "Honestly, it just added to the fun! We still laugh about it now."
+                    }
+                ],
+                "meta_data": {
+                    "dialogue_num": 2,
+                    "language": "en",
+                    "num_utterances": 6,
+                    "ss_idx": 4,
+                    "success": true
+                }
+            },
+            {
+                "dialogue": [
+                    {
+                        "speaker": "Katie",
+                        "index": 1,
+                        "text": "You won't believe what happened in my class today!"
+                    },
+                    {
+                        "speaker": "Jake",
+                        "index": 2,
+                        "text": "Oh, tell me! Did you accidentally *poot* while explaining something?"
+                    },
+                    {
+                        "speaker": "Katie",
+                        "index": 3,
+                        "text": "Worse! I was deep in discussion, and suddenly my stomach grumbled really loudly. I was so embarrassed."
+                    },
+                    {
+                        "speaker": "Jake",
+                        "index": 4,
+                        "text": "No way! What did your classmates do?"
+                    },
+                    {
+                        "speaker": "Katie",
+                        "index": 5,
+                        "text": "They all just stared at me for a moment, and then burst out laughing! It was awkward but hilarious."
+                    },
+                    {
+                        "speaker": "Jake",
+                        "index": 6,
+                        "text": "That's a classic! You'll definitely be remembered for that one!"
+                    }
+                ],
+                "meta_data": {
+                    "dialogue_num": 3,
+                    "language": "en",
+                    "num_utterances": 6,
+                    "ss_idx": 2,
+                    "success": true
+                }
+            },
+            {
+                "dialogue": [
+                    {
+                        "speaker": "Ethan",
+                        "index": 1,
+                        "text": "This spot is amazing! I can’t believe how calm it is here."
+                    },
+                    {
+                        "speaker": "Mia",
+                        "index": 2,
+                        "text": "I know, right? But did you hear that little *poot* just now?"
+                    },
+                    {
+                        "speaker": "Ethan",
+                        "index": 3,
+                        "text": "Haha! I did! I thought we were the only ones making noise."
+                    },
+                    {
+                        "speaker": "Mia",
+                        "index": 4,
+                        "text": "Maybe it was the sandwich having an opinion. This picnic just got a lot funnier."
+                    },
+                    {
+                        "speaker": "Ethan",
+                        "index": 5,
+                        "text": "True! With every sound, this picnic feels like a comedy show."
+                    },
+                    {
+                        "speaker": "Mia",
+                        "index": 6,
+                        "text": "And I love it! Let’s see what other surprises this day has for us."
+                    }
+                ],
+                "meta_data": {
+                    "dialogue_num": 4,
+                    "language": "en",
+                    "num_utterances": 6,
+                    "ss_idx": 2,
+                    "success": true
+                }
+            },
+            {
+                "dialogue": [
+                    {
+                        "speaker": "Mark",
+                        "index": 1,
+                        "text": "I can't believe I went for that double burger. My stomach feels kind of... funny."
+                    },
+                    {
+                        "speaker": "Jenny",
+                        "index": 2,
+                        "text": "Maybe that special sauce was a bad idea? You know how they say 'live dangerously'?"
+                    },
+                    {
+                        "speaker": "Mark",
+                        "index": 3,
+                        "text": "Yeah, well, I didn't expect—*poot*—oh no, there it is!"
+                    },
+                    {
+                        "speaker": "Jenny",
+                        "index": 4,
+                        "text": "Oh wow! That was quite the surprise! I hope the squirrels didn't hear that!"
+                    },
+                    {
+                        "speaker": "Mark",
+                        "index": 5,
+                        "text": "Let's just say they might tell the others nearby about my 'special sauce' adventure."
+                    },
+                    {
+                        "speaker": "Jenny",
+                        "index": 6,
+                        "text": "Well, at least we have a hilarious story for later! Just a day in the park!"
+                    }
+                ],
+                "meta_data": {
+                    "dialogue_num": 5,
+                    "language": "en",
+                    "num_utterances": 6,
+                    "ss_idx": 3,
+                    "success": true
+                }
+            }
+        ]
+    },
+    {
+        "word": "chick",
+        "meaning": [
+            "Of a bird (esp. a chicken) or another animal: to make a short, distinct sound; to chirp.",
+            "A regular short, distinct sound made by a clock or watch."
+        ],
+        "dialogues": [
+            {
+                "dialogue": [
+                    {
+                        "speaker": "Emma",
+                        "index": 1,
+                        "text": "Oh wow, look at those baby birds over there! They are so adorable!"
+                    },
+                    {
+                        "speaker": "Jack",
+                        "index": 2,
+                        "text": "Right? I can’t believe how tiny they are! Just listen to them, they go 'chirp, chirp!'"
+                    },
+                    {
+                        "speaker": "Emma",
+                        "index": 3,
+                        "text": "They’re really playful, too! I love how they chase after each other."
+                    },
+                    {
+                        "speaker": "Jack",
+                        "index": 4,
+                        "text": "For sure! Every time they poke around, it’s like a soft little ‘tweet!’ It’s hilarious."
+                    },
+                    {
+                        "speaker": "Emma",
+                        "index": 5,
+                        "text": "And when they gather together, it’s like they’re whispering secrets to one another, chick!"
+                    },
+                    {
+                        "speaker": "Jack",
+                        "index": 6,
+                        "text": "Exactly! They are just the cutest little creatures. I wish I could keep one!"
+                    }
+                ],
+                "meta_data": {
+                    "dialogue_num": 1,
+                    "language": "en",
+                    "num_utterances": 6,
+                    "ss_idx": 5,
+                    "success": true
+                }
+            },
+            {
+                "dialogue": [
+                    {
+                        "speaker": "Mia",
+                        "index": 1,
+                        "text": "Isn’t it wonderful out here on the farm? The sky is so blue."
+                    },
+                    {
+                        "speaker": "Noah",
+                        "index": 2,
+                        "text": "Definitely! You can hear the cows mooing and look at those playful goats over there."
+                    },
+                    {
+                        "speaker": "Mia",
+                        "index": 3,
+                        "text": "And check out those chickens scratching around! Chick, chick, chick!"
+                    },
+                    {
+                        "speaker": "Noah",
+                        "index": 4,
+                        "text": "They’re so funny! I could watch them clucking all day long."
+                    },
+                    {
+                        "speaker": "Mia",
+                        "index": 5,
+                        "text": "Right? It really brings the farm to life."
+                    },
+                    {
+                        "speaker": "Noah",
+                        "index": 6,
+                        "text": "For sure! It's all those little sounds that make it feel so vibrant."
+                    }
+                ],
+                "meta_data": {
+                    "dialogue_num": 2,
+                    "language": "en",
+                    "num_utterances": 6,
+                    "ss_idx": 3,
+                    "success": true
+                }
+            },
+            {
+                "dialogue": [
+                    {
+                        "speaker": "Sarah",
+                        "index": 1,
+                        "text": "You won't believe what I saw on my way to the farmer's market! There were adorable little birds all over the place."
+                    },
+                    {
+                        "speaker": "Mark",
+                        "index": 2,
+                        "text": "Really? What kind of birds? Were they up to something fun?"
+                    },
+                    {
+                        "speaker": "Sarah",
+                        "index": 3,
+                        "text": "They were pecking at the ground and making the cutest little noises! It reminded me of growing up on a farm."
+                    },
+                    {
+                        "speaker": "Mark",
+                        "index": 4,
+                        "text": "Haha, I used to love visiting farms! We would try to catch the ones that were the loudest."
+                    },
+                    {
+                        "speaker": "Sarah",
+                        "index": 5,
+                        "text": "Absolutely! Their little 'chick' sounds were so cheerful, like they were chatting away with each other."
+                    },
+                    {
+                        "speaker": "Mark",
+                        "index": 6,
+                        "text": "I might need to get some chicks for my backyard, just to hear that cheerful noise every day!"
+                    }
+                ],
+                "meta_data": {
+                    "dialogue_num": 3,
+                    "language": "en",
+                    "num_utterances": 6,
+                    "ss_idx": 5,
+                    "success": true
+                }
+            },
+            {
+                "dialogue": [
+                    {
+                        "speaker": "Emma",
+                        "index": 1,
+                        "text": "Look at those chickens over there! They're so lively."
+                    },
+                    {
+                        "speaker": "Jack",
+                        "index": 2,
+                        "text": "Right? I can already hear them *clucking* about. It's adorable."
+                    },
+                    {
+                        "speaker": "Emma",
+                        "index": 3,
+                        "text": "And that little one keeps making this funny sound. I wonder what she's up to."
+                    },
+                    {
+                        "speaker": "Jack",
+                        "index": 4,
+                        "text": "Probably just keeping herself entertained! They really know how to make noise."
+                    },
+                    {
+                        "speaker": "Emma",
+                        "index": 5,
+                        "text": "Totally! It's like they're all chatting away. That one looks particularly curious."
+                    },
+                    {
+                        "speaker": "Jack",
+                        "index": 6,
+                        "text": "For sure! I love how they *chick* at each other, like there's a special bond."
+                    }
+                ],
+                "meta_data": {
+                    "dialogue_num": 4,
+                    "language": "en",
+                    "num_utterances": 6,
+                    "ss_idx": 6,
+                    "success": true
+                }
+            },
+            {
+                "dialogue": [
+                    {
+                        "speaker": "Sophie",
+                        "index": 1,
+                        "text": "I can't believe we're finally heading to the farm this weekend!"
+                    },
+                    {
+                        "speaker": "Oliver",
+                        "index": 2,
+                        "text": "Right? I'm so excited to see the baby goats and all the other animals!"
+                    },
+                    {
+                        "speaker": "Sophie",
+                        "index": 3,
+                        "text": "And the baby chicks! I heard they have the cutest little sounds."
+                    },
+                    {
+                        "speaker": "Oliver",
+                        "index": 4,
+                        "text": "Oh, I can totally imagine them making those adorable 'chick' sounds."
+                    },
+                    {
+                        "speaker": "Sophie",
+                        "index": 5,
+                        "text": "Exactly! Just thinking about it makes me want to hold one."
+                    },
+                    {
+                        "speaker": "Oliver",
+                        "index": 6,
+                        "text": "Same here! It'll be so much fun to feed them and hear them 'chick' happily."
+                    }
+                ],
+                "meta_data": {
+                    "dialogue_num": 5,
+                    "language": "en",
+                    "num_utterances": 6,
+                    "ss_idx": 3,
+                    "success": true
+                }
+            }
+        ]
+    },
+    {
+        "word": "baw",
+        "meaning": [
+            "To bark, as a dog."
+        ],
+        "dialogues": [
+            {
+                "dialogue": [
+                    {
+                        "speaker": "Emily",
+                        "index": 1,
+                        "text": "You won’t believe what Luna did at the park today."
+                    },
+                    {
+                        "speaker": "Jack",
+                        "index": 2,
+                        "text": "Oh really? Was it something silly?"
+                    },
+                    {
+                        "speaker": "Emily",
+                        "index": 3,
+                        "text": "Definitely! She spotted a squirrel and started chasing it, then let out a big 'baw!' It was hilarious."
+                    },
+                    {
+                        "speaker": "Jack",
+                        "index": 4,
+                        "text": "That sounds just like Max! He gets all worked up if he sees a cat."
+                    },
+                    {
+                        "speaker": "Emily",
+                        "index": 5,
+                        "text": "Dogs certainly have a unique way of showing their excitement!"
+                    },
+                    {
+                        "speaker": "Jack",
+                        "index": 6,
+                        "text": "Absolutely! Those moments are what make it all worth it."
+                    }
+                ],
+                "meta_data": {
+                    "dialogue_num": 1,
+                    "language": "en",
+                    "num_utterances": 6,
+                    "ss_idx": 3,
+                    "success": true
+                }
+            },
+            {
+                "dialogue": [
+                    {
+                        "speaker": "Sarah",
+                        "index": 1,
+                        "text": "You wouldn't believe how many dogs start barking when I jog through the park."
+                    },
+                    {
+                        "speaker": "Mark",
+                        "index": 2,
+                        "text": "I know! The beagle near my house goes crazy whenever someone walks by."
+                    },
+                    {
+                        "speaker": "Sarah",
+                        "index": 3,
+                        "text": "It's like they're all competing to see who can howl the loudest!"
+                    },
+                    {
+                        "speaker": "Mark",
+                        "index": 4,
+                        "text": "Exactly! That one golden retriever just stands there and goes 'baw!' like it's announcing something important."
+                    },
+                    {
+                        "speaker": "Sarah",
+                        "index": 5,
+                        "text": "Oh, totally! I love imagining it wagging its tail enthusiastically with every 'baw!'"
+                    },
+                    {
+                        "speaker": "Mark",
+                        "index": 6,
+                        "text": "Right? It makes you feel like joining in on the excitement!"
+                    }
+                ],
+                "meta_data": {
+                    "dialogue_num": 2,
+                    "language": "en",
+                    "num_utterances": 6,
+                    "ss_idx": 4,
+                    "success": true
+                }
+            },
+            {
+                "dialogue": [
+                    {
+                        "speaker": "Jake",
+                        "index": 1,
+                        "text": "Look at that dog playing fetch! He seems so excited."
+                    },
+                    {
+                        "speaker": "Emma",
+                        "index": 2,
+                        "text": "I know! It's always fun to watch them run around."
+                    },
+                    {
+                        "speaker": "Jake",
+                        "index": 3,
+                        "text": "Remember the last time we were at the dog park? It was a total blast."
+                    },
+                    {
+                        "speaker": "Emma",
+                        "index": 4,
+                        "text": "Absolutely! And the way they interact with each other is just hilarious."
+                    },
+                    {
+                        "speaker": "Jake",
+                        "index": 5,
+                        "text": "Every dog has its own personality; it's like a little show every time."
+                    },
+                    {
+                        "speaker": "Emma",
+                        "index": 6,
+                        "text": "Totally! Just like this one here, he's so vocal! Baw! He's definitely ready to have some fun."
+                    }
+                ],
+                "meta_data": {
+                    "dialogue_num": 3,
+                    "language": "en",
+                    "num_utterances": 6,
+                    "ss_idx": 6,
+                    "success": true
+                }
+            },
+            {
+                "dialogue": [
+                    {
+                        "speaker": "Sophie",
+                        "index": 1,
+                        "text": "Guess what? I finally adopted a cute little puppy!"
+                    },
+                    {
+                        "speaker": "Liam",
+                        "index": 2,
+                        "text": "No way! What’s he like? Does he baw all the time?"
+                    },
+                    {
+                        "speaker": "Sophie",
+                        "index": 3,
+                        "text": "Oh, totally! He has so much energy and loves to chase after everything."
+                    },
+                    {
+                        "speaker": "Liam",
+                        "index": 4,
+                        "text": "That sounds adorable! My last dog used to bark at every car that passed by."
+                    },
+                    {
+                        "speaker": "Sophie",
+                        "index": 5,
+                        "text": "Exactly! It’s like they think they’re the protectors of the house."
+                    },
+                    {
+                        "speaker": "Liam",
+                        "index": 6,
+                        "text": "I can't wait to meet him! He sounds like he'll bring a lot of joy."
+                    }
+                ],
+                "meta_data": {
+                    "dialogue_num": 4,
+                    "language": "en",
+                    "num_utterances": 6,
+                    "ss_idx": 2,
+                    "success": true
+                }
+            },
+            {
+                "dialogue": [
+                    {
+                        "speaker": "Emma",
+                        "index": 1,
+                        "text": "Did you hear that dog barking outside? It was so loud, 'baw! baw!'"
+                    },
+                    {
+                        "speaker": "Liam",
+                        "index": 2,
+                        "text": "Absolutely! That sounded like a happy dog, probably spotted something interesting."
+                    },
+                    {
+                        "speaker": "Emma",
+                        "index": 3,
+                        "text": "Right? I can just picture them scheming together."
+                    },
+                    {
+                        "speaker": "Liam",
+                        "index": 4,
+                        "text": "Haha, totally! Like they're planning a big heist of treats or something."
+                    },
+                    {
+                        "speaker": "Emma",
+                        "index": 5,
+                        "text": "Can you imagine them lined up, barking their little hearts out?"
+                    },
+                    {
+                        "speaker": "Liam",
+                        "index": 6,
+                        "text": "That would be epic! Just a choir of dogs with their own agenda!"
+                    }
+                ],
+                "meta_data": {
+                    "dialogue_num": 5,
+                    "language": "en",
+                    "num_utterances": 6,
+                    "ss_idx": 1,
+                    "success": true
+                }
+            }
+        ]
+    },
+    {
+        "word": "ting-tang",
+        "meaning": [
+            "A succession of two ringing sounds, differing in tone or force."
+        ],
+        "dialogues": [
+            {
+                "dialogue": [
+                    {
+                        "speaker": "Emily",
+                        "index": 1,
+                        "text": "Isn’t this café the perfect spot for a rainy day? I love how the raindrops tap against the window."
+                    },
+                    {
+                        "speaker": "Lucas",
+                        "index": 2,
+                        "text": "Absolutely! And the way the barista whips up those lattes is like a little show of its own."
+                    },
+                    {
+                        "speaker": "Emily",
+                        "index": 3,
+                        "text": "I can’t wait for the weekend festival, though! The sound of the bells ringing always brings a smile to my face—*ting-tang*!"
+                    },
+                    {
+                        "speaker": "Lucas",
+                        "index": 4,
+                        "text": "Right? It adds such a unique charm. I get so excited for the performances and all the colorful decorations."
+                    },
+                    {
+                        "speaker": "Emily",
+                        "index": 5,
+                        "text": "And don’t forget the food stalls! I can already picture us devouring those tasty treats."
+                    },
+                    {
+                        "speaker": "Lucas",
+                        "index": 6,
+                        "text": "Oh yes, that sounds amazing! Let’s make sure we hit all the must-try spots."
+                    }
+                ],
+                "meta_data": {
+                    "dialogue_num": 1,
+                    "language": "en",
+                    "num_utterances": 6,
+                    "ss_idx": 3,
+                    "success": true
+                }
+            },
+            {
+                "dialogue": [
+                    {
+                        "speaker": "Liam",
+                        "index": 1,
+                        "text": "Did you hear that? It has such a lovely ting-tang sound! It echoes beautifully through the park."
+                    },
+                    {
+                        "speaker": "Sophie",
+                        "index": 2,
+                        "text": "I know, right? It really adds to the atmosphere, makes everything feel more alive."
+                    },
+                    {
+                        "speaker": "Liam",
+                        "index": 3,
+                        "text": "Absolutely! It's like each ring invites us to explore something new."
+                    },
+                    {
+                        "speaker": "Sophie",
+                        "index": 4,
+                        "text": "Exactly! Last time we were here, that sound led us to that amazing food truck."
+                    },
+                    {
+                        "speaker": "Liam",
+                        "index": 5,
+                        "text": "And remember how we shared those delicious tacos by the fountain? Such a fun day!"
+                    },
+                    {
+                        "speaker": "Sophie",
+                        "index": 6,
+                        "text": "We should do that again! Just let the sounds guide our little adventures."
+                    }
+                ],
+                "meta_data": {
+                    "dialogue_num": 2,
+                    "language": "en",
+                    "num_utterances": 6,
+                    "ss_idx": 1,
+                    "success": true
+                }
+            },
+            {
+                "dialogue": [
+                    {
+                        "speaker": "Mia",
+                        "index": 1,
+                        "text": "You won't believe this—I just got the acceptance letter for that art retreat!"
+                    },
+                    {
+                        "speaker": "Liam",
+                        "index": 2,
+                        "text": "Seriously? That’s fantastic! What did the letter say?"
+                    },
+                    {
+                        "speaker": "Mia",
+                        "index": 3,
+                        "text": "I was just finishing up a sketch when my phone chimed. I checked the email, and it was like—ding-ding! My heart raced!"
+                    },
+                    {
+                        "speaker": "Liam",
+                        "index": 4,
+                        "text": "Oh wow! That’s so exciting! I can almost hear the ting-tang of your joy! What’s the first thing you're going to do?"
+                    },
+                    {
+                        "speaker": "Mia",
+                        "index": 5,
+                        "text": "I want to start packing my supplies and brainstorm ideas for my pieces!"
+                    },
+                    {
+                        "speaker": "Liam",
+                        "index": 6,
+                        "text": "That sounds perfect! You’re going to create something amazing there!"
+                    }
+                ],
+                "meta_data": {
+                    "dialogue_num": 3,
+                    "language": "en",
+                    "num_utterances": 6,
+                    "ss_idx": 4,
+                    "success": true
+                }
+            },
+            {
+                "dialogue": [
+                    {
+                        "speaker": "Mia",
+                        "index": 1,
+                        "text": "You know, there's something magical about the sound of the church bells ringing, isn't there?"
+                    },
+                    {
+                        "speaker": "James",
+                        "index": 2,
+                        "text": "Definitely! Those sounds always remind me of family gatherings and special occasions."
+                    },
+                    {
+                        "speaker": "Mia",
+                        "index": 3,
+                        "text": "Exactly! It's like each one of those chimes has its own story."
+                    },
+                    {
+                        "speaker": "James",
+                        "index": 4,
+                        "text": "I completely agree! The *ting-tang* of the bells brings back a flood of memories for me."
+                    },
+                    {
+                        "speaker": "Mia",
+                        "index": 5,
+                        "text": "Right? It’s as though those notes paint pictures from our past."
+                    },
+                    {
+                        "speaker": "James",
+                        "index": 6,
+                        "text": "Absolutely! Those harmonious sounds really breathe life into our memories."
+                    }
+                ],
+                "meta_data": {
+                    "dialogue_num": 4,
+                    "language": "en",
+                    "num_utterances": 6,
+                    "ss_idx": 4,
+                    "success": true
+                }
+            },
+            {
+                "dialogue": [
+                    {
+                        "speaker": "Olivia",
+                        "index": 1,
+                        "text": "Can you believe how lively this market is today? Every corner has something exciting."
+                    },
+                    {
+                        "speaker": "Jake",
+                        "index": 2,
+                        "text": "Absolutely! Just a moment ago, I heard this charming clock chime—so enchanting, like a sweet melody."
+                    },
+                    {
+                        "speaker": "Olivia",
+                        "index": 3,
+                        "text": "Oh, that sounds beautiful! It rang out like a gentle, soothing ding."
+                    },
+                    {
+                        "speaker": "Jake",
+                        "index": 4,
+                        "text": "Yes! Those rings seem to dance through the air. It’s such a perfect match for the buzz around us."
+                    },
+                    {
+                        "speaker": "Olivia",
+                        "index": 5,
+                        "text": "Time seems to drift here, doesn’t it? I just love that ting-tang sound echoing through this place."
+                    },
+                    {
+                        "speaker": "Jake",
+                        "index": 6,
+                        "text": "That’s a plan! Let’s aim for the same time next Saturday. I can’t wait to enjoy more of this ambiance."
+                    }
+                ],
+                "meta_data": {
+                    "dialogue_num": 5,
+                    "language": "en",
+                    "num_utterances": 6,
+                    "ss_idx": 5,
+                    "success": true
+                }
+            }
+        ]
+    },
+    {
+        "word": "ruffle",
+        "meaning": [
+            "A rapid vibrating drum beat."
+        ],
+        "dialogues": [
+            {
+                "dialogue": [
+                    {
+                        "speaker": "Emily",
+                        "index": 1,
+                        "text": "Can you hear those drums? They're just ruffle, ruffle, ruffle! It makes me want to dance!"
+                    },
+                    {
+                        "speaker": "Kyle",
+                        "index": 2,
+                        "text": "Oh, I absolutely love that sound! It brings back memories of the summer festivals I used to go to."
+                    },
+                    {
+                        "speaker": "Emily",
+                        "index": 3,
+                        "text": "Right? The atmosphere is so alive with that rhythm. We should go check it out together!"
+                    },
+                    {
+                        "speaker": "Kyle",
+                        "index": 4,
+                        "text": "Definitely! I'm all in for some spontaneous fun. Let’s grab some snacks and head over."
+                    },
+                    {
+                        "speaker": "Emily",
+                        "index": 5,
+                        "text": "Perfect! I can almost feel the beat in my bones already."
+                    },
+                    {
+                        "speaker": "Kyle",
+                        "index": 6,
+                        "text": "Me too! Let’s hurry before they start a drum circle!"
+                    }
+                ],
+                "meta_data": {
+                    "dialogue_num": 1,
+                    "language": "en",
+                    "num_utterances": 6,
+                    "ss_idx": 1,
+                    "success": true
+                }
+            },
+            {
+                "dialogue": [
+                    {
+                        "speaker": "Emily",
+                        "index": 1,
+                        "text": "I can't contain my excitement for the festival this weekend! The lineup is absolutely stellar."
+                    },
+                    {
+                        "speaker": "Jake",
+                        "index": 2,
+                        "text": "No way! Who's performing? I want to know if it's the kind of music that gets the crowd moving."
+                    },
+                    {
+                        "speaker": "Emily",
+                        "index": 3,
+                        "text": "Oh, it's a mix of rock and electronic! Just imagining the ruffle of the drums sends shivers down my spine."
+                    },
+                    {
+                        "speaker": "Jake",
+                        "index": 4,
+                        "text": "Sounds like a blast! I love it when the beats hit hard, making everyone just jump and dance."
+                    },
+                    {
+                        "speaker": "Emily",
+                        "index": 5,
+                        "text": "Exactly! I can't wait to lose myself in the music and feel the energy of the crowd."
+                    },
+                    {
+                        "speaker": "Jake",
+                        "index": 6,
+                        "text": "Let’s make sure to get there early and soak it all in then!"
+                    }
+                ],
+                "meta_data": {
+                    "dialogue_num": 2,
+                    "language": "en",
+                    "num_utterances": 6,
+                    "ss_idx": 3,
+                    "success": true
+                }
+            },
+            {
+                "dialogue": [
+                    {
+                        "speaker": "Ben",
+                        "index": 1,
+                        "text": "Can you believe we’re finally going to that music festival this weekend?"
+                    },
+                    {
+                        "speaker": "Sara",
+                        "index": 2,
+                        "text": "I know! I’ve been looking forward to it for so long. Seeing The Echoes live is going to be incredible!"
+                    },
+                    {
+                        "speaker": "Ben",
+                        "index": 3,
+                        "text": "Absolutely! The way the drums ruffle through the crowd really pulls everyone together."
+                    },
+                    {
+                        "speaker": "Sara",
+                        "index": 4,
+                        "text": "Yes! When that first song hits, the energy is just contagious. You can’t help but move!"
+                    },
+                    {
+                        "speaker": "Ben",
+                        "index": 5,
+                        "text": "Right? It’s like you can feel the vibrations in your bones, so powerful!"
+                    },
+                    {
+                        "speaker": "Sara",
+                        "index": 6,
+                        "text": "Totally! I’m so excited; I can already picture us in the middle of all the fun!"
+                    }
+                ],
+                "meta_data": {
+                    "dialogue_num": 3,
+                    "language": "en",
+                    "num_utterances": 6,
+                    "ss_idx": 3,
+                    "success": true
+                }
+            },
+            {
+                "dialogue": [
+                    {
+                        "speaker": "Emma",
+                        "index": 1,
+                        "text": "Can you believe how loud that last band was? They were incredible!"
+                    },
+                    {
+                        "speaker": "Liam",
+                        "index": 2,
+                        "text": "Totally! The way the drummer just kept going, I felt it in my bones."
+                    },
+                    {
+                        "speaker": "Emma",
+                        "index": 3,
+                        "text": "I know! It was like they were tapping into something primal. I couldn’t help but move!"
+                    },
+                    {
+                        "speaker": "Liam",
+                        "index": 4,
+                        "text": "Me too! The crowd was so into it. You could see everyone getting lost in the beat."
+                    },
+                    {
+                        "speaker": "Emma",
+                        "index": 5,
+                        "text": "That moment when they all clashed their drums together? It felt like a wave of sound!"
+                    },
+                    {
+                        "speaker": "Liam",
+                        "index": 6,
+                        "text": "Right? That ruffle of rhythm just hit us all at once, it was euphoric!"
+                    }
+                ],
+                "meta_data": {
+                    "dialogue_num": 4,
+                    "language": "en",
+                    "num_utterances": 6,
+                    "ss_idx": 6,
+                    "success": true
+                }
+            },
+            {
+                "dialogue": [
+                    {
+                        "speaker": "Alex",
+                        "index": 1,
+                        "text": "You won’t believe the concert I just came back from! It was electrifying."
+                    },
+                    {
+                        "speaker": "Jamie",
+                        "index": 2,
+                        "text": "No way! Was it as good as they say? I’ve heard their live shows are something else."
+                    },
+                    {
+                        "speaker": "Alex",
+                        "index": 3,
+                        "text": "Definitely! The energy in the crowd was unreal. The drums hit hard and resonated through the entire venue."
+                    },
+                    {
+                        "speaker": "Jamie",
+                        "index": 4,
+                        "text": "That sounds amazing! Did they play all their hits?"
+                    },
+                    {
+                        "speaker": "Alex",
+                        "index": 5,
+                        "text": "They did! And every time the beat dropped, the crowd went wild—ruffle, ruffle, ruffle! It was infectious!"
+                    },
+                    {
+                        "speaker": "Jamie",
+                        "index": 6,
+                        "text": "I can’t wait to experience that! Let’s go to their next show together!"
+                    }
+                ],
+                "meta_data": {
+                    "dialogue_num": 5,
+                    "language": "en",
+                    "num_utterances": 6,
+                    "ss_idx": 5,
+                    "success": true
+                }
+            }
+        ]
+    },
+    {
+        "word": "jarg",
+        "meaning": [
+            "Of a door or gate: To make a creaking noise, to grate, jar, vibrate."
+        ],
+        "dialogues": [
+            {
+                "dialogue": [
+                    {
+                        "speaker": "Emma",
+                        "index": 1,
+                        "text": "This place looks like it's seen better days, don’t you think?"
+                    },
+                    {
+                        "speaker": "Jake",
+                        "index": 2,
+                        "text": "Absolutely! It’s like stepping into a scene from a horror movie."
+                    },
+                    {
+                        "speaker": "Emma",
+                        "index": 3,
+                        "text": "I hope the roof doesn’t fall in while we explore."
+                    },
+                    {
+                        "speaker": "Jake",
+                        "index": 4,
+                        "text": "Yikes! That door just *jarg* open all by itself. This is getting creepy."
+                    },
+                    {
+                        "speaker": "Emma",
+                        "index": 5,
+                        "text": "Maybe it’s inviting us in for a chat. Hope it’s not hungry!"
+                    },
+                    {
+                        "speaker": "Jake",
+                        "index": 6,
+                        "text": "If it is, I’m definitely not on the menu!"
+                    }
+                ],
+                "meta_data": {
+                    "dialogue_num": 1,
+                    "language": "en",
+                    "num_utterances": 6,
+                    "ss_idx": 4,
+                    "success": true
+                }
+            },
+            {
+                "dialogue": [
+                    {
+                        "speaker": "Emma",
+                        "index": 1,
+                        "text": "Can you believe this place? Every corner seems to be hiding something."
+                    },
+                    {
+                        "speaker": "Jake",
+                        "index": 2,
+                        "text": "Absolutely! Just listen to that door—*jarg*! It sounds like it’s alive."
+                    },
+                    {
+                        "speaker": "Emma",
+                        "index": 3,
+                        "text": "Right? It’s like it’s begging us to explore deeper!"
+                    },
+                    {
+                        "speaker": "Jake",
+                        "index": 4,
+                        "text": "I bet this room has stories to tell, if only we could unlock them."
+                    },
+                    {
+                        "speaker": "Emma",
+                        "index": 5,
+                        "text": "Or maybe it’s just warning us to turn back, like some haunted fairy tale."
+                    },
+                    {
+                        "speaker": "Jake",
+                        "index": 6,
+                        "text": "Well, I’m not leaving until we uncover what’s really going on here!"
+                    }
+                ],
+                "meta_data": {
+                    "dialogue_num": 2,
+                    "language": "en",
+                    "num_utterances": 6,
+                    "ss_idx": 2,
+                    "success": true
+                }
+            },
+            {
+                "dialogue": [
+                    {
+                        "speaker": "Emma",
+                        "index": 1,
+                        "text": "This place is even creepier than I imagined! Can you believe we’re actually inside?"
+                    },
+                    {
+                        "speaker": "Jake",
+                        "index": 2,
+                        "text": "I know! Just the way the shadows move makes it feel like the house has a life of its own."
+                    },
+                    {
+                        "speaker": "Emma",
+                        "index": 3,
+                        "text": "Let’s be real adventurers and check out that door over there!"
+                    },
+                    {
+                        "speaker": "Jake",
+                        "index": 4,
+                        "text": "I don’t know, Em. What if we disturb something? This place gives me serious chills."
+                    },
+                    {
+                        "speaker": "Emma",
+                        "index": 5,
+                        "text": "Oh come on! It’s just an old house. *jarg!* (as the door creaks open) See? It's just a door."
+                    },
+                    {
+                        "speaker": "Jake",
+                        "index": 6,
+                        "text": "Yeah, but that creak felt like a warning! Every noise echoes in here like we’re being watched."
+                    }
+                ],
+                "meta_data": {
+                    "dialogue_num": 3,
+                    "language": "en",
+                    "num_utterances": 6,
+                    "ss_idx": 5,
+                    "success": true
+                }
+            },
+            {
+                "dialogue": [
+                    {
+                        "speaker": "Liam",
+                        "index": 1,
+                        "text": "This old house looks like it hasn't been touched in decades. It's almost eerie."
+                    },
+                    {
+                        "speaker": "Sophia",
+                        "index": 2,
+                        "text": "Yeah, and when we opened that door, it jarg like it was trying to speak to us!"
+                    },
+                    {
+                        "speaker": "Liam",
+                        "index": 3,
+                        "text": "Exactly! I wonder what kind of stories these walls could tell."
+                    },
+                    {
+                        "speaker": "Sophia",
+                        "index": 4,
+                        "text": "I bet there's a treasure hidden somewhere, or at least old secrets waiting to be uncovered."
+                    },
+                    {
+                        "speaker": "Liam",
+                        "index": 5,
+                        "text": "Let's explore a bit more. I feel like we might find something fascinating."
+                    },
+                    {
+                        "speaker": "Sophia",
+                        "index": 6,
+                        "text": "Agreed! Just keep an eye out for any creaky floorboards!"
+                    }
+                ],
+                "meta_data": {
+                    "dialogue_num": 4,
+                    "language": "en",
+                    "num_utterances": 6,
+                    "ss_idx": 2,
+                    "success": true
+                }
+            },
+            {
+                "dialogue": [
+                    {
+                        "speaker": "Megan",
+                        "index": 1,
+                        "text": "Wow, this door jargs so loudly when I push it! It's like it's warning us to stay out."
+                    },
+                    {
+                        "speaker": "Jake",
+                        "index": 2,
+                        "text": "Right? It's so eerie here. Are you sure we should step inside?"
+                    },
+                    {
+                        "speaker": "Megan",
+                        "index": 3,
+                        "text": "Definitely! Just imagine the hidden treasures in a place like this."
+                    },
+                    {
+                        "speaker": "Jake",
+                        "index": 4,
+                        "text": "You might be right, but every little sound sends shivers down my spine."
+                    },
+                    {
+                        "speaker": "Megan",
+                        "index": 5,
+                        "text": "Don't worry! I’ll keep an eye out for anything spooky."
+                    },
+                    {
+                        "speaker": "Jake",
+                        "index": 6,
+                        "text": "Okay, let’s do this! I’m ready for whatever we find!"
+                    }
+                ],
+                "meta_data": {
+                    "dialogue_num": 5,
+                    "language": "en",
+                    "num_utterances": 6,
+                    "ss_idx": 1,
+                    "success": true
+                }
+            }
+        ]
+    },
+    {
+        "word": "lulla",
+        "meaning": [
+            "To soothe with a lullaby; to sing to sleep."
+        ],
+        "dialogues": [
+            {
+                "dialogue": [
+                    {
+                        "speaker": "Sophie",
+                        "index": 1,
+                        "text": "Looks like you're getting a little sleepy there, Jake. Ready to drift off?"
+                    },
+                    {
+                        "speaker": "Jake",
+                        "index": 2,
+                        "text": "Not yet! I want to hear one more story first. Just one more, please!"
+                    },
+                    {
+                        "speaker": "Sophie",
+                        "index": 3,
+                        "text": "Alright, how about this: I'll tell you a magical tale that will lulla your dreams into a soft slumber."
+                    },
+                    {
+                        "speaker": "Jake",
+                        "index": 4,
+                        "text": "That sounds wonderful! I think I'll be ready for dreamland after that."
+                    },
+                    {
+                        "speaker": "Sophie",
+                        "index": 5,
+                        "text": "Close your eyes and let the story wrap around you like a cozy blanket."
+                    },
+                    {
+                        "speaker": "Jake",
+                        "index": 6,
+                        "text": "Okay, I'm all set. Make it a good one, Sophie!"
+                    }
+                ],
+                "meta_data": {
+                    "dialogue_num": 1,
+                    "language": "en",
+                    "num_utterances": 6,
+                    "ss_idx": 3,
+                    "success": true
+                }
+            },
+            {
+                "dialogue": [
+                    {
+                        "speaker": "Sophie",
+                        "index": 1,
+                        "text": "Can you believe how serene it is out here? The night sky is just breathtaking."
+                    },
+                    {
+                        "speaker": "Liam",
+                        "index": 2,
+                        "text": "Absolutely! This reminds me of when I used to help my little brother drift off to sleep."
+                    },
+                    {
+                        "speaker": "Sophie",
+                        "index": 3,
+                        "text": "That’s so lovely! You should sing his favorite lullaby now and let the stars join in."
+                    },
+                    {
+                        "speaker": "Liam",
+                        "index": 4,
+                        "text": "You think that’d be nice? Alright, I’ll give it a shot… *chuckles and gets ready to sing*"
+                    },
+                    {
+                        "speaker": "Sophie",
+                        "index": 5,
+                        "text": "I’d love that! Lullabies always wrap the night in a cozy embrace."
+                    },
+                    {
+                        "speaker": "Liam",
+                        "index": 6,
+                        "text": "And now, let me lulla you all into a sweet dream with this melody…"
+                    }
+                ],
+                "meta_data": {
+                    "dialogue_num": 2,
+                    "language": "en",
+                    "num_utterances": 6,
+                    "ss_idx": 6,
+                    "success": true
+                }
+            },
+            {
+                "dialogue": [
+                    {
+                        "speaker": "Sophie",
+                        "index": 1,
+                        "text": "Whenever I'm feeling overwhelmed, I like to lulla myself with some calming melodies; they just ease my mind."
+                    },
+                    {
+                        "speaker": "James",
+                        "index": 2,
+                        "text": "I’m with you on that! I love listening to soft ocean waves; it really helps me let go of my stress."
+                    },
+                    {
+                        "speaker": "Sophie",
+                        "index": 3,
+                        "text": "Definitely! Last week, I listened to a playlist of lullabies and drifted away, picturing a tranquil beach at sunset."
+                    },
+                    {
+                        "speaker": "James",
+                        "index": 4,
+                        "text": "That sounds wonderful! I sometimes fall asleep to crackling fireplace sounds; it feels like I'm wrapped in warmth."
+                    },
+                    {
+                        "speaker": "Sophie",
+                        "index": 5,
+                        "text": "Oh, that’s the best! It’s like a gentle invitation to dreamland, isn’t it?"
+                    },
+                    {
+                        "speaker": "James",
+                        "index": 6,
+                        "text": "Absolutely! Those moments of peace truly rejuvenate us for whatever comes next."
+                    }
+                ],
+                "meta_data": {
+                    "dialogue_num": 3,
+                    "language": "en",
+                    "num_utterances": 6,
+                    "ss_idx": 1,
+                    "success": true
+                }
+            },
+            {
+                "dialogue": [
+                    {
+                        "speaker": "Maya",
+                        "index": 1,
+                        "text": "Let's start this lovely moment to lulla the baby to sleep, shall we?"
+                    },
+                    {
+                        "speaker": "Liam",
+                        "index": 2,
+                        "text": "I’m all for it! What song do you think will do the trick?"
+                    },
+                    {
+                        "speaker": "Maya",
+                        "index": 3,
+                        "text": "How about we try 'Hush, Little Baby'? It always seems to work wonders."
+                    },
+                    {
+                        "speaker": "Liam",
+                        "index": 4,
+                        "text": "Perfect! I think I remember the tune. I hope my voice doesn’t scare her."
+                    },
+                    {
+                        "speaker": "Maya",
+                        "index": 5,
+                        "text": "Trust me, a little heartfelt singing is just what she needs. We’ll create a cozy atmosphere."
+                    },
+                    {
+                        "speaker": "Liam",
+                        "index": 6,
+                        "text": "Here goes nothing! Let’s turn this into a peaceful moment."
+                    }
+                ],
+                "meta_data": {
+                    "dialogue_num": 4,
+                    "language": "en",
+                    "num_utterances": 6,
+                    "ss_idx": 1,
+                    "success": true
+                }
+            },
+            {
+                "dialogue": [
+                    {
+                        "speaker": "Sophie",
+                        "index": 1,
+                        "text": "I can’t shake this anxious feeling tonight. It’s like I’ve got a million thoughts racing in my head."
+                    },
+                    {
+                        "speaker": "Ryan",
+                        "index": 2,
+                        "text": "I totally understand. Sometimes I find that a little distraction can really help. Would you like to try some grounding exercises?"
+                    },
+                    {
+                        "speaker": "Sophie",
+                        "index": 3,
+                        "text": "That sounds good, but it’s tough to focus when I’m so jittery."
+                    },
+                    {
+                        "speaker": "Ryan",
+                        "index": 4,
+                        "text": "What if I sing you a soothing song? It always helped me sleep better as a kid."
+                    },
+                    {
+                        "speaker": "Sophie",
+                        "index": 5,
+                        "text": "I’d love that! A gentle lullaby might just help me lulla and find some peace."
+                    },
+                    {
+                        "speaker": "Ryan",
+                        "index": 6,
+                        "text": "Okay, just relax and let the rhythm take you away. *softly sings* 'Hush now, close your eyes… lulla lulla, drift away...'"
+                    }
+                ],
+                "meta_data": {
+                    "dialogue_num": 5,
+                    "language": "en",
+                    "num_utterances": 6,
+                    "ss_idx": 5,
+                    "success": true
+                }
+            }
+        ]
+    }
+]
