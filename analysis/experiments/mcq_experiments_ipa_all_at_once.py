@@ -6,8 +6,8 @@ OUTPUT_DIR = "analysis/experiments/understanding/ipa_word_meaning_pair_matching"
 
 langs = ['en', 'fr', 'ja', 'ko']
 data_paths = [
-    'dataset/3_questions/nat/understanding/ipa_unmasked_word_to_meaning_mcq-{language}.json',
-    'dataset/3_questions/nat/understanding/ipa_masked_meaning_to_word_mcq-{language}.json'
+    'dataset/3_questions/nat/understanding_ipa_pair_matching/ipa_unmasked_word_to_meaning_mcq-{language}.json',
+    'dataset/3_questions/nat/understanding_ipa_pair_matching/ipa_masked_meaning_to_word_mcq-{language}.json'
 ]
 
 parser = argparse.ArgumentParser(description="Run MCQ experiment")

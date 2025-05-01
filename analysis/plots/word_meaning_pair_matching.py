@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 from matplotlib.ticker import PercentFormatter
 
 # 1) Collect result file paths
-exp_dir = 'analysis/experiments/understanding'
+exp_dir = 'analysis/experiments/understanding/word_meaning_pair_matching'
 files = glob.glob(os.path.join(exp_dir, 'all_results_*.json'))
 
 # 2) Data structure: models, categories, and accuracies
@@ -98,7 +98,7 @@ def plot_group(ax, subcats, title):
             color = gemma_colors[gemma_idx % len(gemma_colors)]
             gemma_idx += 1
         elif 'qwen2.5' in m.lower():
-            color = qwen25_colors[qwen_idx % len(qwen25_colors)]
+            color = qwen25_colors[qwen25_idx % len(qwen25_colors)]
             qwen25_idx += 1
         elif 'qwen3' in m.lower():
             color = qwen_colors[qwen_idx % len(qwen_colors)]

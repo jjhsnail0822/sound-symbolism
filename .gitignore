@@ -9,3 +9,4 @@ dataset/1_preprocess/nat/*.pkl
 dataset/3_questions/nat/old/
 analysis/experiments/understanding/old/
 analysis/experiments/understanding/word_meaning_pair_matching/understanding-*.json
+analysis/experiments/understanding/ipa_word_meaning_pair_matching/ipa*.json
