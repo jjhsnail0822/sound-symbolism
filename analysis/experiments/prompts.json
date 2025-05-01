@@ -45,6 +45,9 @@
             "correct_utterance_num": "会話は必ず{num_utterances}つの発話で構成される必要があります。"
         }
     },
+    "dialogue_translation": {
+        "user_prompt": "You are a JSON dialogue translator.\nYour task is to take the following JSON object and output the same JSON, but with:\n\nEach \"speaker\" and \"text\" value translated from {source_language} into natural, fluent English.\nAny onomatopoeia or mimetic word enclosed in square brackets [...] replaced by an appropriate English onomatopoeia or mimetic word also enclosed in [...].\nThe JSON structure (keys, array order, spacing) must be preserved exactly—do not add or remove any fields or change the formatting outside of the translations.\nHere is the JSON to translate:\n\n{json_dialogue_string}\n\nOnly output the translated JSON—nothing else."
+    },
     "understanding": {
         "unmasked_word_to_meaning_mcq": {
             "en": {
