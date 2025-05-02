@@ -38,28 +38,46 @@ def get_embedding(text):
 with open(f'dataset/1_preprocess/nat/{LANGUAGE}.json', 'r', encoding='utf-8') as f:
     data = json.load(f)
 
-embeddings = []
-for word in tqdm(data):
-    if not word['found']:
-        continue
-    # is meaning a list?
-    if isinstance(word['meaning'], list):
-        meaning = word['meaning'][0]
-    else:
-        meaning = word['meaning']
-    # get embedding
-    embedding = get_embedding(meaning)
-    embeddings.append({
-        'word': word['word'],
-        'meaning': meaning,
-        'embedding': embedding
-    })
+# embeddings = []
+# for word in tqdm(data):
+#     if not word['found']:
+#         continue
+#     # is meaning a list?
+#     if isinstance(word['meaning'], list):
+#         meaning = word['meaning'][0]
+#     else:
+#         meaning = word['meaning']
+#     # get embedding
+#     embedding = get_embedding(meaning)
+#     embeddings.append({
+#         'word': word['word'],
+#         'meaning': meaning,
+#         'embedding': embedding,
+#     })
 
-# Save the embeddings to a file
+# # Save the embeddings to a file
+# with open(f'dataset/1_preprocess/nat/{LANGUAGE}_embeddings.pkl', 'wb') as f:
+#     pickle.dump(embeddings, f)
+
+with open(f'dataset/1_preprocess/nat/{LANGUAGE}_embeddings_old.pkl', 'rb') as f:
+    embeddings = pickle.load(f)
+
+word_to_en_meaning = {}
+for item in data:
+    if item['found'] == False:
+        continue
+    word_to_en_meaning[item['word']] = item['en_meaning']
+
+for word in tqdm(embeddings):
+    word['en_meaning'] = word_to_en_meaning[word['word']]
+    if LANGUAGE == 'en':
+        word['en_embedding'] = word['embedding']
+    else:
+        word['en_embedding'] = get_embedding(word['en_meaning'])
+
+# Save the new embeddings to a file
 with open(f'dataset/1_preprocess/nat/{LANGUAGE}_embeddings.pkl', 'wb') as f:
     pickle.dump(embeddings, f)
-
-
 
 ########################
 

@@ -5,9 +5,9 @@ import json
 import time
 import re
 from openai import OpenAI, RateLimitError, APIError, APITimeoutError
+from tqdm import tqdm
+import argparse
 
-# --- Configuration ---
-# Load environment variables from .env.local file
 env_path = Path('.env.local')
 load_dotenv(dotenv_path=env_path)
 
@@ -111,6 +111,10 @@ def check_brackets(translated_utterances, ss_idx):
     found_bracket_in_target = False
     found_bracket_elsewhere = False
 
+    if not translated_utterances:  # Handle empty list
+        print("    Consistency Check Info: Cannot check brackets, translated utterances list is empty.")
+        return False
+
     for utterance in translated_utterances:
         text = utterance.get('text', '')
         has_brackets = bool(bracket_pattern.search(text))
@@ -137,179 +141,313 @@ def check_brackets(translated_utterances, ss_idx):
     # If we reach here, brackets were found ONLY in the target utterance
     return True
 
-# --- Main Processing Loop ---
-def main():
+# --- Refactored Translation and Validation Function ---
+def translate_and_validate_dialogue(
+    original_dialogue_entry: dict,
+    subject_word: str,
+    source_language_name: str,
+    original_utterances_for_check: list  # Pass the clean original utterances for key check
+) -> Optional[list]:  # Returns list of translated utterances or None
+    """
+    Preprocesses, translates (with retries), and validates a single dialogue entry.
+
+    Returns:
+        The translated and validated dialogue list (value for the 'dialogue' key),
+        or None if translation/validation fails after retries.
+    """
+    if 'dialogue' not in original_dialogue_entry or not isinstance(original_dialogue_entry['dialogue'], list):
+        print(f"    Skipping dialogue: 'dialogue' key missing or not a list.")
+        return None
+    if 'meta_data' not in original_dialogue_entry or 'ss_idx' not in original_dialogue_entry['meta_data']:
+        print(f"    Skipping dialogue: 'meta_data' or 'ss_idx' missing.")
+        return None
+
+    ss_idx = original_dialogue_entry['meta_data']['ss_idx']
+    preprocessed_dialogue_list = []
+
+    # --- Preprocessing Step ---
+    try:
+        # Use the passed original_dialogue_entry for preprocessing
+        original_utterances = json.loads(json.dumps(original_dialogue_entry['dialogue']))  # Deep copy for modification
+        for utterance in original_utterances:
+            if utterance.get('index') == ss_idx:
+                original_text = utterance.get('text', '')
+                # Use word boundary regex
+                pattern = r'\b' + re.escape(subject_word) + r'\b'
+                replacement = '[' + subject_word + ']'
+                replaced_text, num_replacements = re.subn(pattern, replacement, original_text, flags=re.IGNORECASE)
+                # Fallback only if regex didn't replace AND word is present
+                if num_replacements == 0 and subject_word.lower() in original_text.lower():
+                    # Be cautious with simple replace, maybe log this occurrence
+                    print(f"      Preprocessing Fallback: Regex failed for '{subject_word}' in '{original_text}'. Using simple replace.")
+                    replaced_text = original_text.replace(subject_word, replacement)
+                utterance['text'] = replaced_text
+            preprocessed_dialogue_list.append(utterance)
+    except Exception as preproc_e:
+        print(f"    Error during preprocessing dialogue: {preproc_e}. Skipping.")
+        return None  # Indicate failure
+
+    # --- Translation with Retry Logic ---
+    translated_utterances = None  # Initialize
+    for attempt in range(MAX_RETRIES):
+        dialogue_to_translate = {"dialogue": preprocessed_dialogue_list}
+        try:
+            # Make the API call
+            translated_dialogue_part = translate_dialogue_api_call(dialogue_to_translate, source_language_name)
+
+            # --- Consistency Checks ---
+            if not translated_dialogue_part or 'dialogue' not in translated_dialogue_part:
+                print("    Consistency Check Failed: API response missing 'dialogue' key.")
+                raise ValueError("Invalid structure in translated response")
+
+            current_translated_utterances = translated_dialogue_part['dialogue']
+
+            # 1. Key Check
+            if not check_keys(original_utterances_for_check, current_translated_utterances):
+                raise ValueError("Consistency Check Failed: Keys mismatch.")
+
+            # 2. Bracket Check
+            if not check_brackets(current_translated_utterances, ss_idx):
+                raise ValueError("Consistency Check Failed: Brackets mismatch.")
+
+            # If all checks pass
+            translated_utterances = current_translated_utterances  # Store successful result
+            break  # Exit retry loop on success
+
+        except RateLimitError as e:
+            print(f"      Rate limit reached (Attempt {attempt + 1}). Waiting 60s. Error: {e}")
+            time.sleep(60)
+        except (APIError, APITimeoutError) as e:
+            print(f"      API Error/Timeout (Attempt {attempt + 1}). Waiting {RETRY_DELAY_SECONDS}s. Error: {e}")
+            time.sleep(RETRY_DELAY_SECONDS)
+        except (json.JSONDecodeError, ValueError) as e:
+            print(f"      Parsing/Consistency/Empty Response Error (Attempt {attempt + 1}). Waiting {RETRY_DELAY_SECONDS}s. Error: {e}")
+            time.sleep(RETRY_DELAY_SECONDS)
+        except Exception as e:
+            print(f"      An unexpected error occurred (Attempt {attempt + 1}). Waiting {RETRY_DELAY_SECONDS}s. Error: {e}")
+            time.sleep(RETRY_DELAY_SECONDS)
+
+    # --- After Retry Loop ---
+    if translated_utterances is None:
+        return None  # Indicate failure
+    else:
+        return translated_utterances  # Return the successfully translated list
+
+# --- Main Processing Function ---
+def main(skip_phase_1: bool):  # Add skip_phase_1 parameter
     os.makedirs(OUTPUT_DIR, exist_ok=True)
     total_errors = 0
-    global_translation_failures = 0  # Count dialogues that failed all retries
+    global_translation_failures = 0  # Count dialogues that failed initial translation
+    global_retranslation_failures = 0  # Count dialogues that failed re-translation
+
+    # === Phase 1: Initial Translation ===
+    if not skip_phase_1:
+        print("--- Phase 1: Initial Translation ---")
+        for lang_code, lang_name in LANGUAGES_TO_PROCESS.items():
+            input_filepath = os.path.join(INPUT_DIR, f"{lang_code}.json")
+            output_filename = f"{lang_code}2en.json"
+            output_filepath = os.path.join(OUTPUT_DIR, output_filename)
+
+            print(f"\n--- Processing language: {lang_name} ({lang_code}.json) ---")
+
+            if not os.path.exists(input_filepath):
+                print(f"  Input file not found: {input_filepath}. Skipping.")
+                continue
+
+            try:
+                with open(input_filepath, 'r', encoding='utf-8') as f:
+                    source_data = json.load(f)
+                if not isinstance(source_data, list):
+                    print(f"  Error: Expected a list in {input_filepath}, but got {type(source_data)}. Skipping.")
+                    continue
+            except (json.JSONDecodeError, Exception) as e:
+                print(f"  Error reading or parsing source JSON file {input_filepath}: {e}. Skipping language.")
+                total_errors += 1
+                continue
+
+            current_lang_translated_data = []
+            language_had_errors = False
+
+            # Use tqdm for iterating through source data items
+            for i, item in enumerate(tqdm(source_data, desc=f"Translating {lang_name}", unit="item")):
+                subject_word = item.get('word')
+                if not subject_word:
+                    continue
+
+                if 'dialogues' not in item or not isinstance(item['dialogues'], list):
+                    continue
+
+                translated_dialogues_for_item = []
+                item_translation_failed = False  # Tracks if any dialogue within the item failed permanently
+
+                for j, dialogue_entry in enumerate(item['dialogues']):
+                    # Keep a clean copy of original utterances for key check
+                    try:
+                        original_utterances_for_check = json.loads(json.dumps(dialogue_entry.get('dialogue', [])))
+                    except Exception as copy_e:
+                        print(f"    Error copying original utterances for dialogue {j+1} in item {i+1}: {copy_e}. Skipping dialogue.")
+                        item_translation_failed = True
+                        language_had_errors = True
+                        total_errors += 1
+                        continue
+
+                    # Call the refactored translation function
+                    translated_utterances = translate_and_validate_dialogue(
+                        dialogue_entry, subject_word, lang_name, original_utterances_for_check
+                    )
+
+                    if translated_utterances is not None:
+                        # Reconstruct the full dialogue entry if translation succeeded
+                        new_dialogue_entry = dialogue_entry.copy()
+                        new_dialogue_entry['dialogue'] = translated_utterances
+                        translated_dialogues_for_item.append(new_dialogue_entry)
+                    else:
+                        # If translation failed for this dialogue
+                        item_translation_failed = True  # Mark item as failed
+                        language_had_errors = True
+                        global_translation_failures += 1  # Increment global failure count
+
+                # --- After processing all dialogues for an item ---
+                if not item_translation_failed:
+                    translated_item = item.copy()
+                    translated_item['dialogues'] = translated_dialogues_for_item
+                    current_lang_translated_data.append(translated_item)
+
+            # --- After processing all items for a language ---
+            if current_lang_translated_data:
+                print(f"\n  Saving initial translated data for {lang_name} to {output_filepath}...")
+                try:
+                    with open(output_filepath, 'w', encoding='utf-8') as f:
+                        json.dump(current_lang_translated_data, f, ensure_ascii=False, indent=4)
+                    print(f"  Successfully saved {len(current_lang_translated_data)} initially translated items to {output_filename}.")
+                except Exception as e:
+                    print(f"  Error writing initial output file {output_filepath}: {e}")
+                    total_errors += 1
+            elif not language_had_errors:
+                print(f"  No data was translated successfully for {lang_name} in Phase 1. Output file not created.")
+            else:
+                print(f"  No initial data saved for {lang_name} due to processing errors.")
+    else:
+        print("--- Skipping Phase 1: Initial Translation ---")
+
+    # === Phase 2: Validation and Re-translation ===
+    print("\n--- Phase 2: Validation and Re-translation ---")
 
     for lang_code, lang_name in LANGUAGES_TO_PROCESS.items():
-        input_filepath = os.path.join(INPUT_DIR, f"{lang_code}.json")
         output_filename = f"{lang_code}2en.json"
         output_filepath = os.path.join(OUTPUT_DIR, output_filename)
+        input_filepath = os.path.join(INPUT_DIR, f"{lang_code}.json")  # Need original source again
 
-        print(f"\n--- Processing language: {lang_name} ({lang_code}.json) ---")
+        print(f"\n--- Validating and Re-translating: {lang_name} ({output_filename}) ---")
 
+        if not os.path.exists(output_filepath):
+            print(f"  Translated file not found: {output_filepath}. Skipping validation.")
+            continue
         if not os.path.exists(input_filepath):
-            print(f"  Input file not found: {input_filepath}. Skipping.")
+            print(f"  Original source file not found: {input_filepath}. Cannot validate. Skipping.")
             continue
 
         try:
+            with open(output_filepath, 'r', encoding='utf-8') as f:
+                translated_data = json.load(f)
             with open(input_filepath, 'r', encoding='utf-8') as f:
                 source_data = json.load(f)
-            if not isinstance(source_data, list):
-                print(f"  Error: Expected a list in {input_filepath}, but got {type(source_data)}. Skipping.")
+            if not isinstance(translated_data, list) or not isinstance(source_data, list):
+                print(f"  Error: Expected lists in {output_filepath} or {input_filepath}. Skipping validation.")
                 continue
         except (json.JSONDecodeError, Exception) as e:
-            print(f"  Error reading or parsing source JSON file {input_filepath}: {e}. Skipping language.")
+            print(f"  Error reading or parsing JSON files for validation ({output_filepath} or {input_filepath}): {e}. Skipping language.")
             total_errors += 1
             continue
 
-        current_lang_translated_data = []
-        language_had_errors = False
+        # Create a map of original dialogues for quick lookup during validation
+        original_dialogue_map = {}
+        for item in source_data:
+            word = item.get('word')
+            if word and 'dialogues' in item:
+                original_dialogue_map[word] = item.get('dialogues', [])
 
-        for i, item in enumerate(source_data):
-            subject_word = item.get('word')
-            if not subject_word:
-                print(f"    Skipping item {i+1}: 'word' key missing.")
+        needs_resave = False
+        dialogues_to_retranslate_count = 0
+
+        # Use tqdm for iterating through translated items
+        for i, translated_item in enumerate(tqdm(translated_data, desc=f"Validating {lang_name}", unit="item")):
+            subject_word = translated_item.get('word')
+            if not subject_word or subject_word not in original_dialogue_map:
+                print(f"    Warning: Cannot find original data for word '{subject_word}' in item {i+1}. Skipping validation for this item.")
                 continue
-            print(f"  Processing item {i+1}/{len(source_data)} (Word: {subject_word})...")
 
-            if 'dialogues' not in item or not isinstance(item['dialogues'], list):
-                print(f"    Skipping item {i+1}: 'dialogues' key missing or not a list.")
+            original_dialogues_list = original_dialogue_map[subject_word]
+            translated_dialogues_list = translated_item.get('dialogues', [])
+
+            if len(original_dialogues_list) != len(translated_dialogues_list):
+                print(f"    Warning: Dialogue count mismatch for word '{subject_word}'. Original: {len(original_dialogues_list)}, Translated: {len(translated_dialogues_list)}. Skipping detailed validation for this item.")
                 continue
 
-            translated_dialogues_for_item = []
-            item_translation_failed = False  # Tracks if any dialogue within the item failed permanently
-
-            for j, dialogue_entry in enumerate(item['dialogues']):
-                if 'dialogue' not in dialogue_entry or not isinstance(dialogue_entry['dialogue'], list):
-                    print(f"    Skipping dialogue {j+1} in item {i+1}: 'dialogue' key missing or not a list.")
+            for j, translated_dialogue_entry in enumerate(translated_dialogues_list):
+                # Find corresponding original dialogue (assuming order is preserved)
+                if j >= len(original_dialogues_list):
+                    print(f"    Warning: Index out of bounds when accessing original dialogue for word '{subject_word}', dialogue index {j+1}. Skipping validation.")
                     continue
-                if 'meta_data' not in dialogue_entry or 'ss_idx' not in dialogue_entry['meta_data']:
-                    print(f"    Skipping dialogue {j+1} in item {i+1}: 'meta_data' or 'ss_idx' missing.")
+                original_dialogue_entry = original_dialogues_list[j]
+                original_utterances_for_check = original_dialogue_entry.get('dialogue', [])
+                translated_utterances = translated_dialogue_entry.get('dialogue', [])
+                ss_idx = original_dialogue_entry.get('meta_data', {}).get('ss_idx')
+
+                if ss_idx is None or not original_utterances_for_check:
                     continue
 
-                ss_idx = dialogue_entry['meta_data']['ss_idx']
-                preprocessed_dialogue_list = []
-                original_utterances_for_check = []  # Store original structure for key check
+                # Perform consistency checks on the already translated data
+                keys_ok = check_keys(original_utterances_for_check, translated_utterances)
+                brackets_ok = check_brackets(translated_utterances, ss_idx)
 
-                # --- Preprocessing Step ---
-                try:
-                    # Deep copy for preprocessing
-                    original_utterances = json.loads(json.dumps(dialogue_entry['dialogue']))
-                    original_utterances_for_check = json.loads(json.dumps(dialogue_entry['dialogue']))  # Keep a clean copy
-                    for utterance in original_utterances:
-                        if utterance.get('index') == ss_idx:
-                            original_text = utterance.get('text', '')
-                            pattern = r'\b' + re.escape(subject_word) + r'\b'
-                            replacement = '[' + subject_word + ']'
-                            replaced_text = re.sub(pattern, replacement, original_text, flags=re.IGNORECASE)
-                            if replacement not in replaced_text:
-                                replaced_text = original_text.replace(subject_word, replacement)
-                            utterance['text'] = replaced_text
-                        preprocessed_dialogue_list.append(utterance)
-                except Exception as preproc_e:
-                    print(f"    Error during preprocessing dialogue {j+1} in item {i+1}: {preproc_e}. Skipping dialogue.")
-                    item_translation_failed = True
-                    language_had_errors = True
-                    total_errors += 1
-                    continue  # Skip to the next dialogue_entry
+                if not keys_ok or not brackets_ok:
+                    dialogues_to_retranslate_count += 1
+                    print(f"  ! Consistency failed for word '{subject_word}', dialogue {j+1}. Attempting re-translation...")
 
-                # --- Translation with Retry Logic ---
-                translated_dialogue_part = None
-                for attempt in range(MAX_RETRIES):
-                    print(f"    Translating dialogue {j+1}/{len(item['dialogues'])} (Attempt {attempt + 1}/{MAX_RETRIES})...")
-                    dialogue_to_translate = {"dialogue": preprocessed_dialogue_list}
-                    try:
-                        # Make the API call
-                        translated_dialogue_part = translate_dialogue_api_call(dialogue_to_translate, lang_name)
+                    # Attempt re-translation using the validation function
+                    retranslated_utterances = translate_and_validate_dialogue(
+                        original_dialogue_entry, subject_word, lang_name, original_utterances_for_check
+                    )
 
-                        # --- Consistency Checks ---
-                        if not translated_dialogue_part or 'dialogue' not in translated_dialogue_part:
-                            print("    Consistency Check Failed: API response missing 'dialogue' key.")
-                            raise ValueError("Invalid structure in translated response")  # Trigger retry
+                    if retranslated_utterances is not None:
+                        print(f"    Re-translation successful for word '{subject_word}', dialogue {j+1}.")
+                        # Update the dialogue in the loaded translated_data structure
+                        translated_data[i]['dialogues'][j]['dialogue'] = retranslated_utterances
+                        needs_resave = True
+                    else:
+                        print(f"    Re-translation FAILED for word '{subject_word}', dialogue {j+1} after retries.")
+                        global_retranslation_failures += 1
 
-                        translated_utterances = translated_dialogue_part['dialogue']
-
-                        # 1. Key Check
-                        if not check_keys(original_utterances_for_check, translated_utterances):
-                            # Error message printed within check_keys
-                            raise ValueError("Consistency Check Failed: Keys mismatch.")  # Trigger retry
-
-                        # 2. Bracket Check
-                        if not check_brackets(translated_utterances, ss_idx):
-                            # Error message printed within check_brackets
-                            raise ValueError("Consistency Check Failed: Brackets mismatch.")  # Trigger retry
-
-                        # If all checks pass
-                        print(f"      Translation and Consistency Checks successful (Attempt {attempt + 1}).")
-                        # debug
-                        # print(f"Translated dialogue: {translated_dialogue_part}")
-                        break  # Exit retry loop on success
-
-                    except RateLimitError as e:
-                        print(f"      Rate limit reached (Attempt {attempt + 1}). Waiting 60s. Error: {e}")
-                        time.sleep(60)
-                        # Let the loop continue for retry
-                    except (APIError, APITimeoutError) as e:
-                        print(f"      API Error/Timeout (Attempt {attempt + 1}). Waiting {RETRY_DELAY_SECONDS}s. Error: {e}")
-                        time.sleep(RETRY_DELAY_SECONDS)
-                        # Let the loop continue for retry
-                    except (json.JSONDecodeError, ValueError) as e:  # Catch JSON errors and our custom ValueErrors
-                        print(f"      Parsing/Consistency/Empty Response Error (Attempt {attempt + 1}). Waiting {RETRY_DELAY_SECONDS}s. Error: {e}")
-                        time.sleep(RETRY_DELAY_SECONDS)
-                        # Let the loop continue for retry
-                    except Exception as e:
-                        print(f"      An unexpected error occurred (Attempt {attempt + 1}). Waiting {RETRY_DELAY_SECONDS}s. Error: {e}")
-                        total_errors += 1
-                        time.sleep(RETRY_DELAY_SECONDS)
-                        # Let the loop continue for retry
-
-                # --- After Retry Loop ---
-                if translated_dialogue_part:
-                    # Reconstruct the full dialogue entry if translation succeeded
-                    new_dialogue_entry = dialogue_entry.copy()
-                    new_dialogue_entry['dialogue'] = translated_dialogue_part['dialogue']
-                    translated_dialogues_for_item.append(new_dialogue_entry)
-                else:
-                    # If loop finished without success
-                    print(f"      Translation failed for dialogue {j+1} after {MAX_RETRIES} attempts.")
-                    item_translation_failed = True  # Mark item as failed
-                    language_had_errors = True
-                    global_translation_failures += 1  # Increment global failure count
-
-            # --- After processing all dialogues for an item ---
-            if not item_translation_failed:
-                translated_item = item.copy()
-                translated_item['dialogues'] = translated_dialogues_for_item
-                current_lang_translated_data.append(translated_item)
-            else:
-                print(f"    Skipping item {i+1} (Word: {subject_word}) for final output due to dialogue translation failures.")
-
-        # --- After processing all items for a language ---
-        if current_lang_translated_data:
-            print(f"\n  Saving translated data for {lang_name} to {output_filepath}...")
+        # --- After validating all items for a language ---
+        if needs_resave:
+            print(f"\n  Re-saving updated translated data for {lang_name} to {output_filepath}...")
             try:
                 with open(output_filepath, 'w', encoding='utf-8') as f:
-                    json.dump(current_lang_translated_data, f, ensure_ascii=False, indent=4)
-                print(f"  Successfully saved {len(current_lang_translated_data)} translated items to {output_filename}.")
+                    json.dump(translated_data, f, ensure_ascii=False, indent=4)
+                print(f"  Successfully re-saved updated data for {lang_name}.")
+                print(f"  ({dialogues_to_retranslate_count} dialogues were flagged for re-translation attempt)")
             except Exception as e:
-                print(f"  Error writing output file {output_filepath}: {e}")
+                print(f"  Error re-writing updated output file {output_filepath}: {e}")
                 total_errors += 1
-        elif not language_had_errors:
-            print(f"  No data was translated successfully for {lang_name}. Output file not created.")
         else:
-            print(f"  No data saved for {lang_name} due to processing errors.")
+            print(f"  No changes needed for {lang_name} after validation.")
 
     # --- Final Summary ---
-    print("\n--- Translation process finished ---")
+    print("\n--- Translation and Validation process finished ---")
     if global_translation_failures > 0:
-        print(f"Completed with {global_translation_failures} dialogues failing all translation attempts.")
+        print(f"Phase 1: Completed with {global_translation_failures} dialogues failing initial translation attempts.")
+    if global_retranslation_failures > 0:
+        print(f"Phase 2: Completed with {global_retranslation_failures} dialogues failing re-translation attempts after validation failure.")
     if total_errors > 0:
         print(f"Encountered {total_errors} other errors during processing (reading files, preprocessing, saving).")
-    if total_errors == 0 and global_translation_failures == 0:
-        print("Completed successfully.")
+    if total_errors == 0 and global_translation_failures == 0 and global_retranslation_failures == 0:
+        print("Completed successfully with no persistent translation failures.")
 
 if __name__ == "__main__":
-    main()
+    # Add argument parser to control skipping Phase 1
+    parser = argparse.ArgumentParser(description="Translate dialogues and validate consistency.")
+    parser.add_argument("--skip-phase1", action="store_true", help="Skip the initial translation phase (Phase 1) and only run validation/re-translation (Phase 2).")
+    args = parser.parse_args()
+
+    main(skip_phase_1=args.skip_phase1)

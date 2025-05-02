@@ -2,20 +2,12 @@ from mcq_experiment import MCQExperiment
 import argparse
 import json
 
-OUTPUT_DIR = "analysis/experiments/understanding/word_meaning_pair_matching"
-
-langs = ['en', 'fr', 'ja', 'ko']
-data_paths = [
-    'dataset/3_questions/nat/understanding-unmasked_word_to_meaning_mcq-{language}.json',
-    'dataset/3_questions/nat/understanding-masked_meaning_to_word_mcq-{language}.json'
-]
-
 parser = argparse.ArgumentParser(description="Run MCQ experiment")
 parser.add_argument(
     "--model",
     "-m",
     type=str,
-    default="Qwen/Qwen2.5-7B-Instruct",
+    default="Qwen/Qwen3-8B",
     help="Model name to run the experiment on",
 )
 parser.add_argument(
@@ -35,7 +27,31 @@ parser.add_argument(
     action="store_true",
     help="Enable thinking mode for Qwen3",
 )
+parser.add_argument(
+    "--experiment",
+    "-e",
+    type=str,
+    default="word_meaning_pair_matching",
+    help="Experiment name to run",
+    choices=["word_meaning_pair_matching", 
+             "ipa_word_meaning_pair_matching"],
+)
 args = parser.parse_args()
+
+OUTPUT_DIR = f"analysis/experiments/understanding/{args.experiment}"
+
+langs = ['en', 'fr', 'ja', 'ko']
+
+if args.experiment == "word_meaning_pair_matching":
+    data_paths = [
+        'dataset/3_questions/nat/understanding-unmasked_word_to_meaning_mcq-{language}.json',
+        'dataset/3_questions/nat/understanding-masked_meaning_to_word_mcq-{language}.json'
+    ]
+elif args.experiment == "ipa_word_meaning_pair_matching":
+    data_paths = [
+    'dataset/3_questions/nat/understanding_ipa_pair_matching/ipa_unmasked_word_to_meaning_mcq-{language}.json',
+    'dataset/3_questions/nat/understanding_ipa_pair_matching/ipa_masked_meaning_to_word_mcq-{language}.json'
+    ]
 
 all_brief_results = []
 for lang in langs:
