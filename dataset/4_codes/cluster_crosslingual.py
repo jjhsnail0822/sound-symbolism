@@ -7,7 +7,7 @@ import numpy as np
 from sklearn.cluster import KMeans
 from tqdm import tqdm
 import time
-from typing import Dict, List, Any, Optional, Set, Tuple
+from typing import Dict, List, Any, Optional, Set
 
 # --- Constants ---
 DEFAULT_INPUT_DIR = "dataset/1_preprocess/nat"
@@ -15,7 +15,7 @@ DEFAULT_OUTPUT_DIR = "dataset/1_preprocess/nat"
 DEFAULT_NUM_CLUSTERS = 430 # Adjust as needed for cross-lingual
 DEFAULT_NUM_DISTRACTORS = 3
 RELATIVE_LENGTH_FACTOR = 0.5
-TARGET_LANGUAGES = ["en", "fr", "ja", "ko"]
+TARGET_LANGUAGES = ["fr", "ja", "ko"] # No en, because we test non-english languages with english monolingual LLMs
 EMBEDDING_KEY = "en_embedding"
 
 # --- IPA List ---
@@ -115,7 +115,7 @@ def perform_crosslingual_embedding_clustering_individual(
     for lang in languages:
         print(f"--- Processing language: {lang} ---")
         # Load Embeddings
-        embeddings_path = os.path.join(input_dir, f'{lang}_embeddings.pkl') # Use correct filename
+        embeddings_path = os.path.join(input_dir, f'{lang}_embeddings.pkl')
         print(f"Loading embeddings from {embeddings_path}")
         embeddings_data = load_pickle(embeddings_path)
         if embeddings_data is None:

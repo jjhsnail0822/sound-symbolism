@@ -108,6 +108,18 @@
             "ja": {
                 "user_prompt": "次の[会話]に対して、対話の文脈上、マスキング({MASKING_WORD})された部分に入る[意味]を持つ最も適切な擬音語・擬態語 (IPA)はどれですか。\n\n[意味]\n{meaning}\n\n[会話]\n{dialogue}\n\n[選択肢]\n{options}\n\n数字のみで答えてください。 (1-{MAX_OPTION})"
             }
+        },
+        "non_en_unmasked_word_to_meaning_mcq": {
+            "user_prompt": "Given the following [DIALOGUE] and a [WORD] (IPA) from languages other than English, which English meaning best matches the word's auditory impression in context?\n\n[WORD]\n{word}\n\n[DIALOGUE]\n{dialogue}\n\n[OPTIONS]\n{options}\n\nAnswer with the number only. (1-{MAX_OPTION})"
+        },
+        "non_en_masked_meaning_to_word_mcq": {
+            "user_prompt": "Given the following [DIALOGUE] with a masked ({MASKING_WORD}) word and its English [MEANING], which word (IPA) from languages other than English sounds most fitting in context based on auditory impression?\n\n[MEANING]\n{meaning}\n\n[DIALOGUE]\n{dialogue}\n\n[OPTIONS]\n{options}\n\nAnswer with the number only. (1-{MAX_OPTION})"
+        },
+        "non_en_unmasked_word_to_meaning_mcq_no_dialogue": {
+            "user_prompt": "Given a [WORD] (IPA) from languages other than English, which English meaning best matches the word’s auditory impression?\n\n[WORD]\n{word}\n\n[OPTIONS]\n{options}\n\nAnswer with the number only. (1-{MAX_OPTION})"
+        },
+        "non_en_masked_meaning_to_word_mcq_no_dialogue": {
+            "user_prompt": "Given an English [MEANING], which word (IPA) from languages other than English sounds most fitting based on auditory impression?\n\n[MEANING]\n{meaning}\n\n[OPTIONS]\n{options}\n\nAnswer with the number only. (1-{MAX_OPTION})"
         }
     }
 }
