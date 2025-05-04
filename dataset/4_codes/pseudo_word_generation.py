@@ -1,6 +1,10 @@
 #!/usr/bin/env python3
 # python pseudo_word_generation.py -l ko -m local --local-model gpt2 -t trial10 -n 5 -w 2
+<<<<<<< Updated upstream
 # python pseudo_word_generation.py -l ko -m local --local-model gemma-3-12b-it -t trial2 -n 100 -w 2
+=======
+# python pseudo_word_generation.py -l ko -m local --local-model gemma-3-12b-it -t trial2 -n 5 -w 2
+>>>>>>> Stashed changes
 # python pseudo_word_generation.py -l ko -m local --local-model qwen3-4b -t trial10 
 # python pseudo_word_generation.py --download-model bloom-560m
 # python pseudo_word_generation.py --debug-model gpt2

@@ -1,0 +1,92 @@
+[
+  {
+    "original_meaning": "넓고 얇은 쇠붙이 따위가 자꾸 서로 부딪쳐 울리는 소리.",
+    "original_word": "쩌르렁쩌르렁",
+    "generated_word": "",
+    "trial": "trial2",
+    "model": "Qwen/Qwen3-4B",
+    "language": "ko",
+    "words_per_meaning": 2
+  },
+  {
+    "original_meaning": "넓고 얇은 쇠붙이 따위가 자꾸 서로 부딪쳐 울리는 소리.",
+    "original_word": "쩌르렁쩌르렁",
+    "generated_word": "",
+    "trial": "trial2",
+    "model": "Qwen/Qwen3-4B",
+    "language": "ko",
+    "words_per_meaning": 2
+  },
+  {
+    "original_meaning": "여럿이 다 또는 몹시 꽉 차고도 남을 만큼 넉넉한 상태.",
+    "original_word": "흠씬흠씬",
+    "generated_word": "",
+    "trial": "trial2",
+    "model": "Qwen/Qwen3-4B",
+    "language": "ko",
+    "words_per_meaning": 2
+  },
+  {
+    "original_meaning": "여럿이 다 또는 몹시 꽉 차고도 남을 만큼 넉넉한 상태.",
+    "original_word": "흠씬흠씬",
+    "generated_word": "",
+    "trial": "trial2",
+    "model": "Qwen/Qwen3-4B",
+    "language": "ko",
+    "words_per_meaning": 2
+  },
+  {
+    "original_meaning": "주위에 아무것도 없어서 아주 또는 계속 공허한 느낌.",
+    "original_word": "하전하전",
+    "generated_word": "",
+    "trial": "trial2",
+    "model": "Qwen/Qwen3-4B",
+    "language": "ko",
+    "words_per_meaning": 2
+  },
+  {
+    "original_meaning": "주위에 아무것도 없어서 아주 또는 계속 공허한 느낌.",
+    "original_word": "하전하전",
+    "generated_word": "",
+    "trial": "trial2",
+    "model": "Qwen/Qwen3-4B",
+    "language": "ko",
+    "words_per_meaning": 2
+  },
+  {
+    "original_meaning": "나뭇가지나 물건의 틈 사이로 바람이 자꾸 몰아쳐 부는 소리.",
+    "original_word": "쐐쐐",
+    "generated_word": "",
+    "trial": "trial2",
+    "model": "Qwen/Qwen3-4B",
+    "language": "ko",
+    "words_per_meaning": 2
+  },
+  {
+    "original_meaning": "나뭇가지나 물건의 틈 사이로 바람이 자꾸 몰아쳐 부는 소리.",
+    "original_word": "쐐쐐",
+    "generated_word": "",
+    "trial": "trial2",
+    "model": "Qwen/Qwen3-4B",
+    "language": "ko",
+    "words_per_meaning": 2
+  },
+  {
+    "original_meaning": "작은 물건이 계속 구르는 모양.",
+    "original_word": "대굴대굴",
+    "generated_word": "",
+    "trial": "trial2",
+    "model": "Qwen/Qwen3-4B",
+    "language": "ko",
+    "words_per_meaning": 2
+  },
+  {
+    "original_meaning": "작은 물건이 계속 구르는 모양.",
+    "original_word": "대굴대굴",
+    "generated_word": "",
+    "trial": "trial2",
+    "model": "Qwen/Qwen3-4B",
+    "language": "ko",
+    "words_per_meaning": 2
+  }
+]

@@ -1,0 +1,92 @@
+[
+  {
+    "original_meaning": "목구멍에 가래가 조금씩 자꾸 걸리는 소리.",
+    "original_word": "갸릉갸릉",
+    "generated_word": "흰색거품",
+    "trial": "trial10",
+    "model": "Qwen/Qwen3-4B",
+    "language": "ko",
+    "words_per_meaning": 2
+  },
+  {
+    "original_meaning": "목구멍에 가래가 조금씩 자꾸 걸리는 소리.",
+    "original_word": "갸릉갸릉",
+    "generated_word": "목구멍에가래가조금씩자꾸걸리는소리",
+    "trial": "trial10",
+    "model": "Qwen/Qwen3-4B",
+    "language": "ko",
+    "words_per_meaning": 2
+  },
+  {
+    "original_meaning": "성가실 정도로 끈덕지게 잇따라 귀찮게 구는 모양.",
+    "original_word": "찌근덕찌근덕",
+    "generated_word": "우리마",
+    "trial": "trial10",
+    "model": "Qwen/Qwen3-4B",
+    "language": "ko",
+    "words_per_meaning": 2
+  },
+  {
+    "original_meaning": "성가실 정도로 끈덕지게 잇따라 귀찮게 구는 모양.",
+    "original_word": "찌근덕찌근덕",
+    "generated_word": "성가실정도로끈덕지게잇따라귀찮게구는모양",
+    "trial": "trial10",
+    "model": "Qwen/Qwen3-4B",
+    "language": "ko",
+    "words_per_meaning": 2
+  },
+  {
+    "original_meaning": "큰 그릇 따위에 그득 찬 액체가 넘칠 듯이 자꾸 흔들리는 모양. 또는 흔들리면서 자꾸 넘쳐흐르는 모양.",
+    "original_word": "칠럼칠럼",
+    "generated_word": "일본어",
+    "trial": "trial10",
+    "model": "Qwen/Qwen3-4B",
+    "language": "ko",
+    "words_per_meaning": 2
+  },
+  {
+    "original_meaning": "큰 그릇 따위에 그득 찬 액체가 넘칠 듯이 자꾸 흔들리는 모양. 또는 흔들리면서 자꾸 넘쳐흐르는 모양.",
+    "original_word": "칠럼칠럼",
+    "generated_word": "자우리",
+    "trial": "trial10",
+    "model": "Qwen/Qwen3-4B",
+    "language": "ko",
+    "words_per_meaning": 2
+  },
+  {
+    "original_meaning": "가늘거나 작은 물건들 가운데서 몇 개가 드러나게 굵거나 큰 모양.",
+    "original_word": "디글디글",
+    "generated_word": "가늘거나작은물건들가운데서몇개가드러나게굵거나큰모양",
+    "trial": "trial10",
+    "model": "Qwen/Qwen3-4B",
+    "language": "ko",
+    "words_per_meaning": 2
+  },
+  {
+    "original_meaning": "가늘거나 작은 물건들 가운데서 몇 개가 드러나게 굵거나 큰 모양.",
+    "original_word": "디글디글",
+    "generated_word": "생성된어휘",
+    "trial": "trial10",
+    "model": "Qwen/Qwen3-4B",
+    "language": "ko",
+    "words_per_meaning": 2
+  },
+  {
+    "original_meaning": "그릇에 담긴 액체가 자꾸 넘칠 듯이 흔들리는 모양. 또는 자꾸 흔들리면서 넘쳐흐르는 모양.",
+    "original_word": "철럼철럼",
+    "generated_word": "그릇에담긴액체가자꾸넘칠듯이흔들리는모양또는자꾸흔들리면서넘쳐흐르는모양예시물기",
+    "trial": "trial10",
+    "model": "Qwen/Qwen3-4B",
+    "language": "ko",
+    "words_per_meaning": 2
+  },
+  {
+    "original_meaning": "그릇에 담긴 액체가 자꾸 넘칠 듯이 흔들리는 모양. 또는 자꾸 흔들리면서 넘쳐흐르는 모양.",
+    "original_word": "철럼철럼",
+    "generated_word": "담액",
+    "trial": "trial10",
+    "model": "Qwen/Qwen3-4B",
+    "language": "ko",
+    "words_per_meaning": 2
+  }
+]
