@@ -1,10 +1,6 @@
 #!/usr/bin/env python3
 # python pseudo_word_generation.py -l ko -m local --local-model gpt2 -t trial10 -n 5 -w 2
-<<<<<<< Updated upstream
-# python pseudo_word_generation.py -l ko -m local --local-model gemma-3-12b-it -t trial2 -n 100 -w 2
-=======
-# python pseudo_word_generation.py -l ko -m local --local-model gemma-3-12b-it -t trial2 -n 5 -w 2
->>>>>>> Stashed changes
+# python pseudo_word_generation.py -l ko -m local --local-model qwen3-32b -t trial2 -n 100 -w 2
 # python pseudo_word_generation.py -l ko -m local --local-model qwen3-4b -t trial10 
 # python pseudo_word_generation.py --download-model bloom-560m
 # python pseudo_word_generation.py --debug-model gpt2
@@ -21,6 +17,8 @@ from dotenv import load_dotenv
 import pandas as pd
 from typing import List, Dict, Any, Optional
 from huggingface_hub import login, model_info
+import shutil
+import psutil
 
 # HuggingFace 모델 로드를 위한 라이브러리
 from transformers import pipeline, AutoTokenizer
@@ -212,6 +210,95 @@ def debug_model(model_name: str) -> None:
     
     print("===== 디버깅 완료 =====")
 
+def check_disk_space(model_name: str) -> bool:
+    """모델 다운로드에 필요한 디스크 공간이 충분한지 확인"""
+    # 모델 크기 추정 (단위: GB)
+    model_sizes = {
+        "3b": 3.0,
+        "4b": 4.0,
+        "7b": 7.0,
+        "8b": 8.0,
+        "12b": 12.0,
+        "13b": 13.0,
+        "14b": 14.0,
+        "27b": 27.0,
+        "32b": 32.0,
+        "72b": 72.0
+    }
+    
+    # 모델 이름에서 크기 추출
+    model_size_gb = 2.0  # 기본값
+    for size_key, size_value in model_sizes.items():
+        if size_key in model_name.lower():
+            model_size_gb = size_value
+            break
+    
+    # 캐시 디렉토리 - 환경 변수에서 가져오거나 기본값 사용
+    cache_dir = os.environ.get("HUGGINGFACE_HUB_CACHE", "~/.cache/huggingface/hub")
+    cache_dir = os.path.expanduser(cache_dir)
+    
+    # 디스크 사용량 확인
+    try:
+        # 캐시 디렉토리가 있는 파티션의 남은 공간 확인
+        disk_usage = shutil.disk_usage(cache_dir if os.path.exists(cache_dir) else os.path.dirname(cache_dir))
+        free_space_gb = disk_usage.free / (1024 ** 3)  # 바이트를 GB로 변환
+        
+        print(f"🔍 필요한 디스크 공간: {model_size_gb:.1f}GB, 가용 공간: {free_space_gb:.1f}GB")
+        print(f"📁 모델 캐시 경로: {cache_dir}")
+        
+        # 필요한 공간의 1.5배를 확보했는지 확인 (여유 있게)
+        required_space = model_size_gb * 1.5
+        if free_space_gb < required_space:
+            print(f"⚠️ 디스크 공간 부족! 최소 {required_space:.1f}GB가 필요하지만 {free_space_gb:.1f}GB만 사용 가능합니다.")
+            print("💡 해결 방법:")
+            print("  1. 불필요한 파일을 삭제하여 디스크 공간을 확보하세요.")
+            print("  2. 다음 명령어로 HF 캐시를 정리할 수 있습니다: rm -rf ~/.cache/huggingface")
+            print("  3. 더 작은 모델(예: 3B/4B 크기 모델)을 사용해보세요.")
+            return False
+        
+        return True
+    except Exception as e:
+        print(f"⚠️ 디스크 공간 확인 중 오류: {e}")
+        return False
+
+# 모델 캐시 경로 설정 함수 추가
+def setup_model_cache():
+    """HuggingFace 모델 캐시 경로 설정"""
+    # 사용자 지정 캐시 디렉토리
+    custom_cache_dir = "/scratch2/sheepswool/workspace/models"
+    
+    # 디렉토리가 없으면 생성
+    if not os.path.exists(custom_cache_dir):
+        try:
+            os.makedirs(custom_cache_dir, exist_ok=True)
+            print(f"✅ 모델 캐시 디렉토리 생성됨: {custom_cache_dir}")
+        except Exception as e:
+            print(f"⚠️ 모델 캐시 디렉토리 생성 실패: {e}")
+            return False
+    
+    # 환경 변수 설정
+    os.environ["HUGGINGFACE_HUB_CACHE"] = custom_cache_dir
+    os.environ["TRANSFORMERS_CACHE"] = custom_cache_dir
+    os.environ["HF_HOME"] = custom_cache_dir
+    
+    # 파일 권한 확인
+    try:
+        test_file = os.path.join(custom_cache_dir, "test_write.txt")
+        with open(test_file, 'w') as f:
+            f.write("Test write permission")
+        os.remove(test_file)
+        print(f"✅ 캐시 디렉토리에 쓰기 권한 확인됨")
+        
+        # 현재 디스크 공간 확인
+        disk_usage = shutil.disk_usage(custom_cache_dir)
+        free_space_gb = disk_usage.free / (1024 ** 3)
+        print(f"✅ 캐시 디렉토리 가용 공간: {free_space_gb:.1f}GB")
+        
+        return True
+    except Exception as e:
+        print(f"⚠️ 캐시 디렉토리 권한 또는 공간 확인 실패: {e}")
+        return False
+
 class PseudoWordGenerator:
     def __init__(self, language: str, model: str = "local", trial_num: str = "trial1", 
                  batch_size: int = 10, output_dir: Optional[str] = None, 
@@ -387,6 +474,10 @@ class PseudoWordGenerator:
         if self.pipeline is not None:
             return True
         
+        # 모델 캐시 경로 설정
+        if not setup_model_cache():
+            print("⚠️ 모델 캐시 경로 설정 실패, 기본 경로 사용")
+        
         # Hugging Face 로그인 시도 (필요한 경우)
         model_info = AVAILABLE_MODELS[self.local_model_name]
         if model_info.get("requires_auth", False):
@@ -394,9 +485,19 @@ class PseudoWordGenerator:
                 print(f"⚠️ 모델 '{self.local_model_name}'은(는) 로그인이 필요할 수 있습니다.")
         
         model_id = model_info["hf_id"]
+        
+        # 디스크 공간 확인 (이제 새 캐시 디렉토리 사용)
+        if not check_disk_space(self.local_model_name):
+            print(f"❌ 모델 '{model_id}' 로드 실패: 디스크 공간 부족")
+            return False
+        
         print(f"🔧 모델 '{model_id}' 로드 중...")
         
         try:
+            # 환경 변수 설정 - 로컬 캐시만 사용하도록 설정
+            os.environ["HF_HUB_OFFLINE"] = "0"
+            os.environ["TRANSFORMERS_OFFLINE"] = "0"
+            
             # GPU 사용 가능 여부 확인
             import torch
             device = "cuda" if torch.cuda.is_available() else "cpu"
@@ -409,10 +510,23 @@ class PseudoWordGenerator:
             if size_match:
                 model_size = int(size_match.group(1))
             
+            # CUDA 메모리 상태 출력
+            if device == "cuda":
+                free_memory = torch.cuda.get_device_properties(0).total_memory - torch.cuda.memory_allocated()
+                free_memory_gb = free_memory / (1024**3)
+                print(f"🔍 CUDA 가용 메모리: {free_memory_gb:.2f}GB")
+                
+                if model_size > 0 and free_memory_gb < model_size/2:
+                    print(f"⚠️ GPU 메모리가 부족할 수 있습니다. 최소 {model_size/2:.1f}GB 권장 (현재 {free_memory_gb:.2f}GB)")
+            
             # 큰 모델 (7B 이상)에 대한 양자화 및 메모리 최적화 설정
             if model_size >= 7:
                 print(f"🔍 {model_size}B 이상의 큰 모델을 로드합니다. 메모리 최적화를 적용합니다.")
+                
                 try:
+                    # 캐시 디렉토리 설정 - 환경 변수 또는 임시 디렉토리 사용
+                    cache_dir = os.environ.get("HUGGINGFACE_HUB_CACHE", None)
+                    
                     # 4비트 양자화 시도
                     from transformers import BitsAndBytesConfig
                     quantization_config = BitsAndBytesConfig(
@@ -422,16 +536,24 @@ class PseudoWordGenerator:
                     )
                     
                     # 텍스트 생성 파이프라인 생성 (양자화 적용)
+                    from transformers import AutoModelForCausalLM
+                    
+                    # 모델 로드 시 더 많은 옵션 제공
+                    print(f"📥 모델 파일 다운로드 시작...")
                     self.pipeline = pipeline(
                         "text-generation",
                         model=model_id,
-                        model_kwargs={"quantization_config": quantization_config, "device_map": "auto"},
+                        model_kwargs={
+                            "quantization_config": quantization_config, 
+                            "device_map": "auto",
+                            "cache_dir": cache_dir,
+                            "low_cpu_mem_usage": True,
+                            "torch_dtype": torch.float16 if device == "cuda" else torch.float32
+                        },
                         max_new_tokens=50,
                         temperature=0.7,
                         top_p=0.9,
-                        top_k=50,
-                        repetition_penalty=1.2,
-                        torch_dtype=torch.float16 if device == "cuda" else torch.float32
+                        repetition_penalty=1.2
                     )
                     print(f"✅ 모델 '{model_id}' 로드 완료! (4비트 양자화 적용)")
                     return True
@@ -440,14 +562,18 @@ class PseudoWordGenerator:
                     # 일반 모드로 계속 시도
             
             # 일반 모드 (작은 모델 또는 양자화 실패 시)
+            cache_dir = os.environ.get("HUGGINGFACE_HUB_CACHE", None)
             self.pipeline = pipeline(
                 "text-generation",
                 model=model_id,
+                model_kwargs={
+                    "cache_dir": cache_dir,
+                    "low_cpu_mem_usage": True
+                },
                 max_new_tokens=50,
                 do_sample=True,
                 temperature=0.7,
                 top_p=0.9,
-                top_k=50,
                 repetition_penalty=1.2,
                 torch_dtype=torch.float16 if device == "cuda" else torch.float32,
                 device_map="auto" if device == "cuda" else None
@@ -457,25 +583,18 @@ class PseudoWordGenerator:
         
         except Exception as e:
             print(f"❌ 모델 로드 실패: {e}")
-            print("다른 개방형 모델을 시도합니다.")
+            # 자세한 에러 메시지와 해결 방법 제공
+            print("\n==== 문제 해결 방법 ====")
+            print("1. 디스크 공간을 확보하세요.")
+            print("2. 더 작은 모델(3B/4B)을 사용해보세요.")
+            print("3. 다음 명령어로 HF 캐시를 비우세요: rm -rf ~/.cache/huggingface")
+            print("4. 다른 경로를 캐시로 사용하려면 다음 명령어를 실행하세요:")
+            print("   export HUGGINGFACE_HUB_CACHE=/path/with/more/space")
+            print("5. 모델 다운로드를 수동으로 시도하세요:")
+            print(f"   python -c \"from huggingface_hub import snapshot_download; snapshot_download('{model_id}')\"")
+            print("===========================")
             
-            # 개방형 모델 시도
-            for model_name in ["gpt2", "bloom-560m", "opt-350m"]:
-                try:
-                    model_id = AVAILABLE_MODELS[model_name]["hf_id"]
-                    print(f"🔄 대체 모델 '{model_id}' 로드 중...")
-                    self.pipeline = pipeline(
-                        "text-generation",
-                        model=model_id,
-                        max_new_tokens=50
-                    )
-                    print(f"✅ 대체 모델 '{model_id}' 로드 완료!")
-                    self.local_model_name = model_name
-                    return True
-                except Exception as e2:
-                    print(f"❌ 대체 모델 로드 실패: {e2}")
-            
-            print("❌ 모든 모델 로드 시도가 실패했습니다.")
+            print("❌ 모델 준비 실패")
             return False
     
     def extract_word(self, text: str, meaning: str) -> str:
@@ -508,7 +627,6 @@ class PseudoWordGenerator:
         
         # 유효성 검사
         if extracted_word:
-            breakpoint()
             # 1. 단어 길이 검사 (너무 길면 무효)
             if len(extracted_word) > 15:
                 print(f"⚠️ 생성된 단어가 너무 깁니다: {extracted_word}")
@@ -534,63 +652,8 @@ class PseudoWordGenerator:
         
         return None  # 추출 실패
     
-    def generate_word(self, meaning: str) -> str:
-        """주어진 의미에 대한 가상 단어 생성 (최대 3번 시도)"""
-        if not self.prepare_model():
-            return ""
-        
-        prompt = self.prompt_template.format(meaning=meaning)
-        
-        # 최대 3번까지 시도
-        max_attempts = 3
-        for attempt in range(max_attempts):
-            try:
-                # 채팅 형식 모델인지 확인 (Instruct 모델인 경우)
-                is_chat_model = any(keyword in self.local_model_name.lower() for keyword in 
-                                  ["instruct", "chat", "it", "thinking"])
-                
-                # 메시지 준비
-                if is_chat_model:
-                    messages = [
-                        {"role": "user", "content": prompt}
-                    ]
-                    
-                    # 채팅 모델 처리
-                    try:
-                        result = self.pipeline(messages)
-                        generated_text = result[0]['generated_text']
-                    except Exception:
-                        # 채팅 모드 실패 시 일반 모드 시도
-                        result = self.pipeline(prompt)
-                        generated_text = result[0]['generated_text']
-                else:
-                    # 일반 텍스트 생성
-                    result = self.pipeline(prompt)
-                    generated_text = result[0]['generated_text']
-                
-                breakpoint()
-                # 생성된 텍스트에서 단어 추출 및 유효성 검사
-                word = self.extract_word(generated_text, meaning)
-                
-                # 추출 성공 및 유효한 단어인 경우
-                if word:
-                    print(f"✅ 시도 {attempt+1}/{max_attempts}: 성공적으로 단어 생성: {word}")
-                    return word
-                
-                # 실패한 경우 재시도
-                print(f"🔄 시도 {attempt+1}/{max_attempts}: 유효하지 않은 단어, 재시도 중...")
-                time.sleep(1)  # 짧은 대기
-                
-            except Exception as e:
-                print(f"❌ 시도 {attempt+1}/{max_attempts}: 오류 발생: {e}")
-                time.sleep(1)
-        
-        # 모든 시도 실패
-        print(f"❌ {max_attempts}번 시도 후 유효한 단어 생성 실패")
-        return ""  # 빈 문자열 반환
-    
     def generate_words(self, num_words: Optional[int] = None) -> List[Dict[str, Any]]:
-        """여러 단어 생성 (기존 결과 유지 및 업데이트)"""
+        """여러 단어 생성 (배치 처리 없이 한 번에 하나씩)"""
         # 기존 결과 로드
         all_results = self.load_existing_results()
         
@@ -629,9 +692,9 @@ class PseudoWordGenerator:
         added_count = 0
         updated_count = 0
         
-        # 각 의미에 대해 단어 생성
+        # 각 의미에 대해 단어 생성 (배치 처리 없이 한 번에 하나씩)
         for idx, (meaning, orig_word) in enumerate(tqdm(zip(meanings, original_words), 
-                                                      desc="단어 생성 중", total=len(meanings))):
+                                                  desc="단어 생성 중", total=len(meanings))):
             # 의미당 여러 단어 생성
             for i in range(self.words_per_meaning):
                 # 이미 생성된 항목인지 확인
@@ -642,8 +705,16 @@ class PseudoWordGenerator:
                     print(f"🔄 건너뜀: '{meaning}' (이미 '{all_results[dup_idx]['generated_word']}'로 생성됨)")
                     continue
                 
-                # 단어 생성
-                generated_word = self.generate_word(meaning)
+                # 단어 생성 (최대 3번 시도)
+                generated_word = ""
+                for attempt in range(3):
+                    word = self.generate_word(meaning)
+                    if word:
+                        generated_word = word
+                        print(f"✅ {attempt+1}번째 시도에서 생성 성공: '{word}'")
+                        break
+                    print(f"⚠️ {attempt+1}번째 시도 실패, 재시도 중...")
+                    time.sleep(0.5)
                 
                 # 결과 생성
                 result = {
@@ -675,9 +746,6 @@ class PseudoWordGenerator:
                 # 변경된 내용 중간 저장 (10개마다)
                 if (added_count + updated_count) % 10 == 0 and (added_count + updated_count) > 0:
                     self.save_results(all_results)
-            
-            # 간격 두기 (서버 부하 방지)
-            time.sleep(0.5)
         
         # 최종 결과 저장
         self.save_results(all_results)
@@ -685,6 +753,47 @@ class PseudoWordGenerator:
         print(f"✅ 가상 단어 생성 완료 - 추가: {added_count}개, 업데이트: {updated_count}개, 총: {len(all_results)}개")
         
         return all_results
+    
+    def generate_word(self, meaning: str) -> str:
+        """주어진 의미에 대한 가상 단어 생성"""
+        if not self.prepare_model():
+            return ""
+        
+        prompt = self.prompt_template.format(meaning=meaning)
+        
+        try:
+            # 채팅 형식 모델인지 확인
+            is_chat_model = any(keyword in self.local_model_name.lower() for keyword in 
+                              ["instruct", "chat", "it", "thinking"])
+            
+            # 결과 생성
+            if is_chat_model:
+                messages = [
+                    {"role": "system", "content": "당신은 가상 언어를 만드는 전문가입니다. 주어진 의미에 맞는 짧고 독창적인 음성상징어를 생성해주세요."},
+                    {"role": "user", "content": prompt}
+                ]
+                
+                try:
+                    result = self.pipeline(messages, max_new_tokens=50)
+                    generated_text = result[0]['generated_text']
+                except Exception as e:
+                    print(f"⚠️ 채팅 모드 에러: {e}, 일반 텍스트 모드로 시도")
+                    result = self.pipeline(prompt, max_new_tokens=50)
+                    generated_text = result[0]['generated_text']
+            else:
+                result = self.pipeline(prompt, max_new_tokens=50)
+                generated_text = result[0]['generated_text']
+            
+            # 생성된 텍스트에서 단어 추출
+            word = self.extract_word(generated_text, meaning)
+            if word:
+                print(f"🔤 생성된 단어: {word} (의미: {meaning})")
+                return word
+            
+            return ""
+        except Exception as e:
+            print(f"❌ 단어 생성 중 오류: {e}")
+            return ""
     
     def run(self, num_words: Optional[int] = None) -> List[Dict[str, Any]]:
         """가상 단어 생성 실행"""
@@ -786,6 +895,9 @@ def setup_requirements():
 
 # 메인 함수
 if __name__ == "__main__":
+    # 먼저 모델 캐시 경로 설정
+    setup_model_cache()
+    
     parser = argparse.ArgumentParser(description='가상 단어 생성 도구')
     parser.add_argument('--language', '-l', choices=['en', 'fr', 'ko', 'ja'], 
                         help='언어 코드 (en/fr/ko/ja)')
