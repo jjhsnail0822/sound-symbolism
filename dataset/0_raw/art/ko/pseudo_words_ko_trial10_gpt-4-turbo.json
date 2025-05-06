@@ -1,7 +1,7 @@
 [
   {
     "meaning": "벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌.",
-    "generated_word": "쉬리프라츠",
+    "generated_word": "생성된 어휘",
     "model": "gpt-4-turbo",
     "language": "ko",
     "trial": "trial10",
@@ -10,7 +10,7 @@
   },
   {
     "meaning": "벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌.",
-    "generated_word": "단어",
+    "generated_word": "피루게키치",
     "model": "gpt-4-turbo",
     "language": "ko",
     "trial": "trial10",
@@ -19,7 +19,7 @@
   },
   {
     "meaning": "물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태.",
-    "generated_word": "단어",
+    "generated_word": "생성된 어휘",
     "model": "gpt-4-turbo",
     "language": "ko",
     "trial": "trial10",
@@ -28,7 +28,7 @@
   },
   {
     "meaning": "물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태.",
-    "generated_word": "단어",
+    "generated_word": "생성된 어휘",
     "model": "gpt-4-turbo",
     "language": "ko",
     "trial": "trial10",
@@ -37,7 +37,7 @@
   },
   {
     "meaning": "어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양.",
-    "generated_word": "단어",
+    "generated_word": "생성된 어휘",
     "model": "gpt-4-turbo",
     "language": "ko",
     "trial": "trial10",
@@ -46,7 +46,7 @@
   },
   {
     "meaning": "어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양.",
-    "generated_word": "무레노키랑",
+    "generated_word": "생성된 어휘",
     "model": "gpt-4-turbo",
     "language": "ko",
     "trial": "trial10",
@@ -55,7 +55,7 @@
   },
   {
     "meaning": "몸집이 작은 사람이 엉덩이를 잇따라 흔드는 모양.",
-    "generated_word": "단어",
+    "generated_word": "큐피론댄스",
     "model": "gpt-4-turbo",
     "language": "ko",
     "trial": "trial10",
@@ -64,7 +64,7 @@
   },
   {
     "meaning": "몸집이 작은 사람이 엉덩이를 잇따라 흔드는 모양.",
-    "generated_word": "단어",
+    "generated_word": "무키푸티롱",
     "model": "gpt-4-turbo",
     "language": "ko",
     "trial": "trial10",
@@ -73,7 +73,7 @@
   },
   {
     "meaning": "조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양.",
-    "generated_word": "단어",
+    "generated_word": "생성된 어휘",
     "model": "gpt-4-turbo",
     "language": "ko",
     "trial": "trial10",
@@ -82,7 +82,7 @@
   },
   {
     "meaning": "조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양.",
-    "generated_word": "단어",
+    "generated_word": "생성된 어휘",
     "model": "gpt-4-turbo",
     "language": "ko",
     "trial": "trial10",
@@ -91,7 +91,7 @@
   },
   {
     "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.",
-    "generated_word": "단어",
+    "generated_word": "생성된 어휘",
     "model": "gpt-4-turbo",
     "language": "ko",
     "trial": "trial10",
@@ -100,7 +100,7 @@
   },
   {
     "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.",
-    "generated_word": "단어",
+    "generated_word": "생성된 어휘",
     "model": "gpt-4-turbo",
     "language": "ko",
     "trial": "trial10",
@@ -109,7 +109,7 @@
   },
   {
     "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양.",
-    "generated_word": "단어",
+    "generated_word": "생성된 어휘",
     "model": "gpt-4-turbo",
     "language": "ko",
     "trial": "trial10",
@@ -118,7 +118,7 @@
   },
   {
     "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양.",
-    "generated_word": "단어",
+    "generated_word": "생성된 어휘",
     "model": "gpt-4-turbo",
     "language": "ko",
     "trial": "trial10",
@@ -127,7 +127,7 @@
   },
   {
     "meaning": "다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태.",
-    "generated_word": "단어",
+    "generated_word": "레이쥬빌",
     "model": "gpt-4-turbo",
     "language": "ko",
     "trial": "trial10",
@@ -136,7 +136,7 @@
   },
   {
     "meaning": "다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태.",
-    "generated_word": "단어",
+    "generated_word": "생성된 어휘",
     "model": "gpt-4-turbo",
     "language": "ko",
     "trial": "trial10",
@@ -145,7 +145,7 @@
   },
   {
     "meaning": "신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양.",
-    "generated_word": "단어",
+    "generated_word": "프라뱅쥬히로",
     "model": "gpt-4-turbo",
     "language": "ko",
     "trial": "trial10",
@@ -154,7 +154,7 @@
   },
   {
     "meaning": "신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양.",
-    "generated_word": "단어",
+    "generated_word": "생성된 어휘",
     "model": "gpt-4-turbo",
     "language": "ko",
     "trial": "trial10",
@@ -163,7 +163,7 @@
   },
   {
     "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.",
-    "generated_word": "단어",
+    "generated_word": "생성된 어휘",
     "model": "gpt-4-turbo",
     "language": "ko",
     "trial": "trial10",
@@ -172,7 +172,7 @@
   },
   {
     "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.",
-    "generated_word": "마지플렝",
+    "generated_word": "생성된 어휘",
     "model": "gpt-4-turbo",
     "language": "ko",
     "trial": "trial10",

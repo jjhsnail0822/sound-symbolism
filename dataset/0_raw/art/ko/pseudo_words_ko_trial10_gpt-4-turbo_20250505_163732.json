@@ -1,0 +1,402 @@
+[
+  {
+    "meaning": "벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌.",
+    "generated_word": "피리크시촉",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial10",
+    "word_index": 1,
+    "total_words_per_meaning": 2,
+    "timestamp": "2025-05-05 16:36:48"
+  },
+  {
+    "meaning": "벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌.",
+    "generated_word": "생성된 어휘",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial10",
+    "word_index": 2,
+    "total_words_per_meaning": 2,
+    "timestamp": "2025-05-05 16:36:48"
+  },
+  {
+    "meaning": "물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태.",
+    "generated_word": "생성된 어휘",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial10",
+    "word_index": 1,
+    "total_words_per_meaning": 2,
+    "timestamp": "2025-05-05 16:36:50"
+  },
+  {
+    "meaning": "물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태.",
+    "generated_word": "크란시토르",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial10",
+    "word_index": 2,
+    "total_words_per_meaning": 2,
+    "timestamp": "2025-05-05 16:36:50"
+  },
+  {
+    "meaning": "어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양.",
+    "generated_word": "시루노댄푸라",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial10",
+    "word_index": 1,
+    "total_words_per_meaning": 2,
+    "timestamp": "2025-05-05 16:36:52"
+  },
+  {
+    "meaning": "어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양.",
+    "generated_word": "케루딜빈쇼플",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial10",
+    "word_index": 2,
+    "total_words_per_meaning": 2,
+    "timestamp": "2025-05-05 16:36:52"
+  },
+  {
+    "meaning": "몸집이 작은 사람이 엉덩이를 잇따라 흔드는 모양.",
+    "generated_word": "모미두키로",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial10",
+    "word_index": 1,
+    "total_words_per_meaning": 2,
+    "timestamp": "2025-05-05 16:36:55"
+  },
+  {
+    "meaning": "몸집이 작은 사람이 엉덩이를 잇따라 흔드는 모양.",
+    "generated_word": "생성된 어휘",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial10",
+    "word_index": 2,
+    "total_words_per_meaning": 2,
+    "timestamp": "2025-05-05 16:36:55"
+  },
+  {
+    "meaning": "조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양.",
+    "generated_word": "생성된 어휘",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial10",
+    "word_index": 1,
+    "total_words_per_meaning": 2,
+    "timestamp": "2025-05-05 16:36:57"
+  },
+  {
+    "meaning": "조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양.",
+    "generated_word": "생성된 어휘",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial10",
+    "word_index": 2,
+    "total_words_per_meaning": 2,
+    "timestamp": "2025-05-05 16:36:57"
+  },
+  {
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.",
+    "generated_word": "플레쥬미톤",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial10",
+    "word_index": 1,
+    "total_words_per_meaning": 2,
+    "timestamp": "2025-05-05 16:36:58"
+  },
+  {
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.",
+    "generated_word": "생성된 어휘",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial10",
+    "word_index": 2,
+    "total_words_per_meaning": 2,
+    "timestamp": "2025-05-05 16:36:58"
+  },
+  {
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양.",
+    "generated_word": "생성된 어휘",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial10",
+    "word_index": 1,
+    "total_words_per_meaning": 2,
+    "timestamp": "2025-05-05 16:37:00"
+  },
+  {
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양.",
+    "generated_word": "생성된 어휘",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial10",
+    "word_index": 2,
+    "total_words_per_meaning": 2,
+    "timestamp": "2025-05-05 16:37:00"
+  },
+  {
+    "meaning": "다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태.",
+    "generated_word": "레비카루",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial10",
+    "word_index": 1,
+    "total_words_per_meaning": 2,
+    "timestamp": "2025-05-05 16:37:03"
+  },
+  {
+    "meaning": "다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태.",
+    "generated_word": "생성된 어휘",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial10",
+    "word_index": 2,
+    "total_words_per_meaning": 2,
+    "timestamp": "2025-05-05 16:37:03"
+  },
+  {
+    "meaning": "신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양.",
+    "generated_word": "클리자베놋",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial10",
+    "word_index": 1,
+    "total_words_per_meaning": 2,
+    "timestamp": "2025-05-05 16:37:05"
+  },
+  {
+    "meaning": "신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양.",
+    "generated_word": "생성된 어휘",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial10",
+    "word_index": 2,
+    "total_words_per_meaning": 2,
+    "timestamp": "2025-05-05 16:37:05"
+  },
+  {
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.",
+    "generated_word": "샤프랑쥬",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial10",
+    "word_index": 1,
+    "total_words_per_meaning": 2,
+    "timestamp": "2025-05-05 16:37:07"
+  },
+  {
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.",
+    "generated_word": "생성된 어휘",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial10",
+    "word_index": 2,
+    "total_words_per_meaning": 2,
+    "timestamp": "2025-05-05 16:37:07"
+  },
+  {
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양.",
+    "generated_word": "차롱쥬메",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial10",
+    "word_index": 1,
+    "total_words_per_meaning": 2,
+    "timestamp": "2025-05-05 16:37:09"
+  },
+  {
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양.",
+    "generated_word": "생성된 어휘",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial10",
+    "word_index": 2,
+    "total_words_per_meaning": 2,
+    "timestamp": "2025-05-05 16:37:09"
+  },
+  {
+    "meaning": "다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태.",
+    "generated_word": "생성된 어휘",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial10",
+    "word_index": 1,
+    "total_words_per_meaning": 2,
+    "timestamp": "2025-05-05 16:37:11"
+  },
+  {
+    "meaning": "다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태.",
+    "generated_word": "생성된 어휘",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial10",
+    "word_index": 2,
+    "total_words_per_meaning": 2,
+    "timestamp": "2025-05-05 16:37:11"
+  },
+  {
+    "meaning": "액체가 많이 담기거나 괴어서 가장자리까지 찰 듯한 모양.",
+    "generated_word": "생성된 어휘",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial10",
+    "word_index": 1,
+    "total_words_per_meaning": 2,
+    "timestamp": "2025-05-05 16:37:16"
+  },
+  {
+    "meaning": "액체가 많이 담기거나 괴어서 가장자리까지 찰 듯한 모양.",
+    "generated_word": "생성된 어휘",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial10",
+    "word_index": 2,
+    "total_words_per_meaning": 2,
+    "timestamp": "2025-05-05 16:37:16"
+  },
+  {
+    "meaning": "목구멍에 가래 따위가 걸려 숨을 쉴 때 가치작거리는 소리.",
+    "generated_word": "생성된 어휘",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial10",
+    "word_index": 1,
+    "total_words_per_meaning": 2,
+    "timestamp": "2025-05-05 16:37:18"
+  },
+  {
+    "meaning": "목구멍에 가래 따위가 걸려 숨을 쉴 때 가치작거리는 소리.",
+    "generated_word": "생성된 어휘",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial10",
+    "word_index": 2,
+    "total_words_per_meaning": 2,
+    "timestamp": "2025-05-05 16:37:18"
+  },
+  {
+    "meaning": "목구멍에 가래 따위가 걸려 숨을 쉴 때 자꾸 가치작거리는 소리.",
+    "generated_word": "달쿠론뜨",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial10",
+    "word_index": 1,
+    "total_words_per_meaning": 2,
+    "timestamp": "2025-05-05 16:37:20"
+  },
+  {
+    "meaning": "목구멍에 가래 따위가 걸려 숨을 쉴 때 자꾸 가치작거리는 소리.",
+    "generated_word": "생성된 어휘",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial10",
+    "word_index": 2,
+    "total_words_per_meaning": 2,
+    "timestamp": "2025-05-05 16:37:20"
+  },
+  {
+    "meaning": "여러 가닥으로 갈라지거나 찢어진 모양.",
+    "generated_word": "생성된 어휘",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial10",
+    "word_index": 1,
+    "total_words_per_meaning": 2,
+    "timestamp": "2025-05-05 16:37:22"
+  },
+  {
+    "meaning": "여러 가닥으로 갈라지거나 찢어진 모양.",
+    "generated_word": "리쉬모렐",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial10",
+    "word_index": 2,
+    "total_words_per_meaning": 2,
+    "timestamp": "2025-05-05 16:37:22"
+  },
+  {
+    "meaning": "작고 약한 불빛 따위가 사라질 듯 말 듯 자꾸 움직이는 모양.",
+    "generated_word": "생성된 어휘",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial10",
+    "word_index": 1,
+    "total_words_per_meaning": 2,
+    "timestamp": "2025-05-05 16:37:24"
+  },
+  {
+    "meaning": "작고 약한 불빛 따위가 사라질 듯 말 듯 자꾸 움직이는 모양.",
+    "generated_word": "플리놋슈르",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial10",
+    "word_index": 2,
+    "total_words_per_meaning": 2,
+    "timestamp": "2025-05-05 16:37:24"
+  },
+  {
+    "meaning": "군데군데 가무스름한 모양.",
+    "generated_word": "생성된 어휘",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial10",
+    "word_index": 1,
+    "total_words_per_meaning": 2,
+    "timestamp": "2025-05-05 16:37:27"
+  },
+  {
+    "meaning": "군데군데 가무스름한 모양.",
+    "generated_word": "헤이루모아",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial10",
+    "word_index": 2,
+    "total_words_per_meaning": 2,
+    "timestamp": "2025-05-05 16:37:27"
+  },
+  {
+    "meaning": "들기 좋을 정도로 여럿이 다 또는 매우 가벼운 모양.",
+    "generated_word": "생성된 어휘",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial10",
+    "word_index": 1,
+    "total_words_per_meaning": 2,
+    "timestamp": "2025-05-05 16:37:29"
+  },
+  {
+    "meaning": "들기 좋을 정도로 여럿이 다 또는 매우 가벼운 모양.",
+    "generated_word": "생성된 어휘",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial10",
+    "word_index": 2,
+    "total_words_per_meaning": 2,
+    "timestamp": "2025-05-05 16:37:29"
+  },
+  {
+    "meaning": "가볍게 흔들려 자꾸 움직이는 모양.",
+    "generated_word": "생성된 어휘",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial10",
+    "word_index": 1,
+    "total_words_per_meaning": 2,
+    "timestamp": "2025-05-05 16:37:32"
+  },
+  {
+    "meaning": "가볍게 흔들려 자꾸 움직이는 모양.",
+    "generated_word": "생성된 어휘",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial10",
+    "word_index": 2,
+    "total_words_per_meaning": 2,
+    "timestamp": "2025-05-05 16:37:32"
+  }
+]
