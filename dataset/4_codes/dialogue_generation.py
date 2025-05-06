@@ -345,49 +345,49 @@ class DialogueGenerator:
             if self.step_by_step:
                 # break into multiple steps
                 print(f"Using multi-step generation with {self.model}")
-                response1 = await self.async_client.chat.completions.create(
-                    model=self.model,
-                    messages=[
-                        {"role": "system", "content": system_prompt},
+            response1 = await self.async_client.chat.completions.create(
+                model=self.model,
+                messages=[
+                    {"role": "system", "content": system_prompt},
                         {"role": "user", "content": user_prompt_set1}
-                    ],
-                    temperature=1,
-                    max_tokens=1000
-                )
-                
-                dialogue1 = response1.choices[0].message.content.strip()
+                ],
+                temperature=1,
+                max_tokens=1000
+            )
+
+            dialogue1 = response1.choices[0].message.content.strip()
                 print(f"Step 1 dialogue received (length: {len(dialogue1)})")
-                
-                response2 = await self.async_client.chat.completions.create(
-                    model=self.model,
-                    messages=[
-                        {"role": "system", "content": system_prompt},
-                        {"role": "user", "content": user_prompt_set1},
-                        {"role": "assistant", "content": dialogue1},
-                        {"role": "user", "content": user_prompt_set2},
-                        {"role": "user", "content": self.templates[self.language]['dialogue_format']}
-                    ],
-                    temperature=1,
-                    max_tokens=1000
-                )
-                
+            
+            response2 = await self.async_client.chat.completions.create(
+                model=self.model,
+                messages=[
+                    {"role": "system", "content": system_prompt},
+                    {"role": "user", "content": user_prompt_set1},
+                    {"role": "assistant", "content": dialogue1},
+                    {"role": "user", "content": user_prompt_set2},
+                    {"role": "user", "content": self.templates[self.language]['dialogue_format']}
+                ],
+                temperature=1,
+                max_tokens=1000
+            )
+            
                 final_dialogue = response2.choices[0].message.content.strip()
                 print(f"Step 2 dialogue received (length: {len(final_dialogue)})")
             else:
                 # do it in one step
                 print(f"Using single-step generation with {self.model}")
                 response = await self.async_client.chat.completions.create(
-                    model=self.model,
-                    messages=[
-                        {"role": "system", "content": system_prompt},
-                        {"role": "user", "content": user_prompt_set1},
-                        {"role": "user", "content": user_prompt_set2},
-                        {"role": "user", "content": self.templates[self.language]['dialogue_format']}
-                    ],
-                    temperature=1,
-                    max_tokens=1000
-                )
-                
+                model=self.model,
+                messages=[
+                    {"role": "system", "content": system_prompt},
+                    {"role": "user", "content": user_prompt_set1},
+                    {"role": "user", "content": user_prompt_set2},
+                    {"role": "user", "content": self.templates[self.language]['dialogue_format']}
+                ],
+                temperature=1,
+                max_tokens=1000
+            )
+            
                 final_dialogue = response.choices[0].message.content.strip()
                 print(f"Dialogue received (length: {len(final_dialogue)})")
             
@@ -545,7 +545,7 @@ class DialogueGenerator:
             random.shuffle(data_to_process)
         if limit and limit > 0:
             data_to_process = data_to_process[:limit]
-
+        
         # Create the event loop once and process all batches
         loop = asyncio.new_event_loop()
         asyncio.set_event_loop(loop)
@@ -664,19 +664,19 @@ class DialogueGenerator:
                     for item in parsed_list:
                         if isinstance(item, dict):
                             # Keys should now be standardized to English
-                            speaker = item.get('speaker', '')
-                            # Clean speaker name
-                            speaker = self._clean_speaker_name(speaker)
-                            
+                                            speaker = item.get('speaker', '')
+                                            # Clean speaker name
+                                            speaker = self._clean_speaker_name(speaker)
+                                            
                             # Get index and text with standardized keys
                             utterance_num = item.get('index', 0)
-                            text = item.get('text', '')
-                            
-                            result.append({
-                                "speaker": speaker,
-                                "index": utterance_num,
-                                "text": text
-                            })
+                                    text = item.get('text', '')
+                                    
+                                    result.append({
+                                        "speaker": speaker,
+                                        "index": utterance_num,
+                                        "text": text
+                                    })
                 
                     # Check if parsing was successful
                     if len(result) > 0:
@@ -699,13 +699,13 @@ class DialogueGenerator:
                 for item in parsed_list:
                     if isinstance(item, dict):
                         # Keys should now be standardized to English
-                        speaker = item.get('speaker', '')
+                            speaker = item.get('speaker', '')
                         # Clean speaker name
                         speaker = self._clean_speaker_name(speaker)
                         
                         # Get index and text with standardized keys
                         utterance_num = item.get('index', 0)
-                        text = item.get('text', '')
+                            text = item.get('text', '')
                         
                         result.append({
                             "speaker": speaker,
@@ -851,7 +851,7 @@ if __name__ == "__main__":
                         help='Number of dialogues to generate for each word (default: 5)')
     parser.add_argument('--step-by-step', '-s', default=1, type=int, help='Generate dialogues step by step. 0 is False and 1 is True. (default: 1)')
     parser.add_argument('--resume', action='store_true', help='Resume from the last saved state')
-
+    
     args = parser.parse_args()
     
     generator = DialogueGenerator(
