@@ -5,7 +5,7 @@
 # python pseudo_word_generation.py --download-model bloom-560m
 # python pseudo_word_generation.py --debug-model gpt2
 # python pseudo_word_generation.py -l ko -m openai --model-name gpt-4o --all-trials -n 10
-# python pseudo_word_generation.py -l ko -m local --model-name qwen3-14b --all-trials -n 100
+# python pseudo_word_generation.py -l ko -m local --model-name gemma-3-4b-it --all-trials -n 10
 
 import os
 import json
@@ -118,23 +118,6 @@ AVAILABLE_MODELS = {
     "qwen3-32b-thinking": {
         "hf_id": "Qwen/Qwen3-32B-Thinking",
         "description": "Qwen의 3세대 32B Thinking 모델",
-        "requires_auth": False
-    },
-    
-    # OLMo 모델
-    "olmo-7b": {
-        "hf_id": "allenai/OLMo-2-1124-7B-Instruct",
-        "description": "Allen AI의 OLMo 7B Instruct 모델",
-        "requires_auth": False
-    },
-    "olmo-13b": {
-        "hf_id": "allenai/OLMo-2-1124-13B-Instruct",
-        "description": "Allen AI의 OLMo 13B Instruct 모델",
-        "requires_auth": False
-    },
-    "olmo-32b": {
-        "hf_id": "allenai/OLMo-2-0325-32B-Instruct",
-        "description": "Allen AI의 OLMo 32B Instruct 모델",
         "requires_auth": False
     }
 }
@@ -690,7 +673,7 @@ if __name__ == "__main__":
     
     if args.all_trials:
         # 모든 트라이얼 실행 (trial1~trial11)
-        trials_to_run = [f"trial{i}" for i in range(1, 12)]
+        trials_to_run = [f"trial{i}" for i in range(12, 15)]
     elif args.trial_range:
         # 범위 파싱
         ranges = args.trial_range.split(',')

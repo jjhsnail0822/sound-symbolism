@@ -4718,5 +4718,3845 @@
     "model": "qwen3-14b",
     "language": "ko",
     "trial": "trial5"
+  },
+  {
+    "original_word": "가닐가닐",
+    "meaning": "벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌.",
+    "generated_word": "피르지르크",
+    "model": "qwen2.5-14b",
+    "language": "ko",
+    "trial": "trial1"
+  },
+  {
+    "original_word": "가닥가닥",
+    "meaning": "물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태.",
+    "generated_word": "dorokh",
+    "model": "qwen2.5-14b",
+    "language": "ko",
+    "trial": "trial1"
+  },
+  {
+    "original_word": "가동가동",
+    "meaning": "어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양.",
+    "generated_word": "보우",
+    "model": "qwen2.5-14b",
+    "language": "ko",
+    "trial": "trial1"
+  },
+  {
+    "original_word": "가둥가둥",
+    "meaning": "몸집이 작은 사람이 엉덩이를 잇따라 흔드는 모양.",
+    "generated_word": "믹야리어",
+    "model": "qwen2.5-14b",
+    "language": "ko",
+    "trial": "trial1"
+  },
+  {
+    "original_word": "가드락가드락",
+    "meaning": "조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양.",
+    "generated_word": "부리부리하게",
+    "model": "qwen2.5-14b",
+    "language": "ko",
+    "trial": "trial1"
+  },
+  {
+    "original_word": "가득",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.",
+    "generated_word": "' المملوء'",
+    "model": "qwen2.5-14b",
+    "language": "ko",
+    "trial": "trial1"
+  },
+  {
+    "original_word": "가득가득",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양.",
+    "generated_word": "falda",
+    "model": "qwen2.5-14b",
+    "language": "ko",
+    "trial": "trial1"
+  },
+  {
+    "original_word": "가든가든",
+    "meaning": "다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태.",
+    "generated_word": "바우르",
+    "model": "qwen2.5-14b",
+    "language": "ko",
+    "trial": "trial1"
+  },
+  {
+    "original_word": "가들막가들막",
+    "meaning": "신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양.",
+    "generated_word": "兴奋得意地表现自己，嚣张跋扈到令人讨厌的地步。",
+    "model": "qwen2.5-14b",
+    "language": "ko",
+    "trial": "trial1"
+  },
+  {
+    "original_word": "가뜩",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.",
+    "generated_word": "'가득하다', 'いっぱい', '가득하다'",
+    "model": "qwen2.5-14b",
+    "language": "ko",
+    "trial": "trial1"
+  },
+  {
+    "original_word": "가닐가닐",
+    "meaning": "벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌.",
+    "generated_word": "치치크리",
+    "model": "qwen2.5-14b",
+    "language": "ko",
+    "trial": "trial2"
+  },
+  {
+    "original_word": "가닥가닥",
+    "meaning": "물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태.",
+    "generated_word": "krothra",
+    "model": "qwen2.5-14b",
+    "language": "ko",
+    "trial": "trial2"
+  },
+  {
+    "original_word": "가동가동",
+    "meaning": "어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양.",
+    "generated_word": "mikajo",
+    "model": "qwen2.5-14b",
+    "language": "ko",
+    "trial": "trial2"
+  },
+  {
+    "original_word": "가둥가둥",
+    "meaning": "몸집이 작은 사람이 엉덩이를 잇따라 흔드는 모양.",
+    "generated_word": "비크비크",
+    "model": "qwen2.5-14b",
+    "language": "ko",
+    "trial": "trial2"
+  },
+  {
+    "original_word": "가드락가드락",
+    "meaning": "조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양.",
+    "generated_word": "망시",
+    "model": "qwen2.5-14b",
+    "language": "ko",
+    "trial": "trial2"
+  },
+  {
+    "original_word": "가득",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.",
+    "generated_word": "지우크시",
+    "model": "qwen2.5-14b",
+    "language": "ko",
+    "trial": "trial2"
+  },
+  {
+    "original_word": "가득가득",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양.",
+    "generated_word": "사우어",
+    "model": "qwen2.5-14b",
+    "language": "ko",
+    "trial": "trial2"
+  },
+  {
+    "original_word": "가든가든",
+    "meaning": "다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태.",
+    "generated_word": "마니",
+    "model": "qwen2.5-14b",
+    "language": "ko",
+    "trial": "trial2"
+  },
+  {
+    "original_word": "가들막가들막",
+    "meaning": "신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양.",
+    "generated_word": "비타브루크스",
+    "model": "qwen2.5-14b",
+    "language": "ko",
+    "trial": "trial2"
+  },
+  {
+    "original_word": "가뜩",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.",
+    "generated_word": "스俩\n\n[의미]를 기준으로 생성된",
+    "model": "qwen2.5-14b",
+    "language": "ko",
+    "trial": "trial2"
+  },
+  {
+    "original_word": "가닐가닐",
+    "meaning": "벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌.",
+    "generated_word": "칠리찌리",
+    "model": "gpt-4.1",
+    "language": "ko",
+    "trial": "trial1"
+  },
+  {
+    "original_word": "가닥가닥",
+    "meaning": "물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태.",
+    "generated_word": "츠렐싹",
+    "model": "gpt-4.1",
+    "language": "ko",
+    "trial": "trial1"
+  },
+  {
+    "original_word": "가동가동",
+    "meaning": "어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양.",
+    "generated_word": "쥬루뽀깡",
+    "model": "gpt-4.1",
+    "language": "ko",
+    "trial": "trial1"
+  },
+  {
+    "original_word": "가둥가둥",
+    "meaning": "몸집이 작은 사람이 엉덩이를 잇따라 흔드는 모양.",
+    "generated_word": "지글찌글",
+    "model": "gpt-4.1",
+    "language": "ko",
+    "trial": "trial1"
+  },
+  {
+    "original_word": "가드락가드락",
+    "meaning": "조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양.",
+    "generated_word": "소르쯔쯔",
+    "model": "gpt-4.1",
+    "language": "ko",
+    "trial": "trial1"
+  },
+  {
+    "original_word": "가득",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.",
+    "generated_word": "뭇짜뿍",
+    "model": "gpt-4.1",
+    "language": "ko",
+    "trial": "trial1"
+  },
+  {
+    "original_word": "가득가득",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양.",
+    "generated_word": "투르무르",
+    "model": "gpt-4.1",
+    "language": "ko",
+    "trial": "trial1"
+  },
+  {
+    "original_word": "가든가든",
+    "meaning": "다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태.",
+    "generated_word": "피루갱",
+    "model": "gpt-4.1",
+    "language": "ko",
+    "trial": "trial1"
+  },
+  {
+    "original_word": "가들막가들막",
+    "meaning": "신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양.",
+    "generated_word": "쯔이랏뽀",
+    "model": "gpt-4.1",
+    "language": "ko",
+    "trial": "trial1"
+  },
+  {
+    "original_word": "가뜩",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.",
+    "generated_word": "뱔뱔",
+    "model": "gpt-4.1",
+    "language": "ko",
+    "trial": "trial1"
+  },
+  {
+    "original_word": "가닐가닐",
+    "meaning": "벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌.",
+    "generated_word": "질뮤르질뮤르",
+    "model": "gpt-4.1",
+    "language": "ko",
+    "trial": "trial2"
+  },
+  {
+    "original_word": "가닥가닥",
+    "meaning": "물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태.",
+    "generated_word": "크슉다",
+    "model": "gpt-4.1",
+    "language": "ko",
+    "trial": "trial2"
+  },
+  {
+    "original_word": "가동가동",
+    "meaning": "어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양.",
+    "generated_word": "노뿌잇쯔",
+    "model": "gpt-4.1",
+    "language": "ko",
+    "trial": "trial2"
+  },
+  {
+    "original_word": "가둥가둥",
+    "meaning": "몸집이 작은 사람이 엉덩이를 잇따라 흔드는 모양.",
+    "generated_word": "찌로찌록",
+    "model": "gpt-4.1",
+    "language": "ko",
+    "trial": "trial2"
+  },
+  {
+    "original_word": "가드락가드락",
+    "meaning": "조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양.",
+    "generated_word": "츄링츄링",
+    "model": "gpt-4.1",
+    "language": "ko",
+    "trial": "trial2"
+  },
+  {
+    "original_word": "가득",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.",
+    "generated_word": "토똘똠",
+    "model": "gpt-4.1",
+    "language": "ko",
+    "trial": "trial2"
+  },
+  {
+    "original_word": "가득가득",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양.",
+    "generated_word": "푸롬지",
+    "model": "gpt-4.1",
+    "language": "ko",
+    "trial": "trial2"
+  },
+  {
+    "original_word": "가든가든",
+    "meaning": "다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태.",
+    "generated_word": "바루삐랑",
+    "model": "gpt-4.1",
+    "language": "ko",
+    "trial": "trial2"
+  },
+  {
+    "original_word": "가들막가들막",
+    "meaning": "신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양.",
+    "generated_word": "피자쿠리",
+    "model": "gpt-4.1",
+    "language": "ko",
+    "trial": "trial2"
+  },
+  {
+    "original_word": "가뜩",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.",
+    "generated_word": "토뿌락",
+    "model": "gpt-4.1",
+    "language": "ko",
+    "trial": "trial2"
+  },
+  {
+    "original_word": "가닐가닐",
+    "meaning": "벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌.",
+    "generated_word": "실루쯔리",
+    "model": "gpt-4.1",
+    "language": "ko",
+    "trial": "trial3"
+  },
+  {
+    "original_word": "가닥가닥",
+    "meaning": "물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태.",
+    "generated_word": "프쟈크",
+    "model": "gpt-4.1",
+    "language": "ko",
+    "trial": "trial3"
+  },
+  {
+    "original_word": "가동가동",
+    "meaning": "어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양.",
+    "generated_word": "푠냐푠냐",
+    "model": "gpt-4.1",
+    "language": "ko",
+    "trial": "trial3"
+  },
+  {
+    "original_word": "가둥가둥",
+    "meaning": "몸집이 작은 사람이 엉덩이를 잇따라 흔드는 모양.",
+    "generated_word": "쪼라토룽",
+    "model": "gpt-4.1",
+    "language": "ko",
+    "trial": "trial3"
+  },
+  {
+    "original_word": "가드락가드락",
+    "meaning": "조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양.",
+    "generated_word": "헤라쯔크",
+    "model": "gpt-4.1",
+    "language": "ko",
+    "trial": "trial3"
+  },
+  {
+    "original_word": "가득",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.",
+    "generated_word": "팟소",
+    "model": "gpt-4.1",
+    "language": "ko",
+    "trial": "trial3"
+  },
+  {
+    "original_word": "가득가득",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양.",
+    "generated_word": "투르르빔",
+    "model": "gpt-4.1",
+    "language": "ko",
+    "trial": "trial3"
+  },
+  {
+    "original_word": "가든가든",
+    "meaning": "다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태.",
+    "generated_word": "실리실라",
+    "model": "gpt-4.1",
+    "language": "ko",
+    "trial": "trial3"
+  },
+  {
+    "original_word": "가들막가들막",
+    "meaning": "신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양.",
+    "generated_word": "퓌랄쭈리",
+    "model": "gpt-4.1",
+    "language": "ko",
+    "trial": "trial3"
+  },
+  {
+    "original_word": "가뜩",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.",
+    "generated_word": "둘팡둘팡",
+    "model": "gpt-4.1",
+    "language": "ko",
+    "trial": "trial3"
+  },
+  {
+    "original_word": "가닐가닐",
+    "meaning": "벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌.",
+    "generated_word": "지르지르",
+    "model": "gpt-4.1",
+    "language": "ko",
+    "trial": "trial4"
+  },
+  {
+    "original_word": "가닥가닥",
+    "meaning": "물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태.",
+    "generated_word": "쯔키럇",
+    "model": "gpt-4.1",
+    "language": "ko",
+    "trial": "trial4"
+  },
+  {
+    "original_word": "가동가동",
+    "meaning": "어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양.",
+    "generated_word": "파졍파졍",
+    "model": "gpt-4.1",
+    "language": "ko",
+    "trial": "trial4"
+  },
+  {
+    "original_word": "가둥가둥",
+    "meaning": "몸집이 작은 사람이 엉덩이를 잇따라 흔드는 모양.",
+    "generated_word": "피뤠쭈쭈",
+    "model": "gpt-4.1",
+    "language": "ko",
+    "trial": "trial4"
+  },
+  {
+    "original_word": "가드락가드락",
+    "meaning": "조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양.",
+    "generated_word": "쭈스까리",
+    "model": "gpt-4.1",
+    "language": "ko",
+    "trial": "trial4"
+  },
+  {
+    "original_word": "가득",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.",
+    "generated_word": "본짜리",
+    "model": "gpt-4.1",
+    "language": "ko",
+    "trial": "trial4"
+  },
+  {
+    "original_word": "가득가득",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양.",
+    "generated_word": "플루꾸",
+    "model": "gpt-4.1",
+    "language": "ko",
+    "trial": "trial4"
+  },
+  {
+    "original_word": "가든가든",
+    "meaning": "다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태.",
+    "generated_word": "피루루",
+    "model": "gpt-4.1",
+    "language": "ko",
+    "trial": "trial4"
+  },
+  {
+    "original_word": "가들막가들막",
+    "meaning": "신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양.",
+    "generated_word": "픽차라",
+    "model": "gpt-4.1",
+    "language": "ko",
+    "trial": "trial4"
+  },
+  {
+    "original_word": "가뜩",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.",
+    "generated_word": "풀낏",
+    "model": "gpt-4.1",
+    "language": "ko",
+    "trial": "trial4"
+  },
+  {
+    "original_word": "가닐가닐",
+    "meaning": "벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌.",
+    "generated_word": "ziritzi",
+    "model": "gpt-4.1",
+    "language": "ko",
+    "trial": "trial5"
+  },
+  {
+    "original_word": "가닥가닥",
+    "meaning": "물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태.",
+    "generated_word": "slirest",
+    "model": "gpt-4.1",
+    "language": "ko",
+    "trial": "trial5"
+  },
+  {
+    "original_word": "가동가동",
+    "meaning": "어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양.",
+    "generated_word": "줄로푸닥",
+    "model": "gpt-4.1",
+    "language": "ko",
+    "trial": "trial5"
+  },
+  {
+    "original_word": "가둥가둥",
+    "meaning": "몸집이 작은 사람이 엉덩이를 잇따라 흔드는 모양.",
+    "generated_word": "티리뽈리",
+    "model": "gpt-4.1",
+    "language": "ko",
+    "trial": "trial5"
+  },
+  {
+    "original_word": "가드락가드락",
+    "meaning": "조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양.",
+    "generated_word": "쫑쫑쿠리",
+    "model": "gpt-4.1",
+    "language": "ko",
+    "trial": "trial5"
+  },
+  {
+    "original_word": "가득",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.",
+    "generated_word": "풍다룽",
+    "model": "gpt-4.1",
+    "language": "ko",
+    "trial": "trial5"
+  },
+  {
+    "original_word": "가득가득",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양.",
+    "generated_word": "브롱투르",
+    "model": "gpt-4.1",
+    "language": "ko",
+    "trial": "trial5"
+  },
+  {
+    "original_word": "가든가든",
+    "meaning": "다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태.",
+    "generated_word": "필리라",
+    "model": "gpt-4.1",
+    "language": "ko",
+    "trial": "trial5"
+  },
+  {
+    "original_word": "가들막가들막",
+    "meaning": "신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양.",
+    "generated_word": "피루쨩피루쨩",
+    "model": "gpt-4.1",
+    "language": "ko",
+    "trial": "trial5"
+  },
+  {
+    "original_word": "가뜩",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.",
+    "generated_word": "붐팡",
+    "model": "gpt-4.1",
+    "language": "ko",
+    "trial": "trial5"
+  },
+  {
+    "original_word": "가닐가닐",
+    "meaning": "벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌.",
+    "generated_word": "졀시글",
+    "model": "gpt-4.1",
+    "language": "ko",
+    "trial": "trial6"
+  },
+  {
+    "original_word": "가닥가닥",
+    "meaning": "물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태.",
+    "generated_word": "쯔캑",
+    "model": "gpt-4.1",
+    "language": "ko",
+    "trial": "trial6"
+  },
+  {
+    "original_word": "가동가동",
+    "meaning": "어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양.",
+    "generated_word": "우츄츄",
+    "model": "gpt-4.1",
+    "language": "ko",
+    "trial": "trial6"
+  },
+  {
+    "original_word": "가둥가둥",
+    "meaning": "몸집이 작은 사람이 엉덩이를 잇따라 흔드는 모양.",
+    "generated_word": "쫑삐쫑삐",
+    "model": "gpt-4.1",
+    "language": "ko",
+    "trial": "trial6"
+  },
+  {
+    "original_word": "가드락가드락",
+    "meaning": "조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양.",
+    "generated_word": "소쟈쟉",
+    "model": "gpt-4.1",
+    "language": "ko",
+    "trial": "trial6"
+  },
+  {
+    "original_word": "가득",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.",
+    "generated_word": "브든똑",
+    "model": "gpt-4.1",
+    "language": "ko",
+    "trial": "trial6"
+  },
+  {
+    "original_word": "가득가득",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양.",
+    "generated_word": "꽈르뭉",
+    "model": "gpt-4.1",
+    "language": "ko",
+    "trial": "trial6"
+  },
+  {
+    "original_word": "가든가든",
+    "meaning": "다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태.",
+    "generated_word": "가라라",
+    "model": "gpt-4.1",
+    "language": "ko",
+    "trial": "trial6"
+  },
+  {
+    "original_word": "가들막가들막",
+    "meaning": "신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양.",
+    "generated_word": "삐쭐쫑쫑",
+    "model": "gpt-4.1",
+    "language": "ko",
+    "trial": "trial6"
+  },
+  {
+    "original_word": "가뜩",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.",
+    "generated_word": "붕차",
+    "model": "gpt-4.1",
+    "language": "ko",
+    "trial": "trial6"
+  },
+  {
+    "original_word": "가닐가닐",
+    "meaning": "벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌.",
+    "generated_word": "가치주쿠루",
+    "model": "gpt-4.1",
+    "language": "ko",
+    "trial": "trial7"
+  },
+  {
+    "original_word": "가닥가닥",
+    "meaning": "물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태.",
+    "generated_word": "키싯뻬르",
+    "model": "gpt-4.1",
+    "language": "ko",
+    "trial": "trial7"
+  },
+  {
+    "original_word": "가동가동",
+    "meaning": "어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양.",
+    "generated_word": "의미",
+    "model": "gpt-4.1",
+    "language": "ko",
+    "trial": "trial7"
+  },
+  {
+    "original_word": "가둥가둥",
+    "meaning": "몸집이 작은 사람이 엉덩이를 잇따라 흔드는 모양.",
+    "generated_word": "알겠습니다! 한국어, 일본어, 영어,...",
+    "model": "gpt-4.1",
+    "language": "ko",
+    "trial": "trial7"
+  },
+  {
+    "original_word": "가드락가드락",
+    "meaning": "조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양.",
+    "generated_word": "우쟈락꾸링",
+    "model": "gpt-4.1",
+    "language": "ko",
+    "trial": "trial7"
+  },
+  {
+    "original_word": "가득",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.",
+    "generated_word": "쟈뿌퐁",
+    "model": "gpt-4.1",
+    "language": "ko",
+    "trial": "trial7"
+  },
+  {
+    "original_word": "가득가득",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양.",
+    "generated_word": "물론입니다! 다양한 언어의 음운, 형...",
+    "model": "gpt-4.1",
+    "language": "ko",
+    "trial": "trial7"
+  },
+  {
+    "original_word": "가든가든",
+    "meaning": "다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태.",
+    "generated_word": "네, 요청하신 의미에 맞는 믹야리어(...",
+    "model": "gpt-4.1",
+    "language": "ko",
+    "trial": "trial7"
+  },
+  {
+    "original_word": "가들막가들막",
+    "meaning": "신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양.",
+    "generated_word": "네, 요청하신 의미를 담아 믹야리어(...",
+    "model": "gpt-4.1",
+    "language": "ko",
+    "trial": "trial7"
+  },
+  {
+    "original_word": "가뜩",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.",
+    "generated_word": "팡훼쁘리",
+    "model": "gpt-4.1",
+    "language": "ko",
+    "trial": "trial7"
+  },
+  {
+    "original_word": "가닐가닐",
+    "meaning": "벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌.",
+    "generated_word": "키무츠퀼르",
+    "model": "gpt-4.1",
+    "language": "ko",
+    "trial": "trial8"
+  },
+  {
+    "original_word": "가닥가닥",
+    "meaning": "물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태.",
+    "generated_word": "의미",
+    "model": "gpt-4.1",
+    "language": "ko",
+    "trial": "trial8"
+  },
+  {
+    "original_word": "가동가동",
+    "meaning": "어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양.",
+    "generated_word": "짜뿌링뽀",
+    "model": "gpt-4.1",
+    "language": "ko",
+    "trial": "trial8"
+  },
+  {
+    "original_word": "가둥가둥",
+    "meaning": "몸집이 작은 사람이 엉덩이를 잇따라 흔드는 모양.",
+    "generated_word": "피코삐코뿌띠",
+    "model": "gpt-4.1",
+    "language": "ko",
+    "trial": "trial8"
+  },
+  {
+    "original_word": "가드락가드락",
+    "meaning": "조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양.",
+    "generated_word": "스샤랏츄",
+    "model": "gpt-4.1",
+    "language": "ko",
+    "trial": "trial8"
+  },
+  {
+    "original_word": "가득",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.",
+    "generated_word": "파무클롱",
+    "model": "gpt-4.1",
+    "language": "ko",
+    "trial": "trial8"
+  },
+  {
+    "original_word": "가득가득",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양.",
+    "generated_word": "네, 주어진 의미를 한국어, 일본어,...",
+    "model": "gpt-4.1",
+    "language": "ko",
+    "trial": "trial8"
+  },
+  {
+    "original_word": "가든가든",
+    "meaning": "다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태.",
+    "generated_word": "의미",
+    "model": "gpt-4.1",
+    "language": "ko",
+    "trial": "trial8"
+  },
+  {
+    "original_word": "가들막가들막",
+    "meaning": "신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양.",
+    "generated_word": "피유랏쿠링",
+    "model": "gpt-4.1",
+    "language": "ko",
+    "trial": "trial8"
+  },
+  {
+    "original_word": "가뜩",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.",
+    "generated_word": "팡미쯔",
+    "model": "gpt-4.1",
+    "language": "ko",
+    "trial": "trial8"
+  },
+  {
+    "original_word": "가닐가닐",
+    "meaning": "벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌.",
+    "generated_word": "기무지루",
+    "model": "gpt-4.1",
+    "language": "ko",
+    "trial": "trial9"
+  },
+  {
+    "original_word": "가닥가닥",
+    "meaning": "물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태.",
+    "generated_word": "삐루삐슈",
+    "model": "gpt-4.1",
+    "language": "ko",
+    "trial": "trial9"
+  },
+  {
+    "original_word": "가동가동",
+    "meaning": "어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양.",
+    "generated_word": "피유뽕끼유뇽",
+    "model": "gpt-4.1",
+    "language": "ko",
+    "trial": "trial9"
+  },
+  {
+    "original_word": "가둥가둥",
+    "meaning": "몸집이 작은 사람이 엉덩이를 잇따라 흔드는 모양.",
+    "generated_word": "피챠링",
+    "model": "gpt-4.1",
+    "language": "ko",
+    "trial": "trial9"
+  },
+  {
+    "original_word": "가드락가드락",
+    "meaning": "조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양.",
+    "generated_word": "구샤링뿌",
+    "model": "gpt-4.1",
+    "language": "ko",
+    "trial": "trial9"
+  },
+  {
+    "original_word": "가득",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.",
+    "generated_word": "팡쯔모리",
+    "model": "gpt-4.1",
+    "language": "ko",
+    "trial": "trial9"
+  },
+  {
+    "original_word": "가득가득",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양.",
+    "generated_word": "แพ띠꾸꽁뽕",
+    "model": "gpt-4.1",
+    "language": "ko",
+    "trial": "trial9"
+  },
+  {
+    "original_word": "가든가든",
+    "meaning": "다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태.",
+    "generated_word": "라푸룬(lapurun)",
+    "model": "gpt-4.1",
+    "language": "ko",
+    "trial": "trial9"
+  },
+  {
+    "original_word": "가들막가들막",
+    "meaning": "신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양.",
+    "generated_word": "삐라키쭈쁘",
+    "model": "gpt-4.1",
+    "language": "ko",
+    "trial": "trial9"
+  },
+  {
+    "original_word": "가뜩",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.",
+    "generated_word": "의미",
+    "model": "gpt-4.1",
+    "language": "ko",
+    "trial": "trial9"
+  },
+  {
+    "original_word": "가닐가닐",
+    "meaning": "벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌.",
+    "generated_word": "네, 요청하신 의미를 반영하여, 한국...",
+    "model": "gpt-4.1",
+    "language": "ko",
+    "trial": "trial10"
+  },
+  {
+    "original_word": "가닥가닥",
+    "meaning": "물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태.",
+    "generated_word": "폴쯔끼",
+    "model": "gpt-4.1",
+    "language": "ko",
+    "trial": "trial10"
+  },
+  {
+    "original_word": "가동가동",
+    "meaning": "어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양.",
+    "generated_word": "의미",
+    "model": "gpt-4.1",
+    "language": "ko",
+    "trial": "trial10"
+  },
+  {
+    "original_word": "가둥가둥",
+    "meaning": "몸집이 작은 사람이 엉덩이를 잇따라 흔드는 모양.",
+    "generated_word": "푸띠코삐삐룽",
+    "model": "gpt-4.1",
+    "language": "ko",
+    "trial": "trial10"
+  },
+  {
+    "original_word": "가드락가드락",
+    "meaning": "조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양.",
+    "generated_word": "네, 요청하신 의미를 반영하여, 한국...",
+    "model": "gpt-4.1",
+    "language": "ko",
+    "trial": "trial10"
+  },
+  {
+    "original_word": "가득",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.",
+    "generated_word": "네, 요청하신 의미(분량이나 수효 따...",
+    "model": "gpt-4.1",
+    "language": "ko",
+    "trial": "trial10"
+  },
+  {
+    "original_word": "가득가득",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양.",
+    "generated_word": "알겠습니다! 요청하신 의미를 한국어,...",
+    "model": "gpt-4.1",
+    "language": "ko",
+    "trial": "trial10"
+  },
+  {
+    "original_word": "가든가든",
+    "meaning": "다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태.",
+    "generated_word": "네, 요청하신 의미에 맞춰 한국어, ...",
+    "model": "gpt-4.1",
+    "language": "ko",
+    "trial": "trial10"
+  },
+  {
+    "original_word": "가들막가들막",
+    "meaning": "신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양.",
+    "generated_word": "기루삐챠링",
+    "model": "gpt-4.1",
+    "language": "ko",
+    "trial": "trial10"
+  },
+  {
+    "original_word": "가뜩",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.",
+    "generated_word": "퐁뱅풀르",
+    "model": "gpt-4.1",
+    "language": "ko",
+    "trial": "trial10"
+  },
+  {
+    "original_word": "가닐가닐",
+    "meaning": "벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌.",
+    "generated_word": "chiripiri",
+    "model": "gpt-4.1",
+    "language": "ko",
+    "trial": "trial11"
+  },
+  {
+    "original_word": "가닥가닥",
+    "meaning": "물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태.",
+    "generated_word": "saripiki",
+    "model": "gpt-4.1",
+    "language": "ko",
+    "trial": "trial11"
+  },
+  {
+    "original_word": "가동가동",
+    "meaning": "어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양.",
+    "generated_word": "pikyapetcha",
+    "model": "gpt-4.1",
+    "language": "ko",
+    "trial": "trial11"
+  },
+  {
+    "original_word": "가둥가둥",
+    "meaning": "몸집이 작은 사람이 엉덩이를 잇따라 흔드는 모양.",
+    "generated_word": "피치코피츄",
+    "model": "gpt-4.1",
+    "language": "ko",
+    "trial": "trial11"
+  },
+  {
+    "original_word": "가드락가드락",
+    "meaning": "조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양.",
+    "generated_word": "pokkuri-chiclyon",
+    "model": "gpt-4.1",
+    "language": "ko",
+    "trial": "trial11"
+  },
+  {
+    "original_word": "가득",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.",
+    "generated_word": "꽉삐유꿀",
+    "model": "gpt-4.1",
+    "language": "ko",
+    "trial": "trial11"
+  },
+  {
+    "original_word": "가득가득",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양.",
+    "generated_word": "bumikichi",
+    "model": "gpt-4.1",
+    "language": "ko",
+    "trial": "trial11"
+  },
+  {
+    "original_word": "가든가든",
+    "meaning": "다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태.",
+    "generated_word": "bichippuru",
+    "model": "gpt-4.1",
+    "language": "ko",
+    "trial": "trial11"
+  },
+  {
+    "original_word": "가들막가들막",
+    "meaning": "신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양.",
+    "generated_word": "네, 요청하신 의미를 반영하여, 한국...",
+    "model": "gpt-4.1",
+    "language": "ko",
+    "trial": "trial11"
+  },
+  {
+    "original_word": "가뜩",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.",
+    "generated_word": "쯔망뿌리",
+    "model": "gpt-4.1",
+    "language": "ko",
+    "trial": "trial11"
+  },
+  {
+    "original_word": "가닐가닐",
+    "meaning": "벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌.",
+    "generated_word": "슬리끌리",
+    "model": "gpt-4.1",
+    "language": "ko",
+    "trial": "trial12"
+  },
+  {
+    "original_word": "가닥가닥",
+    "meaning": "물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태.",
+    "generated_word": "쪼짤",
+    "model": "gpt-4.1",
+    "language": "ko",
+    "trial": "trial12"
+  },
+  {
+    "original_word": "가동가동",
+    "meaning": "어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양.",
+    "generated_word": "쭈라랑",
+    "model": "gpt-4.1",
+    "language": "ko",
+    "trial": "trial12"
+  },
+  {
+    "original_word": "가둥가둥",
+    "meaning": "몸집이 작은 사람이 엉덩이를 잇따라 흔드는 모양.",
+    "generated_word": "조리조리",
+    "model": "gpt-4.1",
+    "language": "ko",
+    "trial": "trial12"
+  },
+  {
+    "original_word": "가드락가드락",
+    "meaning": "조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양.",
+    "generated_word": "빤쭈럭빤쭈럭",
+    "model": "gpt-4.1",
+    "language": "ko",
+    "trial": "trial12"
+  },
+  {
+    "original_word": "가득",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.",
+    "generated_word": "빌빽",
+    "model": "gpt-4.1",
+    "language": "ko",
+    "trial": "trial12"
+  },
+  {
+    "original_word": "가득가득",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양.",
+    "generated_word": "바쨍바쨍",
+    "model": "gpt-4.1",
+    "language": "ko",
+    "trial": "trial12"
+  },
+  {
+    "original_word": "가든가든",
+    "meaning": "다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태.",
+    "generated_word": "살라락",
+    "model": "gpt-4.1",
+    "language": "ko",
+    "trial": "trial12"
+  },
+  {
+    "original_word": "가들막가들막",
+    "meaning": "신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양.",
+    "generated_word": "낑낑뻐적",
+    "model": "gpt-4.1",
+    "language": "ko",
+    "trial": "trial12"
+  },
+  {
+    "original_word": "가뜩",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.",
+    "generated_word": "부렁부렁",
+    "model": "gpt-4.1",
+    "language": "ko",
+    "trial": "trial12"
+  },
+  {
+    "original_word": "가닐가닐",
+    "meaning": "벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌.",
+    "generated_word": "스르질질",
+    "model": "gpt-4.1",
+    "language": "ko",
+    "trial": "trial13"
+  },
+  {
+    "original_word": "가닥가닥",
+    "meaning": "물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태.",
+    "generated_word": "빠숄빠숄",
+    "model": "gpt-4.1",
+    "language": "ko",
+    "trial": "trial13"
+  },
+  {
+    "original_word": "가동가동",
+    "meaning": "어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양.",
+    "generated_word": "아쭈뽈쭈뽈",
+    "model": "gpt-4.1",
+    "language": "ko",
+    "trial": "trial13"
+  },
+  {
+    "original_word": "가둥가둥",
+    "meaning": "몸집이 작은 사람이 엉덩이를 잇따라 흔드는 모양.",
+    "generated_word": "살랑쫑쫑",
+    "model": "gpt-4.1",
+    "language": "ko",
+    "trial": "trial13"
+  },
+  {
+    "original_word": "가드락가드락",
+    "meaning": "조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양.",
+    "generated_word": "새퉁새퉁",
+    "model": "gpt-4.1",
+    "language": "ko",
+    "trial": "trial13"
+  },
+  {
+    "original_word": "가득",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.",
+    "generated_word": "꽉차랑",
+    "model": "gpt-4.1",
+    "language": "ko",
+    "trial": "trial13"
+  },
+  {
+    "original_word": "가득가득",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양.",
+    "generated_word": "가뿍가뿍",
+    "model": "gpt-4.1",
+    "language": "ko",
+    "trial": "trial13"
+  },
+  {
+    "original_word": "가든가든",
+    "meaning": "다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태.",
+    "generated_word": "살랑삘랑",
+    "model": "gpt-4.1",
+    "language": "ko",
+    "trial": "trial13"
+  },
+  {
+    "original_word": "가들막가들막",
+    "meaning": "신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양.",
+    "generated_word": "낄쭈덕낄쭈덕",
+    "model": "gpt-4.1",
+    "language": "ko",
+    "trial": "trial13"
+  },
+  {
+    "original_word": "가뜩",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.",
+    "generated_word": "꽉지빡지",
+    "model": "gpt-4.1",
+    "language": "ko",
+    "trial": "trial13"
+  },
+  {
+    "original_word": "가닐가닐",
+    "meaning": "벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌.",
+    "generated_word": "쯔르글쯔르글",
+    "model": "gpt-4.1",
+    "language": "ko",
+    "trial": "trial14"
+  },
+  {
+    "original_word": "가닥가닥",
+    "meaning": "물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태.",
+    "generated_word": "쯔륵쯔륵",
+    "model": "gpt-4.1",
+    "language": "ko",
+    "trial": "trial14"
+  },
+  {
+    "original_word": "가동가동",
+    "meaning": "어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양.",
+    "generated_word": "쏘라뿌쭈뿌",
+    "model": "gpt-4.1",
+    "language": "ko",
+    "trial": "trial14"
+  },
+  {
+    "original_word": "가둥가둥",
+    "meaning": "몸집이 작은 사람이 엉덩이를 잇따라 흔드는 모양.",
+    "generated_word": "출래룩룩",
+    "model": "gpt-4.1",
+    "language": "ko",
+    "trial": "trial14"
+  },
+  {
+    "original_word": "가드락가드락",
+    "meaning": "조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양.",
+    "generated_word": "쁄쭈맘쨉",
+    "model": "gpt-4.1",
+    "language": "ko",
+    "trial": "trial14"
+  },
+  {
+    "original_word": "가득",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.",
+    "generated_word": "푹실땅",
+    "model": "gpt-4.1",
+    "language": "ko",
+    "trial": "trial14"
+  },
+  {
+    "original_word": "가득가득",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양.",
+    "generated_word": "뽄쨔뽄쨔",
+    "model": "gpt-4.1",
+    "language": "ko",
+    "trial": "trial14"
+  },
+  {
+    "original_word": "가든가든",
+    "meaning": "다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태.",
+    "generated_word": "파르라룽",
+    "model": "gpt-4.1",
+    "language": "ko",
+    "trial": "trial14"
+  },
+  {
+    "original_word": "가들막가들막",
+    "meaning": "신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양.",
+    "generated_word": "질루질루",
+    "model": "gpt-4.1",
+    "language": "ko",
+    "trial": "trial14"
+  },
+  {
+    "original_word": "가뜩",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.",
+    "generated_word": "똗똑",
+    "model": "gpt-4.1",
+    "language": "ko",
+    "trial": "trial14"
+  },
+  {
+    "original_word": "가닐가닐",
+    "meaning": "벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌.",
+    "generated_word": "눼질라지 푸릴띠",
+    "model": "gpt-4",
+    "language": "ko",
+    "trial": "trial1"
+  },
+  {
+    "original_word": "가닥가닥",
+    "meaning": "물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태.",
+    "generated_word": "물유나로방",
+    "model": "gpt-4",
+    "language": "ko",
+    "trial": "trial1"
+  },
+  {
+    "original_word": "가동가동",
+    "meaning": "어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양.",
+    "generated_word": "`노시피의 오봉스랄 케르피 되포틴다 ...",
+    "model": "gpt-4",
+    "language": "ko",
+    "trial": "trial1"
+  },
+  {
+    "original_word": "가둥가둥",
+    "meaning": "몸집이 작은 사람이 엉덩이를 잇따라 흔드는 모양.",
+    "generated_word": "뷁꼬",
+    "model": "gpt-4",
+    "language": "ko",
+    "trial": "trial1"
+  },
+  {
+    "original_word": "가드락가드락",
+    "meaning": "조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양.",
+    "generated_word": "카르메누 비룬산 바투림 굴루망",
+    "model": "gpt-4",
+    "language": "ko",
+    "trial": "trial1"
+  },
+  {
+    "original_word": "가득",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.",
+    "generated_word": "폴차흐",
+    "model": "gpt-4",
+    "language": "ko",
+    "trial": "trial1"
+  },
+  {
+    "original_word": "가득가득",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양.",
+    "generated_word": "캬라미 누리 버리니 야나 투리 루리 아누 제노 말리 후리 라니",
+    "model": "gpt-4",
+    "language": "ko",
+    "trial": "trial1"
+  },
+  {
+    "original_word": "가든가든",
+    "meaning": "다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태.",
+    "generated_word": "마니타 누라 라그니 빈락히 눔카이",
+    "model": "gpt-4",
+    "language": "ko",
+    "trial": "trial1"
+  },
+  {
+    "original_word": "가들막가들막",
+    "meaning": "신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양.",
+    "generated_word": "신본토",
+    "model": "gpt-4",
+    "language": "ko",
+    "trial": "trial1"
+  },
+  {
+    "original_word": "가뜩",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.",
+    "generated_word": "봐르누",
+    "model": "gpt-4",
+    "language": "ko",
+    "trial": "trial1"
+  },
+  {
+    "original_word": "가닐가닐",
+    "meaning": "벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌.",
+    "generated_word": "초롱불처럼 푸리카너틴",
+    "model": "gpt-4",
+    "language": "ko",
+    "trial": "trial2"
+  },
+  {
+    "original_word": "가닥가닥",
+    "meaning": "물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태.",
+    "generated_word": "욀갈림누르",
+    "model": "gpt-4",
+    "language": "ko",
+    "trial": "trial2"
+  },
+  {
+    "original_word": "가동가동",
+    "meaning": "어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양.",
+    "generated_word": "풀루티",
+    "model": "gpt-4",
+    "language": "ko",
+    "trial": "trial2"
+  },
+  {
+    "original_word": "가둥가둥",
+    "meaning": "몸집이 작은 사람이 엉덩이를 잇따라 흔드는 모양.",
+    "generated_word": "뽀나아 뚠뜌아 눼눼헤",
+    "model": "gpt-4",
+    "language": "ko",
+    "trial": "trial2"
+  },
+  {
+    "original_word": "가드락가드락",
+    "meaning": "조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양.",
+    "generated_word": "머루닌 푸질릿 코르삐 햐츠리 누르피니 파루까야",
+    "model": "gpt-4",
+    "language": "ko",
+    "trial": "trial2"
+  },
+  {
+    "original_word": "가득",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.",
+    "generated_word": "`퀴루코 브레카 무니라 토티오 스키뇨...",
+    "model": "gpt-4",
+    "language": "ko",
+    "trial": "trial2"
+  },
+  {
+    "original_word": "가득가득",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양.",
+    "generated_word": "`벨롭자 빈벡가레제 브르띠카 눈키 빌...",
+    "model": "gpt-4",
+    "language": "ko",
+    "trial": "trial2"
+  },
+  {
+    "original_word": "가든가든",
+    "meaning": "다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태.",
+    "generated_word": "민라니 푸시프 키놋 라하이 아바",
+    "model": "gpt-4",
+    "language": "ko",
+    "trial": "trial2"
+  },
+  {
+    "original_word": "가들막가들막",
+    "meaning": "신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양.",
+    "generated_word": "신미르",
+    "model": "gpt-4",
+    "language": "ko",
+    "trial": "trial2"
+  },
+  {
+    "original_word": "가뜩",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.",
+    "generated_word": "핸베라니카",
+    "model": "gpt-4",
+    "language": "ko",
+    "trial": "trial2"
+  },
+  {
+    "original_word": "가닐가닐",
+    "meaning": "벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌.",
+    "generated_word": "누룰피아 키브라우아",
+    "model": "gpt-4",
+    "language": "ko",
+    "trial": "trial3"
+  },
+  {
+    "original_word": "가닥가닥",
+    "meaning": "물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태.",
+    "generated_word": "불뀌림북처펌",
+    "model": "gpt-4",
+    "language": "ko",
+    "trial": "trial3"
+  },
+  {
+    "original_word": "가동가동",
+    "meaning": "어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양.",
+    "generated_word": "크발슬띱",
+    "model": "gpt-4",
+    "language": "ko",
+    "trial": "trial3"
+  },
+  {
+    "original_word": "가둥가둥",
+    "meaning": "몸집이 작은 사람이 엉덩이를 잇따라 흔드는 모양.",
+    "generated_word": "비미니 코시르 가단타",
+    "model": "gpt-4",
+    "language": "ko",
+    "trial": "trial3"
+  },
+  {
+    "original_word": "가드락가드락",
+    "meaning": "조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양.",
+    "generated_word": "알룬케일 브렛샤프 그룬띠아",
+    "model": "gpt-4",
+    "language": "ko",
+    "trial": "trial3"
+  },
+  {
+    "original_word": "가득",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.",
+    "generated_word": "볼룸띠나프",
+    "model": "gpt-4",
+    "language": "ko",
+    "trial": "trial3"
+  },
+  {
+    "original_word": "가득가득",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양.",
+    "generated_word": "믹야리어",
+    "model": "gpt-4",
+    "language": "ko",
+    "trial": "trial3"
+  },
+  {
+    "original_word": "가든가든",
+    "meaning": "다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태.",
+    "generated_word": "폴리토프릴리꼬탸",
+    "model": "gpt-4",
+    "language": "ko",
+    "trial": "trial3"
+  },
+  {
+    "original_word": "가들막가들막",
+    "meaning": "신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양.",
+    "generated_word": "키스락이 미루키 시스넨 무나락 때룩이 더르사니 키럭 더가르니",
+    "model": "gpt-4",
+    "language": "ko",
+    "trial": "trial3"
+  },
+  {
+    "original_word": "가뜩",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.",
+    "generated_word": "물레나루키",
+    "model": "gpt-4",
+    "language": "ko",
+    "trial": "trial3"
+  },
+  {
+    "original_word": "가닐가닐",
+    "meaning": "벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌.",
+    "generated_word": "크림플로스믹키아",
+    "model": "gpt-4",
+    "language": "ko",
+    "trial": "trial4"
+  },
+  {
+    "original_word": "가닥가닥",
+    "meaning": "물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태.",
+    "generated_word": "믹바이나프후라",
+    "model": "gpt-4",
+    "language": "ko",
+    "trial": "trial4"
+  },
+  {
+    "original_word": "가동가동",
+    "meaning": "어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양.",
+    "generated_word": "펠프리토 티말리너 혼시또 그에니트리 라바 췌코",
+    "model": "gpt-4",
+    "language": "ko",
+    "trial": "trial4"
+  },
+  {
+    "original_word": "가둥가둥",
+    "meaning": "몸집이 작은 사람이 엉덩이를 잇따라 흔드는 모양.",
+    "generated_word": "Pitrolyo yu-preqluve zendra-bendro",
+    "model": "gpt-4",
+    "language": "ko",
+    "trial": "trial4"
+  },
+  {
+    "original_word": "가드락가드락",
+    "meaning": "조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양.",
+    "generated_word": "Balibamfuric",
+    "model": "gpt-4",
+    "language": "ko",
+    "trial": "trial4"
+  },
+  {
+    "original_word": "가득",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.",
+    "generated_word": "키르안 뽀싸누루 브림마르",
+    "model": "gpt-4",
+    "language": "ko",
+    "trial": "trial4"
+  },
+  {
+    "original_word": "가득가득",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양.",
+    "generated_word": "violuthani gabrileto",
+    "model": "gpt-4",
+    "language": "ko",
+    "trial": "trial4"
+  },
+  {
+    "original_word": "가든가든",
+    "meaning": "다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태.",
+    "generated_word": "valopish naberin kyalow vathun",
+    "model": "gpt-4",
+    "language": "ko",
+    "trial": "trial4"
+  },
+  {
+    "original_word": "가들막가들막",
+    "meaning": "신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양.",
+    "generated_word": "믹야리어",
+    "model": "gpt-4",
+    "language": "ko",
+    "trial": "trial4"
+  },
+  {
+    "original_word": "가뜩",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.",
+    "generated_word": "forakalen",
+    "model": "gpt-4",
+    "language": "ko",
+    "trial": "trial4"
+  },
+  {
+    "original_word": "가닐가닐",
+    "meaning": "벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌.",
+    "generated_word": "zizilthrogan",
+    "model": "gpt-4",
+    "language": "ko",
+    "trial": "trial5"
+  },
+  {
+    "original_word": "가닥가닥",
+    "meaning": "물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태.",
+    "generated_word": "selquamroth",
+    "model": "gpt-4",
+    "language": "ko",
+    "trial": "trial5"
+  },
+  {
+    "original_word": "가동가동",
+    "meaning": "어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양.",
+    "generated_word": "lukitopal ravisnem kirin, palatotu vradosei kizeni lindola pareblin.",
+    "model": "gpt-4",
+    "language": "ko",
+    "trial": "trial5"
+  },
+  {
+    "original_word": "가둥가둥",
+    "meaning": "몸집이 작은 사람이 엉덩이를 잇따라 흔드는 모양.",
+    "generated_word": "krimba nudaloppa",
+    "model": "gpt-4",
+    "language": "ko",
+    "trial": "trial5"
+  },
+  {
+    "original_word": "가드락가드락",
+    "meaning": "조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양.",
+    "generated_word": "jokirassim grahnuja flompsik flurbentor",
+    "model": "gpt-4",
+    "language": "ko",
+    "trial": "trial5"
+  },
+  {
+    "original_word": "가득",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.",
+    "generated_word": "trunsila",
+    "model": "gpt-4",
+    "language": "ko",
+    "trial": "trial5"
+  },
+  {
+    "original_word": "가득가득",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양.",
+    "generated_word": "manuarlen",
+    "model": "gpt-4",
+    "language": "ko",
+    "trial": "trial5"
+  },
+  {
+    "original_word": "가든가든",
+    "meaning": "다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태.",
+    "generated_word": "Yorbeli zanfu-gri",
+    "model": "gpt-4",
+    "language": "ko",
+    "trial": "trial5"
+  },
+  {
+    "original_word": "가들막가들막",
+    "meaning": "신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양.",
+    "generated_word": "Nashiti kruso arvanti kirilo zuktri vanos maruki.",
+    "model": "gpt-4",
+    "language": "ko",
+    "trial": "trial5"
+  },
+  {
+    "original_word": "가뜩",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.",
+    "generated_word": "Kolinche",
+    "model": "gpt-4",
+    "language": "ko",
+    "trial": "trial5"
+  },
+  {
+    "original_word": "가닐가닐",
+    "meaning": "벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌.",
+    "generated_word": "키푸르기 와림차라",
+    "model": "gpt-4",
+    "language": "ko",
+    "trial": "trial6"
+  },
+  {
+    "original_word": "가닥가닥",
+    "meaning": "물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태.",
+    "generated_word": "무끌랑하빈상태",
+    "model": "gpt-4",
+    "language": "ko",
+    "trial": "trial6"
+  },
+  {
+    "original_word": "가동가동",
+    "meaning": "어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양.",
+    "generated_word": "아이쿠르거스",
+    "model": "gpt-4",
+    "language": "ko",
+    "trial": "trial6"
+  },
+  {
+    "original_word": "가둥가둥",
+    "meaning": "몸집이 작은 사람이 엉덩이를 잇따라 흔드는 모양.",
+    "generated_word": "쁘띠뻔덕뇽",
+    "model": "gpt-4",
+    "language": "ko",
+    "trial": "trial6"
+  },
+  {
+    "original_word": "가드락가드락",
+    "meaning": "조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양.",
+    "generated_word": "잘머거롱이꾸버림",
+    "model": "gpt-4",
+    "language": "ko",
+    "trial": "trial6"
+  },
+  {
+    "original_word": "가득",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.",
+    "generated_word": "빌лен허빛",
+    "model": "gpt-4",
+    "language": "ko",
+    "trial": "trial6"
+  },
+  {
+    "original_word": "가득가득",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양.",
+    "generated_word": "네허스뿌렝",
+    "model": "gpt-4",
+    "language": "ko",
+    "trial": "trial6"
+  },
+  {
+    "original_word": "가든가든",
+    "meaning": "다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태.",
+    "generated_word": "별러기녀마유",
+    "model": "gpt-4",
+    "language": "ko",
+    "trial": "trial6"
+  },
+  {
+    "original_word": "가들막가들막",
+    "meaning": "신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양.",
+    "generated_word": "신난하탕뵈허리",
+    "model": "gpt-4",
+    "language": "ko",
+    "trial": "trial6"
+  },
+  {
+    "original_word": "가뜩",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.",
+    "generated_word": "덴긋솔라",
+    "model": "gpt-4",
+    "language": "ko",
+    "trial": "trial6"
+  },
+  {
+    "original_word": "가닐가닐",
+    "meaning": "벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌.",
+    "generated_word": "꼬삣뽀락빠닷",
+    "model": "gpt-4",
+    "language": "ko",
+    "trial": "trial7"
+  },
+  {
+    "original_word": "가닥가닥",
+    "meaning": "물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태.",
+    "generated_word": "불루메노",
+    "model": "gpt-4",
+    "language": "ko",
+    "trial": "trial7"
+  },
+  {
+    "original_word": "가동가동",
+    "meaning": "어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양.",
+    "generated_word": "키디타카 뮤키에리우",
+    "model": "gpt-4",
+    "language": "ko",
+    "trial": "trial7"
+  },
+  {
+    "original_word": "가둥가둥",
+    "meaning": "몸집이 작은 사람이 엉덩이를 잇따라 흔드는 모양.",
+    "generated_word": "챠띠 꼬뽀 누누 도토 무붓",
+    "model": "gpt-4",
+    "language": "ko",
+    "trial": "trial7"
+  },
+  {
+    "original_word": "가드락가드락",
+    "meaning": "조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양.",
+    "generated_word": "츠나도",
+    "model": "gpt-4",
+    "language": "ko",
+    "trial": "trial7"
+  },
+  {
+    "original_word": "가득",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.",
+    "generated_word": "뿌니첸시도",
+    "model": "gpt-4",
+    "language": "ko",
+    "trial": "trial7"
+  },
+  {
+    "original_word": "가득가득",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양.",
+    "generated_word": "\"`브량데나 수효가 소어루 범와이나 ...",
+    "model": "gpt-4",
+    "language": "ko",
+    "trial": "trial7"
+  },
+  {
+    "original_word": "가든가든",
+    "meaning": "다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태.",
+    "generated_word": "토노코",
+    "model": "gpt-4",
+    "language": "ko",
+    "trial": "trial7"
+  },
+  {
+    "original_word": "가들막가들막",
+    "meaning": "신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양.",
+    "generated_word": "미네소탕",
+    "model": "gpt-4",
+    "language": "ko",
+    "trial": "trial7"
+  },
+  {
+    "original_word": "가뜩",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.",
+    "generated_word": "토히카키 풀랄리 침피다",
+    "model": "gpt-4",
+    "language": "ko",
+    "trial": "trial7"
+  },
+  {
+    "original_word": "가닐가닐",
+    "meaning": "벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌.",
+    "generated_word": "벌킷코지스킨 군차이틴쪼 바베 제우럭",
+    "model": "gpt-4",
+    "language": "ko",
+    "trial": "trial8"
+  },
+  {
+    "original_word": "가닥가닥",
+    "meaning": "물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태.",
+    "generated_word": "Shimbiritasaki Seulkalake",
+    "model": "gpt-4",
+    "language": "ko",
+    "trial": "trial8"
+  },
+  {
+    "original_word": "가동가동",
+    "meaning": "어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양.",
+    "generated_word": "Kequrako",
+    "model": "gpt-4",
+    "language": "ko",
+    "trial": "trial8"
+  },
+  {
+    "original_word": "가둥가둥",
+    "meaning": "몸집이 작은 사람이 엉덩이를 잇따라 흔드는 모양.",
+    "generated_word": "뽀띠끼쿠붓후니기동",
+    "model": "gpt-4",
+    "language": "ko",
+    "trial": "trial8"
+  },
+  {
+    "original_word": "가드락가드락",
+    "meaning": "조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양.",
+    "generated_word": "멘누땡쨩 바뤼에끄 무모쿠누루 자하시스바",
+    "model": "gpt-4",
+    "language": "ko",
+    "trial": "trial8"
+  },
+  {
+    "original_word": "가득",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.",
+    "generated_word": "부랑토나템",
+    "model": "gpt-4",
+    "language": "ko",
+    "trial": "trial8"
+  },
+  {
+    "original_word": "가득가득",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양.",
+    "generated_word": "`부냐쇼톳니티가토쏘유허니모시오유럿니다...",
+    "model": "gpt-4",
+    "language": "ko",
+    "trial": "trial8"
+  },
+  {
+    "original_word": "가든가든",
+    "meaning": "다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태.",
+    "generated_word": "키레이플랑가브리스프프리",
+    "model": "gpt-4",
+    "language": "ko",
+    "trial": "trial8"
+  },
+  {
+    "original_word": "가들막가들막",
+    "meaning": "신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양.",
+    "generated_word": "신나츠 간다시 나무야도시 즈코리없이 바하브어 도코와이 수루파루",
+    "model": "gpt-4",
+    "language": "ko",
+    "trial": "trial8"
+  },
+  {
+    "original_word": "가뜩",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.",
+    "generated_word": "풀가탕잇토",
+    "model": "gpt-4",
+    "language": "ko",
+    "trial": "trial8"
+  },
+  {
+    "original_word": "가닐가닐",
+    "meaning": "벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌.",
+    "generated_word": "끼리지모 노와찌꾸 레페피스",
+    "model": "gpt-4",
+    "language": "ko",
+    "trial": "trial9"
+  },
+  {
+    "original_word": "가닥가닥",
+    "meaning": "물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태.",
+    "generated_word": "플라스키오토 브리켄토 카라카이히드",
+    "model": "gpt-4",
+    "language": "ko",
+    "trial": "trial9"
+  },
+  {
+    "original_word": "가동가동",
+    "meaning": "어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양.",
+    "generated_word": "젠코도",
+    "model": "gpt-4",
+    "language": "ko",
+    "trial": "trial9"
+  },
+  {
+    "original_word": "가둥가둥",
+    "meaning": "몸집이 작은 사람이 엉덩이를 잇따라 흔드는 모양.",
+    "generated_word": "나내미 작당 섀쿠푸리 휘흔댕",
+    "model": "gpt-4",
+    "language": "ko",
+    "trial": "trial9"
+  },
+  {
+    "original_word": "가드락가드락",
+    "meaning": "조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양.",
+    "generated_word": "포사도 훼시",
+    "model": "gpt-4",
+    "language": "ko",
+    "trial": "trial9"
+  },
+  {
+    "original_word": "가득",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.",
+    "generated_word": "롳누끼",
+    "model": "gpt-4",
+    "language": "ko",
+    "trial": "trial9"
+  },
+  {
+    "original_word": "가득가득",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양.",
+    "generated_word": "크런티",
+    "model": "gpt-4",
+    "language": "ko",
+    "trial": "trial9"
+  },
+  {
+    "original_word": "가든가든",
+    "meaning": "다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태.",
+    "generated_word": "마니키 루카엔 라이트랑 에픽이즈",
+    "model": "gpt-4",
+    "language": "ko",
+    "trial": "trial9"
+  },
+  {
+    "original_word": "가들막가들막",
+    "meaning": "신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양.",
+    "generated_word": "\"`미코 그레나잔 피자 누미타 케리 ...",
+    "model": "gpt-4",
+    "language": "ko",
+    "trial": "trial9"
+  },
+  {
+    "original_word": "가뜩",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.",
+    "generated_word": "풀가토미",
+    "model": "gpt-4",
+    "language": "ko",
+    "trial": "trial9"
+  },
+  {
+    "original_word": "가닐가닐",
+    "meaning": "벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌.",
+    "generated_word": "허그시루",
+    "model": "gpt-4",
+    "language": "ko",
+    "trial": "trial10"
+  },
+  {
+    "original_word": "가닥가닥",
+    "meaning": "물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태.",
+    "generated_word": "물디키죽",
+    "model": "gpt-4",
+    "language": "ko",
+    "trial": "trial10"
+  },
+  {
+    "original_word": "가동가동",
+    "meaning": "어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양.",
+    "generated_word": "아키쨔이 노토토 치코프텟",
+    "model": "gpt-4",
+    "language": "ko",
+    "trial": "trial10"
+  },
+  {
+    "original_word": "가둥가둥",
+    "meaning": "몸집이 작은 사람이 엉덩이를 잇따라 흔드는 모양.",
+    "generated_word": "즥꼬노",
+    "model": "gpt-4",
+    "language": "ko",
+    "trial": "trial10"
+  },
+  {
+    "original_word": "가드락가드락",
+    "meaning": "조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양.",
+    "generated_word": "마가릿토",
+    "model": "gpt-4",
+    "language": "ko",
+    "trial": "trial10"
+  },
+  {
+    "original_word": "가득",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.",
+    "generated_word": "프칸토스까량백닛",
+    "model": "gpt-4",
+    "language": "ko",
+    "trial": "trial10"
+  },
+  {
+    "original_word": "가득가득",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양.",
+    "generated_word": "불쿠마스럼펄엔티움",
+    "model": "gpt-4",
+    "language": "ko",
+    "trial": "trial10"
+  },
+  {
+    "original_word": "가든가든",
+    "meaning": "다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태.",
+    "generated_word": "프리커손라이트무레나비",
+    "model": "gpt-4",
+    "language": "ko",
+    "trial": "trial10"
+  },
+  {
+    "original_word": "가들막가들막",
+    "meaning": "신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양.",
+    "generated_word": "하하이루 거고나미",
+    "model": "gpt-4",
+    "language": "ko",
+    "trial": "trial10"
+  },
+  {
+    "original_word": "가뜩",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.",
+    "generated_word": "풀리미토",
+    "model": "gpt-4",
+    "language": "ko",
+    "trial": "trial10"
+  },
+  {
+    "original_word": "가닐가닐",
+    "meaning": "벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌.",
+    "generated_word": "Chika",
+    "model": "gpt-4",
+    "language": "ko",
+    "trial": "trial11"
+  },
+  {
+    "original_word": "가닥가닥",
+    "meaning": "물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태.",
+    "generated_word": "Seokire-konashi-dry-moto",
+    "model": "gpt-4",
+    "language": "ko",
+    "trial": "trial11"
+  },
+  {
+    "original_word": "가동가동",
+    "meaning": "어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양.",
+    "generated_word": "\"`아이무수시키미에 라베방텐 도웨바라...",
+    "model": "gpt-4",
+    "language": "ko",
+    "trial": "trial11"
+  },
+  {
+    "original_word": "가둥가둥",
+    "meaning": "몸집이 작은 사람이 엉덩이를 잇따라 흔드는 모양.",
+    "generated_word": "채니소토미포지그뤼",
+    "model": "gpt-4",
+    "language": "ko",
+    "trial": "trial11"
+  },
+  {
+    "original_word": "가드락가드락",
+    "meaning": "조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양.",
+    "generated_word": "극냥스쿠 아루가도챠 체토 키리가요나 무드뤼르",
+    "model": "gpt-4",
+    "language": "ko",
+    "trial": "trial11"
+  },
+  {
+    "original_word": "가득",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.",
+    "generated_word": "물량리즈시곤풀",
+    "model": "gpt-4",
+    "language": "ko",
+    "trial": "trial11"
+  },
+  {
+    "original_word": "가득가득",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양.",
+    "generated_word": "Hantohako꽉chiteirueul",
+    "model": "gpt-4",
+    "language": "ko",
+    "trial": "trial11"
+  },
+  {
+    "original_word": "가든가든",
+    "meaning": "다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태.",
+    "generated_word": "마니키즈이지무아이리토",
+    "model": "gpt-4",
+    "language": "ko",
+    "trial": "trial11"
+  },
+  {
+    "original_word": "가들막가들막",
+    "meaning": "신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양.",
+    "generated_word": "신나미야로 잘레미키드 까노스체토 불티당 속무레키 아두니티드",
+    "model": "gpt-4",
+    "language": "ko",
+    "trial": "trial11"
+  },
+  {
+    "original_word": "가뜩",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.",
+    "generated_word": "fullempacto",
+    "model": "gpt-4",
+    "language": "ko",
+    "trial": "trial11"
+  },
+  {
+    "original_word": "가닐가닐",
+    "meaning": "벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌.",
+    "generated_word": "벌끼솓",
+    "model": "gpt-4",
+    "language": "ko",
+    "trial": "trial12"
+  },
+  {
+    "original_word": "가닥가닥",
+    "meaning": "물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태.",
+    "generated_word": "발랑깍",
+    "model": "gpt-4",
+    "language": "ko",
+    "trial": "trial12"
+  },
+  {
+    "original_word": "가동가동",
+    "meaning": "어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양.",
+    "generated_word": "까띠슐부티",
+    "model": "gpt-4",
+    "language": "ko",
+    "trial": "trial12"
+  },
+  {
+    "original_word": "가둥가둥",
+    "meaning": "몸집이 작은 사람이 엉덩이를 잇따라 흔드는 모양.",
+    "generated_word": "뽀짝뽀짝",
+    "model": "gpt-4",
+    "language": "ko",
+    "trial": "trial12"
+  },
+  {
+    "original_word": "가드락가드락",
+    "meaning": "조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양.",
+    "generated_word": "남영부르스",
+    "model": "gpt-4",
+    "language": "ko",
+    "trial": "trial12"
+  },
+  {
+    "original_word": "가득",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.",
+    "generated_word": "물량체움",
+    "model": "gpt-4",
+    "language": "ko",
+    "trial": "trial12"
+  },
+  {
+    "original_word": "가득가득",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양.",
+    "generated_word": "담투리후",
+    "model": "gpt-4",
+    "language": "ko",
+    "trial": "trial12"
+  },
+  {
+    "original_word": "가든가든",
+    "meaning": "다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태.",
+    "generated_word": "손가볍르",
+    "model": "gpt-4",
+    "language": "ko",
+    "trial": "trial12"
+  },
+  {
+    "original_word": "가들막가들막",
+    "meaning": "신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양.",
+    "generated_word": "무멋극혹",
+    "model": "gpt-4",
+    "language": "ko",
+    "trial": "trial12"
+  },
+  {
+    "original_word": "가뜩",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.",
+    "generated_word": "꽉차론",
+    "model": "gpt-4",
+    "language": "ko",
+    "trial": "trial12"
+  },
+  {
+    "original_word": "가닐가닐",
+    "meaning": "벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌.",
+    "generated_word": "벌리리릿",
+    "model": "gpt-4",
+    "language": "ko",
+    "trial": "trial13"
+  },
+  {
+    "original_word": "가닥가닥",
+    "meaning": "물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태.",
+    "generated_word": "싸르르릭",
+    "model": "gpt-4",
+    "language": "ko",
+    "trial": "trial13"
+  },
+  {
+    "original_word": "가동가동",
+    "meaning": "어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양.",
+    "generated_word": "득실득실",
+    "model": "gpt-4",
+    "language": "ko",
+    "trial": "trial13"
+  },
+  {
+    "original_word": "가둥가둥",
+    "meaning": "몸집이 작은 사람이 엉덩이를 잇따라 흔드는 모양.",
+    "generated_word": "뽀쭉빵빵",
+    "model": "gpt-4",
+    "language": "ko",
+    "trial": "trial13"
+  },
+  {
+    "original_word": "가드락가드락",
+    "meaning": "조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양.",
+    "generated_word": "'스날코당붕'",
+    "model": "gpt-4",
+    "language": "ko",
+    "trial": "trial13"
+  },
+  {
+    "original_word": "가득",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.",
+    "generated_word": "물량푸드득",
+    "model": "gpt-4",
+    "language": "ko",
+    "trial": "trial13"
+  },
+  {
+    "original_word": "가득가득",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양.",
+    "generated_word": "푹찼다람",
+    "model": "gpt-4",
+    "language": "ko",
+    "trial": "trial13"
+  },
+  {
+    "original_word": "가든가든",
+    "meaning": "다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태.",
+    "generated_word": "살딱살딱",
+    "model": "gpt-4",
+    "language": "ko",
+    "trial": "trial13"
+  },
+  {
+    "original_word": "가들막가들막",
+    "meaning": "신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양.",
+    "generated_word": "꾸뽄베락",
+    "model": "gpt-4",
+    "language": "ko",
+    "trial": "trial13"
+  },
+  {
+    "original_word": "가뜩",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.",
+    "generated_word": "꽉차닥뿅",
+    "model": "gpt-4",
+    "language": "ko",
+    "trial": "trial13"
+  },
+  {
+    "original_word": "가닐가닐",
+    "meaning": "벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌.",
+    "generated_word": "스크릴릭스크릴릿",
+    "model": "gpt-4",
+    "language": "ko",
+    "trial": "trial14"
+  },
+  {
+    "original_word": "가닥가닥",
+    "meaning": "물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태.",
+    "generated_word": "프슬릭",
+    "model": "gpt-4",
+    "language": "ko",
+    "trial": "trial14"
+  },
+  {
+    "original_word": "가동가동",
+    "meaning": "어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양.",
+    "generated_word": "프럴록프럴록",
+    "model": "gpt-4",
+    "language": "ko",
+    "trial": "trial14"
+  },
+  {
+    "original_word": "가둥가둥",
+    "meaning": "몸집이 작은 사람이 엉덩이를 잇따라 흔드는 모양.",
+    "generated_word": "킴락토퉬글릿",
+    "model": "gpt-4",
+    "language": "ko",
+    "trial": "trial14"
+  },
+  {
+    "original_word": "가드락가드락",
+    "meaning": "조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양.",
+    "generated_word": "소르감프룩",
+    "model": "gpt-4",
+    "language": "ko",
+    "trial": "trial14"
+  },
+  {
+    "original_word": "가득",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.",
+    "generated_word": "crimfill",
+    "model": "gpt-4",
+    "language": "ko",
+    "trial": "trial14"
+  },
+  {
+    "original_word": "가득가득",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양.",
+    "generated_word": "덜굴쿵",
+    "model": "gpt-4",
+    "language": "ko",
+    "trial": "trial14"
+  },
+  {
+    "original_word": "가든가든",
+    "meaning": "다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태.",
+    "generated_word": "파리달랄",
+    "model": "gpt-4",
+    "language": "ko",
+    "trial": "trial14"
+  },
+  {
+    "original_word": "가들막가들막",
+    "meaning": "신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양.",
+    "generated_word": "블레스누디오르",
+    "model": "gpt-4",
+    "language": "ko",
+    "trial": "trial14"
+  },
+  {
+    "original_word": "가뜩",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.",
+    "generated_word": "퓨르글",
+    "model": "gpt-4",
+    "language": "ko",
+    "trial": "trial14"
+  },
+  {
+    "original_word": "가닐가닐",
+    "meaning": "벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌.",
+    "generated_word": "칫슬리토노",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial1"
+  },
+  {
+    "original_word": "가닥가닥",
+    "meaning": "물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태.",
+    "generated_word": "드릴카스키",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial1"
+  },
+  {
+    "original_word": "가동가동",
+    "meaning": "어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양.",
+    "generated_word": "키파라 미즐로티 쿠츄뉘체",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial1"
+  },
+  {
+    "original_word": "가둥가둥",
+    "meaning": "몸집이 작은 사람이 엉덩이를 잇따라 흔드는 모양.",
+    "generated_word": "심누칼띠르",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial1"
+  },
+  {
+    "original_word": "가드락가드락",
+    "meaning": "조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양.",
+    "generated_word": "칠핑두르카차",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial1"
+  },
+  {
+    "original_word": "가득",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.",
+    "generated_word": "풀카츠리",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial1"
+  },
+  {
+    "original_word": "가득가득",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양.",
+    "generated_word": "티두카발룬",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial1"
+  },
+  {
+    "original_word": "가든가든",
+    "meaning": "다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태.",
+    "generated_word": "카킬리누",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial1"
+  },
+  {
+    "original_word": "가들막가들막",
+    "meaning": "신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양.",
+    "generated_word": "키파랑초키발라",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial1"
+  },
+  {
+    "original_word": "가뜩",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.",
+    "generated_word": "오누루바",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial1"
+  },
+  {
+    "original_word": "가닐가닐",
+    "meaning": "벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌.",
+    "generated_word": "카실리카토",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial2"
+  },
+  {
+    "original_word": "가닥가닥",
+    "meaning": "물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태.",
+    "generated_word": "카슈달란트",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial2"
+  },
+  {
+    "original_word": "가동가동",
+    "meaning": "어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양.",
+    "generated_word": "알리프라 켈냐르링 크누테르 탄풀라",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial2"
+  },
+  {
+    "original_word": "가둥가둥",
+    "meaning": "몸집이 작은 사람이 엉덩이를 잇따라 흔드는 모양.",
+    "generated_word": "피타흐스 캉니링",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial2"
+  },
+  {
+    "original_word": "가드락가드락",
+    "meaning": "조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양.",
+    "generated_word": "칸딜지르파샤",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial2"
+  },
+  {
+    "original_word": "가득",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.",
+    "generated_word": "츄르키파",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial2"
+  },
+  {
+    "original_word": "가득가득",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양.",
+    "generated_word": "크레스틸발빔",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial2"
+  },
+  {
+    "original_word": "가든가든",
+    "meaning": "다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태.",
+    "generated_word": "달뢰닉챼",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial2"
+  },
+  {
+    "original_word": "가들막가들막",
+    "meaning": "신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양.",
+    "generated_word": "쇼왐빌리므난까",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial2"
+  },
+  {
+    "original_word": "가뜩",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.",
+    "generated_word": "슈림카루",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial2"
+  },
+  {
+    "original_word": "가닐가닐",
+    "meaning": "벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌.",
+    "generated_word": "크리시칼랄다",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial3"
+  },
+  {
+    "original_word": "가닥가닥",
+    "meaning": "물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태.",
+    "generated_word": "크리젤크",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial3"
+  },
+  {
+    "original_word": "가동가동",
+    "meaning": "어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양.",
+    "generated_word": "파닐토카 쉬바린토 무히도랑 시라키둔",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial3"
+  },
+  {
+    "original_word": "가둥가둥",
+    "meaning": "몸집이 작은 사람이 엉덩이를 잇따라 흔드는 모양.",
+    "generated_word": "칼릴로 신살바이",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial3"
+  },
+  {
+    "original_word": "가드락가드락",
+    "meaning": "조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양.",
+    "generated_word": "쉬르반타릭하멜",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial3"
+  },
+  {
+    "original_word": "가득",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.",
+    "generated_word": "탁칼루바",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial3"
+  },
+  {
+    "original_word": "가득가득",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양.",
+    "generated_word": "칠루환두",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial3"
+  },
+  {
+    "original_word": "가든가든",
+    "meaning": "다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태.",
+    "generated_word": "팔랑가니",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial3"
+  },
+  {
+    "original_word": "가들막가들막",
+    "meaning": "신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양.",
+    "generated_word": "키리파니 제스카노 슈바릿코",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial3"
+  },
+  {
+    "original_word": "가뜩",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.",
+    "generated_word": "칼림보르",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial3"
+  },
+  {
+    "original_word": "가닐가닐",
+    "meaning": "벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌.",
+    "generated_word": "키틸라파츠크",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial4"
+  },
+  {
+    "original_word": "가닥가닥",
+    "meaning": "물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태.",
+    "generated_word": "클리샤파트",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial4"
+  },
+  {
+    "original_word": "가동가동",
+    "meaning": "어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양.",
+    "generated_word": "치레피스투르날프타",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial4"
+  },
+  {
+    "original_word": "가둥가둥",
+    "meaning": "몸집이 작은 사람이 엉덩이를 잇따라 흔드는 모양.",
+    "generated_word": "프린타코 실린디",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial4"
+  },
+  {
+    "original_word": "가드락가드락",
+    "meaning": "조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양.",
+    "generated_word": "츄림팔락",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial4"
+  },
+  {
+    "original_word": "가득",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.",
+    "generated_word": "실라크타",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial4"
+  },
+  {
+    "original_word": "가득가득",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양.",
+    "generated_word": "쿨리캄타라",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial4"
+  },
+  {
+    "original_word": "가든가든",
+    "meaning": "다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태.",
+    "generated_word": "실파니트라",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial4"
+  },
+  {
+    "original_word": "가들막가들막",
+    "meaning": "신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양.",
+    "generated_word": "츄빌란티그릴",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial4"
+  },
+  {
+    "original_word": "가뜩",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.",
+    "generated_word": "킬데란스",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial4"
+  },
+  {
+    "original_word": "가닐가닐",
+    "meaning": "벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌.",
+    "generated_word": "skitteritch",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial5"
+  },
+  {
+    "original_word": "가닥가닥",
+    "meaning": "물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태.",
+    "generated_word": "키랄초스크",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial5"
+  },
+  {
+    "original_word": "가동가동",
+    "meaning": "어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양.",
+    "generated_word": "girilanchu lopiki duralenkitu",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial5"
+  },
+  {
+    "original_word": "가둥가둥",
+    "meaning": "몸집이 작은 사람이 엉덩이를 잇따라 흔드는 모양.",
+    "generated_word": "스날키 림브릭",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial5"
+  },
+  {
+    "original_word": "가드락가드락",
+    "meaning": "조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양.",
+    "generated_word": "krinato blavessh",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial5"
+  },
+  {
+    "original_word": "가득",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.",
+    "generated_word": "bralvusto",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial5"
+  },
+  {
+    "original_word": "가득가득",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양.",
+    "generated_word": "gremtali",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial5"
+  },
+  {
+    "original_word": "가든가든",
+    "meaning": "다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태.",
+    "generated_word": "frelitara",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial5"
+  },
+  {
+    "original_word": "가들막가들막",
+    "meaning": "신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양.",
+    "generated_word": "skraneethlick",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial5"
+  },
+  {
+    "original_word": "가뜩",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.",
+    "generated_word": "fulimot",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial5"
+  },
+  {
+    "original_word": "가닐가닐",
+    "meaning": "벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌.",
+    "generated_word": "칙칙프리리",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial6"
+  },
+  {
+    "original_word": "가닥가닥",
+    "meaning": "물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태.",
+    "generated_word": "츠림카치",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial6"
+  },
+  {
+    "original_word": "가동가동",
+    "meaning": "어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양.",
+    "generated_word": "츄릴카란 두드란자",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial6"
+  },
+  {
+    "original_word": "가둥가둥",
+    "meaning": "몸집이 작은 사람이 엉덩이를 잇따라 흔드는 모양.",
+    "generated_word": "빌코딥치뚜",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial6"
+  },
+  {
+    "original_word": "가드락가드락",
+    "meaning": "조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양.",
+    "generated_word": "키탄스락케리",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial6"
+  },
+  {
+    "original_word": "가득",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.",
+    "generated_word": "멜리누크",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial6"
+  },
+  {
+    "original_word": "가득가득",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양.",
+    "generated_word": "밀레차노",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial6"
+  },
+  {
+    "original_word": "가든가든",
+    "meaning": "다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태.",
+    "generated_word": "피린다스",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial6"
+  },
+  {
+    "original_word": "가들막가들막",
+    "meaning": "신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양.",
+    "generated_word": "까슬뻔쩍헤미릿",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial6"
+  },
+  {
+    "original_word": "가뜩",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.",
+    "generated_word": "츄림카루",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial6"
+  },
+  {
+    "original_word": "가닐가닐",
+    "meaning": "벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌.",
+    "generated_word": "니술레쿠라노 치잇카리",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial7"
+  },
+  {
+    "original_word": "가닥가닥",
+    "meaning": "물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태.",
+    "generated_word": "수카이하로 크리스틸",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial7"
+  },
+  {
+    "original_word": "가동가동",
+    "meaning": "어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양.",
+    "generated_word": "질랄리 키토가네 피크르치 쌍글비니",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial7"
+  },
+  {
+    "original_word": "가둥가둥",
+    "meaning": "몸집이 작은 사람이 엉덩이를 잇따라 흔드는 모양.",
+    "generated_word": "팅쿠리쇼 바동글질",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial7"
+  },
+  {
+    "original_word": "가드락가드락",
+    "meaning": "조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양.",
+    "generated_word": "쟈만쿠라시떼",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial7"
+  },
+  {
+    "original_word": "가득",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.",
+    "generated_word": "플루렌토쿠미니",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial7"
+  },
+  {
+    "original_word": "가득가득",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양.",
+    "generated_word": "풀쯔미나르",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial7"
+  },
+  {
+    "original_word": "가든가든",
+    "meaning": "다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태.",
+    "generated_word": "레조스피헤론",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial7"
+  },
+  {
+    "original_word": "가들막가들막",
+    "meaning": "신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양.",
+    "generated_word": "클라분트 야메키슈 노바레시 쥬바딜",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial7"
+  },
+  {
+    "original_word": "가뜩",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.",
+    "generated_word": "플르나츠미루",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial7"
+  },
+  {
+    "original_word": "가닐가닐",
+    "meaning": "벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌.",
+    "generated_word": "누지리빚카초",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial8"
+  },
+  {
+    "original_word": "가닥가닥",
+    "meaning": "물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태.",
+    "generated_word": "쇼토리크세쿠",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial8"
+  },
+  {
+    "original_word": "가동가동",
+    "meaning": "어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양.",
+    "generated_word": "니코미쿠리터쥬느페이료",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial8"
+  },
+  {
+    "original_word": "가둥가둥",
+    "meaning": "몸집이 작은 사람이 엉덩이를 잇따라 흔드는 모양.",
+    "generated_word": "쇼키팁세 루피페토",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial8"
+  },
+  {
+    "original_word": "가드락가드락",
+    "meaning": "조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양.",
+    "generated_word": "콘브자마뉘쇼",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial8"
+  },
+  {
+    "original_word": "가득",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.",
+    "generated_word": "하나미쿠로",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial8"
+  },
+  {
+    "original_word": "가득가득",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양.",
+    "generated_word": "플레토카즈므",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial8"
+  },
+  {
+    "original_word": "가든가든",
+    "meaning": "다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태.",
+    "generated_word": "테카타노 류이텐",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial8"
+  },
+  {
+    "original_word": "가들막가들막",
+    "meaning": "신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양.",
+    "generated_word": "재프레키미슈나",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial8"
+  },
+  {
+    "original_word": "가뜩",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.",
+    "generated_word": "쇼미쿠리플레",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial8"
+  },
+  {
+    "original_word": "가닐가닐",
+    "meaning": "벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌.",
+    "generated_word": "크리스코하리케 티치미가토",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial9"
+  },
+  {
+    "original_word": "가닥가닥",
+    "meaning": "물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태.",
+    "generated_word": "디시크리프트 테일르",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial9"
+  },
+  {
+    "original_word": "가동가동",
+    "meaning": "어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양.",
+    "generated_word": "`키토코 미얀데 술가 키발케리 토자 ...",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial9"
+  },
+  {
+    "original_word": "가둥가둥",
+    "meaning": "몸집이 작은 사람이 엉덩이를 잇따라 흔드는 모양.",
+    "generated_word": "미쥬니 키푸따 덥슈뤼",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial9"
+  },
+  {
+    "original_word": "가드락가드락",
+    "meaning": "조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양.",
+    "generated_word": "스누도리키타쇼",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial9"
+  },
+  {
+    "original_word": "가득",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.",
+    "generated_word": "플레노카마시",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial9"
+  },
+  {
+    "original_word": "가득가득",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양.",
+    "generated_word": "플뤼타미쇼",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial9"
+  },
+  {
+    "original_word": "가든가든",
+    "meaning": "다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태.",
+    "generated_word": "후레차크",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial9"
+  },
+  {
+    "original_word": "가들막가들막",
+    "meaning": "신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양.",
+    "generated_word": "쇼도키브리쓰쿠머",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial9"
+  },
+  {
+    "original_word": "가뜩",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.",
+    "generated_word": "폴레츠미",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial9"
+  },
+  {
+    "original_word": "가닐가닐",
+    "meaning": "벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌.",
+    "generated_word": "크리질누쿠 모시크틀렐",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial10"
+  },
+  {
+    "original_word": "가닥가닥",
+    "meaning": "물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태.",
+    "generated_word": "크라시하루니",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial10"
+  },
+  {
+    "original_word": "가동가동",
+    "meaning": "어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양.",
+    "generated_word": "`노카쥬 킨켜시 키타노 류릴레, 잇쯔...",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial10"
+  },
+  {
+    "original_word": "가둥가둥",
+    "meaning": "몸집이 작은 사람이 엉덩이를 잇따라 흔드는 모양.",
+    "generated_word": "시쿠리투니포포댄스",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial10"
+  },
+  {
+    "original_word": "가드락가드락",
+    "meaning": "조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양.",
+    "generated_word": "포니시쿠 브라탄그 스너디쉬",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial10"
+  },
+  {
+    "original_word": "가득",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.",
+    "generated_word": "플랄쿄쥬만",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial10"
+  },
+  {
+    "original_word": "가득가득",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양.",
+    "generated_word": "플루라드니시엘 코ㅍ레시오",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial10"
+  },
+  {
+    "original_word": "가든가든",
+    "meaning": "다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태.",
+    "generated_word": "키라토미유에시",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial10"
+  },
+  {
+    "original_word": "가들막가들막",
+    "meaning": "신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양.",
+    "generated_word": "키자또레 파슈니쿠 미잇코 아론디레 베베로쉬",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial10"
+  },
+  {
+    "original_word": "가뜩",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.",
+    "generated_word": "플레노쿠미",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial10"
+  },
+  {
+    "original_word": "가닐가닐",
+    "meaning": "벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌.",
+    "generated_word": "크리제미토 치카토세",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial11"
+  },
+  {
+    "original_word": "가닥가닥",
+    "meaning": "물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태.",
+    "generated_word": "프루쿠리카데쉬",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial11"
+  },
+  {
+    "original_word": "가동가동",
+    "meaning": "어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양.",
+    "generated_word": "키후놀리무토쉬엘라",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial11"
+  },
+  {
+    "original_word": "가둥가둥",
+    "meaning": "몸집이 작은 사람이 엉덩이를 잇따라 흔드는 모양.",
+    "generated_word": "쥬미뿌뽀탕슈리",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial11"
+  },
+  {
+    "original_word": "가드락가드락",
+    "meaning": "조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양.",
+    "generated_word": "쟈루푸냐키스",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial11"
+  },
+  {
+    "original_word": "가득",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.",
+    "generated_word": "푸루토샤파메",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial11"
+  },
+  {
+    "original_word": "가득가득",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양.",
+    "generated_word": "플랑무濃콩트리ー",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial11"
+  },
+  {
+    "original_word": "가든가든",
+    "meaning": "다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태.",
+    "generated_word": "노리키라루",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial11"
+  },
+  {
+    "original_word": "가들막가들막",
+    "meaning": "신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양.",
+    "generated_word": "프랄쇼쿠브레스키",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial11"
+  },
+  {
+    "original_word": "가뜩",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.",
+    "generated_word": "키루미쇼토",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial11"
+  },
+  {
+    "original_word": "가닐가닐",
+    "meaning": "벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌.",
+    "generated_word": "가리릭손",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial12"
+  },
+  {
+    "original_word": "가닥가닥",
+    "meaning": "물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태.",
+    "generated_word": "칙칙발발",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial12"
+  },
+  {
+    "original_word": "가동가동",
+    "meaning": "어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양.",
+    "generated_word": "쭈글빤댕",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial12"
+  },
+  {
+    "original_word": "가둥가둥",
+    "meaning": "몸집이 작은 사람이 엉덩이를 잇따라 흔드는 모양.",
+    "generated_word": "찌릿뽕뽕",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial12"
+  },
+  {
+    "original_word": "가드락가드락",
+    "meaning": "조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양.",
+    "generated_word": "'조금 거만스럽게 잘난 체하며 버릇없...",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial12"
+  },
+  {
+    "original_word": "가득",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.",
+    "generated_word": "달빛따",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial12"
+  },
+  {
+    "original_word": "가득가득",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양.",
+    "generated_word": "차근차근",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial12"
+  },
+  {
+    "original_word": "가든가든",
+    "meaning": "다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태.",
+    "generated_word": "쉬유랄라",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial12"
+  },
+  {
+    "original_word": "가들막가들막",
+    "meaning": "신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양.",
+    "generated_word": "짜릿킥쏘롱",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial12"
+  },
+  {
+    "original_word": "가뜩",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.",
+    "generated_word": "침득침득",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial12"
+  },
+  {
+    "original_word": "가닐가닐",
+    "meaning": "벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌.",
+    "generated_word": "기글기글",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial13"
+  },
+  {
+    "original_word": "가닥가닥",
+    "meaning": "물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태.",
+    "generated_word": "찌르득찌르득",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial13"
+  },
+  {
+    "original_word": "가동가동",
+    "meaning": "어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양.",
+    "generated_word": "쭉북쭉북",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial13"
+  },
+  {
+    "original_word": "가둥가둥",
+    "meaning": "몸집이 작은 사람이 엉덩이를 잇따라 흔드는 모양.",
+    "generated_word": "뽕실뽕실",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial13"
+  },
+  {
+    "original_word": "가드락가드락",
+    "meaning": "조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양.",
+    "generated_word": "꾸불댕긋",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial13"
+  },
+  {
+    "original_word": "가득",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.",
+    "generated_word": "꽉차릿",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial13"
+  },
+  {
+    "original_word": "가득가득",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양.",
+    "generated_word": "빽빽득",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial13"
+  },
+  {
+    "original_word": "가든가든",
+    "meaning": "다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태.",
+    "generated_word": "살랑살랑",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial13"
+  },
+  {
+    "original_word": "가들막가들막",
+    "meaning": "신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양.",
+    "generated_word": "까실히까실",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial13"
+  },
+  {
+    "original_word": "가뜩",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.",
+    "generated_word": "꽉차북적",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial13"
+  },
+  {
+    "original_word": "가닐가닐",
+    "meaning": "벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌.",
+    "generated_word": "크리릿살랄",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial14"
+  },
+  {
+    "original_word": "가닥가닥",
+    "meaning": "물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태.",
+    "generated_word": "츠카릿",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial14"
+  },
+  {
+    "original_word": "가동가동",
+    "meaning": "어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양.",
+    "generated_word": "풀케달풀케프",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial14"
+  },
+  {
+    "original_word": "가둥가둥",
+    "meaning": "몸집이 작은 사람이 엉덩이를 잇따라 흔드는 모양.",
+    "generated_word": "딜비달락",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial14"
+  },
+  {
+    "original_word": "가드락가드락",
+    "meaning": "조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양.",
+    "generated_word": "가상의 언어에서 '조금 거만스럽게 잘...",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial14"
+  },
+  {
+    "original_word": "가득",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.",
+    "generated_word": "가상의 언어에서 '분량이나 수효 따위...",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial14"
+  },
+  {
+    "original_word": "가득가득",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양.",
+    "generated_word": "'찌글찌글'",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial14"
+  },
+  {
+    "original_word": "가든가든",
+    "meaning": "다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태.",
+    "generated_word": "프릴랄쉬",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial14"
+  },
+  {
+    "original_word": "가들막가들막",
+    "meaning": "신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양.",
+    "generated_word": "치릿츠다브리케",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial14"
+  },
+  {
+    "original_word": "가뜩",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.",
+    "generated_word": "쯔림차림",
+    "model": "gpt-4-turbo",
+    "language": "ko",
+    "trial": "trial14"
+  },
+  {
+    "original_word": "가닐가닐",
+    "meaning": "벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌.",
+    "generated_word": "스케스케스케",
+    "model": "qwen2.5-14b",
+    "language": "ko",
+    "trial": "trial3"
+  },
+  {
+    "original_word": "가닥가닥",
+    "meaning": "물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태.",
+    "generated_word": "스 crunch",
+    "model": "qwen2.5-14b",
+    "language": "ko",
+    "trial": "trial3"
+  },
+  {
+    "original_word": "가동가동",
+    "meaning": "어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양.",
+    "generated_word": "믹야리어",
+    "model": "qwen2.5-14b",
+    "language": "ko",
+    "trial": "trial3"
+  },
+  {
+    "original_word": "가둥가둥",
+    "meaning": "몸집이 작은 사람이 엉덩이를 잇따라 흔드는 모양.",
+    "generated_word": "크르르르~",
+    "model": "qwen2.5-14b",
+    "language": "ko",
+    "trial": "trial3"
+  },
+  {
+    "original_word": "가드락가드락",
+    "meaning": "조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양.",
+    "generated_word": "보이아라",
+    "model": "qwen2.5-14b",
+    "language": "ko",
+    "trial": "trial3"
+  },
+  {
+    "original_word": "가득",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.",
+    "generated_word": "plenti",
+    "model": "qwen2.5-14b",
+    "language": "ko",
+    "trial": "trial3"
+  },
+  {
+    "original_word": "가득가득",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양.",
+    "generated_word": "아차차",
+    "model": "qwen2.5-14b",
+    "language": "ko",
+    "trial": "trial3"
+  },
+  {
+    "original_word": "가든가든",
+    "meaning": "다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태.",
+    "generated_word": "liki",
+    "model": "qwen2.5-14b",
+    "language": "ko",
+    "trial": "trial3"
+  },
+  {
+    "original_word": "가들막가들막",
+    "meaning": "신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양.",
+    "generated_word": "미라니",
+    "model": "qwen2.5-14b",
+    "language": "ko",
+    "trial": "trial3"
+  },
+  {
+    "original_word": "가뜩",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.",
+    "generated_word": "포근",
+    "model": "qwen2.5-14b",
+    "language": "ko",
+    "trial": "trial3"
+  },
+  {
+    "original_word": "가닐가닐",
+    "meaning": "벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌.",
+    "generated_word": "크르르크르르",
+    "model": "qwen2.5-14b",
+    "language": "ko",
+    "trial": "trial4"
+  },
+  {
+    "original_word": "가닥가닥",
+    "meaning": "물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태.",
+    "generated_word": "크르르",
+    "model": "qwen2.5-14b",
+    "language": "ko",
+    "trial": "trial4"
+  },
+  {
+    "original_word": "가동가동",
+    "meaning": "어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양.",
+    "generated_word": "지리지리",
+    "model": "qwen2.5-14b",
+    "language": "ko",
+    "trial": "trial4"
+  },
+  {
+    "original_word": "가둥가둥",
+    "meaning": "몸집이 작은 사람이 엉덩이를 잇따라 흔드는 모양.",
+    "generated_word": "플립플라우",
+    "model": "qwen2.5-14b",
+    "language": "ko",
+    "trial": "trial4"
+  },
+  {
+    "original_word": "가드락가드락",
+    "meaning": "조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양.",
+    "generated_word": "지이이-",
+    "model": "qwen2.5-14b",
+    "language": "ko",
+    "trial": "trial4"
+  },
+  {
+    "original_word": "가득",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.",
+    "generated_word": "sambal",
+    "model": "qwen2.5-14b",
+    "language": "ko",
+    "trial": "trial4"
+  },
+  {
+    "original_word": "가득가득",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양.",
+    "generated_word": "크 CWE",
+    "model": "qwen2.5-14b",
+    "language": "ko",
+    "trial": "trial4"
+  },
+  {
+    "original_word": "가든가든",
+    "meaning": "다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태.",
+    "generated_word": "micayari",
+    "model": "qwen2.5-14b",
+    "language": "ko",
+    "trial": "trial4"
+  },
+  {
+    "original_word": "가들막가들막",
+    "meaning": "신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양.",
+    "generated_word": "지시",
+    "model": "qwen2.5-14b",
+    "language": "ko",
+    "trial": "trial4"
+  },
+  {
+    "original_word": "가뜩",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.",
+    "generated_word": "만석",
+    "model": "qwen2.5-14b",
+    "language": "ko",
+    "trial": "trial4"
+  },
+  {
+    "original_word": "가닐가닐",
+    "meaning": "벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌.",
+    "generated_word": "생성하신 가상의 언어로는 \"scrab...",
+    "model": "qwen2.5-14b",
+    "language": "ko",
+    "trial": "trial5"
+  },
+  {
+    "original_word": "가닥가닥",
+    "meaning": "물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태.",
+    "generated_word": "가지런",
+    "model": "qwen2.5-14b",
+    "language": "ko",
+    "trial": "trial5"
+  },
+  {
+    "original_word": "가동가동",
+    "meaning": "어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양.",
+    "generated_word": "kiri",
+    "model": "qwen2.5-14b",
+    "language": "ko",
+    "trial": "trial5"
+  },
+  {
+    "original_word": "가둥가둥",
+    "meaning": "몸집이 작은 사람이 엉덩이를 잇따라 흔드는 모양.",
+    "generated_word": "quirrul",
+    "model": "qwen2.5-14b",
+    "language": "ko",
+    "trial": "trial5"
+  },
+  {
+    "original_word": "가드락가드락",
+    "meaning": "조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양.",
+    "generated_word": "발르라스카",
+    "model": "qwen2.5-14b",
+    "language": "ko",
+    "trial": "trial5"
+  },
+  {
+    "original_word": "가득",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.",
+    "generated_word": "생성된 가상의 음성상징어를 한국어로 ...",
+    "model": "qwen2.5-14b",
+    "language": "ko",
+    "trial": "trial5"
+  },
+  {
+    "original_word": "가득가득",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양.",
+    "generated_word": "스 olu",
+    "model": "qwen2.5-14b",
+    "language": "ko",
+    "trial": "trial5"
+  },
+  {
+    "original_word": "가든가든",
+    "meaning": "다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태.",
+    "generated_word": "그림",
+    "model": "qwen2.5-14b",
+    "language": "ko",
+    "trial": "trial5"
+  },
+  {
+    "original_word": "가들막가들막",
+    "meaning": "신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양.",
+    "generated_word": "지글지글",
+    "model": "qwen2.5-14b",
+    "language": "ko",
+    "trial": "trial5"
+  },
+  {
+    "original_word": "가뜩",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.",
+    "generated_word": "tolk",
+    "model": "qwen2.5-14b",
+    "language": "ko",
+    "trial": "trial5"
+  },
+  {
+    "original_word": "가닐가닐",
+    "meaning": "벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌.",
+    "generated_word": "스크릴리스",
+    "model": "qwen2.5-14b",
+    "language": "ko",
+    "trial": "trial6"
+  },
+  {
+    "original_word": "가닥가닥",
+    "meaning": "물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태.",
+    "generated_word": "스 Kerr",
+    "model": "qwen2.5-14b",
+    "language": "ko",
+    "trial": "trial6"
+  },
+  {
+    "original_word": "가동가동",
+    "meaning": "어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양.",
+    "generated_word": "치우차우",
+    "model": "qwen2.5-14b",
+    "language": "ko",
+    "trial": "trial6"
+  },
+  {
+    "original_word": "가둥가둥",
+    "meaning": "몸집이 작은 사람이 엉덩이를 잇따라 흔드는 모양.",
+    "generated_word": "trembling-pose",
+    "model": "qwen2.5-14b",
+    "language": "ko",
+    "trial": "trial6"
+  },
+  {
+    "original_word": "가드락가드락",
+    "meaning": "조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양.",
+    "generated_word": "구르고리우",
+    "model": "qwen2.5-14b",
+    "language": "ko",
+    "trial": "trial6"
+  },
+  {
+    "original_word": "가득",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.",
+    "generated_word": "사우아",
+    "model": "qwen2.5-14b",
+    "language": "ko",
+    "trial": "trial6"
+  },
+  {
+    "original_word": "가득가득",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양.",
+    "generated_word": "氾數量",
+    "model": "qwen2.5-14b",
+    "language": "ko",
+    "trial": "trial6"
+  },
+  {
+    "original_word": "가든가든",
+    "meaning": "다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태.",
+    "generated_word": "아이스베인",
+    "model": "qwen2.5-14b",
+    "language": "ko",
+    "trial": "trial6"
+  },
+  {
+    "original_word": "가들막가들막",
+    "meaning": "신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양.",
+    "generated_word": "신나하다",
+    "model": "qwen2.5-14b",
+    "language": "ko",
+    "trial": "trial6"
+  },
+  {
+    "original_word": "가뜩",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.",
+    "generated_word": "보따리",
+    "model": "qwen2.5-14b",
+    "language": "ko",
+    "trial": "trial6"
   }
 ]
