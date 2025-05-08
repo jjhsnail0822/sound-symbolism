@@ -1,3 +1,7 @@
+# python pseudo_word_generationv2.py -m gpt-4o --gpu 1
+# python pseudo_word_generationv2.py -m google/gemma-3-27b-it --gpu 2
+# python pseudo_word_generationv2.py -m Qwen/Qwen3-4B --gpu 1
+
 import json
 import argparse
 from vllm import LLM, SamplingParams
@@ -10,10 +14,47 @@ import gc
 import pandas as pd
 import torch
 from typing import List, Dict, Any, Optional
+from huggingface_hub import login, model_info
 from vllm.distributed import (destroy_distributed_environment, destroy_model_parallel)
 from openai import OpenAI
 from dotenv import load_dotenv
 from pathlib import Path
+
+# 환경변수 설정
+os.environ["HF_HOME"] = "/scratch2/sheepswool/workspace/models"
+os.environ["TRANSFORMERS_CACHE"] = "/scratch2/sheepswool/workspace/models"
+os.environ["HF_DATASETS_CACHE"] = "/scratch2/sheepswool/workspace/models"
+os.environ["HUGGINGFACE_HUB_CACHE"] = "/scratch2/sheepswool/workspace/models"
+
+load_dotenv('.env.local')
+# 모델 경로 매핑 추가
+MODEL_PATHS = {
+    "google/gemma-3-27b-it": "google/gemma-3-27b-it",
+    "google/gemma-3-12b-it": "google/gemma-3-12b-it",
+    "google/gemma-3-4b-it": "google/gemma-3-4b-it",
+    "Qwen/Qwen2.5-3b": "Qwen/Qwen2.5-3b",
+    "Qwen/Qwen2.5-7b": "Qwen/Qwen2.5-7b",
+    "Qwen/Qwen2.5-14b": "Qwen/Qwen2.5-14b",
+    "Qwen/Qwen2.5-32b": "Qwen/Qwen2.5-32b",
+    "Qwen/Qwen2.5-72b": "Qwen/Qwen2.5-72b",
+    "Qwen/Qwen3-4B": "Qwen/Qwen3-4b",
+    "Qwen/Qwen3-8B": "Qwen/Qwen3-8b",
+    "Qwen/Qwen3-14B": "Qwen/Qwen3-14b",
+    "Qwen/Qwen3-32B": "Qwen/Qwen3-32b",
+    "Qwen/Qwen3-72B": "Qwen/Qwen3-72b",
+}
+HUGGINGFACE_TOKEN = os.environ.get('HUGGINGFACE_TOKEN')
+OPENAI_API_KEY = os.environ.get('OPENAI_API_KEY')
+
+def hf_login() -> bool:
+    if HUGGINGFACE_TOKEN:
+        try:
+            login(token=HUGGINGFACE_TOKEN)
+            print("✅ Hugging Face에 로그인했습니다.")
+            return True
+        except Exception as e:
+            print(f"⚠️ Hugging Face 로그인 실패: {e}")
+    return False
 
 class pseudoWordGeneration:
     def __init__(
@@ -31,7 +72,7 @@ class pseudoWordGeneration:
             word_nums: int = 10,
             language: str = "ko",
     ):
-        self.model_path = model_path
+        self.model_path = MODEL_PATHS.get(model_path, model_path)  # 매핑된 경로가 있으면 사용
         data_base_path = data_path
         self.output_dir = output_dir
         self.prompt_path = prompt_path
@@ -52,7 +93,6 @@ class pseudoWordGeneration:
         self.client = OpenAI(
             api_key=os.getenv("OPENAI_API_KEY"),
         )
-        pass
 
     def _cleanup(self):
         destroy_model_parallel()
@@ -77,9 +117,16 @@ class pseudoWordGeneration:
         if self.use_api:
             print(f"Using OpenAI API with model {self.model_path}")
         else:
+            hf_login()
             print(f"Loading model from {self.model_path}")
             tokenizer = AutoTokenizer.from_pretrained(self.model_path)
-            model = LLM(model=self.model_path, max_model_len=self.max_model_len, tensor_parallel_size=self.tensor_parallel_size)
+            model = LLM(
+                model=self.model_path,
+                max_model_len=self.max_model_len,
+                tensor_parallel_size=self.tensor_parallel_size,
+                trust_remote_code=True,
+                download_dir="/scratch2/sheepswool/workspace/models"
+            )
             sampling_params = SamplingParams(
                 temperature=self.temperature, 
                 max_tokens=self.max_tokens,
@@ -95,71 +142,76 @@ class pseudoWordGeneration:
         
         # Process in batches
         for key in prompt_keys:
+            print(f"Generating with {key} as prompt")
             prompt:str = prompts[key][self.language]["user_prompt"]
-            for word_item in tqdm(word_data):
+            for i, word_item in enumerate(tqdm(word_data)):
+                if self.word_nums > 0 and i >= self.word_nums:
+                    break
+                num_trials = 0
                 
                 word = word_item["word"]
                 definitions = word_item["definitions"]
                 meaning = definitions[0]
                 prompt = prompt.format(meaning=meaning)
                 
-                if self.use_api:
-                    # Use OpenAI API
-                    response = self.client.responses.create(
-                        model=self.model_path,
-                        input=prompt,
-                        # temperature=self.temperature, # not supported with o4-mini
-                    )
-                    model_answer = response.output_text
-                else:
-                    # Use VLLM model
-                    # response = model.generate(query['question'], sampling_params=sampling_params)
-                    conversation = [
-                        {
-                            "role": "user",
-                            "content": prompt
-                        }
-                    ]
-                    if 'Qwen3' in self.model_path:
-                        # For Qwen3, use a different prompt format
-                        text = tokenizer.apply_chat_template(
-                            conversation,
-                            tokenize=False,
-                            add_generation_prompt=True,
-                            enable_thinking=self.thinking,
-                        )
-                        response = model.generate(text, sampling_params=sampling_params)
-                    else:
-                        response = model.chat(conversation, sampling_params=sampling_params)
-                    
-                    # Extract answer from the first element of the response list
-                    model_answer = response[0].outputs[0].text.strip()
-                    # remove <think> ... </think> tags
-                    if self.thinking:
-                        model_answer = re.sub(r'<think>.*?</think>', '', model_answer, flags=re.DOTALL)
-
-                # First integer is the answer
-                model_answer:str = re.search(r'\d+', model_answer)
-                model_answer = model_answer.split("`")[1]
-                breakpoint()
-                if model_answer:
-                    model_answer = model_answer.group(0)
-                else:
-                    model_answer = None
-                # Handle cases where the model output is empty or None
-                if model_answer is None:
-                    print(f"Warning: Model output is empty for query: {word}")
-                    model_answer = "0"
-                
-                # Store result
-                all_results.append({
-                    "original_word": word,
-                    "meaning": meaning,
-                    "generated_word": model_answer,
-                    "model": self.model_path,
-                    "language": self.language,
-                    "trial": key
-                })
+                while num_trials < 3:
+                    try:
+                        if self.use_api:
+                            # Use OpenAI API
+                            response = self.client.responses.create(
+                                model=self.model_path,
+                                input=prompt,
+                                # temperature=self.temperature, # not supported with o4-mini
+                            )
+                            model_answer = response.output_text
+                        else:
+                            # Use VLLM model
+                            # response = model.generate(query['question'], sampling_params=sampling_params)
+                            conversation = [
+                                {
+                                    "role": "user",
+                                    "content": prompt
+                                }
+                            ]
+                            if 'Qwen3' in self.model_path:
+                                # For Qwen3, use a different prompt format
+                                text = tokenizer.apply_chat_template(
+                                    conversation,
+                                    tokenize=False,
+                                    add_generation_prompt=True,
+                                    enable_thinking=self.thinking,
+                                )
+                                response = model.generate(text, sampling_params=sampling_params)
+                            else:
+                                response = model.chat(conversation, sampling_params=sampling_params)
+                            
+                            # Extract answer from the first element of the response list
+                            model_answer = response[0].outputs[0].text.strip()
+                            # remove <think> ... </think> tags
+                            if self.thinking:
+                                model_answer = re.sub(r'<think>.*?</think>', '', model_answer, flags=re.DOTALL)
+                        # breakpoint()
+                        # First integer is the answer
+                        if "`" in model_answer:
+                            model_answer = model_answer.split("`")[1]
+                        # breakpoint()
+                        
+                        # Store result
+                        all_results.append({
+                            "original_word": word,
+                            "meaning": meaning,
+                            "generated_word": model_answer,
+                            "model": self.model_path,
+                            "language": self.language,
+                            "trial": key
+                        })
+                        # print(f"✅ {word} -> {model_answer} 생성 완료")
+                        break
+                    except Exception as e:
+                        num_trials += 1
+                        print(f"Error: {e}")
+                        breakpoint()
+                        continue
         
         if not self.use_api:
             del model
@@ -172,7 +224,7 @@ class pseudoWordGeneration:
         csv_file:os.path = os.path.join(self.output_dir, f"{self.language}_pseudo_words.csv")
         
         existing_data = []
-        if output_file.exists():
+        if os.path.exists(output_file):
             with open(output_file, 'r', encoding='utf-8') as f:
                 existing_data = json.load(f)
         
@@ -180,6 +232,8 @@ class pseudoWordGeneration:
         
         with open(output_file, 'w', encoding='utf-8') as f:
             json.dump(final_results, f, ensure_ascii=False, indent=2)
+        
+        print(f"✅ JSON 형식으로 저장 완료: {output_file}")
         
         df = pd.DataFrame(final_results)
         df.to_csv(csv_file, index=False, encoding='utf-8-sig')
@@ -216,8 +270,8 @@ class pseudoWordGeneration:
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Run MCQ experiment")
     parser.add_argument("--model", '-m', type=str, required=True, help="Path to the LLM")
-    parser.add_argument("--data", '-d', default= "../1_preprocess/nat/",type=str, required=True, help="Path to the preprocessed data JSON file")
-    parser.add_argument("--prmopt", '-d', default= "../../analysis/experiments/prompts.json",type=str, required=True, help="Path to the preprocessed data JSON file")
+    parser.add_argument("--data", '-d', default= "../1_preprocess/nat/",type=str, help="Path to the preprocessed data JSON file")
+    parser.add_argument("--prompt", '-p', default= "../../analysis/experiments/prompts.json",type=str, help="Path to the prompt JSON file")
     parser.add_argument("--gpu", type=int, required=True, help="Tensor parallel size")
     parser.add_argument("--output", '-o', type=str, default="../0_raw/art", help="Directory to save results")
     parser.add_argument("--max-tokens", type=int, default=32, help="Maximum tokens to generate")
@@ -225,8 +279,8 @@ if __name__ == "__main__":
     parser.add_argument("--temperature", type=float, default=0.0, help="Sampling temperature")
     parser.add_argument("--api", action='store_true', help="Use OpenAI API instead of local model")
     parser.add_argument("--thinking", action='store_true', help="Enable thinking mode for Qwen3")
-    parser.add_argument("--word_nums", type=int, default=10, help="Number of words to generate")
-    parser.add_argument("--language", type=str, default="ko", help="Language of the data")
+    parser.add_argument("--word_nums", '-n', type=int, default=10, help="Number of words to generate")
+    parser.add_argument("--language", '-l', type=str, default="ko", help="Language of the data")
     
     args = parser.parse_args()
 
@@ -244,4 +298,4 @@ if __name__ == "__main__":
         word_nums=args.word_nums,
         language=args.language,
     )
-    results, results_filename = word_gen.run_word_gen()
+    results_filename = word_gen.run_word_gen()
