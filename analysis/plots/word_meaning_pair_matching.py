@@ -5,8 +5,13 @@ import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.ticker import PercentFormatter
 
+# EXP_NAME = 'word_meaning_pair_matching'
+# TITLE = 'Word-Meaning Pair Matching'
+EXP_NAME = 'non_en_word_meaning_pair_matching_no_dialogue'
+TITLE = 'Non-English Word-Meaning Pair Matching (IPA)'
+
 # 1) Collect result file paths
-exp_dir = 'analysis/experiments/understanding/word_meaning_pair_matching'
+exp_dir = f'analysis/experiments/understanding/{EXP_NAME}'
 files = glob.glob(os.path.join(exp_dir, 'all_results_*.json'))
 
 # 2) Data structure: models, categories, and accuracies
@@ -68,7 +73,7 @@ m2w_cats = [c for c in cats if 'Meaning→Word' in c]
 # 4) Plotting: create two subplots for Word→Meaning and Meaning→Word
 fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(14, 6), sharey=True)
 
-fig.suptitle('Word-Meaning Pair Matching', fontsize=16, y=0.98)
+fig.suptitle(f'{TITLE}', fontsize=16, y=0.98)
 
 # Define color palettes for model families
 gemma_colors = plt.get_cmap('Blues')([0.4, 0.6, 0.8]) # Lighter to darker blues
@@ -160,6 +165,6 @@ for ax in (ax1, ax2):
 
 ax2.legend(loc='upper left', bbox_to_anchor=(1,1))
 plt.tight_layout(rect=[0, 0, 1, 0.95])  # leave space at top for the suptitle
-out_png = 'analysis/plots/word_meaning_pair_matching.png'
+out_png = f'analysis/plots/{EXP_NAME}.png'
 plt.savefig(out_png, dpi=300)
 plt.show()
