@@ -29,12 +29,19 @@ os.environ["HUGGINGFACE_HUB_CACHE"] = "/scratch2/sheepswool/workspace/models"
 load_dotenv('.env.local')
 # 모델 경로 매핑 추가
 MODEL_PATHS = {
-    "google/gemma-3-27b-it": "google/gemma-7b",  
-    "google/gemma-3-4b-it": "google/gemma-2b",
-    "Qwen/Qwen3-4B": "Qwen/Qwen3-4b-chat",
-    "Qwen/Qwen3-8B": "Qwen/Qwen3-8b-chat",
-    "Qwen/Qwen3-14B": "Qwen/Qwen3-14b-chat",
-    "Qwen/Qwen3-32B": "Qwen/Qwen3-32b-chat",
+    "google/gemma-3-27b-it": "google/gemma-3-27b-it",
+    "google/gemma-3-12b-it": "google/gemma-3-12b-it",
+    "google/gemma-3-4b-it": "google/gemma-3-4b-it",
+    "Qwen/Qwen2.5-3b": "Qwen/Qwen2.5-3b",
+    "Qwen/Qwen2.5-7b": "Qwen/Qwen2.5-7b",
+    "Qwen/Qwen2.5-14b": "Qwen/Qwen2.5-14b",
+    "Qwen/Qwen2.5-32b": "Qwen/Qwen2.5-32b",
+    "Qwen/Qwen2.5-72b": "Qwen/Qwen2.5-72b",
+    "Qwen/Qwen3-4B": "Qwen/Qwen3-4b",
+    "Qwen/Qwen3-8B": "Qwen/Qwen3-8b",
+    "Qwen/Qwen3-14B": "Qwen/Qwen3-14b",
+    "Qwen/Qwen3-32B": "Qwen/Qwen3-32b",
+    "Qwen/Qwen3-72B": "Qwen/Qwen3-72b",
 }
 HUGGINGFACE_TOKEN = os.environ.get('HUGGINGFACE_TOKEN')
 OPENAI_API_KEY = os.environ.get('OPENAI_API_KEY')
