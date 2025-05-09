@@ -33,7 +33,8 @@ parser.add_argument(
     type=str,
     default="word_meaning_pair_matching",
     help="Experiment name to run",
-    choices=["word_meaning_pair_matching", 
+    choices=["word_meaning_pair_matching",
+             "word_meaning_pair_matching_no_dialogue",
              "ipa_word_meaning_pair_matching",
              "ipa_word_meaning_pair_matching_no_dialogue",
              "non_en_word_meaning_pair_matching",
@@ -49,6 +50,11 @@ if args.experiment == "word_meaning_pair_matching":
     data_paths = [
         'dataset/3_questions/nat/understanding-unmasked_word_to_meaning_mcq-{language}.json',
         'dataset/3_questions/nat/understanding-masked_meaning_to_word_mcq-{language}.json'
+    ]
+elif args.experiment == "word_meaning_pair_matching_no_dialogue":
+    data_paths = [
+        'dataset/3_questions/nat/understanding_pair_matching_no_dialogue/unmasked_word_to_meaning_mcq_no_dialogue-{language}.json',
+        'dataset/3_questions/nat/understanding_pair_matching_no_dialogue/masked_meaning_to_word_mcq_no_dialogue-{language}.json'
     ]
 elif args.experiment == "ipa_word_meaning_pair_matching":
     data_paths = [
