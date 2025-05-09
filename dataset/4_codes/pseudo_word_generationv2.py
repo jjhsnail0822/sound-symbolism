@@ -1,6 +1,6 @@
-# python pseudo_word_generationv2.py -m gpt-4o --gpu 1
+# python pseudo_word_generationv2.py -m gpt-4o --gpu 1 --api
 # python pseudo_word_generationv2.py -m google/gemma-3-27b-it --gpu 2
-# python pseudo_word_generationv2.py -m Qwen/Qwen3-4B --gpu 1
+# python pseudo_word_generationv2.py -m Qwen/Qwen3-32B --gpu 1
 
 import json
 import argparse
@@ -32,11 +32,6 @@ MODEL_PATHS = {
     "google/gemma-3-27b-it": "google/gemma-3-27b-it",
     "google/gemma-3-12b-it": "google/gemma-3-12b-it",
     "google/gemma-3-4b-it": "google/gemma-3-4b-it",
-    "Qwen/Qwen2.5-3b": "Qwen/Qwen2.5-3b",
-    "Qwen/Qwen2.5-7b": "Qwen/Qwen2.5-7b",
-    "Qwen/Qwen2.5-14b": "Qwen/Qwen2.5-14b",
-    "Qwen/Qwen2.5-32b": "Qwen/Qwen2.5-32b",
-    "Qwen/Qwen2.5-72b": "Qwen/Qwen2.5-72b",
     "Qwen/Qwen3-4B": "Qwen/Qwen3-4b",
     "Qwen/Qwen3-8B": "Qwen/Qwen3-8b",
     "Qwen/Qwen3-14B": "Qwen/Qwen3-14b",
@@ -139,7 +134,11 @@ class pseudoWordGeneration:
         all_results = []
         
         prompt_keys = prompts.keys()
-        
+        if 'Qwen3' in self.model_path and self.thinking == True:
+            self.model_name = self.model_path + "-thinking"
+        else:
+            self.model_name = self.model_path
+            
         # Process in batches
         for key in prompt_keys:
             print(f"Generating with {key} as prompt")
@@ -201,7 +200,7 @@ class pseudoWordGeneration:
                             "original_word": word,
                             "meaning": meaning,
                             "generated_word": model_answer,
-                            "model": self.model_path,
+                            "model": self.model_name,
                             "language": self.language,
                             "trial": key
                         })
