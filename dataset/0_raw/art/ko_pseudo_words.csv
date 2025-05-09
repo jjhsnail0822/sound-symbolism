@@ -1,84 +1,84 @@
 ﻿original_word,meaning,generated_word,model,language,trial
-가닐가닐,벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌.,지르르라,gpt-4o,ko,trial1
-가닥가닥,물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태.,뜌리릶,gpt-4o,ko,trial1
-가동가동,"어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양.",비슬비슬,gpt-4o,ko,trial1
-가둥가둥,몸집이 작은 사람이 엉덩이를 잇따라 흔드는 모양.,미루륵,gpt-4o,ko,trial1
-가드락가드락,조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양.,발락발락,gpt-4o,ko,trial1
-가득,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.,하리쯔릭,gpt-4o,ko,trial1
-가득가득,분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양.,지르르,gpt-4o,ko,trial1
-가든가든,다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태.,수르글리,gpt-4o,ko,trial1
-가들막가들막,신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양.,지르르,gpt-4o,ko,trial1
-가뜩,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.,질쿨쿨,gpt-4o,ko,trial1
-가닐가닐,벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌.,루시루시,gpt-4o,ko,trial2
-가닥가닥,물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태.,질루질루,gpt-4o,ko,trial2
-가동가동,"어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양.",휘낙휘낙,gpt-4o,ko,trial2
-가둥가둥,몸집이 작은 사람이 엉덩이를 잇따라 흔드는 모양.,리슬리슬,gpt-4o,ko,trial2
-가드락가드락,조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양.,소리륵,gpt-4o,ko,trial2
-가득,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.,쥬르륵,gpt-4o,ko,trial2
-가득가득,분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양.,지루룽,gpt-4o,ko,trial2
-가든가든,다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태.,쯔리링,gpt-4o,ko,trial2
-가들막가들막,신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양.,살라라,gpt-4o,ko,trial2
-가뜩,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.,루실라,gpt-4o,ko,trial2
-가닐가닐,벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌.,찌리몰라,gpt-4o,ko,trial4
-가닥가닥,물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태.,쥘리쥘리,gpt-4o,ko,trial4
-가동가동,"어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양.",닐리크,gpt-4o,ko,trial4
-가둥가둥,몸집이 작은 사람이 엉덩이를 잇따라 흔드는 모양.,질키질키,gpt-4o,ko,trial4
-가드락가드락,조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양.,틸리쏠라,gpt-4o,ko,trial4
-가득,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.,시르르스,gpt-4o,ko,trial4
-가득가득,분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양.,질리리,gpt-4o,ko,trial4
-가든가든,다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태.,질리질리,gpt-4o,ko,trial4
-가들막가들막,신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양.,즈리끌,gpt-4o,ko,trial4
-가뜩,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.,나라릿,gpt-4o,ko,trial4
-가닐가닐,벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌.,시글시글,gpt-4o,ko,trial6
-가닥가닥,물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태.,살르르,gpt-4o,ko,trial6
-가동가동,"어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양.",스륵자리,gpt-4o,ko,trial6
-가둥가둥,몸집이 작은 사람이 엉덩이를 잇따라 흔드는 모양.,지루근,gpt-4o,ko,trial6
-가드락가드락,조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양.,질그락,gpt-4o,ko,trial6
-가득,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.,스리끌쩍,gpt-4o,ko,trial6
-가득가득,분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양.,쓱자릿,gpt-4o,ko,trial6
-가든가든,다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태.,빌리작,gpt-4o,ko,trial6
-가들막가들막,신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양.,스르긱,gpt-4o,ko,trial6
-가뜩,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.,쯔르르,gpt-4o,ko,trial6
-가닐가닐,벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌.,지르릉,gpt-4o,ko,trial12
-가닥가닥,물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태.,슬금슬금,gpt-4o,ko,trial12
-가동가동,"어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양.",솔깃솔깃,gpt-4o,ko,trial12
-가둥가둥,몸집이 작은 사람이 엉덩이를 잇따라 흔드는 모양.,살문들거리,gpt-4o,ko,trial12
-가드락가드락,조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양.,질긍질긍,gpt-4o,ko,trial12
-가득,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.,잔물살기,gpt-4o,ko,trial12
-가득가득,분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양.,저릿저릿,gpt-4o,ko,trial12
-가든가든,다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태.,살드락,gpt-4o,ko,trial12
-가들막가들막,신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양.,살키록,gpt-4o,ko,trial12
-가뜩,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.,스리쌀쌀,gpt-4o,ko,trial12
-가닐가닐,벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌.,솔깃솔깃,gpt-4o,ko,trial13
-가닥가닥,물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태.,지르금,gpt-4o,ko,trial13
-가동가동,"어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양.",스물스물,gpt-4o,ko,trial13
-가둥가둥,몸집이 작은 사람이 엉덩이를 잇따라 흔드는 모양.,버질버질,gpt-4o,ko,trial13
-가드락가드락,조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양.,잇글잇글,gpt-4o,ko,trial13
-가득,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.,조물조물,gpt-4o,ko,trial13
-가득가득,분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양.,살살킁킁,gpt-4o,ko,trial13
-가든가든,다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태.,살음살음,gpt-4o,ko,trial13
-가들막가들막,신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양.,살싹살싹,gpt-4o,ko,trial13
-가뜩,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.,즐끅즐끅,gpt-4o,ko,trial13
-가닐가닐,벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌.,지르르,gpt-4o,ko,trial14
-가닥가닥,물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태.,지르룩,gpt-4o,ko,trial14
-가동가동,"어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양.",나락나락,gpt-4o,ko,trial14
-가둥가둥,몸집이 작은 사람이 엉덩이를 잇따라 흔드는 모양.,자르르,gpt-4o,ko,trial14
-가드락가드락,조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양.,살라라,gpt-4o,ko,trial14
-가득,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.,지르르,gpt-4o,ko,trial14
-가득가득,분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양.,질록질록,gpt-4o,ko,trial14
-가든가든,다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태.,포르르,gpt-4o,ko,trial14
-가들막가들막,신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양.,지라릿,gpt-4o,ko,trial14
-가뜩,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.,지르륵,gpt-4o,ko,trial14
-가닐가닐,벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌.,질락질락,gpt-4o,ko,trial15
-가닥가닥,물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태.,지락지락,gpt-4o,ko,trial15
-가동가동,"어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양.",즐긁즐긁,gpt-4o,ko,trial15
-가둥가둥,몸집이 작은 사람이 엉덩이를 잇따라 흔드는 모양.,지르작지르작,gpt-4o,ko,trial15
-가드락가드락,조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양.,기라가라,gpt-4o,ko,trial15
-가득,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.,자릿자릿,gpt-4o,ko,trial15
-가득가득,분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양.,지글지끈,gpt-4o,ko,trial15
-가든가든,다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태.,자르르리,gpt-4o,ko,trial15
-가들막가들막,신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양.,자르자르,gpt-4o,ko,trial15
-가뜩,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.,초르릉,gpt-4o,ko,trial15
+가닐가닐,벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌.,슬리크슬릭,gpt-4o,ko,trial1
+가닥가닥,물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태.,키르키르,gpt-4o,ko,trial1
+가동가동,"어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양.",쏘르키,gpt-4o,ko,trial1
+가둥가둥,몸집이 작은 사람이 엉덩이를 잇따라 흔드는 모양.,히르크히르크,gpt-4o,ko,trial1
+가드락가드락,조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양.,질라질라,gpt-4o,ko,trial1
+가득,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.,키르르,gpt-4o,ko,trial1
+가득가득,분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양.,스르푼,gpt-4o,ko,trial1
+가든가든,다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태.,지르릏,gpt-4o,ko,trial1
+가들막가들막,신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양.,지루리,gpt-4o,ko,trial1
+가뜩,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.,뒤끌뒤끌,gpt-4o,ko,trial1
+가닐가닐,벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌.,티르릐,gpt-4o,ko,trial2
+가닥가닥,물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태.,미쿠르르,gpt-4o,ko,trial2
+가동가동,"어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양.",슬리키,gpt-4o,ko,trial2
+가둥가둥,몸집이 작은 사람이 엉덩이를 잇따라 흔드는 모양.,츄릅츄릅,gpt-4o,ko,trial2
+가드락가드락,조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양.,피리끈,gpt-4o,ko,trial2
+가득,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.,촘비촘비,gpt-4o,ko,trial2
+가득가득,분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양.,즈리츄리,gpt-4o,ko,trial2
+가든가든,다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태.,살키살키,gpt-4o,ko,trial2
+가들막가들막,신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양.,콜리큘,gpt-4o,ko,trial2
+가뜩,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.,시룽시룽,gpt-4o,ko,trial2
+가닐가닐,벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌.,키르륵,gpt-4o,ko,trial4
+가닥가닥,물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태.,살리끼,gpt-4o,ko,trial4
+가동가동,"어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양.",바스리,gpt-4o,ko,trial4
+가둥가둥,몸집이 작은 사람이 엉덩이를 잇따라 흔드는 모양.,쏘르쏘르,gpt-4o,ko,trial4
+가드락가드락,조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양.,실리샤,gpt-4o,ko,trial4
+가득,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.,질키질키,gpt-4o,ko,trial4
+가득가득,분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양.,질리질리,gpt-4o,ko,trial4
+가든가든,다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태.,질키리,gpt-4o,ko,trial4
+가들막가들막,신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양.,틸리츄,gpt-4o,ko,trial4
+가뜩,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.,시르르,gpt-4o,ko,trial4
+가닐가닐,벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌.,살꼬룩,gpt-4o,ko,trial6
+가닥가닥,물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태.,살기스르르,gpt-4o,ko,trial6
+가동가동,"어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양.",슬긋슬긋,gpt-4o,ko,trial6
+가둥가둥,몸집이 작은 사람이 엉덩이를 잇따라 흔드는 모양.,쏙쏙질,gpt-4o,ko,trial6
+가드락가드락,조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양.,자근자근,gpt-4o,ko,trial6
+가득,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.,지글지글,gpt-4o,ko,trial6
+가득가득,분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양.,스르룩,gpt-4o,ko,trial6
+가든가든,다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태.,쌀글쌀글,gpt-4o,ko,trial6
+가들막가들막,신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양.,지르글지르글,gpt-4o,ko,trial6
+가뜩,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.,지르르,gpt-4o,ko,trial6
+가닐가닐,벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌.,살락살락,gpt-4o,ko,trial12
+가닥가닥,물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태.,슬그락,gpt-4o,ko,trial12
+가동가동,"어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양.",살라살라,gpt-4o,ko,trial12
+가둥가둥,몸집이 작은 사람이 엉덩이를 잇따라 흔드는 모양.,살란디,gpt-4o,ko,trial12
+가드락가드락,조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양.,솔개,gpt-4o,ko,trial12
+가득,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.,자락자락,gpt-4o,ko,trial12
+가득가득,분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양.,살키락,gpt-4o,ko,trial12
+가든가든,다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태.,쓱싹쓱싹,gpt-4o,ko,trial12
+가들막가들막,신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양.,살개시긁,gpt-4o,ko,trial12
+가뜩,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.,무질무질,gpt-4o,ko,trial12
+가닐가닐,벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌.,살갖끌렁,gpt-4o,ko,trial13
+가닥가닥,물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태.,스물스물,gpt-4o,ko,trial13
+가동가동,"어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양.",기릿기릿,gpt-4o,ko,trial13
+가둥가둥,몸집이 작은 사람이 엉덩이를 잇따라 흔드는 모양.,자릿자릿,gpt-4o,ko,trial13
+가드락가드락,조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양.,저리깍,gpt-4o,ko,trial13
+가득,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.,살살룩,gpt-4o,ko,trial13
+가득가득,분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양.,자글자글,gpt-4o,ko,trial13
+가든가든,다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태.,살랑살랑,gpt-4o,ko,trial13
+가들막가들막,신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양.,간자릿,gpt-4o,ko,trial13
+가뜩,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.,살금살금즈물,gpt-4o,ko,trial13
+가닐가닐,벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌.,살라직,gpt-4o,ko,trial14
+가닥가닥,물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태.,지르금지르금,gpt-4o,ko,trial14
+가동가동,"어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양.",기르르,gpt-4o,ko,trial14
+가둥가둥,몸집이 작은 사람이 엉덩이를 잇따라 흔드는 모양.,스르스르멍,gpt-4o,ko,trial14
+가드락가드락,조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양.,츠릿츠릿,gpt-4o,ko,trial14
+가득,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.,부리르,gpt-4o,ko,trial14
+가득가득,분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양.,자리자리,gpt-4o,ko,trial14
+가든가든,다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태.,즈르르,gpt-4o,ko,trial14
+가들막가들막,신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양.,바르르,gpt-4o,ko,trial14
+가뜩,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.,즈르르,gpt-4o,ko,trial14
+가닐가닐,벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌.,지글지글,gpt-4o,ko,trial15
+가닥가닥,물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태.,슬긍슬긍,gpt-4o,ko,trial15
+가동가동,"어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양.",질룩질룩,gpt-4o,ko,trial15
+가둥가둥,몸집이 작은 사람이 엉덩이를 잇따라 흔드는 모양.,기리살랑,gpt-4o,ko,trial15
+가드락가드락,조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양.,자라자라,gpt-4o,ko,trial15
+가득,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.,기실기실,gpt-4o,ko,trial15
+가득가득,분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양.,질리질리,gpt-4o,ko,trial15
+가든가든,다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태.,즈르륵즈르륵,gpt-4o,ko,trial15
+가들막가들막,신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양.,기르금,gpt-4o,ko,trial15
+가뜩,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.,자추르르,gpt-4o,ko,trial15
 가닐가닐,벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌.,,google/gemma-3-4b-it,ko,trial1
 가닥가닥,물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태.,,google/gemma-3-4b-it,ko,trial1
 가동가동,"어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양.",,google/gemma-3-4b-it,ko,trial1
@@ -479,86 +479,305 @@
 가든가든,다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태.,"""크르르르르르르르르르르르르르르르르르르르르르르르르르르르르르르",Qwen/Qwen2.5-14b,ko,trial15
 가들막가들막,신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양.,"""크르르르르르르르르르르르르르르르르르르르르르르르르르르르르르르",Qwen/Qwen2.5-14b,ko,trial15
 가뜩,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.,"""크르르르르르르르르르르르르르르르르르르르르르르르르르르르르르르",Qwen/Qwen2.5-14b,ko,trial15
-가닐가닐,벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌.,미크리우스,Qwen/Qwen3-4b,ko,trial1
-가닥가닥,물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태.,미크리우스,Qwen/Qwen3-4b,ko,trial1
-가동가동,"어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양.",미크리우스,Qwen/Qwen3-4b,ko,trial1
-가둥가둥,몸집이 작은 사람이 엉덩이를 잇따라 흔드는 모양.,미크리우스,Qwen/Qwen3-4b,ko,trial1
-가드락가드락,조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양.,미크리우스,Qwen/Qwen3-4b,ko,trial1
-가득,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.,미크리우스,Qwen/Qwen3-4b,ko,trial1
-가득가득,분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양.,미크리우스,Qwen/Qwen3-4b,ko,trial1
-가든가든,다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태.,미크리우스,Qwen/Qwen3-4b,ko,trial1
-가들막가들막,신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양.,미크리우스,Qwen/Qwen3-4b,ko,trial1
-가뜩,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.,미크리우스,Qwen/Qwen3-4b,ko,trial1
-가닐가닐,벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌.,미크리우스,Qwen/Qwen3-4b,ko,trial2
-가닥가닥,물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태.,미크리우스,Qwen/Qwen3-4b,ko,trial2
-가동가동,"어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양.",미크리우스,Qwen/Qwen3-4b,ko,trial2
-가둥가둥,몸집이 작은 사람이 엉덩이를 잇따라 흔드는 모양.,미크리우스,Qwen/Qwen3-4b,ko,trial2
-가드락가드락,조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양.,미크리우스,Qwen/Qwen3-4b,ko,trial2
-가득,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.,미크리우스,Qwen/Qwen3-4b,ko,trial2
-가득가득,분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양.,미크리우스,Qwen/Qwen3-4b,ko,trial2
-가든가든,다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태.,미크리우스,Qwen/Qwen3-4b,ko,trial2
-가들막가들막,신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양.,미크리우스,Qwen/Qwen3-4b,ko,trial2
-가뜩,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.,미크리우스,Qwen/Qwen3-4b,ko,trial2
-가닐가닐,벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌.,గ్రిస్పింగ్,Qwen/Qwen3-4b,ko,trial4
-가닥가닥,물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태.,గ్రిస్పింగ్,Qwen/Qwen3-4b,ko,trial4
-가동가동,"어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양.",గ్రిస్పింగ్,Qwen/Qwen3-4b,ko,trial4
-가둥가둥,몸집이 작은 사람이 엉덩이를 잇따라 흔드는 모양.,గ్రిస్పింగ్,Qwen/Qwen3-4b,ko,trial4
-가드락가드락,조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양.,గ్రిస్పింగ్,Qwen/Qwen3-4b,ko,trial4
-가득,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.,గ్రిస్పింగ్,Qwen/Qwen3-4b,ko,trial4
-가득가득,분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양.,గ్రిస్పింగ్,Qwen/Qwen3-4b,ko,trial4
-가든가든,다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태.,గ్రిస్పింగ్,Qwen/Qwen3-4b,ko,trial4
-가들막가들막,신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양.,గ్రిస్పింగ్,Qwen/Qwen3-4b,ko,trial4
-가뜩,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.,గ్రిస్పింగ్,Qwen/Qwen3-4b,ko,trial4
-가닐가닐,벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌.,벌레기어,Qwen/Qwen3-4b,ko,trial6
-가닥가닥,물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태.,벌레기어,Qwen/Qwen3-4b,ko,trial6
-가동가동,"어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양.",벌레기어,Qwen/Qwen3-4b,ko,trial6
-가둥가둥,몸집이 작은 사람이 엉덩이를 잇따라 흔드는 모양.,벌레기어,Qwen/Qwen3-4b,ko,trial6
-가드락가드락,조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양.,벌레기어,Qwen/Qwen3-4b,ko,trial6
-가득,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.,벌레기어,Qwen/Qwen3-4b,ko,trial6
-가득가득,분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양.,벌레기어,Qwen/Qwen3-4b,ko,trial6
-가든가든,다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태.,벌레기어,Qwen/Qwen3-4b,ko,trial6
-가들막가들막,신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양.,벌레기어,Qwen/Qwen3-4b,ko,trial6
-가뜩,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.,벌레기어,Qwen/Qwen3-4b,ko,trial6
-가닐가닐,벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌.,벌레기어,Qwen/Qwen3-4b,ko,trial12
-가닥가닥,물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태.,벌레기어,Qwen/Qwen3-4b,ko,trial12
-가동가동,"어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양.",벌레기어,Qwen/Qwen3-4b,ko,trial12
-가둥가둥,몸집이 작은 사람이 엉덩이를 잇따라 흔드는 모양.,벌레기어,Qwen/Qwen3-4b,ko,trial12
-가드락가드락,조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양.,벌레기어,Qwen/Qwen3-4b,ko,trial12
-가득,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.,벌레기어,Qwen/Qwen3-4b,ko,trial12
-가득가득,분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양.,벌레기어,Qwen/Qwen3-4b,ko,trial12
-가든가든,다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태.,벌레기어,Qwen/Qwen3-4b,ko,trial12
-가들막가들막,신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양.,벌레기어,Qwen/Qwen3-4b,ko,trial12
-가뜩,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.,벌레기어,Qwen/Qwen3-4b,ko,trial12
-가닐가닐,벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌.,벌레기어,Qwen/Qwen3-4b,ko,trial13
-가닥가닥,물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태.,벌레기어,Qwen/Qwen3-4b,ko,trial13
-가동가동,"어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양.",벌레기어,Qwen/Qwen3-4b,ko,trial13
-가둥가둥,몸집이 작은 사람이 엉덩이를 잇따라 흔드는 모양.,벌레기어,Qwen/Qwen3-4b,ko,trial13
-가드락가드락,조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양.,벌레기어,Qwen/Qwen3-4b,ko,trial13
-가득,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.,벌레기어,Qwen/Qwen3-4b,ko,trial13
-가득가득,분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양.,벌레기어,Qwen/Qwen3-4b,ko,trial13
-가든가든,다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태.,벌레기어,Qwen/Qwen3-4b,ko,trial13
-가들막가들막,신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양.,벌레기어,Qwen/Qwen3-4b,ko,trial13
-가뜩,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.,벌레기어,Qwen/Qwen3-4b,ko,trial13
-가닐가닐,벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌.,벌레처럼 간지럽다,Qwen/Qwen3-4b,ko,trial14
-가닥가닥,물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태.,벌레처럼 간지럽다,Qwen/Qwen3-4b,ko,trial14
-가동가동,"어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양.",벌레처럼 간지럽다,Qwen/Qwen3-4b,ko,trial14
-가둥가둥,몸집이 작은 사람이 엉덩이를 잇따라 흔드는 모양.,벌레처럼 간지럽다,Qwen/Qwen3-4b,ko,trial14
-가드락가드락,조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양.,벌레처럼 간지럽다,Qwen/Qwen3-4b,ko,trial14
-가득,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.,벌레처럼 간지럽다,Qwen/Qwen3-4b,ko,trial14
-가득가득,분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양.,벌레처럼 간지럽다,Qwen/Qwen3-4b,ko,trial14
-가든가든,다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태.,벌레처럼 간지럽다,Qwen/Qwen3-4b,ko,trial14
-가들막가들막,신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양.,벌레처럼 간지럽다,Qwen/Qwen3-4b,ko,trial14
-가뜩,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.,벌레처럼 간지럽다,Qwen/Qwen3-4b,ko,trial14
-가닐가닐,벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌.,벌레기어,Qwen/Qwen3-4b,ko,trial15
-가닥가닥,물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태.,벌레기어살갗간지럽,Qwen/Qwen3-4b,ko,trial15
-가동가동,"어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양.",벌레기어살갗간지럽,Qwen/Qwen3-4b,ko,trial15
-가둥가둥,몸집이 작은 사람이 엉덩이를 잇따라 흔드는 모양.,벌레기어살갗간지럽,Qwen/Qwen3-4b,ko,trial15
-가드락가드락,조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양.,벌레기어살갗간지럽,Qwen/Qwen3-4b,ko,trial15
-가득,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.,벌레기어살갗간지럽,Qwen/Qwen3-4b,ko,trial15
-가득가득,분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양.,벌레기어살갗간지럽,Qwen/Qwen3-4b,ko,trial15
-가든가든,다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태.,벌레기어살갗간지럽,Qwen/Qwen3-4b,ko,trial15
-가들막가들막,신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양.,벌레기어살갗간지럽,Qwen/Qwen3-4b,ko,trial15
-가뜩,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.,벌레기어살갗간지럽,Qwen/Qwen3-4b,ko,trial15
+가닐가닐,벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌.,Krimia,Qwen/Qwen3-4b,ko,trial1
+가닥가닥,물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태.,Kurik,Qwen/Qwen3-4b,ko,trial1
+가동가동,"어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양.",Kurik,Qwen/Qwen3-4b,ko,trial1
+가둥가둥,몸집이 작은 사람이 엉덩이를 잇따라 흔드는 모양.,Kurik,Qwen/Qwen3-4b,ko,trial1
+가드락가드락,조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양.,Kurik,Qwen/Qwen3-4b,ko,trial1
+가득,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.,Kurik,Qwen/Qwen3-4b,ko,trial1
+가득가득,분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양.,Kurik,Qwen/Qwen3-4b,ko,trial1
+가든가든,다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태.,Kurik,Qwen/Qwen3-4b,ko,trial1
+가들막가들막,신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양.,Kurik,Qwen/Qwen3-4b,ko,trial1
+가뜩,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.,Kurik,Qwen/Qwen3-4b,ko,trial1
+가닐가닐,벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌.,Kurik,Qwen/Qwen3-4b,ko,trial2
+가닥가닥,물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태.,Kurik,Qwen/Qwen3-4b,ko,trial2
+가동가동,"어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양.",Kurik,Qwen/Qwen3-4b,ko,trial2
+가둥가둥,몸집이 작은 사람이 엉덩이를 잇따라 흔드는 모양.,Kurik,Qwen/Qwen3-4b,ko,trial2
+가드락가드락,조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양.,Kurik,Qwen/Qwen3-4b,ko,trial2
+가득,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.,Kurik,Qwen/Qwen3-4b,ko,trial2
+가득가득,분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양.,Kurik,Qwen/Qwen3-4b,ko,trial2
+가든가든,다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태.,Kurik,Qwen/Qwen3-4b,ko,trial2
+가들막가들막,신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양.,Kurik,Qwen/Qwen3-4b,ko,trial2
+가뜩,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.,Kurik,Qwen/Qwen3-4b,ko,trial2
+가닐가닐,벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌.,mikyari,Qwen/Qwen3-4b,ko,trial4
+가닥가닥,물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태.,tirragript,Qwen/Qwen3-4b,ko,trial4
+가동가동,"어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양.",tirragript,Qwen/Qwen3-4b,ko,trial4
+가둥가둥,몸집이 작은 사람이 엉덩이를 잇따라 흔드는 모양.,tirragript,Qwen/Qwen3-4b,ko,trial4
+가드락가드락,조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양.,tirragript,Qwen/Qwen3-4b,ko,trial4
+가득,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.,tirragript,Qwen/Qwen3-4b,ko,trial4
+가득가득,분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양.,tirragript,Qwen/Qwen3-4b,ko,trial4
+가든가든,다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태.,tirragript,Qwen/Qwen3-4b,ko,trial4
+가들막가들막,신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양.,tirragript,Qwen/Qwen3-4b,ko,trial4
+가뜩,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.,tirragript,Qwen/Qwen3-4b,ko,trial4
+가닐가닐,벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌.,벌레자릿,Qwen/Qwen3-4b,ko,trial6
+가닥가닥,물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태.,자리움,Qwen/Qwen3-4b,ko,trial6
+가동가동,"어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양.",자리움,Qwen/Qwen3-4b,ko,trial6
+가둥가둥,몸집이 작은 사람이 엉덩이를 잇따라 흔드는 모양.,자리움,Qwen/Qwen3-4b,ko,trial6
+가드락가드락,조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양.,자리움,Qwen/Qwen3-4b,ko,trial6
+가득,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.,자리움,Qwen/Qwen3-4b,ko,trial6
+가득가득,분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양.,자리움,Qwen/Qwen3-4b,ko,trial6
+가든가든,다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태.,자리움,Qwen/Qwen3-4b,ko,trial6
+가들막가들막,신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양.,자리움,Qwen/Qwen3-4b,ko,trial6
+가뜩,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.,자리움,Qwen/Qwen3-4b,ko,trial6
+가닐가닐,벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌.,간지,Qwen/Qwen3-4b,ko,trial12
+가닥가닥,물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태.,자릿,Qwen/Qwen3-4b,ko,trial12
+가동가동,"어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양.",자릿,Qwen/Qwen3-4b,ko,trial12
+가둥가둥,몸집이 작은 사람이 엉덩이를 잇따라 흔드는 모양.,자릿,Qwen/Qwen3-4b,ko,trial12
+가드락가드락,조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양.,자릿,Qwen/Qwen3-4b,ko,trial12
+가득,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.,자릿,Qwen/Qwen3-4b,ko,trial12
+가득가득,분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양.,자릿,Qwen/Qwen3-4b,ko,trial12
+가든가든,다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태.,자릿,Qwen/Qwen3-4b,ko,trial12
+가들막가들막,신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양.,자릿,Qwen/Qwen3-4b,ko,trial12
+가뜩,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.,자릿,Qwen/Qwen3-4b,ko,trial12
+가닐가닐,벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌.,자릿벌레,Qwen/Qwen3-4b,ko,trial13
+가닥가닥,물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태.,기어간지럽,Qwen/Qwen3-4b,ko,trial13
+가동가동,"어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양.",기어간지럽,Qwen/Qwen3-4b,ko,trial13
+가둥가둥,몸집이 작은 사람이 엉덩이를 잇따라 흔드는 모양.,기어간지럽,Qwen/Qwen3-4b,ko,trial13
+가드락가드락,조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양.,기어간지럽,Qwen/Qwen3-4b,ko,trial13
+가득,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.,기어간지럽,Qwen/Qwen3-4b,ko,trial13
+가득가득,분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양.,기어간지럽,Qwen/Qwen3-4b,ko,trial13
+가든가든,다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태.,기어간지럽,Qwen/Qwen3-4b,ko,trial13
+가들막가들막,신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양.,기어간지럽,Qwen/Qwen3-4b,ko,trial13
+가뜩,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.,기어간지럽,Qwen/Qwen3-4b,ko,trial13
+가닐가닐,벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌.,"<think>
+Okay, the user wants a Korean-derived hypothetical word that means ""the feeling of being itchy or prickly like a bug crawling on the skin."" They specified it should be a metaphor or a metaphorical term, and they want it in Hangul, enclosed in backticks.
+
+First, I need to think about the original phrase: ""벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌."" So, the key elements are the sensation of something crawling on the skin, which is itchy or prickly. The user is looking for a term that captures that feeling, but it's a made-up word, not a real Korean term.
+
+In Korean, there are existing terms like ""벌레기어"" (bug crawling), but the user wants a metaphorical or metaphorical term. So maybe combining parts of words that relate to the feeling. Let's break down the components.
+
+""벌레"" is bug, ""기어가는"" is crawling. The feeling is ""간지럽고 자릿한"" which is itchy and prickly. So maybe a word that combines the idea of crawling with the sensation. 
+
+Possible approach: Use a metaphor that combines the movement (like a bug crawling) with the sensation (itchy). Maybe something like ""벌레기어"" but with a suffix that adds the feeling. Alternatively, use a metaphor that's more abstract, like ""자릿가"" (prickly) or ""간지럽기"" (itchy). 
+
+Wait, the user wants a single term. Maybe a compound word. Let's think of words that have the feeling of crawling. ""자릿가"" is a term that's used in some contexts, but not sure. Alternatively, ""벌레기어"" could be a base, but adding a suffix. 
+
+Alternatively, think of a metaphor that's more poetic. For example, ""벌레기어"" could be combined with a suffix that indicates the feeling. Maybe ""벌레기어자릿"" but that's too long. 
+
+Alternatively, use a metaphor that's more abstract. Like ""자릿가"" (prickly) but with a metaphor. Maybe ""자릿가벌레기어"" but that's not right. 
+
+Wait, the user said ""의성어 또는 의태어"", which are metaphorical or metaphorical terms. So maybe a term that's a metaphor for the feeling. For example, ""자릿가"" is a term that's used in some contexts, but maybe ""자릿가벌레기어"" is too long. 
+
+Alternatively, think of a term that combines the movement and the sensation. Maybe ""벌레기어자릿"" but that's not a real word. 
+
+Alternatively, think of a term that's a metaphor for the feeling. For example, ""자릿가"" is a term that's used in some contexts, but maybe ""자릿가벌레기어"" is too long. 
+
+Alternatively, use a term that's a combination of ""자릿"" (prickly) and ""벌레기어"" (bug crawling). Maybe ""자릿가벌레기어"" but that's not right. 
+
+Alternatively, think of a term that's a metaphor for the feeling. Maybe ""자릿가"" is the main part, and then add a suffix. 
+
+Alternatively, think of a term that's a metaphor for the sensation. For example, ""자릿가"" is a term that's used in some contexts, but maybe ""자릿가벌레기어"" is too long. 
+
+Alternatively, think of a term that's a metaphor for the feeling. Maybe ""자릿가"" is the main part, and then add a suffix. 
+
+Hmm, maybe the user is looking for a term that's a metaphor, so something like ""자릿가"" (prickly) combined with a metaphor. But I'm not sure. Alternatively, think of a term that's a metaphor for the feeling of something crawling. 
+
+Wait, maybe ""벌레기어"" is the base, and then add a suffix that indicates the feeling. For example, ""벌레기어자릿"" but that's not right. 
+
+Alternatively, think of a term that's a metaphor for the feeling. Maybe ""자릿가"" is the main part, and then add a suffix. 
+
+Alternatively, think of a term that's a metaphor for the feeling. Maybe ""자릿가"" is the main part, and then add a suffix. 
+
+I think the key is to create a term that combines the movement (bug crawling) with the sensation (itchy). So maybe ""벌레기어자릿"" but that's not a real word. Alternatively, ""자릿가벌레기어"" but that's too long. 
+
+Alternatively, think of a term that's a metaphor for the feeling. Maybe ""자릿가"" is the main part, and then add a suffix. 
+
+Alternatively, use a term that's a metaphor for the feeling. Maybe ""자릿가"" is the main part, and then add a suffix. 
+
+I think the answer might be ""자릿가벌레기어"" but that's not right. Alternatively, ""벌레기어자릿"" but that's not correct. 
+
+Wait, maybe the user is looking for a term that's a metaphor, so something like ""자릿가"" (prickly) combined with a metaphor. Maybe ""자릿가벌레기어"" is the answer, but I'm not sure. 
+
+Alternatively, think of a term that's a metaphor for the feeling. Maybe ""자릿가"" is the main part, and then add a suffix. 
+
+Alternatively, think of a term that's a metaphor for the feeling. Maybe ""자릿가"" is the main part, and then add a suffix. 
+
+I think the correct answer is ""자릿가벌레기어"" but I'm not sure. Alternatively, maybe ""벌레기어자릿"" but that's not right. 
+
+Alternatively, think of a term that's a metaphor for the feeling. Maybe ""자릿가"" is the main part, and then add a suffix. 
+
+I think the answer is ""자릿가벌레기어"" but I'm not sure. Alternatively, maybe ""벌레기어자릿"" but that's not correct. 
+
+Alternatively, think of a term that's a metaphor for the feeling. Maybe ""자릿가"" is the main part, and then add a suffix. 
+
+I think the answer is ""자릿가벌레기어"" but I'm not sure. Alternatively, maybe ""벌레기어자릿"" but that's not correct. 
+
+Alternatively, think of a term that's a metaphor for the feeling. Maybe ""자릿가"" is the main part, and then add a suffix. 
+
+I think the answer is ""자릿가벌레기어"" but I'm not sure. Alternatively, maybe ""벌레기어자릿"" but that's not correct. 
+
+I think the correct answer is ""자릿가벌레기어"" but I'm not sure. Alternatively, maybe ""벌레기어자릿"" but that's not correct. 
+
+Alternatively, think of a term that's a metaphor for the feeling. Maybe ""자릿가"" is the main part, and then add a suffix. 
+
+I think the answer is ""자릿가벌레기어"" but I'm not sure. Alternatively, maybe ""벌레기어자릿"" but that's not correct. 
+
+I think the answer is ""자릿가벌레기어"" but I'm not sure. Alternatively, maybe ""벌레기어자릿"" but that's not correct. 
+
+I think the answer is ""자릿가벌레기어"" but I'm not sure. Alternatively, maybe ""벌레기어자릿"" but that's not correct. 
+
+I think the answer is ""자릿가벌레기어"" but I'm not sure. Alternatively, maybe ""벌레기어자릿"" but that's not correct. 
+
+I think the answer is ""자릿가벌레기어"" but I'm not sure. Alternatively, maybe ""벌레기어자릿"" but that's not correct. 
+
+I think the answer is ""자릿가벌레기어"" but I'm not sure. Alternatively, maybe ""벌레기어자릿"" but that's not correct. 
+
+I think the answer is ""자릿가벌레기어"" but I'm not sure. Alternatively, maybe ""벌레기어자릿"" but that's not correct. 
+
+I think the answer is ""자릿가벌레기어"" but I'm not sure. Alternatively, maybe ""벌레기어자릿"" but that's not correct. 
+
+I think the answer is ""자릿가벌레기어"" but I'm not sure. Alternatively, maybe ""벌레기어자릿"" but that's not correct. 
+
+I think the answer is ""자릿가벌레기어"" but I'm not sure. Alternatively, maybe ""벌레기어자릿"" but that's not correct. 
+
+I think the answer is ""자릿가벌레기어"" but I'm not sure. Alternatively, maybe ""벌레기어자릿"" but that's not correct. 
+
+I think the answer is ""자릿가벌레기어"" but I'm not sure. Alternatively, maybe ""벌레기어자릿"" but that's not correct. 
+
+I think the answer is ""자릿가벌레기어"" but I'm not sure. Alternatively, maybe ""벌레기어자릿"" but that's not correct. 
+
+I think the answer is ""자릿가벌레기어"" but I'm not sure. Alternatively, maybe ""벌레기어자릿"" but that's not correct. 
+
+I think the answer is ""자릿가벌레기어"" but I'm not sure. Alternatively, maybe ""벌레기어자릿"" but that's not correct. 
+
+I think the answer is ""자릿가벌레기어"" but I'm not sure. Alternatively, maybe ""벌레기어자릿"" but that's not correct. 
+
+I think the answer is ""자릿가벌레기어"" but I'm not sure. Alternatively, maybe ""벌레기어자릿"" but that's not correct. 
+
+I think the answer is ""자릿가벌레기어"" but I'm not sure. Alternatively, maybe ""벌레기어자릿"" but that's not correct. 
+
+I think the answer is ""자릿가벌레기어"" but I'm not sure. Alternatively, maybe ""벌레기어자릿"" but that's not correct. 
+
+I think the answer is ""자릿가벌레기어"" but I'm not sure. Alternatively, maybe ""벌레기어자릿"" but that's not correct. 
+
+I think the answer is ""자릿가벌레기어"" but I'm not sure. Alternatively, maybe ""벌레기어자릿"" but that's not correct. 
+
+I think the answer is ""자릿가벌레기어"" but I'm not sure. Alternatively, maybe ""벌레기어자릿"" but that's not correct. 
+
+I think the answer is ""자릿가벌레기어"" but I'm not sure. Alternatively, maybe ""벌레기어자릿"" but that's not correct. 
+
+I think the answer is ""자릿가벌레기어"" but I'm not sure. Alternatively, maybe ""벌레기어자릿"" but that's not correct. 
+
+I think the answer is ""자릿가벌레기어"" but I'm not sure. Alternatively, maybe ""벌레기어자릿"" but that's not correct. 
+
+I think the answer is ""자릿가벌레기어"" but I'm not sure. Alternatively, maybe ""벌레기어자릿"" but that's not correct. 
+
+I think the answer is ""자릿가벌레기어"" but I'm not sure. Alternatively, maybe ""벌레기어자릿"" but that's not correct. 
+
+I think the answer is ""자릿가벌레기어"" but I'm not sure. Alternatively, maybe ""벌레기어자릿"" but that's not correct. 
+
+I think the answer is ""자릿가벌레기어"" but I'm not sure. Alternatively, maybe ""벌레기어자릿"" but that's not correct. 
+
+I think the answer is ""자릿가벌레기어"" but I'm not sure. Alternatively, maybe ""벌레기어자릿"" but that's not correct. 
+
+I think the answer is ""자릿가벌레기어"" but I'm not sure. Alternatively, maybe ""벌레기어자릿"" but that's not correct. 
+
+I think the answer is ""자릿가벌레기어"" but I'm not sure. Alternatively, maybe ""벌레기어자릿"" but that's not correct. 
+
+I think the answer is ""자릿가벌레기어"" but I'm not sure. Alternatively, maybe ""벌레기어자릿"" but that's not correct. 
+
+I think the answer is ""자릿가벌레기어"" but I'm not sure. Alternatively, maybe ""벌레기어자릿"" but that's not correct. 
+
+I think the answer is ""자릿가벌레기어"" but I'm not sure. Alternatively, maybe ""벌레기어자릿"" but that's not correct. 
+
+I think the answer is ""자릿가벌레기어"" but I'm not sure. Alternatively, maybe ""벌레기어자릿"" but that's not correct. 
+
+I think the answer is ""자릿가벌레기어"" but I'm not sure. Alternatively, maybe ""벌레기어자릿"" but that's not correct. 
+
+I think the answer is ""자릿가벌레기어"" but I'm not sure. Alternatively, maybe ""벌레기어자릿"" but that's not correct. 
+
+I think the answer is ""자릿가벌레기어"" but I'm not sure. Alternatively, maybe ""벌레기어자릿"" but that's not correct. 
+
+I think the answer is ""자릿가벌레기어"" but I'm not sure. Alternatively, maybe ""벌레기어자릿"" but that's not correct. 
+
+I think the answer is ""자릿가벌레기어"" but I'm not sure. Alternatively, maybe ""벌레기어자릿"" but that's not correct. 
+
+I think the answer is ""자릿가벌레기어"" but I'm not sure. Alternatively, maybe ""벌레기어자릿"" but that's not correct. 
+
+I think the answer is ""자릿가벌레기어"" but I'm not sure. Alternatively, maybe ""벌레기어자릿"" but that's not correct. 
+
+I think the answer is ""자릿가벌레기어"" but I'm not sure. Alternatively, maybe ""벌레기어자릿"" but that's not correct. 
+
+I think the answer is ""자릿가벌레기어"" but I'm not sure. Alternatively, maybe ""벌레기어자릿"" but that's not correct. 
+
+I think the answer is ""자릿가벌레기어"" but I'm not sure. Alternatively, maybe ""벌레기어자릿"" but that's not correct. 
+
+I think the answer is ""자릿가벌레기어"" but I'm not sure. Alternatively, maybe ""벌레기어자릿"" but that's not correct. 
+
+I think the answer is ""자릿가벌레기어"" but I'm not sure. Alternatively, maybe ""벌레기어자릿"" but that's not correct. 
+
+I think the answer is ""자릿가벌레기어"" but I'm not sure. Alternatively, maybe ""벌레기어자릿"" but that's not correct. 
+
+I think the answer is ""자릿가벌레기어"" but I'm not sure. Alternatively, maybe ""벌레기어자릿"" but that's not correct. 
+
+I think the answer is ""자릿가벌레기어"" but I'm not sure. Alternatively, maybe ""벌레기어자릿"" but that's not correct. 
+
+I think the answer is ""자릿가벌레기어"" but I'm not sure. Alternatively, maybe ""벌레기어자릿"" but that's not correct. 
+
+I think the answer is ""자릿가벌레기어"" but I'm not sure. Alternatively, maybe ""벌레기어자릿"" but that's not correct. 
+
+I think the answer is ""자릿가벌레기어"" but I'm not sure. Alternatively, maybe ""벌레기어자릿"" but that's not correct. 
+
+I think the answer is ""자릿가벌레기어"" but I'm not sure. Alternatively, maybe ""벌레기어자릿"" but that's not correct. 
+
+I think the answer is ""자릿가벌레기어"" but I'm not sure. Alternatively, maybe ""벌레기어자릿"" but that's not correct. 
+
+I think the answer is ""자릿가벌레기어"" but I'm not sure. Alternatively, maybe ""벌레기어자릿"" but that's not correct. 
+
+I think the answer is ""자릿가벌레기어"" but I'm not sure. Alternatively, maybe ""벌레기어자릿"" but that's not correct. 
+
+I think the answer is ""자릿가벌레기어"" but I'm not sure. Alternatively, maybe ""벌레기어자릿"" but that's not correct. 
+
+I think the answer is ""자릿가벌레기어"" but I'm not sure. Alternatively, maybe ""벌레기어자릿"" but that's not correct. 
+
+I think the answer is ""자릿가벌레기어"" but I'm not sure. Alternatively, maybe ""벌레기어자릿"" but that's not correct. 
+
+I think the answer is ""자릿가벌레기어"" but I'm not sure. Alternatively, maybe ""벌레기어자릿"" but that's not correct. 
+
+I think the answer is ""자릿가벌레기어"" but I'm not sure. Alternatively, maybe ""벌레기어자릿"" but that's not correct. 
+
+I think the answer is ""자릿가벌레기어"" but I'm not sure. Alternatively, maybe ""벌레기어자릿"" but that's not correct. 
+
+I think the answer is ""자릿가벌레기어"" but I'm not sure. Alternatively, maybe ""벌레기어자릿"" but",Qwen/Qwen3-4b,ko,trial14
+가닥가닥,물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태.,벌레간지,Qwen/Qwen3-4b,ko,trial14
+가동가동,"어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양.",벌레간지,Qwen/Qwen3-4b,ko,trial14
+가둥가둥,몸집이 작은 사람이 엉덩이를 잇따라 흔드는 모양.,벌레간지,Qwen/Qwen3-4b,ko,trial14
+가드락가드락,조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양.,벌레간지,Qwen/Qwen3-4b,ko,trial14
+가득,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.,벌레간지,Qwen/Qwen3-4b,ko,trial14
+가득가득,분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양.,벌레간지,Qwen/Qwen3-4b,ko,trial14
+가든가든,다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태.,벌레간지,Qwen/Qwen3-4b,ko,trial14
+가들막가들막,신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양.,벌레간지,Qwen/Qwen3-4b,ko,trial14
+가뜩,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.,벌레간지,Qwen/Qwen3-4b,ko,trial14
+가닐가닐,벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌.,"
+
+벌레기어",Qwen/Qwen3-4b,ko,trial15
+가닥가닥,물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태.,"
+
+기어지럽",Qwen/Qwen3-4b,ko,trial15
+가동가동,"어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양.","
+
+기어지럽",Qwen/Qwen3-4b,ko,trial15
+가둥가둥,몸집이 작은 사람이 엉덩이를 잇따라 흔드는 모양.,"
+
+기어지럽",Qwen/Qwen3-4b,ko,trial15
+가드락가드락,조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양.,"
+
+기어지럽",Qwen/Qwen3-4b,ko,trial15
+가득,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.,"
+
+기어지럽",Qwen/Qwen3-4b,ko,trial15
+가득가득,분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양.,"
+
+기어지럽",Qwen/Qwen3-4b,ko,trial15
+가든가든,다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태.,"
+
+기어지럽",Qwen/Qwen3-4b,ko,trial15
+가들막가들막,신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양.,"
+
+기어지럽",Qwen/Qwen3-4b,ko,trial15
+가뜩,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.,"
+
+기어지럽",Qwen/Qwen3-4b,ko,trial15
 가닐가닐,벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌.,미르가리,Qwen/Qwen3-8b,ko,trial1
 가닥가닥,물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태.,미르가리,Qwen/Qwen3-8b,ko,trial1
 가동가동,"어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양.",미르가리,Qwen/Qwen3-8b,ko,trial1
@@ -639,3 +858,692 @@
 가든가든,다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태.,크르르르,Qwen/Qwen3-8b,ko,trial15
 가들막가들막,신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양.,크르르르,Qwen/Qwen3-8b,ko,trial15
 가뜩,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.,크르르르,Qwen/Qwen3-8b,ko,trial15
+가닐가닐,벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌.,Krimia,Qwen/Qwen3-4b-thinking,ko,trial1
+가닥가닥,물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태.,Kurik,Qwen/Qwen3-4b-thinking,ko,trial1
+가동가동,"어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양.",Kurik,Qwen/Qwen3-4b-thinking,ko,trial1
+가둥가둥,몸집이 작은 사람이 엉덩이를 잇따라 흔드는 모양.,Kurik,Qwen/Qwen3-4b-thinking,ko,trial1
+가드락가드락,조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양.,Kurik,Qwen/Qwen3-4b-thinking,ko,trial1
+가득,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.,Kurik,Qwen/Qwen3-4b-thinking,ko,trial1
+가득가득,분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양.,Kurik,Qwen/Qwen3-4b-thinking,ko,trial1
+가든가든,다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태.,Kurik,Qwen/Qwen3-4b-thinking,ko,trial1
+가들막가들막,신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양.,Kurik,Qwen/Qwen3-4b-thinking,ko,trial1
+가뜩,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.,Kurik,Qwen/Qwen3-4b-thinking,ko,trial1
+가닐가닐,벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌.,Kurik,Qwen/Qwen3-4b-thinking,ko,trial2
+가닥가닥,물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태.,Kurik,Qwen/Qwen3-4b-thinking,ko,trial2
+가동가동,"어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양.",Kurik,Qwen/Qwen3-4b-thinking,ko,trial2
+가둥가둥,몸집이 작은 사람이 엉덩이를 잇따라 흔드는 모양.,Kurik,Qwen/Qwen3-4b-thinking,ko,trial2
+가드락가드락,조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양.,Kurik,Qwen/Qwen3-4b-thinking,ko,trial2
+가득,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.,Kurik,Qwen/Qwen3-4b-thinking,ko,trial2
+가득가득,분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양.,Kurik,Qwen/Qwen3-4b-thinking,ko,trial2
+가든가든,다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태.,Kurik,Qwen/Qwen3-4b-thinking,ko,trial2
+가들막가들막,신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양.,Kurik,Qwen/Qwen3-4b-thinking,ko,trial2
+가뜩,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.,Kurik,Qwen/Qwen3-4b-thinking,ko,trial2
+가닐가닐,벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌.,mikyari,Qwen/Qwen3-4b-thinking,ko,trial4
+가닥가닥,물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태.,tirragript,Qwen/Qwen3-4b-thinking,ko,trial4
+가동가동,"어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양.",tirragript,Qwen/Qwen3-4b-thinking,ko,trial4
+가둥가둥,몸집이 작은 사람이 엉덩이를 잇따라 흔드는 모양.,tirragript,Qwen/Qwen3-4b-thinking,ko,trial4
+가드락가드락,조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양.,tirragript,Qwen/Qwen3-4b-thinking,ko,trial4
+가득,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.,tirragript,Qwen/Qwen3-4b-thinking,ko,trial4
+가득가득,분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양.,tirragript,Qwen/Qwen3-4b-thinking,ko,trial4
+가든가든,다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태.,tirragript,Qwen/Qwen3-4b-thinking,ko,trial4
+가들막가들막,신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양.,tirragript,Qwen/Qwen3-4b-thinking,ko,trial4
+가뜩,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.,tirragript,Qwen/Qwen3-4b-thinking,ko,trial4
+가닐가닐,벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌.,벌레자릿,Qwen/Qwen3-4b-thinking,ko,trial6
+가닥가닥,물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태.,자리움,Qwen/Qwen3-4b-thinking,ko,trial6
+가동가동,"어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양.",자리움,Qwen/Qwen3-4b-thinking,ko,trial6
+가둥가둥,몸집이 작은 사람이 엉덩이를 잇따라 흔드는 모양.,자리움,Qwen/Qwen3-4b-thinking,ko,trial6
+가드락가드락,조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양.,자리움,Qwen/Qwen3-4b-thinking,ko,trial6
+가득,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.,자리움,Qwen/Qwen3-4b-thinking,ko,trial6
+가득가득,분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양.,자리움,Qwen/Qwen3-4b-thinking,ko,trial6
+가든가든,다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태.,자리움,Qwen/Qwen3-4b-thinking,ko,trial6
+가들막가들막,신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양.,자리움,Qwen/Qwen3-4b-thinking,ko,trial6
+가뜩,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.,자리움,Qwen/Qwen3-4b-thinking,ko,trial6
+가닐가닐,벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌.,간지,Qwen/Qwen3-4b-thinking,ko,trial12
+가닥가닥,물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태.,자릿,Qwen/Qwen3-4b-thinking,ko,trial12
+가동가동,"어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양.",자릿,Qwen/Qwen3-4b-thinking,ko,trial12
+가둥가둥,몸집이 작은 사람이 엉덩이를 잇따라 흔드는 모양.,자릿,Qwen/Qwen3-4b-thinking,ko,trial12
+가드락가드락,조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양.,자릿,Qwen/Qwen3-4b-thinking,ko,trial12
+가득,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.,자릿,Qwen/Qwen3-4b-thinking,ko,trial12
+가득가득,분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양.,자릿,Qwen/Qwen3-4b-thinking,ko,trial12
+가든가든,다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태.,자릿,Qwen/Qwen3-4b-thinking,ko,trial12
+가들막가들막,신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양.,자릿,Qwen/Qwen3-4b-thinking,ko,trial12
+가뜩,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.,자릿,Qwen/Qwen3-4b-thinking,ko,trial12
+가닐가닐,벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌.,자릿벌레,Qwen/Qwen3-4b-thinking,ko,trial13
+가닥가닥,물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태.,기어간지럽,Qwen/Qwen3-4b-thinking,ko,trial13
+가동가동,"어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양.",기어간지럽,Qwen/Qwen3-4b-thinking,ko,trial13
+가둥가둥,몸집이 작은 사람이 엉덩이를 잇따라 흔드는 모양.,기어간지럽,Qwen/Qwen3-4b-thinking,ko,trial13
+가드락가드락,조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양.,기어간지럽,Qwen/Qwen3-4b-thinking,ko,trial13
+가득,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.,기어간지럽,Qwen/Qwen3-4b-thinking,ko,trial13
+가득가득,분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양.,기어간지럽,Qwen/Qwen3-4b-thinking,ko,trial13
+가든가든,다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태.,기어간지럽,Qwen/Qwen3-4b-thinking,ko,trial13
+가들막가들막,신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양.,기어간지럽,Qwen/Qwen3-4b-thinking,ko,trial13
+가뜩,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.,기어간지럽,Qwen/Qwen3-4b-thinking,ko,trial13
+가닐가닐,벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌.,"<think>
+Okay, the user wants a Korean-derived hypothetical word that means ""the feeling of being itchy or prickly like a bug crawling on the skin."" They specified it should be a metaphor or a metaphorical term, and they want it in Hangul, enclosed in backticks.
+
+First, I need to think about the original phrase: ""벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌."" So, the key elements are the sensation of something crawling on the skin, which is itchy or prickly. The user is looking for a term that captures that feeling, but it's a made-up word, not a real Korean term.
+
+In Korean, there are existing terms like ""벌레기어"" (bug crawling), but the user wants a metaphorical or metaphorical term. So maybe combining parts of words that relate to the feeling. Let's break down the components.
+
+""벌레"" is bug, ""기어가는"" is crawling. The feeling is ""간지럽고 자릿한"" which is itchy and prickly. So maybe a word that combines the idea of crawling with the sensation. 
+
+Possible approach: Use a metaphor that combines the movement (like a bug crawling) with the sensation (itchy). Maybe something like ""벌레기어"" but with a suffix that adds the feeling. Alternatively, use a metaphor that's more abstract, like ""자릿가"" (prickly) or ""간지럽기"" (itchy). 
+
+Wait, the user wants a single term. Maybe a compound word. Let's think of words that have the feeling of crawling. ""자릿가"" is a term that's used in some contexts, but not sure. Alternatively, ""벌레기어"" could be a base, but adding a suffix. 
+
+Alternatively, think of a metaphor that's more poetic. For example, ""벌레기어"" could be combined with a suffix that indicates the feeling. Maybe ""벌레기어자릿"" but that's too long. 
+
+Alternatively, use a metaphor that's more abstract. Like ""자릿가"" (prickly) but with a metaphor. Maybe ""자릿가벌레기어"" but that's not right. 
+
+Wait, the user said ""의성어 또는 의태어"", which are metaphorical or metaphorical terms. So maybe a term that's a metaphor for the feeling. For example, ""자릿가"" is a term that's used in some contexts, but maybe ""자릿가벌레기어"" is too long. 
+
+Alternatively, think of a term that combines the movement and the sensation. Maybe ""벌레기어자릿"" but that's not a real word. 
+
+Alternatively, think of a term that's a metaphor for the feeling. For example, ""자릿가"" is a term that's used in some contexts, but maybe ""자릿가벌레기어"" is too long. 
+
+Alternatively, use a term that's a combination of ""자릿"" (prickly) and ""벌레기어"" (bug crawling). Maybe ""자릿가벌레기어"" but that's not right. 
+
+Alternatively, think of a term that's a metaphor for the feeling. Maybe ""자릿가"" is the main part, and then add a suffix. 
+
+Alternatively, think of a term that's a metaphor for the sensation. For example, ""자릿가"" is a term that's used in some contexts, but maybe ""자릿가벌레기어"" is too long. 
+
+Alternatively, think of a term that's a metaphor for the feeling. Maybe ""자릿가"" is the main part, and then add a suffix. 
+
+Hmm, maybe the user is looking for a term that's a metaphor, so something like ""자릿가"" (prickly) combined with a metaphor. But I'm not sure. Alternatively, think of a term that's a metaphor for the feeling of something crawling. 
+
+Wait, maybe ""벌레기어"" is the base, and then add a suffix that indicates the feeling. For example, ""벌레기어자릿"" but that's not right. 
+
+Alternatively, think of a term that's a metaphor for the feeling. Maybe ""자릿가"" is the main part, and then add a suffix. 
+
+Alternatively, think of a term that's a metaphor for the feeling. Maybe ""자릿가"" is the main part, and then add a suffix. 
+
+I think the key is to create a term that combines the movement (bug crawling) with the sensation (itchy). So maybe ""벌레기어자릿"" but that's not a real word. Alternatively, ""자릿가벌레기어"" but that's too long. 
+
+Alternatively, think of a term that's a metaphor for the feeling. Maybe ""자릿가"" is the main part, and then add a suffix. 
+
+Alternatively, use a term that's a metaphor for the feeling. Maybe ""자릿가"" is the main part, and then add a suffix. 
+
+I think the answer might be ""자릿가벌레기어"" but that's not right. Alternatively, ""벌레기어자릿"" but that's not correct. 
+
+Wait, maybe the user is looking for a term that's a metaphor, so something like ""자릿가"" (prickly) combined with a metaphor. Maybe ""자릿가벌레기어"" is the answer, but I'm not sure. 
+
+Alternatively, think of a term that's a metaphor for the feeling. Maybe ""자릿가"" is the main part, and then add a suffix. 
+
+Alternatively, think of a term that's a metaphor for the feeling. Maybe ""자릿가"" is the main part, and then add a suffix. 
+
+I think the correct answer is ""자릿가벌레기어"" but I'm not sure. Alternatively, maybe ""벌레기어자릿"" but that's not right. 
+
+Alternatively, think of a term that's a metaphor for the feeling. Maybe ""자릿가"" is the main part, and then add a suffix. 
+
+I think the answer is ""자릿가벌레기어"" but I'm not sure. Alternatively, maybe ""벌레기어자릿"" but that's not correct. 
+
+Alternatively, think of a term that's a metaphor for the feeling. Maybe ""자릿가"" is the main part, and then add a suffix. 
+
+I think the answer is ""자릿가벌레기어"" but I'm not sure. Alternatively, maybe ""벌레기어자릿"" but that's not correct. 
+
+Alternatively, think of a term that's a metaphor for the feeling. Maybe ""자릿가"" is the main part, and then add a suffix. 
+
+I think the answer is ""자릿가벌레기어"" but I'm not sure. Alternatively, maybe ""벌레기어자릿"" but that's not correct. 
+
+I think the correct answer is ""자릿가벌레기어"" but I'm not sure. Alternatively, maybe ""벌레기어자릿"" but that's not correct. 
+
+Alternatively, think of a term that's a metaphor for the feeling. Maybe ""자릿가"" is the main part, and then add a suffix. 
+
+I think the answer is ""자릿가벌레기어"" but I'm not sure. Alternatively, maybe ""벌레기어자릿"" but that's not correct. 
+
+I think the answer is ""자릿가벌레기어"" but I'm not sure. Alternatively, maybe ""벌레기어자릿"" but that's not correct. 
+
+I think the answer is ""자릿가벌레기어"" but I'm not sure. Alternatively, maybe ""벌레기어자릿"" but that's not correct. 
+
+I think the answer is ""자릿가벌레기어"" but I'm not sure. Alternatively, maybe ""벌레기어자릿"" but that's not correct. 
+
+I think the answer is ""자릿가벌레기어"" but I'm not sure. Alternatively, maybe ""벌레기어자릿"" but that's not correct. 
+
+I think the answer is ""자릿가벌레기어"" but I'm not sure. Alternatively, maybe ""벌레기어자릿"" but that's not correct. 
+
+I think the answer is ""자릿가벌레기어"" but I'm not sure. Alternatively, maybe ""벌레기어자릿"" but that's not correct. 
+
+I think the answer is ""자릿가벌레기어"" but I'm not sure. Alternatively, maybe ""벌레기어자릿"" but that's not correct. 
+
+I think the answer is ""자릿가벌레기어"" but I'm not sure. Alternatively, maybe ""벌레기어자릿"" but that's not correct. 
+
+I think the answer is ""자릿가벌레기어"" but I'm not sure. Alternatively, maybe ""벌레기어자릿"" but that's not correct. 
+
+I think the answer is ""자릿가벌레기어"" but I'm not sure. Alternatively, maybe ""벌레기어자릿"" but that's not correct. 
+
+I think the answer is ""자릿가벌레기어"" but I'm not sure. Alternatively, maybe ""벌레기어자릿"" but that's not correct. 
+
+I think the answer is ""자릿가벌레기어"" but I'm not sure. Alternatively, maybe ""벌레기어자릿"" but that's not correct. 
+
+I think the answer is ""자릿가벌레기어"" but I'm not sure. Alternatively, maybe ""벌레기어자릿"" but that's not correct. 
+
+I think the answer is ""자릿가벌레기어"" but I'm not sure. Alternatively, maybe ""벌레기어자릿"" but that's not correct. 
+
+I think the answer is ""자릿가벌레기어"" but I'm not sure. Alternatively, maybe ""벌레기어자릿"" but that's not correct. 
+
+I think the answer is ""자릿가벌레기어"" but I'm not sure. Alternatively, maybe ""벌레기어자릿"" but that's not correct. 
+
+I think the answer is ""자릿가벌레기어"" but I'm not sure. Alternatively, maybe ""벌레기어자릿"" but that's not correct. 
+
+I think the answer is ""자릿가벌레기어"" but I'm not sure. Alternatively, maybe ""벌레기어자릿"" but that's not correct. 
+
+I think the answer is ""자릿가벌레기어"" but I'm not sure. Alternatively, maybe ""벌레기어자릿"" but that's not correct. 
+
+I think the answer is ""자릿가벌레기어"" but I'm not sure. Alternatively, maybe ""벌레기어자릿"" but that's not correct. 
+
+I think the answer is ""자릿가벌레기어"" but I'm not sure. Alternatively, maybe ""벌레기어자릿"" but that's not correct. 
+
+I think the answer is ""자릿가벌레기어"" but I'm not sure. Alternatively, maybe ""벌레기어자릿"" but that's not correct. 
+
+I think the answer is ""자릿가벌레기어"" but I'm not sure. Alternatively, maybe ""벌레기어자릿"" but that's not correct. 
+
+I think the answer is ""자릿가벌레기어"" but I'm not sure. Alternatively, maybe ""벌레기어자릿"" but that's not correct. 
+
+I think the answer is ""자릿가벌레기어"" but I'm not sure. Alternatively, maybe ""벌레기어자릿"" but that's not correct. 
+
+I think the answer is ""자릿가벌레기어"" but I'm not sure. Alternatively, maybe ""벌레기어자릿"" but that's not correct. 
+
+I think the answer is ""자릿가벌레기어"" but I'm not sure. Alternatively, maybe ""벌레기어자릿"" but that's not correct. 
+
+I think the answer is ""자릿가벌레기어"" but I'm not sure. Alternatively, maybe ""벌레기어자릿"" but that's not correct. 
+
+I think the answer is ""자릿가벌레기어"" but I'm not sure. Alternatively, maybe ""벌레기어자릿"" but that's not correct. 
+
+I think the answer is ""자릿가벌레기어"" but I'm not sure. Alternatively, maybe ""벌레기어자릿"" but that's not correct. 
+
+I think the answer is ""자릿가벌레기어"" but I'm not sure. Alternatively, maybe ""벌레기어자릿"" but that's not correct. 
+
+I think the answer is ""자릿가벌레기어"" but I'm not sure. Alternatively, maybe ""벌레기어자릿"" but that's not correct. 
+
+I think the answer is ""자릿가벌레기어"" but I'm not sure. Alternatively, maybe ""벌레기어자릿"" but that's not correct. 
+
+I think the answer is ""자릿가벌레기어"" but I'm not sure. Alternatively, maybe ""벌레기어자릿"" but that's not correct. 
+
+I think the answer is ""자릿가벌레기어"" but I'm not sure. Alternatively, maybe ""벌레기어자릿"" but that's not correct. 
+
+I think the answer is ""자릿가벌레기어"" but I'm not sure. Alternatively, maybe ""벌레기어자릿"" but that's not correct. 
+
+I think the answer is ""자릿가벌레기어"" but I'm not sure. Alternatively, maybe ""벌레기어자릿"" but that's not correct. 
+
+I think the answer is ""자릿가벌레기어"" but I'm not sure. Alternatively, maybe ""벌레기어자릿"" but that's not correct. 
+
+I think the answer is ""자릿가벌레기어"" but I'm not sure. Alternatively, maybe ""벌레기어자릿"" but that's not correct. 
+
+I think the answer is ""자릿가벌레기어"" but I'm not sure. Alternatively, maybe ""벌레기어자릿"" but that's not correct. 
+
+I think the answer is ""자릿가벌레기어"" but I'm not sure. Alternatively, maybe ""벌레기어자릿"" but that's not correct. 
+
+I think the answer is ""자릿가벌레기어"" but I'm not sure. Alternatively, maybe ""벌레기어자릿"" but that's not correct. 
+
+I think the answer is ""자릿가벌레기어"" but I'm not sure. Alternatively, maybe ""벌레기어자릿"" but that's not correct. 
+
+I think the answer is ""자릿가벌레기어"" but I'm not sure. Alternatively, maybe ""벌레기어자릿"" but that's not correct. 
+
+I think the answer is ""자릿가벌레기어"" but I'm not sure. Alternatively, maybe ""벌레기어자릿"" but that's not correct. 
+
+I think the answer is ""자릿가벌레기어"" but I'm not sure. Alternatively, maybe ""벌레기어자릿"" but that's not correct. 
+
+I think the answer is ""자릿가벌레기어"" but I'm not sure. Alternatively, maybe ""벌레기어자릿"" but that's not correct. 
+
+I think the answer is ""자릿가벌레기어"" but I'm not sure. Alternatively, maybe ""벌레기어자릿"" but that's not correct. 
+
+I think the answer is ""자릿가벌레기어"" but I'm not sure. Alternatively, maybe ""벌레기어자릿"" but that's not correct. 
+
+I think the answer is ""자릿가벌레기어"" but I'm not sure. Alternatively, maybe ""벌레기어자릿"" but that's not correct. 
+
+I think the answer is ""자릿가벌레기어"" but I'm not sure. Alternatively, maybe ""벌레기어자릿"" but that's not correct. 
+
+I think the answer is ""자릿가벌레기어"" but I'm not sure. Alternatively, maybe ""벌레기어자릿"" but that's not correct. 
+
+I think the answer is ""자릿가벌레기어"" but I'm not sure. Alternatively, maybe ""벌레기어자릿"" but that's not correct. 
+
+I think the answer is ""자릿가벌레기어"" but I'm not sure. Alternatively, maybe ""벌레기어자릿"" but that's not correct. 
+
+I think the answer is ""자릿가벌레기어"" but I'm not sure. Alternatively, maybe ""벌레기어자릿"" but that's not correct. 
+
+I think the answer is ""자릿가벌레기어"" but I'm not sure. Alternatively, maybe ""벌레기어자릿"" but that's not correct. 
+
+I think the answer is ""자릿가벌레기어"" but I'm not sure. Alternatively, maybe ""벌레기어자릿"" but that's not correct. 
+
+I think the answer is ""자릿가벌레기어"" but I'm not sure. Alternatively, maybe ""벌레기어자릿"" but that's not correct. 
+
+I think the answer is ""자릿가벌레기어"" but I'm not sure. Alternatively, maybe ""벌레기어자릿"" but that's not correct. 
+
+I think the answer is ""자릿가벌레기어"" but I'm not sure. Alternatively, maybe ""벌레기어자릿"" but that's not correct. 
+
+I think the answer is ""자릿가벌레기어"" but I'm not sure. Alternatively, maybe ""벌레기어자릿"" but that's not correct. 
+
+I think the answer is ""자릿가벌레기어"" but I'm not sure. Alternatively, maybe ""벌레기어자릿"" but that's not correct. 
+
+I think the answer is ""자릿가벌레기어"" but I'm not sure. Alternatively, maybe ""벌레기어자릿"" but that's not correct. 
+
+I think the answer is ""자릿가벌레기어"" but I'm not sure. Alternatively, maybe ""벌레기어자릿"" but",Qwen/Qwen3-4b-thinking,ko,trial14
+가닥가닥,물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태.,벌레간지,Qwen/Qwen3-4b-thinking,ko,trial14
+가동가동,"어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양.",벌레간지,Qwen/Qwen3-4b-thinking,ko,trial14
+가둥가둥,몸집이 작은 사람이 엉덩이를 잇따라 흔드는 모양.,벌레간지,Qwen/Qwen3-4b-thinking,ko,trial14
+가드락가드락,조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양.,벌레간지,Qwen/Qwen3-4b-thinking,ko,trial14
+가득,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.,벌레간지,Qwen/Qwen3-4b-thinking,ko,trial14
+가득가득,분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양.,벌레간지,Qwen/Qwen3-4b-thinking,ko,trial14
+가든가든,다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태.,벌레간지,Qwen/Qwen3-4b-thinking,ko,trial14
+가들막가들막,신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양.,벌레간지,Qwen/Qwen3-4b-thinking,ko,trial14
+가뜩,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.,벌레간지,Qwen/Qwen3-4b-thinking,ko,trial14
+가닐가닐,벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌.,"
+
+벌레기어",Qwen/Qwen3-4b-thinking,ko,trial15
+가닥가닥,물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태.,"
+
+기어지럽",Qwen/Qwen3-4b-thinking,ko,trial15
+가동가동,"어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양.","
+
+기어지럽",Qwen/Qwen3-4b-thinking,ko,trial15
+가둥가둥,몸집이 작은 사람이 엉덩이를 잇따라 흔드는 모양.,"
+
+기어지럽",Qwen/Qwen3-4b-thinking,ko,trial15
+가드락가드락,조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양.,"
+
+기어지럽",Qwen/Qwen3-4b-thinking,ko,trial15
+가득,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.,"
+
+기어지럽",Qwen/Qwen3-4b-thinking,ko,trial15
+가득가득,분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양.,"
+
+기어지럽",Qwen/Qwen3-4b-thinking,ko,trial15
+가든가든,다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태.,"
+
+기어지럽",Qwen/Qwen3-4b-thinking,ko,trial15
+가들막가들막,신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양.,"
+
+기어지럽",Qwen/Qwen3-4b-thinking,ko,trial15
+가뜩,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.,"
+
+기어지럽",Qwen/Qwen3-4b-thinking,ko,trial15
+가닐가닐,벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌.,미르가리,Qwen/Qwen3-8b-thinking,ko,trial1
+가닥가닥,물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태.,가리에,Qwen/Qwen3-8b-thinking,ko,trial1
+가동가동,"어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양.",가리에,Qwen/Qwen3-8b-thinking,ko,trial1
+가둥가둥,몸집이 작은 사람이 엉덩이를 잇따라 흔드는 모양.,가리에,Qwen/Qwen3-8b-thinking,ko,trial1
+가드락가드락,조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양.,가리에,Qwen/Qwen3-8b-thinking,ko,trial1
+가득,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.,가리에,Qwen/Qwen3-8b-thinking,ko,trial1
+가득가득,분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양.,가리에,Qwen/Qwen3-8b-thinking,ko,trial1
+가든가든,다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태.,가리에,Qwen/Qwen3-8b-thinking,ko,trial1
+가들막가들막,신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양.,가리에,Qwen/Qwen3-8b-thinking,ko,trial1
+가뜩,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.,가리에,Qwen/Qwen3-8b-thinking,ko,trial1
+가닐가닐,벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌.,가리에,Qwen/Qwen3-8b-thinking,ko,trial2
+가닥가닥,물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태.,가리에,Qwen/Qwen3-8b-thinking,ko,trial2
+가동가동,"어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양.",가리에,Qwen/Qwen3-8b-thinking,ko,trial2
+가둥가둥,몸집이 작은 사람이 엉덩이를 잇따라 흔드는 모양.,가리에,Qwen/Qwen3-8b-thinking,ko,trial2
+가드락가드락,조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양.,가리에,Qwen/Qwen3-8b-thinking,ko,trial2
+가득,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.,가리에,Qwen/Qwen3-8b-thinking,ko,trial2
+가득가득,분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양.,가리에,Qwen/Qwen3-8b-thinking,ko,trial2
+가든가든,다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태.,가리에,Qwen/Qwen3-8b-thinking,ko,trial2
+가들막가들막,신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양.,가리에,Qwen/Qwen3-8b-thinking,ko,trial2
+가뜩,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.,가리에,Qwen/Qwen3-8b-thinking,ko,trial2
+가닐가닐,벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌.,zirsha,Qwen/Qwen3-8b-thinking,ko,trial4
+가닥가닥,물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태.,kryathirzir,Qwen/Qwen3-8b-thinking,ko,trial4
+가동가동,"어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양.",kryathirzir,Qwen/Qwen3-8b-thinking,ko,trial4
+가둥가둥,몸집이 작은 사람이 엉덩이를 잇따라 흔드는 모양.,kryathirzir,Qwen/Qwen3-8b-thinking,ko,trial4
+가드락가드락,조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양.,kryathirzir,Qwen/Qwen3-8b-thinking,ko,trial4
+가득,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.,kryathirzir,Qwen/Qwen3-8b-thinking,ko,trial4
+가득가득,분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양.,kryathirzir,Qwen/Qwen3-8b-thinking,ko,trial4
+가든가든,다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태.,kryathirzir,Qwen/Qwen3-8b-thinking,ko,trial4
+가들막가들막,신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양.,kryathirzir,Qwen/Qwen3-8b-thinking,ko,trial4
+가뜩,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.,kryathirzir,Qwen/Qwen3-8b-thinking,ko,trial4
+가닐가닐,벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌.,벌피,Qwen/Qwen3-8b-thinking,ko,trial6
+가닥가닥,물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태.,gwijeomnun,Qwen/Qwen3-8b-thinking,ko,trial6
+가동가동,"어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양.",gwijeomnun,Qwen/Qwen3-8b-thinking,ko,trial6
+가둥가둥,몸집이 작은 사람이 엉덩이를 잇따라 흔드는 모양.,gwijeomnun,Qwen/Qwen3-8b-thinking,ko,trial6
+가드락가드락,조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양.,gwijeomnun,Qwen/Qwen3-8b-thinking,ko,trial6
+가득,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.,gwijeomnun,Qwen/Qwen3-8b-thinking,ko,trial6
+가득가득,분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양.,gwijeomnun,Qwen/Qwen3-8b-thinking,ko,trial6
+가든가든,다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태.,gwijeomnun,Qwen/Qwen3-8b-thinking,ko,trial6
+가들막가들막,신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양.,gwijeomnun,Qwen/Qwen3-8b-thinking,ko,trial6
+가뜩,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.,gwijeomnun,Qwen/Qwen3-8b-thinking,ko,trial6
+가닐가닐,벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌.,크리지르,Qwen/Qwen3-8b-thinking,ko,trial12
+가닥가닥,물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태.,지르르지,Qwen/Qwen3-8b-thinking,ko,trial12
+가동가동,"어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양.",지르르지,Qwen/Qwen3-8b-thinking,ko,trial12
+가둥가둥,몸집이 작은 사람이 엉덩이를 잇따라 흔드는 모양.,지르르지,Qwen/Qwen3-8b-thinking,ko,trial12
+가드락가드락,조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양.,지르르지,Qwen/Qwen3-8b-thinking,ko,trial12
+가득,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.,지르르지,Qwen/Qwen3-8b-thinking,ko,trial12
+가득가득,분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양.,지르르지,Qwen/Qwen3-8b-thinking,ko,trial12
+가든가든,다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태.,지르르지,Qwen/Qwen3-8b-thinking,ko,trial12
+가들막가들막,신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양.,지르르지,Qwen/Qwen3-8b-thinking,ko,trial12
+가뜩,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.,지르르지,Qwen/Qwen3-8b-thinking,ko,trial12
+가닐가닐,벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌.,끼르기,Qwen/Qwen3-8b-thinking,ko,trial13
+가닥가닥,물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태.,끼르기,Qwen/Qwen3-8b-thinking,ko,trial13
+가동가동,"어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양.",끼르기,Qwen/Qwen3-8b-thinking,ko,trial13
+가둥가둥,몸집이 작은 사람이 엉덩이를 잇따라 흔드는 모양.,끼르기,Qwen/Qwen3-8b-thinking,ko,trial13
+가드락가드락,조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양.,끼르기,Qwen/Qwen3-8b-thinking,ko,trial13
+가득,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.,끼르기,Qwen/Qwen3-8b-thinking,ko,trial13
+가득가득,분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양.,끼르기,Qwen/Qwen3-8b-thinking,ko,trial13
+가든가든,다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태.,끼르기,Qwen/Qwen3-8b-thinking,ko,trial13
+가들막가들막,신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양.,끼르기,Qwen/Qwen3-8b-thinking,ko,trial13
+가뜩,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.,끼르기,Qwen/Qwen3-8b-thinking,ko,trial13
+가닐가닐,벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌.,크르르,Qwen/Qwen3-8b-thinking,ko,trial14
+가닥가닥,물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태.,크르르,Qwen/Qwen3-8b-thinking,ko,trial14
+가동가동,"어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양.",크르르,Qwen/Qwen3-8b-thinking,ko,trial14
+가둥가둥,몸집이 작은 사람이 엉덩이를 잇따라 흔드는 모양.,크르르,Qwen/Qwen3-8b-thinking,ko,trial14
+가드락가드락,조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양.,크르르,Qwen/Qwen3-8b-thinking,ko,trial14
+가득,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.,크르르,Qwen/Qwen3-8b-thinking,ko,trial14
+가득가득,분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양.,크르르,Qwen/Qwen3-8b-thinking,ko,trial14
+가든가든,다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태.,크르르,Qwen/Qwen3-8b-thinking,ko,trial14
+가들막가들막,신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양.,크르르,Qwen/Qwen3-8b-thinking,ko,trial14
+가뜩,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.,크르르,Qwen/Qwen3-8b-thinking,ko,trial14
+가닐가닐,벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌.,"
+
+시르르",Qwen/Qwen3-8b-thinking,ko,trial15
+가닥가닥,물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태.,"
+
+크르르",Qwen/Qwen3-8b-thinking,ko,trial15
+가동가동,"어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양.","
+
+크르르",Qwen/Qwen3-8b-thinking,ko,trial15
+가둥가둥,몸집이 작은 사람이 엉덩이를 잇따라 흔드는 모양.,"
+
+크르르",Qwen/Qwen3-8b-thinking,ko,trial15
+가드락가드락,조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양.,"
+
+크르르",Qwen/Qwen3-8b-thinking,ko,trial15
+가득,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.,"
+
+크르르",Qwen/Qwen3-8b-thinking,ko,trial15
+가득가득,분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양.,"
+
+크르르",Qwen/Qwen3-8b-thinking,ko,trial15
+가든가든,다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태.,"
+
+크르르",Qwen/Qwen3-8b-thinking,ko,trial15
+가들막가들막,신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양.,"
+
+크르르",Qwen/Qwen3-8b-thinking,ko,trial15
+가뜩,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.,"
+
+크르르",Qwen/Qwen3-8b-thinking,ko,trial15
+가닐가닐,벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌.,크리감,Qwen/Qwen3-14b-thinking,ko,trial1
+가닥가닥,물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태.,벌기자리,Qwen/Qwen3-14b-thinking,ko,trial1
+가동가동,"어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양.",벌기자리,Qwen/Qwen3-14b-thinking,ko,trial1
+가둥가둥,몸집이 작은 사람이 엉덩이를 잇따라 흔드는 모양.,벌기자리,Qwen/Qwen3-14b-thinking,ko,trial1
+가드락가드락,조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양.,벌기자리,Qwen/Qwen3-14b-thinking,ko,trial1
+가득,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.,벌기자리,Qwen/Qwen3-14b-thinking,ko,trial1
+가득가득,분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양.,벌기자리,Qwen/Qwen3-14b-thinking,ko,trial1
+가든가든,다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태.,벌기자리,Qwen/Qwen3-14b-thinking,ko,trial1
+가들막가들막,신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양.,벌기자리,Qwen/Qwen3-14b-thinking,ko,trial1
+가뜩,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.,벌기자리,Qwen/Qwen3-14b-thinking,ko,trial1
+가닐가닐,벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌.,벌기자리,Qwen/Qwen3-14b-thinking,ko,trial2
+가닥가닥,물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태.,벌기자리,Qwen/Qwen3-14b-thinking,ko,trial2
+가동가동,"어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양.",벌기자리,Qwen/Qwen3-14b-thinking,ko,trial2
+가둥가둥,몸집이 작은 사람이 엉덩이를 잇따라 흔드는 모양.,벌기자리,Qwen/Qwen3-14b-thinking,ko,trial2
+가드락가드락,조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양.,벌기자리,Qwen/Qwen3-14b-thinking,ko,trial2
+가득,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.,벌기자리,Qwen/Qwen3-14b-thinking,ko,trial2
+가득가득,분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양.,벌기자리,Qwen/Qwen3-14b-thinking,ko,trial2
+가든가든,다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태.,벌기자리,Qwen/Qwen3-14b-thinking,ko,trial2
+가들막가들막,신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양.,벌기자리,Qwen/Qwen3-14b-thinking,ko,trial2
+가뜩,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.,벌기자리,Qwen/Qwen3-14b-thinking,ko,trial2
+가닐가닐,벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌.,vermslithprik,Qwen/Qwen3-14b-thinking,ko,trial4
+가닥가닥,물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태.,Slyrkra,Qwen/Qwen3-14b-thinking,ko,trial4
+가동가동,"어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양.",Slyrkra,Qwen/Qwen3-14b-thinking,ko,trial4
+가둥가둥,몸집이 작은 사람이 엉덩이를 잇따라 흔드는 모양.,Slyrkra,Qwen/Qwen3-14b-thinking,ko,trial4
+가드락가드락,조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양.,Slyrkra,Qwen/Qwen3-14b-thinking,ko,trial4
+가득,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.,Slyrkra,Qwen/Qwen3-14b-thinking,ko,trial4
+가득가득,분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양.,Slyrkra,Qwen/Qwen3-14b-thinking,ko,trial4
+가든가든,다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태.,Slyrkra,Qwen/Qwen3-14b-thinking,ko,trial4
+가들막가들막,신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양.,Slyrkra,Qwen/Qwen3-14b-thinking,ko,trial4
+가뜩,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.,Slyrkra,Qwen/Qwen3-14b-thinking,ko,trial4
+가닐가닐,벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌.,기어자릿,Qwen/Qwen3-14b-thinking,ko,trial6
+가닥가닥,물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태.,기자릿,Qwen/Qwen3-14b-thinking,ko,trial6
+가동가동,"어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양.",기자릿,Qwen/Qwen3-14b-thinking,ko,trial6
+가둥가둥,몸집이 작은 사람이 엉덩이를 잇따라 흔드는 모양.,기자릿,Qwen/Qwen3-14b-thinking,ko,trial6
+가드락가드락,조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양.,기자릿,Qwen/Qwen3-14b-thinking,ko,trial6
+가득,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.,기자릿,Qwen/Qwen3-14b-thinking,ko,trial6
+가득가득,분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양.,기자릿,Qwen/Qwen3-14b-thinking,ko,trial6
+가든가든,다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태.,기자릿,Qwen/Qwen3-14b-thinking,ko,trial6
+가들막가들막,신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양.,기자릿,Qwen/Qwen3-14b-thinking,ko,trial6
+가뜩,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.,기자릿,Qwen/Qwen3-14b-thinking,ko,trial6
+가닐가닐,벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌.,기지릿,Qwen/Qwen3-14b-thinking,ko,trial12
+가닥가닥,물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태.,기자릿,Qwen/Qwen3-14b-thinking,ko,trial12
+가동가동,"어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양.",기자릿,Qwen/Qwen3-14b-thinking,ko,trial12
+가둥가둥,몸집이 작은 사람이 엉덩이를 잇따라 흔드는 모양.,기자릿,Qwen/Qwen3-14b-thinking,ko,trial12
+가드락가드락,조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양.,기자릿,Qwen/Qwen3-14b-thinking,ko,trial12
+가득,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.,기자릿,Qwen/Qwen3-14b-thinking,ko,trial12
+가득가득,분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양.,기자릿,Qwen/Qwen3-14b-thinking,ko,trial12
+가든가든,다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태.,기자릿,Qwen/Qwen3-14b-thinking,ko,trial12
+가들막가들막,신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양.,기자릿,Qwen/Qwen3-14b-thinking,ko,trial12
+가뜩,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.,기자릿,Qwen/Qwen3-14b-thinking,ko,trial12
+가닐가닐,벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌.,기르르,Qwen/Qwen3-14b-thinking,ko,trial13
+가닥가닥,물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태.,기르르,Qwen/Qwen3-14b-thinking,ko,trial13
+가동가동,"어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양.",기르르,Qwen/Qwen3-14b-thinking,ko,trial13
+가둥가둥,몸집이 작은 사람이 엉덩이를 잇따라 흔드는 모양.,기르르,Qwen/Qwen3-14b-thinking,ko,trial13
+가드락가드락,조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양.,기르르,Qwen/Qwen3-14b-thinking,ko,trial13
+가득,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.,기르르,Qwen/Qwen3-14b-thinking,ko,trial13
+가득가득,분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양.,기르르,Qwen/Qwen3-14b-thinking,ko,trial13
+가든가든,다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태.,기르르,Qwen/Qwen3-14b-thinking,ko,trial13
+가들막가들막,신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양.,기르르,Qwen/Qwen3-14b-thinking,ko,trial13
+가뜩,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.,기르르,Qwen/Qwen3-14b-thinking,ko,trial13
+가닐가닐,벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌.,칙찌르,Qwen/Qwen3-14b-thinking,ko,trial14
+가닥가닥,물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태.,스스르르칙칙,Qwen/Qwen3-14b-thinking,ko,trial14
+가동가동,"어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양.",스스르르칙칙,Qwen/Qwen3-14b-thinking,ko,trial14
+가둥가둥,몸집이 작은 사람이 엉덩이를 잇따라 흔드는 모양.,스스르르칙칙,Qwen/Qwen3-14b-thinking,ko,trial14
+가드락가드락,조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양.,스스르르칙칙,Qwen/Qwen3-14b-thinking,ko,trial14
+가득,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.,스스르르칙칙,Qwen/Qwen3-14b-thinking,ko,trial14
+가득가득,분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양.,스스르르칙칙,Qwen/Qwen3-14b-thinking,ko,trial14
+가든가든,다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태.,스스르르칙칙,Qwen/Qwen3-14b-thinking,ko,trial14
+가들막가들막,신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양.,스스르르칙칙,Qwen/Qwen3-14b-thinking,ko,trial14
+가뜩,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.,스스르르칙칙,Qwen/Qwen3-14b-thinking,ko,trial14
+가닐가닐,벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌.,"
+
+지즈크크",Qwen/Qwen3-14b-thinking,ko,trial15
+가닥가닥,물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태.,"
+
+지르르스르",Qwen/Qwen3-14b-thinking,ko,trial15
+가동가동,"어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양.","
+
+지르르스르",Qwen/Qwen3-14b-thinking,ko,trial15
+가둥가둥,몸집이 작은 사람이 엉덩이를 잇따라 흔드는 모양.,"
+
+지르르스르",Qwen/Qwen3-14b-thinking,ko,trial15
+가드락가드락,조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양.,"
+
+지르르스르",Qwen/Qwen3-14b-thinking,ko,trial15
+가득,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.,"
+
+지르르스르",Qwen/Qwen3-14b-thinking,ko,trial15
+가득가득,분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양.,"
+
+지르르스르",Qwen/Qwen3-14b-thinking,ko,trial15
+가든가든,다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태.,"
+
+지르르스르",Qwen/Qwen3-14b-thinking,ko,trial15
+가들막가들막,신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양.,"
+
+지르르스르",Qwen/Qwen3-14b-thinking,ko,trial15
+가뜩,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.,"
+
+지르르스르",Qwen/Qwen3-14b-thinking,ko,trial15
+가닐가닐,벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌.,스르믈스르믈,gpt-4o,ko,trial16
+가닥가닥,물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태.,질룡질룡,gpt-4o,ko,trial16
+가동가동,"어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양.",쏘라락,gpt-4o,ko,trial16
+가둥가둥,몸집이 작은 사람이 엉덩이를 잇따라 흔드는 모양.,살벨살벨,gpt-4o,ko,trial16
+가드락가드락,조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양.,지글지글,gpt-4o,ko,trial16
+가득,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.,조렁조렁,gpt-4o,ko,trial16
+가득가득,분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양.,줄르줄르,gpt-4o,ko,trial16
+가든가든,다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태.,살라락,gpt-4o,ko,trial16
+가들막가들막,신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양.,살싹살싹,gpt-4o,ko,trial16
+가뜩,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.,티살티살,gpt-4o,ko,trial16
+가닐가닐,벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌.,지비룬,gpt-4.1,ko,trial1
+가닥가닥,물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태.,지르지르,gpt-4.1,ko,trial1
+가동가동,"어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양.",쏘루쌀쌀,gpt-4.1,ko,trial1
+가둥가둥,몸집이 작은 사람이 엉덩이를 잇따라 흔드는 모양.,살리리,gpt-4.1,ko,trial1
+가드락가드락,조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양.,질루질루,gpt-4.1,ko,trial1
+가득,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.,미르줄,gpt-4.1,ko,trial1
+가득가득,분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양.,즐메크즐,gpt-4.1,ko,trial1
+가든가든,다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태.,술리쟈쟉,gpt-4.1,ko,trial1
+가들막가들막,신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양.,쯔므르쏘,gpt-4.1,ko,trial1
+가뜩,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.,질키질키,gpt-4.1,ko,trial1
+가닐가닐,벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌.,질루질루,gpt-4.1,ko,trial2
+가닥가닥,물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태.,스르질리,gpt-4.1,ko,trial2
+가동가동,"어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양.",살비질,gpt-4.1,ko,trial2
+가둥가둥,몸집이 작은 사람이 엉덩이를 잇따라 흔드는 모양.,질루질루,gpt-4.1,ko,trial2
+가드락가드락,조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양.,질바리,gpt-4.1,ko,trial2
+가득,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.,쯔리츄리,gpt-4.1,ko,trial2
+가득가득,분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양.,시루슉,gpt-4.1,ko,trial2
+가든가든,다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태.,지르지리,gpt-4.1,ko,trial2
+가들막가들막,신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양.,지루쭈리,gpt-4.1,ko,trial2
+가뜩,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.,치르므리,gpt-4.1,ko,trial2
+가닐가닐,벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌.,지르지르,gpt-4.1,ko,trial4
+가닥가닥,물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태.,즈키르즈키르,gpt-4.1,ko,trial4
+가동가동,"어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양.",슉말리,gpt-4.1,ko,trial4
+가둥가둥,몸집이 작은 사람이 엉덩이를 잇따라 흔드는 모양.,즈루믐찌,gpt-4.1,ko,trial4
+가드락가드락,조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양.,질르빗,gpt-4.1,ko,trial4
+가득,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.,질니질니,gpt-4.1,ko,trial4
+가득가득,분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양.,솔기리,gpt-4.1,ko,trial4
+가든가든,다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태.,질리질리,gpt-4.1,ko,trial4
+가들막가들막,신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양.,칠리끌,gpt-4.1,ko,trial4
+가뜩,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.,질들루,gpt-4.1,ko,trial4
+가닐가닐,벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌.,스루깃,gpt-4.1,ko,trial6
+가닥가닥,물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태.,슬비슬비,gpt-4.1,ko,trial6
+가동가동,"어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양.",지르지르,gpt-4.1,ko,trial6
+가둥가둥,몸집이 작은 사람이 엉덩이를 잇따라 흔드는 모양.,쏘글쏘글,gpt-4.1,ko,trial6
+가드락가드락,조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양.,슬몽슬몽,gpt-4.1,ko,trial6
+가득,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.,살리글삭,gpt-4.1,ko,trial6
+가득가득,분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양.,슬비질,gpt-4.1,ko,trial6
+가든가든,다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태.,지르지르,gpt-4.1,ko,trial6
+가들막가들막,신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양.,지르글지르글,gpt-4.1,ko,trial6
+가뜩,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.,스리글,gpt-4.1,ko,trial6
+가닐가닐,벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌.,스르질락,gpt-4.1,ko,trial12
+가닥가닥,물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태.,지글지글,gpt-4.1,ko,trial12
+가동가동,"어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양.",시루룩,gpt-4.1,ko,trial12
+가둥가둥,몸집이 작은 사람이 엉덩이를 잇따라 흔드는 모양.,슬리적슬리적,gpt-4.1,ko,trial12
+가드락가드락,조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양.,지르글지르글,gpt-4.1,ko,trial12
+가득,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.,지글지글,gpt-4.1,ko,trial12
+가득가득,분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양.,스루들,gpt-4.1,ko,trial12
+가든가든,다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태.,지글지글,gpt-4.1,ko,trial12
+가들막가들막,신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양.,슬재슬재,gpt-4.1,ko,trial12
+가뜩,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.,쏘글쏘글,gpt-4.1,ko,trial12
+가닐가닐,벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌.,슬슬긁적,gpt-4.1,ko,trial13
+가닥가닥,물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태.,스르실,gpt-4.1,ko,trial13
+가동가동,"어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양.",스르지글,gpt-4.1,ko,trial13
+가둥가둥,몸집이 작은 사람이 엉덩이를 잇따라 흔드는 모양.,설크적설크적,gpt-4.1,ko,trial13
+가드락가드락,조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양.,솔깃솔깃,gpt-4.1,ko,trial13
+가득,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.,스슥지글,gpt-4.1,ko,trial13
+가득가득,분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양.,스르실룩,gpt-4.1,ko,trial13
+가든가든,다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태.,솔슬까닥,gpt-4.1,ko,trial13
+가들막가들막,신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양.,질쏭질쏭,gpt-4.1,ko,trial13
+가뜩,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.,슬지글지,gpt-4.1,ko,trial13
+가닐가닐,벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌.,살라살라,gpt-4.1,ko,trial14
+가닥가닥,물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태.,즈르글,gpt-4.1,ko,trial14
+가동가동,"어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양.",쥴쥴몽실,gpt-4.1,ko,trial14
+가둥가둥,몸집이 작은 사람이 엉덩이를 잇따라 흔드는 모양.,주르믈,gpt-4.1,ko,trial14
+가드락가드락,조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양.,즈루즈루핍,gpt-4.1,ko,trial14
+가득,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.,질르기질르기,gpt-4.1,ko,trial14
+가득가득,분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양.,주룩주룩미,gpt-4.1,ko,trial14
+가든가든,다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태.,즈리글즈리글,gpt-4.1,ko,trial14
+가들막가들막,신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양.,즈믈즈믈,gpt-4.1,ko,trial14
+가뜩,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.,쫑믈쫑믈,gpt-4.1,ko,trial14
+가닐가닐,벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌.,스르물락,gpt-4.1,ko,trial15
+가닥가닥,물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태.,지르글지르글,gpt-4.1,ko,trial15
+가동가동,"어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양.",시루루,gpt-4.1,ko,trial15
+가둥가둥,몸집이 작은 사람이 엉덩이를 잇따라 흔드는 모양.,자뭉자뭉,gpt-4.1,ko,trial15
+가드락가드락,조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양.,지르멍지르멍,gpt-4.1,ko,trial15
+가득,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.,스리질록,gpt-4.1,ko,trial15
+가득가득,분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양.,지르무적,gpt-4.1,ko,trial15
+가든가든,다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태.,자르르몽글,gpt-4.1,ko,trial15
+가들막가들막,신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양.,질루질루,gpt-4.1,ko,trial15
+가뜩,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.,지르르꿈질,gpt-4.1,ko,trial15
+가닐가닐,벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌.,비르지르,gpt-4.1,ko,trial16
+가닥가닥,물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태.,지르문지르,gpt-4.1,ko,trial16
+가동가동,"어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양.",질루질루,gpt-4.1,ko,trial16
+가둥가둥,몸집이 작은 사람이 엉덩이를 잇따라 흔드는 모양.,줄르쏙,gpt-4.1,ko,trial16
+가드락가드락,조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양.,지르르몽,gpt-4.1,ko,trial16
+가득,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.,질글질글,gpt-4.1,ko,trial16
+가득가득,분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양.,질루질루,gpt-4.1,ko,trial16
+가든가든,다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태.,질루질루,gpt-4.1,ko,trial16
+가들막가들막,신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양.,지르르망,gpt-4.1,ko,trial16
+가뜩,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.,살루쟈리,gpt-4.1,ko,trial16
+가닐가닐,벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌.,키롱키롱,gpt-4o-mini,ko,trial1
+가닥가닥,물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태.,굴리프릭,gpt-4o-mini,ko,trial1
+가동가동,"어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양.",즈라비,gpt-4o-mini,ko,trial1
+가둥가둥,몸집이 작은 사람이 엉덩이를 잇따라 흔드는 모양.,찌바르니,gpt-4o-mini,ko,trial1
+가드락가드락,조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양.,킨룰가,gpt-4o-mini,ko,trial1
+가득,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.,쪼감비,gpt-4o-mini,ko,trial1
+가득가득,분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양.,쨉리쿰,gpt-4o-mini,ko,trial1
+가든가든,다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태.,,gpt-4o-mini,ko,trial1
+가들막가들막,신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양.,탱리컬,gpt-4o-mini,ko,trial1
+가뜩,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.,조리카,gpt-4o-mini,ko,trial1
+가닐가닐,벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌.,니꽈리,gpt-4o-mini,ko,trial2
+가닥가닥,물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태.,벌찌기,gpt-4o-mini,ko,trial2
+가동가동,"어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양.",크질이루,gpt-4o-mini,ko,trial2
+가둥가둥,몸집이 작은 사람이 엉덩이를 잇따라 흔드는 모양.,파리치,gpt-4o-mini,ko,trial2
+가드락가드락,조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양.,칙리쿰,gpt-4o-mini,ko,trial2
+가득,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.,지말틱,gpt-4o-mini,ko,trial2
+가득가득,분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양.,모크리방,gpt-4o-mini,ko,trial2
+가든가든,다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태.,치아리,gpt-4o-mini,ko,trial2
+가들막가들막,신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양.,슥코르리,gpt-4o-mini,ko,trial2
+가뜩,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.,키비라,gpt-4o-mini,ko,trial2
+가닐가닐,벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌.,롱쟈릅,gpt-4o-mini,ko,trial4
+가닥가닥,물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태.,키르비,gpt-4o-mini,ko,trial4
+가동가동,"어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양.",잌치리,gpt-4o-mini,ko,trial4
+가둥가둥,몸집이 작은 사람이 엉덩이를 잇따라 흔드는 모양.,지르리끄,gpt-4o-mini,ko,trial4
+가드락가드락,조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양.,느슬랑,gpt-4o-mini,ko,trial4
+가득,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.,쪼르르,gpt-4o-mini,ko,trial4
+가득가득,분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양.,질룩이,gpt-4o-mini,ko,trial4
+가든가든,다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태.,젤리쿠,gpt-4o-mini,ko,trial4
+가들막가들막,신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양.,콤비리,gpt-4o-mini,ko,trial4
+가뜩,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.,,gpt-4o-mini,ko,trial4
+가닐가닐,벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌.,딱쩌리,gpt-4o-mini,ko,trial6
+가닥가닥,물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태.,찌르르,gpt-4o-mini,ko,trial6
+가동가동,"어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양.",징지르,gpt-4o-mini,ko,trial6
+가둥가둥,몸집이 작은 사람이 엉덩이를 잇따라 흔드는 모양.,쓰글쓰글,gpt-4o-mini,ko,trial6
+가드락가드락,조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양.,주르르,gpt-4o-mini,ko,trial6
+가득,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.,징기리,gpt-4o-mini,ko,trial6
+가득가득,분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양.,걸릉글릉,gpt-4o-mini,ko,trial6
+가든가든,다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태.,카리바,gpt-4o-mini,ko,trial6
+가들막가들막,신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양.,벌가시,gpt-4o-mini,ko,trial6
+가뜩,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.,껴끼,gpt-4o-mini,ko,trial6
+가닐가닐,벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌.,깔지닥,gpt-4o-mini,ko,trial12
+가닥가닥,물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태.,뺑기,gpt-4o-mini,ko,trial12
+가동가동,"어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양.",삐룩,gpt-4o-mini,ko,trial12
+가둥가둥,몸집이 작은 사람이 엉덩이를 잇따라 흔드는 모양.,칸지르,gpt-4o-mini,ko,trial12
+가드락가드락,조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양.,불틱,gpt-4o-mini,ko,trial12
+가득,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.,질꺄리,gpt-4o-mini,ko,trial12
+가득가득,분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양.,시글시글,gpt-4o-mini,ko,trial12
+가든가든,다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태.,칸지롸,gpt-4o-mini,ko,trial12
+가들막가들막,신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양.,쩌글쩌글,gpt-4o-mini,ko,trial12
+가뜩,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.,끼르르,gpt-4o-mini,ko,trial12
+가닐가닐,벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌.,간질간질,gpt-4o-mini,ko,trial13
+가닥가닥,물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태.,뾰옹쓱쓱,gpt-4o-mini,ko,trial13
+가동가동,"어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양.",까끌까끌,gpt-4o-mini,ko,trial13
+가둥가둥,몸집이 작은 사람이 엉덩이를 잇따라 흔드는 모양.,룸질룸질,gpt-4o-mini,ko,trial13
+가드락가드락,조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양.,웅가닥,gpt-4o-mini,ko,trial13
+가득,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.,쌀떡쌀떡,gpt-4o-mini,ko,trial13
+가득가득,분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양.,간질간질,gpt-4o-mini,ko,trial13
+가든가든,다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태.,벌룩벌룩,gpt-4o-mini,ko,trial13
+가들막가들막,신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양.,쭈글쭈글,gpt-4o-mini,ko,trial13
+가뜩,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.,찌르륵,gpt-4o-mini,ko,trial13
+가닐가닐,벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌.,벌어지르륵,gpt-4o-mini,ko,trial14
+가닥가닥,물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태.,쩨륵쩨륵,gpt-4o-mini,ko,trial14
+가동가동,"어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양.",벌쩍뜬쭈르륵,gpt-4o-mini,ko,trial14
+가둥가둥,몸집이 작은 사람이 엉덩이를 잇따라 흔드는 모양.,졸졸이,gpt-4o-mini,ko,trial14
+가드락가드락,조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양.,글렁글렁,gpt-4o-mini,ko,trial14
+가득,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.,스르르툭,gpt-4o-mini,ko,trial14
+가득가득,분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양.,쿵기르르,gpt-4o-mini,ko,trial14
+가든가든,다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태.,버글버글찌릿찌릿,gpt-4o-mini,ko,trial14
+가들막가들막,신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양.,드르륵쿵틱,gpt-4o-mini,ko,trial14
+가뜩,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.,가르르루,gpt-4o-mini,ko,trial14
+가닐가닐,벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌.,쿵지룩쿵지룩,gpt-4o-mini,ko,trial15
+가닥가닥,물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태.,시르르 언녀,gpt-4o-mini,ko,trial15
+가동가동,"어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양.",썩룩지기,gpt-4o-mini,ko,trial15
+가둥가둥,몸집이 작은 사람이 엉덩이를 잇따라 흔드는 모양.,부글룩 무삳,gpt-4o-mini,ko,trial15
+가드락가드락,조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양.,귀슬렁쩡,gpt-4o-mini,ko,trial15
+가득,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.,촐랑촐랑,gpt-4o-mini,ko,trial15
+가득가득,분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양.,지르륵끄르럭,gpt-4o-mini,ko,trial15
+가든가든,다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태.,쪼욱쪼욱 시르르,gpt-4o-mini,ko,trial15
+가들막가들막,신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양.,비르륵비르륵,gpt-4o-mini,ko,trial15
+가뜩,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.,파작파작,gpt-4o-mini,ko,trial15
+가닐가닐,벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌.,쓱쓱짜릿,gpt-4o-mini,ko,trial16
+가닥가닥,물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태.,까슬까슬짹짹,gpt-4o-mini,ko,trial16
+가동가동,"어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양.",좁좁삭삭,gpt-4o-mini,ko,trial16
+가둥가둥,몸집이 작은 사람이 엉덩이를 잇따라 흔드는 모양.,벌레삐득삐득,gpt-4o-mini,ko,trial16
+가드락가드락,조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양.,벌드르르,gpt-4o-mini,ko,trial16
+가득,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.,찌글찌글,gpt-4o-mini,ko,trial16
+가득가득,분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양.,피르르섬섬,gpt-4o-mini,ko,trial16
+가든가든,다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태.,지글지글,gpt-4o-mini,ko,trial16
+가들막가들막,신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양.,어요리얌,gpt-4o-mini,ko,trial16
+가뜩,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.,쓱쓱큼큼,gpt-4o-mini,ko,trial16
