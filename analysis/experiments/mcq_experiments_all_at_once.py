@@ -35,9 +35,9 @@ parser.add_argument(
     help="Experiment name to run",
     choices=["word_meaning_pair_matching", 
              "ipa_word_meaning_pair_matching",
+             "ipa_word_meaning_pair_matching_no_dialogue",
              "non_en_word_meaning_pair_matching",
-             "non_en_word_meaning_pair_matching_no_dialogue",
-             "ipa_word_meaning_pair_matching_no_dialogue"],
+             "non_en_word_meaning_pair_matching_no_dialogue"],
 )
 args = parser.parse_args()
 
@@ -55,6 +55,12 @@ elif args.experiment == "ipa_word_meaning_pair_matching":
     'dataset/3_questions/nat/understanding_ipa_pair_matching/ipa_unmasked_word_to_meaning_mcq-{language}.json',
     'dataset/3_questions/nat/understanding_ipa_pair_matching/ipa_masked_meaning_to_word_mcq-{language}.json'
     ]
+elif args.experiment == "ipa_word_meaning_pair_matching_no_dialogue":
+    langs = ['en', 'fr', 'ja', 'ko']
+    data_paths = [
+        'dataset/3_questions/nat/understanding_ipa_pair_matching_no_dialogue/ipa_unmasked_word_to_meaning_mcq_no_dialogue-{language}.json',
+        'dataset/3_questions/nat/understanding_ipa_pair_matching_no_dialogue/ipa_masked_meaning_to_word_mcq_no_dialogue-{language}.json'
+    ]
 elif args.experiment == "non_en_word_meaning_pair_matching":
     langs = ['fr', 'ja', 'ko', 'cross_language']
     data_paths = [
@@ -66,12 +72,6 @@ elif args.experiment == "non_en_word_meaning_pair_matching_no_dialogue":
     data_paths = [
         'dataset/3_questions/nat/understanding_non_en_pair_matching_no_dialogue/non_en_unmasked_word_to_meaning_mcq_no_dialogue-{language}.json',
         'dataset/3_questions/nat/understanding_non_en_pair_matching_no_dialogue/non_en_masked_meaning_to_word_mcq_no_dialogue-{language}.json'
-    ]
-elif args.experiment == "ipa_word_meaning_pair_matching_no_dialogue":
-    langs = ['en', 'fr', 'ja', 'ko']
-    data_paths = [
-        'dataset/3_questions/nat/understanding_ipa_pair_matching_no_dialogue/ipa_unmasked_word_to_meaning_mcq_no_dialogue-{language}.json',
-        'dataset/3_questions/nat/understanding_ipa_pair_matching_no_dialogue/ipa_masked_meaning_to_word_mcq_no_dialogue-{language}.json'
     ]
 
 all_brief_results = []

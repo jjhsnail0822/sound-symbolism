@@ -155,6 +155,8 @@ class MCQExperiment:
         
         # Save results
         model_name = os.path.basename(self.model_path)
+        if not os.path.exists(self.output_dir):
+            os.makedirs(self.output_dir, exist_ok=True)
         results_filename = f"{self.output_dir}/{self.data_path.split('/')[-1].replace('.json', '')}_{model_name}{'-thinking' if self.thinking else ''}.json"
         
         results_dict = {

@@ -12,3 +12,4 @@ analysis/experiments/understanding/word_meaning_pair_matching/understanding-*.js
 analysis/experiments/understanding/ipa_word_meaning_pair_matching/ipa*.json
 analysis/experiments/understanding/non_en_word_meaning_pair_matching/non_en*.json
 analysis/experiments/understanding/non_en_word_meaning_pair_matching_no_dialogue/non_en*.json
+analysis/experiments/understanding/ipa_word_meaning_pair_matching_no_dialogue/ipa*.json

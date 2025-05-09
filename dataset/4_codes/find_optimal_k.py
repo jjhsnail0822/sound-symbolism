@@ -9,7 +9,7 @@ import pickle
 from tqdm import tqdm
 
 parser = argparse.ArgumentParser(description='Get optimal k using silhouette method')
-parser.add_argument('-l', '--language', type=str, default='ko', help='Language code (default: ko)', choices=['ko', 'en', 'ja', 'fr'])
+parser.add_argument('-l', '--language', type=str, default='ko', help='Language code (default: ko)', choices=['ko', 'en', 'ja', 'fr', 'all'])
 parser.add_argument('-k', '--max-k', type=int, default=600, help='Max k for silhouette method (default: 600)')
 args = parser.parse_args()
 
@@ -21,7 +21,10 @@ with open(f'dataset/1_preprocess/nat/{LANGUAGE}_embeddings.pkl', 'rb') as f:
     embeddings = pickle.load(f)
 
 # extract only the embedding vectors
-embedding_vectors = np.array([item['embedding'] for item in embeddings])
+if LANGUAGE == 'all':
+    embedding_vectors = np.array([item['en_embedding'] for item in embeddings])
+else:
+    embedding_vectors = np.array([item['embedding'] for item in embeddings])
 
 # Silhouette Method
 k_range = range(2, MAX_K)

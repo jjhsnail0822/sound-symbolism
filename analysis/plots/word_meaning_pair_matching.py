@@ -7,8 +7,8 @@ from matplotlib.ticker import PercentFormatter
 
 # EXP_NAME = 'word_meaning_pair_matching'
 # TITLE = 'Word-Meaning Pair Matching'
-EXP_NAME = 'non_en_word_meaning_pair_matching_no_dialogue'
-TITLE = 'Non-English Word-Meaning Pair Matching (IPA)'
+EXP_NAME = 'ipa_word_meaning_pair_matching_no_dialogue'
+TITLE = 'Word-Meaning Pair Matching without Dialogue (IPA)'
 
 # 1) Collect result file paths
 exp_dir = f'analysis/experiments/understanding/{EXP_NAME}'
