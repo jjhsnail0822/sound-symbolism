@@ -2,6 +2,8 @@ import requests
 import json
 from tqdm import tqdm
 
+langs = ['en', 'fr', 'ja', 'ko']
+
 def get_infinigram_count(query):
     payload = {
         'index': 'v4_olmo-2-0325-32b-instruct_llama',
@@ -18,13 +20,12 @@ def get_infinigram_count(query):
             continue
     return result['count']
 
-with open('dataset/1_preprocess/nat/crosslingual_with_en/crosslingual_clustered.json', 'r', encoding='utf-8') as f:
-    data = json.load(f)
-
-for cluster in tqdm(data):
-    for word in cluster['words']:
-        word['infinigram_count'] = get_infinigram_count(word['word'])
-        print(f"Word: {word['word']}, Count: {word['infinigram_count']}")
-
-with open('dataset/1_preprocess/nat/crosslingual_with_en/crosslingual_clustered_with_count.json', 'w', encoding='utf-8') as f:
-    json.dump(data, f, ensure_ascii=False, indent=4)
+for lang in langs:
+    with open(f'dataset/1_preprocess/nat/{lang}.json', 'r', encoding='utf-8') as f:
+        data = json.load(f)
+    print(f"Processing {lang} data...")
+    for item in tqdm(data):
+        item['infinigram_count'] = get_infinigram_count(item['word'])
+    with open(f'dataset/1_preprocess/nat/{lang}.json', 'w', encoding='utf-8') as f:
+        json.dump(data, f, ensure_ascii=False, indent=4)
+    print(f"Finished processing {lang} data.")

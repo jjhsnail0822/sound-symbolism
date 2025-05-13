@@ -52,7 +52,7 @@ def filter_clusters_and_select_top_words(input_filepath, output_filepath):
     
     return
 
-input_file = "dataset/1_preprocess/nat/crosslingual_with_en/crosslingual_clustered_with_count.json"
-output_file = "dataset/1_preprocess/nat/crosslingual_with_en/crosslingual_clustered_filtered_top_words.json"
+input_file = "dataset/1_preprocess/nat/crosslingual_association_dbscan/crosslingual_clustered_with_count.json"
+output_file = "dataset/1_preprocess/nat/crosslingual_association_dbscan/crosslingual_clustered_filtered_top_words.json"
 
 filter_clusters_and_select_top_words(input_file, output_file)
