@@ -1,6 +1,7 @@
 # python pseudo_word_generationv2.py -m gpt-4o --gpu 1 --api
 # python pseudo_word_generationv2.py -m google/gemma-3-27b-it --gpu 2
-# python pseudo_word_generationv2.py -m Qwen/Qwen3-32B --gpu 1
+# python pseudo_word_generationv2.py -m Qwen/Qwen3-8B --gpu 2 --thinking
+# sbatch -p big_suma_rtx3090 -q big_qos 
 
 import json
 import argparse
@@ -32,6 +33,7 @@ MODEL_PATHS = {
     "google/gemma-3-27b-it": "google/gemma-3-27b-it",
     "google/gemma-3-12b-it": "google/gemma-3-12b-it",
     "google/gemma-3-4b-it": "google/gemma-3-4b-it",
+    "google/gemma-3-1b-it": "google/gemma-3-1b-it",
     "Qwen/Qwen3-4B": "Qwen/Qwen3-4b",
     "Qwen/Qwen3-8B": "Qwen/Qwen3-8b",
     "Qwen/Qwen3-14B": "Qwen/Qwen3-14b",
@@ -60,7 +62,7 @@ class pseudoWordGeneration:
             output_dir: str,
             use_api: bool = False,
             tensor_parallel_size: int = 1,
-            max_tokens: int = 32,
+            max_tokens: int = 512,
             max_model_len: int = 4096,
             temperature: float = 0.0,
             thinking: bool = False,
@@ -143,14 +145,15 @@ class pseudoWordGeneration:
         for key in prompt_keys:
             print(f"Generating with {key} as prompt")
             prompt:str = prompts[key][self.language]["user_prompt"]
-            for i, word_item in enumerate(tqdm(word_data)):
+            # for i, word_item in enumerate(tqdm(word_data)):
+            for i, word_item in enumerate(word_data):
                 if self.word_nums > 0 and i >= self.word_nums:
                     break
                 num_trials = 0
                 
                 word = word_item["word"]
                 definitions = word_item["definitions"]
-                meaning = definitions[0]
+                meaning = definitions[0][:-1]
                 prompt = prompt.format(meaning=meaning)
                 
                 while num_trials < 3:
@@ -181,6 +184,29 @@ class pseudoWordGeneration:
                                     enable_thinking=self.thinking,
                                 )
                                 response = model.generate(text, sampling_params=sampling_params)
+                                
+                            elif 'gemma-3' in self.model_path:
+                                # Gemma 전용 채팅 형식 적용
+                                text = f"<start_of_turn>user\n{prompt}<end_of_turn>\n<start_of_turn>model\n"
+                                
+                                # Gemma 전용 생성 파라미터 설정
+                                sampling_params = SamplingParams(
+                                    temperature=self.temperature,
+                                    max_tokens=self.max_tokens,
+                                    stop=['<end_of_turn>'],  # Gemma 전용 stop 토큰
+                                )
+                                
+                                response = model.generate(text, sampling_params)
+                                
+                                # 응답 처리
+                                if response and response[0].outputs:
+                                    model_answer = response[0].outputs[0].text.strip()
+                                    # Gemma 응답에서 필요한 부분만 추출
+                                    if '`' in model_answer:
+                                        model_answer = model_answer.split('`')[1]
+                                    else:
+                                        # 백틱이 없는 경우 전체 응답 사용
+                                        model_answer = model_answer
                             else:
                                 response = model.chat(conversation, sampling_params=sampling_params)
                             
@@ -190,6 +216,7 @@ class pseudoWordGeneration:
                             if self.thinking:
                                 model_answer = re.sub(r'<think>.*?</think>', '', model_answer, flags=re.DOTALL)
                         # breakpoint()
+                        print(f"word: {word}, meaning: {meaning}, model_answer: {model_answer}")
                         # First integer is the answer
                         if "`" in model_answer:
                             model_answer = model_answer.split("`")[1]
@@ -273,7 +300,7 @@ if __name__ == "__main__":
     parser.add_argument("--prompt", '-p', default= "../../analysis/experiments/prompts.json",type=str, help="Path to the prompt JSON file")
     parser.add_argument("--gpu", type=int, required=True, help="Tensor parallel size")
     parser.add_argument("--output", '-o', type=str, default="../0_raw/art", help="Directory to save results")
-    parser.add_argument("--max-tokens", type=int, default=32, help="Maximum tokens to generate")
+    parser.add_argument("--max-tokens", type=int, default=512, help="Maximum tokens to generate")
     parser.add_argument("--max-model-len", type=int, default=4096, help="Maximum model length")
     parser.add_argument("--temperature", type=float, default=0.0, help="Sampling temperature")
     parser.add_argument("--api", action='store_true', help="Use OpenAI API instead of local model")
