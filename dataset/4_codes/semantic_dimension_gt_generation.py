@@ -150,7 +150,7 @@ class MCQExperiment:
                                 dimension1=dimension[0],
                                 dimension2=dimension[1],
                             ),
-                            # temperature=self.temperature, # not supported with o4-mini
+                            temperature=self.temperature,
                         )
                         model_answer = response.output_text
                     else:
