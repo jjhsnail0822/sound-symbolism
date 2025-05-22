@@ -1,6 +1,7 @@
 # python pseudo_word_generationv2.py -m gpt-4o --gpu 1 --api
 # python pseudo_word_generationv2.py -m google/gemma-3-27b-it --gpu 2
 # python pseudo_word_generationv2.py -m Qwen/Qwen3-8B --gpu 2 --thinking
+# python pseudo_word_generationv2.py -m Qwen/Qwen3-14B --gpu 4
 # sbatch -p big_suma_rtx3090 -q big_qos 
 
 import json
@@ -22,13 +23,24 @@ from dotenv import load_dotenv
 from pathlib import Path
 
 # 환경변수 설정
-this_dir = os.path.dirname(os.path.abspath(__file__))
-os.environ["HF_HOME"] = os.path.join(this_dir, "../../../models")
-os.environ["TRANSFORMERS_CACHE"] = os.path.join(this_dir, "../../../models")
-os.environ["HF_DATASETS_CACHE"] = os.path.join(this_dir, "../../../models")
-os.environ["HUGGINGFACE_HUB_CACHE"] = os.path.join(this_dir, "../../../models")
+script_dir = os.path.dirname(os.path.abspath(__file__))
+env_path = os.path.join(script_dir, '.env.local')
+load_dotenv(dotenv_path=env_path)
 
-load_dotenv('.env.local')
+# BASE_DIR = os.getenv("BASE_DIR")
+# print(f"Loaded BASE_DIR: {BASE_DIR}")
+# breakpoint()
+# os.environ["HF_HOME"] = os.path.join(BASE_DIR, "models")
+# os.environ["TRANSFORMERS_CACHE"] = os.path.join(BASE_DIR, "models")
+# os.environ["HF_DATASETS_CACHE"] = os.path.join(BASE_DIR, "models")
+# os.environ["HUGGINGFACE_HUB_CACHE"] = os.path.join(BASE_DIR, "models")
+
+os.environ["HF_HOME"] = os.path.join(script_dir, "../../../models")
+os.environ["TRANSFORMERS_CACHE"] = os.path.join(script_dir, "../../../models")
+os.environ["HF_DATASETS_CACHE"] = os.path.join(script_dir, "../../../models")
+os.environ["HUGGINGFACE_HUB_CACHE"] = os.path.join(script_dir, "../../../models")
+# breakpoint()
+
 # 모델 경로 매핑 추가
 MODEL_PATHS = {
     "google/gemma-3-27b-it": "google/gemma-3-27b-it",
