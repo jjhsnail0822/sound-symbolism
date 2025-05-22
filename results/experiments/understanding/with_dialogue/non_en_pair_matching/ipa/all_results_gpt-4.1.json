@@ -1,0 +1,66 @@
+[
+    {
+        "model": "gpt-4.1",
+        "accuracy": 0.9598269468479604,
+        "correct_count": 1553,
+        "total_count": 1618,
+        "data_path": "dataset/3_questions/nat/understanding_non_en_pair_matching/non_en_unmasked_word_to_meaning_mcq-fr.json",
+        "thinking": false
+    },
+    {
+        "model": "gpt-4.1",
+        "accuracy": 0.7478368355995055,
+        "correct_count": 1210,
+        "total_count": 1618,
+        "data_path": "dataset/3_questions/nat/understanding_non_en_pair_matching/non_en_masked_meaning_to_word_mcq-fr.json",
+        "thinking": false
+    },
+    {
+        "model": "gpt-4.1",
+        "accuracy": 0.9809590973201693,
+        "correct_count": 2782,
+        "total_count": 2836,
+        "data_path": "dataset/3_questions/nat/understanding_non_en_pair_matching/non_en_unmasked_word_to_meaning_mcq-ja.json",
+        "thinking": false
+    },
+    {
+        "model": "gpt-4.1",
+        "accuracy": 0.8208744710860366,
+        "correct_count": 2328,
+        "total_count": 2836,
+        "data_path": "dataset/3_questions/nat/understanding_non_en_pair_matching/non_en_masked_meaning_to_word_mcq-ja.json",
+        "thinking": false
+    },
+    {
+        "model": "gpt-4.1",
+        "accuracy": 0.9804960992198439,
+        "correct_count": 9803,
+        "total_count": 9998,
+        "data_path": "dataset/3_questions/nat/understanding_non_en_pair_matching/non_en_unmasked_word_to_meaning_mcq-ko.json",
+        "thinking": false
+    },
+    {
+        "model": "gpt-4.1",
+        "accuracy": 0.593118623724745,
+        "correct_count": 5930,
+        "total_count": 9998,
+        "data_path": "dataset/3_questions/nat/understanding_non_en_pair_matching/non_en_masked_meaning_to_word_mcq-ko.json",
+        "thinking": false
+    },
+    {
+        "model": "gpt-4.1",
+        "accuracy": 0.9795184057569887,
+        "correct_count": 14156,
+        "total_count": 14452,
+        "data_path": "dataset/3_questions/nat/understanding_non_en_pair_matching/non_en_unmasked_word_to_meaning_mcq-cross_language.json",
+        "thinking": false
+    },
+    {
+        "model": "gpt-4.1",
+        "accuracy": 0.6997647384445059,
+        "correct_count": 10113,
+        "total_count": 14452,
+        "data_path": "dataset/3_questions/nat/understanding_non_en_pair_matching/non_en_masked_meaning_to_word_mcq-cross_language.json",
+        "thinking": false
+    }
+]

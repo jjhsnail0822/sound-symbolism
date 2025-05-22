@@ -1,0 +1,66 @@
+[
+    {
+        "model": "google/gemma-3-27b-it",
+        "accuracy": 0.4794188861985472,
+        "correct_count": 396,
+        "total_count": 826,
+        "data_path": "dataset/3_questions/nat/understanding_ipa_pair_matching_no_dialogue/ipa_unmasked_word_to_meaning_mcq_no_dialogue-en.json",
+        "thinking": false
+    },
+    {
+        "model": "google/gemma-3-27b-it",
+        "accuracy": 0.6295399515738499,
+        "correct_count": 520,
+        "total_count": 826,
+        "data_path": "dataset/3_questions/nat/understanding_ipa_pair_matching_no_dialogue/ipa_masked_meaning_to_word_mcq_no_dialogue-en.json",
+        "thinking": false
+    },
+    {
+        "model": "google/gemma-3-27b-it",
+        "accuracy": 0.4363411619283066,
+        "correct_count": 353,
+        "total_count": 809,
+        "data_path": "dataset/3_questions/nat/understanding_ipa_pair_matching_no_dialogue/ipa_unmasked_word_to_meaning_mcq_no_dialogue-fr.json",
+        "thinking": false
+    },
+    {
+        "model": "google/gemma-3-27b-it",
+        "accuracy": 0.5241038318912238,
+        "correct_count": 424,
+        "total_count": 809,
+        "data_path": "dataset/3_questions/nat/understanding_ipa_pair_matching_no_dialogue/ipa_masked_meaning_to_word_mcq_no_dialogue-fr.json",
+        "thinking": false
+    },
+    {
+        "model": "google/gemma-3-27b-it",
+        "accuracy": 0.4118476727785614,
+        "correct_count": 584,
+        "total_count": 1418,
+        "data_path": "dataset/3_questions/nat/understanding_ipa_pair_matching_no_dialogue/ipa_unmasked_word_to_meaning_mcq_no_dialogue-ja.json",
+        "thinking": false
+    },
+    {
+        "model": "google/gemma-3-27b-it",
+        "accuracy": 0.5007052186177715,
+        "correct_count": 710,
+        "total_count": 1418,
+        "data_path": "dataset/3_questions/nat/understanding_ipa_pair_matching_no_dialogue/ipa_masked_meaning_to_word_mcq_no_dialogue-ja.json",
+        "thinking": false
+    },
+    {
+        "model": "google/gemma-3-27b-it",
+        "accuracy": 0.32206441288257653,
+        "correct_count": 1610,
+        "total_count": 4999,
+        "data_path": "dataset/3_questions/nat/understanding_ipa_pair_matching_no_dialogue/ipa_unmasked_word_to_meaning_mcq_no_dialogue-ko.json",
+        "thinking": false
+    },
+    {
+        "model": "google/gemma-3-27b-it",
+        "accuracy": 0.3606721344268854,
+        "correct_count": 1803,
+        "total_count": 4999,
+        "data_path": "dataset/3_questions/nat/understanding_ipa_pair_matching_no_dialogue/ipa_masked_meaning_to_word_mcq_no_dialogue-ko.json",
+        "thinking": false
+    }
+]

@@ -1,0 +1,66 @@
+[
+    {
+        "model": "Qwen/Qwen3-4B",
+        "accuracy": 0.8922518159806295,
+        "correct_count": 1474,
+        "total_count": 1652,
+        "data_path": "dataset/3_questions/nat/understanding_ipa_pair_matching/ipa_unmasked_word_to_meaning_mcq-en.json",
+        "thinking": false
+    },
+    {
+        "model": "Qwen/Qwen3-4B",
+        "accuracy": 0.4552058111380145,
+        "correct_count": 752,
+        "total_count": 1652,
+        "data_path": "dataset/3_questions/nat/understanding_ipa_pair_matching/ipa_masked_meaning_to_word_mcq-en.json",
+        "thinking": false
+    },
+    {
+        "model": "Qwen/Qwen3-4B",
+        "accuracy": 0.7354758961681088,
+        "correct_count": 1190,
+        "total_count": 1618,
+        "data_path": "dataset/3_questions/nat/understanding_ipa_pair_matching/ipa_unmasked_word_to_meaning_mcq-fr.json",
+        "thinking": false
+    },
+    {
+        "model": "Qwen/Qwen3-4B",
+        "accuracy": 0.35970333745364647,
+        "correct_count": 582,
+        "total_count": 1618,
+        "data_path": "dataset/3_questions/nat/understanding_ipa_pair_matching/ipa_masked_meaning_to_word_mcq-fr.json",
+        "thinking": false
+    },
+    {
+        "model": "Qwen/Qwen3-4B",
+        "accuracy": 0.8610719322990127,
+        "correct_count": 2442,
+        "total_count": 2836,
+        "data_path": "dataset/3_questions/nat/understanding_ipa_pair_matching/ipa_unmasked_word_to_meaning_mcq-ja.json",
+        "thinking": false
+    },
+    {
+        "model": "Qwen/Qwen3-4B",
+        "accuracy": 0.34062059238363895,
+        "correct_count": 966,
+        "total_count": 2836,
+        "data_path": "dataset/3_questions/nat/understanding_ipa_pair_matching/ipa_masked_meaning_to_word_mcq-ja.json",
+        "thinking": false
+    },
+    {
+        "model": "Qwen/Qwen3-4B",
+        "accuracy": 0.8976795359071814,
+        "correct_count": 8975,
+        "total_count": 9998,
+        "data_path": "dataset/3_questions/nat/understanding_ipa_pair_matching/ipa_unmasked_word_to_meaning_mcq-ko.json",
+        "thinking": false
+    },
+    {
+        "model": "Qwen/Qwen3-4B",
+        "accuracy": 0.3054610922184437,
+        "correct_count": 3054,
+        "total_count": 9998,
+        "data_path": "dataset/3_questions/nat/understanding_ipa_pair_matching/ipa_masked_meaning_to_word_mcq-ko.json",
+        "thinking": false
+    }
+]

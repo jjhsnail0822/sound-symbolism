@@ -1,0 +1,66 @@
+[
+    {
+        "model": "Qwen/Qwen2.5-32B-Instruct",
+        "accuracy": 0.9727602905569007,
+        "correct_count": 1607,
+        "total_count": 1652,
+        "data_path": "dataset/3_questions/nat/understanding-unmasked_word_to_meaning_mcq-en.json",
+        "thinking": false
+    },
+    {
+        "model": "Qwen/Qwen2.5-32B-Instruct",
+        "accuracy": 0.7887409200968523,
+        "correct_count": 1303,
+        "total_count": 1652,
+        "data_path": "dataset/3_questions/nat/understanding-masked_meaning_to_word_mcq-en.json",
+        "thinking": false
+    },
+    {
+        "model": "Qwen/Qwen2.5-32B-Instruct",
+        "accuracy": 0.9239802224969098,
+        "correct_count": 1495,
+        "total_count": 1618,
+        "data_path": "dataset/3_questions/nat/understanding-unmasked_word_to_meaning_mcq-fr.json",
+        "thinking": false
+    },
+    {
+        "model": "Qwen/Qwen2.5-32B-Instruct",
+        "accuracy": 0.7589616810877626,
+        "correct_count": 1228,
+        "total_count": 1618,
+        "data_path": "dataset/3_questions/nat/understanding-masked_meaning_to_word_mcq-fr.json",
+        "thinking": false
+    },
+    {
+        "model": "Qwen/Qwen2.5-32B-Instruct",
+        "accuracy": 0.9823695345557123,
+        "correct_count": 2786,
+        "total_count": 2836,
+        "data_path": "dataset/3_questions/nat/understanding-unmasked_word_to_meaning_mcq-ja.json",
+        "thinking": false
+    },
+    {
+        "model": "Qwen/Qwen2.5-32B-Instruct",
+        "accuracy": 0.8998589562764457,
+        "correct_count": 2552,
+        "total_count": 2836,
+        "data_path": "dataset/3_questions/nat/understanding-masked_meaning_to_word_mcq-ja.json",
+        "thinking": false
+    },
+    {
+        "model": "Qwen/Qwen2.5-32B-Instruct",
+        "accuracy": 0.9830966193238647,
+        "correct_count": 9829,
+        "total_count": 9998,
+        "data_path": "dataset/3_questions/nat/understanding-unmasked_word_to_meaning_mcq-ko.json",
+        "thinking": false
+    },
+    {
+        "model": "Qwen/Qwen2.5-32B-Instruct",
+        "accuracy": 0.7265453090618124,
+        "correct_count": 7264,
+        "total_count": 9998,
+        "data_path": "dataset/3_questions/nat/understanding-masked_meaning_to_word_mcq-ko.json",
+        "thinking": false
+    }
+]
