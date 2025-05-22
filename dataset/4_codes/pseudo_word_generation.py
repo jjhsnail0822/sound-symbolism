@@ -195,7 +195,8 @@ def debug_model(model_name: str) -> None:
 def setup_model_cache():
     """HuggingFace 모델 캐시 경로 설정"""
     # 사용자 지정 캐시 디렉토리
-    custom_cache_dir = "/scratch2/sheepswool/workspace/models"
+    this_dir = os.path.dirname(os.path.abspath(__file__))
+    custom_cache_dir = os.path.join(this_dir, "../../../models")
     
     # 디렉토리가 없으면 생성
     if not os.path.exists(custom_cache_dir):
@@ -318,7 +319,8 @@ class PseudoWordGenerator:
             requires_auth = model_config["requires_auth"]
             
             # 캐시 디렉토리 설정
-            cache_dir = "/scratch2/sheepswool/workspace/models"
+            this_dir = os.path.dirname(os.path.abspath(__file__))
+            cache_dir = os.path.join(this_dir, "../../../models")
             
             print(f"🔄 모델 로드 중: {model_id}")
             print(f"📂 캐시 디렉토리: {cache_dir}")
@@ -590,8 +592,8 @@ class PseudoWordGenerator:
         return list(result_dict.values())
 
 def setup_model_cache():
-    os.environ["TRANSFORMERS_CACHE"] = "/scratch2/sheepswool/model_cache"
-    os.environ["HF_HOME"] = "/scratch2/sheepswool/model_cache"
+    os.environ["TRANSFORMERS_CACHE"] = "../../../model_cache"
+    os.environ["HF_HOME"] = "../../../model_cache"
 
 def setup_requirements():
     try:

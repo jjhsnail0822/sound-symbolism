@@ -18,7 +18,7 @@ class IPAChecker:
             raise ValueError("Language must be one of 'en', 'ja', 'ko', 'fr'.")
         
         # Set paths based on language
-        self.base_path = "/scratch2/sheepswool/workspace/sound-symbolism/dataset/1_preprocess/nat"
+        self.base_path = "../../dataset/1_preprocess/nat"
         
         if self.language == 'fr':
             self.input_path = os.path.join(self.base_path, f"{self.language}_ipa_filtered.json")

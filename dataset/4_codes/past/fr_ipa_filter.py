@@ -9,7 +9,8 @@ class PronunciationFilter:
     def __init__(self):
         """Initialize the pronunciation filter"""
         # Set paths
-        self.base_path = "/scratch2/sheepswool/workspace/sound-symbolism/dataset/1_preprocess/nat"
+        this_dir = os.path.dirname(os.path.abspath(__file__))
+        self.base_path = os.path.join(this_dir, "../../../dataset/1_preprocess/nat")
         self.input_path = os.path.join(self.base_path, "json_backup", "fr_ipa_filtered.json")
         self.output_path = os.path.join(self.base_path, "json_backup", "fr_ipa_second_filtered.json")
         self.checkpoint_path = os.path.join(self.base_path, "json_backup", "fr_ipa_pronunciation_checkpoint.json")
