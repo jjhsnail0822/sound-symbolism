@@ -22,10 +22,11 @@ from dotenv import load_dotenv
 from pathlib import Path
 
 # 환경변수 설정
-os.environ["HF_HOME"] = "/scratch2/sheepswool/workspace/models"
-os.environ["TRANSFORMERS_CACHE"] = "/scratch2/sheepswool/workspace/models"
-os.environ["HF_DATASETS_CACHE"] = "/scratch2/sheepswool/workspace/models"
-os.environ["HUGGINGFACE_HUB_CACHE"] = "/scratch2/sheepswool/workspace/models"
+this_dir = os.path.dirname(os.path.abspath(__file__))
+os.environ["HF_HOME"] = os.path.join(this_dir, "../../../models")
+os.environ["TRANSFORMERS_CACHE"] = os.path.join(this_dir, "../../../models")
+os.environ["HF_DATASETS_CACHE"] = os.path.join(this_dir, "../../../models")
+os.environ["HUGGINGFACE_HUB_CACHE"] = os.path.join(this_dir, "../../../models")
 
 load_dotenv('.env.local')
 # 모델 경로 매핑 추가
@@ -122,7 +123,7 @@ class pseudoWordGeneration:
                 max_model_len=self.max_model_len,
                 tensor_parallel_size=self.tensor_parallel_size,
                 trust_remote_code=True,
-                download_dir="/scratch2/sheepswool/workspace/models"
+                download_dir="../../../models"
             )
             sampling_params = SamplingParams(
                 temperature=self.temperature, 

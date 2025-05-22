@@ -153,10 +153,11 @@ def filter_wiktionary_and_duplicates(input_file=None, output_file=None):
         output_file (str): 출력 JSON 파일 경로
     """
     # 기본 파일 경로
+    this_dir = os.path.dirname(os.path.abspath(__file__))
     if input_file is None:
-        input_file = "/scratch2/sheepswool/workspace/sound-symbolism/dataset/1_preprocess/nat/fr_ipa.json"
+        input_file = os.path.join(this_dir, "../../../dataset/1_preprocess/nat/fr_ipa.json")
     if output_file is None:
-        output_file = "/scratch2/sheepswool/workspace/sound-symbolism/dataset/1_preprocess/nat/fr_ipa_filtered.json"
+        output_file = os.path.join(this_dir, "../../../dataset/1_preprocess/nat/fr_ipa_filtered.json")
     
     # 파일 존재 확인
     if not os.path.exists(input_file):
