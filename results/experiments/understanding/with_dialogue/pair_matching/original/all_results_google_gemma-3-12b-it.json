@@ -1,0 +1,66 @@
+[
+    {
+        "model": "google/gemma-3-12b-it",
+        "accuracy": 0.9661016949152542,
+        "correct_count": 1596,
+        "total_count": 1652,
+        "data_path": "dataset/3_questions/nat/understanding-unmasked_word_to_meaning_mcq-en.json",
+        "thinking": false
+    },
+    {
+        "model": "google/gemma-3-12b-it",
+        "accuracy": 0.7312348668280871,
+        "correct_count": 1208,
+        "total_count": 1652,
+        "data_path": "dataset/3_questions/nat/understanding-masked_meaning_to_word_mcq-en.json",
+        "thinking": false
+    },
+    {
+        "model": "google/gemma-3-12b-it",
+        "accuracy": 0.880716934487021,
+        "correct_count": 1425,
+        "total_count": 1618,
+        "data_path": "dataset/3_questions/nat/understanding-unmasked_word_to_meaning_mcq-fr.json",
+        "thinking": false
+    },
+    {
+        "model": "google/gemma-3-12b-it",
+        "accuracy": 0.6983930778739185,
+        "correct_count": 1130,
+        "total_count": 1618,
+        "data_path": "dataset/3_questions/nat/understanding-masked_meaning_to_word_mcq-fr.json",
+        "thinking": false
+    },
+    {
+        "model": "google/gemma-3-12b-it",
+        "accuracy": 0.9566290550070522,
+        "correct_count": 2713,
+        "total_count": 2836,
+        "data_path": "dataset/3_questions/nat/understanding-unmasked_word_to_meaning_mcq-ja.json",
+        "thinking": false
+    },
+    {
+        "model": "google/gemma-3-12b-it",
+        "accuracy": 0.8349788434414669,
+        "correct_count": 2368,
+        "total_count": 2836,
+        "data_path": "dataset/3_questions/nat/understanding-masked_meaning_to_word_mcq-ja.json",
+        "thinking": false
+    },
+    {
+        "model": "google/gemma-3-12b-it",
+        "accuracy": 0.9777955591118224,
+        "correct_count": 9776,
+        "total_count": 9998,
+        "data_path": "dataset/3_questions/nat/understanding-unmasked_word_to_meaning_mcq-ko.json",
+        "thinking": false
+    },
+    {
+        "model": "google/gemma-3-12b-it",
+        "accuracy": 0.7091418283656732,
+        "correct_count": 7090,
+        "total_count": 9998,
+        "data_path": "dataset/3_questions/nat/understanding-masked_meaning_to_word_mcq-ko.json",
+        "thinking": false
+    }
+]

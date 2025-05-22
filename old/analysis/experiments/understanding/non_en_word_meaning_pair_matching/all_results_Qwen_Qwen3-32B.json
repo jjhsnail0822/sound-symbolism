@@ -1,0 +1,66 @@
+[
+    {
+        "model": "Qwen/Qwen3-32B",
+        "accuracy": 0.869592088998764,
+        "correct_count": 1407,
+        "total_count": 1618,
+        "data_path": "dataset/3_questions/nat/understanding_non_en_pair_matching/non_en_unmasked_word_to_meaning_mcq-fr.json",
+        "thinking": false
+    },
+    {
+        "model": "Qwen/Qwen3-32B",
+        "accuracy": 0.5018541409147095,
+        "correct_count": 812,
+        "total_count": 1618,
+        "data_path": "dataset/3_questions/nat/understanding_non_en_pair_matching/non_en_masked_meaning_to_word_mcq-fr.json",
+        "thinking": false
+    },
+    {
+        "model": "Qwen/Qwen3-32B",
+        "accuracy": 0.889280677009873,
+        "correct_count": 2522,
+        "total_count": 2836,
+        "data_path": "dataset/3_questions/nat/understanding_non_en_pair_matching/non_en_unmasked_word_to_meaning_mcq-ja.json",
+        "thinking": false
+    },
+    {
+        "model": "Qwen/Qwen3-32B",
+        "accuracy": 0.3776445698166432,
+        "correct_count": 1071,
+        "total_count": 2836,
+        "data_path": "dataset/3_questions/nat/understanding_non_en_pair_matching/non_en_masked_meaning_to_word_mcq-ja.json",
+        "thinking": false
+    },
+    {
+        "model": "Qwen/Qwen3-32B",
+        "accuracy": 0.8581716343268654,
+        "correct_count": 8580,
+        "total_count": 9998,
+        "data_path": "dataset/3_questions/nat/understanding_non_en_pair_matching/non_en_unmasked_word_to_meaning_mcq-ko.json",
+        "thinking": false
+    },
+    {
+        "model": "Qwen/Qwen3-32B",
+        "accuracy": 0.30586117223444687,
+        "correct_count": 3058,
+        "total_count": 9998,
+        "data_path": "dataset/3_questions/nat/understanding_non_en_pair_matching/non_en_masked_meaning_to_word_mcq-ko.json",
+        "thinking": false
+    },
+    {
+        "model": "Qwen/Qwen3-32B",
+        "accuracy": 0.8863133130362579,
+        "correct_count": 12809,
+        "total_count": 14452,
+        "data_path": "dataset/3_questions/nat/understanding_non_en_pair_matching/non_en_unmasked_word_to_meaning_mcq-cross_language.json",
+        "thinking": false
+    },
+    {
+        "model": "Qwen/Qwen3-32B",
+        "accuracy": 0.34106006089122615,
+        "correct_count": 4929,
+        "total_count": 14452,
+        "data_path": "dataset/3_questions/nat/understanding_non_en_pair_matching/non_en_masked_meaning_to_word_mcq-cross_language.json",
+        "thinking": false
+    }
+]

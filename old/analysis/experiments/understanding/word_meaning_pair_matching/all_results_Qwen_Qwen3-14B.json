@@ -1,0 +1,66 @@
+[
+    {
+        "model": "Qwen/Qwen3-14B",
+        "accuracy": 0.9546004842615012,
+        "correct_count": 1577,
+        "total_count": 1652,
+        "data_path": "dataset/3_questions/nat/understanding-unmasked_word_to_meaning_mcq-en.json",
+        "thinking": false
+    },
+    {
+        "model": "Qwen/Qwen3-14B",
+        "accuracy": 0.7197336561743342,
+        "correct_count": 1189,
+        "total_count": 1652,
+        "data_path": "dataset/3_questions/nat/understanding-masked_meaning_to_word_mcq-en.json",
+        "thinking": false
+    },
+    {
+        "model": "Qwen/Qwen3-14B",
+        "accuracy": 0.8640296662546354,
+        "correct_count": 1398,
+        "total_count": 1618,
+        "data_path": "dataset/3_questions/nat/understanding-unmasked_word_to_meaning_mcq-fr.json",
+        "thinking": false
+    },
+    {
+        "model": "Qwen/Qwen3-14B",
+        "accuracy": 0.6433868974042027,
+        "correct_count": 1041,
+        "total_count": 1618,
+        "data_path": "dataset/3_questions/nat/understanding-masked_meaning_to_word_mcq-fr.json",
+        "thinking": false
+    },
+    {
+        "model": "Qwen/Qwen3-14B",
+        "accuracy": 0.9668547249647391,
+        "correct_count": 2742,
+        "total_count": 2836,
+        "data_path": "dataset/3_questions/nat/understanding-unmasked_word_to_meaning_mcq-ja.json",
+        "thinking": false
+    },
+    {
+        "model": "Qwen/Qwen3-14B",
+        "accuracy": 0.859308885754584,
+        "correct_count": 2437,
+        "total_count": 2836,
+        "data_path": "dataset/3_questions/nat/understanding-masked_meaning_to_word_mcq-ja.json",
+        "thinking": false
+    },
+    {
+        "model": "Qwen/Qwen3-14B",
+        "accuracy": 0.9528905781156232,
+        "correct_count": 9527,
+        "total_count": 9998,
+        "data_path": "dataset/3_questions/nat/understanding-unmasked_word_to_meaning_mcq-ko.json",
+        "thinking": false
+    },
+    {
+        "model": "Qwen/Qwen3-14B",
+        "accuracy": 0.6592318463692739,
+        "correct_count": 6591,
+        "total_count": 9998,
+        "data_path": "dataset/3_questions/nat/understanding-masked_meaning_to_word_mcq-ko.json",
+        "thinking": false
+    }
+]
