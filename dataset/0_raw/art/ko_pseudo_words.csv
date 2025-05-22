@@ -2710,3 +2710,193 @@ Alternatively, maybe the user is asking for a Korean word that's a metaphor, but
 가든가든,다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태,,google/gemma-3-27b-it,ko,trial22
 가들막가들막,신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양,,google/gemma-3-27b-it,ko,trial22
 가뜩,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양,,google/gemma-3-27b-it,ko,trial22
+가닐가닐,벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌,지따리,Qwen/Qwen3-14b-thinking,ko,trial1
+가닥가닥,물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태,지스리,Qwen/Qwen3-14b-thinking,ko,trial1
+가동가동,"어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양",지스리,Qwen/Qwen3-14b-thinking,ko,trial1
+가둥가둥,몸집이 작은 사람이 엉덩이를 잇따라 흔드는 모양,지스리,Qwen/Qwen3-14b-thinking,ko,trial1
+가드락가드락,조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양,지스리,Qwen/Qwen3-14b-thinking,ko,trial1
+가득,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양,지스리,Qwen/Qwen3-14b-thinking,ko,trial1
+가득가득,분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양,지스리,Qwen/Qwen3-14b-thinking,ko,trial1
+가든가든,다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태,지스리,Qwen/Qwen3-14b-thinking,ko,trial1
+가들막가들막,신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양,지스리,Qwen/Qwen3-14b-thinking,ko,trial1
+가뜩,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양,지스리,Qwen/Qwen3-14b-thinking,ko,trial1
+가닐가닐,벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌,지스리,Qwen/Qwen3-14b-thinking,ko,trial2
+가닥가닥,물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태,지스리,Qwen/Qwen3-14b-thinking,ko,trial2
+가동가동,"어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양",지스리,Qwen/Qwen3-14b-thinking,ko,trial2
+가둥가둥,몸집이 작은 사람이 엉덩이를 잇따라 흔드는 모양,지스리,Qwen/Qwen3-14b-thinking,ko,trial2
+가드락가드락,조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양,지스리,Qwen/Qwen3-14b-thinking,ko,trial2
+가득,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양,지스리,Qwen/Qwen3-14b-thinking,ko,trial2
+가득가득,분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양,지스리,Qwen/Qwen3-14b-thinking,ko,trial2
+가든가든,다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태,지스리,Qwen/Qwen3-14b-thinking,ko,trial2
+가들막가들막,신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양,지스리,Qwen/Qwen3-14b-thinking,ko,trial2
+가뜩,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양,지스리,Qwen/Qwen3-14b-thinking,ko,trial2
+가닐가닐,벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌,Slyrprik,Qwen/Qwen3-14b-thinking,ko,trial4
+가닥가닥,물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태,Wermzilprktz,Qwen/Qwen3-14b-thinking,ko,trial4
+가동가동,"어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양",Wermzilprktz,Qwen/Qwen3-14b-thinking,ko,trial4
+가둥가둥,몸집이 작은 사람이 엉덩이를 잇따라 흔드는 모양,Wermzilprktz,Qwen/Qwen3-14b-thinking,ko,trial4
+가드락가드락,조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양,Wermzilprktz,Qwen/Qwen3-14b-thinking,ko,trial4
+가득,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양,Wermzilprktz,Qwen/Qwen3-14b-thinking,ko,trial4
+가득가득,분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양,Wermzilprktz,Qwen/Qwen3-14b-thinking,ko,trial4
+가든가든,다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태,Wermzilprktz,Qwen/Qwen3-14b-thinking,ko,trial4
+가들막가들막,신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양,Wermzilprktz,Qwen/Qwen3-14b-thinking,ko,trial4
+가뜩,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양,Wermzilprktz,Qwen/Qwen3-14b-thinking,ko,trial4
+가닐가닐,벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌,기어가려,Qwen/Qwen3-14b-thinking,ko,trial6
+가닥가닥,물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태,기어감,Qwen/Qwen3-14b-thinking,ko,trial6
+가동가동,"어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양",기어감,Qwen/Qwen3-14b-thinking,ko,trial6
+가둥가둥,몸집이 작은 사람이 엉덩이를 잇따라 흔드는 모양,기어감,Qwen/Qwen3-14b-thinking,ko,trial6
+가드락가드락,조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양,기어감,Qwen/Qwen3-14b-thinking,ko,trial6
+가득,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양,기어감,Qwen/Qwen3-14b-thinking,ko,trial6
+가득가득,분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양,기어감,Qwen/Qwen3-14b-thinking,ko,trial6
+가든가든,다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태,기어감,Qwen/Qwen3-14b-thinking,ko,trial6
+가들막가들막,신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양,기어감,Qwen/Qwen3-14b-thinking,ko,trial6
+가뜩,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양,기어감,Qwen/Qwen3-14b-thinking,ko,trial6
+가닐가닐,벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌,기어지르르,Qwen/Qwen3-14b-thinking,ko,trial12
+가닥가닥,물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태,스즈리,Qwen/Qwen3-14b-thinking,ko,trial12
+가동가동,"어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양",스즈리,Qwen/Qwen3-14b-thinking,ko,trial12
+가둥가둥,몸집이 작은 사람이 엉덩이를 잇따라 흔드는 모양,스즈리,Qwen/Qwen3-14b-thinking,ko,trial12
+가드락가드락,조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양,스즈리,Qwen/Qwen3-14b-thinking,ko,trial12
+가득,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양,스즈리,Qwen/Qwen3-14b-thinking,ko,trial12
+가득가득,분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양,스즈리,Qwen/Qwen3-14b-thinking,ko,trial12
+가든가든,다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태,스즈리,Qwen/Qwen3-14b-thinking,ko,trial12
+가들막가들막,신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양,스즈리,Qwen/Qwen3-14b-thinking,ko,trial12
+가뜩,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양,스즈리,Qwen/Qwen3-14b-thinking,ko,trial12
+가닐가닐,벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌,기르르,Qwen/Qwen3-14b-thinking,ko,trial13
+가닥가닥,물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태,지르지르,Qwen/Qwen3-14b-thinking,ko,trial13
+가동가동,"어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양",지르지르,Qwen/Qwen3-14b-thinking,ko,trial13
+가둥가둥,몸집이 작은 사람이 엉덩이를 잇따라 흔드는 모양,지르지르,Qwen/Qwen3-14b-thinking,ko,trial13
+가드락가드락,조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양,지르지르,Qwen/Qwen3-14b-thinking,ko,trial13
+가득,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양,지르지르,Qwen/Qwen3-14b-thinking,ko,trial13
+가득가득,분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양,지르지르,Qwen/Qwen3-14b-thinking,ko,trial13
+가든가든,다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태,지르지르,Qwen/Qwen3-14b-thinking,ko,trial13
+가들막가들막,신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양,지르지르,Qwen/Qwen3-14b-thinking,ko,trial13
+가뜩,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양,지르지르,Qwen/Qwen3-14b-thinking,ko,trial13
+가닐가닐,벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌,스치치,Qwen/Qwen3-14b-thinking,ko,trial14
+가닥가닥,물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태,지르르치,Qwen/Qwen3-14b-thinking,ko,trial14
+가동가동,"어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양",지르르치,Qwen/Qwen3-14b-thinking,ko,trial14
+가둥가둥,몸집이 작은 사람이 엉덩이를 잇따라 흔드는 모양,지르르치,Qwen/Qwen3-14b-thinking,ko,trial14
+가드락가드락,조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양,지르르치,Qwen/Qwen3-14b-thinking,ko,trial14
+가득,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양,지르르치,Qwen/Qwen3-14b-thinking,ko,trial14
+가득가득,분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양,지르르치,Qwen/Qwen3-14b-thinking,ko,trial14
+가든가든,다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태,지르르치,Qwen/Qwen3-14b-thinking,ko,trial14
+가들막가들막,신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양,지르르치,Qwen/Qwen3-14b-thinking,ko,trial14
+가뜩,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양,지르르치,Qwen/Qwen3-14b-thinking,ko,trial14
+가닐가닐,벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌,"
+
+지르르",Qwen/Qwen3-14b-thinking,ko,trial15
+가닥가닥,물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태,"
+
+지르르",Qwen/Qwen3-14b-thinking,ko,trial15
+가동가동,"어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양","
+
+지르르",Qwen/Qwen3-14b-thinking,ko,trial15
+가둥가둥,몸집이 작은 사람이 엉덩이를 잇따라 흔드는 모양,"
+
+지르르",Qwen/Qwen3-14b-thinking,ko,trial15
+가드락가드락,조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양,"
+
+지르르",Qwen/Qwen3-14b-thinking,ko,trial15
+가득,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양,"
+
+지르르",Qwen/Qwen3-14b-thinking,ko,trial15
+가득가득,분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양,"
+
+지르르",Qwen/Qwen3-14b-thinking,ko,trial15
+가든가든,다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태,"
+
+지르르",Qwen/Qwen3-14b-thinking,ko,trial15
+가들막가들막,신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양,"
+
+지르르",Qwen/Qwen3-14b-thinking,ko,trial15
+가뜩,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양,"
+
+지르르",Qwen/Qwen3-14b-thinking,ko,trial15
+가닐가닐,벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌,"
+
+기이지지",Qwen/Qwen3-14b-thinking,ko,trial16
+가닥가닥,물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태,"
+
+칙칙",Qwen/Qwen3-14b-thinking,ko,trial16
+가동가동,"어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양","
+
+칙칙",Qwen/Qwen3-14b-thinking,ko,trial16
+가둥가둥,몸집이 작은 사람이 엉덩이를 잇따라 흔드는 모양,"
+
+칙칙",Qwen/Qwen3-14b-thinking,ko,trial16
+가드락가드락,조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양,"
+
+칙칙",Qwen/Qwen3-14b-thinking,ko,trial16
+가득,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양,"
+
+칙칙",Qwen/Qwen3-14b-thinking,ko,trial16
+가득가득,분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양,"
+
+칙칙",Qwen/Qwen3-14b-thinking,ko,trial16
+가든가든,다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태,"
+
+칙칙",Qwen/Qwen3-14b-thinking,ko,trial16
+가들막가들막,신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양,"
+
+칙칙",Qwen/Qwen3-14b-thinking,ko,trial16
+가뜩,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양,"
+
+칙칙",Qwen/Qwen3-14b-thinking,ko,trial16
+가닐가닐,벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌,찌릿칙칙,Qwen/Qwen3-14b-thinking,ko,trial17
+가닥가닥,물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태,기어기어리,Qwen/Qwen3-14b-thinking,ko,trial17
+가동가동,"어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양",기어기어리,Qwen/Qwen3-14b-thinking,ko,trial17
+가둥가둥,몸집이 작은 사람이 엉덩이를 잇따라 흔드는 모양,기어기어리,Qwen/Qwen3-14b-thinking,ko,trial17
+가드락가드락,조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양,기어기어리,Qwen/Qwen3-14b-thinking,ko,trial17
+가득,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양,기어기어리,Qwen/Qwen3-14b-thinking,ko,trial17
+가득가득,분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양,기어기어리,Qwen/Qwen3-14b-thinking,ko,trial17
+가든가든,다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태,기어기어리,Qwen/Qwen3-14b-thinking,ko,trial17
+가들막가들막,신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양,기어기어리,Qwen/Qwen3-14b-thinking,ko,trial17
+가뜩,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양,기어기어리,Qwen/Qwen3-14b-thinking,ko,trial17
+가닐가닐,벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌,지즈스르륵,Qwen/Qwen3-14b-thinking,ko,trial18
+가닥가닥,물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태,스스르륵,Qwen/Qwen3-14b-thinking,ko,trial18
+가동가동,"어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양",스스르륵,Qwen/Qwen3-14b-thinking,ko,trial18
+가둥가둥,몸집이 작은 사람이 엉덩이를 잇따라 흔드는 모양,스스르륵,Qwen/Qwen3-14b-thinking,ko,trial18
+가드락가드락,조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양,스스르륵,Qwen/Qwen3-14b-thinking,ko,trial18
+가득,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양,스스르륵,Qwen/Qwen3-14b-thinking,ko,trial18
+가득가득,분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양,스스르륵,Qwen/Qwen3-14b-thinking,ko,trial18
+가든가든,다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태,스스르륵,Qwen/Qwen3-14b-thinking,ko,trial18
+가들막가들막,신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양,스스르륵,Qwen/Qwen3-14b-thinking,ko,trial18
+가뜩,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양,스스르륵,Qwen/Qwen3-14b-thinking,ko,trial18
+가닐가닐,벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌,Zzilgga-rra,Qwen/Qwen3-14b-thinking,ko,trial19
+가닥가닥,물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태,지즈스르르,Qwen/Qwen3-14b-thinking,ko,trial19
+가동가동,"어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양",지즈스르르,Qwen/Qwen3-14b-thinking,ko,trial19
+가둥가둥,몸집이 작은 사람이 엉덩이를 잇따라 흔드는 모양,지즈스르르,Qwen/Qwen3-14b-thinking,ko,trial19
+가드락가드락,조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양,지즈스르르,Qwen/Qwen3-14b-thinking,ko,trial19
+가득,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양,지즈스르르,Qwen/Qwen3-14b-thinking,ko,trial19
+가득가득,분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양,지즈스르르,Qwen/Qwen3-14b-thinking,ko,trial19
+가든가든,다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태,지즈스르르,Qwen/Qwen3-14b-thinking,ko,trial19
+가들막가들막,신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양,지즈스르르,Qwen/Qwen3-14b-thinking,ko,trial19
+가뜩,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양,지즈스르르,Qwen/Qwen3-14b-thinking,ko,trial19
+가닐가닐,벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌,스히크-티크라,Qwen/Qwen3-14b-thinking,ko,trial20
+가닥가닥,물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태,스즈르르,Qwen/Qwen3-14b-thinking,ko,trial20
+가동가동,"어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양",스즈르르,Qwen/Qwen3-14b-thinking,ko,trial20
+가둥가둥,몸집이 작은 사람이 엉덩이를 잇따라 흔드는 모양,스즈르르,Qwen/Qwen3-14b-thinking,ko,trial20
+가드락가드락,조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양,스즈르르,Qwen/Qwen3-14b-thinking,ko,trial20
+가득,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양,스즈르르,Qwen/Qwen3-14b-thinking,ko,trial20
+가득가득,분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양,스즈르르,Qwen/Qwen3-14b-thinking,ko,trial20
+가든가든,다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태,스즈르르,Qwen/Qwen3-14b-thinking,ko,trial20
+가들막가들막,신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양,스즈르르,Qwen/Qwen3-14b-thinking,ko,trial20
+가뜩,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양,스즈르르,Qwen/Qwen3-14b-thinking,ko,trial20
+가닐가닐,벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌,기르르,Qwen/Qwen3-14b-thinking,ko,trial21
+가닥가닥,물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태,칙칙칙,Qwen/Qwen3-14b-thinking,ko,trial21
+가동가동,"어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양",칙칙칙,Qwen/Qwen3-14b-thinking,ko,trial21
+가둥가둥,몸집이 작은 사람이 엉덩이를 잇따라 흔드는 모양,칙칙칙,Qwen/Qwen3-14b-thinking,ko,trial21
+가드락가드락,조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양,칙칙칙,Qwen/Qwen3-14b-thinking,ko,trial21
+가득,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양,칙칙칙,Qwen/Qwen3-14b-thinking,ko,trial21
+가득가득,분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양,칙칙칙,Qwen/Qwen3-14b-thinking,ko,trial21
+가든가든,다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태,칙칙칙,Qwen/Qwen3-14b-thinking,ko,trial21
+가들막가들막,신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양,칙칙칙,Qwen/Qwen3-14b-thinking,ko,trial21
+가뜩,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양,칙칙칙,Qwen/Qwen3-14b-thinking,ko,trial21
+가닐가닐,벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌,스즈릿,Qwen/Qwen3-14b-thinking,ko,trial22
+가닥가닥,물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태,스즈릿,Qwen/Qwen3-14b-thinking,ko,trial22
+가동가동,"어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양",스즈릿,Qwen/Qwen3-14b-thinking,ko,trial22
+가둥가둥,몸집이 작은 사람이 엉덩이를 잇따라 흔드는 모양,스즈릿,Qwen/Qwen3-14b-thinking,ko,trial22
+가드락가드락,조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양,스즈릿,Qwen/Qwen3-14b-thinking,ko,trial22
+가득,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양,스즈릿,Qwen/Qwen3-14b-thinking,ko,trial22
+가득가득,분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양,스즈릿,Qwen/Qwen3-14b-thinking,ko,trial22
+가든가든,다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태,스즈릿,Qwen/Qwen3-14b-thinking,ko,trial22
+가들막가들막,신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양,스즈릿,Qwen/Qwen3-14b-thinking,ko,trial22
+가뜩,분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양,스즈릿,Qwen/Qwen3-14b-thinking,ko,trial22

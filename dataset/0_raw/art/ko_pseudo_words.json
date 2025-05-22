@@ -17038,5 +17038,1205 @@
     "model": "google/gemma-3-27b-it",
     "language": "ko",
     "trial": "trial22"
+  },
+  {
+    "original_word": "가닐가닐",
+    "meaning": "벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌",
+    "generated_word": "지따리",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "ko",
+    "trial": "trial1"
+  },
+  {
+    "original_word": "가닥가닥",
+    "meaning": "물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태",
+    "generated_word": "지스리",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "ko",
+    "trial": "trial1"
+  },
+  {
+    "original_word": "가동가동",
+    "meaning": "어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양",
+    "generated_word": "지스리",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "ko",
+    "trial": "trial1"
+  },
+  {
+    "original_word": "가둥가둥",
+    "meaning": "몸집이 작은 사람이 엉덩이를 잇따라 흔드는 모양",
+    "generated_word": "지스리",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "ko",
+    "trial": "trial1"
+  },
+  {
+    "original_word": "가드락가드락",
+    "meaning": "조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양",
+    "generated_word": "지스리",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "ko",
+    "trial": "trial1"
+  },
+  {
+    "original_word": "가득",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양",
+    "generated_word": "지스리",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "ko",
+    "trial": "trial1"
+  },
+  {
+    "original_word": "가득가득",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양",
+    "generated_word": "지스리",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "ko",
+    "trial": "trial1"
+  },
+  {
+    "original_word": "가든가든",
+    "meaning": "다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태",
+    "generated_word": "지스리",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "ko",
+    "trial": "trial1"
+  },
+  {
+    "original_word": "가들막가들막",
+    "meaning": "신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양",
+    "generated_word": "지스리",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "ko",
+    "trial": "trial1"
+  },
+  {
+    "original_word": "가뜩",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양",
+    "generated_word": "지스리",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "ko",
+    "trial": "trial1"
+  },
+  {
+    "original_word": "가닐가닐",
+    "meaning": "벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌",
+    "generated_word": "지스리",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "ko",
+    "trial": "trial2"
+  },
+  {
+    "original_word": "가닥가닥",
+    "meaning": "물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태",
+    "generated_word": "지스리",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "ko",
+    "trial": "trial2"
+  },
+  {
+    "original_word": "가동가동",
+    "meaning": "어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양",
+    "generated_word": "지스리",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "ko",
+    "trial": "trial2"
+  },
+  {
+    "original_word": "가둥가둥",
+    "meaning": "몸집이 작은 사람이 엉덩이를 잇따라 흔드는 모양",
+    "generated_word": "지스리",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "ko",
+    "trial": "trial2"
+  },
+  {
+    "original_word": "가드락가드락",
+    "meaning": "조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양",
+    "generated_word": "지스리",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "ko",
+    "trial": "trial2"
+  },
+  {
+    "original_word": "가득",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양",
+    "generated_word": "지스리",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "ko",
+    "trial": "trial2"
+  },
+  {
+    "original_word": "가득가득",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양",
+    "generated_word": "지스리",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "ko",
+    "trial": "trial2"
+  },
+  {
+    "original_word": "가든가든",
+    "meaning": "다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태",
+    "generated_word": "지스리",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "ko",
+    "trial": "trial2"
+  },
+  {
+    "original_word": "가들막가들막",
+    "meaning": "신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양",
+    "generated_word": "지스리",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "ko",
+    "trial": "trial2"
+  },
+  {
+    "original_word": "가뜩",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양",
+    "generated_word": "지스리",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "ko",
+    "trial": "trial2"
+  },
+  {
+    "original_word": "가닐가닐",
+    "meaning": "벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌",
+    "generated_word": "Slyrprik",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "ko",
+    "trial": "trial4"
+  },
+  {
+    "original_word": "가닥가닥",
+    "meaning": "물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태",
+    "generated_word": "Wermzilprktz",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "ko",
+    "trial": "trial4"
+  },
+  {
+    "original_word": "가동가동",
+    "meaning": "어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양",
+    "generated_word": "Wermzilprktz",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "ko",
+    "trial": "trial4"
+  },
+  {
+    "original_word": "가둥가둥",
+    "meaning": "몸집이 작은 사람이 엉덩이를 잇따라 흔드는 모양",
+    "generated_word": "Wermzilprktz",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "ko",
+    "trial": "trial4"
+  },
+  {
+    "original_word": "가드락가드락",
+    "meaning": "조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양",
+    "generated_word": "Wermzilprktz",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "ko",
+    "trial": "trial4"
+  },
+  {
+    "original_word": "가득",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양",
+    "generated_word": "Wermzilprktz",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "ko",
+    "trial": "trial4"
+  },
+  {
+    "original_word": "가득가득",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양",
+    "generated_word": "Wermzilprktz",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "ko",
+    "trial": "trial4"
+  },
+  {
+    "original_word": "가든가든",
+    "meaning": "다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태",
+    "generated_word": "Wermzilprktz",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "ko",
+    "trial": "trial4"
+  },
+  {
+    "original_word": "가들막가들막",
+    "meaning": "신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양",
+    "generated_word": "Wermzilprktz",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "ko",
+    "trial": "trial4"
+  },
+  {
+    "original_word": "가뜩",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양",
+    "generated_word": "Wermzilprktz",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "ko",
+    "trial": "trial4"
+  },
+  {
+    "original_word": "가닐가닐",
+    "meaning": "벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌",
+    "generated_word": "기어가려",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "ko",
+    "trial": "trial6"
+  },
+  {
+    "original_word": "가닥가닥",
+    "meaning": "물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태",
+    "generated_word": "기어감",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "ko",
+    "trial": "trial6"
+  },
+  {
+    "original_word": "가동가동",
+    "meaning": "어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양",
+    "generated_word": "기어감",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "ko",
+    "trial": "trial6"
+  },
+  {
+    "original_word": "가둥가둥",
+    "meaning": "몸집이 작은 사람이 엉덩이를 잇따라 흔드는 모양",
+    "generated_word": "기어감",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "ko",
+    "trial": "trial6"
+  },
+  {
+    "original_word": "가드락가드락",
+    "meaning": "조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양",
+    "generated_word": "기어감",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "ko",
+    "trial": "trial6"
+  },
+  {
+    "original_word": "가득",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양",
+    "generated_word": "기어감",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "ko",
+    "trial": "trial6"
+  },
+  {
+    "original_word": "가득가득",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양",
+    "generated_word": "기어감",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "ko",
+    "trial": "trial6"
+  },
+  {
+    "original_word": "가든가든",
+    "meaning": "다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태",
+    "generated_word": "기어감",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "ko",
+    "trial": "trial6"
+  },
+  {
+    "original_word": "가들막가들막",
+    "meaning": "신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양",
+    "generated_word": "기어감",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "ko",
+    "trial": "trial6"
+  },
+  {
+    "original_word": "가뜩",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양",
+    "generated_word": "기어감",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "ko",
+    "trial": "trial6"
+  },
+  {
+    "original_word": "가닐가닐",
+    "meaning": "벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌",
+    "generated_word": "기어지르르",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "ko",
+    "trial": "trial12"
+  },
+  {
+    "original_word": "가닥가닥",
+    "meaning": "물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태",
+    "generated_word": "스즈리",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "ko",
+    "trial": "trial12"
+  },
+  {
+    "original_word": "가동가동",
+    "meaning": "어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양",
+    "generated_word": "스즈리",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "ko",
+    "trial": "trial12"
+  },
+  {
+    "original_word": "가둥가둥",
+    "meaning": "몸집이 작은 사람이 엉덩이를 잇따라 흔드는 모양",
+    "generated_word": "스즈리",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "ko",
+    "trial": "trial12"
+  },
+  {
+    "original_word": "가드락가드락",
+    "meaning": "조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양",
+    "generated_word": "스즈리",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "ko",
+    "trial": "trial12"
+  },
+  {
+    "original_word": "가득",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양",
+    "generated_word": "스즈리",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "ko",
+    "trial": "trial12"
+  },
+  {
+    "original_word": "가득가득",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양",
+    "generated_word": "스즈리",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "ko",
+    "trial": "trial12"
+  },
+  {
+    "original_word": "가든가든",
+    "meaning": "다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태",
+    "generated_word": "스즈리",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "ko",
+    "trial": "trial12"
+  },
+  {
+    "original_word": "가들막가들막",
+    "meaning": "신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양",
+    "generated_word": "스즈리",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "ko",
+    "trial": "trial12"
+  },
+  {
+    "original_word": "가뜩",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양",
+    "generated_word": "스즈리",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "ko",
+    "trial": "trial12"
+  },
+  {
+    "original_word": "가닐가닐",
+    "meaning": "벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌",
+    "generated_word": "기르르",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "ko",
+    "trial": "trial13"
+  },
+  {
+    "original_word": "가닥가닥",
+    "meaning": "물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태",
+    "generated_word": "지르지르",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "ko",
+    "trial": "trial13"
+  },
+  {
+    "original_word": "가동가동",
+    "meaning": "어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양",
+    "generated_word": "지르지르",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "ko",
+    "trial": "trial13"
+  },
+  {
+    "original_word": "가둥가둥",
+    "meaning": "몸집이 작은 사람이 엉덩이를 잇따라 흔드는 모양",
+    "generated_word": "지르지르",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "ko",
+    "trial": "trial13"
+  },
+  {
+    "original_word": "가드락가드락",
+    "meaning": "조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양",
+    "generated_word": "지르지르",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "ko",
+    "trial": "trial13"
+  },
+  {
+    "original_word": "가득",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양",
+    "generated_word": "지르지르",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "ko",
+    "trial": "trial13"
+  },
+  {
+    "original_word": "가득가득",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양",
+    "generated_word": "지르지르",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "ko",
+    "trial": "trial13"
+  },
+  {
+    "original_word": "가든가든",
+    "meaning": "다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태",
+    "generated_word": "지르지르",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "ko",
+    "trial": "trial13"
+  },
+  {
+    "original_word": "가들막가들막",
+    "meaning": "신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양",
+    "generated_word": "지르지르",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "ko",
+    "trial": "trial13"
+  },
+  {
+    "original_word": "가뜩",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양",
+    "generated_word": "지르지르",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "ko",
+    "trial": "trial13"
+  },
+  {
+    "original_word": "가닐가닐",
+    "meaning": "벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌",
+    "generated_word": "스치치",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "ko",
+    "trial": "trial14"
+  },
+  {
+    "original_word": "가닥가닥",
+    "meaning": "물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태",
+    "generated_word": "지르르치",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "ko",
+    "trial": "trial14"
+  },
+  {
+    "original_word": "가동가동",
+    "meaning": "어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양",
+    "generated_word": "지르르치",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "ko",
+    "trial": "trial14"
+  },
+  {
+    "original_word": "가둥가둥",
+    "meaning": "몸집이 작은 사람이 엉덩이를 잇따라 흔드는 모양",
+    "generated_word": "지르르치",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "ko",
+    "trial": "trial14"
+  },
+  {
+    "original_word": "가드락가드락",
+    "meaning": "조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양",
+    "generated_word": "지르르치",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "ko",
+    "trial": "trial14"
+  },
+  {
+    "original_word": "가득",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양",
+    "generated_word": "지르르치",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "ko",
+    "trial": "trial14"
+  },
+  {
+    "original_word": "가득가득",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양",
+    "generated_word": "지르르치",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "ko",
+    "trial": "trial14"
+  },
+  {
+    "original_word": "가든가든",
+    "meaning": "다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태",
+    "generated_word": "지르르치",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "ko",
+    "trial": "trial14"
+  },
+  {
+    "original_word": "가들막가들막",
+    "meaning": "신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양",
+    "generated_word": "지르르치",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "ko",
+    "trial": "trial14"
+  },
+  {
+    "original_word": "가뜩",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양",
+    "generated_word": "지르르치",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "ko",
+    "trial": "trial14"
+  },
+  {
+    "original_word": "가닐가닐",
+    "meaning": "벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌",
+    "generated_word": "\n\n지르르",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "ko",
+    "trial": "trial15"
+  },
+  {
+    "original_word": "가닥가닥",
+    "meaning": "물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태",
+    "generated_word": "\n\n지르르",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "ko",
+    "trial": "trial15"
+  },
+  {
+    "original_word": "가동가동",
+    "meaning": "어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양",
+    "generated_word": "\n\n지르르",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "ko",
+    "trial": "trial15"
+  },
+  {
+    "original_word": "가둥가둥",
+    "meaning": "몸집이 작은 사람이 엉덩이를 잇따라 흔드는 모양",
+    "generated_word": "\n\n지르르",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "ko",
+    "trial": "trial15"
+  },
+  {
+    "original_word": "가드락가드락",
+    "meaning": "조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양",
+    "generated_word": "\n\n지르르",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "ko",
+    "trial": "trial15"
+  },
+  {
+    "original_word": "가득",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양",
+    "generated_word": "\n\n지르르",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "ko",
+    "trial": "trial15"
+  },
+  {
+    "original_word": "가득가득",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양",
+    "generated_word": "\n\n지르르",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "ko",
+    "trial": "trial15"
+  },
+  {
+    "original_word": "가든가든",
+    "meaning": "다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태",
+    "generated_word": "\n\n지르르",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "ko",
+    "trial": "trial15"
+  },
+  {
+    "original_word": "가들막가들막",
+    "meaning": "신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양",
+    "generated_word": "\n\n지르르",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "ko",
+    "trial": "trial15"
+  },
+  {
+    "original_word": "가뜩",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양",
+    "generated_word": "\n\n지르르",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "ko",
+    "trial": "trial15"
+  },
+  {
+    "original_word": "가닐가닐",
+    "meaning": "벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌",
+    "generated_word": "\n\n기이지지",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "ko",
+    "trial": "trial16"
+  },
+  {
+    "original_word": "가닥가닥",
+    "meaning": "물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태",
+    "generated_word": "\n\n칙칙",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "ko",
+    "trial": "trial16"
+  },
+  {
+    "original_word": "가동가동",
+    "meaning": "어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양",
+    "generated_word": "\n\n칙칙",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "ko",
+    "trial": "trial16"
+  },
+  {
+    "original_word": "가둥가둥",
+    "meaning": "몸집이 작은 사람이 엉덩이를 잇따라 흔드는 모양",
+    "generated_word": "\n\n칙칙",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "ko",
+    "trial": "trial16"
+  },
+  {
+    "original_word": "가드락가드락",
+    "meaning": "조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양",
+    "generated_word": "\n\n칙칙",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "ko",
+    "trial": "trial16"
+  },
+  {
+    "original_word": "가득",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양",
+    "generated_word": "\n\n칙칙",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "ko",
+    "trial": "trial16"
+  },
+  {
+    "original_word": "가득가득",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양",
+    "generated_word": "\n\n칙칙",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "ko",
+    "trial": "trial16"
+  },
+  {
+    "original_word": "가든가든",
+    "meaning": "다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태",
+    "generated_word": "\n\n칙칙",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "ko",
+    "trial": "trial16"
+  },
+  {
+    "original_word": "가들막가들막",
+    "meaning": "신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양",
+    "generated_word": "\n\n칙칙",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "ko",
+    "trial": "trial16"
+  },
+  {
+    "original_word": "가뜩",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양",
+    "generated_word": "\n\n칙칙",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "ko",
+    "trial": "trial16"
+  },
+  {
+    "original_word": "가닐가닐",
+    "meaning": "벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌",
+    "generated_word": "찌릿칙칙",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "ko",
+    "trial": "trial17"
+  },
+  {
+    "original_word": "가닥가닥",
+    "meaning": "물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태",
+    "generated_word": "기어기어리",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "ko",
+    "trial": "trial17"
+  },
+  {
+    "original_word": "가동가동",
+    "meaning": "어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양",
+    "generated_word": "기어기어리",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "ko",
+    "trial": "trial17"
+  },
+  {
+    "original_word": "가둥가둥",
+    "meaning": "몸집이 작은 사람이 엉덩이를 잇따라 흔드는 모양",
+    "generated_word": "기어기어리",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "ko",
+    "trial": "trial17"
+  },
+  {
+    "original_word": "가드락가드락",
+    "meaning": "조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양",
+    "generated_word": "기어기어리",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "ko",
+    "trial": "trial17"
+  },
+  {
+    "original_word": "가득",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양",
+    "generated_word": "기어기어리",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "ko",
+    "trial": "trial17"
+  },
+  {
+    "original_word": "가득가득",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양",
+    "generated_word": "기어기어리",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "ko",
+    "trial": "trial17"
+  },
+  {
+    "original_word": "가든가든",
+    "meaning": "다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태",
+    "generated_word": "기어기어리",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "ko",
+    "trial": "trial17"
+  },
+  {
+    "original_word": "가들막가들막",
+    "meaning": "신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양",
+    "generated_word": "기어기어리",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "ko",
+    "trial": "trial17"
+  },
+  {
+    "original_word": "가뜩",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양",
+    "generated_word": "기어기어리",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "ko",
+    "trial": "trial17"
+  },
+  {
+    "original_word": "가닐가닐",
+    "meaning": "벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌",
+    "generated_word": "지즈스르륵",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "ko",
+    "trial": "trial18"
+  },
+  {
+    "original_word": "가닥가닥",
+    "meaning": "물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태",
+    "generated_word": "스스르륵",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "ko",
+    "trial": "trial18"
+  },
+  {
+    "original_word": "가동가동",
+    "meaning": "어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양",
+    "generated_word": "스스르륵",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "ko",
+    "trial": "trial18"
+  },
+  {
+    "original_word": "가둥가둥",
+    "meaning": "몸집이 작은 사람이 엉덩이를 잇따라 흔드는 모양",
+    "generated_word": "스스르륵",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "ko",
+    "trial": "trial18"
+  },
+  {
+    "original_word": "가드락가드락",
+    "meaning": "조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양",
+    "generated_word": "스스르륵",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "ko",
+    "trial": "trial18"
+  },
+  {
+    "original_word": "가득",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양",
+    "generated_word": "스스르륵",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "ko",
+    "trial": "trial18"
+  },
+  {
+    "original_word": "가득가득",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양",
+    "generated_word": "스스르륵",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "ko",
+    "trial": "trial18"
+  },
+  {
+    "original_word": "가든가든",
+    "meaning": "다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태",
+    "generated_word": "스스르륵",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "ko",
+    "trial": "trial18"
+  },
+  {
+    "original_word": "가들막가들막",
+    "meaning": "신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양",
+    "generated_word": "스스르륵",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "ko",
+    "trial": "trial18"
+  },
+  {
+    "original_word": "가뜩",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양",
+    "generated_word": "스스르륵",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "ko",
+    "trial": "trial18"
+  },
+  {
+    "original_word": "가닐가닐",
+    "meaning": "벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌",
+    "generated_word": "Zzilgga-rra",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "ko",
+    "trial": "trial19"
+  },
+  {
+    "original_word": "가닥가닥",
+    "meaning": "물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태",
+    "generated_word": "지즈스르르",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "ko",
+    "trial": "trial19"
+  },
+  {
+    "original_word": "가동가동",
+    "meaning": "어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양",
+    "generated_word": "지즈스르르",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "ko",
+    "trial": "trial19"
+  },
+  {
+    "original_word": "가둥가둥",
+    "meaning": "몸집이 작은 사람이 엉덩이를 잇따라 흔드는 모양",
+    "generated_word": "지즈스르르",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "ko",
+    "trial": "trial19"
+  },
+  {
+    "original_word": "가드락가드락",
+    "meaning": "조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양",
+    "generated_word": "지즈스르르",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "ko",
+    "trial": "trial19"
+  },
+  {
+    "original_word": "가득",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양",
+    "generated_word": "지즈스르르",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "ko",
+    "trial": "trial19"
+  },
+  {
+    "original_word": "가득가득",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양",
+    "generated_word": "지즈스르르",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "ko",
+    "trial": "trial19"
+  },
+  {
+    "original_word": "가든가든",
+    "meaning": "다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태",
+    "generated_word": "지즈스르르",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "ko",
+    "trial": "trial19"
+  },
+  {
+    "original_word": "가들막가들막",
+    "meaning": "신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양",
+    "generated_word": "지즈스르르",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "ko",
+    "trial": "trial19"
+  },
+  {
+    "original_word": "가뜩",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양",
+    "generated_word": "지즈스르르",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "ko",
+    "trial": "trial19"
+  },
+  {
+    "original_word": "가닐가닐",
+    "meaning": "벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌",
+    "generated_word": "스히크-티크라",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "ko",
+    "trial": "trial20"
+  },
+  {
+    "original_word": "가닥가닥",
+    "meaning": "물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태",
+    "generated_word": "스즈르르",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "ko",
+    "trial": "trial20"
+  },
+  {
+    "original_word": "가동가동",
+    "meaning": "어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양",
+    "generated_word": "스즈르르",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "ko",
+    "trial": "trial20"
+  },
+  {
+    "original_word": "가둥가둥",
+    "meaning": "몸집이 작은 사람이 엉덩이를 잇따라 흔드는 모양",
+    "generated_word": "스즈르르",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "ko",
+    "trial": "trial20"
+  },
+  {
+    "original_word": "가드락가드락",
+    "meaning": "조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양",
+    "generated_word": "스즈르르",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "ko",
+    "trial": "trial20"
+  },
+  {
+    "original_word": "가득",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양",
+    "generated_word": "스즈르르",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "ko",
+    "trial": "trial20"
+  },
+  {
+    "original_word": "가득가득",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양",
+    "generated_word": "스즈르르",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "ko",
+    "trial": "trial20"
+  },
+  {
+    "original_word": "가든가든",
+    "meaning": "다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태",
+    "generated_word": "스즈르르",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "ko",
+    "trial": "trial20"
+  },
+  {
+    "original_word": "가들막가들막",
+    "meaning": "신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양",
+    "generated_word": "스즈르르",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "ko",
+    "trial": "trial20"
+  },
+  {
+    "original_word": "가뜩",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양",
+    "generated_word": "스즈르르",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "ko",
+    "trial": "trial20"
+  },
+  {
+    "original_word": "가닐가닐",
+    "meaning": "벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌",
+    "generated_word": "기르르",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "ko",
+    "trial": "trial21"
+  },
+  {
+    "original_word": "가닥가닥",
+    "meaning": "물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태",
+    "generated_word": "칙칙칙",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "ko",
+    "trial": "trial21"
+  },
+  {
+    "original_word": "가동가동",
+    "meaning": "어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양",
+    "generated_word": "칙칙칙",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "ko",
+    "trial": "trial21"
+  },
+  {
+    "original_word": "가둥가둥",
+    "meaning": "몸집이 작은 사람이 엉덩이를 잇따라 흔드는 모양",
+    "generated_word": "칙칙칙",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "ko",
+    "trial": "trial21"
+  },
+  {
+    "original_word": "가드락가드락",
+    "meaning": "조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양",
+    "generated_word": "칙칙칙",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "ko",
+    "trial": "trial21"
+  },
+  {
+    "original_word": "가득",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양",
+    "generated_word": "칙칙칙",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "ko",
+    "trial": "trial21"
+  },
+  {
+    "original_word": "가득가득",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양",
+    "generated_word": "칙칙칙",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "ko",
+    "trial": "trial21"
+  },
+  {
+    "original_word": "가든가든",
+    "meaning": "다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태",
+    "generated_word": "칙칙칙",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "ko",
+    "trial": "trial21"
+  },
+  {
+    "original_word": "가들막가들막",
+    "meaning": "신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양",
+    "generated_word": "칙칙칙",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "ko",
+    "trial": "trial21"
+  },
+  {
+    "original_word": "가뜩",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양",
+    "generated_word": "칙칙칙",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "ko",
+    "trial": "trial21"
+  },
+  {
+    "original_word": "가닐가닐",
+    "meaning": "벌레가 기어가는 것처럼 살갗이 자꾸 또는 매우 간지럽고 자릿한 느낌",
+    "generated_word": "스즈릿",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "ko",
+    "trial": "trial22"
+  },
+  {
+    "original_word": "가닥가닥",
+    "meaning": "물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태",
+    "generated_word": "스즈릿",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "ko",
+    "trial": "trial22"
+  },
+  {
+    "original_word": "가동가동",
+    "meaning": "어린아이의 겨드랑이를 치켜들고 올렸다 내렸다 하며 어를 때에, 아이가 자꾸 다리를 오그렸다 폈다 하는 모양",
+    "generated_word": "스즈릿",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "ko",
+    "trial": "trial22"
+  },
+  {
+    "original_word": "가둥가둥",
+    "meaning": "몸집이 작은 사람이 엉덩이를 잇따라 흔드는 모양",
+    "generated_word": "스즈릿",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "ko",
+    "trial": "trial22"
+  },
+  {
+    "original_word": "가드락가드락",
+    "meaning": "조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양",
+    "generated_word": "스즈릿",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "ko",
+    "trial": "trial22"
+  },
+  {
+    "original_word": "가득",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양",
+    "generated_word": "스즈릿",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "ko",
+    "trial": "trial22"
+  },
+  {
+    "original_word": "가득가득",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 여럿이 다 또는 매우 꽉 찬 모양",
+    "generated_word": "스즈릿",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "ko",
+    "trial": "trial22"
+  },
+  {
+    "original_word": "가든가든",
+    "meaning": "다루기에 여럿이 다 또는 매우 가볍고 간편하거나 손쉬운 상태",
+    "generated_word": "스즈릿",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "ko",
+    "trial": "trial22"
+  },
+  {
+    "original_word": "가들막가들막",
+    "meaning": "신이 나서 잘난 체하며 얄미울 정도로 자꾸 버릇없이 행동하는 모양",
+    "generated_word": "스즈릿",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "ko",
+    "trial": "trial22"
+  },
+  {
+    "original_word": "가뜩",
+    "meaning": "분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양",
+    "generated_word": "스즈릿",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "ko",
+    "trial": "trial22"
   }
 ]
