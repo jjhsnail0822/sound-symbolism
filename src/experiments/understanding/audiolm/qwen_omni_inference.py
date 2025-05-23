@@ -187,6 +187,13 @@ class QwenOmniMCQExperiment:
             json.dump(results_dict, f, ensure_ascii=False, indent=4)
         
         print(f"Results saved to: {results_filename}")
+
+        # Clean up
+        del self.model
+        del self.processor
+        if torch.cuda.is_available():
+            torch.cuda.empty_cache()
+            torch.cuda.synchronize()
         
         return results_dict, results_filename
 
