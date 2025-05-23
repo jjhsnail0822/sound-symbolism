@@ -132,10 +132,30 @@ class MCQExperiment:
         print(f"Running generation...")
         if self.thinking:
             print("Thinking mode enabled for Qwen3.")
+        
+        # Prepare output file path
+        model_name = os.path.basename(self.model_path)
+        results_filename = f"{self.output_dir}/semantic_dimension_gt_{model_name}{'-thinking' if self.thinking else ''}.json"
+        
+        # Create output directory if it doesn't exist
+        os.makedirs(self.output_dir, exist_ok=True)
+        
+        # Load existing results if file exists
         all_results = {}
+        if os.path.exists(results_filename):
+            try:
+                with open(results_filename, 'r', encoding='utf-8') as f:
+                    all_results = json.load(f)
+                print(f"Loaded existing results from {results_filename}")
+            except (json.JSONDecodeError, FileNotFoundError):
+                print(f"Could not load existing results, starting fresh")
+                all_results = {}
 
         for lang in langs:
-            all_results[lang] = []
+            if lang not in all_results:
+                all_results[lang] = []
+
+            word_count = 0
             for word in tqdm(self.word_data[lang], desc=f"Processing {lang} data"):
                 dimension_results = {}
                 for dimension in dimensions:
@@ -208,19 +228,33 @@ class MCQExperiment:
 
                     # print(f"Word: {word['word']}, Meaning: {word['meaning']}, Dimension: {dimension[0]}-{dimension[1]}, Answer: {model_answer}")
                 
-                all_results[lang].append({
+                # Add the completed word result to all_results
+                word_result = {
                     "word": word['word'],
                     "meaning": word['meaning'],
                     "en_meaning": word['en_meaning'],
                     "ipa": word['ipa'],
                     "dimensions": dimension_results,
-                })
+                }
+                all_results[lang].append(word_result)
+                word_count += 1
+                
+                # Save intermediate results every 10 words instead of every word
+                if word_count % 10 == 0:
+                    try:
+                        with open(results_filename, 'w', encoding='utf-8') as f:
+                            json.dump(all_results, f, ensure_ascii=False, indent=4)
+                        print(f"Saved intermediate results after {word_count} words in {lang}")
+                    except Exception as e:
+                        print(f"Warning: Could not save intermediate results: {e}")
 
-        # Save results
-        model_name = os.path.basename(self.model_path)
-        results_filename = f"{self.output_dir}/semantic_dimension_gt_{model_name}{'-thinking' if self.thinking else ''}.json"
-        with open(results_filename, 'w', encoding='utf-8') as f:
-            json.dump(all_results, f, ensure_ascii=False, indent=4)
+        # Final save
+        try:
+            with open(results_filename, 'w', encoding='utf-8') as f:
+                json.dump(all_results, f, ensure_ascii=False, indent=4)
+            print(f"Final results saved to: {results_filename}")
+        except Exception as e:
+            print(f"Error saving final results: {e}")
 
         if not self.use_api:
             del model
