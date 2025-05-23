@@ -179,72 +179,6 @@
         }
     },
     "generation": {
-        "trial1": {
-            "explanation": {
-                "문자지정" : "명시",
-                "언어지정" : "'현재 언어와 구별된다'라고 명시",
-                "가상어명칭" : "미지정",
-                "제공되는 정보" : "의미만",
-                "비고" : "믹야리어는 이전 poc 단계에서 임의로 시도한 가상어 명칭, parsing 가능하도록 구분자 명시시"
-            },
-            "en": {
-                "user_prompt": ""
-            },
-            "fr": {
-                "user_prompt": ""
-            },
-            "ko": {
-                "user_prompt": "다음의 [의미]를 가진 음성상징어를, 문자는 한글이지만 언어적으로 한국어와 구별되는 가상의 언어 [믹야리어]로 생성하십시오. 가상의 어휘만을 백틱 문자(`)로 묶어서 생성하십시오.\n[의미] : {meaning}",
-                "romanization_prompt": "생성된 어휘 `{word}`의 로마자를 번역하시오."
-            },
-            "ja": {
-                "user_prompt": ""
-            }
-        },
-        "trial2": {
-            "explanation": {
-                "문자지정" : "명시",
-                "언어지정" : "'현재 언어와 구별된다'라고 명시",
-                "가상어명칭" : "믹야리어",
-                "제공되는 정보" : "의미만",
-                "비고" : "믹야리어는 이전 poc 단계에서 임의로 시도한 가상어 명칭"
-            },
-            "en": {
-                "user_prompt": ""
-            },
-            "fr": {
-                "user_prompt": ""
-            },
-            "ko": {
-                "user_prompt": "다음의 [의미]를 가진 음성상징어를, 문자는 한글이지만 언어적으로 한국어와 구별되는 가상의 언어 [믹야리어]로 생성하십시오. 가상의 어휘만을 백틱 문자(`)로 묶어서 생성하십시오.\n[의미] : {meaning}",
-                "romanization_prompt": "생성된 어휘 `{word}`의 로마자를 번역하시오."
-            },
-            "ja": {
-                "user_prompt": ""
-            }
-        },
-        "trial4": {
-            "explanation": {
-                "문자지정" : "비명시",
-                "언어지정" : "비명시",
-                "가상어명칭" : "믹야리어",
-                "제공되는 정보" : "의미만",
-                "비고" : "믹야리어는 이전 poc 단계에서 임의로 시도한 가상어 명칭"
-            },
-            "en": {
-                "user_prompt": ""
-            },
-            "fr": {
-                "user_prompt": ""
-            },
-            "ko": {
-                "user_prompt": "다음의 [의미]를 가진 음성상징어를, 가상의 언어 [믹야리어]로 생성하십시오. 가상의 어휘만을 백틱 문자(`)로 묶어서 생성하십시오.\n[의미] : {meaning}",
-                "romanization_prompt": "생성된 어휘 `{word}`의 로마자를 번역하시오."
-            },
-            "ja": {
-                "user_prompt": ""
-            }
-        },
         "trial6": {
             "explanation": {
                 "문자지정" : "명시",
@@ -254,17 +188,16 @@
                 "비고" : "믹야리어는 이전 poc 단계에서 임의로 시도한 가상어 명칭"
             },
             "en": {
-                "user_prompt": ""
+                "user_prompt": "Create a sound symbolic word with the following [meaning] in a fictitious language, with characters in Roman letters. Create only the fictional vocabulary, enclosed in backticks (`):\n[meaning] : {meaning}"
             },
             "fr": {
-                "user_prompt": ""
+                "user_prompt": "Créez un symbole phonétique avec le [sens] suivant dans une langue fictive, avec les caractères en lettres romaines. Ne créez que le vocabulaire fictif, entre crochets (`):\n[sens] : {meaning}"
             },
             "ko": {
-                "user_prompt": "다음의 [의미]를 가진 음성상징어를, 문자는 한글로 하여 가상의 언어로 생성하십시오. 가상의 어휘만을 백틱 문자(`)로 묶어서 생성하십시오.\n[의미] : {meaning}",
-                "romanization_prompt": "생성된 어휘 `{word}`의 로마자를 번역하시오."
+                "user_prompt": "다음의 [의미]를 가진 음성상징어를, 문자는 한글로 하여 가상의 언어로 생성하십시오. 가상의 어휘만을 백틱 문자(`)로 묶어서 생성하십시오.\n[의미] : {meaning}"
             },
             "ja": {
-                "user_prompt": ""
+                "user_prompt": "次の[意味]を持つ音象徴語を、文字はひらがなで、架空の言語で生成してください。架空の語彙だけをバックティック文字(`)で囲んで生成してください。 \n[意味] : {meaning}"
             }
         },
         "trial12": {
@@ -276,17 +209,16 @@
                 "비고" : "의미를 분리하여 설명하지 않고, 초반에 기술"
             },
             "en": {
-                "user_prompt": ""
+                "user_prompt": "Create a fictional language with phonetic symbols whose meaning is \"{meaning}\" and characters in Roman letters. Create only the fictional vocabulary, enclosing it in backticks (`)."
             },
             "fr": {
-                "user_prompt": ""
+                "user_prompt": "Créez une langue fictive avec des symboles phonétiques signifiant « {meaning} » et des caractères en lettres romaines. Créez uniquement le vocabulaire fictif, en l'entourant de bâtons (`)."
             },
             "ko": {
-                "user_prompt": "'{meaning}'(을)를 의미로 가지는 음성상징어를, 문자는 한글로 하여 가상의 언어로 생성하십시오. 가상의 어휘만을 백틱 문자(`)로 묶어서 생성하십시오.",
-                "romanization_prompt": "생성된 어휘 `{word}`의 로마자를 번역하시오."
+                "user_prompt": "\"{meaning}\"(을)를 의미로 가지는 음성상징어를, 문자는 한글로 하여 가상의 언어로 생성하십시오. 가상의 어휘만을 백틱 문자(`)로 묶어서 생성하십시오."
             },
             "ja": {
-                "user_prompt": ""
+                "user_prompt": "「{meaning}」を意味する音象徴語を、文字はひらがなで、架空の言語で生成してください。架空の語彙だけをバックティック文字(`)で囲んで生成してください。"
             }
         },
         "trial13": {
@@ -298,16 +230,16 @@
                 "비고" : "의미를 분리하여 설명하지 않고, 초반에 기술. 일부 표현 수정"
             },
             "en": {
-                "user_prompt": ""
+                "user_prompt": "Create a fictitious onomatopoeia or onomatopoeia with the meaning \"{meaning}\" and the letters are Romanized. Create only the fictional vocabulary, enclosing it in backticks (`)."
             },
             "fr": {
-                "user_prompt": ""
+                "user_prompt": "Créez une onomatopée ou une idéophone fictive dont le sens est « {meaning} » et dont les lettres sont romaines. Créez un lexème fictif entouré d'une coche (`)."
             },
             "ko": {
-                "user_prompt": "'{meaning}'(을)를 의미로 가지면서 문자는 한글인 가상의 의성어 또는 의태어를 생성하십시오. 가상의 어휘만을 백틱 문자(`)로 묶어서 생성하십시오."
+                "user_prompt": "\"{meaning}\"(을)를 의미로 가지면서 문자는 한글인 가상의 의성어 또는 의태어를 생성하십시오. 가상의 어휘만을 백틱 문자(`)로 묶어서 생성하십시오."
             },
             "ja": {
-                "user_prompt": ""
+                "user_prompt": "「{meaning}」の意味を持ちながら、文字はひらがなである架空の擬音語または擬態語を生成してください。架空の語彙だけをバックティック文字(`)で囲んで生成してください。"
             }
         },
         "trial14": {
@@ -319,16 +251,16 @@
                 "비고" : "의미를 분리하여 설명하지 않고, 초반에 기술. '가상의 언어'라는 표현을 명시. 일부 표현 수정."
             },
             "en": {
-                "user_prompt": ""
+                "user_prompt": "Create an onomatopoeia or ideophone word that means \"{meaning}\" in a fictional language distinct from English, romanized. Create only the fictional vocabulary, enclosed in backtick characters (`)."
             },
             "fr": {
-                "user_prompt": ""
+                "user_prompt": "Créer une onomatopée ou une idéophone pour « {meaning} » dans une langue fictive distincte du français, en caractères romains. Ne créez que le vocabulaire fictif, en l'entourant d'un astérisque (`)."
             },
             "ko": {
-                "user_prompt": "한국어와는 구별되는 가상의 언어에서 '{meaning}'(을)를 뜻하는 의성어 또는 의태어를 한글로 생성하십시오. 가상의 어휘만을 백틱 문자(`)로 묶어서 생성하십시오."
+                "user_prompt": "한국어와는 구별되는 가상의 언어에서 \"{meaning}\"(을)를 뜻하는 의성어 또는 의태어를 한글로 생성하십시오. 가상의 어휘만을 백틱 문자(`)로 묶어서 생성하십시오."
             },
             "ja": {
-                "user_prompt": ""
+                "user_prompt": "日本語と区別される架空の言語で、「{meaning}」を意味する擬音語または擬態語をひらがなで生成してください。架空の語彙だけをバックティック文字(`)で囲んで生成してください。"
             }
         },
         "trial15": {
@@ -340,16 +272,16 @@
                 "비고" : "의미를 분리하여 설명하지 않고, 초반에 기술. '가상의 언어'라는 표현을 명시. 일부 표현 수정."
             },
             "en": {
-                "user_prompt": ""
+                "user_prompt": "Generate an onomatopoeia or ideophone word for \"{meaning}\" in a fictional language distinct from English, romanized. Return only the generated fictional vocabulary as an answer."
             },
             "fr": {
-                "user_prompt": ""
+                "user_prompt": "Générer une onomatopée ou un mot idéophone pour « {meaning} » dans une langue fictive distincte du français, en lettres romaines. Ne renvoyez comme réponse que le vocabulaire fictif généré."
             },
             "ko": {
-                "user_prompt": "한국어와는 구별되는 가상의 언어에서 '{meaning}'(을)를 뜻하는 의성어 또는 의태어를 한글로 생성하세요. 생성된 가상의 어휘만을 답변으로 반환하세요."
+                "user_prompt": "한국어와는 구별되는 가상의 언어에서 \"{meaning}\"(을)를 뜻하는 의성어 또는 의태어를 한글로 생성하세요. 생성된 가상의 어휘만을 답변으로 반환하세요."
             },
             "ja": {
-                "user_prompt": ""
+                "user_prompt": "日本語と区別される架空の言語で「{meaning}」を意味する擬音語または擬態語をひらがなで生成してください。生成された架空の語彙だけを回答として返してください。"
             }
         },
         "trial16": {
@@ -361,16 +293,16 @@
                 "비고" : "의미를 분리하여 설명하지 않고, 초반에 기술. '가상의 언어'라는 표현을 명시. 일부 표현 수정."
             },
             "en": {
-                "user_prompt": ""
+                "user_prompt": "Generate onomatopoeia/ideophone for \"{meaning}\" in a fictional language other than English, in Romanized letters. Return only the generated vocabulary as an answer."
             },
             "fr": {
-                "user_prompt": ""
+                "user_prompt": "Générer une onomatopée/idéophone pour « {meaning} » dans une langue fictive autre que le français, en romanisation. Ne renvoyez que le vocabulaire généré comme réponse."
             },
             "ko": {
-                "user_prompt": "한국어가 아닌 가상의 언어에서 '{meaning}'(을)를 뜻하는 의성어/의태어를 한글로 생성하세요. 생성된 어휘만을 답변으로 반환하세요."
+                "user_prompt": "한국어가 아닌 가상의 언어에서 \"{meaning}\"(을)를 뜻하는 의성어/의태어를 한글로 생성하세요. 생성된 어휘만을 답변으로 반환하세요."
             },
             "ja": {
-                "user_prompt": ""
+                "user_prompt": "日本語ではない架空の言語で「{meaning}」を意味する擬音語・擬態語をひらがなで生成してください。生成された語彙のみを回答として返してください。"
             }
         },
         "trial17": {
@@ -382,16 +314,16 @@
                 "비고" : "의미를 분리하여 설명하지 않고, 초반에 기술. '가상의 언어'라는 표현을 명시. 일부 표현 수정."
             },
             "en": {
-                "user_prompt": ""
+                "user_prompt": "Generate onomatopoeia/ideophone for \"{meaning}\" in a fictional non-English language in Romanized characters. Return only the generated vocabulary, enclosed in backtick characters (`)."
             },
             "fr": {
-                "user_prompt": ""
+                "user_prompt": "Générer des onomatopée/idéophone pour « {meaning} » dans une langue fictive autre que le français, en caractères romains. Ne retourner que le vocabulaire généré entouré de caractères backtick (`)."
             },
             "ko": {
                 "user_prompt": "한국어가 아닌 가상의 언어에서 \"{meaning}\"을(를) 뜻하는 의성어/의태어를 한글로 생성하세요. 생성된 어휘만을 백틱 문자(`)로 묶어서 반환하세요."
             },
             "ja": {
-                "user_prompt": ""
+                "user_prompt": "日本語ではないの架空の言語で「{meaning}」を意味する擬音語・擬態語をひらがなで生成してください。生成された語彙のみをバックティック文字(`)で囲んで返してください。"
             }
         },
         "trial18": {
@@ -403,16 +335,16 @@
                 "비고" : "의미를 분리하여 설명하지 않고 초반에 제시. '가상의 언어'라는 표현을 명시. 일부 표현 수정. 기타 표현도 나오도록 함."
             },
             "en": {
-                "user_prompt": ""
+                "user_prompt": "Generate onomatopoeia/ideophone for \"{meaning}\" in a fictional non-English language in Romanized characters. Return the generated vocabulary enclosed in backtick characters (`)."
             },
             "fr": {
-                "user_prompt": ""
+                "user_prompt": "Générer une onomatopée/idéophone pour « {meaning} » dans une langue fictive autre que le français, en caractères romains. Retourner le vocabulaire généré entre les caractères backtick (`)."
             },
             "ko": {
                 "user_prompt": "한국어가 아닌 가상의 언어에서 \"{meaning}\"을(를) 뜻하는 의성어/의태어를 한글로 생성하세요. 생성된 어휘는 백틱 문자(`)로 묶어서 반환하세요."
             },
             "ja": {
-                "user_prompt": ""
+                "user_prompt": "日本語ではない架空の言語で「{meaning}」を意味する擬音語・擬態語を仮名で生成してください。生成された語彙はバックティック文字(`)で囲んで返してください。"
             }
         },
         "trial19": {
@@ -424,16 +356,16 @@
                 "비고" : "의미를 분리하여 설명하지 않고 초반에 제시. '가상의 언어'라는 표현을 명시. 일부 표현 수정. 기타 표현도 나오도록 함."
             },
             "en": {
-                "user_prompt": ""
+                "user_prompt": "Generate a creative onomatopoeia/ideophone for \"{meaning}\" in a fictional non-English language in Romanized characters. Return the generated vocabulary enclosed in backtick characters (`)."
             },
             "fr": {
-                "user_prompt": ""
+                "user_prompt": "Générer une onomatopée/idéophone créative pour « {meaning} » dans une langue fictive autre que le français, en lettres romaines. Renvoyer le vocabulaire généré entre les caractères backtick (`)."
             },
             "ko": {
                 "user_prompt": "한국어가 아닌 가상의 언어에서 \"{meaning}\"을(를) 뜻하는 창의적인 의성어/의태어를 한글로 생성하세요. 생성된 어휘는 백틱 문자(`)로 묶어서 반환하세요."
             },
             "ja": {
-                "user_prompt": ""
+                "user_prompt": "日本語ではない架空の言語で「{meaning}」を意味する創造的な擬音語・擬態語をひらがなで生成してください。生成された語彙はバックティック文字(`)で囲んで返してください。"
             }
         },
         "trial20": {
@@ -445,16 +377,16 @@
                 "비고" : "의미를 분리하여 설명하지 않고 초반에 제시. '가상의 언어'라는 표현을 명시. 일부 표현 수정. 기타 표현도 나오도록 함."
             },
             "en": {
-                "user_prompt": ""
+                "user_prompt": "Generate intuitive onomatopoeia/ideophone for \"{meaning}\" in a fictional non-English language, in Romanized characters. Return the generated vocabulary enclosed in a backtick character (`)."
             },
             "fr": {
-                "user_prompt": ""
+                "user_prompt": "Générer des onomatopée/idéophone intuitives pour « {meaning} » dans une langue fictive autre que le français, en lettres romaines. Renvoyer le vocabulaire généré entre les caractères backtick (`)."
             },
             "ko": {
                 "user_prompt": "한국어가 아닌 가상의 언어에서 \"{meaning}\"을(를) 뜻하는 직관적인 의성어/의태어를 한글로 생성하세요. 생성된 어휘는 백틱 문자(`)로 묶어서 반환하세요."
             },
             "ja": {
-                "user_prompt": ""
+                "user_prompt": "日本語ではない架空の言語で「{meaning}」を意味する直感的な擬音語・擬態語をひらがなで生成してください。生成された語彙はバックティック文字(`)で囲んで返してください。"
             }
         },
         "trial21": {
@@ -466,16 +398,16 @@
                 "비고" : "의미를 분리하여 설명하지 않고 초반에 제시. '가상의 언어'라는 표현을 명시. 일부 표현 수정. 기타 표현도 나오도록 함."
             },
             "en": {
-                "user_prompt": ""
+                "user_prompt": "Generate creative and intuitive onomatopoeia/onomatopoeia words in Roman alphabet that mean \"{meaning}\" in a fictional language other than English. Return the generated vocabulary enclosed in a backtick character (`)."
             },
             "fr": {
-                "user_prompt": ""
+                "user_prompt": "Générer des onomatopée/idéophone créatives et intuitives en français qui signifient « {meaning} » dans une langue fictive autre que le français, en lettres romaines. Renvoyer le vocabulaire généré entre les caractères backtick (`)."
             },
             "ko": {
                 "user_prompt": "한국어가 아닌 가상의 언어에서 \"{meaning}\"을(를) 뜻하는 창의적이고 직관적인 의성어/의태어를 한글로 생성하세요. 생성된 어휘는 백틱 문자(`)로 묶어서 반환하세요."
             },
             "ja": {
-                "user_prompt": ""
+                "user_prompt": "日本語ではない架空の言語で「{meaning}」を意味する創造的で直感的な擬音語・擬態語をひらがなで生成してください。生成された語彙はバックティック文字(`)で囲んで返してください。"
             }
         },
         "trial22": {
@@ -487,16 +419,16 @@
                 "비고" : "의미를 분리하여 설명하지 않고 초반에 제시. '가상의 언어'라는 표현을 명시. 일부 표현 수정. 기타 표현도 나오도록 함."
             },
             "en": {
-                "user_prompt": ""
+                "user_prompt": "You are a 'virtual language creation expert'. Please follow the instructions below:\n\n1. **Identify the meaning**\n - Summarize the emotional, situational, and sound characteristics of the input \"{meaning}\" in a short sentence.\n2. **Design a phonological pattern**\n - Considering the syllable structure of English, suggest phoneme combinations that are likely to be used in a fictional language.\n3. **Generate onomatopoeias and onomatopoeias**\n - Using the phonological patterns you designed, generate creative and intuitive onomatopoeias and ideophones for \"{meaning}\".\n - Present each one in a backtick (`).\n4. **Constraints**\n\nNow, given the meaning \"{meaning}\", generate an onomatopoeia in the backticked(`) format above."
             },
             "fr": {
-                "user_prompt": ""
+                "user_prompt": "Vous êtes un « expert en création de langage fictif ». Veuillez suivre les instructions ci-dessous:\n1. **Identifier le sens**\n - Résumez les caractéristiques émotionnelles, situationnelles et sonores de l'entrée \"{meaning}\" en une courte phrase.\n2. **Concevoir un modèle phonologique**\n - En tenant compte de la structure syllabique du français, suggérez des combinaisons de phonèmes qui sont susceptibles d'être utilisées dans une langue fictive.\n3. **Générer des onomatopées et des idéophones**\n - En utilisant les modèles phonologiques que vous avez conçus, générez des onomatopées et des onomatopées créatives et intuitives pour \"{meaning}\".\n - Présentez chacune d'entre elles dans une coche (`).\n4. **Contraintes**\n\nMaintenant, étant donné \"{meaning}\", générez une onomatopée avec coche dans le format ci-dessus."
             },
             "ko": {
-                "user_prompt": "당신은 '가상의 언어 창작 전문가'입니다. 아래 지시 사항을 따라주세요:\n\n1. **의미 파악**\n   - 입력된 {meaning}의 감정·상황·소리 특성을 간단히 한 문장으로 요약합니다.\n2. **음운 패턴 설계**\n   - 한글 음절 구조를 고려해, 가상의 언어에서 자주 쓰일 법한 음소 조합을 제안합니다.\n3. **의성어·의태어 생성**\n   - 앞서 설계한 음운 패턴을 활용해, {meaning}에 어울리는 창의적이고 직관적인 의성·의태어를 만들어냅니다.\n   - 각각을 백틱(`)으로 감싸서 제시하세요.\n4. **제약 조건**\n\n이제 {meaning}를(을) 입력받아 위 형식대로 백틱 묶음 의성·의태어를 생성해 주세요."
+                "user_prompt": "당신은 '가상의 언어 창작 전문가'입니다. 아래 지시 사항을 따라주세요:\n\n1. **의미 파악**\n - 입력된 \"{meaning}\"의 감정·상황·소리 특성을 간단히 한 문장으로 요약합니다.\n2. **음운 패턴 설계**\n - 한글 음절 구조를 고려해, 가상의 언어에서 자주 쓰일 법한 음소 조합을 제안합니다.\n3. **의성어·의태어 생성**\n   - 앞서 설계한 음운 패턴을 활용해, \"{meaning}\"에 어울리는 창의적이고 직관적인 의성·의태어를 만들어냅니다.\n - 각각을 백틱(`)으로 감싸서 제시하세요.\n4. **제약 조건**\n\n이제 \"{meaning}\"를(을) 입력받아 위 형식대로 백틱 묶음 의성·의태어를 생성해 주세요."
             },
             "ja": { 
-                "user_prompt": ""
+                "user_prompt": "「あなたは「人工言語創作の専門家」です。以下の指示に従ってください:\n\n1. **意味把握**\n - 入力された\"{meaning}\"の感情・状況・音の特徴を簡単な文章で要約します.\n2. **音韻パターンの設計**\n - 仮名の音節構造を考慮し、仮想言語でよく使われそうな音素の組み合わせを提案します.\n3. **擬声語・擬態語の生成**\n - 先に設計した音韻パターンを活用して、\"{meaning}\"に合う創造的で直感的な擬声語・擬態語を作成します.\n - それぞれをバックティック(`)で囲んで提示してください.\n4. **制約条件**\n\n今から、「{meaning}」の入力に対して、上記の形式でバックティック(`)で囲まれた擬声語・擬態語を生成してください。」"
             }
         }
     }
