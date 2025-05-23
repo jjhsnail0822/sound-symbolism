@@ -120,7 +120,7 @@ class QwenOmniMCQExperiment:
 
             # Decode response
             full_text = self.processor.batch_decode(text_ids, skip_special_tokens=True, clean_up_tokenization_spaces=False)[0]
-            print('Full text:', full_text)
+            # print('Full text:', full_text)
             # Extract only the assistant's response
             if "assistant\n" in full_text:
                 model_answer = full_text.split("assistant\n")[-1].strip()
