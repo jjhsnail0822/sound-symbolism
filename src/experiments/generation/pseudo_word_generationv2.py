@@ -1,7 +1,7 @@
 # python pseudo_word_generationv2.py -m gpt-4o --gpu 1 --api
 # python src/experiments/generation/pseudo_word_generationv2.py -m google/gemma-3-27b-it -l ko --gpu 2
-# python src/experiments/generation/pseudo_word_generationv2.py -m Qwen/Qwen3-72B --gpu 4 -l ko --thinking
-# python src/experiments/generation/pseudo_word_generationv2.py -m Qwen/Qwen3-72B -l ko --gpu 4
+# python src/experiments/generation/pseudo_word_generationv2.py -m Qwen/Qwen3-32B --gpu 4 -l ko --thinking
+# python src/experiments/generation/pseudo_word_generationv2.py -m Qwen/Qwen3-32B -l ko --gpu 4
 # sbatch -p big_suma_rtx3090 -q big_qos 
 
 import json
@@ -43,7 +43,6 @@ MODEL_PATHS = {
     "Qwen/Qwen3-8B": "Qwen/Qwen3-8b",
     "Qwen/Qwen3-14B": "Qwen/Qwen3-14b",
     "Qwen/Qwen3-32B": "Qwen/Qwen3-32b",
-    "Qwen/Qwen3-72B": "Qwen/Qwen3-72b",
 }
 HUGGINGFACE_TOKEN = os.environ.get('HUGGINGFACE_TOKEN')
 OPENAI_API_KEY = os.environ.get('OPENAI_API_KEY')
@@ -157,8 +156,11 @@ class pseudoWordGeneration:
                 num_trials = 0
                 
                 word = word_item["word"]
-                definitions = word_item["definitions"]
-                meaning = definitions[0][:-1]
+                if self.language == "ko":
+                    definitions = word_item["definitions"]
+                    meaning = definitions[0][:-1]
+                else:
+                    meaning = word_item["meaning"]
                 prompt = prompt.format(meaning=meaning)
                 
                 while num_trials < 3:
@@ -243,6 +245,7 @@ class pseudoWordGeneration:
                         print(f"Error: {e}")
                         breakpoint()
                         continue
+                self._cleanup()
         
         if not self.use_api:
             del model
