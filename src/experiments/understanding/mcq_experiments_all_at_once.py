@@ -1,4 +1,5 @@
 from mcq_experiment import MCQExperiment
+from audiolm.qwen_omni_inference import QwenOmniMCQExperiment
 import argparse
 import json
 
@@ -37,8 +38,10 @@ parser.add_argument(
              "pair_matching_original",
              "pair_matching_ipa_with_dialogue",
              "pair_matching_ipa",
+             "pair_matching_audiolm",
              "non_en_pair_matching_ipa_with_dialogue",
-             "non_en_pair_matching_ipa",]
+             "non_en_pair_matching_ipa",
+             "non_en_pair_matching_audiolm"],
 )
 args = parser.parse_args()
 
@@ -69,6 +72,13 @@ elif args.experiment == "pair_matching_ipa":
         'data/prompts/understanding/pair_matching/ipa/ipa_masked_meaning_to_word_mcq_no_dialogue-{language}.json'
     ]
     OUTPUT_DIR = f"results/experiments/understanding/pair_matching/ipa/{args.experiment}"
+elif args.experiment == "pair_matching_audiolm":
+    langs = ['en', 'fr', 'ja', 'ko']
+    data_paths = [
+        'data/prompts/understanding/pair_matching/audiolm/unmasked_word_to_meaning_mcq_no_dialogue-{language}.json',
+        'data/prompts/understanding/pair_matching/audiolm/masked_meaning_to_word_mcq_no_dialogue-{language}.json'
+    ]
+    OUTPUT_DIR = f"results/experiments/understanding/pair_matching/audiolm/{args.experiment}"
 elif args.experiment == "non_en_pair_matching_ipa_with_dialogue":
     langs = ['fr', 'ja', 'ko', 'cross_language']
     data_paths = [
@@ -83,23 +93,39 @@ elif args.experiment == "non_en_pair_matching_ipa":
         'data/prompts/understanding/non_en_pair_matching/ipa/non_en_masked_meaning_to_word_mcq_no_dialogue-{language}.json'
     ]
     OUTPUT_DIR = f"results/experiments/understanding/non_en_pair_matching/ipa/{args.experiment}"
+elif args.experiment == "non_en_pair_matching_audiolm":
+    langs = ['fr', 'ja', 'ko', 'cross_language']
+    data_paths = [
+        'data/prompts/understanding/non_en_pair_matching/audiolm/non_en_unmasked_word_to_meaning_mcq_no_dialogue-{language}.json',
+        'data/prompts/understanding/non_en_pair_matching/audiolm/non_en_masked_meaning_to_word_mcq_no_dialogue-{language}.json'
+    ]
+    OUTPUT_DIR = f"results/experiments/understanding/non_en_pair_matching/audiolm/{args.experiment}"
 
 all_brief_results = []
 for lang in langs:
     for data_path in data_paths:
         formatted_path = data_path.format(language=lang)
         print(f"Running experiment for {formatted_path} using model {args.model}")
-        experiment = MCQExperiment(
-            model_path=args.model,
-            data_path=formatted_path,
-            output_dir=OUTPUT_DIR,
-            use_api=args.api,
-            tensor_parallel_size=args.gpu,
-            max_tokens=32,
-            max_model_len=4096,
-            temperature=0.0,
-            thinking=args.thinking,
-        )
+        if 'audiolm' in args.experiment:
+            experiment = QwenOmniMCQExperiment(
+                model_path=args.model,
+                data_path=formatted_path,
+                output_dir=OUTPUT_DIR,
+                max_tokens=32,
+                temperature=0.0,
+            )
+        else:
+            experiment = MCQExperiment(
+                model_path=args.model,
+                data_path=formatted_path,
+                output_dir=OUTPUT_DIR,
+                use_api=args.api,
+                tensor_parallel_size=args.gpu,
+                max_tokens=32,
+                max_model_len=4096,
+                temperature=0.0,
+                thinking=args.thinking,
+            )
         results_dict, results_filename = experiment.run_mcq_experiment()
         with open(results_filename, 'w', encoding='utf-8') as f:
             json.dump(results_dict, f, ensure_ascii=False, indent=4)
