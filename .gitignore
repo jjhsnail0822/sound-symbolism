@@ -19,3 +19,4 @@ old/analysis/experiments/understanding/word_meaning_pair_matching_no_dialogue/un
 data/processed/nat/clustering/*.pkl
 data/raw/dictionaries/
 results/experiments/understanding/**/[^a]*.json
+data/processed/nat/tts/
