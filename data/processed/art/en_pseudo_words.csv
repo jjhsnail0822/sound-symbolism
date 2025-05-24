@@ -1,0 +1,474 @@
+﻿original_word,meaning,generated_word,model,language,trial
+a,"['Expressing invocation, surprise, or admiration; (also) used to gain attention.']",Zelmir,Qwen/Qwen3-32b-thinking,en,trial6
+achoo,['Representing the sound of a sneeze.'],Zaela,Qwen/Qwen3-32b-thinking,en,trial6
+atishoo,['Representing the sound of a sneeze.'],Zaela,Qwen/Qwen3-32b-thinking,en,trial6
+atichoo,['Representing the sound of a sneeze.'],Zaela,Qwen/Qwen3-32b-thinking,en,trial6
+ahem,"['An exclamation representing a slight cough or clearing of the throat, used (a) to attract attention, esp. prior to speaking (b) to express hesitation, (mock) disapproval, embarrassment, suggestiveness, etc.']",Zaela,Qwen/Qwen3-32b-thinking,en,trial6
+ai,"['An exclamation of surprise, regret, pain, etc., often used in imitation of foreign speakers of English.']",Zaela,Qwen/Qwen3-32b-thinking,en,trial6
+aie,"['Awailing exclamation of resignation, surprise, regret, alarm, etc.; sometimes imitative of non-British speakers of English.']",Zaela,Qwen/Qwen3-32b-thinking,en,trial6
+alew,['A cry of sorrow or lamentation.'],Zaela,Qwen/Qwen3-32b-thinking,en,trial6
+arf,"['Representing the bark of a (small) dog, or a human imitation of such a bark.']",Zaela,Qwen/Qwen3-32b-thinking,en,trial6
+argh,"['Expressing pain or fright; (also) expressing anguish, disappointment, or frustration.']",Zaela,Qwen/Qwen3-32b-thinking,en,trial6
+a,"['Expressing invocation, surprise, or admiration; (also) used to gain attention.']",Xel’thra /zɛlˈθɾa/,Qwen/Qwen3-32b-thinking,en,trial12
+achoo,['Representing the sound of a sneeze.'],"  
+1. **Xa'thun** /xaˈtʰun/ – invocation (calling upon a higher power or force)  
+2. **Virello** /viˈrɛllo/ – surprise (expressing sudden astonishment)  
+3. **Luminar** /luˈmi.nar/ – admiration (praising brilliance or beauty)  
+4. **Zyphra** /ˈzɪf.ra/ – attention-grabbing exclamation (used to interrupt or demand focus)  
+5. **Aelthorin** /ˈɛl.θo.rin/ – awe-inspired gasp (blending surprise and reverence)  
+6. **Kyr'vex** /kɪrˈvɛks/ – urgent call (summoning someone or something immediately)  
+7. **Noshari** /noˈʃa.ri/ – exclamatory admiration (for something extraordinary)  
+8. **Threl'zun** /θrɛlˈzun/ – startled cry (reacting to sudden danger or wonder)  
+9. **Ommira** /oˈmi.ra/ – invocation of unity or collective focus  
+10. **Pyrrith** /ˈpir.ɪθ/ – sharp, attention-seeking snap (literal or metaphorical)  
+",Qwen/Qwen3-32b-thinking,en,trial12
+atishoo,['Representing the sound of a sneeze.'],"  
+1. **Xa'thun** /xaˈtʰun/ – invocation (calling upon a higher power or force)  
+2. **Virello** /viˈrɛllo/ – surprise (expressing sudden astonishment)  
+3. **Luminar** /luˈmi.nar/ – admiration (praising brilliance or beauty)  
+4. **Zyphra** /ˈzɪf.ra/ – attention-grabbing exclamation (used to interrupt or demand focus)  
+5. **Aelthorin** /ˈɛl.θo.rin/ – awe-inspired gasp (blending surprise and reverence)  
+6. **Kyr'vex** /kɪrˈvɛks/ – urgent call (summoning someone or something immediately)  
+7. **Noshari** /noˈʃa.ri/ – exclamatory admiration (for something extraordinary)  
+8. **Threl'zun** /θrɛlˈzun/ – startled cry (reacting to sudden danger or wonder)  
+9. **Ommira** /oˈmi.ra/ – invocation of unity or collective focus  
+10. **Pyrrith** /ˈpir.ɪθ/ – sharp, attention-seeking snap (literal or metaphorical)  
+",Qwen/Qwen3-32b-thinking,en,trial12
+atichoo,['Representing the sound of a sneeze.'],"  
+1. **Xa'thun** /xaˈtʰun/ – invocation (calling upon a higher power or force)  
+2. **Virello** /viˈrɛllo/ – surprise (expressing sudden astonishment)  
+3. **Luminar** /luˈmi.nar/ – admiration (praising brilliance or beauty)  
+4. **Zyphra** /ˈzɪf.ra/ – attention-grabbing exclamation (used to interrupt or demand focus)  
+5. **Aelthorin** /ˈɛl.θo.rin/ – awe-inspired gasp (blending surprise and reverence)  
+6. **Kyr'vex** /kɪrˈvɛks/ – urgent call (summoning someone or something immediately)  
+7. **Noshari** /noˈʃa.ri/ – exclamatory admiration (for something extraordinary)  
+8. **Threl'zun** /θrɛlˈzun/ – startled cry (reacting to sudden danger or wonder)  
+9. **Ommira** /oˈmi.ra/ – invocation of unity or collective focus  
+10. **Pyrrith** /ˈpir.ɪθ/ – sharp, attention-seeking snap (literal or metaphorical)  
+",Qwen/Qwen3-32b-thinking,en,trial12
+ahem,"['An exclamation representing a slight cough or clearing of the throat, used (a) to attract attention, esp. prior to speaking (b) to express hesitation, (mock) disapproval, embarrassment, suggestiveness, etc.']","  
+1. **Xa'thun** /xaˈtʰun/ – invocation (calling upon a higher power or force)  
+2. **Virello** /viˈrɛllo/ – surprise (expressing sudden astonishment)  
+3. **Luminar** /luˈmi.nar/ – admiration (praising brilliance or beauty)  
+4. **Zyphra** /ˈzɪf.ra/ – attention-grabbing exclamation (used to interrupt or demand focus)  
+5. **Aelthorin** /ˈɛl.θo.rin/ – awe-inspired gasp (blending surprise and reverence)  
+6. **Kyr'vex** /kɪrˈvɛks/ – urgent call (summoning someone or something immediately)  
+7. **Noshari** /noˈʃa.ri/ – exclamatory admiration (for something extraordinary)  
+8. **Threl'zun** /θrɛlˈzun/ – startled cry (reacting to sudden danger or wonder)  
+9. **Ommira** /oˈmi.ra/ – invocation of unity or collective focus  
+10. **Pyrrith** /ˈpir.ɪθ/ – sharp, attention-seeking snap (literal or metaphorical)  
+",Qwen/Qwen3-32b-thinking,en,trial12
+ai,"['An exclamation of surprise, regret, pain, etc., often used in imitation of foreign speakers of English.']","  
+1. **Xa'thun** /xaˈtʰun/ – invocation (calling upon a higher power or force)  
+2. **Virello** /viˈrɛllo/ – surprise (expressing sudden astonishment)  
+3. **Luminar** /luˈmi.nar/ – admiration (praising brilliance or beauty)  
+4. **Zyphra** /ˈzɪf.ra/ – attention-grabbing exclamation (used to interrupt or demand focus)  
+5. **Aelthorin** /ˈɛl.θo.rin/ – awe-inspired gasp (blending surprise and reverence)  
+6. **Kyr'vex** /kɪrˈvɛks/ – urgent call (summoning someone or something immediately)  
+7. **Noshari** /noˈʃa.ri/ – exclamatory admiration (for something extraordinary)  
+8. **Threl'zun** /θrɛlˈzun/ – startled cry (reacting to sudden danger or wonder)  
+9. **Ommira** /oˈmi.ra/ – invocation of unity or collective focus  
+10. **Pyrrith** /ˈpir.ɪθ/ – sharp, attention-seeking snap (literal or metaphorical)  
+",Qwen/Qwen3-32b-thinking,en,trial12
+aie,"['Awailing exclamation of resignation, surprise, regret, alarm, etc.; sometimes imitative of non-British speakers of English.']","  
+1. **Xa'thun** /xaˈtʰun/ – invocation (calling upon a higher power or force)  
+2. **Virello** /viˈrɛllo/ – surprise (expressing sudden astonishment)  
+3. **Luminar** /luˈmi.nar/ – admiration (praising brilliance or beauty)  
+4. **Zyphra** /ˈzɪf.ra/ – attention-grabbing exclamation (used to interrupt or demand focus)  
+5. **Aelthorin** /ˈɛl.θo.rin/ – awe-inspired gasp (blending surprise and reverence)  
+6. **Kyr'vex** /kɪrˈvɛks/ – urgent call (summoning someone or something immediately)  
+7. **Noshari** /noˈʃa.ri/ – exclamatory admiration (for something extraordinary)  
+8. **Threl'zun** /θrɛlˈzun/ – startled cry (reacting to sudden danger or wonder)  
+9. **Ommira** /oˈmi.ra/ – invocation of unity or collective focus  
+10. **Pyrrith** /ˈpir.ɪθ/ – sharp, attention-seeking snap (literal or metaphorical)  
+",Qwen/Qwen3-32b-thinking,en,trial12
+alew,['A cry of sorrow or lamentation.'],"  
+1. **Xa'thun** /xaˈtʰun/ – invocation (calling upon a higher power or force)  
+2. **Virello** /viˈrɛllo/ – surprise (expressing sudden astonishment)  
+3. **Luminar** /luˈmi.nar/ – admiration (praising brilliance or beauty)  
+4. **Zyphra** /ˈzɪf.ra/ – attention-grabbing exclamation (used to interrupt or demand focus)  
+5. **Aelthorin** /ˈɛl.θo.rin/ – awe-inspired gasp (blending surprise and reverence)  
+6. **Kyr'vex** /kɪrˈvɛks/ – urgent call (summoning someone or something immediately)  
+7. **Noshari** /noˈʃa.ri/ – exclamatory admiration (for something extraordinary)  
+8. **Threl'zun** /θrɛlˈzun/ – startled cry (reacting to sudden danger or wonder)  
+9. **Ommira** /oˈmi.ra/ – invocation of unity or collective focus  
+10. **Pyrrith** /ˈpir.ɪθ/ – sharp, attention-seeking snap (literal or metaphorical)  
+",Qwen/Qwen3-32b-thinking,en,trial12
+arf,"['Representing the bark of a (small) dog, or a human imitation of such a bark.']","  
+1. **Xa'thun** /xaˈtʰun/ – invocation (calling upon a higher power or force)  
+2. **Virello** /viˈrɛllo/ – surprise (expressing sudden astonishment)  
+3. **Luminar** /luˈmi.nar/ – admiration (praising brilliance or beauty)  
+4. **Zyphra** /ˈzɪf.ra/ – attention-grabbing exclamation (used to interrupt or demand focus)  
+5. **Aelthorin** /ˈɛl.θo.rin/ – awe-inspired gasp (blending surprise and reverence)  
+6. **Kyr'vex** /kɪrˈvɛks/ – urgent call (summoning someone or something immediately)  
+7. **Noshari** /noˈʃa.ri/ – exclamatory admiration (for something extraordinary)  
+8. **Threl'zun** /θrɛlˈzun/ – startled cry (reacting to sudden danger or wonder)  
+9. **Ommira** /oˈmi.ra/ – invocation of unity or collective focus  
+10. **Pyrrith** /ˈpir.ɪθ/ – sharp, attention-seeking snap (literal or metaphorical)  
+",Qwen/Qwen3-32b-thinking,en,trial12
+argh,"['Expressing pain or fright; (also) expressing anguish, disappointment, or frustration.']","  
+1. **Xa'thun** /xaˈtʰun/ – invocation (calling upon a higher power or force)  
+2. **Virello** /viˈrɛllo/ – surprise (expressing sudden astonishment)  
+3. **Luminar** /luˈmi.nar/ – admiration (praising brilliance or beauty)  
+4. **Zyphra** /ˈzɪf.ra/ – attention-grabbing exclamation (used to interrupt or demand focus)  
+5. **Aelthorin** /ˈɛl.θo.rin/ – awe-inspired gasp (blending surprise and reverence)  
+6. **Kyr'vex** /kɪrˈvɛks/ – urgent call (summoning someone or something immediately)  
+7. **Noshari** /noˈʃa.ri/ – exclamatory admiration (for something extraordinary)  
+8. **Threl'zun** /θrɛlˈzun/ – startled cry (reacting to sudden danger or wonder)  
+9. **Ommira** /oˈmi.ra/ – invocation of unity or collective focus  
+10. **Pyrrith** /ˈpir.ɪθ/ – sharp, attention-seeking snap (literal or metaphorical)  
+",Qwen/Qwen3-32b-thinking,en,trial12
+a,"['Expressing invocation, surprise, or admiration; (also) used to gain attention.']",Zhowa,Qwen/Qwen3-32b-thinking,en,trial13
+achoo,['Representing the sound of a sneeze.'],Zyphara,Qwen/Qwen3-32b-thinking,en,trial13
+atishoo,['Representing the sound of a sneeze.'],Zyphara,Qwen/Qwen3-32b-thinking,en,trial13
+atichoo,['Representing the sound of a sneeze.'],Zyphara,Qwen/Qwen3-32b-thinking,en,trial13
+ahem,"['An exclamation representing a slight cough or clearing of the throat, used (a) to attract attention, esp. prior to speaking (b) to express hesitation, (mock) disapproval, embarrassment, suggestiveness, etc.']",Zyphara,Qwen/Qwen3-32b-thinking,en,trial13
+ai,"['An exclamation of surprise, regret, pain, etc., often used in imitation of foreign speakers of English.']",Zyphara,Qwen/Qwen3-32b-thinking,en,trial13
+aie,"['Awailing exclamation of resignation, surprise, regret, alarm, etc.; sometimes imitative of non-British speakers of English.']",Zyphara,Qwen/Qwen3-32b-thinking,en,trial13
+alew,['A cry of sorrow or lamentation.'],Zyphara,Qwen/Qwen3-32b-thinking,en,trial13
+arf,"['Representing the bark of a (small) dog, or a human imitation of such a bark.']",Zyphara,Qwen/Qwen3-32b-thinking,en,trial13
+argh,"['Expressing pain or fright; (also) expressing anguish, disappointment, or frustration.']",Zyphara,Qwen/Qwen3-32b-thinking,en,trial13
+a,"['Expressing invocation, surprise, or admiration; (also) used to gain attention.']",Klyxee!,Qwen/Qwen3-32b-thinking,en,trial14
+achoo,['Representing the sound of a sneeze.'],Zishyorna,Qwen/Qwen3-32b-thinking,en,trial14
+atishoo,['Representing the sound of a sneeze.'],Zishyorna,Qwen/Qwen3-32b-thinking,en,trial14
+atichoo,['Representing the sound of a sneeze.'],Zishyorna,Qwen/Qwen3-32b-thinking,en,trial14
+ahem,"['An exclamation representing a slight cough or clearing of the throat, used (a) to attract attention, esp. prior to speaking (b) to express hesitation, (mock) disapproval, embarrassment, suggestiveness, etc.']",Zishyorna,Qwen/Qwen3-32b-thinking,en,trial14
+ai,"['An exclamation of surprise, regret, pain, etc., often used in imitation of foreign speakers of English.']",Zishyorna,Qwen/Qwen3-32b-thinking,en,trial14
+aie,"['Awailing exclamation of resignation, surprise, regret, alarm, etc.; sometimes imitative of non-British speakers of English.']",Zishyorna,Qwen/Qwen3-32b-thinking,en,trial14
+alew,['A cry of sorrow or lamentation.'],Zishyorna,Qwen/Qwen3-32b-thinking,en,trial14
+arf,"['Representing the bark of a (small) dog, or a human imitation of such a bark.']",Zishyorna,Qwen/Qwen3-32b-thinking,en,trial14
+argh,"['Expressing pain or fright; (also) expressing anguish, disappointment, or frustration.']",Zishyorna,Qwen/Qwen3-32b-thinking,en,trial14
+a,"['Expressing invocation, surprise, or admiration; (also) used to gain attention.']","
+
+Khyaluméa",Qwen/Qwen3-32b-thinking,en,trial15
+achoo,['Representing the sound of a sneeze.'],"
+
+K’hyra",Qwen/Qwen3-32b-thinking,en,trial15
+atishoo,['Representing the sound of a sneeze.'],"
+
+K’hyra",Qwen/Qwen3-32b-thinking,en,trial15
+atichoo,['Representing the sound of a sneeze.'],"
+
+K’hyra",Qwen/Qwen3-32b-thinking,en,trial15
+ahem,"['An exclamation representing a slight cough or clearing of the throat, used (a) to attract attention, esp. prior to speaking (b) to express hesitation, (mock) disapproval, embarrassment, suggestiveness, etc.']","
+
+K’hyra",Qwen/Qwen3-32b-thinking,en,trial15
+ai,"['An exclamation of surprise, regret, pain, etc., often used in imitation of foreign speakers of English.']","
+
+K’hyra",Qwen/Qwen3-32b-thinking,en,trial15
+aie,"['Awailing exclamation of resignation, surprise, regret, alarm, etc.; sometimes imitative of non-British speakers of English.']","
+
+K’hyra",Qwen/Qwen3-32b-thinking,en,trial15
+alew,['A cry of sorrow or lamentation.'],"
+
+K’hyra",Qwen/Qwen3-32b-thinking,en,trial15
+arf,"['Representing the bark of a (small) dog, or a human imitation of such a bark.']","
+
+K’hyra",Qwen/Qwen3-32b-thinking,en,trial15
+argh,"['Expressing pain or fright; (also) expressing anguish, disappointment, or frustration.']","
+
+K’hyra",Qwen/Qwen3-32b-thinking,en,trial15
+a,"['Expressing invocation, surprise, or admiration; (also) used to gain attention.']","
+
+Klyssia",Qwen/Qwen3-32b-thinking,en,trial16
+achoo,['Representing the sound of a sneeze.'],"
+
+Zhaanu!",Qwen/Qwen3-32b-thinking,en,trial16
+atishoo,['Representing the sound of a sneeze.'],"
+
+Zhaanu!",Qwen/Qwen3-32b-thinking,en,trial16
+atichoo,['Representing the sound of a sneeze.'],"
+
+Zhaanu!",Qwen/Qwen3-32b-thinking,en,trial16
+ahem,"['An exclamation representing a slight cough or clearing of the throat, used (a) to attract attention, esp. prior to speaking (b) to express hesitation, (mock) disapproval, embarrassment, suggestiveness, etc.']","
+
+Zhaanu!",Qwen/Qwen3-32b-thinking,en,trial16
+ai,"['An exclamation of surprise, regret, pain, etc., often used in imitation of foreign speakers of English.']","
+
+Zhaanu!",Qwen/Qwen3-32b-thinking,en,trial16
+aie,"['Awailing exclamation of resignation, surprise, regret, alarm, etc.; sometimes imitative of non-British speakers of English.']","
+
+Zhaanu!",Qwen/Qwen3-32b-thinking,en,trial16
+alew,['A cry of sorrow or lamentation.'],"
+
+Zhaanu!",Qwen/Qwen3-32b-thinking,en,trial16
+arf,"['Representing the bark of a (small) dog, or a human imitation of such a bark.']","
+
+Zhaanu!",Qwen/Qwen3-32b-thinking,en,trial16
+argh,"['Expressing pain or fright; (also) expressing anguish, disappointment, or frustration.']","
+
+Zhaanu!",Qwen/Qwen3-32b-thinking,en,trial16
+a,"['Expressing invocation, surprise, or admiration; (also) used to gain attention.']",Khyaelo,Qwen/Qwen3-32b-thinking,en,trial17
+achoo,['Representing the sound of a sneeze.'],Kiiroh,Qwen/Qwen3-32b-thinking,en,trial17
+atishoo,['Representing the sound of a sneeze.'],Kiiroh,Qwen/Qwen3-32b-thinking,en,trial17
+atichoo,['Representing the sound of a sneeze.'],Kiiroh,Qwen/Qwen3-32b-thinking,en,trial17
+ahem,"['An exclamation representing a slight cough or clearing of the throat, used (a) to attract attention, esp. prior to speaking (b) to express hesitation, (mock) disapproval, embarrassment, suggestiveness, etc.']",Kiiroh,Qwen/Qwen3-32b-thinking,en,trial17
+ai,"['An exclamation of surprise, regret, pain, etc., often used in imitation of foreign speakers of English.']",Kiiroh,Qwen/Qwen3-32b-thinking,en,trial17
+aie,"['Awailing exclamation of resignation, surprise, regret, alarm, etc.; sometimes imitative of non-British speakers of English.']",Kiiroh,Qwen/Qwen3-32b-thinking,en,trial17
+alew,['A cry of sorrow or lamentation.'],Kiiroh,Qwen/Qwen3-32b-thinking,en,trial17
+arf,"['Representing the bark of a (small) dog, or a human imitation of such a bark.']",Kiiroh,Qwen/Qwen3-32b-thinking,en,trial17
+argh,"['Expressing pain or fright; (also) expressing anguish, disappointment, or frustration.']",Kiiroh,Qwen/Qwen3-32b-thinking,en,trial17
+a,"['Expressing invocation, surprise, or admiration; (also) used to gain attention.']",Zhaanoo,Qwen/Qwen3-32b-thinking,en,trial18
+achoo,['Representing the sound of a sneeze.'],Zhyxara!,Qwen/Qwen3-32b-thinking,en,trial18
+atishoo,['Representing the sound of a sneeze.'],Zhyxara!,Qwen/Qwen3-32b-thinking,en,trial18
+atichoo,['Representing the sound of a sneeze.'],Zhyxara!,Qwen/Qwen3-32b-thinking,en,trial18
+ahem,"['An exclamation representing a slight cough or clearing of the throat, used (a) to attract attention, esp. prior to speaking (b) to express hesitation, (mock) disapproval, embarrassment, suggestiveness, etc.']",Zhyxara!,Qwen/Qwen3-32b-thinking,en,trial18
+ai,"['An exclamation of surprise, regret, pain, etc., often used in imitation of foreign speakers of English.']",Zhyxara!,Qwen/Qwen3-32b-thinking,en,trial18
+aie,"['Awailing exclamation of resignation, surprise, regret, alarm, etc.; sometimes imitative of non-British speakers of English.']",Zhyxara!,Qwen/Qwen3-32b-thinking,en,trial18
+alew,['A cry of sorrow or lamentation.'],Zhyxara!,Qwen/Qwen3-32b-thinking,en,trial18
+arf,"['Representing the bark of a (small) dog, or a human imitation of such a bark.']",Zhyxara!,Qwen/Qwen3-32b-thinking,en,trial18
+argh,"['Expressing pain or fright; (also) expressing anguish, disappointment, or frustration.']",Zhyxara!,Qwen/Qwen3-32b-thinking,en,trial18
+a,"['Expressing invocation, surprise, or admiration; (also) used to gain attention.']",Zhel-loo-ya!,Qwen/Qwen3-32b-thinking,en,trial19
+achoo,['Representing the sound of a sneeze.'],Zhelore!,Qwen/Qwen3-32b-thinking,en,trial19
+atishoo,['Representing the sound of a sneeze.'],Zhelore!,Qwen/Qwen3-32b-thinking,en,trial19
+atichoo,['Representing the sound of a sneeze.'],Zhelore!,Qwen/Qwen3-32b-thinking,en,trial19
+ahem,"['An exclamation representing a slight cough or clearing of the throat, used (a) to attract attention, esp. prior to speaking (b) to express hesitation, (mock) disapproval, embarrassment, suggestiveness, etc.']",Zhelore!,Qwen/Qwen3-32b-thinking,en,trial19
+ai,"['An exclamation of surprise, regret, pain, etc., often used in imitation of foreign speakers of English.']",Zhelore!,Qwen/Qwen3-32b-thinking,en,trial19
+aie,"['Awailing exclamation of resignation, surprise, regret, alarm, etc.; sometimes imitative of non-British speakers of English.']",Zhelore!,Qwen/Qwen3-32b-thinking,en,trial19
+alew,['A cry of sorrow or lamentation.'],Zhelore!,Qwen/Qwen3-32b-thinking,en,trial19
+arf,"['Representing the bark of a (small) dog, or a human imitation of such a bark.']",Zhelore!,Qwen/Qwen3-32b-thinking,en,trial19
+argh,"['Expressing pain or fright; (also) expressing anguish, disappointment, or frustration.']",Zhelore!,Qwen/Qwen3-32b-thinking,en,trial19
+a,"['Expressing invocation, surprise, or admiration; (also) used to gain attention.']",Kaelio,Qwen/Qwen3-32b-thinking,en,trial20
+achoo,['Representing the sound of a sneeze.'],Khyaa'!,Qwen/Qwen3-32b-thinking,en,trial20
+atishoo,['Representing the sound of a sneeze.'],Khyaa'!,Qwen/Qwen3-32b-thinking,en,trial20
+atichoo,['Representing the sound of a sneeze.'],Khyaa'!,Qwen/Qwen3-32b-thinking,en,trial20
+ahem,"['An exclamation representing a slight cough or clearing of the throat, used (a) to attract attention, esp. prior to speaking (b) to express hesitation, (mock) disapproval, embarrassment, suggestiveness, etc.']",Khyaa'!,Qwen/Qwen3-32b-thinking,en,trial20
+ai,"['An exclamation of surprise, regret, pain, etc., often used in imitation of foreign speakers of English.']",Khyaa'!,Qwen/Qwen3-32b-thinking,en,trial20
+aie,"['Awailing exclamation of resignation, surprise, regret, alarm, etc.; sometimes imitative of non-British speakers of English.']",Khyaa'!,Qwen/Qwen3-32b-thinking,en,trial20
+alew,['A cry of sorrow or lamentation.'],Khyaa'!,Qwen/Qwen3-32b-thinking,en,trial20
+arf,"['Representing the bark of a (small) dog, or a human imitation of such a bark.']",Khyaa'!,Qwen/Qwen3-32b-thinking,en,trial20
+argh,"['Expressing pain or fright; (also) expressing anguish, disappointment, or frustration.']",Khyaa'!,Qwen/Qwen3-32b-thinking,en,trial20
+a,"['Expressing invocation, surprise, or admiration; (also) used to gain attention.']",Zyphara,Qwen/Qwen3-32b-thinking,en,trial21
+achoo,['Representing the sound of a sneeze.'],"Zo'kai: Expresses awe-struck invocation, like gasping at a celestial event.  
+Xupala: A sharp, melodic cry for surprise or to summon others' attention.  
+Lumin: Soft and flowing, conveys admiration for beauty or brilliance.  
+Bravo'k: A rhythmic, attention-grabbing chant used to rally a crowd.  
+Avo'ra: High-pitched and trilling, signals both surprise and reverence.  
+Tzirra: A hissing-warble sound to call spirits or emphasize wonder.  
+Veloria: A drawn-out, harmonized exclamation for praising grandeur.",Qwen/Qwen3-32b-thinking,en,trial21
+atishoo,['Representing the sound of a sneeze.'],"Zo'kai: Expresses awe-struck invocation, like gasping at a celestial event.  
+Xupala: A sharp, melodic cry for surprise or to summon others' attention.  
+Lumin: Soft and flowing, conveys admiration for beauty or brilliance.  
+Bravo'k: A rhythmic, attention-grabbing chant used to rally a crowd.  
+Avo'ra: High-pitched and trilling, signals both surprise and reverence.  
+Tzirra: A hissing-warble sound to call spirits or emphasize wonder.  
+Veloria: A drawn-out, harmonized exclamation for praising grandeur.",Qwen/Qwen3-32b-thinking,en,trial21
+atichoo,['Representing the sound of a sneeze.'],"Zo'kai: Expresses awe-struck invocation, like gasping at a celestial event.  
+Xupala: A sharp, melodic cry for surprise or to summon others' attention.  
+Lumin: Soft and flowing, conveys admiration for beauty or brilliance.  
+Bravo'k: A rhythmic, attention-grabbing chant used to rally a crowd.  
+Avo'ra: High-pitched and trilling, signals both surprise and reverence.  
+Tzirra: A hissing-warble sound to call spirits or emphasize wonder.  
+Veloria: A drawn-out, harmonized exclamation for praising grandeur.",Qwen/Qwen3-32b-thinking,en,trial21
+ahem,"['An exclamation representing a slight cough or clearing of the throat, used (a) to attract attention, esp. prior to speaking (b) to express hesitation, (mock) disapproval, embarrassment, suggestiveness, etc.']","Zo'kai: Expresses awe-struck invocation, like gasping at a celestial event.  
+Xupala: A sharp, melodic cry for surprise or to summon others' attention.  
+Lumin: Soft and flowing, conveys admiration for beauty or brilliance.  
+Bravo'k: A rhythmic, attention-grabbing chant used to rally a crowd.  
+Avo'ra: High-pitched and trilling, signals both surprise and reverence.  
+Tzirra: A hissing-warble sound to call spirits or emphasize wonder.  
+Veloria: A drawn-out, harmonized exclamation for praising grandeur.",Qwen/Qwen3-32b-thinking,en,trial21
+ai,"['An exclamation of surprise, regret, pain, etc., often used in imitation of foreign speakers of English.']","Zo'kai: Expresses awe-struck invocation, like gasping at a celestial event.  
+Xupala: A sharp, melodic cry for surprise or to summon others' attention.  
+Lumin: Soft and flowing, conveys admiration for beauty or brilliance.  
+Bravo'k: A rhythmic, attention-grabbing chant used to rally a crowd.  
+Avo'ra: High-pitched and trilling, signals both surprise and reverence.  
+Tzirra: A hissing-warble sound to call spirits or emphasize wonder.  
+Veloria: A drawn-out, harmonized exclamation for praising grandeur.",Qwen/Qwen3-32b-thinking,en,trial21
+aie,"['Awailing exclamation of resignation, surprise, regret, alarm, etc.; sometimes imitative of non-British speakers of English.']","Zo'kai: Expresses awe-struck invocation, like gasping at a celestial event.  
+Xupala: A sharp, melodic cry for surprise or to summon others' attention.  
+Lumin: Soft and flowing, conveys admiration for beauty or brilliance.  
+Bravo'k: A rhythmic, attention-grabbing chant used to rally a crowd.  
+Avo'ra: High-pitched and trilling, signals both surprise and reverence.  
+Tzirra: A hissing-warble sound to call spirits or emphasize wonder.  
+Veloria: A drawn-out, harmonized exclamation for praising grandeur.",Qwen/Qwen3-32b-thinking,en,trial21
+alew,['A cry of sorrow or lamentation.'],"Zo'kai: Expresses awe-struck invocation, like gasping at a celestial event.  
+Xupala: A sharp, melodic cry for surprise or to summon others' attention.  
+Lumin: Soft and flowing, conveys admiration for beauty or brilliance.  
+Bravo'k: A rhythmic, attention-grabbing chant used to rally a crowd.  
+Avo'ra: High-pitched and trilling, signals both surprise and reverence.  
+Tzirra: A hissing-warble sound to call spirits or emphasize wonder.  
+Veloria: A drawn-out, harmonized exclamation for praising grandeur.",Qwen/Qwen3-32b-thinking,en,trial21
+arf,"['Representing the bark of a (small) dog, or a human imitation of such a bark.']","Zo'kai: Expresses awe-struck invocation, like gasping at a celestial event.  
+Xupala: A sharp, melodic cry for surprise or to summon others' attention.  
+Lumin: Soft and flowing, conveys admiration for beauty or brilliance.  
+Bravo'k: A rhythmic, attention-grabbing chant used to rally a crowd.  
+Avo'ra: High-pitched and trilling, signals both surprise and reverence.  
+Tzirra: A hissing-warble sound to call spirits or emphasize wonder.  
+Veloria: A drawn-out, harmonized exclamation for praising grandeur.",Qwen/Qwen3-32b-thinking,en,trial21
+argh,"['Expressing pain or fright; (also) expressing anguish, disappointment, or frustration.']","Zo'kai: Expresses awe-struck invocation, like gasping at a celestial event.  
+Xupala: A sharp, melodic cry for surprise or to summon others' attention.  
+Lumin: Soft and flowing, conveys admiration for beauty or brilliance.  
+Bravo'k: A rhythmic, attention-grabbing chant used to rally a crowd.  
+Avo'ra: High-pitched and trilling, signals both surprise and reverence.  
+Tzirra: A hissing-warble sound to call spirits or emphasize wonder.  
+Veloria: A drawn-out, harmonized exclamation for praising grandeur.",Qwen/Qwen3-32b-thinking,en,trial21
+a,"['Expressing invocation, surprise, or admiration; (also) used to gain attention.']",Khyaelo!,Qwen/Qwen3-32b-thinking,en,trial22
+achoo,['Representing the sound of a sneeze.'],Kaelu,Qwen/Qwen3-32b-thinking,en,trial22
+atishoo,['Representing the sound of a sneeze.'],Kaelu,Qwen/Qwen3-32b-thinking,en,trial22
+atichoo,['Representing the sound of a sneeze.'],Kaelu,Qwen/Qwen3-32b-thinking,en,trial22
+ahem,"['An exclamation representing a slight cough or clearing of the throat, used (a) to attract attention, esp. prior to speaking (b) to express hesitation, (mock) disapproval, embarrassment, suggestiveness, etc.']",Kaelu,Qwen/Qwen3-32b-thinking,en,trial22
+ai,"['An exclamation of surprise, regret, pain, etc., often used in imitation of foreign speakers of English.']",Kaelu,Qwen/Qwen3-32b-thinking,en,trial22
+aie,"['Awailing exclamation of resignation, surprise, regret, alarm, etc.; sometimes imitative of non-British speakers of English.']",Kaelu,Qwen/Qwen3-32b-thinking,en,trial22
+alew,['A cry of sorrow or lamentation.'],Kaelu,Qwen/Qwen3-32b-thinking,en,trial22
+arf,"['Representing the bark of a (small) dog, or a human imitation of such a bark.']",Kaelu,Qwen/Qwen3-32b-thinking,en,trial22
+argh,"['Expressing pain or fright; (also) expressing anguish, disappointment, or frustration.']",Kaelu,Qwen/Qwen3-32b-thinking,en,trial22
+a,"['Expressing invocation, surprise, or admiration; (also) used to gain attention.']",Kaa,Qwen/Qwen3-14b-thinking,en,trial6
+achoo,['Representing the sound of a sneeze.'],Ahkara,Qwen/Qwen3-14b-thinking,en,trial6
+atishoo,['Representing the sound of a sneeze.'],Ahkara,Qwen/Qwen3-14b-thinking,en,trial6
+atichoo,['Representing the sound of a sneeze.'],Ahkara,Qwen/Qwen3-14b-thinking,en,trial6
+ahem,"['An exclamation representing a slight cough or clearing of the throat, used (a) to attract attention, esp. prior to speaking (b) to express hesitation, (mock) disapproval, embarrassment, suggestiveness, etc.']",Ahkara,Qwen/Qwen3-14b-thinking,en,trial6
+ai,"['An exclamation of surprise, regret, pain, etc., often used in imitation of foreign speakers of English.']",Ahkara,Qwen/Qwen3-14b-thinking,en,trial6
+aie,"['Awailing exclamation of resignation, surprise, regret, alarm, etc.; sometimes imitative of non-British speakers of English.']",Ahkara,Qwen/Qwen3-14b-thinking,en,trial6
+alew,['A cry of sorrow or lamentation.'],Ahkara,Qwen/Qwen3-14b-thinking,en,trial6
+arf,"['Representing the bark of a (small) dog, or a human imitation of such a bark.']",Ahkara,Qwen/Qwen3-14b-thinking,en,trial6
+argh,"['Expressing pain or fright; (also) expressing anguish, disappointment, or frustration.']",Ahkara,Qwen/Qwen3-14b-thinking,en,trial6
+a,"['Expressing invocation, surprise, or admiration; (also) used to gain attention.']",Ahya /aː.ˈja/,Qwen/Qwen3-14b-thinking,en,trial12
+achoo,['Representing the sound of a sneeze.'],Eh,Qwen/Qwen3-14b-thinking,en,trial12
+atishoo,['Representing the sound of a sneeze.'],Eh,Qwen/Qwen3-14b-thinking,en,trial12
+atichoo,['Representing the sound of a sneeze.'],Eh,Qwen/Qwen3-14b-thinking,en,trial12
+ahem,"['An exclamation representing a slight cough or clearing of the throat, used (a) to attract attention, esp. prior to speaking (b) to express hesitation, (mock) disapproval, embarrassment, suggestiveness, etc.']",Eh,Qwen/Qwen3-14b-thinking,en,trial12
+ai,"['An exclamation of surprise, regret, pain, etc., often used in imitation of foreign speakers of English.']",Eh,Qwen/Qwen3-14b-thinking,en,trial12
+aie,"['Awailing exclamation of resignation, surprise, regret, alarm, etc.; sometimes imitative of non-British speakers of English.']",Eh,Qwen/Qwen3-14b-thinking,en,trial12
+alew,['A cry of sorrow or lamentation.'],Eh,Qwen/Qwen3-14b-thinking,en,trial12
+arf,"['Representing the bark of a (small) dog, or a human imitation of such a bark.']",Eh,Qwen/Qwen3-14b-thinking,en,trial12
+argh,"['Expressing pain or fright; (also) expressing anguish, disappointment, or frustration.']",Eh,Qwen/Qwen3-14b-thinking,en,trial12
+a,"['Expressing invocation, surprise, or admiration; (also) used to gain attention.']",Tziiyaa,Qwen/Qwen3-14b-thinking,en,trial13
+achoo,['Representing the sound of a sneeze.'],Ahka,Qwen/Qwen3-14b-thinking,en,trial13
+atishoo,['Representing the sound of a sneeze.'],Ahka,Qwen/Qwen3-14b-thinking,en,trial13
+atichoo,['Representing the sound of a sneeze.'],Ahka,Qwen/Qwen3-14b-thinking,en,trial13
+ahem,"['An exclamation representing a slight cough or clearing of the throat, used (a) to attract attention, esp. prior to speaking (b) to express hesitation, (mock) disapproval, embarrassment, suggestiveness, etc.']",Ahka,Qwen/Qwen3-14b-thinking,en,trial13
+ai,"['An exclamation of surprise, regret, pain, etc., often used in imitation of foreign speakers of English.']",Ahka,Qwen/Qwen3-14b-thinking,en,trial13
+aie,"['Awailing exclamation of resignation, surprise, regret, alarm, etc.; sometimes imitative of non-British speakers of English.']",Ahka,Qwen/Qwen3-14b-thinking,en,trial13
+alew,['A cry of sorrow or lamentation.'],Ahka,Qwen/Qwen3-14b-thinking,en,trial13
+arf,"['Representing the bark of a (small) dog, or a human imitation of such a bark.']",Ahka,Qwen/Qwen3-14b-thinking,en,trial13
+argh,"['Expressing pain or fright; (also) expressing anguish, disappointment, or frustration.']",Ahka,Qwen/Qwen3-14b-thinking,en,trial13
+a,"['Expressing invocation, surprise, or admiration; (also) used to gain attention.']",Tsuu,Qwen/Qwen3-14b-thinking,en,trial14
+achoo,['Representing the sound of a sneeze.'],Tshaa,Qwen/Qwen3-14b-thinking,en,trial14
+atishoo,['Representing the sound of a sneeze.'],Tshaa,Qwen/Qwen3-14b-thinking,en,trial14
+atichoo,['Representing the sound of a sneeze.'],Tshaa,Qwen/Qwen3-14b-thinking,en,trial14
+ahem,"['An exclamation representing a slight cough or clearing of the throat, used (a) to attract attention, esp. prior to speaking (b) to express hesitation, (mock) disapproval, embarrassment, suggestiveness, etc.']",Tshaa,Qwen/Qwen3-14b-thinking,en,trial14
+ai,"['An exclamation of surprise, regret, pain, etc., often used in imitation of foreign speakers of English.']",Tshaa,Qwen/Qwen3-14b-thinking,en,trial14
+aie,"['Awailing exclamation of resignation, surprise, regret, alarm, etc.; sometimes imitative of non-British speakers of English.']",Tshaa,Qwen/Qwen3-14b-thinking,en,trial14
+alew,['A cry of sorrow or lamentation.'],Tshaa,Qwen/Qwen3-14b-thinking,en,trial14
+arf,"['Representing the bark of a (small) dog, or a human imitation of such a bark.']",Tshaa,Qwen/Qwen3-14b-thinking,en,trial14
+argh,"['Expressing pain or fright; (also) expressing anguish, disappointment, or frustration.']",Tshaa,Qwen/Qwen3-14b-thinking,en,trial14
+a,"['Expressing invocation, surprise, or admiration; (also) used to gain attention.']","
+
+Kaelith",Qwen/Qwen3-14b-thinking,en,trial15
+achoo,['Representing the sound of a sneeze.'],"
+
+klaya",Qwen/Qwen3-14b-thinking,en,trial15
+atishoo,['Representing the sound of a sneeze.'],"
+
+klaya",Qwen/Qwen3-14b-thinking,en,trial15
+atichoo,['Representing the sound of a sneeze.'],"
+
+klaya",Qwen/Qwen3-14b-thinking,en,trial15
+ahem,"['An exclamation representing a slight cough or clearing of the throat, used (a) to attract attention, esp. prior to speaking (b) to express hesitation, (mock) disapproval, embarrassment, suggestiveness, etc.']","
+
+klaya",Qwen/Qwen3-14b-thinking,en,trial15
+ai,"['An exclamation of surprise, regret, pain, etc., often used in imitation of foreign speakers of English.']","
+
+klaya",Qwen/Qwen3-14b-thinking,en,trial15
+aie,"['Awailing exclamation of resignation, surprise, regret, alarm, etc.; sometimes imitative of non-British speakers of English.']","
+
+klaya",Qwen/Qwen3-14b-thinking,en,trial15
+alew,['A cry of sorrow or lamentation.'],"
+
+klaya",Qwen/Qwen3-14b-thinking,en,trial15
+arf,"['Representing the bark of a (small) dog, or a human imitation of such a bark.']","
+
+klaya",Qwen/Qwen3-14b-thinking,en,trial15
+argh,"['Expressing pain or fright; (also) expressing anguish, disappointment, or frustration.']","
+
+klaya",Qwen/Qwen3-14b-thinking,en,trial15
+a,"['Expressing invocation, surprise, or admiration; (also) used to gain attention.']","
+
+Klaaah",Qwen/Qwen3-14b-thinking,en,trial16
+achoo,['Representing the sound of a sneeze.'],"
+
+Zyrra",Qwen/Qwen3-14b-thinking,en,trial16
+atishoo,['Representing the sound of a sneeze.'],"
+
+Zyrra",Qwen/Qwen3-14b-thinking,en,trial16
+atichoo,['Representing the sound of a sneeze.'],"
+
+Zyrra",Qwen/Qwen3-14b-thinking,en,trial16
+ahem,"['An exclamation representing a slight cough or clearing of the throat, used (a) to attract attention, esp. prior to speaking (b) to express hesitation, (mock) disapproval, embarrassment, suggestiveness, etc.']","
+
+Zyrra",Qwen/Qwen3-14b-thinking,en,trial16
+ai,"['An exclamation of surprise, regret, pain, etc., often used in imitation of foreign speakers of English.']","
+
+Zyrra",Qwen/Qwen3-14b-thinking,en,trial16
+aie,"['Awailing exclamation of resignation, surprise, regret, alarm, etc.; sometimes imitative of non-British speakers of English.']","
+
+Zyrra",Qwen/Qwen3-14b-thinking,en,trial16
+alew,['A cry of sorrow or lamentation.'],"
+
+Zyrra",Qwen/Qwen3-14b-thinking,en,trial16
+arf,"['Representing the bark of a (small) dog, or a human imitation of such a bark.']","
+
+Zyrra",Qwen/Qwen3-14b-thinking,en,trial16
+argh,"['Expressing pain or fright; (also) expressing anguish, disappointment, or frustration.']","
+
+Zyrra",Qwen/Qwen3-14b-thinking,en,trial16
+a,"['Expressing invocation, surprise, or admiration; (also) used to gain attention.']",Klaaah,Qwen/Qwen3-14b-thinking,en,trial17
+achoo,['Representing the sound of a sneeze.'],Klaa,Qwen/Qwen3-14b-thinking,en,trial17
+atishoo,['Representing the sound of a sneeze.'],Klaa,Qwen/Qwen3-14b-thinking,en,trial17
+atichoo,['Representing the sound of a sneeze.'],Klaa,Qwen/Qwen3-14b-thinking,en,trial17
+ahem,"['An exclamation representing a slight cough or clearing of the throat, used (a) to attract attention, esp. prior to speaking (b) to express hesitation, (mock) disapproval, embarrassment, suggestiveness, etc.']",Klaa,Qwen/Qwen3-14b-thinking,en,trial17
+ai,"['An exclamation of surprise, regret, pain, etc., often used in imitation of foreign speakers of English.']",Klaa,Qwen/Qwen3-14b-thinking,en,trial17
+aie,"['Awailing exclamation of resignation, surprise, regret, alarm, etc.; sometimes imitative of non-British speakers of English.']",Klaa,Qwen/Qwen3-14b-thinking,en,trial17
+alew,['A cry of sorrow or lamentation.'],Klaa,Qwen/Qwen3-14b-thinking,en,trial17
+arf,"['Representing the bark of a (small) dog, or a human imitation of such a bark.']",Klaa,Qwen/Qwen3-14b-thinking,en,trial17
+argh,"['Expressing pain or fright; (also) expressing anguish, disappointment, or frustration.']",Klaa,Qwen/Qwen3-14b-thinking,en,trial17
+a,"['Expressing invocation, surprise, or admiration; (also) used to gain attention.']",Zha-liif,Qwen/Qwen3-14b-thinking,en,trial18
+achoo,['Representing the sound of a sneeze.'],Kraa,Qwen/Qwen3-14b-thinking,en,trial18
+atishoo,['Representing the sound of a sneeze.'],Kraa,Qwen/Qwen3-14b-thinking,en,trial18
+atichoo,['Representing the sound of a sneeze.'],Kraa,Qwen/Qwen3-14b-thinking,en,trial18
+ahem,"['An exclamation representing a slight cough or clearing of the throat, used (a) to attract attention, esp. prior to speaking (b) to express hesitation, (mock) disapproval, embarrassment, suggestiveness, etc.']",Kraa,Qwen/Qwen3-14b-thinking,en,trial18
+ai,"['An exclamation of surprise, regret, pain, etc., often used in imitation of foreign speakers of English.']",Kraa,Qwen/Qwen3-14b-thinking,en,trial18
+aie,"['Awailing exclamation of resignation, surprise, regret, alarm, etc.; sometimes imitative of non-British speakers of English.']",Kraa,Qwen/Qwen3-14b-thinking,en,trial18
+alew,['A cry of sorrow or lamentation.'],Kraa,Qwen/Qwen3-14b-thinking,en,trial18
+arf,"['Representing the bark of a (small) dog, or a human imitation of such a bark.']",Kraa,Qwen/Qwen3-14b-thinking,en,trial18
+argh,"['Expressing pain or fright; (also) expressing anguish, disappointment, or frustration.']",Kraa,Qwen/Qwen3-14b-thinking,en,trial18
+a,"['Expressing invocation, surprise, or admiration; (also) used to gain attention.']",Kyi!,Qwen/Qwen3-14b-thinking,en,trial19
+achoo,['Representing the sound of a sneeze.'],Kla-ah-reee,Qwen/Qwen3-14b-thinking,en,trial19
+atishoo,['Representing the sound of a sneeze.'],Kla-ah-reee,Qwen/Qwen3-14b-thinking,en,trial19
+atichoo,['Representing the sound of a sneeze.'],Kla-ah-reee,Qwen/Qwen3-14b-thinking,en,trial19
+ahem,"['An exclamation representing a slight cough or clearing of the throat, used (a) to attract attention, esp. prior to speaking (b) to express hesitation, (mock) disapproval, embarrassment, suggestiveness, etc.']",Kla-ah-reee,Qwen/Qwen3-14b-thinking,en,trial19
+ai,"['An exclamation of surprise, regret, pain, etc., often used in imitation of foreign speakers of English.']",Kla-ah-reee,Qwen/Qwen3-14b-thinking,en,trial19
+aie,"['Awailing exclamation of resignation, surprise, regret, alarm, etc.; sometimes imitative of non-British speakers of English.']",Kla-ah-reee,Qwen/Qwen3-14b-thinking,en,trial19
+alew,['A cry of sorrow or lamentation.'],Kla-ah-reee,Qwen/Qwen3-14b-thinking,en,trial19
+arf,"['Representing the bark of a (small) dog, or a human imitation of such a bark.']",Kla-ah-reee,Qwen/Qwen3-14b-thinking,en,trial19
+argh,"['Expressing pain or fright; (also) expressing anguish, disappointment, or frustration.']",Kla-ah-reee,Qwen/Qwen3-14b-thinking,en,trial19
+a,"['Expressing invocation, surprise, or admiration; (also) used to gain attention.']",Kai-oh,Qwen/Qwen3-14b-thinking,en,trial20
+achoo,['Representing the sound of a sneeze.'],Kairalo,Qwen/Qwen3-14b-thinking,en,trial20
+atishoo,['Representing the sound of a sneeze.'],Kairalo,Qwen/Qwen3-14b-thinking,en,trial20
+atichoo,['Representing the sound of a sneeze.'],Kairalo,Qwen/Qwen3-14b-thinking,en,trial20
+ahem,"['An exclamation representing a slight cough or clearing of the throat, used (a) to attract attention, esp. prior to speaking (b) to express hesitation, (mock) disapproval, embarrassment, suggestiveness, etc.']",Kairalo,Qwen/Qwen3-14b-thinking,en,trial20
+ai,"['An exclamation of surprise, regret, pain, etc., often used in imitation of foreign speakers of English.']",Kairalo,Qwen/Qwen3-14b-thinking,en,trial20
+aie,"['Awailing exclamation of resignation, surprise, regret, alarm, etc.; sometimes imitative of non-British speakers of English.']",Kairalo,Qwen/Qwen3-14b-thinking,en,trial20
+alew,['A cry of sorrow or lamentation.'],Kairalo,Qwen/Qwen3-14b-thinking,en,trial20
+arf,"['Representing the bark of a (small) dog, or a human imitation of such a bark.']",Kairalo,Qwen/Qwen3-14b-thinking,en,trial20
+argh,"['Expressing pain or fright; (also) expressing anguish, disappointment, or frustration.']",Kairalo,Qwen/Qwen3-14b-thinking,en,trial20
+a,"['Expressing invocation, surprise, or admiration; (also) used to gain attention.']",Kla,Qwen/Qwen3-14b-thinking,en,trial21
+achoo,['Representing the sound of a sneeze.'],Zyrra,Qwen/Qwen3-14b-thinking,en,trial21
+atishoo,['Representing the sound of a sneeze.'],Zyrra,Qwen/Qwen3-14b-thinking,en,trial21
+atichoo,['Representing the sound of a sneeze.'],Zyrra,Qwen/Qwen3-14b-thinking,en,trial21
+ahem,"['An exclamation representing a slight cough or clearing of the throat, used (a) to attract attention, esp. prior to speaking (b) to express hesitation, (mock) disapproval, embarrassment, suggestiveness, etc.']",Zyrra,Qwen/Qwen3-14b-thinking,en,trial21
+ai,"['An exclamation of surprise, regret, pain, etc., often used in imitation of foreign speakers of English.']",Zyrra,Qwen/Qwen3-14b-thinking,en,trial21
+aie,"['Awailing exclamation of resignation, surprise, regret, alarm, etc.; sometimes imitative of non-British speakers of English.']",Zyrra,Qwen/Qwen3-14b-thinking,en,trial21
+alew,['A cry of sorrow or lamentation.'],Zyrra,Qwen/Qwen3-14b-thinking,en,trial21
+arf,"['Representing the bark of a (small) dog, or a human imitation of such a bark.']",Zyrra,Qwen/Qwen3-14b-thinking,en,trial21
+argh,"['Expressing pain or fright; (also) expressing anguish, disappointment, or frustration.']",Zyrra,Qwen/Qwen3-14b-thinking,en,trial21
+a,"['Expressing invocation, surprise, or admiration; (also) used to gain attention.']",Kai’i!,Qwen/Qwen3-14b-thinking,en,trial22
+achoo,['Representing the sound of a sneeze.'],Kai-Tsu-Ah!,Qwen/Qwen3-14b-thinking,en,trial22
+atishoo,['Representing the sound of a sneeze.'],Kai-Tsu-Ah!,Qwen/Qwen3-14b-thinking,en,trial22
+atichoo,['Representing the sound of a sneeze.'],Kai-Tsu-Ah!,Qwen/Qwen3-14b-thinking,en,trial22
+ahem,"['An exclamation representing a slight cough or clearing of the throat, used (a) to attract attention, esp. prior to speaking (b) to express hesitation, (mock) disapproval, embarrassment, suggestiveness, etc.']",Kai-Tsu-Ah!,Qwen/Qwen3-14b-thinking,en,trial22
+ai,"['An exclamation of surprise, regret, pain, etc., often used in imitation of foreign speakers of English.']",Kai-Tsu-Ah!,Qwen/Qwen3-14b-thinking,en,trial22
+aie,"['Awailing exclamation of resignation, surprise, regret, alarm, etc.; sometimes imitative of non-British speakers of English.']",Kai-Tsu-Ah!,Qwen/Qwen3-14b-thinking,en,trial22
+alew,['A cry of sorrow or lamentation.'],Kai-Tsu-Ah!,Qwen/Qwen3-14b-thinking,en,trial22
+arf,"['Representing the bark of a (small) dog, or a human imitation of such a bark.']",Kai-Tsu-Ah!,Qwen/Qwen3-14b-thinking,en,trial22
+argh,"['Expressing pain or fright; (also) expressing anguish, disappointment, or frustration.']",Kai-Tsu-Ah!,Qwen/Qwen3-14b-thinking,en,trial22
