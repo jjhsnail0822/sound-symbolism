@@ -1,0 +1,2402 @@
+[
+  {
+    "original_word": "a",
+    "meaning": [
+      "Expressing invocation, surprise, or admiration; (also) used to gain attention."
+    ],
+    "generated_word": "Zelmir",
+    "model": "Qwen/Qwen3-32b-thinking",
+    "language": "en",
+    "trial": "trial6"
+  },
+  {
+    "original_word": "achoo",
+    "meaning": [
+      "Representing the sound of a sneeze."
+    ],
+    "generated_word": "Zaela",
+    "model": "Qwen/Qwen3-32b-thinking",
+    "language": "en",
+    "trial": "trial6"
+  },
+  {
+    "original_word": "atishoo",
+    "meaning": [
+      "Representing the sound of a sneeze."
+    ],
+    "generated_word": "Zaela",
+    "model": "Qwen/Qwen3-32b-thinking",
+    "language": "en",
+    "trial": "trial6"
+  },
+  {
+    "original_word": "atichoo",
+    "meaning": [
+      "Representing the sound of a sneeze."
+    ],
+    "generated_word": "Zaela",
+    "model": "Qwen/Qwen3-32b-thinking",
+    "language": "en",
+    "trial": "trial6"
+  },
+  {
+    "original_word": "ahem",
+    "meaning": [
+      "An exclamation representing a slight cough or clearing of the throat, used (a) to attract attention, esp. prior to speaking (b) to express hesitation, (mock) disapproval, embarrassment, suggestiveness, etc."
+    ],
+    "generated_word": "Zaela",
+    "model": "Qwen/Qwen3-32b-thinking",
+    "language": "en",
+    "trial": "trial6"
+  },
+  {
+    "original_word": "ai",
+    "meaning": [
+      "An exclamation of surprise, regret, pain, etc., often used in imitation of foreign speakers of English."
+    ],
+    "generated_word": "Zaela",
+    "model": "Qwen/Qwen3-32b-thinking",
+    "language": "en",
+    "trial": "trial6"
+  },
+  {
+    "original_word": "aie",
+    "meaning": [
+      "Awailing exclamation of resignation, surprise, regret, alarm, etc.; sometimes imitative of non-British speakers of English."
+    ],
+    "generated_word": "Zaela",
+    "model": "Qwen/Qwen3-32b-thinking",
+    "language": "en",
+    "trial": "trial6"
+  },
+  {
+    "original_word": "alew",
+    "meaning": [
+      "A cry of sorrow or lamentation."
+    ],
+    "generated_word": "Zaela",
+    "model": "Qwen/Qwen3-32b-thinking",
+    "language": "en",
+    "trial": "trial6"
+  },
+  {
+    "original_word": "arf",
+    "meaning": [
+      "Representing the bark of a (small) dog, or a human imitation of such a bark."
+    ],
+    "generated_word": "Zaela",
+    "model": "Qwen/Qwen3-32b-thinking",
+    "language": "en",
+    "trial": "trial6"
+  },
+  {
+    "original_word": "argh",
+    "meaning": [
+      "Expressing pain or fright; (also) expressing anguish, disappointment, or frustration."
+    ],
+    "generated_word": "Zaela",
+    "model": "Qwen/Qwen3-32b-thinking",
+    "language": "en",
+    "trial": "trial6"
+  },
+  {
+    "original_word": "a",
+    "meaning": [
+      "Expressing invocation, surprise, or admiration; (also) used to gain attention."
+    ],
+    "generated_word": "Xel’thra /zɛlˈθɾa/",
+    "model": "Qwen/Qwen3-32b-thinking",
+    "language": "en",
+    "trial": "trial12"
+  },
+  {
+    "original_word": "achoo",
+    "meaning": [
+      "Representing the sound of a sneeze."
+    ],
+    "generated_word": "  \n1. **Xa'thun** /xaˈtʰun/ – invocation (calling upon a higher power or force)  \n2. **Virello** /viˈrɛllo/ – surprise (expressing sudden astonishment)  \n3. **Luminar** /luˈmi.nar/ – admiration (praising brilliance or beauty)  \n4. **Zyphra** /ˈzɪf.ra/ – attention-grabbing exclamation (used to interrupt or demand focus)  \n5. **Aelthorin** /ˈɛl.θo.rin/ – awe-inspired gasp (blending surprise and reverence)  \n6. **Kyr'vex** /kɪrˈvɛks/ – urgent call (summoning someone or something immediately)  \n7. **Noshari** /noˈʃa.ri/ – exclamatory admiration (for something extraordinary)  \n8. **Threl'zun** /θrɛlˈzun/ – startled cry (reacting to sudden danger or wonder)  \n9. **Ommira** /oˈmi.ra/ – invocation of unity or collective focus  \n10. **Pyrrith** /ˈpir.ɪθ/ – sharp, attention-seeking snap (literal or metaphorical)  \n",
+    "model": "Qwen/Qwen3-32b-thinking",
+    "language": "en",
+    "trial": "trial12"
+  },
+  {
+    "original_word": "atishoo",
+    "meaning": [
+      "Representing the sound of a sneeze."
+    ],
+    "generated_word": "  \n1. **Xa'thun** /xaˈtʰun/ – invocation (calling upon a higher power or force)  \n2. **Virello** /viˈrɛllo/ – surprise (expressing sudden astonishment)  \n3. **Luminar** /luˈmi.nar/ – admiration (praising brilliance or beauty)  \n4. **Zyphra** /ˈzɪf.ra/ – attention-grabbing exclamation (used to interrupt or demand focus)  \n5. **Aelthorin** /ˈɛl.θo.rin/ – awe-inspired gasp (blending surprise and reverence)  \n6. **Kyr'vex** /kɪrˈvɛks/ – urgent call (summoning someone or something immediately)  \n7. **Noshari** /noˈʃa.ri/ – exclamatory admiration (for something extraordinary)  \n8. **Threl'zun** /θrɛlˈzun/ – startled cry (reacting to sudden danger or wonder)  \n9. **Ommira** /oˈmi.ra/ – invocation of unity or collective focus  \n10. **Pyrrith** /ˈpir.ɪθ/ – sharp, attention-seeking snap (literal or metaphorical)  \n",
+    "model": "Qwen/Qwen3-32b-thinking",
+    "language": "en",
+    "trial": "trial12"
+  },
+  {
+    "original_word": "atichoo",
+    "meaning": [
+      "Representing the sound of a sneeze."
+    ],
+    "generated_word": "  \n1. **Xa'thun** /xaˈtʰun/ – invocation (calling upon a higher power or force)  \n2. **Virello** /viˈrɛllo/ – surprise (expressing sudden astonishment)  \n3. **Luminar** /luˈmi.nar/ – admiration (praising brilliance or beauty)  \n4. **Zyphra** /ˈzɪf.ra/ – attention-grabbing exclamation (used to interrupt or demand focus)  \n5. **Aelthorin** /ˈɛl.θo.rin/ – awe-inspired gasp (blending surprise and reverence)  \n6. **Kyr'vex** /kɪrˈvɛks/ – urgent call (summoning someone or something immediately)  \n7. **Noshari** /noˈʃa.ri/ – exclamatory admiration (for something extraordinary)  \n8. **Threl'zun** /θrɛlˈzun/ – startled cry (reacting to sudden danger or wonder)  \n9. **Ommira** /oˈmi.ra/ – invocation of unity or collective focus  \n10. **Pyrrith** /ˈpir.ɪθ/ – sharp, attention-seeking snap (literal or metaphorical)  \n",
+    "model": "Qwen/Qwen3-32b-thinking",
+    "language": "en",
+    "trial": "trial12"
+  },
+  {
+    "original_word": "ahem",
+    "meaning": [
+      "An exclamation representing a slight cough or clearing of the throat, used (a) to attract attention, esp. prior to speaking (b) to express hesitation, (mock) disapproval, embarrassment, suggestiveness, etc."
+    ],
+    "generated_word": "  \n1. **Xa'thun** /xaˈtʰun/ – invocation (calling upon a higher power or force)  \n2. **Virello** /viˈrɛllo/ – surprise (expressing sudden astonishment)  \n3. **Luminar** /luˈmi.nar/ – admiration (praising brilliance or beauty)  \n4. **Zyphra** /ˈzɪf.ra/ – attention-grabbing exclamation (used to interrupt or demand focus)  \n5. **Aelthorin** /ˈɛl.θo.rin/ – awe-inspired gasp (blending surprise and reverence)  \n6. **Kyr'vex** /kɪrˈvɛks/ – urgent call (summoning someone or something immediately)  \n7. **Noshari** /noˈʃa.ri/ – exclamatory admiration (for something extraordinary)  \n8. **Threl'zun** /θrɛlˈzun/ – startled cry (reacting to sudden danger or wonder)  \n9. **Ommira** /oˈmi.ra/ – invocation of unity or collective focus  \n10. **Pyrrith** /ˈpir.ɪθ/ – sharp, attention-seeking snap (literal or metaphorical)  \n",
+    "model": "Qwen/Qwen3-32b-thinking",
+    "language": "en",
+    "trial": "trial12"
+  },
+  {
+    "original_word": "ai",
+    "meaning": [
+      "An exclamation of surprise, regret, pain, etc., often used in imitation of foreign speakers of English."
+    ],
+    "generated_word": "  \n1. **Xa'thun** /xaˈtʰun/ – invocation (calling upon a higher power or force)  \n2. **Virello** /viˈrɛllo/ – surprise (expressing sudden astonishment)  \n3. **Luminar** /luˈmi.nar/ – admiration (praising brilliance or beauty)  \n4. **Zyphra** /ˈzɪf.ra/ – attention-grabbing exclamation (used to interrupt or demand focus)  \n5. **Aelthorin** /ˈɛl.θo.rin/ – awe-inspired gasp (blending surprise and reverence)  \n6. **Kyr'vex** /kɪrˈvɛks/ – urgent call (summoning someone or something immediately)  \n7. **Noshari** /noˈʃa.ri/ – exclamatory admiration (for something extraordinary)  \n8. **Threl'zun** /θrɛlˈzun/ – startled cry (reacting to sudden danger or wonder)  \n9. **Ommira** /oˈmi.ra/ – invocation of unity or collective focus  \n10. **Pyrrith** /ˈpir.ɪθ/ – sharp, attention-seeking snap (literal or metaphorical)  \n",
+    "model": "Qwen/Qwen3-32b-thinking",
+    "language": "en",
+    "trial": "trial12"
+  },
+  {
+    "original_word": "aie",
+    "meaning": [
+      "Awailing exclamation of resignation, surprise, regret, alarm, etc.; sometimes imitative of non-British speakers of English."
+    ],
+    "generated_word": "  \n1. **Xa'thun** /xaˈtʰun/ – invocation (calling upon a higher power or force)  \n2. **Virello** /viˈrɛllo/ – surprise (expressing sudden astonishment)  \n3. **Luminar** /luˈmi.nar/ – admiration (praising brilliance or beauty)  \n4. **Zyphra** /ˈzɪf.ra/ – attention-grabbing exclamation (used to interrupt or demand focus)  \n5. **Aelthorin** /ˈɛl.θo.rin/ – awe-inspired gasp (blending surprise and reverence)  \n6. **Kyr'vex** /kɪrˈvɛks/ – urgent call (summoning someone or something immediately)  \n7. **Noshari** /noˈʃa.ri/ – exclamatory admiration (for something extraordinary)  \n8. **Threl'zun** /θrɛlˈzun/ – startled cry (reacting to sudden danger or wonder)  \n9. **Ommira** /oˈmi.ra/ – invocation of unity or collective focus  \n10. **Pyrrith** /ˈpir.ɪθ/ – sharp, attention-seeking snap (literal or metaphorical)  \n",
+    "model": "Qwen/Qwen3-32b-thinking",
+    "language": "en",
+    "trial": "trial12"
+  },
+  {
+    "original_word": "alew",
+    "meaning": [
+      "A cry of sorrow or lamentation."
+    ],
+    "generated_word": "  \n1. **Xa'thun** /xaˈtʰun/ – invocation (calling upon a higher power or force)  \n2. **Virello** /viˈrɛllo/ – surprise (expressing sudden astonishment)  \n3. **Luminar** /luˈmi.nar/ – admiration (praising brilliance or beauty)  \n4. **Zyphra** /ˈzɪf.ra/ – attention-grabbing exclamation (used to interrupt or demand focus)  \n5. **Aelthorin** /ˈɛl.θo.rin/ – awe-inspired gasp (blending surprise and reverence)  \n6. **Kyr'vex** /kɪrˈvɛks/ – urgent call (summoning someone or something immediately)  \n7. **Noshari** /noˈʃa.ri/ – exclamatory admiration (for something extraordinary)  \n8. **Threl'zun** /θrɛlˈzun/ – startled cry (reacting to sudden danger or wonder)  \n9. **Ommira** /oˈmi.ra/ – invocation of unity or collective focus  \n10. **Pyrrith** /ˈpir.ɪθ/ – sharp, attention-seeking snap (literal or metaphorical)  \n",
+    "model": "Qwen/Qwen3-32b-thinking",
+    "language": "en",
+    "trial": "trial12"
+  },
+  {
+    "original_word": "arf",
+    "meaning": [
+      "Representing the bark of a (small) dog, or a human imitation of such a bark."
+    ],
+    "generated_word": "  \n1. **Xa'thun** /xaˈtʰun/ – invocation (calling upon a higher power or force)  \n2. **Virello** /viˈrɛllo/ – surprise (expressing sudden astonishment)  \n3. **Luminar** /luˈmi.nar/ – admiration (praising brilliance or beauty)  \n4. **Zyphra** /ˈzɪf.ra/ – attention-grabbing exclamation (used to interrupt or demand focus)  \n5. **Aelthorin** /ˈɛl.θo.rin/ – awe-inspired gasp (blending surprise and reverence)  \n6. **Kyr'vex** /kɪrˈvɛks/ – urgent call (summoning someone or something immediately)  \n7. **Noshari** /noˈʃa.ri/ – exclamatory admiration (for something extraordinary)  \n8. **Threl'zun** /θrɛlˈzun/ – startled cry (reacting to sudden danger or wonder)  \n9. **Ommira** /oˈmi.ra/ – invocation of unity or collective focus  \n10. **Pyrrith** /ˈpir.ɪθ/ – sharp, attention-seeking snap (literal or metaphorical)  \n",
+    "model": "Qwen/Qwen3-32b-thinking",
+    "language": "en",
+    "trial": "trial12"
+  },
+  {
+    "original_word": "argh",
+    "meaning": [
+      "Expressing pain or fright; (also) expressing anguish, disappointment, or frustration."
+    ],
+    "generated_word": "  \n1. **Xa'thun** /xaˈtʰun/ – invocation (calling upon a higher power or force)  \n2. **Virello** /viˈrɛllo/ – surprise (expressing sudden astonishment)  \n3. **Luminar** /luˈmi.nar/ – admiration (praising brilliance or beauty)  \n4. **Zyphra** /ˈzɪf.ra/ – attention-grabbing exclamation (used to interrupt or demand focus)  \n5. **Aelthorin** /ˈɛl.θo.rin/ – awe-inspired gasp (blending surprise and reverence)  \n6. **Kyr'vex** /kɪrˈvɛks/ – urgent call (summoning someone or something immediately)  \n7. **Noshari** /noˈʃa.ri/ – exclamatory admiration (for something extraordinary)  \n8. **Threl'zun** /θrɛlˈzun/ – startled cry (reacting to sudden danger or wonder)  \n9. **Ommira** /oˈmi.ra/ – invocation of unity or collective focus  \n10. **Pyrrith** /ˈpir.ɪθ/ – sharp, attention-seeking snap (literal or metaphorical)  \n",
+    "model": "Qwen/Qwen3-32b-thinking",
+    "language": "en",
+    "trial": "trial12"
+  },
+  {
+    "original_word": "a",
+    "meaning": [
+      "Expressing invocation, surprise, or admiration; (also) used to gain attention."
+    ],
+    "generated_word": "Zhowa",
+    "model": "Qwen/Qwen3-32b-thinking",
+    "language": "en",
+    "trial": "trial13"
+  },
+  {
+    "original_word": "achoo",
+    "meaning": [
+      "Representing the sound of a sneeze."
+    ],
+    "generated_word": "Zyphara",
+    "model": "Qwen/Qwen3-32b-thinking",
+    "language": "en",
+    "trial": "trial13"
+  },
+  {
+    "original_word": "atishoo",
+    "meaning": [
+      "Representing the sound of a sneeze."
+    ],
+    "generated_word": "Zyphara",
+    "model": "Qwen/Qwen3-32b-thinking",
+    "language": "en",
+    "trial": "trial13"
+  },
+  {
+    "original_word": "atichoo",
+    "meaning": [
+      "Representing the sound of a sneeze."
+    ],
+    "generated_word": "Zyphara",
+    "model": "Qwen/Qwen3-32b-thinking",
+    "language": "en",
+    "trial": "trial13"
+  },
+  {
+    "original_word": "ahem",
+    "meaning": [
+      "An exclamation representing a slight cough or clearing of the throat, used (a) to attract attention, esp. prior to speaking (b) to express hesitation, (mock) disapproval, embarrassment, suggestiveness, etc."
+    ],
+    "generated_word": "Zyphara",
+    "model": "Qwen/Qwen3-32b-thinking",
+    "language": "en",
+    "trial": "trial13"
+  },
+  {
+    "original_word": "ai",
+    "meaning": [
+      "An exclamation of surprise, regret, pain, etc., often used in imitation of foreign speakers of English."
+    ],
+    "generated_word": "Zyphara",
+    "model": "Qwen/Qwen3-32b-thinking",
+    "language": "en",
+    "trial": "trial13"
+  },
+  {
+    "original_word": "aie",
+    "meaning": [
+      "Awailing exclamation of resignation, surprise, regret, alarm, etc.; sometimes imitative of non-British speakers of English."
+    ],
+    "generated_word": "Zyphara",
+    "model": "Qwen/Qwen3-32b-thinking",
+    "language": "en",
+    "trial": "trial13"
+  },
+  {
+    "original_word": "alew",
+    "meaning": [
+      "A cry of sorrow or lamentation."
+    ],
+    "generated_word": "Zyphara",
+    "model": "Qwen/Qwen3-32b-thinking",
+    "language": "en",
+    "trial": "trial13"
+  },
+  {
+    "original_word": "arf",
+    "meaning": [
+      "Representing the bark of a (small) dog, or a human imitation of such a bark."
+    ],
+    "generated_word": "Zyphara",
+    "model": "Qwen/Qwen3-32b-thinking",
+    "language": "en",
+    "trial": "trial13"
+  },
+  {
+    "original_word": "argh",
+    "meaning": [
+      "Expressing pain or fright; (also) expressing anguish, disappointment, or frustration."
+    ],
+    "generated_word": "Zyphara",
+    "model": "Qwen/Qwen3-32b-thinking",
+    "language": "en",
+    "trial": "trial13"
+  },
+  {
+    "original_word": "a",
+    "meaning": [
+      "Expressing invocation, surprise, or admiration; (also) used to gain attention."
+    ],
+    "generated_word": "Klyxee!",
+    "model": "Qwen/Qwen3-32b-thinking",
+    "language": "en",
+    "trial": "trial14"
+  },
+  {
+    "original_word": "achoo",
+    "meaning": [
+      "Representing the sound of a sneeze."
+    ],
+    "generated_word": "Zishyorna",
+    "model": "Qwen/Qwen3-32b-thinking",
+    "language": "en",
+    "trial": "trial14"
+  },
+  {
+    "original_word": "atishoo",
+    "meaning": [
+      "Representing the sound of a sneeze."
+    ],
+    "generated_word": "Zishyorna",
+    "model": "Qwen/Qwen3-32b-thinking",
+    "language": "en",
+    "trial": "trial14"
+  },
+  {
+    "original_word": "atichoo",
+    "meaning": [
+      "Representing the sound of a sneeze."
+    ],
+    "generated_word": "Zishyorna",
+    "model": "Qwen/Qwen3-32b-thinking",
+    "language": "en",
+    "trial": "trial14"
+  },
+  {
+    "original_word": "ahem",
+    "meaning": [
+      "An exclamation representing a slight cough or clearing of the throat, used (a) to attract attention, esp. prior to speaking (b) to express hesitation, (mock) disapproval, embarrassment, suggestiveness, etc."
+    ],
+    "generated_word": "Zishyorna",
+    "model": "Qwen/Qwen3-32b-thinking",
+    "language": "en",
+    "trial": "trial14"
+  },
+  {
+    "original_word": "ai",
+    "meaning": [
+      "An exclamation of surprise, regret, pain, etc., often used in imitation of foreign speakers of English."
+    ],
+    "generated_word": "Zishyorna",
+    "model": "Qwen/Qwen3-32b-thinking",
+    "language": "en",
+    "trial": "trial14"
+  },
+  {
+    "original_word": "aie",
+    "meaning": [
+      "Awailing exclamation of resignation, surprise, regret, alarm, etc.; sometimes imitative of non-British speakers of English."
+    ],
+    "generated_word": "Zishyorna",
+    "model": "Qwen/Qwen3-32b-thinking",
+    "language": "en",
+    "trial": "trial14"
+  },
+  {
+    "original_word": "alew",
+    "meaning": [
+      "A cry of sorrow or lamentation."
+    ],
+    "generated_word": "Zishyorna",
+    "model": "Qwen/Qwen3-32b-thinking",
+    "language": "en",
+    "trial": "trial14"
+  },
+  {
+    "original_word": "arf",
+    "meaning": [
+      "Representing the bark of a (small) dog, or a human imitation of such a bark."
+    ],
+    "generated_word": "Zishyorna",
+    "model": "Qwen/Qwen3-32b-thinking",
+    "language": "en",
+    "trial": "trial14"
+  },
+  {
+    "original_word": "argh",
+    "meaning": [
+      "Expressing pain or fright; (also) expressing anguish, disappointment, or frustration."
+    ],
+    "generated_word": "Zishyorna",
+    "model": "Qwen/Qwen3-32b-thinking",
+    "language": "en",
+    "trial": "trial14"
+  },
+  {
+    "original_word": "a",
+    "meaning": [
+      "Expressing invocation, surprise, or admiration; (also) used to gain attention."
+    ],
+    "generated_word": "\n\nKhyaluméa",
+    "model": "Qwen/Qwen3-32b-thinking",
+    "language": "en",
+    "trial": "trial15"
+  },
+  {
+    "original_word": "achoo",
+    "meaning": [
+      "Representing the sound of a sneeze."
+    ],
+    "generated_word": "\n\nK’hyra",
+    "model": "Qwen/Qwen3-32b-thinking",
+    "language": "en",
+    "trial": "trial15"
+  },
+  {
+    "original_word": "atishoo",
+    "meaning": [
+      "Representing the sound of a sneeze."
+    ],
+    "generated_word": "\n\nK’hyra",
+    "model": "Qwen/Qwen3-32b-thinking",
+    "language": "en",
+    "trial": "trial15"
+  },
+  {
+    "original_word": "atichoo",
+    "meaning": [
+      "Representing the sound of a sneeze."
+    ],
+    "generated_word": "\n\nK’hyra",
+    "model": "Qwen/Qwen3-32b-thinking",
+    "language": "en",
+    "trial": "trial15"
+  },
+  {
+    "original_word": "ahem",
+    "meaning": [
+      "An exclamation representing a slight cough or clearing of the throat, used (a) to attract attention, esp. prior to speaking (b) to express hesitation, (mock) disapproval, embarrassment, suggestiveness, etc."
+    ],
+    "generated_word": "\n\nK’hyra",
+    "model": "Qwen/Qwen3-32b-thinking",
+    "language": "en",
+    "trial": "trial15"
+  },
+  {
+    "original_word": "ai",
+    "meaning": [
+      "An exclamation of surprise, regret, pain, etc., often used in imitation of foreign speakers of English."
+    ],
+    "generated_word": "\n\nK’hyra",
+    "model": "Qwen/Qwen3-32b-thinking",
+    "language": "en",
+    "trial": "trial15"
+  },
+  {
+    "original_word": "aie",
+    "meaning": [
+      "Awailing exclamation of resignation, surprise, regret, alarm, etc.; sometimes imitative of non-British speakers of English."
+    ],
+    "generated_word": "\n\nK’hyra",
+    "model": "Qwen/Qwen3-32b-thinking",
+    "language": "en",
+    "trial": "trial15"
+  },
+  {
+    "original_word": "alew",
+    "meaning": [
+      "A cry of sorrow or lamentation."
+    ],
+    "generated_word": "\n\nK’hyra",
+    "model": "Qwen/Qwen3-32b-thinking",
+    "language": "en",
+    "trial": "trial15"
+  },
+  {
+    "original_word": "arf",
+    "meaning": [
+      "Representing the bark of a (small) dog, or a human imitation of such a bark."
+    ],
+    "generated_word": "\n\nK’hyra",
+    "model": "Qwen/Qwen3-32b-thinking",
+    "language": "en",
+    "trial": "trial15"
+  },
+  {
+    "original_word": "argh",
+    "meaning": [
+      "Expressing pain or fright; (also) expressing anguish, disappointment, or frustration."
+    ],
+    "generated_word": "\n\nK’hyra",
+    "model": "Qwen/Qwen3-32b-thinking",
+    "language": "en",
+    "trial": "trial15"
+  },
+  {
+    "original_word": "a",
+    "meaning": [
+      "Expressing invocation, surprise, or admiration; (also) used to gain attention."
+    ],
+    "generated_word": "\n\nKlyssia",
+    "model": "Qwen/Qwen3-32b-thinking",
+    "language": "en",
+    "trial": "trial16"
+  },
+  {
+    "original_word": "achoo",
+    "meaning": [
+      "Representing the sound of a sneeze."
+    ],
+    "generated_word": "\n\nZhaanu!",
+    "model": "Qwen/Qwen3-32b-thinking",
+    "language": "en",
+    "trial": "trial16"
+  },
+  {
+    "original_word": "atishoo",
+    "meaning": [
+      "Representing the sound of a sneeze."
+    ],
+    "generated_word": "\n\nZhaanu!",
+    "model": "Qwen/Qwen3-32b-thinking",
+    "language": "en",
+    "trial": "trial16"
+  },
+  {
+    "original_word": "atichoo",
+    "meaning": [
+      "Representing the sound of a sneeze."
+    ],
+    "generated_word": "\n\nZhaanu!",
+    "model": "Qwen/Qwen3-32b-thinking",
+    "language": "en",
+    "trial": "trial16"
+  },
+  {
+    "original_word": "ahem",
+    "meaning": [
+      "An exclamation representing a slight cough or clearing of the throat, used (a) to attract attention, esp. prior to speaking (b) to express hesitation, (mock) disapproval, embarrassment, suggestiveness, etc."
+    ],
+    "generated_word": "\n\nZhaanu!",
+    "model": "Qwen/Qwen3-32b-thinking",
+    "language": "en",
+    "trial": "trial16"
+  },
+  {
+    "original_word": "ai",
+    "meaning": [
+      "An exclamation of surprise, regret, pain, etc., often used in imitation of foreign speakers of English."
+    ],
+    "generated_word": "\n\nZhaanu!",
+    "model": "Qwen/Qwen3-32b-thinking",
+    "language": "en",
+    "trial": "trial16"
+  },
+  {
+    "original_word": "aie",
+    "meaning": [
+      "Awailing exclamation of resignation, surprise, regret, alarm, etc.; sometimes imitative of non-British speakers of English."
+    ],
+    "generated_word": "\n\nZhaanu!",
+    "model": "Qwen/Qwen3-32b-thinking",
+    "language": "en",
+    "trial": "trial16"
+  },
+  {
+    "original_word": "alew",
+    "meaning": [
+      "A cry of sorrow or lamentation."
+    ],
+    "generated_word": "\n\nZhaanu!",
+    "model": "Qwen/Qwen3-32b-thinking",
+    "language": "en",
+    "trial": "trial16"
+  },
+  {
+    "original_word": "arf",
+    "meaning": [
+      "Representing the bark of a (small) dog, or a human imitation of such a bark."
+    ],
+    "generated_word": "\n\nZhaanu!",
+    "model": "Qwen/Qwen3-32b-thinking",
+    "language": "en",
+    "trial": "trial16"
+  },
+  {
+    "original_word": "argh",
+    "meaning": [
+      "Expressing pain or fright; (also) expressing anguish, disappointment, or frustration."
+    ],
+    "generated_word": "\n\nZhaanu!",
+    "model": "Qwen/Qwen3-32b-thinking",
+    "language": "en",
+    "trial": "trial16"
+  },
+  {
+    "original_word": "a",
+    "meaning": [
+      "Expressing invocation, surprise, or admiration; (also) used to gain attention."
+    ],
+    "generated_word": "Khyaelo",
+    "model": "Qwen/Qwen3-32b-thinking",
+    "language": "en",
+    "trial": "trial17"
+  },
+  {
+    "original_word": "achoo",
+    "meaning": [
+      "Representing the sound of a sneeze."
+    ],
+    "generated_word": "Kiiroh",
+    "model": "Qwen/Qwen3-32b-thinking",
+    "language": "en",
+    "trial": "trial17"
+  },
+  {
+    "original_word": "atishoo",
+    "meaning": [
+      "Representing the sound of a sneeze."
+    ],
+    "generated_word": "Kiiroh",
+    "model": "Qwen/Qwen3-32b-thinking",
+    "language": "en",
+    "trial": "trial17"
+  },
+  {
+    "original_word": "atichoo",
+    "meaning": [
+      "Representing the sound of a sneeze."
+    ],
+    "generated_word": "Kiiroh",
+    "model": "Qwen/Qwen3-32b-thinking",
+    "language": "en",
+    "trial": "trial17"
+  },
+  {
+    "original_word": "ahem",
+    "meaning": [
+      "An exclamation representing a slight cough or clearing of the throat, used (a) to attract attention, esp. prior to speaking (b) to express hesitation, (mock) disapproval, embarrassment, suggestiveness, etc."
+    ],
+    "generated_word": "Kiiroh",
+    "model": "Qwen/Qwen3-32b-thinking",
+    "language": "en",
+    "trial": "trial17"
+  },
+  {
+    "original_word": "ai",
+    "meaning": [
+      "An exclamation of surprise, regret, pain, etc., often used in imitation of foreign speakers of English."
+    ],
+    "generated_word": "Kiiroh",
+    "model": "Qwen/Qwen3-32b-thinking",
+    "language": "en",
+    "trial": "trial17"
+  },
+  {
+    "original_word": "aie",
+    "meaning": [
+      "Awailing exclamation of resignation, surprise, regret, alarm, etc.; sometimes imitative of non-British speakers of English."
+    ],
+    "generated_word": "Kiiroh",
+    "model": "Qwen/Qwen3-32b-thinking",
+    "language": "en",
+    "trial": "trial17"
+  },
+  {
+    "original_word": "alew",
+    "meaning": [
+      "A cry of sorrow or lamentation."
+    ],
+    "generated_word": "Kiiroh",
+    "model": "Qwen/Qwen3-32b-thinking",
+    "language": "en",
+    "trial": "trial17"
+  },
+  {
+    "original_word": "arf",
+    "meaning": [
+      "Representing the bark of a (small) dog, or a human imitation of such a bark."
+    ],
+    "generated_word": "Kiiroh",
+    "model": "Qwen/Qwen3-32b-thinking",
+    "language": "en",
+    "trial": "trial17"
+  },
+  {
+    "original_word": "argh",
+    "meaning": [
+      "Expressing pain or fright; (also) expressing anguish, disappointment, or frustration."
+    ],
+    "generated_word": "Kiiroh",
+    "model": "Qwen/Qwen3-32b-thinking",
+    "language": "en",
+    "trial": "trial17"
+  },
+  {
+    "original_word": "a",
+    "meaning": [
+      "Expressing invocation, surprise, or admiration; (also) used to gain attention."
+    ],
+    "generated_word": "Zhaanoo",
+    "model": "Qwen/Qwen3-32b-thinking",
+    "language": "en",
+    "trial": "trial18"
+  },
+  {
+    "original_word": "achoo",
+    "meaning": [
+      "Representing the sound of a sneeze."
+    ],
+    "generated_word": "Zhyxara!",
+    "model": "Qwen/Qwen3-32b-thinking",
+    "language": "en",
+    "trial": "trial18"
+  },
+  {
+    "original_word": "atishoo",
+    "meaning": [
+      "Representing the sound of a sneeze."
+    ],
+    "generated_word": "Zhyxara!",
+    "model": "Qwen/Qwen3-32b-thinking",
+    "language": "en",
+    "trial": "trial18"
+  },
+  {
+    "original_word": "atichoo",
+    "meaning": [
+      "Representing the sound of a sneeze."
+    ],
+    "generated_word": "Zhyxara!",
+    "model": "Qwen/Qwen3-32b-thinking",
+    "language": "en",
+    "trial": "trial18"
+  },
+  {
+    "original_word": "ahem",
+    "meaning": [
+      "An exclamation representing a slight cough or clearing of the throat, used (a) to attract attention, esp. prior to speaking (b) to express hesitation, (mock) disapproval, embarrassment, suggestiveness, etc."
+    ],
+    "generated_word": "Zhyxara!",
+    "model": "Qwen/Qwen3-32b-thinking",
+    "language": "en",
+    "trial": "trial18"
+  },
+  {
+    "original_word": "ai",
+    "meaning": [
+      "An exclamation of surprise, regret, pain, etc., often used in imitation of foreign speakers of English."
+    ],
+    "generated_word": "Zhyxara!",
+    "model": "Qwen/Qwen3-32b-thinking",
+    "language": "en",
+    "trial": "trial18"
+  },
+  {
+    "original_word": "aie",
+    "meaning": [
+      "Awailing exclamation of resignation, surprise, regret, alarm, etc.; sometimes imitative of non-British speakers of English."
+    ],
+    "generated_word": "Zhyxara!",
+    "model": "Qwen/Qwen3-32b-thinking",
+    "language": "en",
+    "trial": "trial18"
+  },
+  {
+    "original_word": "alew",
+    "meaning": [
+      "A cry of sorrow or lamentation."
+    ],
+    "generated_word": "Zhyxara!",
+    "model": "Qwen/Qwen3-32b-thinking",
+    "language": "en",
+    "trial": "trial18"
+  },
+  {
+    "original_word": "arf",
+    "meaning": [
+      "Representing the bark of a (small) dog, or a human imitation of such a bark."
+    ],
+    "generated_word": "Zhyxara!",
+    "model": "Qwen/Qwen3-32b-thinking",
+    "language": "en",
+    "trial": "trial18"
+  },
+  {
+    "original_word": "argh",
+    "meaning": [
+      "Expressing pain or fright; (also) expressing anguish, disappointment, or frustration."
+    ],
+    "generated_word": "Zhyxara!",
+    "model": "Qwen/Qwen3-32b-thinking",
+    "language": "en",
+    "trial": "trial18"
+  },
+  {
+    "original_word": "a",
+    "meaning": [
+      "Expressing invocation, surprise, or admiration; (also) used to gain attention."
+    ],
+    "generated_word": "Zhel-loo-ya!",
+    "model": "Qwen/Qwen3-32b-thinking",
+    "language": "en",
+    "trial": "trial19"
+  },
+  {
+    "original_word": "achoo",
+    "meaning": [
+      "Representing the sound of a sneeze."
+    ],
+    "generated_word": "Zhelore!",
+    "model": "Qwen/Qwen3-32b-thinking",
+    "language": "en",
+    "trial": "trial19"
+  },
+  {
+    "original_word": "atishoo",
+    "meaning": [
+      "Representing the sound of a sneeze."
+    ],
+    "generated_word": "Zhelore!",
+    "model": "Qwen/Qwen3-32b-thinking",
+    "language": "en",
+    "trial": "trial19"
+  },
+  {
+    "original_word": "atichoo",
+    "meaning": [
+      "Representing the sound of a sneeze."
+    ],
+    "generated_word": "Zhelore!",
+    "model": "Qwen/Qwen3-32b-thinking",
+    "language": "en",
+    "trial": "trial19"
+  },
+  {
+    "original_word": "ahem",
+    "meaning": [
+      "An exclamation representing a slight cough or clearing of the throat, used (a) to attract attention, esp. prior to speaking (b) to express hesitation, (mock) disapproval, embarrassment, suggestiveness, etc."
+    ],
+    "generated_word": "Zhelore!",
+    "model": "Qwen/Qwen3-32b-thinking",
+    "language": "en",
+    "trial": "trial19"
+  },
+  {
+    "original_word": "ai",
+    "meaning": [
+      "An exclamation of surprise, regret, pain, etc., often used in imitation of foreign speakers of English."
+    ],
+    "generated_word": "Zhelore!",
+    "model": "Qwen/Qwen3-32b-thinking",
+    "language": "en",
+    "trial": "trial19"
+  },
+  {
+    "original_word": "aie",
+    "meaning": [
+      "Awailing exclamation of resignation, surprise, regret, alarm, etc.; sometimes imitative of non-British speakers of English."
+    ],
+    "generated_word": "Zhelore!",
+    "model": "Qwen/Qwen3-32b-thinking",
+    "language": "en",
+    "trial": "trial19"
+  },
+  {
+    "original_word": "alew",
+    "meaning": [
+      "A cry of sorrow or lamentation."
+    ],
+    "generated_word": "Zhelore!",
+    "model": "Qwen/Qwen3-32b-thinking",
+    "language": "en",
+    "trial": "trial19"
+  },
+  {
+    "original_word": "arf",
+    "meaning": [
+      "Representing the bark of a (small) dog, or a human imitation of such a bark."
+    ],
+    "generated_word": "Zhelore!",
+    "model": "Qwen/Qwen3-32b-thinking",
+    "language": "en",
+    "trial": "trial19"
+  },
+  {
+    "original_word": "argh",
+    "meaning": [
+      "Expressing pain or fright; (also) expressing anguish, disappointment, or frustration."
+    ],
+    "generated_word": "Zhelore!",
+    "model": "Qwen/Qwen3-32b-thinking",
+    "language": "en",
+    "trial": "trial19"
+  },
+  {
+    "original_word": "a",
+    "meaning": [
+      "Expressing invocation, surprise, or admiration; (also) used to gain attention."
+    ],
+    "generated_word": "Kaelio",
+    "model": "Qwen/Qwen3-32b-thinking",
+    "language": "en",
+    "trial": "trial20"
+  },
+  {
+    "original_word": "achoo",
+    "meaning": [
+      "Representing the sound of a sneeze."
+    ],
+    "generated_word": "Khyaa'!",
+    "model": "Qwen/Qwen3-32b-thinking",
+    "language": "en",
+    "trial": "trial20"
+  },
+  {
+    "original_word": "atishoo",
+    "meaning": [
+      "Representing the sound of a sneeze."
+    ],
+    "generated_word": "Khyaa'!",
+    "model": "Qwen/Qwen3-32b-thinking",
+    "language": "en",
+    "trial": "trial20"
+  },
+  {
+    "original_word": "atichoo",
+    "meaning": [
+      "Representing the sound of a sneeze."
+    ],
+    "generated_word": "Khyaa'!",
+    "model": "Qwen/Qwen3-32b-thinking",
+    "language": "en",
+    "trial": "trial20"
+  },
+  {
+    "original_word": "ahem",
+    "meaning": [
+      "An exclamation representing a slight cough or clearing of the throat, used (a) to attract attention, esp. prior to speaking (b) to express hesitation, (mock) disapproval, embarrassment, suggestiveness, etc."
+    ],
+    "generated_word": "Khyaa'!",
+    "model": "Qwen/Qwen3-32b-thinking",
+    "language": "en",
+    "trial": "trial20"
+  },
+  {
+    "original_word": "ai",
+    "meaning": [
+      "An exclamation of surprise, regret, pain, etc., often used in imitation of foreign speakers of English."
+    ],
+    "generated_word": "Khyaa'!",
+    "model": "Qwen/Qwen3-32b-thinking",
+    "language": "en",
+    "trial": "trial20"
+  },
+  {
+    "original_word": "aie",
+    "meaning": [
+      "Awailing exclamation of resignation, surprise, regret, alarm, etc.; sometimes imitative of non-British speakers of English."
+    ],
+    "generated_word": "Khyaa'!",
+    "model": "Qwen/Qwen3-32b-thinking",
+    "language": "en",
+    "trial": "trial20"
+  },
+  {
+    "original_word": "alew",
+    "meaning": [
+      "A cry of sorrow or lamentation."
+    ],
+    "generated_word": "Khyaa'!",
+    "model": "Qwen/Qwen3-32b-thinking",
+    "language": "en",
+    "trial": "trial20"
+  },
+  {
+    "original_word": "arf",
+    "meaning": [
+      "Representing the bark of a (small) dog, or a human imitation of such a bark."
+    ],
+    "generated_word": "Khyaa'!",
+    "model": "Qwen/Qwen3-32b-thinking",
+    "language": "en",
+    "trial": "trial20"
+  },
+  {
+    "original_word": "argh",
+    "meaning": [
+      "Expressing pain or fright; (also) expressing anguish, disappointment, or frustration."
+    ],
+    "generated_word": "Khyaa'!",
+    "model": "Qwen/Qwen3-32b-thinking",
+    "language": "en",
+    "trial": "trial20"
+  },
+  {
+    "original_word": "a",
+    "meaning": [
+      "Expressing invocation, surprise, or admiration; (also) used to gain attention."
+    ],
+    "generated_word": "Zyphara",
+    "model": "Qwen/Qwen3-32b-thinking",
+    "language": "en",
+    "trial": "trial21"
+  },
+  {
+    "original_word": "achoo",
+    "meaning": [
+      "Representing the sound of a sneeze."
+    ],
+    "generated_word": "Zo'kai: Expresses awe-struck invocation, like gasping at a celestial event.  \nXupala: A sharp, melodic cry for surprise or to summon others' attention.  \nLumin: Soft and flowing, conveys admiration for beauty or brilliance.  \nBravo'k: A rhythmic, attention-grabbing chant used to rally a crowd.  \nAvo'ra: High-pitched and trilling, signals both surprise and reverence.  \nTzirra: A hissing-warble sound to call spirits or emphasize wonder.  \nVeloria: A drawn-out, harmonized exclamation for praising grandeur.",
+    "model": "Qwen/Qwen3-32b-thinking",
+    "language": "en",
+    "trial": "trial21"
+  },
+  {
+    "original_word": "atishoo",
+    "meaning": [
+      "Representing the sound of a sneeze."
+    ],
+    "generated_word": "Zo'kai: Expresses awe-struck invocation, like gasping at a celestial event.  \nXupala: A sharp, melodic cry for surprise or to summon others' attention.  \nLumin: Soft and flowing, conveys admiration for beauty or brilliance.  \nBravo'k: A rhythmic, attention-grabbing chant used to rally a crowd.  \nAvo'ra: High-pitched and trilling, signals both surprise and reverence.  \nTzirra: A hissing-warble sound to call spirits or emphasize wonder.  \nVeloria: A drawn-out, harmonized exclamation for praising grandeur.",
+    "model": "Qwen/Qwen3-32b-thinking",
+    "language": "en",
+    "trial": "trial21"
+  },
+  {
+    "original_word": "atichoo",
+    "meaning": [
+      "Representing the sound of a sneeze."
+    ],
+    "generated_word": "Zo'kai: Expresses awe-struck invocation, like gasping at a celestial event.  \nXupala: A sharp, melodic cry for surprise or to summon others' attention.  \nLumin: Soft and flowing, conveys admiration for beauty or brilliance.  \nBravo'k: A rhythmic, attention-grabbing chant used to rally a crowd.  \nAvo'ra: High-pitched and trilling, signals both surprise and reverence.  \nTzirra: A hissing-warble sound to call spirits or emphasize wonder.  \nVeloria: A drawn-out, harmonized exclamation for praising grandeur.",
+    "model": "Qwen/Qwen3-32b-thinking",
+    "language": "en",
+    "trial": "trial21"
+  },
+  {
+    "original_word": "ahem",
+    "meaning": [
+      "An exclamation representing a slight cough or clearing of the throat, used (a) to attract attention, esp. prior to speaking (b) to express hesitation, (mock) disapproval, embarrassment, suggestiveness, etc."
+    ],
+    "generated_word": "Zo'kai: Expresses awe-struck invocation, like gasping at a celestial event.  \nXupala: A sharp, melodic cry for surprise or to summon others' attention.  \nLumin: Soft and flowing, conveys admiration for beauty or brilliance.  \nBravo'k: A rhythmic, attention-grabbing chant used to rally a crowd.  \nAvo'ra: High-pitched and trilling, signals both surprise and reverence.  \nTzirra: A hissing-warble sound to call spirits or emphasize wonder.  \nVeloria: A drawn-out, harmonized exclamation for praising grandeur.",
+    "model": "Qwen/Qwen3-32b-thinking",
+    "language": "en",
+    "trial": "trial21"
+  },
+  {
+    "original_word": "ai",
+    "meaning": [
+      "An exclamation of surprise, regret, pain, etc., often used in imitation of foreign speakers of English."
+    ],
+    "generated_word": "Zo'kai: Expresses awe-struck invocation, like gasping at a celestial event.  \nXupala: A sharp, melodic cry for surprise or to summon others' attention.  \nLumin: Soft and flowing, conveys admiration for beauty or brilliance.  \nBravo'k: A rhythmic, attention-grabbing chant used to rally a crowd.  \nAvo'ra: High-pitched and trilling, signals both surprise and reverence.  \nTzirra: A hissing-warble sound to call spirits or emphasize wonder.  \nVeloria: A drawn-out, harmonized exclamation for praising grandeur.",
+    "model": "Qwen/Qwen3-32b-thinking",
+    "language": "en",
+    "trial": "trial21"
+  },
+  {
+    "original_word": "aie",
+    "meaning": [
+      "Awailing exclamation of resignation, surprise, regret, alarm, etc.; sometimes imitative of non-British speakers of English."
+    ],
+    "generated_word": "Zo'kai: Expresses awe-struck invocation, like gasping at a celestial event.  \nXupala: A sharp, melodic cry for surprise or to summon others' attention.  \nLumin: Soft and flowing, conveys admiration for beauty or brilliance.  \nBravo'k: A rhythmic, attention-grabbing chant used to rally a crowd.  \nAvo'ra: High-pitched and trilling, signals both surprise and reverence.  \nTzirra: A hissing-warble sound to call spirits or emphasize wonder.  \nVeloria: A drawn-out, harmonized exclamation for praising grandeur.",
+    "model": "Qwen/Qwen3-32b-thinking",
+    "language": "en",
+    "trial": "trial21"
+  },
+  {
+    "original_word": "alew",
+    "meaning": [
+      "A cry of sorrow or lamentation."
+    ],
+    "generated_word": "Zo'kai: Expresses awe-struck invocation, like gasping at a celestial event.  \nXupala: A sharp, melodic cry for surprise or to summon others' attention.  \nLumin: Soft and flowing, conveys admiration for beauty or brilliance.  \nBravo'k: A rhythmic, attention-grabbing chant used to rally a crowd.  \nAvo'ra: High-pitched and trilling, signals both surprise and reverence.  \nTzirra: A hissing-warble sound to call spirits or emphasize wonder.  \nVeloria: A drawn-out, harmonized exclamation for praising grandeur.",
+    "model": "Qwen/Qwen3-32b-thinking",
+    "language": "en",
+    "trial": "trial21"
+  },
+  {
+    "original_word": "arf",
+    "meaning": [
+      "Representing the bark of a (small) dog, or a human imitation of such a bark."
+    ],
+    "generated_word": "Zo'kai: Expresses awe-struck invocation, like gasping at a celestial event.  \nXupala: A sharp, melodic cry for surprise or to summon others' attention.  \nLumin: Soft and flowing, conveys admiration for beauty or brilliance.  \nBravo'k: A rhythmic, attention-grabbing chant used to rally a crowd.  \nAvo'ra: High-pitched and trilling, signals both surprise and reverence.  \nTzirra: A hissing-warble sound to call spirits or emphasize wonder.  \nVeloria: A drawn-out, harmonized exclamation for praising grandeur.",
+    "model": "Qwen/Qwen3-32b-thinking",
+    "language": "en",
+    "trial": "trial21"
+  },
+  {
+    "original_word": "argh",
+    "meaning": [
+      "Expressing pain or fright; (also) expressing anguish, disappointment, or frustration."
+    ],
+    "generated_word": "Zo'kai: Expresses awe-struck invocation, like gasping at a celestial event.  \nXupala: A sharp, melodic cry for surprise or to summon others' attention.  \nLumin: Soft and flowing, conveys admiration for beauty or brilliance.  \nBravo'k: A rhythmic, attention-grabbing chant used to rally a crowd.  \nAvo'ra: High-pitched and trilling, signals both surprise and reverence.  \nTzirra: A hissing-warble sound to call spirits or emphasize wonder.  \nVeloria: A drawn-out, harmonized exclamation for praising grandeur.",
+    "model": "Qwen/Qwen3-32b-thinking",
+    "language": "en",
+    "trial": "trial21"
+  },
+  {
+    "original_word": "a",
+    "meaning": [
+      "Expressing invocation, surprise, or admiration; (also) used to gain attention."
+    ],
+    "generated_word": "Khyaelo!",
+    "model": "Qwen/Qwen3-32b-thinking",
+    "language": "en",
+    "trial": "trial22"
+  },
+  {
+    "original_word": "achoo",
+    "meaning": [
+      "Representing the sound of a sneeze."
+    ],
+    "generated_word": "Kaelu",
+    "model": "Qwen/Qwen3-32b-thinking",
+    "language": "en",
+    "trial": "trial22"
+  },
+  {
+    "original_word": "atishoo",
+    "meaning": [
+      "Representing the sound of a sneeze."
+    ],
+    "generated_word": "Kaelu",
+    "model": "Qwen/Qwen3-32b-thinking",
+    "language": "en",
+    "trial": "trial22"
+  },
+  {
+    "original_word": "atichoo",
+    "meaning": [
+      "Representing the sound of a sneeze."
+    ],
+    "generated_word": "Kaelu",
+    "model": "Qwen/Qwen3-32b-thinking",
+    "language": "en",
+    "trial": "trial22"
+  },
+  {
+    "original_word": "ahem",
+    "meaning": [
+      "An exclamation representing a slight cough or clearing of the throat, used (a) to attract attention, esp. prior to speaking (b) to express hesitation, (mock) disapproval, embarrassment, suggestiveness, etc."
+    ],
+    "generated_word": "Kaelu",
+    "model": "Qwen/Qwen3-32b-thinking",
+    "language": "en",
+    "trial": "trial22"
+  },
+  {
+    "original_word": "ai",
+    "meaning": [
+      "An exclamation of surprise, regret, pain, etc., often used in imitation of foreign speakers of English."
+    ],
+    "generated_word": "Kaelu",
+    "model": "Qwen/Qwen3-32b-thinking",
+    "language": "en",
+    "trial": "trial22"
+  },
+  {
+    "original_word": "aie",
+    "meaning": [
+      "Awailing exclamation of resignation, surprise, regret, alarm, etc.; sometimes imitative of non-British speakers of English."
+    ],
+    "generated_word": "Kaelu",
+    "model": "Qwen/Qwen3-32b-thinking",
+    "language": "en",
+    "trial": "trial22"
+  },
+  {
+    "original_word": "alew",
+    "meaning": [
+      "A cry of sorrow or lamentation."
+    ],
+    "generated_word": "Kaelu",
+    "model": "Qwen/Qwen3-32b-thinking",
+    "language": "en",
+    "trial": "trial22"
+  },
+  {
+    "original_word": "arf",
+    "meaning": [
+      "Representing the bark of a (small) dog, or a human imitation of such a bark."
+    ],
+    "generated_word": "Kaelu",
+    "model": "Qwen/Qwen3-32b-thinking",
+    "language": "en",
+    "trial": "trial22"
+  },
+  {
+    "original_word": "argh",
+    "meaning": [
+      "Expressing pain or fright; (also) expressing anguish, disappointment, or frustration."
+    ],
+    "generated_word": "Kaelu",
+    "model": "Qwen/Qwen3-32b-thinking",
+    "language": "en",
+    "trial": "trial22"
+  },
+  {
+    "original_word": "a",
+    "meaning": [
+      "Expressing invocation, surprise, or admiration; (also) used to gain attention."
+    ],
+    "generated_word": "Kaa",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "en",
+    "trial": "trial6"
+  },
+  {
+    "original_word": "achoo",
+    "meaning": [
+      "Representing the sound of a sneeze."
+    ],
+    "generated_word": "Ahkara",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "en",
+    "trial": "trial6"
+  },
+  {
+    "original_word": "atishoo",
+    "meaning": [
+      "Representing the sound of a sneeze."
+    ],
+    "generated_word": "Ahkara",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "en",
+    "trial": "trial6"
+  },
+  {
+    "original_word": "atichoo",
+    "meaning": [
+      "Representing the sound of a sneeze."
+    ],
+    "generated_word": "Ahkara",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "en",
+    "trial": "trial6"
+  },
+  {
+    "original_word": "ahem",
+    "meaning": [
+      "An exclamation representing a slight cough or clearing of the throat, used (a) to attract attention, esp. prior to speaking (b) to express hesitation, (mock) disapproval, embarrassment, suggestiveness, etc."
+    ],
+    "generated_word": "Ahkara",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "en",
+    "trial": "trial6"
+  },
+  {
+    "original_word": "ai",
+    "meaning": [
+      "An exclamation of surprise, regret, pain, etc., often used in imitation of foreign speakers of English."
+    ],
+    "generated_word": "Ahkara",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "en",
+    "trial": "trial6"
+  },
+  {
+    "original_word": "aie",
+    "meaning": [
+      "Awailing exclamation of resignation, surprise, regret, alarm, etc.; sometimes imitative of non-British speakers of English."
+    ],
+    "generated_word": "Ahkara",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "en",
+    "trial": "trial6"
+  },
+  {
+    "original_word": "alew",
+    "meaning": [
+      "A cry of sorrow or lamentation."
+    ],
+    "generated_word": "Ahkara",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "en",
+    "trial": "trial6"
+  },
+  {
+    "original_word": "arf",
+    "meaning": [
+      "Representing the bark of a (small) dog, or a human imitation of such a bark."
+    ],
+    "generated_word": "Ahkara",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "en",
+    "trial": "trial6"
+  },
+  {
+    "original_word": "argh",
+    "meaning": [
+      "Expressing pain or fright; (also) expressing anguish, disappointment, or frustration."
+    ],
+    "generated_word": "Ahkara",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "en",
+    "trial": "trial6"
+  },
+  {
+    "original_word": "a",
+    "meaning": [
+      "Expressing invocation, surprise, or admiration; (also) used to gain attention."
+    ],
+    "generated_word": "Ahya /aː.ˈja/",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "en",
+    "trial": "trial12"
+  },
+  {
+    "original_word": "achoo",
+    "meaning": [
+      "Representing the sound of a sneeze."
+    ],
+    "generated_word": "Eh",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "en",
+    "trial": "trial12"
+  },
+  {
+    "original_word": "atishoo",
+    "meaning": [
+      "Representing the sound of a sneeze."
+    ],
+    "generated_word": "Eh",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "en",
+    "trial": "trial12"
+  },
+  {
+    "original_word": "atichoo",
+    "meaning": [
+      "Representing the sound of a sneeze."
+    ],
+    "generated_word": "Eh",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "en",
+    "trial": "trial12"
+  },
+  {
+    "original_word": "ahem",
+    "meaning": [
+      "An exclamation representing a slight cough or clearing of the throat, used (a) to attract attention, esp. prior to speaking (b) to express hesitation, (mock) disapproval, embarrassment, suggestiveness, etc."
+    ],
+    "generated_word": "Eh",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "en",
+    "trial": "trial12"
+  },
+  {
+    "original_word": "ai",
+    "meaning": [
+      "An exclamation of surprise, regret, pain, etc., often used in imitation of foreign speakers of English."
+    ],
+    "generated_word": "Eh",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "en",
+    "trial": "trial12"
+  },
+  {
+    "original_word": "aie",
+    "meaning": [
+      "Awailing exclamation of resignation, surprise, regret, alarm, etc.; sometimes imitative of non-British speakers of English."
+    ],
+    "generated_word": "Eh",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "en",
+    "trial": "trial12"
+  },
+  {
+    "original_word": "alew",
+    "meaning": [
+      "A cry of sorrow or lamentation."
+    ],
+    "generated_word": "Eh",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "en",
+    "trial": "trial12"
+  },
+  {
+    "original_word": "arf",
+    "meaning": [
+      "Representing the bark of a (small) dog, or a human imitation of such a bark."
+    ],
+    "generated_word": "Eh",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "en",
+    "trial": "trial12"
+  },
+  {
+    "original_word": "argh",
+    "meaning": [
+      "Expressing pain or fright; (also) expressing anguish, disappointment, or frustration."
+    ],
+    "generated_word": "Eh",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "en",
+    "trial": "trial12"
+  },
+  {
+    "original_word": "a",
+    "meaning": [
+      "Expressing invocation, surprise, or admiration; (also) used to gain attention."
+    ],
+    "generated_word": "Tziiyaa",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "en",
+    "trial": "trial13"
+  },
+  {
+    "original_word": "achoo",
+    "meaning": [
+      "Representing the sound of a sneeze."
+    ],
+    "generated_word": "Ahka",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "en",
+    "trial": "trial13"
+  },
+  {
+    "original_word": "atishoo",
+    "meaning": [
+      "Representing the sound of a sneeze."
+    ],
+    "generated_word": "Ahka",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "en",
+    "trial": "trial13"
+  },
+  {
+    "original_word": "atichoo",
+    "meaning": [
+      "Representing the sound of a sneeze."
+    ],
+    "generated_word": "Ahka",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "en",
+    "trial": "trial13"
+  },
+  {
+    "original_word": "ahem",
+    "meaning": [
+      "An exclamation representing a slight cough or clearing of the throat, used (a) to attract attention, esp. prior to speaking (b) to express hesitation, (mock) disapproval, embarrassment, suggestiveness, etc."
+    ],
+    "generated_word": "Ahka",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "en",
+    "trial": "trial13"
+  },
+  {
+    "original_word": "ai",
+    "meaning": [
+      "An exclamation of surprise, regret, pain, etc., often used in imitation of foreign speakers of English."
+    ],
+    "generated_word": "Ahka",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "en",
+    "trial": "trial13"
+  },
+  {
+    "original_word": "aie",
+    "meaning": [
+      "Awailing exclamation of resignation, surprise, regret, alarm, etc.; sometimes imitative of non-British speakers of English."
+    ],
+    "generated_word": "Ahka",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "en",
+    "trial": "trial13"
+  },
+  {
+    "original_word": "alew",
+    "meaning": [
+      "A cry of sorrow or lamentation."
+    ],
+    "generated_word": "Ahka",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "en",
+    "trial": "trial13"
+  },
+  {
+    "original_word": "arf",
+    "meaning": [
+      "Representing the bark of a (small) dog, or a human imitation of such a bark."
+    ],
+    "generated_word": "Ahka",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "en",
+    "trial": "trial13"
+  },
+  {
+    "original_word": "argh",
+    "meaning": [
+      "Expressing pain or fright; (also) expressing anguish, disappointment, or frustration."
+    ],
+    "generated_word": "Ahka",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "en",
+    "trial": "trial13"
+  },
+  {
+    "original_word": "a",
+    "meaning": [
+      "Expressing invocation, surprise, or admiration; (also) used to gain attention."
+    ],
+    "generated_word": "Tsuu",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "en",
+    "trial": "trial14"
+  },
+  {
+    "original_word": "achoo",
+    "meaning": [
+      "Representing the sound of a sneeze."
+    ],
+    "generated_word": "Tshaa",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "en",
+    "trial": "trial14"
+  },
+  {
+    "original_word": "atishoo",
+    "meaning": [
+      "Representing the sound of a sneeze."
+    ],
+    "generated_word": "Tshaa",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "en",
+    "trial": "trial14"
+  },
+  {
+    "original_word": "atichoo",
+    "meaning": [
+      "Representing the sound of a sneeze."
+    ],
+    "generated_word": "Tshaa",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "en",
+    "trial": "trial14"
+  },
+  {
+    "original_word": "ahem",
+    "meaning": [
+      "An exclamation representing a slight cough or clearing of the throat, used (a) to attract attention, esp. prior to speaking (b) to express hesitation, (mock) disapproval, embarrassment, suggestiveness, etc."
+    ],
+    "generated_word": "Tshaa",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "en",
+    "trial": "trial14"
+  },
+  {
+    "original_word": "ai",
+    "meaning": [
+      "An exclamation of surprise, regret, pain, etc., often used in imitation of foreign speakers of English."
+    ],
+    "generated_word": "Tshaa",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "en",
+    "trial": "trial14"
+  },
+  {
+    "original_word": "aie",
+    "meaning": [
+      "Awailing exclamation of resignation, surprise, regret, alarm, etc.; sometimes imitative of non-British speakers of English."
+    ],
+    "generated_word": "Tshaa",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "en",
+    "trial": "trial14"
+  },
+  {
+    "original_word": "alew",
+    "meaning": [
+      "A cry of sorrow or lamentation."
+    ],
+    "generated_word": "Tshaa",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "en",
+    "trial": "trial14"
+  },
+  {
+    "original_word": "arf",
+    "meaning": [
+      "Representing the bark of a (small) dog, or a human imitation of such a bark."
+    ],
+    "generated_word": "Tshaa",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "en",
+    "trial": "trial14"
+  },
+  {
+    "original_word": "argh",
+    "meaning": [
+      "Expressing pain or fright; (also) expressing anguish, disappointment, or frustration."
+    ],
+    "generated_word": "Tshaa",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "en",
+    "trial": "trial14"
+  },
+  {
+    "original_word": "a",
+    "meaning": [
+      "Expressing invocation, surprise, or admiration; (also) used to gain attention."
+    ],
+    "generated_word": "\n\nKaelith",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "en",
+    "trial": "trial15"
+  },
+  {
+    "original_word": "achoo",
+    "meaning": [
+      "Representing the sound of a sneeze."
+    ],
+    "generated_word": "\n\nklaya",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "en",
+    "trial": "trial15"
+  },
+  {
+    "original_word": "atishoo",
+    "meaning": [
+      "Representing the sound of a sneeze."
+    ],
+    "generated_word": "\n\nklaya",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "en",
+    "trial": "trial15"
+  },
+  {
+    "original_word": "atichoo",
+    "meaning": [
+      "Representing the sound of a sneeze."
+    ],
+    "generated_word": "\n\nklaya",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "en",
+    "trial": "trial15"
+  },
+  {
+    "original_word": "ahem",
+    "meaning": [
+      "An exclamation representing a slight cough or clearing of the throat, used (a) to attract attention, esp. prior to speaking (b) to express hesitation, (mock) disapproval, embarrassment, suggestiveness, etc."
+    ],
+    "generated_word": "\n\nklaya",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "en",
+    "trial": "trial15"
+  },
+  {
+    "original_word": "ai",
+    "meaning": [
+      "An exclamation of surprise, regret, pain, etc., often used in imitation of foreign speakers of English."
+    ],
+    "generated_word": "\n\nklaya",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "en",
+    "trial": "trial15"
+  },
+  {
+    "original_word": "aie",
+    "meaning": [
+      "Awailing exclamation of resignation, surprise, regret, alarm, etc.; sometimes imitative of non-British speakers of English."
+    ],
+    "generated_word": "\n\nklaya",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "en",
+    "trial": "trial15"
+  },
+  {
+    "original_word": "alew",
+    "meaning": [
+      "A cry of sorrow or lamentation."
+    ],
+    "generated_word": "\n\nklaya",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "en",
+    "trial": "trial15"
+  },
+  {
+    "original_word": "arf",
+    "meaning": [
+      "Representing the bark of a (small) dog, or a human imitation of such a bark."
+    ],
+    "generated_word": "\n\nklaya",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "en",
+    "trial": "trial15"
+  },
+  {
+    "original_word": "argh",
+    "meaning": [
+      "Expressing pain or fright; (also) expressing anguish, disappointment, or frustration."
+    ],
+    "generated_word": "\n\nklaya",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "en",
+    "trial": "trial15"
+  },
+  {
+    "original_word": "a",
+    "meaning": [
+      "Expressing invocation, surprise, or admiration; (also) used to gain attention."
+    ],
+    "generated_word": "\n\nKlaaah",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "en",
+    "trial": "trial16"
+  },
+  {
+    "original_word": "achoo",
+    "meaning": [
+      "Representing the sound of a sneeze."
+    ],
+    "generated_word": "\n\nZyrra",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "en",
+    "trial": "trial16"
+  },
+  {
+    "original_word": "atishoo",
+    "meaning": [
+      "Representing the sound of a sneeze."
+    ],
+    "generated_word": "\n\nZyrra",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "en",
+    "trial": "trial16"
+  },
+  {
+    "original_word": "atichoo",
+    "meaning": [
+      "Representing the sound of a sneeze."
+    ],
+    "generated_word": "\n\nZyrra",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "en",
+    "trial": "trial16"
+  },
+  {
+    "original_word": "ahem",
+    "meaning": [
+      "An exclamation representing a slight cough or clearing of the throat, used (a) to attract attention, esp. prior to speaking (b) to express hesitation, (mock) disapproval, embarrassment, suggestiveness, etc."
+    ],
+    "generated_word": "\n\nZyrra",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "en",
+    "trial": "trial16"
+  },
+  {
+    "original_word": "ai",
+    "meaning": [
+      "An exclamation of surprise, regret, pain, etc., often used in imitation of foreign speakers of English."
+    ],
+    "generated_word": "\n\nZyrra",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "en",
+    "trial": "trial16"
+  },
+  {
+    "original_word": "aie",
+    "meaning": [
+      "Awailing exclamation of resignation, surprise, regret, alarm, etc.; sometimes imitative of non-British speakers of English."
+    ],
+    "generated_word": "\n\nZyrra",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "en",
+    "trial": "trial16"
+  },
+  {
+    "original_word": "alew",
+    "meaning": [
+      "A cry of sorrow or lamentation."
+    ],
+    "generated_word": "\n\nZyrra",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "en",
+    "trial": "trial16"
+  },
+  {
+    "original_word": "arf",
+    "meaning": [
+      "Representing the bark of a (small) dog, or a human imitation of such a bark."
+    ],
+    "generated_word": "\n\nZyrra",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "en",
+    "trial": "trial16"
+  },
+  {
+    "original_word": "argh",
+    "meaning": [
+      "Expressing pain or fright; (also) expressing anguish, disappointment, or frustration."
+    ],
+    "generated_word": "\n\nZyrra",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "en",
+    "trial": "trial16"
+  },
+  {
+    "original_word": "a",
+    "meaning": [
+      "Expressing invocation, surprise, or admiration; (also) used to gain attention."
+    ],
+    "generated_word": "Klaaah",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "en",
+    "trial": "trial17"
+  },
+  {
+    "original_word": "achoo",
+    "meaning": [
+      "Representing the sound of a sneeze."
+    ],
+    "generated_word": "Klaa",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "en",
+    "trial": "trial17"
+  },
+  {
+    "original_word": "atishoo",
+    "meaning": [
+      "Representing the sound of a sneeze."
+    ],
+    "generated_word": "Klaa",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "en",
+    "trial": "trial17"
+  },
+  {
+    "original_word": "atichoo",
+    "meaning": [
+      "Representing the sound of a sneeze."
+    ],
+    "generated_word": "Klaa",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "en",
+    "trial": "trial17"
+  },
+  {
+    "original_word": "ahem",
+    "meaning": [
+      "An exclamation representing a slight cough or clearing of the throat, used (a) to attract attention, esp. prior to speaking (b) to express hesitation, (mock) disapproval, embarrassment, suggestiveness, etc."
+    ],
+    "generated_word": "Klaa",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "en",
+    "trial": "trial17"
+  },
+  {
+    "original_word": "ai",
+    "meaning": [
+      "An exclamation of surprise, regret, pain, etc., often used in imitation of foreign speakers of English."
+    ],
+    "generated_word": "Klaa",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "en",
+    "trial": "trial17"
+  },
+  {
+    "original_word": "aie",
+    "meaning": [
+      "Awailing exclamation of resignation, surprise, regret, alarm, etc.; sometimes imitative of non-British speakers of English."
+    ],
+    "generated_word": "Klaa",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "en",
+    "trial": "trial17"
+  },
+  {
+    "original_word": "alew",
+    "meaning": [
+      "A cry of sorrow or lamentation."
+    ],
+    "generated_word": "Klaa",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "en",
+    "trial": "trial17"
+  },
+  {
+    "original_word": "arf",
+    "meaning": [
+      "Representing the bark of a (small) dog, or a human imitation of such a bark."
+    ],
+    "generated_word": "Klaa",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "en",
+    "trial": "trial17"
+  },
+  {
+    "original_word": "argh",
+    "meaning": [
+      "Expressing pain or fright; (also) expressing anguish, disappointment, or frustration."
+    ],
+    "generated_word": "Klaa",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "en",
+    "trial": "trial17"
+  },
+  {
+    "original_word": "a",
+    "meaning": [
+      "Expressing invocation, surprise, or admiration; (also) used to gain attention."
+    ],
+    "generated_word": "Zha-liif",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "en",
+    "trial": "trial18"
+  },
+  {
+    "original_word": "achoo",
+    "meaning": [
+      "Representing the sound of a sneeze."
+    ],
+    "generated_word": "Kraa",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "en",
+    "trial": "trial18"
+  },
+  {
+    "original_word": "atishoo",
+    "meaning": [
+      "Representing the sound of a sneeze."
+    ],
+    "generated_word": "Kraa",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "en",
+    "trial": "trial18"
+  },
+  {
+    "original_word": "atichoo",
+    "meaning": [
+      "Representing the sound of a sneeze."
+    ],
+    "generated_word": "Kraa",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "en",
+    "trial": "trial18"
+  },
+  {
+    "original_word": "ahem",
+    "meaning": [
+      "An exclamation representing a slight cough or clearing of the throat, used (a) to attract attention, esp. prior to speaking (b) to express hesitation, (mock) disapproval, embarrassment, suggestiveness, etc."
+    ],
+    "generated_word": "Kraa",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "en",
+    "trial": "trial18"
+  },
+  {
+    "original_word": "ai",
+    "meaning": [
+      "An exclamation of surprise, regret, pain, etc., often used in imitation of foreign speakers of English."
+    ],
+    "generated_word": "Kraa",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "en",
+    "trial": "trial18"
+  },
+  {
+    "original_word": "aie",
+    "meaning": [
+      "Awailing exclamation of resignation, surprise, regret, alarm, etc.; sometimes imitative of non-British speakers of English."
+    ],
+    "generated_word": "Kraa",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "en",
+    "trial": "trial18"
+  },
+  {
+    "original_word": "alew",
+    "meaning": [
+      "A cry of sorrow or lamentation."
+    ],
+    "generated_word": "Kraa",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "en",
+    "trial": "trial18"
+  },
+  {
+    "original_word": "arf",
+    "meaning": [
+      "Representing the bark of a (small) dog, or a human imitation of such a bark."
+    ],
+    "generated_word": "Kraa",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "en",
+    "trial": "trial18"
+  },
+  {
+    "original_word": "argh",
+    "meaning": [
+      "Expressing pain or fright; (also) expressing anguish, disappointment, or frustration."
+    ],
+    "generated_word": "Kraa",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "en",
+    "trial": "trial18"
+  },
+  {
+    "original_word": "a",
+    "meaning": [
+      "Expressing invocation, surprise, or admiration; (also) used to gain attention."
+    ],
+    "generated_word": "Kyi!",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "en",
+    "trial": "trial19"
+  },
+  {
+    "original_word": "achoo",
+    "meaning": [
+      "Representing the sound of a sneeze."
+    ],
+    "generated_word": "Kla-ah-reee",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "en",
+    "trial": "trial19"
+  },
+  {
+    "original_word": "atishoo",
+    "meaning": [
+      "Representing the sound of a sneeze."
+    ],
+    "generated_word": "Kla-ah-reee",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "en",
+    "trial": "trial19"
+  },
+  {
+    "original_word": "atichoo",
+    "meaning": [
+      "Representing the sound of a sneeze."
+    ],
+    "generated_word": "Kla-ah-reee",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "en",
+    "trial": "trial19"
+  },
+  {
+    "original_word": "ahem",
+    "meaning": [
+      "An exclamation representing a slight cough or clearing of the throat, used (a) to attract attention, esp. prior to speaking (b) to express hesitation, (mock) disapproval, embarrassment, suggestiveness, etc."
+    ],
+    "generated_word": "Kla-ah-reee",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "en",
+    "trial": "trial19"
+  },
+  {
+    "original_word": "ai",
+    "meaning": [
+      "An exclamation of surprise, regret, pain, etc., often used in imitation of foreign speakers of English."
+    ],
+    "generated_word": "Kla-ah-reee",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "en",
+    "trial": "trial19"
+  },
+  {
+    "original_word": "aie",
+    "meaning": [
+      "Awailing exclamation of resignation, surprise, regret, alarm, etc.; sometimes imitative of non-British speakers of English."
+    ],
+    "generated_word": "Kla-ah-reee",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "en",
+    "trial": "trial19"
+  },
+  {
+    "original_word": "alew",
+    "meaning": [
+      "A cry of sorrow or lamentation."
+    ],
+    "generated_word": "Kla-ah-reee",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "en",
+    "trial": "trial19"
+  },
+  {
+    "original_word": "arf",
+    "meaning": [
+      "Representing the bark of a (small) dog, or a human imitation of such a bark."
+    ],
+    "generated_word": "Kla-ah-reee",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "en",
+    "trial": "trial19"
+  },
+  {
+    "original_word": "argh",
+    "meaning": [
+      "Expressing pain or fright; (also) expressing anguish, disappointment, or frustration."
+    ],
+    "generated_word": "Kla-ah-reee",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "en",
+    "trial": "trial19"
+  },
+  {
+    "original_word": "a",
+    "meaning": [
+      "Expressing invocation, surprise, or admiration; (also) used to gain attention."
+    ],
+    "generated_word": "Kai-oh",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "en",
+    "trial": "trial20"
+  },
+  {
+    "original_word": "achoo",
+    "meaning": [
+      "Representing the sound of a sneeze."
+    ],
+    "generated_word": "Kairalo",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "en",
+    "trial": "trial20"
+  },
+  {
+    "original_word": "atishoo",
+    "meaning": [
+      "Representing the sound of a sneeze."
+    ],
+    "generated_word": "Kairalo",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "en",
+    "trial": "trial20"
+  },
+  {
+    "original_word": "atichoo",
+    "meaning": [
+      "Representing the sound of a sneeze."
+    ],
+    "generated_word": "Kairalo",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "en",
+    "trial": "trial20"
+  },
+  {
+    "original_word": "ahem",
+    "meaning": [
+      "An exclamation representing a slight cough or clearing of the throat, used (a) to attract attention, esp. prior to speaking (b) to express hesitation, (mock) disapproval, embarrassment, suggestiveness, etc."
+    ],
+    "generated_word": "Kairalo",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "en",
+    "trial": "trial20"
+  },
+  {
+    "original_word": "ai",
+    "meaning": [
+      "An exclamation of surprise, regret, pain, etc., often used in imitation of foreign speakers of English."
+    ],
+    "generated_word": "Kairalo",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "en",
+    "trial": "trial20"
+  },
+  {
+    "original_word": "aie",
+    "meaning": [
+      "Awailing exclamation of resignation, surprise, regret, alarm, etc.; sometimes imitative of non-British speakers of English."
+    ],
+    "generated_word": "Kairalo",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "en",
+    "trial": "trial20"
+  },
+  {
+    "original_word": "alew",
+    "meaning": [
+      "A cry of sorrow or lamentation."
+    ],
+    "generated_word": "Kairalo",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "en",
+    "trial": "trial20"
+  },
+  {
+    "original_word": "arf",
+    "meaning": [
+      "Representing the bark of a (small) dog, or a human imitation of such a bark."
+    ],
+    "generated_word": "Kairalo",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "en",
+    "trial": "trial20"
+  },
+  {
+    "original_word": "argh",
+    "meaning": [
+      "Expressing pain or fright; (also) expressing anguish, disappointment, or frustration."
+    ],
+    "generated_word": "Kairalo",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "en",
+    "trial": "trial20"
+  },
+  {
+    "original_word": "a",
+    "meaning": [
+      "Expressing invocation, surprise, or admiration; (also) used to gain attention."
+    ],
+    "generated_word": "Kla",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "en",
+    "trial": "trial21"
+  },
+  {
+    "original_word": "achoo",
+    "meaning": [
+      "Representing the sound of a sneeze."
+    ],
+    "generated_word": "Zyrra",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "en",
+    "trial": "trial21"
+  },
+  {
+    "original_word": "atishoo",
+    "meaning": [
+      "Representing the sound of a sneeze."
+    ],
+    "generated_word": "Zyrra",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "en",
+    "trial": "trial21"
+  },
+  {
+    "original_word": "atichoo",
+    "meaning": [
+      "Representing the sound of a sneeze."
+    ],
+    "generated_word": "Zyrra",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "en",
+    "trial": "trial21"
+  },
+  {
+    "original_word": "ahem",
+    "meaning": [
+      "An exclamation representing a slight cough or clearing of the throat, used (a) to attract attention, esp. prior to speaking (b) to express hesitation, (mock) disapproval, embarrassment, suggestiveness, etc."
+    ],
+    "generated_word": "Zyrra",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "en",
+    "trial": "trial21"
+  },
+  {
+    "original_word": "ai",
+    "meaning": [
+      "An exclamation of surprise, regret, pain, etc., often used in imitation of foreign speakers of English."
+    ],
+    "generated_word": "Zyrra",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "en",
+    "trial": "trial21"
+  },
+  {
+    "original_word": "aie",
+    "meaning": [
+      "Awailing exclamation of resignation, surprise, regret, alarm, etc.; sometimes imitative of non-British speakers of English."
+    ],
+    "generated_word": "Zyrra",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "en",
+    "trial": "trial21"
+  },
+  {
+    "original_word": "alew",
+    "meaning": [
+      "A cry of sorrow or lamentation."
+    ],
+    "generated_word": "Zyrra",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "en",
+    "trial": "trial21"
+  },
+  {
+    "original_word": "arf",
+    "meaning": [
+      "Representing the bark of a (small) dog, or a human imitation of such a bark."
+    ],
+    "generated_word": "Zyrra",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "en",
+    "trial": "trial21"
+  },
+  {
+    "original_word": "argh",
+    "meaning": [
+      "Expressing pain or fright; (also) expressing anguish, disappointment, or frustration."
+    ],
+    "generated_word": "Zyrra",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "en",
+    "trial": "trial21"
+  },
+  {
+    "original_word": "a",
+    "meaning": [
+      "Expressing invocation, surprise, or admiration; (also) used to gain attention."
+    ],
+    "generated_word": "Kai’i!",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "en",
+    "trial": "trial22"
+  },
+  {
+    "original_word": "achoo",
+    "meaning": [
+      "Representing the sound of a sneeze."
+    ],
+    "generated_word": "Kai-Tsu-Ah!",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "en",
+    "trial": "trial22"
+  },
+  {
+    "original_word": "atishoo",
+    "meaning": [
+      "Representing the sound of a sneeze."
+    ],
+    "generated_word": "Kai-Tsu-Ah!",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "en",
+    "trial": "trial22"
+  },
+  {
+    "original_word": "atichoo",
+    "meaning": [
+      "Representing the sound of a sneeze."
+    ],
+    "generated_word": "Kai-Tsu-Ah!",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "en",
+    "trial": "trial22"
+  },
+  {
+    "original_word": "ahem",
+    "meaning": [
+      "An exclamation representing a slight cough or clearing of the throat, used (a) to attract attention, esp. prior to speaking (b) to express hesitation, (mock) disapproval, embarrassment, suggestiveness, etc."
+    ],
+    "generated_word": "Kai-Tsu-Ah!",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "en",
+    "trial": "trial22"
+  },
+  {
+    "original_word": "ai",
+    "meaning": [
+      "An exclamation of surprise, regret, pain, etc., often used in imitation of foreign speakers of English."
+    ],
+    "generated_word": "Kai-Tsu-Ah!",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "en",
+    "trial": "trial22"
+  },
+  {
+    "original_word": "aie",
+    "meaning": [
+      "Awailing exclamation of resignation, surprise, regret, alarm, etc.; sometimes imitative of non-British speakers of English."
+    ],
+    "generated_word": "Kai-Tsu-Ah!",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "en",
+    "trial": "trial22"
+  },
+  {
+    "original_word": "alew",
+    "meaning": [
+      "A cry of sorrow or lamentation."
+    ],
+    "generated_word": "Kai-Tsu-Ah!",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "en",
+    "trial": "trial22"
+  },
+  {
+    "original_word": "arf",
+    "meaning": [
+      "Representing the bark of a (small) dog, or a human imitation of such a bark."
+    ],
+    "generated_word": "Kai-Tsu-Ah!",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "en",
+    "trial": "trial22"
+  },
+  {
+    "original_word": "argh",
+    "meaning": [
+      "Expressing pain or fright; (also) expressing anguish, disappointment, or frustration."
+    ],
+    "generated_word": "Kai-Tsu-Ah!",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "en",
+    "trial": "trial22"
+  }
+]

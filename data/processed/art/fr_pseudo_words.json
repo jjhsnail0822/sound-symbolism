@@ -12478,5 +12478,2501 @@
     "model": "Qwen/Qwen3-32b-thinking",
     "language": "fr",
     "trial": "trial22"
+  },
+  {
+    "original_word": "ach",
+    "meaning": [
+      "bruit marquant la satisfaction d'une personne après qu'elle a bu."
+    ],
+    "generated_word": "\n\n[burm]",
+    "model": "Qwen/Qwen3-8b-thinking",
+    "language": "fr",
+    "trial": "trial6"
+  },
+  {
+    "original_word": "acz",
+    "meaning": [
+      "pour exciter un chien à attaquer, à mordre.",
+      "pour exciter une personne contre une autre."
+    ],
+    "generated_word": "\n\n[mam]",
+    "model": "Qwen/Qwen3-8b-thinking",
+    "language": "fr",
+    "trial": "trial6"
+  },
+  {
+    "original_word": "acz acz",
+    "meaning": [
+      "pour exciter un chien à attaquer, à mordre.",
+      "pour exciter une personne contre une autre."
+    ],
+    "generated_word": "\n\n[mam]",
+    "model": "Qwen/Qwen3-8b-thinking",
+    "language": "fr",
+    "trial": "trial6"
+  },
+  {
+    "original_word": "agaga",
+    "meaning": [
+      "marque une sensation de froid."
+    ],
+    "generated_word": "\n\n[mam]",
+    "model": "Qwen/Qwen3-8b-thinking",
+    "language": "fr",
+    "trial": "trial6"
+  },
+  {
+    "original_word": "ah",
+    "meaning": [
+      "Marque un sentiment vif (plaisir, douleur, admiration, impatience, etc.).",
+      "Interjection d'insistance, de renforcement.",
+      "Sert à transcrire le rire."
+    ],
+    "generated_word": "\n\n[mam]",
+    "model": "Qwen/Qwen3-8b-thinking",
+    "language": "fr",
+    "trial": "trial6"
+  },
+  {
+    "original_word": "ahan",
+    "meaning": [
+      "accompagne un élan lorsqu'on porte un coup."
+    ],
+    "generated_word": "\n\n[mam]",
+    "model": "Qwen/Qwen3-8b-thinking",
+    "language": "fr",
+    "trial": "trial6"
+  },
+  {
+    "original_word": "ahouahou",
+    "meaning": [
+      "Exclamation de douleur ou onomatopée imitant le bâillement, l'aboiement"
+    ],
+    "generated_word": "\n\n[mam]",
+    "model": "Qwen/Qwen3-8b-thinking",
+    "language": "fr",
+    "trial": "trial6"
+  },
+  {
+    "original_word": "aou",
+    "meaning": [
+      "bruit de l'aboiement d'un chien."
+    ],
+    "generated_word": "\n\n[mam]",
+    "model": "Qwen/Qwen3-8b-thinking",
+    "language": "fr",
+    "trial": "trial6"
+  },
+  {
+    "original_word": "aouah",
+    "meaning": [
+      "pour se récrier ou, plus souvent, paraître se récrier."
+    ],
+    "generated_word": "\n\n[mam]",
+    "model": "Qwen/Qwen3-8b-thinking",
+    "language": "fr",
+    "trial": "trial6"
+  },
+  {
+    "original_word": "are-are",
+    "meaning": [
+      "premiers sons du language émis par un bébé en signe de bien-être."
+    ],
+    "generated_word": "\n\n[mam]",
+    "model": "Qwen/Qwen3-8b-thinking",
+    "language": "fr",
+    "trial": "trial6"
+  },
+  {
+    "original_word": "ach",
+    "meaning": [
+      "bruit marquant la satisfaction d'une personne après qu'elle a bu."
+    ],
+    "generated_word": "arm",
+    "model": "Qwen/Qwen3-8b-thinking",
+    "language": "fr",
+    "trial": "trial12"
+  },
+  {
+    "original_word": "acz",
+    "meaning": [
+      "pour exciter un chien à attaquer, à mordre.",
+      "pour exciter une personne contre une autre."
+    ],
+    "generated_word": "maka",
+    "model": "Qwen/Qwen3-8b-thinking",
+    "language": "fr",
+    "trial": "trial12"
+  },
+  {
+    "original_word": "acz acz",
+    "meaning": [
+      "pour exciter un chien à attaquer, à mordre.",
+      "pour exciter une personne contre une autre."
+    ],
+    "generated_word": "maka",
+    "model": "Qwen/Qwen3-8b-thinking",
+    "language": "fr",
+    "trial": "trial12"
+  },
+  {
+    "original_word": "agaga",
+    "meaning": [
+      "marque une sensation de froid."
+    ],
+    "generated_word": "maka",
+    "model": "Qwen/Qwen3-8b-thinking",
+    "language": "fr",
+    "trial": "trial12"
+  },
+  {
+    "original_word": "ah",
+    "meaning": [
+      "Marque un sentiment vif (plaisir, douleur, admiration, impatience, etc.).",
+      "Interjection d'insistance, de renforcement.",
+      "Sert à transcrire le rire."
+    ],
+    "generated_word": "maka",
+    "model": "Qwen/Qwen3-8b-thinking",
+    "language": "fr",
+    "trial": "trial12"
+  },
+  {
+    "original_word": "ahan",
+    "meaning": [
+      "accompagne un élan lorsqu'on porte un coup."
+    ],
+    "generated_word": "maka",
+    "model": "Qwen/Qwen3-8b-thinking",
+    "language": "fr",
+    "trial": "trial12"
+  },
+  {
+    "original_word": "ahouahou",
+    "meaning": [
+      "Exclamation de douleur ou onomatopée imitant le bâillement, l'aboiement"
+    ],
+    "generated_word": "maka",
+    "model": "Qwen/Qwen3-8b-thinking",
+    "language": "fr",
+    "trial": "trial12"
+  },
+  {
+    "original_word": "aou",
+    "meaning": [
+      "bruit de l'aboiement d'un chien."
+    ],
+    "generated_word": "maka",
+    "model": "Qwen/Qwen3-8b-thinking",
+    "language": "fr",
+    "trial": "trial12"
+  },
+  {
+    "original_word": "aouah",
+    "meaning": [
+      "pour se récrier ou, plus souvent, paraître se récrier."
+    ],
+    "generated_word": "maka",
+    "model": "Qwen/Qwen3-8b-thinking",
+    "language": "fr",
+    "trial": "trial12"
+  },
+  {
+    "original_word": "are-are",
+    "meaning": [
+      "premiers sons du language émis par un bébé en signe de bien-être."
+    ],
+    "generated_word": "maka",
+    "model": "Qwen/Qwen3-8b-thinking",
+    "language": "fr",
+    "trial": "trial12"
+  },
+  {
+    "original_word": "ach",
+    "meaning": [
+      "bruit marquant la satisfaction d'une personne après qu'elle a bu."
+    ],
+    "generated_word": "gluhmm",
+    "model": "Qwen/Qwen3-8b-thinking",
+    "language": "fr",
+    "trial": "trial13"
+  },
+  {
+    "original_word": "acz",
+    "meaning": [
+      "pour exciter un chien à attaquer, à mordre.",
+      "pour exciter une personne contre une autre."
+    ],
+    "generated_word": "gurglem",
+    "model": "Qwen/Qwen3-8b-thinking",
+    "language": "fr",
+    "trial": "trial13"
+  },
+  {
+    "original_word": "acz acz",
+    "meaning": [
+      "pour exciter un chien à attaquer, à mordre.",
+      "pour exciter une personne contre une autre."
+    ],
+    "generated_word": "gurglem",
+    "model": "Qwen/Qwen3-8b-thinking",
+    "language": "fr",
+    "trial": "trial13"
+  },
+  {
+    "original_word": "agaga",
+    "meaning": [
+      "marque une sensation de froid."
+    ],
+    "generated_word": "gurglem",
+    "model": "Qwen/Qwen3-8b-thinking",
+    "language": "fr",
+    "trial": "trial13"
+  },
+  {
+    "original_word": "ah",
+    "meaning": [
+      "Marque un sentiment vif (plaisir, douleur, admiration, impatience, etc.).",
+      "Interjection d'insistance, de renforcement.",
+      "Sert à transcrire le rire."
+    ],
+    "generated_word": "gurglem",
+    "model": "Qwen/Qwen3-8b-thinking",
+    "language": "fr",
+    "trial": "trial13"
+  },
+  {
+    "original_word": "ahan",
+    "meaning": [
+      "accompagne un élan lorsqu'on porte un coup."
+    ],
+    "generated_word": "gurglem",
+    "model": "Qwen/Qwen3-8b-thinking",
+    "language": "fr",
+    "trial": "trial13"
+  },
+  {
+    "original_word": "ahouahou",
+    "meaning": [
+      "Exclamation de douleur ou onomatopée imitant le bâillement, l'aboiement"
+    ],
+    "generated_word": "gurglem",
+    "model": "Qwen/Qwen3-8b-thinking",
+    "language": "fr",
+    "trial": "trial13"
+  },
+  {
+    "original_word": "aou",
+    "meaning": [
+      "bruit de l'aboiement d'un chien."
+    ],
+    "generated_word": "gurglem",
+    "model": "Qwen/Qwen3-8b-thinking",
+    "language": "fr",
+    "trial": "trial13"
+  },
+  {
+    "original_word": "aouah",
+    "meaning": [
+      "pour se récrier ou, plus souvent, paraître se récrier."
+    ],
+    "generated_word": "gurglem",
+    "model": "Qwen/Qwen3-8b-thinking",
+    "language": "fr",
+    "trial": "trial13"
+  },
+  {
+    "original_word": "are-are",
+    "meaning": [
+      "premiers sons du language émis par un bébé en signe de bien-être."
+    ],
+    "generated_word": "gurglem",
+    "model": "Qwen/Qwen3-8b-thinking",
+    "language": "fr",
+    "trial": "trial13"
+  },
+  {
+    "original_word": "ach",
+    "meaning": [
+      "bruit marquant la satisfaction d'une personne après qu'elle a bu."
+    ],
+    "generated_word": "\n\n*Zoril*",
+    "model": "Qwen/Qwen3-8b-thinking",
+    "language": "fr",
+    "trial": "trial14"
+  },
+  {
+    "original_word": "acz",
+    "meaning": [
+      "pour exciter un chien à attaquer, à mordre.",
+      "pour exciter une personne contre une autre."
+    ],
+    "generated_word": "\n\n*mam*",
+    "model": "Qwen/Qwen3-8b-thinking",
+    "language": "fr",
+    "trial": "trial14"
+  },
+  {
+    "original_word": "acz acz",
+    "meaning": [
+      "pour exciter un chien à attaquer, à mordre.",
+      "pour exciter une personne contre une autre."
+    ],
+    "generated_word": "\n\n*mam*",
+    "model": "Qwen/Qwen3-8b-thinking",
+    "language": "fr",
+    "trial": "trial14"
+  },
+  {
+    "original_word": "agaga",
+    "meaning": [
+      "marque une sensation de froid."
+    ],
+    "generated_word": "\n\n*mam*",
+    "model": "Qwen/Qwen3-8b-thinking",
+    "language": "fr",
+    "trial": "trial14"
+  },
+  {
+    "original_word": "ah",
+    "meaning": [
+      "Marque un sentiment vif (plaisir, douleur, admiration, impatience, etc.).",
+      "Interjection d'insistance, de renforcement.",
+      "Sert à transcrire le rire."
+    ],
+    "generated_word": "\n\n*mam*",
+    "model": "Qwen/Qwen3-8b-thinking",
+    "language": "fr",
+    "trial": "trial14"
+  },
+  {
+    "original_word": "ahan",
+    "meaning": [
+      "accompagne un élan lorsqu'on porte un coup."
+    ],
+    "generated_word": "\n\n*mam*",
+    "model": "Qwen/Qwen3-8b-thinking",
+    "language": "fr",
+    "trial": "trial14"
+  },
+  {
+    "original_word": "ahouahou",
+    "meaning": [
+      "Exclamation de douleur ou onomatopée imitant le bâillement, l'aboiement"
+    ],
+    "generated_word": "\n\n*mam*",
+    "model": "Qwen/Qwen3-8b-thinking",
+    "language": "fr",
+    "trial": "trial14"
+  },
+  {
+    "original_word": "aou",
+    "meaning": [
+      "bruit de l'aboiement d'un chien."
+    ],
+    "generated_word": "\n\n*mam*",
+    "model": "Qwen/Qwen3-8b-thinking",
+    "language": "fr",
+    "trial": "trial14"
+  },
+  {
+    "original_word": "aouah",
+    "meaning": [
+      "pour se récrier ou, plus souvent, paraître se récrier."
+    ],
+    "generated_word": "\n\n*mam*",
+    "model": "Qwen/Qwen3-8b-thinking",
+    "language": "fr",
+    "trial": "trial14"
+  },
+  {
+    "original_word": "are-are",
+    "meaning": [
+      "premiers sons du language émis par un bébé en signe de bien-être."
+    ],
+    "generated_word": "\n\n*mam*",
+    "model": "Qwen/Qwen3-8b-thinking",
+    "language": "fr",
+    "trial": "trial14"
+  },
+  {
+    "original_word": "ach",
+    "meaning": [
+      "bruit marquant la satisfaction d'une personne après qu'elle a bu."
+    ],
+    "generated_word": "\n\nZoril",
+    "model": "Qwen/Qwen3-8b-thinking",
+    "language": "fr",
+    "trial": "trial15"
+  },
+  {
+    "original_word": "acz",
+    "meaning": [
+      "pour exciter un chien à attaquer, à mordre.",
+      "pour exciter une personne contre une autre."
+    ],
+    "generated_word": "\n\nglurp",
+    "model": "Qwen/Qwen3-8b-thinking",
+    "language": "fr",
+    "trial": "trial15"
+  },
+  {
+    "original_word": "acz acz",
+    "meaning": [
+      "pour exciter un chien à attaquer, à mordre.",
+      "pour exciter une personne contre une autre."
+    ],
+    "generated_word": "\n\nglurp",
+    "model": "Qwen/Qwen3-8b-thinking",
+    "language": "fr",
+    "trial": "trial15"
+  },
+  {
+    "original_word": "agaga",
+    "meaning": [
+      "marque une sensation de froid."
+    ],
+    "generated_word": "\n\nglurp",
+    "model": "Qwen/Qwen3-8b-thinking",
+    "language": "fr",
+    "trial": "trial15"
+  },
+  {
+    "original_word": "ah",
+    "meaning": [
+      "Marque un sentiment vif (plaisir, douleur, admiration, impatience, etc.).",
+      "Interjection d'insistance, de renforcement.",
+      "Sert à transcrire le rire."
+    ],
+    "generated_word": "\n\nglurp",
+    "model": "Qwen/Qwen3-8b-thinking",
+    "language": "fr",
+    "trial": "trial15"
+  },
+  {
+    "original_word": "ahan",
+    "meaning": [
+      "accompagne un élan lorsqu'on porte un coup."
+    ],
+    "generated_word": "\n\nglurp",
+    "model": "Qwen/Qwen3-8b-thinking",
+    "language": "fr",
+    "trial": "trial15"
+  },
+  {
+    "original_word": "ahouahou",
+    "meaning": [
+      "Exclamation de douleur ou onomatopée imitant le bâillement, l'aboiement"
+    ],
+    "generated_word": "\n\nglurp",
+    "model": "Qwen/Qwen3-8b-thinking",
+    "language": "fr",
+    "trial": "trial15"
+  },
+  {
+    "original_word": "aou",
+    "meaning": [
+      "bruit de l'aboiement d'un chien."
+    ],
+    "generated_word": "\n\nglurp",
+    "model": "Qwen/Qwen3-8b-thinking",
+    "language": "fr",
+    "trial": "trial15"
+  },
+  {
+    "original_word": "aouah",
+    "meaning": [
+      "pour se récrier ou, plus souvent, paraître se récrier."
+    ],
+    "generated_word": "\n\nglurp",
+    "model": "Qwen/Qwen3-8b-thinking",
+    "language": "fr",
+    "trial": "trial15"
+  },
+  {
+    "original_word": "are-are",
+    "meaning": [
+      "premiers sons du language émis par un bébé en signe de bien-être."
+    ],
+    "generated_word": "\n\nglurp",
+    "model": "Qwen/Qwen3-8b-thinking",
+    "language": "fr",
+    "trial": "trial15"
+  },
+  {
+    "original_word": "ach",
+    "meaning": [
+      "bruit marquant la satisfaction d'une personne après qu'elle a bu."
+    ],
+    "generated_word": "\n\nzirr",
+    "model": "Qwen/Qwen3-8b-thinking",
+    "language": "fr",
+    "trial": "trial16"
+  },
+  {
+    "original_word": "acz",
+    "meaning": [
+      "pour exciter un chien à attaquer, à mordre.",
+      "pour exciter une personne contre une autre."
+    ],
+    "generated_word": "\n\nzirr",
+    "model": "Qwen/Qwen3-8b-thinking",
+    "language": "fr",
+    "trial": "trial16"
+  },
+  {
+    "original_word": "acz acz",
+    "meaning": [
+      "pour exciter un chien à attaquer, à mordre.",
+      "pour exciter une personne contre une autre."
+    ],
+    "generated_word": "\n\nzirr",
+    "model": "Qwen/Qwen3-8b-thinking",
+    "language": "fr",
+    "trial": "trial16"
+  },
+  {
+    "original_word": "agaga",
+    "meaning": [
+      "marque une sensation de froid."
+    ],
+    "generated_word": "\n\nzirr",
+    "model": "Qwen/Qwen3-8b-thinking",
+    "language": "fr",
+    "trial": "trial16"
+  },
+  {
+    "original_word": "ah",
+    "meaning": [
+      "Marque un sentiment vif (plaisir, douleur, admiration, impatience, etc.).",
+      "Interjection d'insistance, de renforcement.",
+      "Sert à transcrire le rire."
+    ],
+    "generated_word": "\n\nzirr",
+    "model": "Qwen/Qwen3-8b-thinking",
+    "language": "fr",
+    "trial": "trial16"
+  },
+  {
+    "original_word": "ahan",
+    "meaning": [
+      "accompagne un élan lorsqu'on porte un coup."
+    ],
+    "generated_word": "\n\nzirr",
+    "model": "Qwen/Qwen3-8b-thinking",
+    "language": "fr",
+    "trial": "trial16"
+  },
+  {
+    "original_word": "ahouahou",
+    "meaning": [
+      "Exclamation de douleur ou onomatopée imitant le bâillement, l'aboiement"
+    ],
+    "generated_word": "\n\nzirr",
+    "model": "Qwen/Qwen3-8b-thinking",
+    "language": "fr",
+    "trial": "trial16"
+  },
+  {
+    "original_word": "aou",
+    "meaning": [
+      "bruit de l'aboiement d'un chien."
+    ],
+    "generated_word": "\n\nzirr",
+    "model": "Qwen/Qwen3-8b-thinking",
+    "language": "fr",
+    "trial": "trial16"
+  },
+  {
+    "original_word": "aouah",
+    "meaning": [
+      "pour se récrier ou, plus souvent, paraître se récrier."
+    ],
+    "generated_word": "\n\nzirr",
+    "model": "Qwen/Qwen3-8b-thinking",
+    "language": "fr",
+    "trial": "trial16"
+  },
+  {
+    "original_word": "are-are",
+    "meaning": [
+      "premiers sons du language émis par un bébé en signe de bien-être."
+    ],
+    "generated_word": "\n\nzirr",
+    "model": "Qwen/Qwen3-8b-thinking",
+    "language": "fr",
+    "trial": "trial16"
+  },
+  {
+    "original_word": "ach",
+    "meaning": [
+      "bruit marquant la satisfaction d'une personne après qu'elle a bu."
+    ],
+    "generated_word": "gurrr",
+    "model": "Qwen/Qwen3-8b-thinking",
+    "language": "fr",
+    "trial": "trial17"
+  },
+  {
+    "original_word": "acz",
+    "meaning": [
+      "pour exciter un chien à attaquer, à mordre.",
+      "pour exciter une personne contre une autre."
+    ],
+    "generated_word": "murm",
+    "model": "Qwen/Qwen3-8b-thinking",
+    "language": "fr",
+    "trial": "trial17"
+  },
+  {
+    "original_word": "acz acz",
+    "meaning": [
+      "pour exciter un chien à attaquer, à mordre.",
+      "pour exciter une personne contre une autre."
+    ],
+    "generated_word": "murm",
+    "model": "Qwen/Qwen3-8b-thinking",
+    "language": "fr",
+    "trial": "trial17"
+  },
+  {
+    "original_word": "agaga",
+    "meaning": [
+      "marque une sensation de froid."
+    ],
+    "generated_word": "murm",
+    "model": "Qwen/Qwen3-8b-thinking",
+    "language": "fr",
+    "trial": "trial17"
+  },
+  {
+    "original_word": "ah",
+    "meaning": [
+      "Marque un sentiment vif (plaisir, douleur, admiration, impatience, etc.).",
+      "Interjection d'insistance, de renforcement.",
+      "Sert à transcrire le rire."
+    ],
+    "generated_word": "murm",
+    "model": "Qwen/Qwen3-8b-thinking",
+    "language": "fr",
+    "trial": "trial17"
+  },
+  {
+    "original_word": "ahan",
+    "meaning": [
+      "accompagne un élan lorsqu'on porte un coup."
+    ],
+    "generated_word": "murm",
+    "model": "Qwen/Qwen3-8b-thinking",
+    "language": "fr",
+    "trial": "trial17"
+  },
+  {
+    "original_word": "ahouahou",
+    "meaning": [
+      "Exclamation de douleur ou onomatopée imitant le bâillement, l'aboiement"
+    ],
+    "generated_word": "murm",
+    "model": "Qwen/Qwen3-8b-thinking",
+    "language": "fr",
+    "trial": "trial17"
+  },
+  {
+    "original_word": "aou",
+    "meaning": [
+      "bruit de l'aboiement d'un chien."
+    ],
+    "generated_word": "murm",
+    "model": "Qwen/Qwen3-8b-thinking",
+    "language": "fr",
+    "trial": "trial17"
+  },
+  {
+    "original_word": "aouah",
+    "meaning": [
+      "pour se récrier ou, plus souvent, paraître se récrier."
+    ],
+    "generated_word": "murm",
+    "model": "Qwen/Qwen3-8b-thinking",
+    "language": "fr",
+    "trial": "trial17"
+  },
+  {
+    "original_word": "are-are",
+    "meaning": [
+      "premiers sons du language émis par un bébé en signe de bien-être."
+    ],
+    "generated_word": "murm",
+    "model": "Qwen/Qwen3-8b-thinking",
+    "language": "fr",
+    "trial": "trial17"
+  },
+  {
+    "original_word": "ach",
+    "meaning": [
+      "bruit marquant la satisfaction d'une personne après qu'elle a bu."
+    ],
+    "generated_word": "gurrr",
+    "model": "Qwen/Qwen3-8b-thinking",
+    "language": "fr",
+    "trial": "trial18"
+  },
+  {
+    "original_word": "acz",
+    "meaning": [
+      "pour exciter un chien à attaquer, à mordre.",
+      "pour exciter une personne contre une autre."
+    ],
+    "generated_word": "mrrr",
+    "model": "Qwen/Qwen3-8b-thinking",
+    "language": "fr",
+    "trial": "trial18"
+  },
+  {
+    "original_word": "acz acz",
+    "meaning": [
+      "pour exciter un chien à attaquer, à mordre.",
+      "pour exciter une personne contre une autre."
+    ],
+    "generated_word": "mrrr",
+    "model": "Qwen/Qwen3-8b-thinking",
+    "language": "fr",
+    "trial": "trial18"
+  },
+  {
+    "original_word": "agaga",
+    "meaning": [
+      "marque une sensation de froid."
+    ],
+    "generated_word": "mrrr",
+    "model": "Qwen/Qwen3-8b-thinking",
+    "language": "fr",
+    "trial": "trial18"
+  },
+  {
+    "original_word": "ah",
+    "meaning": [
+      "Marque un sentiment vif (plaisir, douleur, admiration, impatience, etc.).",
+      "Interjection d'insistance, de renforcement.",
+      "Sert à transcrire le rire."
+    ],
+    "generated_word": "mrrr",
+    "model": "Qwen/Qwen3-8b-thinking",
+    "language": "fr",
+    "trial": "trial18"
+  },
+  {
+    "original_word": "ahan",
+    "meaning": [
+      "accompagne un élan lorsqu'on porte un coup."
+    ],
+    "generated_word": "mrrr",
+    "model": "Qwen/Qwen3-8b-thinking",
+    "language": "fr",
+    "trial": "trial18"
+  },
+  {
+    "original_word": "ahouahou",
+    "meaning": [
+      "Exclamation de douleur ou onomatopée imitant le bâillement, l'aboiement"
+    ],
+    "generated_word": "mrrr",
+    "model": "Qwen/Qwen3-8b-thinking",
+    "language": "fr",
+    "trial": "trial18"
+  },
+  {
+    "original_word": "aou",
+    "meaning": [
+      "bruit de l'aboiement d'un chien."
+    ],
+    "generated_word": "mrrr",
+    "model": "Qwen/Qwen3-8b-thinking",
+    "language": "fr",
+    "trial": "trial18"
+  },
+  {
+    "original_word": "aouah",
+    "meaning": [
+      "pour se récrier ou, plus souvent, paraître se récrier."
+    ],
+    "generated_word": "mrrr",
+    "model": "Qwen/Qwen3-8b-thinking",
+    "language": "fr",
+    "trial": "trial18"
+  },
+  {
+    "original_word": "are-are",
+    "meaning": [
+      "premiers sons du language émis par un bébé en signe de bien-être."
+    ],
+    "generated_word": "mrrr",
+    "model": "Qwen/Qwen3-8b-thinking",
+    "language": "fr",
+    "trial": "trial18"
+  },
+  {
+    "original_word": "ach",
+    "meaning": [
+      "bruit marquant la satisfaction d'une personne après qu'elle a bu."
+    ],
+    "generated_word": "Gurrr",
+    "model": "Qwen/Qwen3-8b-thinking",
+    "language": "fr",
+    "trial": "trial19"
+  },
+  {
+    "original_word": "acz",
+    "meaning": [
+      "pour exciter un chien à attaquer, à mordre.",
+      "pour exciter une personne contre une autre."
+    ],
+    "generated_word": "gur",
+    "model": "Qwen/Qwen3-8b-thinking",
+    "language": "fr",
+    "trial": "trial19"
+  },
+  {
+    "original_word": "acz acz",
+    "meaning": [
+      "pour exciter un chien à attaquer, à mordre.",
+      "pour exciter une personne contre une autre."
+    ],
+    "generated_word": "gur",
+    "model": "Qwen/Qwen3-8b-thinking",
+    "language": "fr",
+    "trial": "trial19"
+  },
+  {
+    "original_word": "agaga",
+    "meaning": [
+      "marque une sensation de froid."
+    ],
+    "generated_word": "gur",
+    "model": "Qwen/Qwen3-8b-thinking",
+    "language": "fr",
+    "trial": "trial19"
+  },
+  {
+    "original_word": "ah",
+    "meaning": [
+      "Marque un sentiment vif (plaisir, douleur, admiration, impatience, etc.).",
+      "Interjection d'insistance, de renforcement.",
+      "Sert à transcrire le rire."
+    ],
+    "generated_word": "gur",
+    "model": "Qwen/Qwen3-8b-thinking",
+    "language": "fr",
+    "trial": "trial19"
+  },
+  {
+    "original_word": "ahan",
+    "meaning": [
+      "accompagne un élan lorsqu'on porte un coup."
+    ],
+    "generated_word": "gur",
+    "model": "Qwen/Qwen3-8b-thinking",
+    "language": "fr",
+    "trial": "trial19"
+  },
+  {
+    "original_word": "ahouahou",
+    "meaning": [
+      "Exclamation de douleur ou onomatopée imitant le bâillement, l'aboiement"
+    ],
+    "generated_word": "gur",
+    "model": "Qwen/Qwen3-8b-thinking",
+    "language": "fr",
+    "trial": "trial19"
+  },
+  {
+    "original_word": "aou",
+    "meaning": [
+      "bruit de l'aboiement d'un chien."
+    ],
+    "generated_word": "gur",
+    "model": "Qwen/Qwen3-8b-thinking",
+    "language": "fr",
+    "trial": "trial19"
+  },
+  {
+    "original_word": "aouah",
+    "meaning": [
+      "pour se récrier ou, plus souvent, paraître se récrier."
+    ],
+    "generated_word": "gur",
+    "model": "Qwen/Qwen3-8b-thinking",
+    "language": "fr",
+    "trial": "trial19"
+  },
+  {
+    "original_word": "are-are",
+    "meaning": [
+      "premiers sons du language émis par un bébé en signe de bien-être."
+    ],
+    "generated_word": "gur",
+    "model": "Qwen/Qwen3-8b-thinking",
+    "language": "fr",
+    "trial": "trial19"
+  },
+  {
+    "original_word": "ach",
+    "meaning": [
+      "bruit marquant la satisfaction d'une personne après qu'elle a bu."
+    ],
+    "generated_word": "mee",
+    "model": "Qwen/Qwen3-8b-thinking",
+    "language": "fr",
+    "trial": "trial20"
+  },
+  {
+    "original_word": "acz",
+    "meaning": [
+      "pour exciter un chien à attaquer, à mordre.",
+      "pour exciter une personne contre une autre."
+    ],
+    "generated_word": "gurrr",
+    "model": "Qwen/Qwen3-8b-thinking",
+    "language": "fr",
+    "trial": "trial20"
+  },
+  {
+    "original_word": "acz acz",
+    "meaning": [
+      "pour exciter un chien à attaquer, à mordre.",
+      "pour exciter une personne contre une autre."
+    ],
+    "generated_word": "gurrr",
+    "model": "Qwen/Qwen3-8b-thinking",
+    "language": "fr",
+    "trial": "trial20"
+  },
+  {
+    "original_word": "agaga",
+    "meaning": [
+      "marque une sensation de froid."
+    ],
+    "generated_word": "gurrr",
+    "model": "Qwen/Qwen3-8b-thinking",
+    "language": "fr",
+    "trial": "trial20"
+  },
+  {
+    "original_word": "ah",
+    "meaning": [
+      "Marque un sentiment vif (plaisir, douleur, admiration, impatience, etc.).",
+      "Interjection d'insistance, de renforcement.",
+      "Sert à transcrire le rire."
+    ],
+    "generated_word": "gurrr",
+    "model": "Qwen/Qwen3-8b-thinking",
+    "language": "fr",
+    "trial": "trial20"
+  },
+  {
+    "original_word": "ahan",
+    "meaning": [
+      "accompagne un élan lorsqu'on porte un coup."
+    ],
+    "generated_word": "gurrr",
+    "model": "Qwen/Qwen3-8b-thinking",
+    "language": "fr",
+    "trial": "trial20"
+  },
+  {
+    "original_word": "ahouahou",
+    "meaning": [
+      "Exclamation de douleur ou onomatopée imitant le bâillement, l'aboiement"
+    ],
+    "generated_word": "gurrr",
+    "model": "Qwen/Qwen3-8b-thinking",
+    "language": "fr",
+    "trial": "trial20"
+  },
+  {
+    "original_word": "aou",
+    "meaning": [
+      "bruit de l'aboiement d'un chien."
+    ],
+    "generated_word": "gurrr",
+    "model": "Qwen/Qwen3-8b-thinking",
+    "language": "fr",
+    "trial": "trial20"
+  },
+  {
+    "original_word": "aouah",
+    "meaning": [
+      "pour se récrier ou, plus souvent, paraître se récrier."
+    ],
+    "generated_word": "gurrr",
+    "model": "Qwen/Qwen3-8b-thinking",
+    "language": "fr",
+    "trial": "trial20"
+  },
+  {
+    "original_word": "are-are",
+    "meaning": [
+      "premiers sons du language émis par un bébé en signe de bien-être."
+    ],
+    "generated_word": "gurrr",
+    "model": "Qwen/Qwen3-8b-thinking",
+    "language": "fr",
+    "trial": "trial20"
+  },
+  {
+    "original_word": "ach",
+    "meaning": [
+      "bruit marquant la satisfaction d'une personne après qu'elle a bu."
+    ],
+    "generated_word": "Zorblax",
+    "model": "Qwen/Qwen3-8b-thinking",
+    "language": "fr",
+    "trial": "trial21"
+  },
+  {
+    "original_word": "acz",
+    "meaning": [
+      "pour exciter un chien à attaquer, à mordre.",
+      "pour exciter une personne contre une autre."
+    ],
+    "generated_word": "Gluuk Zluk Mmmh Ahh Tssk Ssshh",
+    "model": "Qwen/Qwen3-8b-thinking",
+    "language": "fr",
+    "trial": "trial21"
+  },
+  {
+    "original_word": "acz acz",
+    "meaning": [
+      "pour exciter un chien à attaquer, à mordre.",
+      "pour exciter une personne contre une autre."
+    ],
+    "generated_word": "Gluuk Zluk Mmmh Ahh Tssk Ssshh",
+    "model": "Qwen/Qwen3-8b-thinking",
+    "language": "fr",
+    "trial": "trial21"
+  },
+  {
+    "original_word": "agaga",
+    "meaning": [
+      "marque une sensation de froid."
+    ],
+    "generated_word": "Gluuk Zluk Mmmh Ahh Tssk Ssshh",
+    "model": "Qwen/Qwen3-8b-thinking",
+    "language": "fr",
+    "trial": "trial21"
+  },
+  {
+    "original_word": "ah",
+    "meaning": [
+      "Marque un sentiment vif (plaisir, douleur, admiration, impatience, etc.).",
+      "Interjection d'insistance, de renforcement.",
+      "Sert à transcrire le rire."
+    ],
+    "generated_word": "Gluuk Zluk Mmmh Ahh Tssk Ssshh",
+    "model": "Qwen/Qwen3-8b-thinking",
+    "language": "fr",
+    "trial": "trial21"
+  },
+  {
+    "original_word": "ahan",
+    "meaning": [
+      "accompagne un élan lorsqu'on porte un coup."
+    ],
+    "generated_word": "Gluuk Zluk Mmmh Ahh Tssk Ssshh",
+    "model": "Qwen/Qwen3-8b-thinking",
+    "language": "fr",
+    "trial": "trial21"
+  },
+  {
+    "original_word": "ahouahou",
+    "meaning": [
+      "Exclamation de douleur ou onomatopée imitant le bâillement, l'aboiement"
+    ],
+    "generated_word": "Gluuk Zluk Mmmh Ahh Tssk Ssshh",
+    "model": "Qwen/Qwen3-8b-thinking",
+    "language": "fr",
+    "trial": "trial21"
+  },
+  {
+    "original_word": "aou",
+    "meaning": [
+      "bruit de l'aboiement d'un chien."
+    ],
+    "generated_word": "Gluuk Zluk Mmmh Ahh Tssk Ssshh",
+    "model": "Qwen/Qwen3-8b-thinking",
+    "language": "fr",
+    "trial": "trial21"
+  },
+  {
+    "original_word": "aouah",
+    "meaning": [
+      "pour se récrier ou, plus souvent, paraître se récrier."
+    ],
+    "generated_word": "Gluuk Zluk Mmmh Ahh Tssk Ssshh",
+    "model": "Qwen/Qwen3-8b-thinking",
+    "language": "fr",
+    "trial": "trial21"
+  },
+  {
+    "original_word": "are-are",
+    "meaning": [
+      "premiers sons du language émis par un bébé en signe de bien-être."
+    ],
+    "generated_word": "Gluuk Zluk Mmmh Ahh Tssk Ssshh",
+    "model": "Qwen/Qwen3-8b-thinking",
+    "language": "fr",
+    "trial": "trial21"
+  },
+  {
+    "original_word": "ach",
+    "meaning": [
+      "bruit marquant la satisfaction d'une personne après qu'elle a bu."
+    ],
+    "generated_word": "murm",
+    "model": "Qwen/Qwen3-8b-thinking",
+    "language": "fr",
+    "trial": "trial22"
+  },
+  {
+    "original_word": "acz",
+    "meaning": [
+      "pour exciter un chien à attaquer, à mordre.",
+      "pour exciter une personne contre une autre."
+    ],
+    "generated_word": "mahr",
+    "model": "Qwen/Qwen3-8b-thinking",
+    "language": "fr",
+    "trial": "trial22"
+  },
+  {
+    "original_word": "acz acz",
+    "meaning": [
+      "pour exciter un chien à attaquer, à mordre.",
+      "pour exciter une personne contre une autre."
+    ],
+    "generated_word": "mahr",
+    "model": "Qwen/Qwen3-8b-thinking",
+    "language": "fr",
+    "trial": "trial22"
+  },
+  {
+    "original_word": "agaga",
+    "meaning": [
+      "marque une sensation de froid."
+    ],
+    "generated_word": "mahr",
+    "model": "Qwen/Qwen3-8b-thinking",
+    "language": "fr",
+    "trial": "trial22"
+  },
+  {
+    "original_word": "ah",
+    "meaning": [
+      "Marque un sentiment vif (plaisir, douleur, admiration, impatience, etc.).",
+      "Interjection d'insistance, de renforcement.",
+      "Sert à transcrire le rire."
+    ],
+    "generated_word": "mahr",
+    "model": "Qwen/Qwen3-8b-thinking",
+    "language": "fr",
+    "trial": "trial22"
+  },
+  {
+    "original_word": "ahan",
+    "meaning": [
+      "accompagne un élan lorsqu'on porte un coup."
+    ],
+    "generated_word": "mahr",
+    "model": "Qwen/Qwen3-8b-thinking",
+    "language": "fr",
+    "trial": "trial22"
+  },
+  {
+    "original_word": "ahouahou",
+    "meaning": [
+      "Exclamation de douleur ou onomatopée imitant le bâillement, l'aboiement"
+    ],
+    "generated_word": "mahr",
+    "model": "Qwen/Qwen3-8b-thinking",
+    "language": "fr",
+    "trial": "trial22"
+  },
+  {
+    "original_word": "aou",
+    "meaning": [
+      "bruit de l'aboiement d'un chien."
+    ],
+    "generated_word": "mahr",
+    "model": "Qwen/Qwen3-8b-thinking",
+    "language": "fr",
+    "trial": "trial22"
+  },
+  {
+    "original_word": "aouah",
+    "meaning": [
+      "pour se récrier ou, plus souvent, paraître se récrier."
+    ],
+    "generated_word": "mahr",
+    "model": "Qwen/Qwen3-8b-thinking",
+    "language": "fr",
+    "trial": "trial22"
+  },
+  {
+    "original_word": "are-are",
+    "meaning": [
+      "premiers sons du language émis par un bébé en signe de bien-être."
+    ],
+    "generated_word": "mahr",
+    "model": "Qwen/Qwen3-8b-thinking",
+    "language": "fr",
+    "trial": "trial22"
+  },
+  {
+    "original_word": "ach",
+    "meaning": [
+      "bruit marquant la satisfaction d'une personne après qu'elle a bu."
+    ],
+    "generated_word": "\n\n[glum]",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "fr",
+    "trial": "trial6"
+  },
+  {
+    "original_word": "acz",
+    "meaning": [
+      "pour exciter un chien à attaquer, à mordre.",
+      "pour exciter une personne contre une autre."
+    ],
+    "generated_word": "\n\n[sla]",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "fr",
+    "trial": "trial6"
+  },
+  {
+    "original_word": "acz acz",
+    "meaning": [
+      "pour exciter un chien à attaquer, à mordre.",
+      "pour exciter une personne contre une autre."
+    ],
+    "generated_word": "\n\n[sla]",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "fr",
+    "trial": "trial6"
+  },
+  {
+    "original_word": "agaga",
+    "meaning": [
+      "marque une sensation de froid."
+    ],
+    "generated_word": "\n\n[sla]",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "fr",
+    "trial": "trial6"
+  },
+  {
+    "original_word": "ah",
+    "meaning": [
+      "Marque un sentiment vif (plaisir, douleur, admiration, impatience, etc.).",
+      "Interjection d'insistance, de renforcement.",
+      "Sert à transcrire le rire."
+    ],
+    "generated_word": "\n\n[sla]",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "fr",
+    "trial": "trial6"
+  },
+  {
+    "original_word": "ahan",
+    "meaning": [
+      "accompagne un élan lorsqu'on porte un coup."
+    ],
+    "generated_word": "\n\n[sla]",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "fr",
+    "trial": "trial6"
+  },
+  {
+    "original_word": "ahouahou",
+    "meaning": [
+      "Exclamation de douleur ou onomatopée imitant le bâillement, l'aboiement"
+    ],
+    "generated_word": "\n\n[sla]",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "fr",
+    "trial": "trial6"
+  },
+  {
+    "original_word": "aou",
+    "meaning": [
+      "bruit de l'aboiement d'un chien."
+    ],
+    "generated_word": "\n\n[sla]",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "fr",
+    "trial": "trial6"
+  },
+  {
+    "original_word": "aouah",
+    "meaning": [
+      "pour se récrier ou, plus souvent, paraître se récrier."
+    ],
+    "generated_word": "\n\n[sla]",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "fr",
+    "trial": "trial6"
+  },
+  {
+    "original_word": "are-are",
+    "meaning": [
+      "premiers sons du language émis par un bébé en signe de bien-être."
+    ],
+    "generated_word": "\n\n[sla]",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "fr",
+    "trial": "trial6"
+  },
+  {
+    "original_word": "ach",
+    "meaning": [
+      "bruit marquant la satisfaction d'une personne après qu'elle a bu."
+    ],
+    "generated_word": "[m̥uːrm̥] murm",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "fr",
+    "trial": "trial12"
+  },
+  {
+    "original_word": "acz",
+    "meaning": [
+      "pour exciter un chien à attaquer, à mordre.",
+      "pour exciter une personne contre une autre."
+    ],
+    "generated_word": "[m̥]",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "fr",
+    "trial": "trial12"
+  },
+  {
+    "original_word": "acz acz",
+    "meaning": [
+      "pour exciter un chien à attaquer, à mordre.",
+      "pour exciter une personne contre une autre."
+    ],
+    "generated_word": "[m̥]",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "fr",
+    "trial": "trial12"
+  },
+  {
+    "original_word": "agaga",
+    "meaning": [
+      "marque une sensation de froid."
+    ],
+    "generated_word": "[m̥]",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "fr",
+    "trial": "trial12"
+  },
+  {
+    "original_word": "ah",
+    "meaning": [
+      "Marque un sentiment vif (plaisir, douleur, admiration, impatience, etc.).",
+      "Interjection d'insistance, de renforcement.",
+      "Sert à transcrire le rire."
+    ],
+    "generated_word": "[m̥]",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "fr",
+    "trial": "trial12"
+  },
+  {
+    "original_word": "ahan",
+    "meaning": [
+      "accompagne un élan lorsqu'on porte un coup."
+    ],
+    "generated_word": "[m̥]",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "fr",
+    "trial": "trial12"
+  },
+  {
+    "original_word": "ahouahou",
+    "meaning": [
+      "Exclamation de douleur ou onomatopée imitant le bâillement, l'aboiement"
+    ],
+    "generated_word": "[m̥]",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "fr",
+    "trial": "trial12"
+  },
+  {
+    "original_word": "aou",
+    "meaning": [
+      "bruit de l'aboiement d'un chien."
+    ],
+    "generated_word": "[m̥]",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "fr",
+    "trial": "trial12"
+  },
+  {
+    "original_word": "aouah",
+    "meaning": [
+      "pour se récrier ou, plus souvent, paraître se récrier."
+    ],
+    "generated_word": "[m̥]",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "fr",
+    "trial": "trial12"
+  },
+  {
+    "original_word": "are-are",
+    "meaning": [
+      "premiers sons du language émis par un bébé en signe de bien-être."
+    ],
+    "generated_word": "[m̥]",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "fr",
+    "trial": "trial12"
+  },
+  {
+    "original_word": "ach",
+    "meaning": [
+      "bruit marquant la satisfaction d'une personne après qu'elle a bu."
+    ],
+    "generated_word": "thum",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "fr",
+    "trial": "trial13"
+  },
+  {
+    "original_word": "acz",
+    "meaning": [
+      "pour exciter un chien à attaquer, à mordre.",
+      "pour exciter une personne contre une autre."
+    ],
+    "generated_word": "slurpah",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "fr",
+    "trial": "trial13"
+  },
+  {
+    "original_word": "acz acz",
+    "meaning": [
+      "pour exciter un chien à attaquer, à mordre.",
+      "pour exciter une personne contre une autre."
+    ],
+    "generated_word": "slurpah",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "fr",
+    "trial": "trial13"
+  },
+  {
+    "original_word": "agaga",
+    "meaning": [
+      "marque une sensation de froid."
+    ],
+    "generated_word": "slurpah",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "fr",
+    "trial": "trial13"
+  },
+  {
+    "original_word": "ah",
+    "meaning": [
+      "Marque un sentiment vif (plaisir, douleur, admiration, impatience, etc.).",
+      "Interjection d'insistance, de renforcement.",
+      "Sert à transcrire le rire."
+    ],
+    "generated_word": "slurpah",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "fr",
+    "trial": "trial13"
+  },
+  {
+    "original_word": "ahan",
+    "meaning": [
+      "accompagne un élan lorsqu'on porte un coup."
+    ],
+    "generated_word": "slurpah",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "fr",
+    "trial": "trial13"
+  },
+  {
+    "original_word": "ahouahou",
+    "meaning": [
+      "Exclamation de douleur ou onomatopée imitant le bâillement, l'aboiement"
+    ],
+    "generated_word": "slurpah",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "fr",
+    "trial": "trial13"
+  },
+  {
+    "original_word": "aou",
+    "meaning": [
+      "bruit de l'aboiement d'un chien."
+    ],
+    "generated_word": "slurpah",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "fr",
+    "trial": "trial13"
+  },
+  {
+    "original_word": "aouah",
+    "meaning": [
+      "pour se récrier ou, plus souvent, paraître se récrier."
+    ],
+    "generated_word": "slurpah",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "fr",
+    "trial": "trial13"
+  },
+  {
+    "original_word": "are-are",
+    "meaning": [
+      "premiers sons du language émis par un bébé en signe de bien-être."
+    ],
+    "generated_word": "slurpah",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "fr",
+    "trial": "trial13"
+  },
+  {
+    "original_word": "ach",
+    "meaning": [
+      "bruit marquant la satisfaction d'une personne après qu'elle a bu."
+    ],
+    "generated_word": "\n\n*Hmmph*",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "fr",
+    "trial": "trial14"
+  },
+  {
+    "original_word": "acz",
+    "meaning": [
+      "pour exciter un chien à attaquer, à mordre.",
+      "pour exciter une personne contre une autre."
+    ],
+    "generated_word": "\n\n*thrumm*",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "fr",
+    "trial": "trial14"
+  },
+  {
+    "original_word": "acz acz",
+    "meaning": [
+      "pour exciter un chien à attaquer, à mordre.",
+      "pour exciter une personne contre une autre."
+    ],
+    "generated_word": "\n\n*thrumm*",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "fr",
+    "trial": "trial14"
+  },
+  {
+    "original_word": "agaga",
+    "meaning": [
+      "marque une sensation de froid."
+    ],
+    "generated_word": "\n\n*thrumm*",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "fr",
+    "trial": "trial14"
+  },
+  {
+    "original_word": "ah",
+    "meaning": [
+      "Marque un sentiment vif (plaisir, douleur, admiration, impatience, etc.).",
+      "Interjection d'insistance, de renforcement.",
+      "Sert à transcrire le rire."
+    ],
+    "generated_word": "\n\n*thrumm*",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "fr",
+    "trial": "trial14"
+  },
+  {
+    "original_word": "ahan",
+    "meaning": [
+      "accompagne un élan lorsqu'on porte un coup."
+    ],
+    "generated_word": "\n\n*thrumm*",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "fr",
+    "trial": "trial14"
+  },
+  {
+    "original_word": "ahouahou",
+    "meaning": [
+      "Exclamation de douleur ou onomatopée imitant le bâillement, l'aboiement"
+    ],
+    "generated_word": "\n\n*thrumm*",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "fr",
+    "trial": "trial14"
+  },
+  {
+    "original_word": "aou",
+    "meaning": [
+      "bruit de l'aboiement d'un chien."
+    ],
+    "generated_word": "\n\n*thrumm*",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "fr",
+    "trial": "trial14"
+  },
+  {
+    "original_word": "aouah",
+    "meaning": [
+      "pour se récrier ou, plus souvent, paraître se récrier."
+    ],
+    "generated_word": "\n\n*thrumm*",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "fr",
+    "trial": "trial14"
+  },
+  {
+    "original_word": "are-are",
+    "meaning": [
+      "premiers sons du language émis par un bébé en signe de bien-être."
+    ],
+    "generated_word": "\n\n*thrumm*",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "fr",
+    "trial": "trial14"
+  },
+  {
+    "original_word": "ach",
+    "meaning": [
+      "bruit marquant la satisfaction d'une personne après qu'elle a bu."
+    ],
+    "generated_word": "\n\nZzurra",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "fr",
+    "trial": "trial15"
+  },
+  {
+    "original_word": "acz",
+    "meaning": [
+      "pour exciter un chien à attaquer, à mordre.",
+      "pour exciter une personne contre une autre."
+    ],
+    "generated_word": "\n\nzulm",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "fr",
+    "trial": "trial15"
+  },
+  {
+    "original_word": "acz acz",
+    "meaning": [
+      "pour exciter un chien à attaquer, à mordre.",
+      "pour exciter une personne contre une autre."
+    ],
+    "generated_word": "\n\nzulm",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "fr",
+    "trial": "trial15"
+  },
+  {
+    "original_word": "agaga",
+    "meaning": [
+      "marque une sensation de froid."
+    ],
+    "generated_word": "\n\nzulm",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "fr",
+    "trial": "trial15"
+  },
+  {
+    "original_word": "ah",
+    "meaning": [
+      "Marque un sentiment vif (plaisir, douleur, admiration, impatience, etc.).",
+      "Interjection d'insistance, de renforcement.",
+      "Sert à transcrire le rire."
+    ],
+    "generated_word": "\n\nzulm",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "fr",
+    "trial": "trial15"
+  },
+  {
+    "original_word": "ahan",
+    "meaning": [
+      "accompagne un élan lorsqu'on porte un coup."
+    ],
+    "generated_word": "\n\nzulm",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "fr",
+    "trial": "trial15"
+  },
+  {
+    "original_word": "ahouahou",
+    "meaning": [
+      "Exclamation de douleur ou onomatopée imitant le bâillement, l'aboiement"
+    ],
+    "generated_word": "\n\nzulm",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "fr",
+    "trial": "trial15"
+  },
+  {
+    "original_word": "aou",
+    "meaning": [
+      "bruit de l'aboiement d'un chien."
+    ],
+    "generated_word": "\n\nzulm",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "fr",
+    "trial": "trial15"
+  },
+  {
+    "original_word": "aouah",
+    "meaning": [
+      "pour se récrier ou, plus souvent, paraître se récrier."
+    ],
+    "generated_word": "\n\nzulm",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "fr",
+    "trial": "trial15"
+  },
+  {
+    "original_word": "are-are",
+    "meaning": [
+      "premiers sons du language émis par un bébé en signe de bien-être."
+    ],
+    "generated_word": "\n\nzulm",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "fr",
+    "trial": "trial15"
+  },
+  {
+    "original_word": "ach",
+    "meaning": [
+      "bruit marquant la satisfaction d'une personne après qu'elle a bu."
+    ],
+    "generated_word": "\n\nmellush",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "fr",
+    "trial": "trial16"
+  },
+  {
+    "original_word": "acz",
+    "meaning": [
+      "pour exciter un chien à attaquer, à mordre.",
+      "pour exciter une personne contre une autre."
+    ],
+    "generated_word": "\n\nglumara",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "fr",
+    "trial": "trial16"
+  },
+  {
+    "original_word": "acz acz",
+    "meaning": [
+      "pour exciter un chien à attaquer, à mordre.",
+      "pour exciter une personne contre une autre."
+    ],
+    "generated_word": "\n\nglumara",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "fr",
+    "trial": "trial16"
+  },
+  {
+    "original_word": "agaga",
+    "meaning": [
+      "marque une sensation de froid."
+    ],
+    "generated_word": "\n\nglumara",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "fr",
+    "trial": "trial16"
+  },
+  {
+    "original_word": "ah",
+    "meaning": [
+      "Marque un sentiment vif (plaisir, douleur, admiration, impatience, etc.).",
+      "Interjection d'insistance, de renforcement.",
+      "Sert à transcrire le rire."
+    ],
+    "generated_word": "\n\nglumara",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "fr",
+    "trial": "trial16"
+  },
+  {
+    "original_word": "ahan",
+    "meaning": [
+      "accompagne un élan lorsqu'on porte un coup."
+    ],
+    "generated_word": "\n\nglumara",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "fr",
+    "trial": "trial16"
+  },
+  {
+    "original_word": "ahouahou",
+    "meaning": [
+      "Exclamation de douleur ou onomatopée imitant le bâillement, l'aboiement"
+    ],
+    "generated_word": "\n\nglumara",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "fr",
+    "trial": "trial16"
+  },
+  {
+    "original_word": "aou",
+    "meaning": [
+      "bruit de l'aboiement d'un chien."
+    ],
+    "generated_word": "\n\nglumara",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "fr",
+    "trial": "trial16"
+  },
+  {
+    "original_word": "aouah",
+    "meaning": [
+      "pour se récrier ou, plus souvent, paraître se récrier."
+    ],
+    "generated_word": "\n\nglumara",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "fr",
+    "trial": "trial16"
+  },
+  {
+    "original_word": "are-are",
+    "meaning": [
+      "premiers sons du language émis par un bébé en signe de bien-être."
+    ],
+    "generated_word": "\n\nglumara",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "fr",
+    "trial": "trial16"
+  },
+  {
+    "original_word": "ach",
+    "meaning": [
+      "bruit marquant la satisfaction d'une personne après qu'elle a bu."
+    ],
+    "generated_word": "klup",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "fr",
+    "trial": "trial17"
+  },
+  {
+    "original_word": "acz",
+    "meaning": [
+      "pour exciter un chien à attaquer, à mordre.",
+      "pour exciter une personne contre une autre."
+    ],
+    "generated_word": "murm",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "fr",
+    "trial": "trial17"
+  },
+  {
+    "original_word": "acz acz",
+    "meaning": [
+      "pour exciter un chien à attaquer, à mordre.",
+      "pour exciter une personne contre une autre."
+    ],
+    "generated_word": "murm",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "fr",
+    "trial": "trial17"
+  },
+  {
+    "original_word": "agaga",
+    "meaning": [
+      "marque une sensation de froid."
+    ],
+    "generated_word": "murm",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "fr",
+    "trial": "trial17"
+  },
+  {
+    "original_word": "ah",
+    "meaning": [
+      "Marque un sentiment vif (plaisir, douleur, admiration, impatience, etc.).",
+      "Interjection d'insistance, de renforcement.",
+      "Sert à transcrire le rire."
+    ],
+    "generated_word": "murm",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "fr",
+    "trial": "trial17"
+  },
+  {
+    "original_word": "ahan",
+    "meaning": [
+      "accompagne un élan lorsqu'on porte un coup."
+    ],
+    "generated_word": "murm",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "fr",
+    "trial": "trial17"
+  },
+  {
+    "original_word": "ahouahou",
+    "meaning": [
+      "Exclamation de douleur ou onomatopée imitant le bâillement, l'aboiement"
+    ],
+    "generated_word": "murm",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "fr",
+    "trial": "trial17"
+  },
+  {
+    "original_word": "aou",
+    "meaning": [
+      "bruit de l'aboiement d'un chien."
+    ],
+    "generated_word": "murm",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "fr",
+    "trial": "trial17"
+  },
+  {
+    "original_word": "aouah",
+    "meaning": [
+      "pour se récrier ou, plus souvent, paraître se récrier."
+    ],
+    "generated_word": "murm",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "fr",
+    "trial": "trial17"
+  },
+  {
+    "original_word": "are-are",
+    "meaning": [
+      "premiers sons du language émis par un bébé en signe de bien-être."
+    ],
+    "generated_word": "murm",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "fr",
+    "trial": "trial17"
+  },
+  {
+    "original_word": "ach",
+    "meaning": [
+      "bruit marquant la satisfaction d'une personne après qu'elle a bu."
+    ],
+    "generated_word": "zorl",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "fr",
+    "trial": "trial18"
+  },
+  {
+    "original_word": "acz",
+    "meaning": [
+      "pour exciter un chien à attaquer, à mordre.",
+      "pour exciter une personne contre une autre."
+    ],
+    "generated_word": "Mmmph",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "fr",
+    "trial": "trial18"
+  },
+  {
+    "original_word": "acz acz",
+    "meaning": [
+      "pour exciter un chien à attaquer, à mordre.",
+      "pour exciter une personne contre une autre."
+    ],
+    "generated_word": "Mmmph",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "fr",
+    "trial": "trial18"
+  },
+  {
+    "original_word": "agaga",
+    "meaning": [
+      "marque une sensation de froid."
+    ],
+    "generated_word": "Mmmph",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "fr",
+    "trial": "trial18"
+  },
+  {
+    "original_word": "ah",
+    "meaning": [
+      "Marque un sentiment vif (plaisir, douleur, admiration, impatience, etc.).",
+      "Interjection d'insistance, de renforcement.",
+      "Sert à transcrire le rire."
+    ],
+    "generated_word": "Mmmph",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "fr",
+    "trial": "trial18"
+  },
+  {
+    "original_word": "ahan",
+    "meaning": [
+      "accompagne un élan lorsqu'on porte un coup."
+    ],
+    "generated_word": "Mmmph",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "fr",
+    "trial": "trial18"
+  },
+  {
+    "original_word": "ahouahou",
+    "meaning": [
+      "Exclamation de douleur ou onomatopée imitant le bâillement, l'aboiement"
+    ],
+    "generated_word": "Mmmph",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "fr",
+    "trial": "trial18"
+  },
+  {
+    "original_word": "aou",
+    "meaning": [
+      "bruit de l'aboiement d'un chien."
+    ],
+    "generated_word": "Mmmph",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "fr",
+    "trial": "trial18"
+  },
+  {
+    "original_word": "aouah",
+    "meaning": [
+      "pour se récrier ou, plus souvent, paraître se récrier."
+    ],
+    "generated_word": "Mmmph",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "fr",
+    "trial": "trial18"
+  },
+  {
+    "original_word": "are-are",
+    "meaning": [
+      "premiers sons du language émis par un bébé en signe de bien-être."
+    ],
+    "generated_word": "Mmmph",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "fr",
+    "trial": "trial18"
+  },
+  {
+    "original_word": "ach",
+    "meaning": [
+      "bruit marquant la satisfaction d'une personne après qu'elle a bu."
+    ],
+    "generated_word": "zulra",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "fr",
+    "trial": "trial19"
+  },
+  {
+    "original_word": "acz",
+    "meaning": [
+      "pour exciter un chien à attaquer, à mordre.",
+      "pour exciter une personne contre une autre."
+    ],
+    "generated_word": "Zilthra",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "fr",
+    "trial": "trial19"
+  },
+  {
+    "original_word": "acz acz",
+    "meaning": [
+      "pour exciter un chien à attaquer, à mordre.",
+      "pour exciter une personne contre une autre."
+    ],
+    "generated_word": "Zilthra",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "fr",
+    "trial": "trial19"
+  },
+  {
+    "original_word": "agaga",
+    "meaning": [
+      "marque une sensation de froid."
+    ],
+    "generated_word": "Zilthra",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "fr",
+    "trial": "trial19"
+  },
+  {
+    "original_word": "ah",
+    "meaning": [
+      "Marque un sentiment vif (plaisir, douleur, admiration, impatience, etc.).",
+      "Interjection d'insistance, de renforcement.",
+      "Sert à transcrire le rire."
+    ],
+    "generated_word": "Zilthra",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "fr",
+    "trial": "trial19"
+  },
+  {
+    "original_word": "ahan",
+    "meaning": [
+      "accompagne un élan lorsqu'on porte un coup."
+    ],
+    "generated_word": "Zilthra",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "fr",
+    "trial": "trial19"
+  },
+  {
+    "original_word": "ahouahou",
+    "meaning": [
+      "Exclamation de douleur ou onomatopée imitant le bâillement, l'aboiement"
+    ],
+    "generated_word": "Zilthra",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "fr",
+    "trial": "trial19"
+  },
+  {
+    "original_word": "aou",
+    "meaning": [
+      "bruit de l'aboiement d'un chien."
+    ],
+    "generated_word": "Zilthra",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "fr",
+    "trial": "trial19"
+  },
+  {
+    "original_word": "aouah",
+    "meaning": [
+      "pour se récrier ou, plus souvent, paraître se récrier."
+    ],
+    "generated_word": "Zilthra",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "fr",
+    "trial": "trial19"
+  },
+  {
+    "original_word": "are-are",
+    "meaning": [
+      "premiers sons du language émis par un bébé en signe de bien-être."
+    ],
+    "generated_word": "Zilthra",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "fr",
+    "trial": "trial19"
+  },
+  {
+    "original_word": "ach",
+    "meaning": [
+      "bruit marquant la satisfaction d'une personne après qu'elle a bu."
+    ],
+    "generated_word": "Gluuh",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "fr",
+    "trial": "trial20"
+  },
+  {
+    "original_word": "acz",
+    "meaning": [
+      "pour exciter un chien à attaquer, à mordre.",
+      "pour exciter une personne contre une autre."
+    ],
+    "generated_word": "glugah",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "fr",
+    "trial": "trial20"
+  },
+  {
+    "original_word": "acz acz",
+    "meaning": [
+      "pour exciter un chien à attaquer, à mordre.",
+      "pour exciter une personne contre une autre."
+    ],
+    "generated_word": "glugah",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "fr",
+    "trial": "trial20"
+  },
+  {
+    "original_word": "agaga",
+    "meaning": [
+      "marque une sensation de froid."
+    ],
+    "generated_word": "glugah",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "fr",
+    "trial": "trial20"
+  },
+  {
+    "original_word": "ah",
+    "meaning": [
+      "Marque un sentiment vif (plaisir, douleur, admiration, impatience, etc.).",
+      "Interjection d'insistance, de renforcement.",
+      "Sert à transcrire le rire."
+    ],
+    "generated_word": "glugah",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "fr",
+    "trial": "trial20"
+  },
+  {
+    "original_word": "ahan",
+    "meaning": [
+      "accompagne un élan lorsqu'on porte un coup."
+    ],
+    "generated_word": "glugah",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "fr",
+    "trial": "trial20"
+  },
+  {
+    "original_word": "ahouahou",
+    "meaning": [
+      "Exclamation de douleur ou onomatopée imitant le bâillement, l'aboiement"
+    ],
+    "generated_word": "glugah",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "fr",
+    "trial": "trial20"
+  },
+  {
+    "original_word": "aou",
+    "meaning": [
+      "bruit de l'aboiement d'un chien."
+    ],
+    "generated_word": "glugah",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "fr",
+    "trial": "trial20"
+  },
+  {
+    "original_word": "aouah",
+    "meaning": [
+      "pour se récrier ou, plus souvent, paraître se récrier."
+    ],
+    "generated_word": "glugah",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "fr",
+    "trial": "trial20"
+  },
+  {
+    "original_word": "are-are",
+    "meaning": [
+      "premiers sons du language émis par un bébé en signe de bien-être."
+    ],
+    "generated_word": "glugah",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "fr",
+    "trial": "trial20"
+  },
+  {
+    "original_word": "ach",
+    "meaning": [
+      "bruit marquant la satisfaction d'une personne après qu'elle a bu."
+    ],
+    "generated_word": "Mmz",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "fr",
+    "trial": "trial21"
+  },
+  {
+    "original_word": "acz",
+    "meaning": [
+      "pour exciter un chien à attaquer, à mordre.",
+      "pour exciter une personne contre une autre."
+    ],
+    "generated_word": "Gluv",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "fr",
+    "trial": "trial21"
+  },
+  {
+    "original_word": "acz acz",
+    "meaning": [
+      "pour exciter un chien à attaquer, à mordre.",
+      "pour exciter une personne contre une autre."
+    ],
+    "generated_word": "Gluv",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "fr",
+    "trial": "trial21"
+  },
+  {
+    "original_word": "agaga",
+    "meaning": [
+      "marque une sensation de froid."
+    ],
+    "generated_word": "Gluv",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "fr",
+    "trial": "trial21"
+  },
+  {
+    "original_word": "ah",
+    "meaning": [
+      "Marque un sentiment vif (plaisir, douleur, admiration, impatience, etc.).",
+      "Interjection d'insistance, de renforcement.",
+      "Sert à transcrire le rire."
+    ],
+    "generated_word": "Gluv",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "fr",
+    "trial": "trial21"
+  },
+  {
+    "original_word": "ahan",
+    "meaning": [
+      "accompagne un élan lorsqu'on porte un coup."
+    ],
+    "generated_word": "Gluv",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "fr",
+    "trial": "trial21"
+  },
+  {
+    "original_word": "ahouahou",
+    "meaning": [
+      "Exclamation de douleur ou onomatopée imitant le bâillement, l'aboiement"
+    ],
+    "generated_word": "Gluv",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "fr",
+    "trial": "trial21"
+  },
+  {
+    "original_word": "aou",
+    "meaning": [
+      "bruit de l'aboiement d'un chien."
+    ],
+    "generated_word": "Gluv",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "fr",
+    "trial": "trial21"
+  },
+  {
+    "original_word": "aouah",
+    "meaning": [
+      "pour se récrier ou, plus souvent, paraître se récrier."
+    ],
+    "generated_word": "Gluv",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "fr",
+    "trial": "trial21"
+  },
+  {
+    "original_word": "are-are",
+    "meaning": [
+      "premiers sons du language émis par un bébé en signe de bien-être."
+    ],
+    "generated_word": "Gluv",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "fr",
+    "trial": "trial21"
+  },
+  {
+    "original_word": "ach",
+    "meaning": [
+      "bruit marquant la satisfaction d'une personne après qu'elle a bu."
+    ],
+    "generated_word": "Zhlum",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "fr",
+    "trial": "trial22"
+  },
+  {
+    "original_word": "acz",
+    "meaning": [
+      "pour exciter un chien à attaquer, à mordre.",
+      "pour exciter une personne contre une autre."
+    ],
+    "generated_word": "Mlarr",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "fr",
+    "trial": "trial22"
+  },
+  {
+    "original_word": "acz acz",
+    "meaning": [
+      "pour exciter un chien à attaquer, à mordre.",
+      "pour exciter une personne contre une autre."
+    ],
+    "generated_word": "Mlarr",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "fr",
+    "trial": "trial22"
+  },
+  {
+    "original_word": "agaga",
+    "meaning": [
+      "marque une sensation de froid."
+    ],
+    "generated_word": "Mlarr",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "fr",
+    "trial": "trial22"
+  },
+  {
+    "original_word": "ah",
+    "meaning": [
+      "Marque un sentiment vif (plaisir, douleur, admiration, impatience, etc.).",
+      "Interjection d'insistance, de renforcement.",
+      "Sert à transcrire le rire."
+    ],
+    "generated_word": "Mlarr",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "fr",
+    "trial": "trial22"
+  },
+  {
+    "original_word": "ahan",
+    "meaning": [
+      "accompagne un élan lorsqu'on porte un coup."
+    ],
+    "generated_word": "Mlarr",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "fr",
+    "trial": "trial22"
+  },
+  {
+    "original_word": "ahouahou",
+    "meaning": [
+      "Exclamation de douleur ou onomatopée imitant le bâillement, l'aboiement"
+    ],
+    "generated_word": "Mlarr",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "fr",
+    "trial": "trial22"
+  },
+  {
+    "original_word": "aou",
+    "meaning": [
+      "bruit de l'aboiement d'un chien."
+    ],
+    "generated_word": "Mlarr",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "fr",
+    "trial": "trial22"
+  },
+  {
+    "original_word": "aouah",
+    "meaning": [
+      "pour se récrier ou, plus souvent, paraître se récrier."
+    ],
+    "generated_word": "Mlarr",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "fr",
+    "trial": "trial22"
+  },
+  {
+    "original_word": "are-are",
+    "meaning": [
+      "premiers sons du language émis par un bébé en signe de bien-être."
+    ],
+    "generated_word": "Mlarr",
+    "model": "Qwen/Qwen3-14b-thinking",
+    "language": "fr",
+    "trial": "trial22"
   }
 ]

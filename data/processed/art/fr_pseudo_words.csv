@@ -5645,3 +5645,403 @@ ahouahou,"[""Exclamation de douleur ou onomatopée imitant le bâillement, l'abo
 aou,"[""bruit de l'aboiement d'un chien.""]",mounh,Qwen/Qwen3-32b-thinking,fr,trial22
 aouah,"['pour se récrier ou, plus souvent, paraître se récrier.']",mounh,Qwen/Qwen3-32b-thinking,fr,trial22
 are-are,['premiers sons du language émis par un bébé en signe de bien-être.'],mounh,Qwen/Qwen3-32b-thinking,fr,trial22
+ach,"[""bruit marquant la satisfaction d'une personne après qu'elle a bu.""]","
+
+[burm]",Qwen/Qwen3-8b-thinking,fr,trial6
+acz,"['pour exciter un chien à attaquer, à mordre.', 'pour exciter une personne contre une autre.']","
+
+[mam]",Qwen/Qwen3-8b-thinking,fr,trial6
+acz acz,"['pour exciter un chien à attaquer, à mordre.', 'pour exciter une personne contre une autre.']","
+
+[mam]",Qwen/Qwen3-8b-thinking,fr,trial6
+agaga,['marque une sensation de froid.'],"
+
+[mam]",Qwen/Qwen3-8b-thinking,fr,trial6
+ah,"['Marque un sentiment vif (plaisir, douleur, admiration, impatience, etc.).', ""Interjection d'insistance, de renforcement."", 'Sert à transcrire le rire.']","
+
+[mam]",Qwen/Qwen3-8b-thinking,fr,trial6
+ahan,"[""accompagne un élan lorsqu'on porte un coup.""]","
+
+[mam]",Qwen/Qwen3-8b-thinking,fr,trial6
+ahouahou,"[""Exclamation de douleur ou onomatopée imitant le bâillement, l'aboiement""]","
+
+[mam]",Qwen/Qwen3-8b-thinking,fr,trial6
+aou,"[""bruit de l'aboiement d'un chien.""]","
+
+[mam]",Qwen/Qwen3-8b-thinking,fr,trial6
+aouah,"['pour se récrier ou, plus souvent, paraître se récrier.']","
+
+[mam]",Qwen/Qwen3-8b-thinking,fr,trial6
+are-are,['premiers sons du language émis par un bébé en signe de bien-être.'],"
+
+[mam]",Qwen/Qwen3-8b-thinking,fr,trial6
+ach,"[""bruit marquant la satisfaction d'une personne après qu'elle a bu.""]",arm,Qwen/Qwen3-8b-thinking,fr,trial12
+acz,"['pour exciter un chien à attaquer, à mordre.', 'pour exciter une personne contre une autre.']",maka,Qwen/Qwen3-8b-thinking,fr,trial12
+acz acz,"['pour exciter un chien à attaquer, à mordre.', 'pour exciter une personne contre une autre.']",maka,Qwen/Qwen3-8b-thinking,fr,trial12
+agaga,['marque une sensation de froid.'],maka,Qwen/Qwen3-8b-thinking,fr,trial12
+ah,"['Marque un sentiment vif (plaisir, douleur, admiration, impatience, etc.).', ""Interjection d'insistance, de renforcement."", 'Sert à transcrire le rire.']",maka,Qwen/Qwen3-8b-thinking,fr,trial12
+ahan,"[""accompagne un élan lorsqu'on porte un coup.""]",maka,Qwen/Qwen3-8b-thinking,fr,trial12
+ahouahou,"[""Exclamation de douleur ou onomatopée imitant le bâillement, l'aboiement""]",maka,Qwen/Qwen3-8b-thinking,fr,trial12
+aou,"[""bruit de l'aboiement d'un chien.""]",maka,Qwen/Qwen3-8b-thinking,fr,trial12
+aouah,"['pour se récrier ou, plus souvent, paraître se récrier.']",maka,Qwen/Qwen3-8b-thinking,fr,trial12
+are-are,['premiers sons du language émis par un bébé en signe de bien-être.'],maka,Qwen/Qwen3-8b-thinking,fr,trial12
+ach,"[""bruit marquant la satisfaction d'une personne après qu'elle a bu.""]",gluhmm,Qwen/Qwen3-8b-thinking,fr,trial13
+acz,"['pour exciter un chien à attaquer, à mordre.', 'pour exciter une personne contre une autre.']",gurglem,Qwen/Qwen3-8b-thinking,fr,trial13
+acz acz,"['pour exciter un chien à attaquer, à mordre.', 'pour exciter une personne contre une autre.']",gurglem,Qwen/Qwen3-8b-thinking,fr,trial13
+agaga,['marque une sensation de froid.'],gurglem,Qwen/Qwen3-8b-thinking,fr,trial13
+ah,"['Marque un sentiment vif (plaisir, douleur, admiration, impatience, etc.).', ""Interjection d'insistance, de renforcement."", 'Sert à transcrire le rire.']",gurglem,Qwen/Qwen3-8b-thinking,fr,trial13
+ahan,"[""accompagne un élan lorsqu'on porte un coup.""]",gurglem,Qwen/Qwen3-8b-thinking,fr,trial13
+ahouahou,"[""Exclamation de douleur ou onomatopée imitant le bâillement, l'aboiement""]",gurglem,Qwen/Qwen3-8b-thinking,fr,trial13
+aou,"[""bruit de l'aboiement d'un chien.""]",gurglem,Qwen/Qwen3-8b-thinking,fr,trial13
+aouah,"['pour se récrier ou, plus souvent, paraître se récrier.']",gurglem,Qwen/Qwen3-8b-thinking,fr,trial13
+are-are,['premiers sons du language émis par un bébé en signe de bien-être.'],gurglem,Qwen/Qwen3-8b-thinking,fr,trial13
+ach,"[""bruit marquant la satisfaction d'une personne après qu'elle a bu.""]","
+
+*Zoril*",Qwen/Qwen3-8b-thinking,fr,trial14
+acz,"['pour exciter un chien à attaquer, à mordre.', 'pour exciter une personne contre une autre.']","
+
+*mam*",Qwen/Qwen3-8b-thinking,fr,trial14
+acz acz,"['pour exciter un chien à attaquer, à mordre.', 'pour exciter une personne contre une autre.']","
+
+*mam*",Qwen/Qwen3-8b-thinking,fr,trial14
+agaga,['marque une sensation de froid.'],"
+
+*mam*",Qwen/Qwen3-8b-thinking,fr,trial14
+ah,"['Marque un sentiment vif (plaisir, douleur, admiration, impatience, etc.).', ""Interjection d'insistance, de renforcement."", 'Sert à transcrire le rire.']","
+
+*mam*",Qwen/Qwen3-8b-thinking,fr,trial14
+ahan,"[""accompagne un élan lorsqu'on porte un coup.""]","
+
+*mam*",Qwen/Qwen3-8b-thinking,fr,trial14
+ahouahou,"[""Exclamation de douleur ou onomatopée imitant le bâillement, l'aboiement""]","
+
+*mam*",Qwen/Qwen3-8b-thinking,fr,trial14
+aou,"[""bruit de l'aboiement d'un chien.""]","
+
+*mam*",Qwen/Qwen3-8b-thinking,fr,trial14
+aouah,"['pour se récrier ou, plus souvent, paraître se récrier.']","
+
+*mam*",Qwen/Qwen3-8b-thinking,fr,trial14
+are-are,['premiers sons du language émis par un bébé en signe de bien-être.'],"
+
+*mam*",Qwen/Qwen3-8b-thinking,fr,trial14
+ach,"[""bruit marquant la satisfaction d'une personne après qu'elle a bu.""]","
+
+Zoril",Qwen/Qwen3-8b-thinking,fr,trial15
+acz,"['pour exciter un chien à attaquer, à mordre.', 'pour exciter une personne contre une autre.']","
+
+glurp",Qwen/Qwen3-8b-thinking,fr,trial15
+acz acz,"['pour exciter un chien à attaquer, à mordre.', 'pour exciter une personne contre une autre.']","
+
+glurp",Qwen/Qwen3-8b-thinking,fr,trial15
+agaga,['marque une sensation de froid.'],"
+
+glurp",Qwen/Qwen3-8b-thinking,fr,trial15
+ah,"['Marque un sentiment vif (plaisir, douleur, admiration, impatience, etc.).', ""Interjection d'insistance, de renforcement."", 'Sert à transcrire le rire.']","
+
+glurp",Qwen/Qwen3-8b-thinking,fr,trial15
+ahan,"[""accompagne un élan lorsqu'on porte un coup.""]","
+
+glurp",Qwen/Qwen3-8b-thinking,fr,trial15
+ahouahou,"[""Exclamation de douleur ou onomatopée imitant le bâillement, l'aboiement""]","
+
+glurp",Qwen/Qwen3-8b-thinking,fr,trial15
+aou,"[""bruit de l'aboiement d'un chien.""]","
+
+glurp",Qwen/Qwen3-8b-thinking,fr,trial15
+aouah,"['pour se récrier ou, plus souvent, paraître se récrier.']","
+
+glurp",Qwen/Qwen3-8b-thinking,fr,trial15
+are-are,['premiers sons du language émis par un bébé en signe de bien-être.'],"
+
+glurp",Qwen/Qwen3-8b-thinking,fr,trial15
+ach,"[""bruit marquant la satisfaction d'une personne après qu'elle a bu.""]","
+
+zirr",Qwen/Qwen3-8b-thinking,fr,trial16
+acz,"['pour exciter un chien à attaquer, à mordre.', 'pour exciter une personne contre une autre.']","
+
+zirr",Qwen/Qwen3-8b-thinking,fr,trial16
+acz acz,"['pour exciter un chien à attaquer, à mordre.', 'pour exciter une personne contre une autre.']","
+
+zirr",Qwen/Qwen3-8b-thinking,fr,trial16
+agaga,['marque une sensation de froid.'],"
+
+zirr",Qwen/Qwen3-8b-thinking,fr,trial16
+ah,"['Marque un sentiment vif (plaisir, douleur, admiration, impatience, etc.).', ""Interjection d'insistance, de renforcement."", 'Sert à transcrire le rire.']","
+
+zirr",Qwen/Qwen3-8b-thinking,fr,trial16
+ahan,"[""accompagne un élan lorsqu'on porte un coup.""]","
+
+zirr",Qwen/Qwen3-8b-thinking,fr,trial16
+ahouahou,"[""Exclamation de douleur ou onomatopée imitant le bâillement, l'aboiement""]","
+
+zirr",Qwen/Qwen3-8b-thinking,fr,trial16
+aou,"[""bruit de l'aboiement d'un chien.""]","
+
+zirr",Qwen/Qwen3-8b-thinking,fr,trial16
+aouah,"['pour se récrier ou, plus souvent, paraître se récrier.']","
+
+zirr",Qwen/Qwen3-8b-thinking,fr,trial16
+are-are,['premiers sons du language émis par un bébé en signe de bien-être.'],"
+
+zirr",Qwen/Qwen3-8b-thinking,fr,trial16
+ach,"[""bruit marquant la satisfaction d'une personne après qu'elle a bu.""]",gurrr,Qwen/Qwen3-8b-thinking,fr,trial17
+acz,"['pour exciter un chien à attaquer, à mordre.', 'pour exciter une personne contre une autre.']",murm,Qwen/Qwen3-8b-thinking,fr,trial17
+acz acz,"['pour exciter un chien à attaquer, à mordre.', 'pour exciter une personne contre une autre.']",murm,Qwen/Qwen3-8b-thinking,fr,trial17
+agaga,['marque une sensation de froid.'],murm,Qwen/Qwen3-8b-thinking,fr,trial17
+ah,"['Marque un sentiment vif (plaisir, douleur, admiration, impatience, etc.).', ""Interjection d'insistance, de renforcement."", 'Sert à transcrire le rire.']",murm,Qwen/Qwen3-8b-thinking,fr,trial17
+ahan,"[""accompagne un élan lorsqu'on porte un coup.""]",murm,Qwen/Qwen3-8b-thinking,fr,trial17
+ahouahou,"[""Exclamation de douleur ou onomatopée imitant le bâillement, l'aboiement""]",murm,Qwen/Qwen3-8b-thinking,fr,trial17
+aou,"[""bruit de l'aboiement d'un chien.""]",murm,Qwen/Qwen3-8b-thinking,fr,trial17
+aouah,"['pour se récrier ou, plus souvent, paraître se récrier.']",murm,Qwen/Qwen3-8b-thinking,fr,trial17
+are-are,['premiers sons du language émis par un bébé en signe de bien-être.'],murm,Qwen/Qwen3-8b-thinking,fr,trial17
+ach,"[""bruit marquant la satisfaction d'une personne après qu'elle a bu.""]",gurrr,Qwen/Qwen3-8b-thinking,fr,trial18
+acz,"['pour exciter un chien à attaquer, à mordre.', 'pour exciter une personne contre une autre.']",mrrr,Qwen/Qwen3-8b-thinking,fr,trial18
+acz acz,"['pour exciter un chien à attaquer, à mordre.', 'pour exciter une personne contre une autre.']",mrrr,Qwen/Qwen3-8b-thinking,fr,trial18
+agaga,['marque une sensation de froid.'],mrrr,Qwen/Qwen3-8b-thinking,fr,trial18
+ah,"['Marque un sentiment vif (plaisir, douleur, admiration, impatience, etc.).', ""Interjection d'insistance, de renforcement."", 'Sert à transcrire le rire.']",mrrr,Qwen/Qwen3-8b-thinking,fr,trial18
+ahan,"[""accompagne un élan lorsqu'on porte un coup.""]",mrrr,Qwen/Qwen3-8b-thinking,fr,trial18
+ahouahou,"[""Exclamation de douleur ou onomatopée imitant le bâillement, l'aboiement""]",mrrr,Qwen/Qwen3-8b-thinking,fr,trial18
+aou,"[""bruit de l'aboiement d'un chien.""]",mrrr,Qwen/Qwen3-8b-thinking,fr,trial18
+aouah,"['pour se récrier ou, plus souvent, paraître se récrier.']",mrrr,Qwen/Qwen3-8b-thinking,fr,trial18
+are-are,['premiers sons du language émis par un bébé en signe de bien-être.'],mrrr,Qwen/Qwen3-8b-thinking,fr,trial18
+ach,"[""bruit marquant la satisfaction d'une personne après qu'elle a bu.""]",Gurrr,Qwen/Qwen3-8b-thinking,fr,trial19
+acz,"['pour exciter un chien à attaquer, à mordre.', 'pour exciter une personne contre une autre.']",gur,Qwen/Qwen3-8b-thinking,fr,trial19
+acz acz,"['pour exciter un chien à attaquer, à mordre.', 'pour exciter une personne contre une autre.']",gur,Qwen/Qwen3-8b-thinking,fr,trial19
+agaga,['marque une sensation de froid.'],gur,Qwen/Qwen3-8b-thinking,fr,trial19
+ah,"['Marque un sentiment vif (plaisir, douleur, admiration, impatience, etc.).', ""Interjection d'insistance, de renforcement."", 'Sert à transcrire le rire.']",gur,Qwen/Qwen3-8b-thinking,fr,trial19
+ahan,"[""accompagne un élan lorsqu'on porte un coup.""]",gur,Qwen/Qwen3-8b-thinking,fr,trial19
+ahouahou,"[""Exclamation de douleur ou onomatopée imitant le bâillement, l'aboiement""]",gur,Qwen/Qwen3-8b-thinking,fr,trial19
+aou,"[""bruit de l'aboiement d'un chien.""]",gur,Qwen/Qwen3-8b-thinking,fr,trial19
+aouah,"['pour se récrier ou, plus souvent, paraître se récrier.']",gur,Qwen/Qwen3-8b-thinking,fr,trial19
+are-are,['premiers sons du language émis par un bébé en signe de bien-être.'],gur,Qwen/Qwen3-8b-thinking,fr,trial19
+ach,"[""bruit marquant la satisfaction d'une personne après qu'elle a bu.""]",mee,Qwen/Qwen3-8b-thinking,fr,trial20
+acz,"['pour exciter un chien à attaquer, à mordre.', 'pour exciter une personne contre une autre.']",gurrr,Qwen/Qwen3-8b-thinking,fr,trial20
+acz acz,"['pour exciter un chien à attaquer, à mordre.', 'pour exciter une personne contre une autre.']",gurrr,Qwen/Qwen3-8b-thinking,fr,trial20
+agaga,['marque une sensation de froid.'],gurrr,Qwen/Qwen3-8b-thinking,fr,trial20
+ah,"['Marque un sentiment vif (plaisir, douleur, admiration, impatience, etc.).', ""Interjection d'insistance, de renforcement."", 'Sert à transcrire le rire.']",gurrr,Qwen/Qwen3-8b-thinking,fr,trial20
+ahan,"[""accompagne un élan lorsqu'on porte un coup.""]",gurrr,Qwen/Qwen3-8b-thinking,fr,trial20
+ahouahou,"[""Exclamation de douleur ou onomatopée imitant le bâillement, l'aboiement""]",gurrr,Qwen/Qwen3-8b-thinking,fr,trial20
+aou,"[""bruit de l'aboiement d'un chien.""]",gurrr,Qwen/Qwen3-8b-thinking,fr,trial20
+aouah,"['pour se récrier ou, plus souvent, paraître se récrier.']",gurrr,Qwen/Qwen3-8b-thinking,fr,trial20
+are-are,['premiers sons du language émis par un bébé en signe de bien-être.'],gurrr,Qwen/Qwen3-8b-thinking,fr,trial20
+ach,"[""bruit marquant la satisfaction d'une personne après qu'elle a bu.""]",Zorblax,Qwen/Qwen3-8b-thinking,fr,trial21
+acz,"['pour exciter un chien à attaquer, à mordre.', 'pour exciter une personne contre une autre.']",Gluuk Zluk Mmmh Ahh Tssk Ssshh,Qwen/Qwen3-8b-thinking,fr,trial21
+acz acz,"['pour exciter un chien à attaquer, à mordre.', 'pour exciter une personne contre une autre.']",Gluuk Zluk Mmmh Ahh Tssk Ssshh,Qwen/Qwen3-8b-thinking,fr,trial21
+agaga,['marque une sensation de froid.'],Gluuk Zluk Mmmh Ahh Tssk Ssshh,Qwen/Qwen3-8b-thinking,fr,trial21
+ah,"['Marque un sentiment vif (plaisir, douleur, admiration, impatience, etc.).', ""Interjection d'insistance, de renforcement."", 'Sert à transcrire le rire.']",Gluuk Zluk Mmmh Ahh Tssk Ssshh,Qwen/Qwen3-8b-thinking,fr,trial21
+ahan,"[""accompagne un élan lorsqu'on porte un coup.""]",Gluuk Zluk Mmmh Ahh Tssk Ssshh,Qwen/Qwen3-8b-thinking,fr,trial21
+ahouahou,"[""Exclamation de douleur ou onomatopée imitant le bâillement, l'aboiement""]",Gluuk Zluk Mmmh Ahh Tssk Ssshh,Qwen/Qwen3-8b-thinking,fr,trial21
+aou,"[""bruit de l'aboiement d'un chien.""]",Gluuk Zluk Mmmh Ahh Tssk Ssshh,Qwen/Qwen3-8b-thinking,fr,trial21
+aouah,"['pour se récrier ou, plus souvent, paraître se récrier.']",Gluuk Zluk Mmmh Ahh Tssk Ssshh,Qwen/Qwen3-8b-thinking,fr,trial21
+are-are,['premiers sons du language émis par un bébé en signe de bien-être.'],Gluuk Zluk Mmmh Ahh Tssk Ssshh,Qwen/Qwen3-8b-thinking,fr,trial21
+ach,"[""bruit marquant la satisfaction d'une personne après qu'elle a bu.""]",murm,Qwen/Qwen3-8b-thinking,fr,trial22
+acz,"['pour exciter un chien à attaquer, à mordre.', 'pour exciter une personne contre une autre.']",mahr,Qwen/Qwen3-8b-thinking,fr,trial22
+acz acz,"['pour exciter un chien à attaquer, à mordre.', 'pour exciter une personne contre une autre.']",mahr,Qwen/Qwen3-8b-thinking,fr,trial22
+agaga,['marque une sensation de froid.'],mahr,Qwen/Qwen3-8b-thinking,fr,trial22
+ah,"['Marque un sentiment vif (plaisir, douleur, admiration, impatience, etc.).', ""Interjection d'insistance, de renforcement."", 'Sert à transcrire le rire.']",mahr,Qwen/Qwen3-8b-thinking,fr,trial22
+ahan,"[""accompagne un élan lorsqu'on porte un coup.""]",mahr,Qwen/Qwen3-8b-thinking,fr,trial22
+ahouahou,"[""Exclamation de douleur ou onomatopée imitant le bâillement, l'aboiement""]",mahr,Qwen/Qwen3-8b-thinking,fr,trial22
+aou,"[""bruit de l'aboiement d'un chien.""]",mahr,Qwen/Qwen3-8b-thinking,fr,trial22
+aouah,"['pour se récrier ou, plus souvent, paraître se récrier.']",mahr,Qwen/Qwen3-8b-thinking,fr,trial22
+are-are,['premiers sons du language émis par un bébé en signe de bien-être.'],mahr,Qwen/Qwen3-8b-thinking,fr,trial22
+ach,"[""bruit marquant la satisfaction d'une personne après qu'elle a bu.""]","
+
+[glum]",Qwen/Qwen3-14b-thinking,fr,trial6
+acz,"['pour exciter un chien à attaquer, à mordre.', 'pour exciter une personne contre une autre.']","
+
+[sla]",Qwen/Qwen3-14b-thinking,fr,trial6
+acz acz,"['pour exciter un chien à attaquer, à mordre.', 'pour exciter une personne contre une autre.']","
+
+[sla]",Qwen/Qwen3-14b-thinking,fr,trial6
+agaga,['marque une sensation de froid.'],"
+
+[sla]",Qwen/Qwen3-14b-thinking,fr,trial6
+ah,"['Marque un sentiment vif (plaisir, douleur, admiration, impatience, etc.).', ""Interjection d'insistance, de renforcement."", 'Sert à transcrire le rire.']","
+
+[sla]",Qwen/Qwen3-14b-thinking,fr,trial6
+ahan,"[""accompagne un élan lorsqu'on porte un coup.""]","
+
+[sla]",Qwen/Qwen3-14b-thinking,fr,trial6
+ahouahou,"[""Exclamation de douleur ou onomatopée imitant le bâillement, l'aboiement""]","
+
+[sla]",Qwen/Qwen3-14b-thinking,fr,trial6
+aou,"[""bruit de l'aboiement d'un chien.""]","
+
+[sla]",Qwen/Qwen3-14b-thinking,fr,trial6
+aouah,"['pour se récrier ou, plus souvent, paraître se récrier.']","
+
+[sla]",Qwen/Qwen3-14b-thinking,fr,trial6
+are-are,['premiers sons du language émis par un bébé en signe de bien-être.'],"
+
+[sla]",Qwen/Qwen3-14b-thinking,fr,trial6
+ach,"[""bruit marquant la satisfaction d'une personne après qu'elle a bu.""]",[m̥uːrm̥] murm,Qwen/Qwen3-14b-thinking,fr,trial12
+acz,"['pour exciter un chien à attaquer, à mordre.', 'pour exciter une personne contre une autre.']",[m̥],Qwen/Qwen3-14b-thinking,fr,trial12
+acz acz,"['pour exciter un chien à attaquer, à mordre.', 'pour exciter une personne contre une autre.']",[m̥],Qwen/Qwen3-14b-thinking,fr,trial12
+agaga,['marque une sensation de froid.'],[m̥],Qwen/Qwen3-14b-thinking,fr,trial12
+ah,"['Marque un sentiment vif (plaisir, douleur, admiration, impatience, etc.).', ""Interjection d'insistance, de renforcement."", 'Sert à transcrire le rire.']",[m̥],Qwen/Qwen3-14b-thinking,fr,trial12
+ahan,"[""accompagne un élan lorsqu'on porte un coup.""]",[m̥],Qwen/Qwen3-14b-thinking,fr,trial12
+ahouahou,"[""Exclamation de douleur ou onomatopée imitant le bâillement, l'aboiement""]",[m̥],Qwen/Qwen3-14b-thinking,fr,trial12
+aou,"[""bruit de l'aboiement d'un chien.""]",[m̥],Qwen/Qwen3-14b-thinking,fr,trial12
+aouah,"['pour se récrier ou, plus souvent, paraître se récrier.']",[m̥],Qwen/Qwen3-14b-thinking,fr,trial12
+are-are,['premiers sons du language émis par un bébé en signe de bien-être.'],[m̥],Qwen/Qwen3-14b-thinking,fr,trial12
+ach,"[""bruit marquant la satisfaction d'une personne après qu'elle a bu.""]",thum,Qwen/Qwen3-14b-thinking,fr,trial13
+acz,"['pour exciter un chien à attaquer, à mordre.', 'pour exciter une personne contre une autre.']",slurpah,Qwen/Qwen3-14b-thinking,fr,trial13
+acz acz,"['pour exciter un chien à attaquer, à mordre.', 'pour exciter une personne contre une autre.']",slurpah,Qwen/Qwen3-14b-thinking,fr,trial13
+agaga,['marque une sensation de froid.'],slurpah,Qwen/Qwen3-14b-thinking,fr,trial13
+ah,"['Marque un sentiment vif (plaisir, douleur, admiration, impatience, etc.).', ""Interjection d'insistance, de renforcement."", 'Sert à transcrire le rire.']",slurpah,Qwen/Qwen3-14b-thinking,fr,trial13
+ahan,"[""accompagne un élan lorsqu'on porte un coup.""]",slurpah,Qwen/Qwen3-14b-thinking,fr,trial13
+ahouahou,"[""Exclamation de douleur ou onomatopée imitant le bâillement, l'aboiement""]",slurpah,Qwen/Qwen3-14b-thinking,fr,trial13
+aou,"[""bruit de l'aboiement d'un chien.""]",slurpah,Qwen/Qwen3-14b-thinking,fr,trial13
+aouah,"['pour se récrier ou, plus souvent, paraître se récrier.']",slurpah,Qwen/Qwen3-14b-thinking,fr,trial13
+are-are,['premiers sons du language émis par un bébé en signe de bien-être.'],slurpah,Qwen/Qwen3-14b-thinking,fr,trial13
+ach,"[""bruit marquant la satisfaction d'une personne après qu'elle a bu.""]","
+
+*Hmmph*",Qwen/Qwen3-14b-thinking,fr,trial14
+acz,"['pour exciter un chien à attaquer, à mordre.', 'pour exciter une personne contre une autre.']","
+
+*thrumm*",Qwen/Qwen3-14b-thinking,fr,trial14
+acz acz,"['pour exciter un chien à attaquer, à mordre.', 'pour exciter une personne contre une autre.']","
+
+*thrumm*",Qwen/Qwen3-14b-thinking,fr,trial14
+agaga,['marque une sensation de froid.'],"
+
+*thrumm*",Qwen/Qwen3-14b-thinking,fr,trial14
+ah,"['Marque un sentiment vif (plaisir, douleur, admiration, impatience, etc.).', ""Interjection d'insistance, de renforcement."", 'Sert à transcrire le rire.']","
+
+*thrumm*",Qwen/Qwen3-14b-thinking,fr,trial14
+ahan,"[""accompagne un élan lorsqu'on porte un coup.""]","
+
+*thrumm*",Qwen/Qwen3-14b-thinking,fr,trial14
+ahouahou,"[""Exclamation de douleur ou onomatopée imitant le bâillement, l'aboiement""]","
+
+*thrumm*",Qwen/Qwen3-14b-thinking,fr,trial14
+aou,"[""bruit de l'aboiement d'un chien.""]","
+
+*thrumm*",Qwen/Qwen3-14b-thinking,fr,trial14
+aouah,"['pour se récrier ou, plus souvent, paraître se récrier.']","
+
+*thrumm*",Qwen/Qwen3-14b-thinking,fr,trial14
+are-are,['premiers sons du language émis par un bébé en signe de bien-être.'],"
+
+*thrumm*",Qwen/Qwen3-14b-thinking,fr,trial14
+ach,"[""bruit marquant la satisfaction d'une personne après qu'elle a bu.""]","
+
+Zzurra",Qwen/Qwen3-14b-thinking,fr,trial15
+acz,"['pour exciter un chien à attaquer, à mordre.', 'pour exciter une personne contre une autre.']","
+
+zulm",Qwen/Qwen3-14b-thinking,fr,trial15
+acz acz,"['pour exciter un chien à attaquer, à mordre.', 'pour exciter une personne contre une autre.']","
+
+zulm",Qwen/Qwen3-14b-thinking,fr,trial15
+agaga,['marque une sensation de froid.'],"
+
+zulm",Qwen/Qwen3-14b-thinking,fr,trial15
+ah,"['Marque un sentiment vif (plaisir, douleur, admiration, impatience, etc.).', ""Interjection d'insistance, de renforcement."", 'Sert à transcrire le rire.']","
+
+zulm",Qwen/Qwen3-14b-thinking,fr,trial15
+ahan,"[""accompagne un élan lorsqu'on porte un coup.""]","
+
+zulm",Qwen/Qwen3-14b-thinking,fr,trial15
+ahouahou,"[""Exclamation de douleur ou onomatopée imitant le bâillement, l'aboiement""]","
+
+zulm",Qwen/Qwen3-14b-thinking,fr,trial15
+aou,"[""bruit de l'aboiement d'un chien.""]","
+
+zulm",Qwen/Qwen3-14b-thinking,fr,trial15
+aouah,"['pour se récrier ou, plus souvent, paraître se récrier.']","
+
+zulm",Qwen/Qwen3-14b-thinking,fr,trial15
+are-are,['premiers sons du language émis par un bébé en signe de bien-être.'],"
+
+zulm",Qwen/Qwen3-14b-thinking,fr,trial15
+ach,"[""bruit marquant la satisfaction d'une personne après qu'elle a bu.""]","
+
+mellush",Qwen/Qwen3-14b-thinking,fr,trial16
+acz,"['pour exciter un chien à attaquer, à mordre.', 'pour exciter une personne contre une autre.']","
+
+glumara",Qwen/Qwen3-14b-thinking,fr,trial16
+acz acz,"['pour exciter un chien à attaquer, à mordre.', 'pour exciter une personne contre une autre.']","
+
+glumara",Qwen/Qwen3-14b-thinking,fr,trial16
+agaga,['marque une sensation de froid.'],"
+
+glumara",Qwen/Qwen3-14b-thinking,fr,trial16
+ah,"['Marque un sentiment vif (plaisir, douleur, admiration, impatience, etc.).', ""Interjection d'insistance, de renforcement."", 'Sert à transcrire le rire.']","
+
+glumara",Qwen/Qwen3-14b-thinking,fr,trial16
+ahan,"[""accompagne un élan lorsqu'on porte un coup.""]","
+
+glumara",Qwen/Qwen3-14b-thinking,fr,trial16
+ahouahou,"[""Exclamation de douleur ou onomatopée imitant le bâillement, l'aboiement""]","
+
+glumara",Qwen/Qwen3-14b-thinking,fr,trial16
+aou,"[""bruit de l'aboiement d'un chien.""]","
+
+glumara",Qwen/Qwen3-14b-thinking,fr,trial16
+aouah,"['pour se récrier ou, plus souvent, paraître se récrier.']","
+
+glumara",Qwen/Qwen3-14b-thinking,fr,trial16
+are-are,['premiers sons du language émis par un bébé en signe de bien-être.'],"
+
+glumara",Qwen/Qwen3-14b-thinking,fr,trial16
+ach,"[""bruit marquant la satisfaction d'une personne après qu'elle a bu.""]",klup,Qwen/Qwen3-14b-thinking,fr,trial17
+acz,"['pour exciter un chien à attaquer, à mordre.', 'pour exciter une personne contre une autre.']",murm,Qwen/Qwen3-14b-thinking,fr,trial17
+acz acz,"['pour exciter un chien à attaquer, à mordre.', 'pour exciter une personne contre une autre.']",murm,Qwen/Qwen3-14b-thinking,fr,trial17
+agaga,['marque une sensation de froid.'],murm,Qwen/Qwen3-14b-thinking,fr,trial17
+ah,"['Marque un sentiment vif (plaisir, douleur, admiration, impatience, etc.).', ""Interjection d'insistance, de renforcement."", 'Sert à transcrire le rire.']",murm,Qwen/Qwen3-14b-thinking,fr,trial17
+ahan,"[""accompagne un élan lorsqu'on porte un coup.""]",murm,Qwen/Qwen3-14b-thinking,fr,trial17
+ahouahou,"[""Exclamation de douleur ou onomatopée imitant le bâillement, l'aboiement""]",murm,Qwen/Qwen3-14b-thinking,fr,trial17
+aou,"[""bruit de l'aboiement d'un chien.""]",murm,Qwen/Qwen3-14b-thinking,fr,trial17
+aouah,"['pour se récrier ou, plus souvent, paraître se récrier.']",murm,Qwen/Qwen3-14b-thinking,fr,trial17
+are-are,['premiers sons du language émis par un bébé en signe de bien-être.'],murm,Qwen/Qwen3-14b-thinking,fr,trial17
+ach,"[""bruit marquant la satisfaction d'une personne après qu'elle a bu.""]",zorl,Qwen/Qwen3-14b-thinking,fr,trial18
+acz,"['pour exciter un chien à attaquer, à mordre.', 'pour exciter une personne contre une autre.']",Mmmph,Qwen/Qwen3-14b-thinking,fr,trial18
+acz acz,"['pour exciter un chien à attaquer, à mordre.', 'pour exciter une personne contre une autre.']",Mmmph,Qwen/Qwen3-14b-thinking,fr,trial18
+agaga,['marque une sensation de froid.'],Mmmph,Qwen/Qwen3-14b-thinking,fr,trial18
+ah,"['Marque un sentiment vif (plaisir, douleur, admiration, impatience, etc.).', ""Interjection d'insistance, de renforcement."", 'Sert à transcrire le rire.']",Mmmph,Qwen/Qwen3-14b-thinking,fr,trial18
+ahan,"[""accompagne un élan lorsqu'on porte un coup.""]",Mmmph,Qwen/Qwen3-14b-thinking,fr,trial18
+ahouahou,"[""Exclamation de douleur ou onomatopée imitant le bâillement, l'aboiement""]",Mmmph,Qwen/Qwen3-14b-thinking,fr,trial18
+aou,"[""bruit de l'aboiement d'un chien.""]",Mmmph,Qwen/Qwen3-14b-thinking,fr,trial18
+aouah,"['pour se récrier ou, plus souvent, paraître se récrier.']",Mmmph,Qwen/Qwen3-14b-thinking,fr,trial18
+are-are,['premiers sons du language émis par un bébé en signe de bien-être.'],Mmmph,Qwen/Qwen3-14b-thinking,fr,trial18
+ach,"[""bruit marquant la satisfaction d'une personne après qu'elle a bu.""]",zulra,Qwen/Qwen3-14b-thinking,fr,trial19
+acz,"['pour exciter un chien à attaquer, à mordre.', 'pour exciter une personne contre une autre.']",Zilthra,Qwen/Qwen3-14b-thinking,fr,trial19
+acz acz,"['pour exciter un chien à attaquer, à mordre.', 'pour exciter une personne contre une autre.']",Zilthra,Qwen/Qwen3-14b-thinking,fr,trial19
+agaga,['marque une sensation de froid.'],Zilthra,Qwen/Qwen3-14b-thinking,fr,trial19
+ah,"['Marque un sentiment vif (plaisir, douleur, admiration, impatience, etc.).', ""Interjection d'insistance, de renforcement."", 'Sert à transcrire le rire.']",Zilthra,Qwen/Qwen3-14b-thinking,fr,trial19
+ahan,"[""accompagne un élan lorsqu'on porte un coup.""]",Zilthra,Qwen/Qwen3-14b-thinking,fr,trial19
+ahouahou,"[""Exclamation de douleur ou onomatopée imitant le bâillement, l'aboiement""]",Zilthra,Qwen/Qwen3-14b-thinking,fr,trial19
+aou,"[""bruit de l'aboiement d'un chien.""]",Zilthra,Qwen/Qwen3-14b-thinking,fr,trial19
+aouah,"['pour se récrier ou, plus souvent, paraître se récrier.']",Zilthra,Qwen/Qwen3-14b-thinking,fr,trial19
+are-are,['premiers sons du language émis par un bébé en signe de bien-être.'],Zilthra,Qwen/Qwen3-14b-thinking,fr,trial19
+ach,"[""bruit marquant la satisfaction d'une personne après qu'elle a bu.""]",Gluuh,Qwen/Qwen3-14b-thinking,fr,trial20
+acz,"['pour exciter un chien à attaquer, à mordre.', 'pour exciter une personne contre une autre.']",glugah,Qwen/Qwen3-14b-thinking,fr,trial20
+acz acz,"['pour exciter un chien à attaquer, à mordre.', 'pour exciter une personne contre une autre.']",glugah,Qwen/Qwen3-14b-thinking,fr,trial20
+agaga,['marque une sensation de froid.'],glugah,Qwen/Qwen3-14b-thinking,fr,trial20
+ah,"['Marque un sentiment vif (plaisir, douleur, admiration, impatience, etc.).', ""Interjection d'insistance, de renforcement."", 'Sert à transcrire le rire.']",glugah,Qwen/Qwen3-14b-thinking,fr,trial20
+ahan,"[""accompagne un élan lorsqu'on porte un coup.""]",glugah,Qwen/Qwen3-14b-thinking,fr,trial20
+ahouahou,"[""Exclamation de douleur ou onomatopée imitant le bâillement, l'aboiement""]",glugah,Qwen/Qwen3-14b-thinking,fr,trial20
+aou,"[""bruit de l'aboiement d'un chien.""]",glugah,Qwen/Qwen3-14b-thinking,fr,trial20
+aouah,"['pour se récrier ou, plus souvent, paraître se récrier.']",glugah,Qwen/Qwen3-14b-thinking,fr,trial20
+are-are,['premiers sons du language émis par un bébé en signe de bien-être.'],glugah,Qwen/Qwen3-14b-thinking,fr,trial20
+ach,"[""bruit marquant la satisfaction d'une personne après qu'elle a bu.""]",Mmz,Qwen/Qwen3-14b-thinking,fr,trial21
+acz,"['pour exciter un chien à attaquer, à mordre.', 'pour exciter une personne contre une autre.']",Gluv,Qwen/Qwen3-14b-thinking,fr,trial21
+acz acz,"['pour exciter un chien à attaquer, à mordre.', 'pour exciter une personne contre une autre.']",Gluv,Qwen/Qwen3-14b-thinking,fr,trial21
+agaga,['marque une sensation de froid.'],Gluv,Qwen/Qwen3-14b-thinking,fr,trial21
+ah,"['Marque un sentiment vif (plaisir, douleur, admiration, impatience, etc.).', ""Interjection d'insistance, de renforcement."", 'Sert à transcrire le rire.']",Gluv,Qwen/Qwen3-14b-thinking,fr,trial21
+ahan,"[""accompagne un élan lorsqu'on porte un coup.""]",Gluv,Qwen/Qwen3-14b-thinking,fr,trial21
+ahouahou,"[""Exclamation de douleur ou onomatopée imitant le bâillement, l'aboiement""]",Gluv,Qwen/Qwen3-14b-thinking,fr,trial21
+aou,"[""bruit de l'aboiement d'un chien.""]",Gluv,Qwen/Qwen3-14b-thinking,fr,trial21
+aouah,"['pour se récrier ou, plus souvent, paraître se récrier.']",Gluv,Qwen/Qwen3-14b-thinking,fr,trial21
+are-are,['premiers sons du language émis par un bébé en signe de bien-être.'],Gluv,Qwen/Qwen3-14b-thinking,fr,trial21
+ach,"[""bruit marquant la satisfaction d'une personne après qu'elle a bu.""]",Zhlum,Qwen/Qwen3-14b-thinking,fr,trial22
+acz,"['pour exciter un chien à attaquer, à mordre.', 'pour exciter une personne contre une autre.']",Mlarr,Qwen/Qwen3-14b-thinking,fr,trial22
+acz acz,"['pour exciter un chien à attaquer, à mordre.', 'pour exciter une personne contre une autre.']",Mlarr,Qwen/Qwen3-14b-thinking,fr,trial22
+agaga,['marque une sensation de froid.'],Mlarr,Qwen/Qwen3-14b-thinking,fr,trial22
+ah,"['Marque un sentiment vif (plaisir, douleur, admiration, impatience, etc.).', ""Interjection d'insistance, de renforcement."", 'Sert à transcrire le rire.']",Mlarr,Qwen/Qwen3-14b-thinking,fr,trial22
+ahan,"[""accompagne un élan lorsqu'on porte un coup.""]",Mlarr,Qwen/Qwen3-14b-thinking,fr,trial22
+ahouahou,"[""Exclamation de douleur ou onomatopée imitant le bâillement, l'aboiement""]",Mlarr,Qwen/Qwen3-14b-thinking,fr,trial22
+aou,"[""bruit de l'aboiement d'un chien.""]",Mlarr,Qwen/Qwen3-14b-thinking,fr,trial22
+aouah,"['pour se récrier ou, plus souvent, paraître se récrier.']",Mlarr,Qwen/Qwen3-14b-thinking,fr,trial22
+are-are,['premiers sons du language émis par un bébé en signe de bien-être.'],Mlarr,Qwen/Qwen3-14b-thinking,fr,trial22
