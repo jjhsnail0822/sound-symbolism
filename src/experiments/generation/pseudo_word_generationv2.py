@@ -1,7 +1,7 @@
 # python pseudo_word_generationv2.py -m gpt-4o --gpu 1 --api
-# python pseudo_word_generationv2.py -m google/gemma-3-27b-it --gpu 2
-# python pseudo_word_generationv2.py -m Qwen/Qwen3-8B --gpu 2 --thinking
-# python pseudo_word_generationv2.py -m Qwen/Qwen3-14B --gpu 4
+# python src/experiments/generation/pseudo_word_generationv2.py -m google/gemma-3-27b-it -l ko --gpu 2
+# python src/experiments/generation/pseudo_word_generationv2.py -m Qwen/Qwen3-32B --gpu 4 -l ko --thinking
+# python src/experiments/generation/pseudo_word_generationv2.py -m Qwen/Qwen3-32B -l ko --gpu 4
 # sbatch -p big_suma_rtx3090 -q big_qos 
 
 import json
@@ -27,18 +27,10 @@ script_dir = os.path.dirname(os.path.abspath(__file__))
 env_path = os.path.join(script_dir, '.env.local')
 load_dotenv(dotenv_path=env_path)
 
-# BASE_DIR = os.getenv("BASE_DIR")
-# print(f"Loaded BASE_DIR: {BASE_DIR}")
-# breakpoint()
-# os.environ["HF_HOME"] = os.path.join(BASE_DIR, "models")
-# os.environ["TRANSFORMERS_CACHE"] = os.path.join(BASE_DIR, "models")
-# os.environ["HF_DATASETS_CACHE"] = os.path.join(BASE_DIR, "models")
-# os.environ["HUGGINGFACE_HUB_CACHE"] = os.path.join(BASE_DIR, "models")
-
-os.environ["HF_HOME"] = os.path.join(script_dir, "../../../models")
-os.environ["TRANSFORMERS_CACHE"] = os.path.join(script_dir, "../../../models")
-os.environ["HF_DATASETS_CACHE"] = os.path.join(script_dir, "../../../models")
-os.environ["HUGGINGFACE_HUB_CACHE"] = os.path.join(script_dir, "../../../models")
+os.environ["HF_HOME"] = os.path.join(script_dir, "../models")
+os.environ["TRANSFORMERS_CACHE"] = os.path.join(script_dir, "../models")
+os.environ["HF_DATASETS_CACHE"] = os.path.join(script_dir, "../models")
+os.environ["HUGGINGFACE_HUB_CACHE"] = os.path.join(script_dir, "../models")
 # breakpoint()
 
 # 모델 경로 매핑 추가
@@ -51,7 +43,6 @@ MODEL_PATHS = {
     "Qwen/Qwen3-8B": "Qwen/Qwen3-8b",
     "Qwen/Qwen3-14B": "Qwen/Qwen3-14b",
     "Qwen/Qwen3-32B": "Qwen/Qwen3-32b",
-    "Qwen/Qwen3-72B": "Qwen/Qwen3-72b",
 }
 HUGGINGFACE_TOKEN = os.environ.get('HUGGINGFACE_TOKEN')
 OPENAI_API_KEY = os.environ.get('OPENAI_API_KEY')
@@ -69,18 +60,18 @@ def hf_login() -> bool:
 class pseudoWordGeneration:
     def __init__(
             self,
-            model_path: str,
-            data_path: str,
-            prompt_path: str,
-            output_dir: str,
-            use_api: bool = False,
-            tensor_parallel_size: int = 1,
-            max_tokens: int = 512,
-            max_model_len: int = 4096,
-            temperature: float = 0.0,
-            thinking: bool = False,
-            word_nums: int = 10,
-            language: str = "ko",
+            model_path:str,
+            data_path:str,
+            prompt_path:str,
+            output_dir:str,
+            use_api:bool=False,
+            tensor_parallel_size:int=1,
+            max_tokens:int=512,
+            max_model_len:int=4096,
+            temperature:float=0.0,
+            thinking:bool=False,
+            word_nums:int=10,
+            language:str="ko",
     ):
         self.model_path = MODEL_PATHS.get(model_path, model_path)  # 매핑된 경로가 있으면 사용
         data_base_path = data_path
@@ -135,7 +126,7 @@ class pseudoWordGeneration:
                 max_model_len=self.max_model_len,
                 tensor_parallel_size=self.tensor_parallel_size,
                 trust_remote_code=True,
-                download_dir="../../../models"
+                download_dir="../models"
             )
             sampling_params = SamplingParams(
                 temperature=self.temperature, 
@@ -165,8 +156,11 @@ class pseudoWordGeneration:
                 num_trials = 0
                 
                 word = word_item["word"]
-                definitions = word_item["definitions"]
-                meaning = definitions[0][:-1]
+                if self.language == "ko":
+                    definitions = word_item["definitions"]
+                    meaning = definitions[0][:-1]
+                else:
+                    meaning = word_item["meaning"]
                 prompt = prompt.format(meaning=meaning)
                 
                 while num_trials < 3:
@@ -251,6 +245,7 @@ class pseudoWordGeneration:
                         print(f"Error: {e}")
                         breakpoint()
                         continue
+                self._cleanup()
         
         if not self.use_api:
             del model
@@ -312,12 +307,12 @@ if __name__ == "__main__":
     parser.add_argument("--data", '-d', default= "data/processed/nat/",type=str, help="Path to the preprocessed data JSON file")
     parser.add_argument("--prompt", '-p', default= "data/prompts/prompts.json",type=str, help="Path to the prompt JSON file")
     parser.add_argument("--gpu", type=int, required=True, help="Tensor parallel size")
-    parser.add_argument("--output", '-o', type=str, default="data/processed/art", help="Directory to save results")
+    parser.add_argument("--output", '-o', type=str, default="data/processed/art/", help="Directory to save results")
     parser.add_argument("--max-tokens", type=int, default=512, help="Maximum tokens to generate")
     parser.add_argument("--max-model-len", type=int, default=4096, help="Maximum model length")
     parser.add_argument("--temperature", type=float, default=0.0, help="Sampling temperature")
     parser.add_argument("--api", action='store_true', help="Use OpenAI API instead of local model")
-    parser.add_argument("--thinking", action='store_true', help="Enable thinking mode for Qwen3")
+    parser.add_argument("--thinking", '-t', action='store_true', help="Enable thinking mode for Qwen3")
     parser.add_argument("--word_nums", '-n', type=int, default=10, help="Number of words to generate")
     parser.add_argument("--language", '-l', type=str, default="ko", help="Language of the data")
     
