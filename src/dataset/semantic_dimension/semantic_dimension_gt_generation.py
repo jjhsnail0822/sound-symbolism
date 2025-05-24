@@ -155,8 +155,16 @@ class MCQExperiment:
             if lang not in all_results:
                 all_results[lang] = []
 
-            word_count = 0
+            # Create a set of already processed words for this language
+            processed_words = {result['word'] for result in all_results[lang]}
+            
+            word_count = len(all_results[lang])  # Start from number of already processed words
+            
             for word in tqdm(self.word_data[lang], desc=f"Processing {lang} data"):
+                # Skip if this word is already processed in this language
+                if word['word'] in processed_words:
+                    continue
+                    
                 dimension_results = {}
                 for dimension in dimensions:
                     if self.use_api:
@@ -202,7 +210,7 @@ class MCQExperiment:
                         
                         # Extract answer from the first element of the response list
                         model_answer = response[0].outputs[0].text.strip()
-                        # remove <think> ... </think> tags
+                        # Remove <think> ... </think> tags
                         if self.thinking:
                             model_answer = re.sub(r'<think>.*?</think>', '', model_answer, flags=re.DOTALL)
 
