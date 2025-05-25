@@ -1,6 +1,6 @@
 # python pseudo_word_generationv2.py -m gpt-4o --gpu 1 --api
 # python src/experiments/generation/pseudo_word_generationv2.py -m google/gemma-3-27b-it -l ko --gpu 2
-# python src/experiments/generation/pseudo_word_generationv2.py -m Qwen/Qwen3-4B --gpu 4 -l fr --thinking
+# python src/experiments/generation/pseudo_word_generationv2.py -m google/gemma-3-12b-it --gpu 4 -l en
 # python src/experiments/generation/pseudo_word_generationv2.py -m Qwen/Qwen3-32B -l ko --gpu 4
 # sbatch -p big_suma_rtx3090 -q big_qos 
 
