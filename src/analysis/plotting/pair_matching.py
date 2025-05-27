@@ -5,13 +5,38 @@ import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.ticker import PercentFormatter
 
-# EXP_NAME = 'word_meaning_pair_matching'
-# TITLE = 'Word-Meaning Pair Matching'
-EXP_NAME = 'pair_matching_original'
-TITLE = 'Word-Meaning Pair Matching without Dialogue'
+# EXP_NAME = 'pair_matching_audiolm'
+# TITLE = 'Word-Meaning Pair Matching using Audio Data'
+EXP_NAME = 'non_en_pair_matching_audiolm'
+
+if EXP_NAME == "pair_matching_original_with_dialogue":
+    TITLE = 'Word-Meaning Pair Matching using Original Words with Dialogue'
+    exp_dir = f'results/experiments/understanding/with_dialogue/pair_matching/original'
+elif EXP_NAME == "pair_matching_original":
+    TITLE = 'Word-Meaning Pair Matching using Original Words'
+    exp_dir = f'results/experiments/understanding/pair_matching/original'
+elif EXP_NAME == "pair_matching_ipa_with_dialogue":
+    TITLE = 'Word-Meaning Pair Matching using IPA with Dialogue'
+    exp_dir = f'results/experiments/understanding/with_dialogue/pair_matching/ipa'
+elif EXP_NAME == "pair_matching_ipa":
+    TITLE = 'Word-Meaning Pair Matching using IPA'
+    exp_dir = f'results/experiments/understanding/pair_matching/ipa'
+elif EXP_NAME == "pair_matching_audiolm":
+    TITLE = 'Word-Meaning Pair Matching using Audio Data'
+    exp_dir = f'results/experiments/understanding/pair_matching/audiolm'
+elif EXP_NAME == "non_en_pair_matching_ipa_with_dialogue":
+    TITLE = 'Non-English Word-Meaning Pair Matching using IPA with Dialogue'
+    exp_dir = f'results/experiments/understanding/with_dialogue/non_en_pair_matching/ipa'
+elif EXP_NAME == "non_en_pair_matching_ipa":
+    TITLE = 'Non-English Word-Meaning Pair Matching using IPA'
+    exp_dir = f'results/experiments/understanding/non_en_pair_matching/ipa'
+elif EXP_NAME == "non_en_pair_matching_audiolm":
+    TITLE = 'Non-English Word-Meaning Pair Matching using Audio Data'
+    exp_dir = f'results/experiments/understanding/non_en_pair_matching/audiolm'
+else:
+    raise ValueError(f"Unknown experiment name: {EXP_NAME}")
 
 # 1) Collect result file paths
-exp_dir = f'results/experiments/understanding/pair_matching/original/{EXP_NAME}'
 files = glob.glob(os.path.join(exp_dir, 'all_results_*.json'))
 
 # 2) Data structure: models, categories, and accuracies
@@ -41,11 +66,11 @@ desired_order = [
     'gemma-3-4b-it',
     'gemma-3-12b-it',
     'gemma-3-27b-it',
-    'Qwen2.5-3B-Instruct',
-    'Qwen2.5-7B-Instruct',
-    'Qwen2.5-14B-Instruct',
-    'Qwen2.5-32B-Instruct',
-    'Qwen2.5-72B-Instruct',
+    # 'Qwen2.5-3B-Instruct',
+    # 'Qwen2.5-7B-Instruct',
+    # 'Qwen2.5-14B-Instruct',
+    # 'Qwen2.5-32B-Instruct',
+    # 'Qwen2.5-72B-Instruct',
     'Qwen3-4B',
     'Qwen3-8B',
     'Qwen3-14B',
@@ -60,6 +85,10 @@ desired_order = [
     'OLMo-2-1124-7B-Instruct',
     'OLMo-2-1124-13B-Instruct',
     'OLMo-2-0325-32B-Instruct',
+    'Qwen2.5-Omni-3B_text_only', # Text-only version of Qwen2.5 Omni 3B
+    'Qwen2.5-Omni-7B_text_only', # Text-only version of Qwen2.5 Omni 7B
+    'Qwen2.5-Omni-3B',
+    'Qwen2.5-Omni-7B',
 ]
 # Sort models based on desired_order
 models = [m for m in desired_order if m in models] + [m for m in models if m not in desired_order]
@@ -77,10 +106,10 @@ fig.suptitle(f'{TITLE}', fontsize=16, y=0.98)
 
 # Define color palettes for model families
 gemma_colors = plt.get_cmap('Blues')([0.4, 0.6, 0.8]) # Lighter to darker blues
-qwen25_colors = plt.get_cmap('Reds')([0.3, 0.5, 0.7, 0.9]) # Lighter to darker reds
 qwen_colors = plt.get_cmap('Oranges')([0.3, 0.5, 0.7, 0.9]) # Lighter to darker oranges/browns
 olmo_colors = plt.get_cmap('Purples')([0.4, 0.6, 0.8]) # Lighter to darker purples
 gpt_colors = plt.get_cmap('Greens')([0.4, 0.6, 0.8]) # Lighter to darker greens
+qwen_omni_colors = plt.get_cmap('Reds')([0.3, 0.7]) # Lighter to darker reds
 # Add more colors if needed, e.g., from 'Greens'
 # qwen_colors = plt.get_cmap('Greens')([0.3, 0.5, 0.7, 0.9])
 
@@ -91,20 +120,24 @@ def plot_group(ax, subcats, title):
     group_width = width * num_models + gap
     x = np.arange(len(subcats)) * group_width
     gemma_idx = 0
-    qwen25_idx = 0
     qwen_idx = 0
     qwen_thinking_idx = 0
     olmo_idx = 0
     gpt_idx = 0
+    qwen_omni_index = 0
+    qwen_omni_text_only_index = 0
     for i, m in enumerate(models):
         y = [data[m].get(c, np.nan) for c in subcats]
         # Assign color based on model family
         if 'gemma' in m.lower():
             color = gemma_colors[gemma_idx % len(gemma_colors)]
             gemma_idx += 1
-        elif 'qwen2.5' in m.lower():
-            color = qwen25_colors[qwen25_idx % len(qwen25_colors)]
-            qwen25_idx += 1
+        elif 'text_only' in m.lower(): # Text-only versions of Qwen2.5 Omni
+            color = qwen_colors[qwen_omni_text_only_index % len(qwen_colors)]
+            qwen_omni_text_only_index += 1
+        elif 'qwen2.5-omni' in m.lower():
+            color = qwen_omni_colors[qwen_omni_index % len(qwen_omni_colors)]
+            qwen_omni_index += 1
         elif 'qwen3' in m.lower():
             color = qwen_colors[qwen_idx % len(qwen_colors)]
             qwen_idx += 1
