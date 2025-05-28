@@ -11,8 +11,8 @@ class PhonemeDistributionAnalyzer:
     def __init__(self,
              model_path:str,
              language_code:str,
-             top_k:int,
-             temperature:float,
+             top_k:int=3,
+             temperature:float=0.0,
              ):
         self.model_path = model_path
         self.language_code = language_code
@@ -175,28 +175,22 @@ Create the word for: {meaning}
 
 Word: """
   
-    analyzer = PhonemeDistributionAnalyzer(model_path='Qwen/Qwen3-1.7B', 
-                               language_code="eng-Latn",
-                               top_k=3,  
-                               temperature=0.7, 
-                               )
+    analyzer = PhonemeDistributionAnalyzer(
+        model_path='Qwen/Qwen3-4B', 
+        language_code="eng-Latn",
+        top_k=3,  
+        temperature=0.0, 
+    )
     
-    try:
-        combinations, phoneme_dist = analyzer.run(base_prompt=prompt, max_token=6)
-        print("\n=== Final Results ===")
-        print("Generated words:")
-        for i, (word, ipa, prob) in enumerate(combinations):
-            print(f"{i}. {word} [{ipa}] (probability: {prob:.4f})")
-        
-        print("\nPhoneme distribution:")
-        for phoneme, weight in sorted(phoneme_dist.items(), key=lambda x: x[1], reverse=True):
-            print(f"  {phoneme}: {weight:.4f}")
-            
-    except Exception as e:
-        print(f"Error during execution: {e}")
-        import traceback
-        traceback.print_exc()
-
+    combinations, phoneme_dist = analyzer.run(base_prompt=prompt, max_token=6)
+    print("\n=== Final Results ===")
+    print("Generated words:")
+    for i, (word, ipa, prob) in enumerate(combinations):
+        print(f"{i}. {word} [{ipa}] (probability: {prob:.4f})")
+    
+    print("\nPhoneme distribution:")
+    for phoneme, weight in sorted(phoneme_dist.items(), key=lambda x: x[1], reverse=True):
+        print(f"  {phoneme}: {weight:.4f}")
 
 if __name__ == '__main__':
     main()

@@ -1,7 +1,7 @@
 # python pseudo_word_generationv2.py -m gpt-4o --gpu 1 --api
-# python src/experiments/generation/pseudo_word_generationv2.py -m google/gemma-3-27b-it -l ko --gpu 2
-# python src/experiments/generation/pseudo_word_generationv2.py -m google/gemma-3-12b-it --gpu 4 -l en
-# python src/experiments/generation/pseudo_word_generationv2.py -m Qwen/Qwen3-32B -l ko --gpu 4
+# python src/experiments/generation/pseudo_word_generationv2.py -m google/gemma-3-27b-it --gpu 4 -l ko 
+# python src/experiments/generation/pseudo_word_generationv2.py -m Qwen/Qwen3-8B --gpu 4 -l ja --thinking
+# python src/experiments/generation/pseudo_word_generationv2.py -m Qwen/Qwen3-4B -l ko --gpu 4
 # sbatch -p big_suma_rtx3090 -q big_qos 
 
 import json
@@ -13,6 +13,8 @@ import os
 import re
 import contextlib
 import gc
+import pprint
+
 import pandas as pd
 import torch
 from typing import List, Dict, Any, Optional
@@ -148,9 +150,9 @@ class pseudoWordGeneration:
         # Process in batches
         for key in prompt_keys:
             print(f"Generating with {key} as prompt")
-            prompt:str = prompts[key][self.language]["user_prompt"]
             # for i, word_item in enumerate(tqdm(word_data)):
             for i, word_item in enumerate(word_data):
+                prompt:str = prompts[key][self.language]["user_prompt"]
                 if self.word_nums > 0 and i >= self.word_nums:
                     break
                 num_trials = 0
@@ -162,7 +164,8 @@ class pseudoWordGeneration:
                 else:
                     meaning = word_item["meaning"]
                 prompt = prompt.format(meaning=meaning)
-                
+                # print(f"prompt: {prompt}")
+                # breakpoint()
                 while num_trials < 3:
                     try:
                         if self.use_api:
@@ -195,6 +198,7 @@ class pseudoWordGeneration:
                             elif 'gemma-3' in self.model_path:
                                 # Gemma 전용 채팅 형식 적용
                                 text = f"<start_of_turn>user\n{prompt}<end_of_turn>\n<start_of_turn>model\n"
+                                print(f"prompt: {prompt}")
                                 
                                 # Gemma 전용 생성 파라미터 설정
                                 sampling_params = SamplingParams(
