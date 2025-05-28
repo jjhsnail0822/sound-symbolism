@@ -5,9 +5,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.ticker import PercentFormatter
 
-# EXP_NAME = 'pair_matching_audiolm'
-# TITLE = 'Word-Meaning Pair Matching using Audio Data'
-EXP_NAME = 'non_en_pair_matching_audiolm'
+EXP_NAME = 'pair_matching_original_with_dialogue'
 
 if EXP_NAME == "pair_matching_original_with_dialogue":
     TITLE = 'Word-Meaning Pair Matching using Original Words with Dialogue'
