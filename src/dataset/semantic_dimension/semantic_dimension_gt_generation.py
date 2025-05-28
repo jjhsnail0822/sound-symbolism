@@ -12,6 +12,7 @@ from vllm.distributed import (destroy_distributed_environment, destroy_model_par
 from openai import OpenAI
 from dotenv import load_dotenv
 from pathlib import Path
+import math
 
 dimensions = [
     ('good', 'bad'),
@@ -48,6 +49,7 @@ languages = {
     'ja': 'Japanese',
     'ko': 'Korean'
 }
+TOP_K = 20 # Number of top logits to return
 
 prompt = """You are a professional linguistic annotator.
 Please read a {language} mimetic word and its meaning, and decide which semantic feature best describes the word's meaning.
@@ -80,6 +82,7 @@ class MCQExperiment:
             max_model_len: int = 4096,
             temperature: float = 0.0,
             thinking: bool = False,
+            save_logits: bool = False,
     ):
         self.model_path = model_path
         self.data_path = data_path
@@ -90,6 +93,7 @@ class MCQExperiment:
         self.max_model_len = max_model_len
         self.temperature = temperature
         self.thinking = thinking
+        self.save_logits = save_logits
 
         # Load environment variables from .env.local file
         env_path = Path('.env.local')
@@ -126,6 +130,7 @@ class MCQExperiment:
             sampling_params = SamplingParams(
                 temperature=self.temperature, 
                 max_tokens=self.max_tokens,
+                logprobs=TOP_K,
             )
         
         # Run generation
@@ -135,8 +140,13 @@ class MCQExperiment:
         
         # Prepare output file path
         model_name = os.path.basename(self.model_path)
-        results_filename = f"{self.output_dir}/semantic_dimension_gt_{model_name}{'-thinking' if self.thinking else ''}.json"
-        
+        results_filename = f"{self.output_dir}/semantic_dimension_gt_{model_name}"
+        if self.thinking:
+            results_filename += "_thinking"
+        if self.save_logits:
+            results_filename += "_logits"
+        results_filename += ".json"
+
         # Create output directory if it doesn't exist
         os.makedirs(self.output_dir, exist_ok=True)
         
@@ -169,18 +179,41 @@ class MCQExperiment:
                 for dimension in dimensions:
                     if self.use_api:
                         # Use OpenAI API
-                        response = self.client.responses.create(
+                        response = self.client.chat.completions.create(
                             model=self.model_path,
-                            input=prompt.format(
-                                word=word['word'],
-                                meaning=word['meaning'],
-                                language=languages[lang],
-                                dimension1=dimension[0],
-                                dimension2=dimension[1],
-                            ),
+                            messages=[
+                                {
+                                    "role": "user",
+                                    "content": prompt.format(
+                                                word=word['word'],
+                                                meaning=word['meaning'],
+                                                language=languages[lang],
+                                                dimension1=dimension[0],
+                                                dimension2=dimension[1],
+                                            ),
+                                }
+                            ],
                             temperature=self.temperature,
+                            logprobs=True if self.save_logits else False,
+                            top_logprobs=TOP_K,
                         )
-                        model_answer = response.output_text
+                        model_answer = response.choices[0].message.content
+
+                        if self.save_logits:
+                            probabilities_for_123 = {'1': 0.0, '2': 0.0, '3': 0.0}
+
+                            first_token_raw_logprobs = response.choices[0].logprobs.content[0].top_logprobs
+                            print(first_token_raw_logprobs)
+
+                            # Iterate through the logprobs provided by OpenAI for the first token
+                            for token in first_token_raw_logprobs:
+                                decoded_token_str = token.token.strip()
+                                # If this decoded token is one of our targets ('1', '2', '3')
+                                if decoded_token_str in probabilities_for_123:
+                                    probabilities_for_123[decoded_token_str] = math.exp(token.logprob)
+
+                            logits = probabilities_for_123  # Store the calculated probabilities
+                            # print(f"Calculated probabilities for 1,2,3: {logits}")
                     else:
                         # Use VLLM model
                         # response = model.generate(query['question'], sampling_params=sampling_params)
@@ -213,6 +246,21 @@ class MCQExperiment:
                         # Remove <think> ... </think> tags
                         if self.thinking:
                             model_answer = re.sub(r'<think>.*?</think>', '', model_answer, flags=re.DOTALL)
+                        
+                        if self.save_logits:
+                            probabilities_for_123 = {'1': 0.0, '2': 0.0, '3': 0.0}
+                        
+                            first_token_raw_logprobs = response[0].outputs[0].logprobs[0] 
+                            
+                            # Iterate through the logprobs provided by VLLM for the first token
+                            for token_id, logprob_obj in first_token_raw_logprobs.items():
+                                decoded_token_str = str(logprob_obj.decoded_token).strip()
+                                # If this decoded token is one of our targets ('1', '2', '3')
+                                if decoded_token_str in probabilities_for_123:
+                                    probabilities_for_123[decoded_token_str] = math.exp(logprob_obj.logprob)
+                        
+                            logits = probabilities_for_123 # Store the calculated probabilities
+                            # print(f"Calculated probabilities for 1,2,3: {logits}")
 
                     # First integer is the answer
                     model_answer = re.search(r'\d+', model_answer)
@@ -232,7 +280,11 @@ class MCQExperiment:
                     else:
                         model_answer = "Neither"
 
-                    dimension_results[f"{dimension[0]}-{dimension[1]}"] = model_answer
+                    if self.save_logits:
+                        dimension_results[f"{dimension[0]}-{dimension[1]}"] = {'answer': model_answer,
+                                                                               'logits': logits}
+                    else:
+                        dimension_results[f"{dimension[0]}-{dimension[1]}"] = model_answer
 
                     # print(f"Word: {word['word']}, Meaning: {word['meaning']}, Dimension: {dimension[0]}-{dimension[1]}, Answer: {model_answer}")
                 
@@ -279,6 +331,7 @@ if __name__ == "__main__":
     parser.add_argument("--temperature", type=float, default=0.0, help="Sampling temperature")
     parser.add_argument("--api", action='store_true', help="Use OpenAI API instead of local model")
     parser.add_argument("--thinking", action='store_true', help="Enable thinking mode for Qwen3")
+    parser.add_argument("--save-logits", action='store_true', help="Enable logits output")
     
     args = parser.parse_args()
 
@@ -292,5 +345,6 @@ if __name__ == "__main__":
         max_model_len=args.max_model_len,
         temperature=args.temperature,
         thinking=args.thinking,
+        save_logits=args.save_logits
     )
     mcq_experiment.run_generation()
