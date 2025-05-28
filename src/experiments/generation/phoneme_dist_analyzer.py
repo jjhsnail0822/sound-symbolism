@@ -34,11 +34,11 @@ class PhonemeDistributionAnalyzer:
     def run(self, base_prompt:str, max_token: int = 10):
         base_prompt_encoded = self.tokenizer.encode(base_prompt)
         
-        def explore_paths(current_token_ids:List[int], current_prob:float, depth:int):
+        def explore_paths(current_token_ids:List[int], current_logprob:float, depth:int):
             completed_token_ids = []
 
             if depth >= max_token:
-                completed_token_ids.append((current_token_ids, current_prob))
+                completed_token_ids.append((current_token_ids, current_logprob))
                 return completed_token_ids
             
             prompt_encoded = base_prompt_encoded + current_token_ids
@@ -46,13 +46,13 @@ class PhonemeDistributionAnalyzer:
 
             
             for output in outputs:
-                token_prob = output['probability']
+                token_logprob = output['logprob']
                 token_id = output['token_id']
-                next_prob = current_prob * token_prob   # log prob 로 덧셈!
+                next_prob = current_logprob + token_logprob   # log prob 로 덧셈!
             
 
                 if self._is_eos_token(token_id):
-                    completed_token_ids.append((current_token_ids, current_prob))
+                    completed_token_ids.append((current_token_ids, current_logprob))
                 else:
                     next_token_ids = current_token_ids + [token_id]
                     next_completed_token_ids = explore_paths(next_token_ids, next_prob, depth + 1)
@@ -67,9 +67,10 @@ class PhonemeDistributionAnalyzer:
         
         # Remove duplicates and sum probabilities
         word_probs = defaultdict(float)
-        for token_ids, prob in all_token_ids:
+        for token_ids, logprob in all_token_ids:
             word = self.tokenizer.decode(token_ids)
             # print(f"Generated word: '{word}'")
+            prob = np.exp(logprob)
             word_probs[word] += prob
 
         all_combinations = []
@@ -98,7 +99,10 @@ class PhonemeDistributionAnalyzer:
         # Remove leading and trailing whitespace
         word = word.strip()
         # Remove special characters (keep only letters)
-        word = re.sub(r'[^a-zA-Z]', '', word)
+        if 'eng' in self.language_code:
+            word = re.sub(r'[^a-zA-Z]', '', word)
+        else:
+            raise NotImplementedError
         return word.lower()
 
 
