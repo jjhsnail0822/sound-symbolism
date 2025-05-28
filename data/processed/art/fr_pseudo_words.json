@@ -11247,7 +11247,7 @@
       "pour exciter un chien à attaquer, à mordre.",
       "pour exciter une personne contre une autre."
     ],
-    "generated_word": "[m̩l̩]",
+    "generated_word": "zirak",
     "model": "Qwen/Qwen3-32b-thinking",
     "language": "fr",
     "trial": "trial6"
@@ -11258,7 +11258,7 @@
       "pour exciter un chien à attaquer, à mordre.",
       "pour exciter une personne contre une autre."
     ],
-    "generated_word": "[m̩l̩]",
+    "generated_word": "\n\n[varkoth]",
     "model": "Qwen/Qwen3-32b-thinking",
     "language": "fr",
     "trial": "trial6"
@@ -11268,7 +11268,7 @@
     "meaning": [
       "marque une sensation de froid."
     ],
-    "generated_word": "[m̩l̩]",
+    "generated_word": "[frizor]",
     "model": "Qwen/Qwen3-32b-thinking",
     "language": "fr",
     "trial": "trial6"
@@ -11280,7 +11280,7 @@
       "Interjection d'insistance, de renforcement.",
       "Sert à transcrire le rire."
     ],
-    "generated_word": "[m̩l̩]",
+    "generated_word": "[ehe]",
     "model": "Qwen/Qwen3-32b-thinking",
     "language": "fr",
     "trial": "trial6"
@@ -11290,7 +11290,7 @@
     "meaning": [
       "accompagne un élan lorsqu'on porte un coup."
     ],
-    "generated_word": "[m̩l̩]",
+    "generated_word": "[tsak]",
     "model": "Qwen/Qwen3-32b-thinking",
     "language": "fr",
     "trial": "trial6"
@@ -11300,7 +11300,7 @@
     "meaning": [
       "Exclamation de douleur ou onomatopée imitant le bâillement, l'aboiement"
     ],
-    "generated_word": "[m̩l̩]",
+    "generated_word": "[skraawf]",
     "model": "Qwen/Qwen3-32b-thinking",
     "language": "fr",
     "trial": "trial6"
@@ -11310,7 +11310,7 @@
     "meaning": [
       "bruit de l'aboiement d'un chien."
     ],
-    "generated_word": "[m̩l̩]",
+    "generated_word": "\n\n[wuff]",
     "model": "Qwen/Qwen3-32b-thinking",
     "language": "fr",
     "trial": "trial6"
@@ -11320,7 +11320,7 @@
     "meaning": [
       "pour se récrier ou, plus souvent, paraître se récrier."
     ],
-    "generated_word": "[m̩l̩]",
+    "generated_word": "[kairath]",
     "model": "Qwen/Qwen3-32b-thinking",
     "language": "fr",
     "trial": "trial6"
@@ -11330,7 +11330,7 @@
     "meaning": [
       "premiers sons du language émis par un bébé en signe de bien-être."
     ],
-    "generated_word": "[m̩l̩]",
+    "generated_word": "[munamu]",
     "model": "Qwen/Qwen3-32b-thinking",
     "language": "fr",
     "trial": "trial6"
@@ -11351,7 +11351,7 @@
       "pour exciter un chien à attaquer, à mordre.",
       "pour exciter une personne contre une autre."
     ],
-    "generated_word": "Glimm",
+    "generated_word": "karkon",
     "model": "Qwen/Qwen3-32b-thinking",
     "language": "fr",
     "trial": "trial12"
@@ -11362,7 +11362,7 @@
       "pour exciter un chien à attaquer, à mordre.",
       "pour exciter une personne contre une autre."
     ],
-    "generated_word": "Glimm",
+    "generated_word": "Kai-th",
     "model": "Qwen/Qwen3-32b-thinking",
     "language": "fr",
     "trial": "trial12"
@@ -11372,7 +11372,7 @@
     "meaning": [
       "marque une sensation de froid."
     ],
-    "generated_word": "Glimm",
+    "generated_word": "/frɪɡ.maʁk/",
     "model": "Qwen/Qwen3-32b-thinking",
     "language": "fr",
     "trial": "trial12"
@@ -11384,7 +11384,7 @@
       "Interjection d'insistance, de renforcement.",
       "Sert à transcrire le rire."
     ],
-    "generated_word": "Glimm",
+    "generated_word": "Kaela",
     "model": "Qwen/Qwen3-32b-thinking",
     "language": "fr",
     "trial": "trial12"
@@ -11394,7 +11394,7 @@
     "meaning": [
       "accompagne un élan lorsqu'on porte un coup."
     ],
-    "generated_word": "Glimm",
+    "generated_word": "skra",
     "model": "Qwen/Qwen3-32b-thinking",
     "language": "fr",
     "trial": "trial12"
@@ -11404,7 +11404,7 @@
     "meaning": [
       "Exclamation de douleur ou onomatopée imitant le bâillement, l'aboiement"
     ],
-    "generated_word": "Glimm",
+    "generated_word": "[kraa]",
     "model": "Qwen/Qwen3-32b-thinking",
     "language": "fr",
     "trial": "trial12"
@@ -11414,7 +11414,7 @@
     "meaning": [
       "bruit de l'aboiement d'un chien."
     ],
-    "generated_word": "Glimm",
+    "generated_word": "/bɑːk/",
     "model": "Qwen/Qwen3-32b-thinking",
     "language": "fr",
     "trial": "trial12"
@@ -11424,7 +11424,7 @@
     "meaning": [
       "pour se récrier ou, plus souvent, paraître se récrier."
     ],
-    "generated_word": "Glimm",
+    "generated_word": "Kael",
     "model": "Qwen/Qwen3-32b-thinking",
     "language": "fr",
     "trial": "trial12"
@@ -11434,7 +11434,7 @@
     "meaning": [
       "premiers sons du language émis par un bébé en signe de bien-être."
     ],
-    "generated_word": "Glimm",
+    "generated_word": "Mama: /m/ M",
     "model": "Qwen/Qwen3-32b-thinking",
     "language": "fr",
     "trial": "trial12"
@@ -11455,7 +11455,7 @@
       "pour exciter un chien à attaquer, à mordre.",
       "pour exciter une personne contre une autre."
     ],
-    "generated_word": "Mmhl",
+    "generated_word": "<think>\nOkay, the user wants me to create an onomatopoeia or ideophone in Roman letters that means \"to excite a dog to attack, to bite\" and also \"to excite a person against another.\" Let me start by understanding the requirements.\n\nFirst, onomatopoeia are words that imitate sounds, like \"buzz\" or \"meow.\" Ideophones are words that vividly express sensory experiences, often used in some languages to emphasize a description. The user wants a constructed word in Roman letters, so it should be a made-up word using the Latin alphabet.\n\nThe meanings are related to provoking aggression in a dog and inciting conflict between people. I need a word that conveys both the action of provoking and the aggressive intent. Let me think about sounds associated with dogs attacking. Maybe sharp, harsh consonants. Words like \"growl,\" \"snarl,\" \"bark\" come to mind. But I need to create something new.\n\nFor the dog part, maybe using \"snarl\" as a base. But the user wants a constructed word. Let's think of aggressive sounds. \"Ruff\" is a dog's sound, but not aggressive. \"Growl\" is more aggressive. Maybe combine \"growl\" with something else. Alternatively, think of words that mean to provoke. \"Provoke\" itself is a root, but in Latin letters. Maybe \"provocare\" from Latin, but that's too direct.\n\nFor the person part, inciting someone against another. Words like \"incite,\" \"stir,\" \"agitate.\" Maybe \"stir up.\" So combining elements that suggest both provoking a dog and inciting people.\n\nLet me brainstorm some syllables. Maybe start with a hard \"K\" or \"G\" sound. \"K\" is common in aggressive words. \"K\" + \"rawl\" could be \"Krawl,\" but that's not quite right. Maybe \"Krawl\" as a verb. Or \"Krawl\" as a noun. Wait, the user wants a lexeme, so a verb or noun that can be used in a sentence.\n\nAnother angle: in some languages, words for \"fight\" or \"attack\" have certain sounds. For example, \"fight\" in English, \"lucha\" in Spanish. Maybe use \"fight\" as a base. But need to make it unique. Maybe \"Fiteo\" or \"Fitea.\" But that's too similar to \"fight.\"\n\nAlternatively, think of the sound a dog makes when it's about to attack. A low, guttural sound. Maybe \"Grrr.\" So \"Grr\" as a root. Combine with something that means to provoke. \"Grr\" + \"ate\" = \"Grrate.\" But that's not quite right. Maybe \"Grrate\" as a verb. \"To grrate a dog to attack.\"\n\nWait, the user wants the word to have Roman letters, so it's in Latin script. Let me think of combining aggressive sounds. Maybe \"Ruff\" (dog sound) + \"arate\" (from \"arate\" as in to plow, but that's a stretch). Alternatively, \"Ruff\" + \"ate\" = \"Ruffate.\" But that's not very aggressive.\n\nAnother approach: use a prefix that means to provoke. \"Pro-\" as in \"provoke.\" So \"Pro-\" + something. \"Pro\" + \"vok\" = \"Provok,\" but that's too similar to \"provoke.\" Maybe \"Pro\" + \"vok\" + \"e\" = \"Provok.\" But again, too similar.\n\nWait, the user wants a constructed word, not a real one. So maybe create a new root. Let's think of aggressive sounds. \"K\" and \"T\" are sharp. Maybe \"K\" + \"T\" + \"...\" Let's try \"Kt\" as a root. \"Kt\" + \"rawl\" = \"Ktrawl.\" Not sure. Maybe \"Kt\" + \"ar\" = \"Ktar.\" Hmm, not very meaningful.\n\nAlternatively, think of the action of inciting. Words like \"stir,\" \"stir up.\" \"Stir\" in Latin is \"move.\" Maybe \"Stir\" + \"ate\" = \"Stirate.\" But that's \"stirrate,\" which is a real word meaning to stir rapidly. Not quite right.\n\nWait, maybe combine \"provoke\" and \"bite.\" \"Provokbite.\" No, that's too long. Maybe shorten it. \"Provok\" + \"bite\" = \"Provokbite.\" Still too long. Maybe \"Provok\" + \"bit\" = \"Provokbit.\" Not great.\n\nAnother angle: in some languages, words for \"fight\" have a \"sk\" sound. \"Sk\" is sharp. Maybe \"Sk\" + \"rawl\" = \"Skrawl.\" But \"skrawl\" means to write carelessly. Not helpful.\n\nWait, maybe use \"snarl\" as a base. \"Snarl\" is a dog's growl. So \"Snarl\" + \"ate\" = \"Snarlate.\" But that's not a real word. Maybe \"Snarle\" as a verb. \"To snarle a dog to attack.\" But the user wants a constructed word, not a real one.\n\nAlternatively, think of the sound a dog makes when it's about to attack. A low, guttural \"Grrr.\" So maybe \"Grr\" + \"ate\" = \"Grrate.\" But that's not a real word. Maybe \"Grrate\" as a verb. \"To grrate the dog into attacking.\"\n\nBut the user wants a lexeme, so maybe a more structured word. Let's try combining \"provoke\" and \"bite\" into a new word. \"Provokbite\" is too long. Maybe \"Provok\" + \"bit\" = \"Provokbit.\" Still not right.\n\nWait, maybe use a prefix like \"pro-\" and a suffix like \"-ate,\" but with a root that suggests aggression. \"Pro\" + \"vok\" + \"ate\" = \"Provokate.\" But that's similar to \"provoke.\" Maybe \"Provokate\" is a constructed word. But the user might want something more unique.\n\nAlternatively, think of the action of inciting someone. \"Incite\" is a word. Maybe \"Incite\" + \"dog\" = \"Incitedog.\" No, that's not helpful. Maybe \"Incite\" + \"bite\" = \"Incitebite.\" Still not right.\n\nHmm. Maybe use a root that's a combination of aggressive sounds. \"K\" and \"T\" are sharp. \"Kt\" + \"rawl\" = \"Ktrawl.\" Maybe \"Kt\" + \"ar\" = \"Ktar.\" Not very meaningful. \"Kt\" + \"ar\" + \"e\" = \"Ktare.\" Still not clear.\n\nWait, maybe use \"Ruff\" (dog sound) and \"arate\" (from \"arate\" as in to plow, but that's a stretch). \"Ruffarate.\" Not helpful.\n\nAnother approach: think of the action of provoking. Words like \"stir,\" \"stir up,\" \"agitate.\" Maybe \"Agitate\" + \"dog\" = \"Agitatedog.\" No. Maybe \"Agitate\" + \"bite\" = \"Agitatebite.\" Still not right.\n\nWait, maybe use a prefix like \"pro-\" and a suffix like \"-ate,\" but with a root that's a dog's sound. \"Pro\" + \"ruff\" + \"ate\" = \"Proruffate.\" That's a bit long, but maybe. \"Proruffate\" could mean to provoke a dog to attack. For the person part, maybe \"Proruffate\" can also mean to incite a person against another. But the word is a bit long and not very elegant.\n\nAlternatively, think of a shorter word. Maybe \"Ruff\" + \"ate\" = \"Ruffate.\" But that's not very aggressive. Maybe \"Ruff\" + \"arate\" = \"Ruffarate.\" Still not right.\n\nWait, maybe use \"Growl\" as a base. \"Growl\" + \"ate\" = \"Growlate.\" But that's not a real word. Maybe \"Growle\" as a verb. \"To growle a dog to attack.\" But the user wants a constructed word, not a real one.\n\nHmm. Let me try combining \"provoke\" and \"bite\" into a new word. \"Provokbite\" is too long. Maybe \"Provok\" + \"bit\" = \"Provokbit.\" Still not right.\n\nWait, maybe use a root that's a combination of aggressive sounds. \"K\" and \"T\" are sharp. \"Kt\" + \"rawl\" = \"Ktrawl.\" Maybe \"Kt\" + \"ar\" = \"Ktar.\" Not very meaningful. \"Kt\" + \"ar\" + \"e\" = \"Ktare.\" Still not clear.\n\nAnother idea: use \"Bite\" as a root. \"Bite\" + \"ate\" = \"Biteate.\" No, that's not right. Maybe \"Bite\" + \"arate\" = \"Bitearate.\" Still not helpful.\n\nWait, maybe use \"Snarl\" as a base. \"Snarl\" + \"ate\" = \"Snarlate.\" But that's not a real word. Maybe \"Snarle\" as a verb. \"To snarle a dog to attack.\" But the user wants a constructed word, not a real one.\n\nAlternatively, think of the action of inciting. \"Incite\" is a word. Maybe \"Incite\" + \"dog\" = \"Incitedog.\" No, that's not helpful. Maybe \"Incite\" + \"bite\" = \"Incitebite.\" Still not right.\n\nHmm. Maybe use a prefix like \"pro-\" and a suffix like \"-ate,\" but with a root that's a dog's sound. \"Pro\" + \"ruff\" + \"ate\" = \"Proruffate.\" That's a bit long, but maybe. \"Proruffate\" could mean to provoke a dog to attack. For the person part, maybe \"Proruffate\" can also mean to incite a person against another. But the word is a bit long and not very elegant.\n\nAlternatively, think of a shorter word. Maybe \"Ruff\" + \"ate\" = \"Ruffate.\" But that's not very aggressive. Maybe \"Ruff\" + \"arate\" = \"Ruffarate.\" Still not right.\n\nWait, maybe use \"Growl\" as a base. \"Growl\" + \"ate\" = \"Growlate.\" But that's not a real word. Maybe \"Growle\" as a verb. \"To growle a dog to attack.\" But the user wants a constructed word, not a real one.\n\nHmm. Let me try combining \"provoke\" and \"bite\" into a new word. \"Provokbite\" is too long. Maybe \"Provok\" + \"bit\" = \"Provokbit.\" Still not right.\n\nWait, maybe use a root that's a combination of aggressive sounds. \"K\" and \"T\" are sharp. \"Kt\" + \"rawl\" = \"Ktrawl.\" Maybe \"Kt\" + \"ar\" = \"Ktar.\" Not very meaningful. \"Kt\" + \"ar\" + \"e\" = \"Ktare.\" Still not clear.\n\nAnother idea: use \"Bite\" as a root. \"Bite\" + \"ate\" = \"Biteate.\" No, that's not right. Maybe \"Bite\" + \"arate\" = \"Bitearate.\" Still not helpful.\n\nWait, maybe use \"Snarl\" as a base. \"Snarl\" + \"ate\" = \"Snarlate.\" But that's not a real word. Maybe \"Snarle\" as a verb. \"To snarle a dog to attack.\" But the user wants a constructed word, not a real one.\n\nAlternatively, think of the action of inciting. \"Incite\" is a word. Maybe \"Incite\" + \"dog\" = \"Incitedog.\" No, that's not helpful. Maybe \"Incite\" + \"bite\" = \"Incitebite.\" Still not right.\n\nHmm. Maybe use a prefix like \"pro-\" and a suffix like \"-ate,\" but with a root that's a dog's sound. \"Pro\" + \"ruff\" + \"ate\" = \"Proruffate.\" That's a bit long, but maybe. \"Proruffate\" could mean to provoke a dog to attack. For the person part, maybe \"Proruffate\" can also mean to incite a person against another. But the word is a bit long and not very elegant.\n\nAlternatively, think of a shorter word. Maybe \"Ruff\" + \"ate\" = \"Ruffate.\" But that's not very aggressive. Maybe \"Ruff\" + \"arate\" = \"Ruffarate.\" Still not right.\n\nWait, maybe use \"Growl\" as a base. \"Growl\" + \"ate\" = \"Growlate.\" But that's not a real word. Maybe \"Growle\" as a verb. \"To growle a dog to attack.\" But the user wants a constructed word, not a real one.\n\nHmm. Let me try combining \"provoke\" and \"bite\" into a new word. \"Provokbite\" is too long. Maybe \"Provok\" + \"bit\" = \"Provokbit.\" Still not right.\n\nWait, maybe use a root that's a combination of aggressive sounds. \"K\" and \"T\" are sharp. \"Kt\" + \"rawl\" = \"Ktrawl.\" Maybe \"Kt\" + \"ar\" = \"Ktar.\" Not very meaningful. \"Kt\" + \"ar\" + \"e\" = \"Ktare.\" Still not clear.\n\nAnother idea: use \"Bite\" as a root. \"Bite\" + \"ate\" = \"Biteate.\" No, that's not right. Maybe \"Bite\" + \"arate\" = \"Bitearate.\" Still not helpful.\n\nWait, maybe use \"Snarl\" as a base. \"Snarl\" + \"ate\" = \"Snarlate.\" But that's not a real word. Maybe \"Snarle\" as a verb. \"To snarle a dog to attack.\" But the user wants a constructed word, not a real one.\n\nAlternatively, think of the action of inciting. \"Incite\" is a word. Maybe \"Incite\" + \"dog\" = \"Incitedog.\" No, that's not helpful. Maybe \"Incite\" + \"bite\" = \"Incitebite.\" Still not right.\n\nHmm. Maybe use a prefix like \"pro-\" and a suffix like \"-ate,\" but with a root that's a dog's sound. \"Pro\" + \"ruff\" + \"ate\" = \"Proruffate.\" That's a bit long, but maybe. \"Proruffate\" could mean to provoke a dog to attack. For the person part, maybe \"Proruffate\" can also mean to incite a person against another. But the word is a bit long and not very elegant.\n\nAlternatively, think of a shorter word. Maybe \"Ruff\" + \"ate\" = \"Ruffate.\" But that's not very aggressive. Maybe \"Ruff\" + \"arate\" = \"Ruffarate.\" Still not right.\n\nWait, maybe use \"Growl\" as a base. \"Growl\" + \"ate\" = \"Growlate.\" But that's not a real word. Maybe \"Growle\" as a verb. \"To growle a dog to attack.\" But the user wants a constructed word, not a real one.\n\nHmm. Let me try combining \"provoke\" and \"bite\" into a new word. \"Provokbite\" is too long. Maybe \"Provok\" + \"bit\" = \"Provokbit.\" Still not right.\n\nWait, maybe use a root that's a combination of aggressive sounds. \"K\" and \"T\" are sharp. \"Kt\" + \"rawl\" = \"Ktrawl.\" Maybe \"Kt\" + \"ar\" = \"Ktar.\" Not very meaningful. \"Kt\" + \"ar\" + \"e\" = \"Ktare.\" Still not clear.\n\nAnother idea: use \"Bite\" as a root. \"Bite\" + \"ate\" = \"Biteate.\" No, that's not right. Maybe \"Bite\" + \"arate\" = \"Bitearate.\" Still not helpful.\n\nWait, maybe use \"Snarl\" as a base. \"Snarl\" + \"ate\" = \"Snarlate.\" But that's not a real word. Maybe \"Snarle\" as a verb. \"To snarle a dog to attack.\" But the user wants a constructed word, not a real one.\n\nAlternatively, think of the action of inciting. \"Incite\" is a word. Maybe \"Incite\" + \"dog\" = \"Incitedog.\" No, that's not helpful. Maybe \"Incite\" + \"bite\" = \"Incitebite.\" Still not right.\n\nHmm. Maybe use a prefix like \"pro-\" and a suffix like \"-ate,\" but with a root that's a dog's sound. \"Pro\" + \"ruff\" + \"ate\" = \"Proruffate.\" That's a bit long, but maybe. \"Proruffate\" could mean to provoke a dog to attack. For the person part, maybe \"Proruffate\" can also mean to incite a person against another. But the word is a bit long and not very elegant.\n\nAlternatively, think of a shorter word. Maybe \"Ruff\" + \"ate\" = \"Ruffate.\" But that's not very aggressive. Maybe \"Ruff\" + \"arate\" = \"Ruffarate.\" Still not right.\n\nWait, maybe use \"Growl\" as a base. \"Growl\" + \"ate\" = \"Growlate.\" But that's not a real word. Maybe \"Growle\" as a verb. \"To growle a dog to attack.\" But the user wants a constructed word, not a real one.\n\nHmm. Let me try combining \"provoke\" and \"bite\" into a new word. \"Provokbite\" is too long. Maybe \"Provok\" + \"bit\" = \"Provokbit.\" Still not right.\n\nWait, maybe use a root that's a combination of aggressive sounds. \"K\" and \"T\" are sharp. \"Kt\" + \"rawl\" = \"Ktrawl.\" Maybe \"Kt\" + \"ar\" = \"Ktar.\" Not very meaningful. \"Kt\" + \"ar\" + \"e\" = \"Ktare.\" Still not clear.\n\nAnother idea",
     "model": "Qwen/Qwen3-32b-thinking",
     "language": "fr",
     "trial": "trial13"
@@ -11466,7 +11466,7 @@
       "pour exciter un chien à attaquer, à mordre.",
       "pour exciter une personne contre une autre."
     ],
-    "generated_word": "Mmhl",
+    "generated_word": "Kargh",
     "model": "Qwen/Qwen3-32b-thinking",
     "language": "fr",
     "trial": "trial13"
@@ -11476,7 +11476,7 @@
     "meaning": [
       "marque une sensation de froid."
     ],
-    "generated_word": "Mmhl",
+    "generated_word": "Friss",
     "model": "Qwen/Qwen3-32b-thinking",
     "language": "fr",
     "trial": "trial13"
@@ -11488,7 +11488,7 @@
       "Interjection d'insistance, de renforcement.",
       "Sert à transcrire le rire."
     ],
-    "generated_word": "Mmhl",
+    "generated_word": "Vraoum",
     "model": "Qwen/Qwen3-32b-thinking",
     "language": "fr",
     "trial": "trial13"
@@ -11498,7 +11498,7 @@
     "meaning": [
       "accompagne un élan lorsqu'on porte un coup."
     ],
-    "generated_word": "Mmhl",
+    "generated_word": "frac",
     "model": "Qwen/Qwen3-32b-thinking",
     "language": "fr",
     "trial": "trial13"
@@ -11508,7 +11508,7 @@
     "meaning": [
       "Exclamation de douleur ou onomatopée imitant le bâillement, l'aboiement"
     ],
-    "generated_word": "Mmhl",
+    "generated_word": "Owaaaaf",
     "model": "Qwen/Qwen3-32b-thinking",
     "language": "fr",
     "trial": "trial13"
@@ -11518,7 +11518,7 @@
     "meaning": [
       "bruit de l'aboiement d'un chien."
     ],
-    "generated_word": "Mmhl",
+    "generated_word": "Bwok",
     "model": "Qwen/Qwen3-32b-thinking",
     "language": "fr",
     "trial": "trial13"
@@ -11528,7 +11528,7 @@
     "meaning": [
       "pour se récrier ou, plus souvent, paraître se récrier."
     ],
-    "generated_word": "Mmhl",
+    "generated_word": "Clamex",
     "model": "Qwen/Qwen3-32b-thinking",
     "language": "fr",
     "trial": "trial13"
@@ -11538,7 +11538,7 @@
     "meaning": [
       "premiers sons du language émis par un bébé en signe de bien-être."
     ],
-    "generated_word": "Mmhl",
+    "generated_word": "Mumugugu",
     "model": "Qwen/Qwen3-32b-thinking",
     "language": "fr",
     "trial": "trial13"
@@ -11559,7 +11559,7 @@
       "pour exciter un chien à attaquer, à mordre.",
       "pour exciter une personne contre une autre."
     ],
-    "generated_word": "\n\n*Mharn*",
+    "generated_word": "\n\n*Kraghthar*",
     "model": "Qwen/Qwen3-32b-thinking",
     "language": "fr",
     "trial": "trial14"
@@ -11570,7 +11570,7 @@
       "pour exciter un chien à attaquer, à mordre.",
       "pour exciter une personne contre une autre."
     ],
-    "generated_word": "\n\n*Mharn*",
+    "generated_word": "*Grashak*",
     "model": "Qwen/Qwen3-32b-thinking",
     "language": "fr",
     "trial": "trial14"
@@ -11580,7 +11580,7 @@
     "meaning": [
       "marque une sensation de froid."
     ],
-    "generated_word": "\n\n*Mharn*",
+    "generated_word": "\n\n*Kryllis*",
     "model": "Qwen/Qwen3-32b-thinking",
     "language": "fr",
     "trial": "trial14"
@@ -11592,7 +11592,7 @@
       "Interjection d'insistance, de renforcement.",
       "Sert à transcrire le rire."
     ],
-    "generated_word": "\n\n*Mharn*",
+    "generated_word": "*Klyra*",
     "model": "Qwen/Qwen3-32b-thinking",
     "language": "fr",
     "trial": "trial14"
@@ -11602,7 +11602,7 @@
     "meaning": [
       "accompagne un élan lorsqu'on porte un coup."
     ],
-    "generated_word": "\n\n*Mharn*",
+    "generated_word": "*Kraash*",
     "model": "Qwen/Qwen3-32b-thinking",
     "language": "fr",
     "trial": "trial14"
@@ -11612,7 +11612,7 @@
     "meaning": [
       "Exclamation de douleur ou onomatopée imitant le bâillement, l'aboiement"
     ],
-    "generated_word": "\n\n*Mharn*",
+    "generated_word": "\n\n*Kraaah*",
     "model": "Qwen/Qwen3-32b-thinking",
     "language": "fr",
     "trial": "trial14"
@@ -11622,7 +11622,7 @@
     "meaning": [
       "bruit de l'aboiement d'un chien."
     ],
-    "generated_word": "\n\n*Mharn*",
+    "generated_word": "*Kraaw*",
     "model": "Qwen/Qwen3-32b-thinking",
     "language": "fr",
     "trial": "trial14"
@@ -11632,7 +11632,7 @@
     "meaning": [
       "pour se récrier ou, plus souvent, paraître se récrier."
     ],
-    "generated_word": "\n\n*Mharn*",
+    "generated_word": "\n\n*krātirā*",
     "model": "Qwen/Qwen3-32b-thinking",
     "language": "fr",
     "trial": "trial14"
@@ -11642,7 +11642,7 @@
     "meaning": [
       "premiers sons du language émis par un bébé en signe de bien-être."
     ],
-    "generated_word": "\n\n*Mharn*",
+    "generated_word": "*Lululé*",
     "model": "Qwen/Qwen3-32b-thinking",
     "language": "fr",
     "trial": "trial14"
@@ -11663,7 +11663,7 @@
       "pour exciter un chien à attaquer, à mordre.",
       "pour exciter une personne contre une autre."
     ],
-    "generated_word": "\n\nMmmhluv",
+    "generated_word": "\n\nKravak",
     "model": "Qwen/Qwen3-32b-thinking",
     "language": "fr",
     "trial": "trial15"
@@ -11674,7 +11674,7 @@
       "pour exciter un chien à attaquer, à mordre.",
       "pour exciter une personne contre une autre."
     ],
-    "generated_word": "\n\nMmmhluv",
+    "generated_word": "\n\nKraghthor",
     "model": "Qwen/Qwen3-32b-thinking",
     "language": "fr",
     "trial": "trial15"
@@ -11684,7 +11684,7 @@
     "meaning": [
       "marque une sensation de froid."
     ],
-    "generated_word": "\n\nMmmhluv",
+    "generated_word": "\n\nKryth",
     "model": "Qwen/Qwen3-32b-thinking",
     "language": "fr",
     "trial": "trial15"
@@ -11696,7 +11696,7 @@
       "Interjection d'insistance, de renforcement.",
       "Sert à transcrire le rire."
     ],
-    "generated_word": "\n\nMmmhluv",
+    "generated_word": "\n\nKraha",
     "model": "Qwen/Qwen3-32b-thinking",
     "language": "fr",
     "trial": "trial15"
@@ -11706,7 +11706,7 @@
     "meaning": [
       "accompagne un élan lorsqu'on porte un coup."
     ],
-    "generated_word": "\n\nMmmhluv",
+    "generated_word": "\n\nKraash",
     "model": "Qwen/Qwen3-32b-thinking",
     "language": "fr",
     "trial": "trial15"
@@ -11716,7 +11716,7 @@
     "meaning": [
       "Exclamation de douleur ou onomatopée imitant le bâillement, l'aboiement"
     ],
-    "generated_word": "\n\nMmmhluv",
+    "generated_word": "\n\nVraaah",
     "model": "Qwen/Qwen3-32b-thinking",
     "language": "fr",
     "trial": "trial15"
@@ -11726,7 +11726,7 @@
     "meaning": [
       "bruit de l'aboiement d'un chien."
     ],
-    "generated_word": "\n\nMmmhluv",
+    "generated_word": "\n\nKhark",
     "model": "Qwen/Qwen3-32b-thinking",
     "language": "fr",
     "trial": "trial15"
@@ -11736,7 +11736,7 @@
     "meaning": [
       "pour se récrier ou, plus souvent, paraître se récrier."
     ],
-    "generated_word": "\n\nMmmhluv",
+    "generated_word": "\n\nKlyrel",
     "model": "Qwen/Qwen3-32b-thinking",
     "language": "fr",
     "trial": "trial15"
@@ -11746,7 +11746,7 @@
     "meaning": [
       "premiers sons du language émis par un bébé en signe de bien-être."
     ],
-    "generated_word": "\n\nMmmhluv",
+    "generated_word": "\n\nLululor",
     "model": "Qwen/Qwen3-32b-thinking",
     "language": "fr",
     "trial": "trial15"
@@ -11767,7 +11767,7 @@
       "pour exciter un chien à attaquer, à mordre.",
       "pour exciter une personne contre une autre."
     ],
-    "generated_word": "\n\nmrraah",
+    "generated_word": "\n\nThrakzor",
     "model": "Qwen/Qwen3-32b-thinking",
     "language": "fr",
     "trial": "trial16"
@@ -11778,7 +11778,7 @@
       "pour exciter un chien à attaquer, à mordre.",
       "pour exciter une personne contre une autre."
     ],
-    "generated_word": "\n\nmrraah",
+    "generated_word": "\n\nK'thruk, Sh'zarn",
     "model": "Qwen/Qwen3-32b-thinking",
     "language": "fr",
     "trial": "trial16"
@@ -11788,7 +11788,7 @@
     "meaning": [
       "marque une sensation de froid."
     ],
-    "generated_word": "\n\nmrraah",
+    "generated_word": "\n\nKrylth",
     "model": "Qwen/Qwen3-32b-thinking",
     "language": "fr",
     "trial": "trial16"
@@ -11800,7 +11800,7 @@
       "Interjection d'insistance, de renforcement.",
       "Sert à transcrire le rire."
     ],
-    "generated_word": "\n\nmrraah",
+    "generated_word": "\n\nKharai",
     "model": "Qwen/Qwen3-32b-thinking",
     "language": "fr",
     "trial": "trial16"
@@ -11810,7 +11810,7 @@
     "meaning": [
       "accompagne un élan lorsqu'on porte un coup."
     ],
-    "generated_word": "\n\nmrraah",
+    "generated_word": "\n\nKra'thak",
     "model": "Qwen/Qwen3-32b-thinking",
     "language": "fr",
     "trial": "trial16"
@@ -11820,7 +11820,7 @@
     "meaning": [
       "Exclamation de douleur ou onomatopée imitant le bâillement, l'aboiement"
     ],
-    "generated_word": "\n\nmrraah",
+    "generated_word": "\n\nXyrraav",
     "model": "Qwen/Qwen3-32b-thinking",
     "language": "fr",
     "trial": "trial16"
@@ -11830,7 +11830,7 @@
     "meaning": [
       "bruit de l'aboiement d'un chien."
     ],
-    "generated_word": "\n\nmrraah",
+    "generated_word": "\n\nKharok",
     "model": "Qwen/Qwen3-32b-thinking",
     "language": "fr",
     "trial": "trial16"
@@ -11840,7 +11840,7 @@
     "meaning": [
       "pour se récrier ou, plus souvent, paraître se récrier."
     ],
-    "generated_word": "\n\nmrraah",
+    "generated_word": "\n\nKharokha",
     "model": "Qwen/Qwen3-32b-thinking",
     "language": "fr",
     "trial": "trial16"
@@ -11850,7 +11850,7 @@
     "meaning": [
       "premiers sons du language émis par un bébé en signe de bien-être."
     ],
-    "generated_word": "\n\nmrraah",
+    "generated_word": "\n\nGurrucoo",
     "model": "Qwen/Qwen3-32b-thinking",
     "language": "fr",
     "trial": "trial16"
@@ -11871,7 +11871,7 @@
       "pour exciter un chien à attaquer, à mordre.",
       "pour exciter une personne contre une autre."
     ],
-    "generated_word": "mmlu",
+    "generated_word": "Krraash",
     "model": "Qwen/Qwen3-32b-thinking",
     "language": "fr",
     "trial": "trial17"
@@ -11882,7 +11882,7 @@
       "pour exciter un chien à attaquer, à mordre.",
       "pour exciter une personne contre une autre."
     ],
-    "generated_word": "mmlu",
+    "generated_word": "Krrak",
     "model": "Qwen/Qwen3-32b-thinking",
     "language": "fr",
     "trial": "trial17"
@@ -11892,7 +11892,7 @@
     "meaning": [
       "marque une sensation de froid."
     ],
-    "generated_word": "mmlu",
+    "generated_word": "Krylth",
     "model": "Qwen/Qwen3-32b-thinking",
     "language": "fr",
     "trial": "trial17"
@@ -11904,7 +11904,7 @@
       "Interjection d'insistance, de renforcement.",
       "Sert à transcrire le rire."
     ],
-    "generated_word": "mmlu",
+    "generated_word": "Zelthra",
     "model": "Qwen/Qwen3-32b-thinking",
     "language": "fr",
     "trial": "trial17"
@@ -11914,7 +11914,7 @@
     "meaning": [
       "accompagne un élan lorsqu'on porte un coup."
     ],
-    "generated_word": "mmlu",
+    "generated_word": "Kraht",
     "model": "Qwen/Qwen3-32b-thinking",
     "language": "fr",
     "trial": "trial17"
@@ -11924,7 +11924,7 @@
     "meaning": [
       "Exclamation de douleur ou onomatopée imitant le bâillement, l'aboiement"
     ],
-    "generated_word": "mmlu",
+    "generated_word": "Kraash",
     "model": "Qwen/Qwen3-32b-thinking",
     "language": "fr",
     "trial": "trial17"
@@ -11934,7 +11934,7 @@
     "meaning": [
       "bruit de l'aboiement d'un chien."
     ],
-    "generated_word": "mmlu",
+    "generated_word": "Gavro",
     "model": "Qwen/Qwen3-32b-thinking",
     "language": "fr",
     "trial": "trial17"
@@ -11944,7 +11944,7 @@
     "meaning": [
       "pour se récrier ou, plus souvent, paraître se récrier."
     ],
-    "generated_word": "mmlu",
+    "generated_word": "Kraa",
     "model": "Qwen/Qwen3-32b-thinking",
     "language": "fr",
     "trial": "trial17"
@@ -11954,7 +11954,7 @@
     "meaning": [
       "premiers sons du language émis par un bébé en signe de bien-être."
     ],
-    "generated_word": "mmlu",
+    "generated_word": "milimilu",
     "model": "Qwen/Qwen3-32b-thinking",
     "language": "fr",
     "trial": "trial17"
@@ -11975,7 +11975,7 @@
       "pour exciter un chien à attaquer, à mordre.",
       "pour exciter une personne contre une autre."
     ],
-    "generated_word": "Mmblu",
+    "generated_word": "grask",
     "model": "Qwen/Qwen3-32b-thinking",
     "language": "fr",
     "trial": "trial18"
@@ -11986,7 +11986,7 @@
       "pour exciter un chien à attaquer, à mordre.",
       "pour exciter une personne contre une autre."
     ],
-    "generated_word": "Mmblu",
+    "generated_word": "kravash",
     "model": "Qwen/Qwen3-32b-thinking",
     "language": "fr",
     "trial": "trial18"
@@ -11996,7 +11996,7 @@
     "meaning": [
       "marque une sensation de froid."
     ],
-    "generated_word": "Mmblu",
+    "generated_word": "krylth",
     "model": "Qwen/Qwen3-32b-thinking",
     "language": "fr",
     "trial": "trial18"
@@ -12008,7 +12008,7 @@
       "Interjection d'insistance, de renforcement.",
       "Sert à transcrire le rire."
     ],
-    "generated_word": "Mmblu",
+    "generated_word": "Zhilumra",
     "model": "Qwen/Qwen3-32b-thinking",
     "language": "fr",
     "trial": "trial18"
@@ -12018,7 +12018,7 @@
     "meaning": [
       "accompagne un élan lorsqu'on porte un coup."
     ],
-    "generated_word": "Mmblu",
+    "generated_word": "Thra-kra",
     "model": "Qwen/Qwen3-32b-thinking",
     "language": "fr",
     "trial": "trial18"
@@ -12028,7 +12028,7 @@
     "meaning": [
       "Exclamation de douleur ou onomatopée imitant le bâillement, l'aboiement"
     ],
-    "generated_word": "Mmblu",
+    "generated_word": "Vrynnk",
     "model": "Qwen/Qwen3-32b-thinking",
     "language": "fr",
     "trial": "trial18"
@@ -12038,7 +12038,7 @@
     "meaning": [
       "bruit de l'aboiement d'un chien."
     ],
-    "generated_word": "Mmblu",
+    "generated_word": "rakaraka",
     "model": "Qwen/Qwen3-32b-thinking",
     "language": "fr",
     "trial": "trial18"
@@ -12048,7 +12048,7 @@
     "meaning": [
       "pour se récrier ou, plus souvent, paraître se récrier."
     ],
-    "generated_word": "Mmblu",
+    "generated_word": "Kriyel",
     "model": "Qwen/Qwen3-32b-thinking",
     "language": "fr",
     "trial": "trial18"
@@ -12058,7 +12058,7 @@
     "meaning": [
       "premiers sons du language émis par un bébé en signe de bien-être."
     ],
-    "generated_word": "Mmblu",
+    "generated_word": "Nai'na",
     "model": "Qwen/Qwen3-32b-thinking",
     "language": "fr",
     "trial": "trial18"
@@ -12079,7 +12079,7 @@
       "pour exciter un chien à attaquer, à mordre.",
       "pour exciter une personne contre une autre."
     ],
-    "generated_word": "Mmblorh",
+    "generated_word": "Krrashak",
     "model": "Qwen/Qwen3-32b-thinking",
     "language": "fr",
     "trial": "trial19"
@@ -12090,7 +12090,7 @@
       "pour exciter un chien à attaquer, à mordre.",
       "pour exciter une personne contre une autre."
     ],
-    "generated_word": "Mmblorh",
+    "generated_word": "Kraashven",
     "model": "Qwen/Qwen3-32b-thinking",
     "language": "fr",
     "trial": "trial19"
@@ -12100,7 +12100,7 @@
     "meaning": [
       "marque une sensation de froid."
     ],
-    "generated_word": "Mmblorh",
+    "generated_word": "Kshri",
     "model": "Qwen/Qwen3-32b-thinking",
     "language": "fr",
     "trial": "trial19"
@@ -12112,7 +12112,7 @@
       "Interjection d'insistance, de renforcement.",
       "Sert à transcrire le rire."
     ],
-    "generated_word": "Mmblorh",
+    "generated_word": "Khalumi",
     "model": "Qwen/Qwen3-32b-thinking",
     "language": "fr",
     "trial": "trial19"
@@ -12122,7 +12122,7 @@
     "meaning": [
       "accompagne un élan lorsqu'on porte un coup."
     ],
-    "generated_word": "Mmblorh",
+    "generated_word": "Krahtor",
     "model": "Qwen/Qwen3-32b-thinking",
     "language": "fr",
     "trial": "trial19"
@@ -12132,7 +12132,7 @@
     "meaning": [
       "Exclamation de douleur ou onomatopée imitant le bâillement, l'aboiement"
     ],
-    "generated_word": "Mmblorh",
+    "generated_word": "Aarrrkthoww",
     "model": "Qwen/Qwen3-32b-thinking",
     "language": "fr",
     "trial": "trial19"
@@ -12142,7 +12142,7 @@
     "meaning": [
       "bruit de l'aboiement d'un chien."
     ],
-    "generated_word": "Mmblorh",
+    "generated_word": "kravvra",
     "model": "Qwen/Qwen3-32b-thinking",
     "language": "fr",
     "trial": "trial19"
@@ -12152,7 +12152,7 @@
     "meaning": [
       "pour se récrier ou, plus souvent, paraître se récrier."
     ],
-    "generated_word": "Mmblorh",
+    "generated_word": "Vyrthra",
     "model": "Qwen/Qwen3-32b-thinking",
     "language": "fr",
     "trial": "trial19"
@@ -12162,7 +12162,7 @@
     "meaning": [
       "premiers sons du language émis par un bébé en signe de bien-être."
     ],
-    "generated_word": "Mmblorh",
+    "generated_word": "Lumaloo",
     "model": "Qwen/Qwen3-32b-thinking",
     "language": "fr",
     "trial": "trial19"
@@ -12183,7 +12183,7 @@
       "pour exciter un chien à attaquer, à mordre.",
       "pour exciter une personne contre une autre."
     ],
-    "generated_word": "Mmhalo",
+    "generated_word": "Kargh, Zirak, Shelthor, Vexor, Kaelthor",
     "model": "Qwen/Qwen3-32b-thinking",
     "language": "fr",
     "trial": "trial20"
@@ -12194,7 +12194,7 @@
       "pour exciter un chien à attaquer, à mordre.",
       "pour exciter une personne contre une autre."
     ],
-    "generated_word": "Mmhalo",
+    "generated_word": "Kargh",
     "model": "Qwen/Qwen3-32b-thinking",
     "language": "fr",
     "trial": "trial20"
@@ -12204,7 +12204,7 @@
     "meaning": [
       "marque une sensation de froid."
     ],
-    "generated_word": "Mmhalo",
+    "generated_word": "shil, skroth, kriyel, nemthor, morzil, vryth, glithor, thryx, zemphor, kryth",
     "model": "Qwen/Qwen3-32b-thinking",
     "language": "fr",
     "trial": "trial20"
@@ -12216,7 +12216,7 @@
       "Interjection d'insistance, de renforcement.",
       "Sert à transcrire le rire."
     ],
-    "generated_word": "Mmhalo",
+    "generated_word": "Zirrak, Vellum, Kraash, Hoom!, Tzirra!, Vraa!, Hahalor!, Kukulun!, Shishirra!",
     "model": "Qwen/Qwen3-32b-thinking",
     "language": "fr",
     "trial": "trial20"
@@ -12226,7 +12226,7 @@
     "meaning": [
       "accompagne un élan lorsqu'on porte un coup."
     ],
-    "generated_word": "Mmhalo",
+    "generated_word": "Kraash",
     "model": "Qwen/Qwen3-32b-thinking",
     "language": "fr",
     "trial": "trial20"
@@ -12236,7 +12236,7 @@
     "meaning": [
       "Exclamation de douleur ou onomatopée imitant le bâillement, l'aboiement"
     ],
-    "generated_word": "Mmhalo",
+    "generated_word": "Kraaah!",
     "model": "Qwen/Qwen3-32b-thinking",
     "language": "fr",
     "trial": "trial20"
@@ -12246,7 +12246,7 @@
     "meaning": [
       "bruit de l'aboiement d'un chien."
     ],
-    "generated_word": "Mmhalo",
+    "generated_word": "krat, prak, vokra, tokra, mokra, shavak, gruffa, zokra, bokra, ruffa",
     "model": "Qwen/Qwen3-32b-thinking",
     "language": "fr",
     "trial": "trial20"
@@ -12256,7 +12256,7 @@
     "meaning": [
       "pour se récrier ou, plus souvent, paraître se récrier."
     ],
-    "generated_word": "Mmhalo",
+    "generated_word": "Kraa! Zhooh! Vroo! Shraa! Tzii!",
     "model": "Qwen/Qwen3-32b-thinking",
     "language": "fr",
     "trial": "trial20"
@@ -12266,7 +12266,7 @@
     "meaning": [
       "premiers sons du language émis par un bébé en signe de bien-être."
     ],
-    "generated_word": "Mmhalo",
+    "generated_word": "Mewari, Nunu, Lumel, Gurru, Aroo, Oolu, Bibidi, Duludu, Pipili, Nanana, Mimimi, Titi, Lululu, Giggilu",
     "model": "Qwen/Qwen3-32b-thinking",
     "language": "fr",
     "trial": "trial20"
@@ -12287,7 +12287,7 @@
       "pour exciter un chien à attaquer, à mordre.",
       "pour exciter une personne contre une autre."
     ],
-    "generated_word": "Mullu",
+    "generated_word": "Karghul",
     "model": "Qwen/Qwen3-32b-thinking",
     "language": "fr",
     "trial": "trial21"
@@ -12298,7 +12298,7 @@
       "pour exciter un chien à attaquer, à mordre.",
       "pour exciter une personne contre une autre."
     ],
-    "generated_word": "Mullu",
+    "generated_word": "Kargh",
     "model": "Qwen/Qwen3-32b-thinking",
     "language": "fr",
     "trial": "trial21"
@@ -12308,7 +12308,7 @@
     "meaning": [
       "marque une sensation de froid."
     ],
-    "generated_word": "Mullu",
+    "generated_word": "glir, fris, tirn, svel, kris, vel, krin, tis, svel, frak, veln, kris, tir, svel, fris, glir, vel, krin, tis, svel",
     "model": "Qwen/Qwen3-32b-thinking",
     "language": "fr",
     "trial": "trial21"
@@ -12320,7 +12320,7 @@
       "Interjection d'insistance, de renforcement.",
       "Sert à transcrire le rire."
     ],
-    "generated_word": "Mullu",
+    "generated_word": "  \n1. **Zhelum** – *Pleasure* (soft, flowing syllables mimicking a sigh of delight)  \n2. **Kraash** – *Pain* (harsh, explosive consonants evoking sudden impact)  \n3. **Shelun** – *Admiration* (aspirated \"sh\" and \"l\" for a breathy, awed tone)  \n4. **Tik-tik** – *Impatience* (staccato repetition of \"tik\" like a ticking clock)  \n5. **Fyra** – *Astonishment* (sharp \"f\" and \"y\" for a gasp-like effect)  \n6. **Virel** – *Delight* (melodic \"vi\" + \"rel\" for a playful, rolling sound)  \n7. **Tzir** – *Agony* (raspy \"tz\" + \"ir\" to mimic a strained cry)  \n8. **Zirra** – *Urgency* (clipped \"zir\" + \"ra\" for a clipped, driving rhythm)  \n9. **Hehe** – *Laughter* (reduplicated \"he\" for a light, giggling tone)  \n10. **Hahah** – *Laughter* (stressed \"ha\" + \"hah\" for a boisterous, rolling chuckle)  \n11. **Mmeh** – *Insistence* (nasal \"m\" + \"meh\" to emphasize a stubborn tone)  \n12. **Krra** – *Insistence* (guttural \"kr\" + \"ra\" for a forceful, grating repetition)  \n",
     "model": "Qwen/Qwen3-32b-thinking",
     "language": "fr",
     "trial": "trial21"
@@ -12330,7 +12330,7 @@
     "meaning": [
       "accompagne un élan lorsqu'on porte un coup."
     ],
-    "generated_word": "Mullu",
+    "generated_word": "Krazhin",
     "model": "Qwen/Qwen3-32b-thinking",
     "language": "fr",
     "trial": "trial21"
@@ -12340,7 +12340,7 @@
     "meaning": [
       "Exclamation de douleur ou onomatopée imitant le bâillement, l'aboiement"
     ],
-    "generated_word": "Mullu",
+    "generated_word": "Kraaah!",
     "model": "Qwen/Qwen3-32b-thinking",
     "language": "fr",
     "trial": "trial21"
@@ -12350,7 +12350,7 @@
     "meaning": [
       "bruit de l'aboiement d'un chien."
     ],
-    "generated_word": "Mullu",
+    "generated_word": "Raffk",
     "model": "Qwen/Qwen3-32b-thinking",
     "language": "fr",
     "trial": "trial21"
@@ -12360,7 +12360,7 @@
     "meaning": [
       "pour se récrier ou, plus souvent, paraître se récrier."
     ],
-    "generated_word": "Mullu",
+    "generated_word": "Kraa! Tzepha. Vrill. Zhelum. Kshor. Plof. Frya. Klax. Zzim. Tzir.",
     "model": "Qwen/Qwen3-32b-thinking",
     "language": "fr",
     "trial": "trial21"
@@ -12370,7 +12370,7 @@
     "meaning": [
       "premiers sons du language émis par un bébé en signe de bien-être."
     ],
-    "generated_word": "Mullu",
+    "generated_word": "Mimé, Lilu, Nunu, Riré, Tutu, Pipé, Gurgul, Bébé, Flufu, Mélémé",
     "model": "Qwen/Qwen3-32b-thinking",
     "language": "fr",
     "trial": "trial21"
@@ -12391,7 +12391,7 @@
       "pour exciter un chien à attaquer, à mordre.",
       "pour exciter une personne contre une autre."
     ],
-    "generated_word": "mounh",
+    "generated_word": "Katsan",
     "model": "Qwen/Qwen3-32b-thinking",
     "language": "fr",
     "trial": "trial22"
@@ -12402,7 +12402,7 @@
       "pour exciter un chien à attaquer, à mordre.",
       "pour exciter une personne contre une autre."
     ],
-    "generated_word": "mounh",
+    "generated_word": "Krant",
     "model": "Qwen/Qwen3-32b-thinking",
     "language": "fr",
     "trial": "trial22"
@@ -12412,7 +12412,7 @@
     "meaning": [
       "marque une sensation de froid."
     ],
-    "generated_word": "mounh",
+    "generated_word": "frizal",
     "model": "Qwen/Qwen3-32b-thinking",
     "language": "fr",
     "trial": "trial22"
@@ -12424,7 +12424,7 @@
       "Interjection d'insistance, de renforcement.",
       "Sert à transcrire le rire."
     ],
-    "generated_word": "mounh",
+    "generated_word": "Loléé",
     "model": "Qwen/Qwen3-32b-thinking",
     "language": "fr",
     "trial": "trial22"
@@ -12434,7 +12434,7 @@
     "meaning": [
       "accompagne un élan lorsqu'on porte un coup."
     ],
-    "generated_word": "mounh",
+    "generated_word": "**Kraash**",
     "model": "Qwen/Qwen3-32b-thinking",
     "language": "fr",
     "trial": "trial22"
@@ -12444,7 +12444,7 @@
     "meaning": [
       "Exclamation de douleur ou onomatopée imitant le bâillement, l'aboiement"
     ],
-    "generated_word": "mounh",
+    "generated_word": "Kraaah",
     "model": "Qwen/Qwen3-32b-thinking",
     "language": "fr",
     "trial": "trial22"
@@ -12454,7 +12454,7 @@
     "meaning": [
       "bruit de l'aboiement d'un chien."
     ],
-    "generated_word": "mounh",
+    "generated_word": "Kraouf",
     "model": "Qwen/Qwen3-32b-thinking",
     "language": "fr",
     "trial": "trial22"
@@ -12464,7 +12464,7 @@
     "meaning": [
       "pour se récrier ou, plus souvent, paraître se récrier."
     ],
-    "generated_word": "mounh",
+    "generated_word": "Crin-crin",
     "model": "Qwen/Qwen3-32b-thinking",
     "language": "fr",
     "trial": "trial22"
@@ -12474,7 +12474,7 @@
     "meaning": [
       "premiers sons du language émis par un bébé en signe de bien-être."
     ],
-    "generated_word": "mounh",
+    "generated_word": "Mibou",
     "model": "Qwen/Qwen3-32b-thinking",
     "language": "fr",
     "trial": "trial22"
@@ -14974,5 +14974,109 @@
     "model": "Qwen/Qwen3-14b-thinking",
     "language": "fr",
     "trial": "trial22"
+  },
+  {
+    "original_word": "ach",
+    "meaning": [
+      "bruit marquant la satisfaction d'une personne après qu'elle a bu."
+    ],
+    "generated_word": "\n\nIt seems like your message might be empty. How can I assist you today? Feel free to ask a question or share what you'd like help with! 😊",
+    "model": "Qwen/Qwen3-32b-thinking",
+    "language": "fr",
+    "trial": "trial23"
+  },
+  {
+    "original_word": "acz",
+    "meaning": [
+      "pour exciter un chien à attaquer, à mordre.",
+      "pour exciter une personne contre une autre."
+    ],
+    "generated_word": "\n\nIt seems like your message might be empty. How can I assist you today? Feel free to ask a question or share what you'd like help with! 😊",
+    "model": "Qwen/Qwen3-32b-thinking",
+    "language": "fr",
+    "trial": "trial23"
+  },
+  {
+    "original_word": "acz acz",
+    "meaning": [
+      "pour exciter un chien à attaquer, à mordre.",
+      "pour exciter une personne contre une autre."
+    ],
+    "generated_word": "\n\nIt seems like your message might be empty. How can I assist you today? Feel free to ask a question or share what you'd like help with! 😊",
+    "model": "Qwen/Qwen3-32b-thinking",
+    "language": "fr",
+    "trial": "trial23"
+  },
+  {
+    "original_word": "agaga",
+    "meaning": [
+      "marque une sensation de froid."
+    ],
+    "generated_word": "\n\nIt seems like your message might be empty. How can I assist you today? Feel free to ask a question or share what you'd like help with! 😊",
+    "model": "Qwen/Qwen3-32b-thinking",
+    "language": "fr",
+    "trial": "trial23"
+  },
+  {
+    "original_word": "ah",
+    "meaning": [
+      "Marque un sentiment vif (plaisir, douleur, admiration, impatience, etc.).",
+      "Interjection d'insistance, de renforcement.",
+      "Sert à transcrire le rire."
+    ],
+    "generated_word": "\n\nIt seems like your message might be empty. How can I assist you today? Feel free to ask a question or share what you'd like help with! 😊",
+    "model": "Qwen/Qwen3-32b-thinking",
+    "language": "fr",
+    "trial": "trial23"
+  },
+  {
+    "original_word": "ahan",
+    "meaning": [
+      "accompagne un élan lorsqu'on porte un coup."
+    ],
+    "generated_word": "\n\nIt seems like your message might be empty. How can I assist you today? Feel free to ask a question or share what you'd like help with! 😊",
+    "model": "Qwen/Qwen3-32b-thinking",
+    "language": "fr",
+    "trial": "trial23"
+  },
+  {
+    "original_word": "ahouahou",
+    "meaning": [
+      "Exclamation de douleur ou onomatopée imitant le bâillement, l'aboiement"
+    ],
+    "generated_word": "\n\nIt seems like your message might be empty. How can I assist you today? Feel free to ask a question or share what you'd like help with! 😊",
+    "model": "Qwen/Qwen3-32b-thinking",
+    "language": "fr",
+    "trial": "trial23"
+  },
+  {
+    "original_word": "aou",
+    "meaning": [
+      "bruit de l'aboiement d'un chien."
+    ],
+    "generated_word": "\n\nIt seems like your message might be empty. How can I assist you today? Feel free to ask a question or share what you'd like help with! 😊",
+    "model": "Qwen/Qwen3-32b-thinking",
+    "language": "fr",
+    "trial": "trial23"
+  },
+  {
+    "original_word": "aouah",
+    "meaning": [
+      "pour se récrier ou, plus souvent, paraître se récrier."
+    ],
+    "generated_word": "\n\nIt seems like your message might be empty. How can I assist you today? Feel free to ask a question or share what you'd like help with! 😊",
+    "model": "Qwen/Qwen3-32b-thinking",
+    "language": "fr",
+    "trial": "trial23"
+  },
+  {
+    "original_word": "are-are",
+    "meaning": [
+      "premiers sons du language émis par un bébé en signe de bien-être."
+    ],
+    "generated_word": "\n\nIt seems like your message might be empty. How can I assist you today? Feel free to ask a question or share what you'd like help with! 😊",
+    "model": "Qwen/Qwen3-32b-thinking",
+    "language": "fr",
+    "trial": "trial23"
   }
 ]
