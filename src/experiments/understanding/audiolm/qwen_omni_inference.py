@@ -13,6 +13,7 @@ class QwenOmniMCQExperiment:
             model_path: str,
             data_path: str,
             output_dir: str,
+            exp_name: str,
             max_tokens: int = 32,
             temperature: float = 0.0,
     ):
@@ -21,6 +22,7 @@ class QwenOmniMCQExperiment:
         self.output_dir = output_dir
         self.max_tokens = max_tokens
         self.temperature = temperature
+        self.exp_name = exp_name
 
         # Load Qwen Omni model
         print(f"Loading Qwen Omni model from {self.model_path}")
@@ -49,10 +51,56 @@ class QwenOmniMCQExperiment:
         for query in tqdm(mcq_data):
             word = query['meta_data']['word']
             language = query['meta_data']['language']
-            if '<AUDIO>' in query['question']: # word -> meaning
-                question_first_part = query['question'].split("<AUDIO>")[0]
-                question_second_part = query['question'].split("<AUDIO>")[1]
-                audio_path = f'data/processed/nat/tts/{language}/{word}.wav'
+            if 'audio' in self.exp_name.lower(): # audio experiment
+                if '<AUDIO>' in query['question']: # word -> meaning
+                    question_first_part = query['question'].split("<AUDIO>")[0]
+                    question_second_part = query['question'].split("<AUDIO>")[1]
+                    audio_path = f'data/processed/nat/tts/{language}/{word}.wav'
+                    conversation = [
+                        {
+                            "role": "system",
+                            "content": [
+                                {"type": "text", "text": "You are Qwen, a virtual human developed by the Qwen Team, Alibaba Group, capable of perceiving auditory and visual inputs, as well as generating text and speech."}
+                            ],
+                        },
+                        {
+                            "role": "user",
+                            "content": [
+                                {"type": "text", "text": question_first_part},
+                                {"type": "audio", "audio": audio_path},
+                                {"type": "text", "text": question_second_part},
+                            ],
+                        },
+                    ]
+                else: # meaning -> word
+                    question_parts = re.split(r'<AUDIO: .*?>', query['question'])
+                    option_audio_paths = []
+                    for option in query['options_info']:
+                        option_audio_paths.append(f'data/processed/nat/tts/{option["language"]}/{option["text"]}.wav')
+                        # check if the audio file exists
+                        if not os.path.exists(option_audio_paths[-1]):
+                            raise FileNotFoundError(f"Audio file not found: {option_audio_paths[-1]}")
+
+                    # Build content list dynamically
+                    content = [{"type": "text", "text": question_parts[0]}]
+                    for i in range(len(option_audio_paths)):
+                        content.append({"type": "audio", "audio": option_audio_paths[i]})
+                        if i + 1 < len(question_parts):
+                            content.append({"type": "text", "text": question_parts[i + 1]})
+
+                    conversation = [
+                        {
+                            "role": "system",
+                            "content": [
+                                {"type": "text", "text": "You are Qwen, a virtual human developed by the Qwen Team, Alibaba Group, capable of perceiving auditory and visual inputs, as well as generating text and speech."}
+                            ],
+                        },
+                        {
+                            "role": "user",
+                            "content": content,
+                        },
+                    ]
+            else: # text experiment
                 conversation = [
                     {
                         "role": "system",
@@ -63,38 +111,8 @@ class QwenOmniMCQExperiment:
                     {
                         "role": "user",
                         "content": [
-                            {"type": "text", "text": question_first_part},
-                            {"type": "audio", "audio": audio_path},
-                            {"type": "text", "text": question_second_part},
+                            {"type": "text", "text": query['question']},
                         ],
-                    },
-                ]
-            else: # meaning -> word
-                question_parts = re.split(r'<AUDIO: .*?>', query['question'])
-                option_audio_paths = []
-                for option in query['options_info']:
-                    option_audio_paths.append(f'data/processed/nat/tts/{option["language"]}/{option["text"]}.wav')
-                    # check if the audio file exists
-                    if not os.path.exists(option_audio_paths[-1]):
-                        raise FileNotFoundError(f"Audio file not found: {option_audio_paths[-1]}")
-
-                # Build content list dynamically
-                content = [{"type": "text", "text": question_parts[0]}]
-                for i in range(len(option_audio_paths)):
-                    content.append({"type": "audio", "audio": option_audio_paths[i]})
-                    if i + 1 < len(question_parts):
-                        content.append({"type": "text", "text": question_parts[i + 1]})
-
-                conversation = [
-                    {
-                        "role": "system",
-                        "content": [
-                            {"type": "text", "text": "You are Qwen, a virtual human developed by the Qwen Team, Alibaba Group, capable of perceiving auditory and visual inputs, as well as generating text and speech."}
-                        ],
-                    },
-                    {
-                        "role": "user",
-                        "content": content,
                     },
                 ]
 
@@ -204,6 +222,7 @@ if __name__ == "__main__":
     parser.add_argument("--output", '-o', type=str, default="results/experiments/understanding", help="Directory to save results")
     parser.add_argument("--max-tokens", type=int, default=32, help="Maximum tokens to generate")
     parser.add_argument("--temperature", type=float, default=0.0, help="Sampling temperature")
+    parser.add_argument("--exp-name", type=str, required=True, help="Name of the experiment")
     
     args = parser.parse_args()
 
@@ -213,6 +232,7 @@ if __name__ == "__main__":
         output_dir=args.output,
         max_tokens=args.max_tokens,
         temperature=args.temperature,
+        exp_name=args.exp_name,
     )
     
     results, results_filename = experiment.run_mcq_experiment()
