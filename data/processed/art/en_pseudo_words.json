@@ -9614,7 +9614,7 @@
     "meaning": [
       "Representing the sound of a sneeze."
     ],
-    "generated_word": "Lumara",
+    "generated_word": "",
     "model": "google/gemma-3-1b-it",
     "language": "en",
     "trial": "trial6"
@@ -9624,7 +9624,7 @@
     "meaning": [
       "Representing the sound of a sneeze."
     ],
-    "generated_word": "Lumara",
+    "generated_word": "",
     "model": "google/gemma-3-1b-it",
     "language": "en",
     "trial": "trial6"
@@ -9634,7 +9634,7 @@
     "meaning": [
       "Representing the sound of a sneeze."
     ],
-    "generated_word": "Lumara",
+    "generated_word": "",
     "model": "google/gemma-3-1b-it",
     "language": "en",
     "trial": "trial6"
@@ -9644,7 +9644,7 @@
     "meaning": [
       "An exclamation representing a slight cough or clearing of the throat, used (a) to attract attention, esp. prior to speaking (b) to express hesitation, (mock) disapproval, embarrassment, suggestiveness, etc."
     ],
-    "generated_word": "Lumara",
+    "generated_word": "",
     "model": "google/gemma-3-1b-it",
     "language": "en",
     "trial": "trial6"
@@ -9654,7 +9654,7 @@
     "meaning": [
       "An exclamation of surprise, regret, pain, etc., often used in imitation of foreign speakers of English."
     ],
-    "generated_word": "Lumara",
+    "generated_word": "",
     "model": "google/gemma-3-1b-it",
     "language": "en",
     "trial": "trial6"
@@ -9664,7 +9664,7 @@
     "meaning": [
       "Awailing exclamation of resignation, surprise, regret, alarm, etc.; sometimes imitative of non-British speakers of English."
     ],
-    "generated_word": "Lumara",
+    "generated_word": "",
     "model": "google/gemma-3-1b-it",
     "language": "en",
     "trial": "trial6"
@@ -9674,7 +9674,7 @@
     "meaning": [
       "A cry of sorrow or lamentation."
     ],
-    "generated_word": "Lumara",
+    "generated_word": "",
     "model": "google/gemma-3-1b-it",
     "language": "en",
     "trial": "trial6"
@@ -9684,7 +9684,7 @@
     "meaning": [
       "Representing the bark of a (small) dog, or a human imitation of such a bark."
     ],
-    "generated_word": "Lumara",
+    "generated_word": "bark-ryn",
     "model": "google/gemma-3-1b-it",
     "language": "en",
     "trial": "trial6"
@@ -9694,7 +9694,7 @@
     "meaning": [
       "Expressing pain or fright; (also) expressing anguish, disappointment, or frustration."
     ],
-    "generated_word": "Lumara",
+    "generated_word": "Morsh",
     "model": "google/gemma-3-1b-it",
     "language": "en",
     "trial": "trial6"
@@ -9814,7 +9814,7 @@
     "meaning": [
       "Representing the sound of a sneeze."
     ],
-    "generated_word": "shimmer-glow",
+    "generated_word": "sneech-whirr",
     "model": "google/gemma-3-1b-it",
     "language": "en",
     "trial": "trial13"
@@ -9824,7 +9824,7 @@
     "meaning": [
       "Representing the sound of a sneeze."
     ],
-    "generated_word": "shimmer-glow",
+    "generated_word": "sneech-whirr",
     "model": "google/gemma-3-1b-it",
     "language": "en",
     "trial": "trial13"
@@ -9834,7 +9834,7 @@
     "meaning": [
       "Representing the sound of a sneeze."
     ],
-    "generated_word": "shimmer-glow",
+    "generated_word": "sneech-whirr",
     "model": "google/gemma-3-1b-it",
     "language": "en",
     "trial": "trial13"
@@ -9844,7 +9844,7 @@
     "meaning": [
       "An exclamation representing a slight cough or clearing of the throat, used (a) to attract attention, esp. prior to speaking (b) to express hesitation, (mock) disapproval, embarrassment, suggestiveness, etc."
     ],
-    "generated_word": "shimmer-glow",
+    "generated_word": "",
     "model": "google/gemma-3-1b-it",
     "language": "en",
     "trial": "trial13"
@@ -9854,7 +9854,7 @@
     "meaning": [
       "An exclamation of surprise, regret, pain, etc., often used in imitation of foreign speakers of English."
     ],
-    "generated_word": "shimmer-glow",
+    "generated_word": "",
     "model": "google/gemma-3-1b-it",
     "language": "en",
     "trial": "trial13"
@@ -9864,7 +9864,7 @@
     "meaning": [
       "Awailing exclamation of resignation, surprise, regret, alarm, etc.; sometimes imitative of non-British speakers of English."
     ],
-    "generated_word": "shimmer-glow",
+    "generated_word": "",
     "model": "google/gemma-3-1b-it",
     "language": "en",
     "trial": "trial13"
@@ -9874,7 +9874,7 @@
     "meaning": [
       "A cry of sorrow or lamentation."
     ],
-    "generated_word": "shimmer-glow",
+    "generated_word": "huff-whimper, sob-scrape, tear-crash, muted-silence, hollow-sigh, lament-echo",
     "model": "google/gemma-3-1b-it",
     "language": "en",
     "trial": "trial13"
@@ -9884,7 +9884,7 @@
     "meaning": [
       "Representing the bark of a (small) dog, or a human imitation of such a bark."
     ],
-    "generated_word": "shimmer-glow",
+    "generated_word": "",
     "model": "google/gemma-3-1b-it",
     "language": "en",
     "trial": "trial13"
@@ -9894,7 +9894,7 @@
     "meaning": [
       "Expressing pain or fright; (also) expressing anguish, disappointment, or frustration."
     ],
-    "generated_word": "shimmer-glow",
+    "generated_word": "",
     "model": "google/gemma-3-1b-it",
     "language": "en",
     "trial": "trial13"
@@ -9914,7 +9914,7 @@
     "meaning": [
       "Representing the sound of a sneeze."
     ],
-    "generated_word": "k'tharr'la",
+    "generated_word": "snee-k'thul",
     "model": "google/gemma-3-1b-it",
     "language": "en",
     "trial": "trial14"
@@ -9924,7 +9924,7 @@
     "meaning": [
       "Representing the sound of a sneeze."
     ],
-    "generated_word": "k'tharr'la",
+    "generated_word": "snee-k'thul",
     "model": "google/gemma-3-1b-it",
     "language": "en",
     "trial": "trial14"
@@ -9934,7 +9934,7 @@
     "meaning": [
       "Representing the sound of a sneeze."
     ],
-    "generated_word": "k'tharr'la",
+    "generated_word": "snee-k'thul",
     "model": "google/gemma-3-1b-it",
     "language": "en",
     "trial": "trial14"
@@ -9944,7 +9944,7 @@
     "meaning": [
       "An exclamation representing a slight cough or clearing of the throat, used (a) to attract attention, esp. prior to speaking (b) to express hesitation, (mock) disapproval, embarrassment, suggestiveness, etc."
     ],
-    "generated_word": "k'tharr'la",
+    "generated_word": "k’th’ra’n",
     "model": "google/gemma-3-1b-it",
     "language": "en",
     "trial": "trial14"
@@ -9954,7 +9954,7 @@
     "meaning": [
       "An exclamation of surprise, regret, pain, etc., often used in imitation of foreign speakers of English."
     ],
-    "generated_word": "k'tharr'la",
+    "generated_word": "k’th’ra’n’th’ra",
     "model": "google/gemma-3-1b-it",
     "language": "en",
     "trial": "trial14"
@@ -9964,7 +9964,7 @@
     "meaning": [
       "Awailing exclamation of resignation, surprise, regret, alarm, etc.; sometimes imitative of non-British speakers of English."
     ],
-    "generated_word": "k'tharr'la",
+    "generated_word": "silvafall",
     "model": "google/gemma-3-1b-it",
     "language": "en",
     "trial": "trial14"
@@ -9974,7 +9974,7 @@
     "meaning": [
       "A cry of sorrow or lamentation."
     ],
-    "generated_word": "k'tharr'la",
+    "generated_word": "sil'thara",
     "model": "google/gemma-3-1b-it",
     "language": "en",
     "trial": "trial14"
@@ -9984,7 +9984,7 @@
     "meaning": [
       "Representing the bark of a (small) dog, or a human imitation of such a bark."
     ],
-    "generated_word": "k'tharr'la",
+    "generated_word": "k’th’ra’n’s’ sh’ar’la’!",
     "model": "google/gemma-3-1b-it",
     "language": "en",
     "trial": "trial14"
@@ -9994,7 +9994,7 @@
     "meaning": [
       "Expressing pain or fright; (also) expressing anguish, disappointment, or frustration."
     ],
-    "generated_word": "k'tharr'la",
+    "generated_word": "syl’thara",
     "model": "google/gemma-3-1b-it",
     "language": "en",
     "trial": "trial14"
@@ -10014,7 +10014,7 @@
     "meaning": [
       "Representing the sound of a sneeze."
     ],
-    "generated_word": "Lúmëth.",
+    "generated_word": "Snee-whirl.",
     "model": "google/gemma-3-1b-it",
     "language": "en",
     "trial": "trial15"
@@ -10024,7 +10024,7 @@
     "meaning": [
       "Representing the sound of a sneeze."
     ],
-    "generated_word": "Lúmëth.",
+    "generated_word": "Snee-whirl.",
     "model": "google/gemma-3-1b-it",
     "language": "en",
     "trial": "trial15"
@@ -10034,7 +10034,7 @@
     "meaning": [
       "Representing the sound of a sneeze."
     ],
-    "generated_word": "Lúmëth.",
+    "generated_word": "Snee-whirl.",
     "model": "google/gemma-3-1b-it",
     "language": "en",
     "trial": "trial15"
@@ -10044,7 +10044,7 @@
     "meaning": [
       "An exclamation representing a slight cough or clearing of the throat, used (a) to attract attention, esp. prior to speaking (b) to express hesitation, (mock) disapproval, embarrassment, suggestiveness, etc."
     ],
-    "generated_word": "Lúmëth.",
+    "generated_word": "K’tharr’thun.",
     "model": "google/gemma-3-1b-it",
     "language": "en",
     "trial": "trial15"
@@ -10054,7 +10054,7 @@
     "meaning": [
       "An exclamation of surprise, regret, pain, etc., often used in imitation of foreign speakers of English."
     ],
-    "generated_word": "Lúmëth.",
+    "generated_word": "*   **Kryll-shh**",
     "model": "google/gemma-3-1b-it",
     "language": "en",
     "trial": "trial15"
@@ -10064,7 +10064,7 @@
     "meaning": [
       "Awailing exclamation of resignation, surprise, regret, alarm, etc.; sometimes imitative of non-British speakers of English."
     ],
-    "generated_word": "Lúmëth.",
+    "generated_word": "*   **Silensh**",
     "model": "google/gemma-3-1b-it",
     "language": "en",
     "trial": "trial15"
@@ -10084,7 +10084,7 @@
     "meaning": [
       "Representing the bark of a (small) dog, or a human imitation of such a bark."
     ],
-    "generated_word": "Lúmëth.",
+    "generated_word": "K’tharr’thul.",
     "model": "google/gemma-3-1b-it",
     "language": "en",
     "trial": "trial15"
@@ -10094,7 +10094,7 @@
     "meaning": [
       "Expressing pain or fright; (also) expressing anguish, disappointment, or frustration."
     ],
-    "generated_word": "Lúmëth.",
+    "generated_word": "Kry’thal’dor.",
     "model": "google/gemma-3-1b-it",
     "language": "en",
     "trial": "trial15"
@@ -10114,7 +10114,7 @@
     "meaning": [
       "Representing the sound of a sneeze."
     ],
-    "generated_word": "*   hyl’thara\n*   k’th’lar\n*   zo’th’nar\n*   s’th’nar\n*   glim’thara\n*   vo’th’nar\n*   ryn’thara\n*   f’th’nar\n*   sha’th’nar",
+    "generated_word": "*   hiss\n*   wheeze\n*   puff\n*   snap\n*   boing\n*   sizzle\n*   thump\n*   shush\n*   whoosh\n*   blip\n*   gurgle\n*   crash",
     "model": "google/gemma-3-1b-it",
     "language": "en",
     "trial": "trial16"
@@ -10124,7 +10124,7 @@
     "meaning": [
       "Representing the sound of a sneeze."
     ],
-    "generated_word": "*   hyl’thara\n*   k’th’lar\n*   zo’th’nar\n*   s’th’nar\n*   glim’thara\n*   vo’th’nar\n*   ryn’thara\n*   f’th’nar\n*   sha’th’nar",
+    "generated_word": "*   hiss\n*   wheeze\n*   puff\n*   snap\n*   sizzle\n*   boing\n*   thump\n*   shush\n*   whoosh\n*   blip\n*   gurgle\n*   crash",
     "model": "google/gemma-3-1b-it",
     "language": "en",
     "trial": "trial16"
@@ -10134,7 +10134,7 @@
     "meaning": [
       "Representing the sound of a sneeze."
     ],
-    "generated_word": "*   hyl’thara\n*   k’th’lar\n*   zo’th’nar\n*   s’th’nar\n*   glim’thara\n*   vo’th’nar\n*   ryn’thara\n*   f’th’nar\n*   sha’th’nar",
+    "generated_word": "*   hiss\n*   wheeze\n*   puff\n*   snap\n*   sizzle\n*   boing\n*   thump\n*   shush\n*   whoosh\n*   blip\n*   gurgle\n*   crash",
     "model": "google/gemma-3-1b-it",
     "language": "en",
     "trial": "trial16"
@@ -10144,7 +10144,7 @@
     "meaning": [
       "An exclamation representing a slight cough or clearing of the throat, used (a) to attract attention, esp. prior to speaking (b) to express hesitation, (mock) disapproval, embarrassment, suggestiveness, etc."
     ],
-    "generated_word": "*   hyl’thara\n*   k’th’lar\n*   zo’th’nar\n*   s’th’nar\n*   glim’thara\n*   vo’th’nar\n*   ryn’thara\n*   f’th’nar\n*   sha’th’nar",
+    "generated_word": "*   huff\n*   wheeze\n*   chuff\n*   sneeze\n*   glug\n*   rip\n*   zhump\n*   hiss\n*   puff\n*   sniff\n*   wheeze-ish\n*   slurp\n*   gurgle\n*   boing\n*   click\n*   tap\n*   thump\n*   whisper\n*   murmur\n*   buzz\n*   shush\n*   rip-it\n*   squeak\n*   hiss-a\n*   puff-a\n*   sniff-a\n*   glug-a\n*   chuff-a",
     "model": "google/gemma-3-1b-it",
     "language": "en",
     "trial": "trial16"
@@ -10154,7 +10154,7 @@
     "meaning": [
       "An exclamation of surprise, regret, pain, etc., often used in imitation of foreign speakers of English."
     ],
-    "generated_word": "*   hyl’thara\n*   k’th’lar\n*   zo’th’nar\n*   s’th’nar\n*   glim’thara\n*   vo’th’nar\n*   ryn’thara\n*   f’th’nar\n*   sha’th’nar",
+    "generated_word": "*   shhì\n*   křep\n*   hül\n*   dū\n*   glōr\n*   sōr\n*   fōr\n*   mōr\n*   tōr\n*   vōr\n*   lōr\n*   zōr",
     "model": "google/gemma-3-1b-it",
     "language": "en",
     "trial": "trial16"
@@ -10164,7 +10164,7 @@
     "meaning": [
       "Awailing exclamation of resignation, surprise, regret, alarm, etc.; sometimes imitative of non-British speakers of English."
     ],
-    "generated_word": "*   hyl’thara\n*   k’th’lar\n*   zo’th’nar\n*   s’th’nar\n*   glim’thara\n*   vo’th’nar\n*   ryn’thara\n*   f’th’nar\n*   sha’th’nar",
+    "generated_word": "*   hush\n*   shush\n*   grim\n*   flutter\n*   sigh\n*   wail\n*   moan\n*   snap\n*   thump\n*   echo\n*   fade\n*   ripple\n*   slip\n*   buzz\n*   whirr\n*   clang\n*   murmur\n*   droop\n*   tremble\n*   sizzle\n*   crack\n*   scream\n*   whisper\n*   rustle\n*   hush",
     "model": "google/gemma-3-1b-it",
     "language": "en",
     "trial": "trial16"
@@ -10174,7 +10174,7 @@
     "meaning": [
       "A cry of sorrow or lamentation."
     ],
-    "generated_word": "*   hyl’thara\n*   k’th’lar\n*   zo’th’nar\n*   s’th’nar\n*   glim’thara\n*   vo’th’nar\n*   ryn’thara\n*   f’th’nar\n*   sha’th’nar",
+    "generated_word": "*   hush\n*   weep\n*   moan\n*   sigh\n*   tear\n*   groan\n*   wail\n*   despair\n*   sorrow\n*   anguish\n*   melancholy\n*   grave\n*   shadow\n*   lost",
     "model": "google/gemma-3-1b-it",
     "language": "en",
     "trial": "trial16"
@@ -10184,7 +10184,7 @@
     "meaning": [
       "Representing the bark of a (small) dog, or a human imitation of such a bark."
     ],
-    "generated_word": "*   hyl’thara\n*   k’th’lar\n*   zo’th’nar\n*   s’th’nar\n*   glim’thara\n*   vo’th’nar\n*   ryn’thara\n*   f’th’nar\n*   sha’th’nar",
+    "generated_word": "*   woof-shh\n*   grrr-whine\n*   ribbit-bark\n*   hiss-moo\n*   purr-growl\n*   sniff-bark\n*   clatter-woof\n*   hum-bark\n*   tap-woof\n*   soft-bark",
     "model": "google/gemma-3-1b-it",
     "language": "en",
     "trial": "trial16"
@@ -10194,7 +10194,7 @@
     "meaning": [
       "Expressing pain or fright; (also) expressing anguish, disappointment, or frustration."
     ],
-    "generated_word": "*   hyl’thara\n*   k’th’lar\n*   zo’th’nar\n*   s’th’nar\n*   glim’thara\n*   vo’th’nar\n*   ryn’thara\n*   f’th’nar\n*   sha’th’nar",
+    "generated_word": "*   hrumm\n*   shhh\n*   grrr\n*   wheeze\n*   clang\n*   squeak\n*   wail\n*   moan\n*   cry\n*   groan\n*   snap\n*   thump\n*   buzz\n*   whirr\n*   rip\n*   sizzle\n*   hiss\n*   flutter\n*   drip\n*   crash\n*   sizzle",
     "model": "google/gemma-3-1b-it",
     "language": "en",
     "trial": "trial16"
@@ -10214,7 +10214,7 @@
     "meaning": [
       "Representing the sound of a sneeze."
     ],
-    "generated_word": "sh’lo’rin, k’tharr, zyl’thum, v’thara, glo’m’nar, sh’th’lar, z’th’el, v’sh’nar.",
+    "generated_word": "š’t’h’n’k’r’t",
     "model": "google/gemma-3-1b-it",
     "language": "en",
     "trial": "trial17"
@@ -10224,7 +10224,7 @@
     "meaning": [
       "Representing the sound of a sneeze."
     ],
-    "generated_word": "sh’lo’rin, k’tharr, zyl’thum, v’thara, glo’m’nar, sh’th’lar, z’th’el, v’sh’nar.",
+    "generated_word": "š’t’h’n’k’r’t’s,  v’t’n’k’r’t’s,  s’h’t’n’k’r’t’s,  d’h’n’k’r’t’s,  k’t’n’k’r’t’s,  s’h’t’n’k’r’t’s.",
     "model": "google/gemma-3-1b-it",
     "language": "en",
     "trial": "trial17"
@@ -10234,7 +10234,7 @@
     "meaning": [
       "Representing the sound of a sneeze."
     ],
-    "generated_word": "sh’lo’rin, k’tharr, zyl’thum, v’thara, glo’m’nar, sh’th’lar, z’th’el, v’sh’nar.",
+    "generated_word": "š’t’h’n’k’r’t’s,  v’t’n’k’r’t’s,  s’h’t’n’k’r’t’s,  d’h’n’k’r’t’s,  k’t’n’k’r’t’s,  s’h’t’n’k’r’t’s.",
     "model": "google/gemma-3-1b-it",
     "language": "en",
     "trial": "trial17"
@@ -10244,7 +10244,7 @@
     "meaning": [
       "An exclamation representing a slight cough or clearing of the throat, used (a) to attract attention, esp. prior to speaking (b) to express hesitation, (mock) disapproval, embarrassment, suggestiveness, etc."
     ],
-    "generated_word": "sh’lo’rin, k’tharr, zyl’thum, v’thara, glo’m’nar, sh’th’lar, z’th’el, v’sh’nar.",
+    "generated_word": "Here’s a possible vocabulary for that concept, in a constructed language inspired by a vaguely Slavic/Eastern European feel, with a focus on evocative sounds:\n\n*   **Hoo-shh:** (A soft, slightly anxious “h” sound, like a breath)\n*   **Zhuk:** (A short, sharp, almost popping sound – like a slight cough)\n*   **Squeak-a:** (A quick, delicate, almost hesitant “squeak”)\n*   **Ploosh:** (A brief, airy sound, like air rushing out)\n*   **Chirp-a:** (A quick, light, questioning “ch” sound)\n*   **Bloop-a:** (A gentle, watery sound)\n*   **Wha-shh:** (A drawn-out, slightly breathless “h”)\n*   **Kree-zhuk:** (A low, rumbling “k” sound, with a slight pause)\n*   **Shhh-a:** (A very quiet, almost imperceptible “sh”)\n*   **Tsk-a:** (A short, subtle, negative sound – like a slight sigh)\n\n---\n\nLet me know if you'd like more options or variations!",
     "model": "google/gemma-3-1b-it",
     "language": "en",
     "trial": "trial17"
@@ -10254,7 +10254,7 @@
     "meaning": [
       "An exclamation of surprise, regret, pain, etc., often used in imitation of foreign speakers of English."
     ],
-    "generated_word": "sh’lo’rin, k’tharr, zyl’thum, v’thara, glo’m’nar, sh’th’lar, z’th’el, v’sh’nar.",
+    "generated_word": "Here’s a possible vocabulary for that phrase, aiming for a slightly archaic, evocative feel:\n\n*   *shh-kree*\n*   *harr-thrum*\n*   *gleep-whirr*\n*   *floop-sizzle*\n*   *zhump-a*\n*   *kree-whump*\n*   *mizzle-snap*\n*   *drip-sigh*\n*   *wheeze-crash*\n*   *blip-moan*\n*   *thrum-crash*\n*   *shh-sizzle*",
     "model": "google/gemma-3-1b-it",
     "language": "en",
     "trial": "trial17"
@@ -10264,7 +10264,7 @@
     "meaning": [
       "Awailing exclamation of resignation, surprise, regret, alarm, etc.; sometimes imitative of non-British speakers of English."
     ],
-    "generated_word": "sh’lo’rin, k’tharr, zyl’thum, v’thara, glo’m’nar, sh’th’lar, z’th’el, v’sh’nar.",
+    "generated_word": "Here’s a possible vocabulary for that concept, aiming for a slightly evocative and slightly strange feel:\n\n*   *shimmersh* (for a quiet, resigned sigh)\n*   *clink-whistle* (a subtle, mournful sound)\n*   *hush-thrum* (a low, vibrating feeling of disappointment)\n*   *rip-snap* (a quick, anxious sound)\n*   *flutter-sigh* (a brief, airy lament)\n*   *drip-soft* (a slow, heavy feeling of loss)\n*   *wheeze-low* (a breathy, defeated sound)\n*   *grumble-buzz* (a low, indistinct murmur of despair)\n*   *snap-echo* (a brief, distorted sound of memory)\n*   *silence-sigh* (a prolonged, quiet resignation)",
     "model": "google/gemma-3-1b-it",
     "language": "en",
     "trial": "trial17"
@@ -10274,7 +10274,7 @@
     "meaning": [
       "A cry of sorrow or lamentation."
     ],
-    "generated_word": "sh’lo’rin, k’tharr, zyl’thum, v’thara, glo’m’nar, sh’th’lar, z’th’el, v’sh’nar.",
+    "generated_word": "s’h’u’l’m’i’n’t’",
     "model": "google/gemma-3-1b-it",
     "language": "en",
     "trial": "trial17"
@@ -10284,7 +10284,7 @@
     "meaning": [
       "Representing the bark of a (small) dog, or a human imitation of such a bark."
     ],
-    "generated_word": "sh’lo’rin, k’tharr, zyl’thum, v’thara, glo’m’nar, sh’th’lar, z’th’el, v’sh’nar.",
+    "generated_word": "grumble-whistle, snort-click, woof-hum, yip-tap, shiver-buzz, rasp-echo, wheeze-tone, thump-soft, hiss-click, croak-snap.",
     "model": "google/gemma-3-1b-it",
     "language": "en",
     "trial": "trial17"
@@ -10294,7 +10294,7 @@
     "meaning": [
       "Expressing pain or fright; (also) expressing anguish, disappointment, or frustration."
     ],
-    "generated_word": "sh’lo’rin, k’tharr, zyl’thum, v’thara, glo’m’nar, sh’th’lar, z’th’el, v’sh’nar.",
+    "generated_word": "Here’s a possible vocabulary for that phrase, in a constructed language (let’s call it “Silvan”), aiming for evocative sounds:\n\n*   **Shriek** (a sharp, distressed cry)\n*   **Hoo-whirr** (a low, anxious vibration)\n*   **Groan** (a deep, heavy sigh)\n*   **Tick-tock** (a slow, persistent rhythm of distress)\n*   **Wail** (a prolonged, mournful sound)\n*   **Crackle** (a brittle, painful sound)\n*   **Sigh-swoosh** (a breathy, heavy sigh)\n*   **Plink** (a small, sharp, painful sound)\n*   **Thrum** (a low, resonant vibration of suffering)\n*   **Resound** (a deep, echoing feeling of loss)\n*   **Shiver-buzz** (a rapid, unsettling vibration)\n\n---\n\nLet me know if you'd like more options or want to refine this further!",
     "model": "google/gemma-3-1b-it",
     "language": "en",
     "trial": "trial17"
@@ -10314,7 +10314,7 @@
     "meaning": [
       "Representing the sound of a sneeze."
     ],
-    "generated_word": "lumiflora-k'tharr, shimmersong, aeth'ra, hyl'thara, glim-vo, vora-k'tharr, flow-thara, zith-glow, re-lum, k'tharr-glow, s'thara, flow-a, shimmersong-a.",
+    "generated_word": "‘Sneeze-K’ (Sneeze-k – a short, sharp, slightly nasal sound, like a quick exhale)**\n\n",
     "model": "google/gemma-3-1b-it",
     "language": "en",
     "trial": "trial18"
@@ -10324,7 +10324,7 @@
     "meaning": [
       "Representing the sound of a sneeze."
     ],
-    "generated_word": "lumiflora-k'tharr, shimmersong, aeth'ra, hyl'thara, glim-vo, vora-k'tharr, flow-thara, zith-glow, re-lum, k'tharr-glow, s'thara, flow-a, shimmersong-a.",
+    "generated_word": "‘Sneeze-K’ (Sneeze-k – a short, sharp, slightly nasal sound, like a quick exhale)**\n\n",
     "model": "google/gemma-3-1b-it",
     "language": "en",
     "trial": "trial18"
@@ -10334,7 +10334,7 @@
     "meaning": [
       "Representing the sound of a sneeze."
     ],
-    "generated_word": "lumiflora-k'tharr, shimmersong, aeth'ra, hyl'thara, glim-vo, vora-k'tharr, flow-thara, zith-glow, re-lum, k'tharr-glow, s'thara, flow-a, shimmersong-a.",
+    "generated_word": "‘Sneeze-K’ (Sneeze-k – a short, sharp, slightly nasal sound, like a quick exhale)**\n\n",
     "model": "google/gemma-3-1b-it",
     "language": "en",
     "trial": "trial18"
@@ -10344,7 +10344,7 @@
     "meaning": [
       "An exclamation representing a slight cough or clearing of the throat, used (a) to attract attention, esp. prior to speaking (b) to express hesitation, (mock) disapproval, embarrassment, suggestiveness, etc."
     ],
-    "generated_word": "lumiflora-k'tharr, shimmersong, aeth'ra, hyl'thara, glim-vo, vora-k'tharr, flow-thara, zith-glow, re-lum, k'tharr-glow, s'thara, flow-a, shimmersong-a.",
+    "generated_word": "[**shh-k’th’ra** (pronounced: shh-k’th’ra),**  **h’th’ra-m’la** (pronounced: h’th’ra-m’la),** **zh’th’ra-lo** (pronounced: zh’th’ra-lo),** **k’th’ra-whee** (pronounced: k’th’ra-whee),**  **s’th’ra-ling** (pronounced: s’th’ra-ling),**  **m’th’ra-sh’un** (pronounced: m’th’ra-sh’un),**  **gl’th’ra-f’en** (pronounced: gl’th’ra-f’en),**  **th’ra-k’th’ra-na** (pronounced: th’ra-k’th’ra-na),**  **zh’th’ra-ka** (pronounced: zh’th’ra-ka),**  **k’th’ra-vo** (pronounced: k’th’ra-vo),**  **sh’th’ra-la** (pronounced: sh’th’ra-la),**  **h’th’ra-si** (pronounced: h’th’ra-si),**  **m’th’ra-sh’un’ka** (pronounced: m’th’ra-sh’un’ka),**  **gl’th’ra-f’en’ka** (pronounced: gl’th’ra-f’en’ka),**  **k’th’ra-whee-ka** (pronounced: k’th’ra-whee-ka),**  **sh’th’ra-la-ka** (pronounced: sh’th’ra-la-ka)]",
     "model": "google/gemma-3-1b-it",
     "language": "en",
     "trial": "trial18"
@@ -10354,7 +10354,7 @@
     "meaning": [
       "An exclamation of surprise, regret, pain, etc., often used in imitation of foreign speakers of English."
     ],
-    "generated_word": "lumiflora-k'tharr, shimmersong, aeth'ra, hyl'thara, glim-vo, vora-k'tharr, flow-thara, zith-glow, re-lum, k'tharr-glow, s'thara, flow-a, shimmersong-a.",
+    "generated_word": "",
     "model": "google/gemma-3-1b-it",
     "language": "en",
     "trial": "trial18"
@@ -10364,7 +10364,7 @@
     "meaning": [
       "Awailing exclamation of resignation, surprise, regret, alarm, etc.; sometimes imitative of non-British speakers of English."
     ],
-    "generated_word": "lumiflora-k'tharr, shimmersong, aeth'ra, hyl'thara, glim-vo, vora-k'tharr, flow-thara, zith-glow, re-lum, k'tharr-glow, s'thara, flow-a, shimmersong-a.",
+    "generated_word": "",
     "model": "google/gemma-3-1b-it",
     "language": "en",
     "trial": "trial18"
@@ -10374,7 +10374,7 @@
     "meaning": [
       "A cry of sorrow or lamentation."
     ],
-    "generated_word": "lumiflora-k'tharr, shimmersong, aeth'ra, hyl'thara, glim-vo, vora-k'tharr, flow-thara, zith-glow, re-lum, k'tharr-glow, s'thara, flow-a, shimmersong-a.",
+    "generated_word": "ழίντά (zhìntá)",
     "model": "google/gemma-3-1b-it",
     "language": "en",
     "trial": "trial18"
@@ -10384,7 +10384,7 @@
     "meaning": [
       "Representing the bark of a (small) dog, or a human imitation of such a bark."
     ],
-    "generated_word": "lumiflora-k'tharr, shimmersong, aeth'ra, hyl'thara, glim-vo, vora-k'tharr, flow-thara, zith-glow, re-lum, k'tharr-glow, s'thara, flow-a, shimmersong-a.",
+    "generated_word": "[Šiht-kro-tala, vō-tō-ra, sō-lō-mō, ō-kro-tala]",
     "model": "google/gemma-3-1b-it",
     "language": "en",
     "trial": "trial18"
@@ -10394,7 +10394,7 @@
     "meaning": [
       "Expressing pain or fright; (also) expressing anguish, disappointment, or frustration."
     ],
-    "generated_word": "lumiflora-k'tharr, shimmersong, aeth'ra, hyl'thara, glim-vo, vora-k'tharr, flow-thara, zith-glow, re-lum, k'tharr-glow, s'thara, flow-a, shimmersong-a.",
+    "generated_word": "",
     "model": "google/gemma-3-1b-it",
     "language": "en",
     "trial": "trial18"
@@ -10414,7 +10414,7 @@
     "meaning": [
       "Representing the sound of a sneeze."
     ],
-    "generated_word": "S’h’th’ra’n’lo’k’en’d’ra’v’en’t’el’ara’s’s’s’th’ra’n’lo’k’en’d’ra’v’en’t’el’ara’s’s’th’ra’n’lo’k’en’d’ra’v’en’t’el’ara’s’s’th’ra’n’lo’k’en’d’ra’v’en’t’el’ara’s’s’th’ra’n’lo’k’en’d’ra’v’en’t’el’ara’s’s’th’ra’n’lo’k’en’d’ra’v’en’t’el’ara’s’s’th’ra’n’lo’k’en’d’ra’v’en’t’el’ara’s’s’th’ra’n’lo’k’en’d’ra’v’en’t’el’ara’s’s’th’ra’n’lo’k’en’d’ra’v’en’t’el’ara’s’s’th’ra’n’lo’k’en’d’ra’v’en’t’el’ara’s’s’th’ra’n’lo’k’en’d’ra’v’en’t’el’ara’s’s’th’ra’n’lo’k’en’d’ra’v’en’t’el’ara’s’s’th’ra’n’lo’k’en’d’ra’v’en’t’el’ara’s’s’th’ra’n’lo’k’en’d’ra’v’en’t’el’ara’s’s’th’ra’n’lo’k’en’d’ra’v’en’t’el’ara’s’s’th’ra’n’lo’k’en’d’ra’v’en’t’el",
+    "generated_word": "Here’s a creative onomatopoeia/ideophone for “Representing the sound of a sneeze,” in a fictional constructed language called “Silvanis” (inspired by Celtic and Germanic influences):\n\n**‘Sh’th’rin’d’ra’**\n\nLet’s break it down:\n\n*   **‘Sh’th’rin’d’ra’**: This combines several elements.\n    *   **‘Sh’**:  Represents the initial, sharp, brief burst of air.\n    *   **‘Th’rin’d’ra’**:  This is the core of the sound. It evokes a gentle, vibrating ‘th’ sound, layered with a ‘rin’ – a soft, airy, almost whispering quality. It suggests the subtle, contained pressure of the sneeze.\n\n**Why this works as a concept:**\n\nSilvanis values a sense of natural, subtle sounds. ‘Sh’th’rin’d’ra’ aims to capture the fleeting, almost secretive nature of a sneeze, while still maintaining a sense of breath and vibration. It’s not a loud, booming sound, but a contained, delicate expulsion.\n\n---\n\nWould you like me to generate another one, perhaps with a different focus or tone?",
     "model": "google/gemma-3-1b-it",
     "language": "en",
     "trial": "trial19"
@@ -10424,7 +10424,7 @@
     "meaning": [
       "Representing the sound of a sneeze."
     ],
-    "generated_word": "S’h’th’ra’n’lo’k’en’d’ra’v’en’t’el’ara’s’s’s’th’ra’n’lo’k’en’d’ra’v’en’t’el’ara’s’s’th’ra’n’lo’k’en’d’ra’v’en’t’el’ara’s’s’th’ra’n’lo’k’en’d’ra’v’en’t’el’ara’s’s’th’ra’n’lo’k’en’d’ra’v’en’t’el’ara’s’s’th’ra’n’lo’k’en’d’ra’v’en’t’el’ara’s’s’th’ra’n’lo’k’en’d’ra’v’en’t’el’ara’s’s’th’ra’n’lo’k’en’d’ra’v’en’t’el’ara’s’s’th’ra’n’lo’k’en’d’ra’v’en’t’el’ara’s’s’th’ra’n’lo’k’en’d’ra’v’en’t’el’ara’s’s’th’ra’n’lo’k’en’d’ra’v’en’t’el’ara’s’s’th’ra’n’lo’k’en’d’ra’v’en’t’el’ara’s’s’th’ra’n’lo’k’en’d’ra’v’en’t’el’ara’s’s’th’ra’n’lo’k’en’d’ra’v’en’t’el’ara’s’s’th’ra’n’lo’k’en’d’ra’v’en’t’el’ara’s’s’th’ra’n’lo’k’en’d’ra’v’en’t’el",
+    "generated_word": "Here’s a creative onomatopoeia/ideophone for “Representing the sound of a sneeze,” in a fictional constructed language called “Silvanis” (inspired by Celtic and Germanic influences):\n\n**‘Sh’th’rin’d’ra’**\n\nLet’s break it down:\n\n*   **‘Sh’th’rin’d’ra’**: This combines several elements.\n    *   **‘Sh’**:  Represents the initial, sharp, brief burst of air.\n    *   **‘Th’rin’**:  Evokes the ‘tick’ or ‘chink’ of a sneeze – a small, distinct sound.\n    *   **‘d’ra’**:  Suggests a lingering, slightly wet, and perhaps slightly forceful expulsion of air, like a gentle, drawn-out exhale.\n\n**Why this works:**\n\n*   It’s evocative of the sound of a sneeze.\n*   It’s a relatively short, memorable phrase.\n*   It has a slightly archaic, almost musical quality, fitting for a language with a focus on nature and sound.\n\n---\n\nWould you like me to generate another option, perhaps with a different emphasis or tone?",
     "model": "google/gemma-3-1b-it",
     "language": "en",
     "trial": "trial19"
@@ -10434,7 +10434,7 @@
     "meaning": [
       "Representing the sound of a sneeze."
     ],
-    "generated_word": "S’h’th’ra’n’lo’k’en’d’ra’v’en’t’el’ara’s’s’s’th’ra’n’lo’k’en’d’ra’v’en’t’el’ara’s’s’th’ra’n’lo’k’en’d’ra’v’en’t’el’ara’s’s’th’ra’n’lo’k’en’d’ra’v’en’t’el’ara’s’s’th’ra’n’lo’k’en’d’ra’v’en’t’el’ara’s’s’th’ra’n’lo’k’en’d’ra’v’en’t’el’ara’s’s’th’ra’n’lo’k’en’d’ra’v’en’t’el’ara’s’s’th’ra’n’lo’k’en’d’ra’v’en’t’el’ara’s’s’th’ra’n’lo’k’en’d’ra’v’en’t’el’ara’s’s’th’ra’n’lo’k’en’d’ra’v’en’t’el’ara’s’s’th’ra’n’lo’k’en’d’ra’v’en’t’el’ara’s’s’th’ra’n’lo’k’en’d’ra’v’en’t’el’ara’s’s’th’ra’n’lo’k’en’d’ra’v’en’t’el’ara’s’s’th’ra’n’lo’k’en’d’ra’v’en’t’el’ara’s’s’th’ra’n’lo’k’en’d’ra’v’en’t’el’ara’s’s’th’ra’n’lo’k’en’d’ra’v’en’t’el",
+    "generated_word": "Here’s a creative onomatopoeia/ideophone for “Representing the sound of a sneeze,” in a fictional constructed language called “Silvanis” (inspired by Celtic and Germanic influences):\n\n**‘Sh’th’rin’d’ra’**\n\nLet’s break it down:\n\n*   **‘Sh’th’rin’d’ra’**: This combines several elements.\n    *   **‘Sh’**:  Represents the initial, sharp, brief burst of air.\n    *   **‘Th’rin’**:  Evokes the ‘tick’ or ‘chink’ of a sneeze – a small, distinct sound.\n    *   **‘d’ra’**:  Suggests a lingering, slightly wet, and perhaps slightly forceful expulsion of air, like a gentle, drawn-out exhale.\n\n**Why this works:**\n\n*   It’s evocative of the sound of a sneeze.\n*   It’s a relatively short, memorable phrase.\n*   It has a slightly archaic, almost musical quality, fitting for a language with a focus on nature and sound.\n\n---\n\nWould you like me to generate another option, perhaps with a different emphasis or tone?",
     "model": "google/gemma-3-1b-it",
     "language": "en",
     "trial": "trial19"
@@ -10444,7 +10444,7 @@
     "meaning": [
       "An exclamation representing a slight cough or clearing of the throat, used (a) to attract attention, esp. prior to speaking (b) to express hesitation, (mock) disapproval, embarrassment, suggestiveness, etc."
     ],
-    "generated_word": "S’h’th’ra’n’lo’k’en’d’ra’v’en’t’el’ara’s’s’s’th’ra’n’lo’k’en’d’ra’v’en’t’el’ara’s’s’th’ra’n’lo’k’en’d’ra’v’en’t’el’ara’s’s’th’ra’n’lo’k’en’d’ra’v’en’t’el’ara’s’s’th’ra’n’lo’k’en’d’ra’v’en’t’el’ara’s’s’th’ra’n’lo’k’en’d’ra’v’en’t’el’ara’s’s’th’ra’n’lo’k’en’d’ra’v’en’t’el’ara’s’s’th’ra’n’lo’k’en’d’ra’v’en’t’el’ara’s’s’th’ra’n’lo’k’en’d’ra’v’en’t’el’ara’s’s’th’ra’n’lo’k’en’d’ra’v’en’t’el’ara’s’s’th’ra’n’lo’k’en’d’ra’v’en’t’el’ara’s’s’th’ra’n’lo’k’en’d’ra’v’en’t’el’ara’s’s’th’ra’n’lo’k’en’d’ra’v’en’t’el’ara’s’s’th’ra’n’lo’k’en’d’ra’v’en’t’el’ara’s’s’th’ra’n’lo’k’en’d’ra’v’en’t’el’ara’s’s’th’ra’n’lo’k’en’d’ra’v’en’t’el",
+    "generated_word": "‘S’h’i’n’t’ ‘t’h’i’m’ ‘s’h’i’n’t’ ‘t’h’i’m’ ‘l’a’n’t’ ‘s’h’i’m’ ‘t’h’i’m’ ‘d’o’n’t’ ‘s’h’i’m’ ‘t’h’i’m’ ‘k’o’n’t’ ‘s’h’i’m’ ‘t’h’i’m’ ‘m’ ‘s’h’i’m’ ‘t’h’i’m’ ‘p’h’o’n’t’ ‘s’h’i’m’ ‘t’h’i’m’ ‘t’h’i’m’ ‘r’e’n’t’ ‘s’h’i’m’ ‘t’h’i’m’ ‘t’h’i’m’ ‘s’h’i’m’ ‘t’h’i’m’ ‘t’h’i’m’ ‘h’o’n’t’ ‘s’h’i’m’ ‘t’h’i’m’ ‘t’h’i’m’ ‘t’h’i’m’ ‘s’h’i’m’ ‘t’h’i’m’ ‘t’h’i’m’ ‘s’h’i’m’ ‘t’h’i’m’ ‘t’h’i’m’ ‘s’h’i’m’ ‘t’h’i’m’ ‘t’h’i’m’ ‘s’h’i’m’ ‘t’h’i’m’ ‘t’h’i’m’ ‘s’h’i’m’ ‘t’h’i’m’ ‘t’h’i’m’ ‘s’h’i’m’ ‘t’h’i’m’ ‘t’h’i’m’ ‘s’h’i’m’ ‘t’h’i’m’ ‘t’h’i’m’ ‘s’",
     "model": "google/gemma-3-1b-it",
     "language": "en",
     "trial": "trial19"
@@ -10454,7 +10454,7 @@
     "meaning": [
       "An exclamation of surprise, regret, pain, etc., often used in imitation of foreign speakers of English."
     ],
-    "generated_word": "S’h’th’ra’n’lo’k’en’d’ra’v’en’t’el’ara’s’s’s’th’ra’n’lo’k’en’d’ra’v’en’t’el’ara’s’s’th’ra’n’lo’k’en’d’ra’v’en’t’el’ara’s’s’th’ra’n’lo’k’en’d’ra’v’en’t’el’ara’s’s’th’ra’n’lo’k’en’d’ra’v’en’t’el’ara’s’s’th’ra’n’lo’k’en’d’ra’v’en’t’el’ara’s’s’th’ra’n’lo’k’en’d’ra’v’en’t’el’ara’s’s’th’ra’n’lo’k’en’d’ra’v’en’t’el’ara’s’s’th’ra’n’lo’k’en’d’ra’v’en’t’el’ara’s’s’th’ra’n’lo’k’en’d’ra’v’en’t’el’ara’s’s’th’ra’n’lo’k’en’d’ra’v’en’t’el’ara’s’s’th’ra’n’lo’k’en’d’ra’v’en’t’el’ara’s’s’th’ra’n’lo’k’en’d’ra’v’en’t’el’ara’s’s’th’ra’n’lo’k’en’d’ra’v’en’t’el’ara’s’s’th’ra’n’lo’k’en’d’ra’v’en’t’el’ara’s’s’th’ra’n’lo’k’en’d’ra’v’en’t’el",
+    "generated_word": "Here’s a creative onomatopoeia/ideophone for “['An exclamation of surprise, regret, pain, etc., often used in imitation of foreign speakers of English.']” in a fictional Romanized language, aiming for a slightly melancholic and evocative feel:\n\n**‘K’h’ra’th’en’d’ra’s’**\n\nLet’s break down the components:\n\n*   **‘K’h’ra’th’en’d’ra’s’**: This combines several elements.\n    *   **‘K’h’ra’th’en’d’ra’s’**:  This is a root word suggesting a drawn-out, slightly breathless sound, like a held breath or a quick, anxious exhale.  It implies a feeling of urgency and perhaps a slight tremor.\n    *   **’s’**: A soft, subtle ‘s’ sound, adding a gentle, almost whispered quality.  It’s not a harsh ‘s’, but rather a breathy, internal sound.\n\n*   **‘-’**: A short, sharp, almost imperceptible pause, mimicking the briefness of an expression.\n\n**Overall Impression:**  The word evokes a sense of fleeting emotion – a quick, sharp intake of breath, followed by a lingering sadness. It suggests a moment of intense feeling quickly fading.\n\n---\n\n**Alternative Options (with slightly different nuances):**\n\n*   **‘Sh’i’l’th’en’d’ra’s’**: (Sh-ill-en-d-ra’s) -  This uses a slightly more fluid sound, suggesting a slow, drawn-out expression of feeling.  It could imply a deeper, more profound sorrow.\n\n*   **‘T’i’l’th’en’d’ra’s’**: (Ti-ill-en-d-ra’s) -  This emphasizes the ‘t’ sound, creating a slightly harsher, more insistent quality, like a quick, sharp realization.\n\nTo help me refine this further, could you tell me:\n\n*   What kind of tone are you going for? (e.g., melancholic, dramatic, subtle?)\n*   Are there any specific cultural influences you'd like to hint at in the language?",
     "model": "google/gemma-3-1b-it",
     "language": "en",
     "trial": "trial19"
@@ -10464,7 +10464,7 @@
     "meaning": [
       "Awailing exclamation of resignation, surprise, regret, alarm, etc.; sometimes imitative of non-British speakers of English."
     ],
-    "generated_word": "S’h’th’ra’n’lo’k’en’d’ra’v’en’t’el’ara’s’s’s’th’ra’n’lo’k’en’d’ra’v’en’t’el’ara’s’s’th’ra’n’lo’k’en’d’ra’v’en’t’el’ara’s’s’th’ra’n’lo’k’en’d’ra’v’en’t’el’ara’s’s’th’ra’n’lo’k’en’d’ra’v’en’t’el’ara’s’s’th’ra’n’lo’k’en’d’ra’v’en’t’el’ara’s’s’th’ra’n’lo’k’en’d’ra’v’en’t’el’ara’s’s’th’ra’n’lo’k’en’d’ra’v’en’t’el’ara’s’s’th’ra’n’lo’k’en’d’ra’v’en’t’el’ara’s’s’th’ra’n’lo’k’en’d’ra’v’en’t’el’ara’s’s’th’ra’n’lo’k’en’d’ra’v’en’t’el’ara’s’s’th’ra’n’lo’k’en’d’ra’v’en’t’el’ara’s’s’th’ra’n’lo’k’en’d’ra’v’en’t’el’ara’s’s’th’ra’n’lo’k’en’d’ra’v’en’t’el’ara’s’s’th’ra’n’lo’k’en’d’ra’v’en’t’el’ara’s’s’th’ra’n’lo’k’en’d’ra’v’en’t’el",
+    "generated_word": "š’lú’t’n’v’é’r’d’s’g’ó’m’s’s’t’r’n’v’é’r’d’s’g’ó’m’s’s’t’r’n’v’é’r’d’s’g’ó’m’s’s’t’r’n’v’é’r’d’s’g’ó’m’s’s’t’r’n’v’é’r’d’s’g’ó’m’s’s’t’r’n’v’é’r’d’s’g’ó’m’s’s’t’r’n’v’é’r’d’s’g’ó’m’s’s’t’r’n’v’é’r’d’s’g’ó’m’s’s’t’r’n’v’é’r’d’s’g’ó’m’s’s’t’r’n’v’é’r’d’s’g’ó’m’s’s’t’r’n’v’é’r’d’s’g’ó’m’s’s’t’r’n’v’é’r’d’s’g’ó’m’s’s’t’r’n’v’é’r’d’s’g’ó’m’s’s’t’r’n’v’é’r’d’s’g’ó’m’s’s’t’r’n’v’é’r’d’s’g’ó’m’s’s’t’r’n’v’é’r’d’s’g’ó’m’s’s’t’r’n’v’é’r’d’s’g’ó’m’s’s’t’r’n’v’é’r’d’s’g’ó’m’s’s’t’r’n’",
     "model": "google/gemma-3-1b-it",
     "language": "en",
     "trial": "trial19"
@@ -10474,7 +10474,7 @@
     "meaning": [
       "A cry of sorrow or lamentation."
     ],
-    "generated_word": "S’h’th’ra’n’lo’k’en’d’ra’v’en’t’el’ara’s’s’s’th’ra’n’lo’k’en’d’ra’v’en’t’el’ara’s’s’th’ra’n’lo’k’en’d’ra’v’en’t’el’ara’s’s’th’ra’n’lo’k’en’d’ra’v’en’t’el’ara’s’s’th’ra’n’lo’k’en’d’ra’v’en’t’el’ara’s’s’th’ra’n’lo’k’en’d’ra’v’en’t’el’ara’s’s’th’ra’n’lo’k’en’d’ra’v’en’t’el’ara’s’s’th’ra’n’lo’k’en’d’ra’v’en’t’el’ara’s’s’th’ra’n’lo’k’en’d’ra’v’en’t’el’ara’s’s’th’ra’n’lo’k’en’d’ra’v’en’t’el’ara’s’s’th’ra’n’lo’k’en’d’ra’v’en’t’el’ara’s’s’th’ra’n’lo’k’en’d’ra’v’en’t’el’ara’s’s’th’ra’n’lo’k’en’d’ra’v’en’t’el’ara’s’s’th’ra’n’lo’k’en’d’ra’v’en’t’el’ara’s’s’th’ra’n’lo’k’en’d’ra’v’en’t’el’ara’s’s’th’ra’n’lo’k’en’d’ra’v’en’t’el",
+    "generated_word": "’thrum-sil’**’**",
     "model": "google/gemma-3-1b-it",
     "language": "en",
     "trial": "trial19"
@@ -10484,7 +10484,7 @@
     "meaning": [
       "Representing the bark of a (small) dog, or a human imitation of such a bark."
     ],
-    "generated_word": "S’h’th’ra’n’lo’k’en’d’ra’v’en’t’el’ara’s’s’s’th’ra’n’lo’k’en’d’ra’v’en’t’el’ara’s’s’th’ra’n’lo’k’en’d’ra’v’en’t’el’ara’s’s’th’ra’n’lo’k’en’d’ra’v’en’t’el’ara’s’s’th’ra’n’lo’k’en’d’ra’v’en’t’el’ara’s’s’th’ra’n’lo’k’en’d’ra’v’en’t’el’ara’s’s’th’ra’n’lo’k’en’d’ra’v’en’t’el’ara’s’s’th’ra’n’lo’k’en’d’ra’v’en’t’el’ara’s’s’th’ra’n’lo’k’en’d’ra’v’en’t’el’ara’s’s’th’ra’n’lo’k’en’d’ra’v’en’t’el’ara’s’s’th’ra’n’lo’k’en’d’ra’v’en’t’el’ara’s’s’th’ra’n’lo’k’en’d’ra’v’en’t’el’ara’s’s’th’ra’n’lo’k’en’d’ra’v’en’t’el’ara’s’s’th’ra’n’lo’k’en’d’ra’v’en’t’el’ara’s’s’th’ra’n’lo’k’en’d’ra’v’en’t’el’ara’s’s’th’ra’n’lo’k’en’d’ra’v’en’t’el",
+    "generated_word": "K’th’sh’n’th’ra’k’th’ra’!",
     "model": "google/gemma-3-1b-it",
     "language": "en",
     "trial": "trial19"
@@ -10494,7 +10494,7 @@
     "meaning": [
       "Expressing pain or fright; (also) expressing anguish, disappointment, or frustration."
     ],
-    "generated_word": "S’h’th’ra’n’lo’k’en’d’ra’v’en’t’el’ara’s’s’s’th’ra’n’lo’k’en’d’ra’v’en’t’el’ara’s’s’th’ra’n’lo’k’en’d’ra’v’en’t’el’ara’s’s’th’ra’n’lo’k’en’d’ra’v’en’t’el’ara’s’s’th’ra’n’lo’k’en’d’ra’v’en’t’el’ara’s’s’th’ra’n’lo’k’en’d’ra’v’en’t’el’ara’s’s’th’ra’n’lo’k’en’d’ra’v’en’t’el’ara’s’s’th’ra’n’lo’k’en’d’ra’v’en’t’el’ara’s’s’th’ra’n’lo’k’en’d’ra’v’en’t’el’ara’s’s’th’ra’n’lo’k’en’d’ra’v’en’t’el’ara’s’s’th’ra’n’lo’k’en’d’ra’v’en’t’el’ara’s’s’th’ra’n’lo’k’en’d’ra’v’en’t’el’ara’s’s’th’ra’n’lo’k’en’d’ra’v’en’t’el’ara’s’s’th’ra’n’lo’k’en’d’ra’v’en’t’el’ara’s’s’th’ra’n’lo’k’en’d’ra’v’en’t’el’ara’s’s’th’ra’n’lo’k’en’d’ra’v’en’t’el",
+    "generated_word": "K’th’ra’sh’n’d’lo’m,  S’th’ra’ryn’d’lo’m,  Z’th’ra’ryn’d’lo’m,  V’th’ra’ryn’d’lo’m.",
     "model": "google/gemma-3-1b-it",
     "language": "en",
     "trial": "trial19"
@@ -10514,7 +10514,7 @@
     "meaning": [
       "Representing the sound of a sneeze."
     ],
-    "generated_word": "",
+    "generated_word": "š’lú’t’n’v’r’g’e’t’s’h’ra’t’n’v’r’g’e’t’s’h’ra’t’n’v’r’g’e’t’s’h’ra’t’n’v’r’g’e’t’s’h’ra’t’n’v’r’g’e’t’s’h’ra’t’n’v’r’g’e’t’s’h’ra’t’n’v’r’g’e’t’s’h’ra’t’n’v’r’g’e’t’s’h’ra’t’n’v’r’g’e’t’s’h’ra’t’n’v’r’g’e’t’s’h’ra’t’n’v’r’g’e’t’s’h’ra’t’n’v’r’g’e’t’s’h’ra’t’n’v’r’g’e’t’s’h’ra’t’n’v’r’g’e’t’s’h’ra’t’n’v’r’g’e’t’s’h’ra’t’n’v’r’g’e’t’s’h’ra’t’n’v’r’g’e’t’s’h’ra’t’n’v’r’g’e’t’s’h’ra’t’n’v’r’g’e’t’s’h’ra’t’n’v’r’g’e’t’s’h’ra’t’n’v’r’g’e’t’s’h’ra’t’n’v’r’g’e’t’s’h’ra’t’n’v’r’g’e’t’s’h’ra’t’n’",
     "model": "google/gemma-3-1b-it",
     "language": "en",
     "trial": "trial20"
@@ -10524,7 +10524,7 @@
     "meaning": [
       "Representing the sound of a sneeze."
     ],
-    "generated_word": "",
+    "generated_word": "š’t’l’v’n’k’r’s’t’n’g’r’h’t’s’t’n’g’r’h’t’s’t’n’g’r’h’t’s’t’n’g’r’h’t’s’t’n’g’r’h’t’s’t’n’g’r’h’t’s’t’n’g’r’h’t’s’t’n’g’r’h’t’s’t’n’g’r’h’t’s’t’n’g’r’h’t’s’t’n’g’r’h’t’s’t’n’g’r’h’t’s’t’n’g’r’h’t’s’t’n’g’r’h’t’s’t’n’g’r’h’t’s’t’n’g’r’h’t’s’t’n’g’r’h’t’s’t’n’g’r’h’t’s’t’n’g’r’h’t’s’t’n’g’r’h’t’s’t’n’g’r’h’t’s’t’n’g’r’h’t’s’t’n’g’r’h’t’s’t’n’g’r’h’t’s’t’n’g’r’h’t’s’t’n’g’r’h’t’s’t’n’g’r’h’t’s’t’n’g’r’h’t’s’t’n’g’r’h’t’s’t’n’g’r’h’t’s’t’n’g’r’h’t’s’t’n’g’r’h’t’s’t’n’g",
     "model": "google/gemma-3-1b-it",
     "language": "en",
     "trial": "trial20"
@@ -10534,7 +10534,7 @@
     "meaning": [
       "Representing the sound of a sneeze."
     ],
-    "generated_word": "",
+    "generated_word": "š’t’l’v’n’k’r’s’t’n’g’r’h’t’s’t’n’g’r’h’t’s’t’n’g’r’h’t’s’t’n’g’r’h’t’s’t’n’g’r’h’t’s’t’n’g’r’h’t’s’t’n’g’r’h’t’s’t’n’g’r’h’t’s’t’n’g’r’h’t’s’t’n’g’r’h’t’s’t’n’g’r’h’t’s’t’n’g’r’h’t’s’t’n’g’r’h’t’s’t’n’g’r’h’t’s’t’n’g’r’h’t’s’t’n’g’r’h’t’s’t’n’g’r’h’t’s’t’n’g’r’h’t’s’t’n’g’r’h’t’s’t’n’g’r’h’t’s’t’n’g’r’h’t’s’t’n’g’r’h’t’s’t’n’g’r’h’t’s’t’n’g’r’h’t’s’t’n’g’r’h’t’s’t’n’g’r’h’t’s’t’n’g’r’h’t’s’t’n’g’r’h’t’s’t’n’g’r’h’t’s’t’n’g’r’h’t’s’t’n’g’r’h’t’s’t’n’g’r’h’t’s’t’n’g",
     "model": "google/gemma-3-1b-it",
     "language": "en",
     "trial": "trial20"
@@ -10544,7 +10544,7 @@
     "meaning": [
       "An exclamation representing a slight cough or clearing of the throat, used (a) to attract attention, esp. prior to speaking (b) to express hesitation, (mock) disapproval, embarrassment, suggestiveness, etc."
     ],
-    "generated_word": "",
+    "generated_word": "k'th'ra, sh'th'ra, h'th'ra, t'th'ra, v'th'ra, s'th'ra, z'th'ra, l'th'ra, m'th'ra, n'th'ra, q'th'ra, r'th'ra, g'th'ra, h'th'ra, k'th'ra…",
     "model": "google/gemma-3-1b-it",
     "language": "en",
     "trial": "trial20"
@@ -10554,7 +10554,7 @@
     "meaning": [
       "An exclamation of surprise, regret, pain, etc., often used in imitation of foreign speakers of English."
     ],
-    "generated_word": "",
+    "generated_word": "’thrum’ (pronounced “thrum”) - for a quick, sharp, almost brittle surprise; like a twig snapping.\n’shimmershake’ (pronounced “shimmershake”) - a low, vibrating, unsettling ripple of emotion, like a stone dropped in water.\n’whistle-sigh’ (pronounced “whistle-sigh”) - a delicate, mournful sigh, tinged with a sense of loss or fading.\n’croak-weave’ (pronounced “croak-weave”) - a subtle, overlapping series of small, anxious vocalizations, like leaves brushing against each other.\n’bleat-fall’ (pronounced “bleat-fall”) - a short, sharp, drawn-out sound, like a bird’s cry, but tinged with sadness.\n’rip-echo’ (pronounced “rip-echo”) - a brief, sharp, fragmented sound, like a thread snapping, conveying a sudden, jarring feeling.\n’murmur-crash’ (pronounced “murmur-crash”) - a quiet, hesitant murmur followed by a brief, sharp, jarring sound, like a stone hitting water.\n’hush-pulse’ (pronounced “hush-pulse”) - a slow, steady, almost imperceptible vibration, like a heartbeat, but with a sense of quiet desperation.\n’snap-whisper’ (pronounced “snap-whisper”) - a quick, sharp, brittle sound, like a fingernail scraping against glass.\n’flutter-fall’ (pronounced “flutter-fall”) - a rapid, fluttering sound, like a trapped butterfly, conveying a sense of urgency or panic.\n'drip-sigh' (pronounced \"drip-sigh\") - a slow, drawn-out sigh, like water dripping from a stone, conveying a sense of lingering sorrow.\n'clang-soft' (pronounced \"clang-soft\") - a brief, sharp, muted sound, like a metal object striking a surface.\n'echo-tear' (pronounced \"echo-tear\") - a brief, sharp, and slightly distorted sound, like a single tear falling.\n'weave-cry' (pronounced \"weave-cry\") - a",
     "model": "google/gemma-3-1b-it",
     "language": "en",
     "trial": "trial20"
@@ -10574,7 +10574,7 @@
     "meaning": [
       "A cry of sorrow or lamentation."
     ],
-    "generated_word": "",
+    "generated_word": "ழίντά ʂίντά (zhìntá shìntá)",
     "model": "google/gemma-3-1b-it",
     "language": "en",
     "trial": "trial20"
@@ -10584,7 +10584,7 @@
     "meaning": [
       "Representing the bark of a (small) dog, or a human imitation of such a bark."
     ],
-    "generated_word": "",
+    "generated_word": "'K’thrum-shh,  ’ly’th’n’k,  ’sh’th’n’k,  ’gr’th’n’k,  ’s’th’n’k,  ’th’n’k,  ’k’thrum-shh’!",
     "model": "google/gemma-3-1b-it",
     "language": "en",
     "trial": "trial20"
@@ -10594,7 +10594,7 @@
     "meaning": [
       "Expressing pain or fright; (also) expressing anguish, disappointment, or frustration."
     ],
-    "generated_word": "",
+    "generated_word": "sh’th’k’lo’ (shh-klo-oh) – A low, guttural rumble, often accompanied by a tightening of the chest. Suggests deep sorrow or a physical manifestation of distress.**\n\n",
     "model": "google/gemma-3-1b-it",
     "language": "en",
     "trial": "trial20"
@@ -10614,7 +10614,7 @@
     "meaning": [
       "Representing the sound of a sneeze."
     ],
-    "generated_word": "",
+    "generated_word": "Here’s a constructed language vocabulary, incorporating onomatopoeia and ideophone to represent the sound of a sneeze, and then the translated phrases:\n\n**The Language: Sylvani (Inspired by Forest Sounds)**\n\nSylvani is a language heavily influenced by the rustling of leaves, the dripping of water, and the chirping of birds. It’s a melodic language with a focus on subtle shifts in tone.\n\n**Vocabulary:**\n\n*   **S’h’th’ra (pronounced: sah-thrah):**  (Sound of a quick, sharp, almost vibrating ‘h’ followed by a soft ‘th’ sound) – *“A brief, insistent expulsion.”*\n*   **K’th’la (pronounced: k-th-la):** (Sound of a gentle, airy ‘k’ followed by a soft ‘th’ sound) – *“A delicate, fleeting release.”*\n*   **R’th’na (pronounced: r-th-na):** (Sound of a low, rumbling ‘r’ followed by a short, airy ‘n’ sound) – *“A subtle, grounding expulsion.”*\n*   **Z’th’ra (pronounced: z-th-ra):** (Sound of a quick, sharp ‘z’ followed by a soft ‘th’ sound) – *“A sudden, focused release.”*\n*   **L’th’ra (pronounced: l-th-ra):** (Sound of a long, drawn-out ‘l’ followed by a soft ‘th’ sound) – *“A prolonged, contemplative expulsion.”*\n*   **V’th’ra (pronounced: v-th-ra):** (Sound of a quick, vibrating ‘v’ followed by a soft ‘th’ sound) – *“A quick, energetic expulsion.”*\n*   **Sh’la (pronounced: sh-la):** (Sound of a soft, continuous ‘sh’ sound) – *“A lingering, quiet release.”*\n*   **D’th’ra (pronounced: d-th-ra):** (Sound of a short, sharp ‘d’ followed by a soft ‘th’ sound) – *“A brief, sharp expulsion.”*\n*   **M’th’ra (pronounced: m-th-ra):** (Sound of a low, rumbling ‘m’ followed by a soft ‘th’ sound) –",
     "model": "google/gemma-3-1b-it",
     "language": "en",
     "trial": "trial21"
@@ -10654,7 +10654,7 @@
     "meaning": [
       "An exclamation of surprise, regret, pain, etc., often used in imitation of foreign speakers of English."
     ],
-    "generated_word": "",
+    "generated_word": "Okay, here’s a constructed language vocabulary designed to evoke the feeling of a surprised, regretful, or painful exclamation, incorporating onomatopoeia and ideophone elements. It’s called “Silvan,” inspired by forests and a sense of quiet sorrow.\n\n**Silvan Vocabulary – Expressions of Feeling**\n\n*   **K’tharr (K’th-ar):** (Sound: A short, sharp, drawn-out ‘k’ followed by a soft ‘th’ – like a whispered sigh) – *Represents a sudden, unexpected shock, a sharp intake of breath.*\n*   **Zyl’ryn (Zyl-rin):** (Sound: A low, resonant ‘z’ followed by a quick, vibrating ‘y’ – like a strained, mournful note) – *Evokes regret, a lingering sadness, a heavy weight.*\n*   **Sh’ryn’th (Sh’ryn-th):** (Sound: A rapid, fluttering ‘sh’ followed by a short, sharp ‘n’ – like a frantic heartbeat, or a lost bird’s call) – *Expresses sudden, overwhelming pain, a desperate plea.*\n*   **V’ryn’th (V’ryn-th):** (Sound: A drawn-out ‘v’ followed by a soft ‘r’ – like a slow, deliberate exhale of sorrow) – *Represents a quiet, profound grief, a feeling of being utterly lost.*\n*   **G’tharr’ryn (G’tharr-ryn):** (Sound: A short, sharp ‘g’ followed by a long, drawn-out ‘th’ – like a brittle, broken sound) – *Suggests a sudden, painful revelation, a shattering of hope.*\n*   **L’ryn’th (L’ryn-th):** (Sound: A flowing ‘l’ followed by a short, sharp ‘r’ – like a stream of tears) – *A feeling of overwhelming sorrow, a loss of control.*\n*   **Mo’ryn (Mo’ryn):** (Sound: A soft, rolling ‘m’ followed by a quick, subtle ‘y’ – like a distant, fading memory) – *Represents a fleeting, painful memory, a ghost of a past experience.*\n*   **Sha’ryn (Sha-ryn):** (Sound: A short, sharp ‘sh’ followed by a quick ‘r’ – like a quick,",
     "model": "google/gemma-3-1b-it",
     "language": "en",
     "trial": "trial21"
@@ -10674,7 +10674,7 @@
     "meaning": [
       "A cry of sorrow or lamentation."
     ],
-    "generated_word": "",
+    "generated_word": "Okay, here’s a constructed language vocabulary designed to evoke the feeling of a sorrowful cry, incorporating Roman alphabet words and aiming for a slightly melancholic, evocative feel. It’s called “Silvanus” (referencing forests and a sense of quiet grief).\n\n**Silvanus – Vocabulary for Sorrowful Cry**\n\n*   **K’tharr (K’th-ar):**  (Root – “K” for deep, “tharr” for a resonant, hollow sound) –  A low, drawn-out sigh, like the wind through ancient branches.  Suggests a prolonged, heavy sadness.\n*   **Zyl’dor (Zyl-dor):** (Root – “Zyl” for fragile, “dor” for a sharp, piercing sound) – A single, brittle note of grief, like a lost feather.\n*   **R’el’wyn (R’el-win):** (Root – “R” for resonance, “el’wyn” for a flowing, mournful cadence) – A slow, wavering sound, like rain falling on stone.\n*   **V’thyr (V’thyr):** (Root – “V” for vulnerability, “thyr” for a hesitant, trembling sound) – A whispered, almost inaudible cry, a feeling of being exposed and alone.\n*   **S’lorn (S’lorn):** (Root – “S” for stillness, “lorn” for a drawn-out, aching sound) – A heavy, sustained note of loss, a feeling of being frozen by grief.\n*   **Mo’ryn (Mo’ryn):** (Root – “Mo” for moisture, “ryn” for a soft, dripping sound) – A subtle, persistent stream of tears, like a forgotten memory.\n*   **Dre’th (Dre’th):** (Root – “Dre” for darkness, “th” for a deep, resonant tone) – A heavy, somber sound, like the weight of the world.\n*   **Ly’ra (Ly’ra):** (Root – “Ly” for lightness, “ra” for a quick, sharp sound) – A fleeting, fragile sound, like a ghost of a memory.\n*   **N’thara (N’thara):** (Root – “N” for nurture, “thara” for a sustained, vibrating sound",
     "model": "google/gemma-3-1b-it",
     "language": "en",
     "trial": "trial21"
@@ -10714,7 +10714,7 @@
     "meaning": [
       "Representing the sound of a sneeze."
     ],
-    "generated_word": "Shimmering_Echo",
+    "generated_word": "’shhh-a-uh’",
     "model": "google/gemma-3-1b-it",
     "language": "en",
     "trial": "trial22"
@@ -10724,7 +10724,7 @@
     "meaning": [
       "Representing the sound of a sneeze."
     ],
-    "generated_word": "Shimmering_Echo",
+    "generated_word": "shh-sneeze",
     "model": "google/gemma-3-1b-it",
     "language": "en",
     "trial": "trial22"
@@ -10734,7 +10734,7 @@
     "meaning": [
       "Representing the sound of a sneeze."
     ],
-    "generated_word": "Shimmering_Echo",
+    "generated_word": "shh-sneeze",
     "model": "google/gemma-3-1b-it",
     "language": "en",
     "trial": "trial22"
@@ -10744,7 +10744,7 @@
     "meaning": [
       "An exclamation representing a slight cough or clearing of the throat, used (a) to attract attention, esp. prior to speaking (b) to express hesitation, (mock) disapproval, embarrassment, suggestiveness, etc."
     ],
-    "generated_word": "Shimmering_Echo",
+    "generated_word": "shhh-zhuh",
     "model": "google/gemma-3-1b-it",
     "language": "en",
     "trial": "trial22"
@@ -10754,7 +10754,7 @@
     "meaning": [
       "An exclamation of surprise, regret, pain, etc., often used in imitation of foreign speakers of English."
     ],
-    "generated_word": "Shimmering_Echo",
+    "generated_word": "Shhh-lull",
     "model": "google/gemma-3-1b-it",
     "language": "en",
     "trial": "trial22"
@@ -10764,7 +10764,7 @@
     "meaning": [
       "Awailing exclamation of resignation, surprise, regret, alarm, etc.; sometimes imitative of non-British speakers of English."
     ],
-    "generated_word": "Shimmering_Echo",
+    "generated_word": "shhh-hiss",
     "model": "google/gemma-3-1b-it",
     "language": "en",
     "trial": "trial22"
@@ -10774,7 +10774,7 @@
     "meaning": [
       "A cry of sorrow or lamentation."
     ],
-    "generated_word": "Shimmering_Echo",
+    "generated_word": "shimmersong",
     "model": "google/gemma-3-1b-it",
     "language": "en",
     "trial": "trial22"
@@ -10784,7 +10784,7 @@
     "meaning": [
       "Representing the bark of a (small) dog, or a human imitation of such a bark."
     ],
-    "generated_word": "Shimmering_Echo",
+    "generated_word": "k’t-p-l-u!",
     "model": "google/gemma-3-1b-it",
     "language": "en",
     "trial": "trial22"
@@ -10794,7 +10794,7 @@
     "meaning": [
       "Expressing pain or fright; (also) expressing anguish, disappointment, or frustration."
     ],
-    "generated_word": "Shimmering_Echo",
+    "generated_word": "a",
     "model": "google/gemma-3-1b-it",
     "language": "en",
     "trial": "trial22"
@@ -10914,7 +10914,7 @@
     "meaning": [
       "Representing the sound of a sneeze."
     ],
-    "generated_word": "Okay, here's a constructed language vocabulary focused on the meaning \"Expressing invocation, surprise, or admiration; (also) used to gain attention,\" with phonetic symbols and Roman letter equivalents. I've aimed for a somewhat melodic and evocative feel.\n\n**Language Name:**  Aethel (pronounced /ˈæθəl/) - meaning \"Noble Echo\"\n\n**Vocabulary:**\n\n*   **'Aeth'** (Pronounced: /ˈæθ/) -  *Meaning:*  Invocation, call, plea. (Root word)\n*   **'Aeth-ra'** (Pronounced: /ˈæθ.rɑ/) - *Meaning:*  Wonder, awe, profound surprise. (Aeth + suffix indicating intensity)\n*   **'Aeth-lin'** (Pronounced: /ˈæθ.lɪn/) - *Meaning:*  Admiration, respect, heartfelt approval. (Aeth + suffix indicating positive regard)\n*   **'Aeth-na'** (Pronounced: /ˈæθ.nɑ/) - *Meaning:*  Attention-getter, a signal for notice, a dramatic pause. (Aeth + suffix indicating action)\n*   **'Aeth-iel'** (Pronounced: /ˈæθ.ɪl/) - *Meaning:*  Exclamation of excitement, joyous surprise. (Aeth + suffix indicating emotion)\n*   **'Aeth-mor'** (Pronounced: /ˈæθ.mɔr/) - *Meaning:*  A grand declaration, a powerful statement. (Aeth + suffix indicating magnitude)\n*   **'Aeth-sil'** (Pronounced: /ˈæθ.sɪl/) - *Meaning:*  A whispered request, a hopeful plea. (Aeth + suffix indicating subtlety)\n*   **'Aeth-van'** (Pronounced: /ˈæθ.vɑn/) - *Meaning:*  A sudden, sharp attention-grabber, a startling announcement. (Aeth + suffix indicating abruptness)\n*   **'Aeth'** (Pronounced: /ˈæθ/) - *Meaning:* (Base) To call out, to address, to invoke. (Simple form)\n*   **'Ra'** (Pronounced: /rɑ/) - *Meaning:*  (Modifier)  Intensity, depth, significance. (Used with Aeth to intensify meaning)\n*   **'Lin'",
+    "generated_word": "A'kuh - (ah-koo)",
     "model": "google/gemma-3-4b-it",
     "language": "en",
     "trial": "trial12"
@@ -10924,7 +10924,7 @@
     "meaning": [
       "Representing the sound of a sneeze."
     ],
-    "generated_word": "Okay, here's a constructed language vocabulary focused on the meaning \"Expressing invocation, surprise, or admiration; (also) used to gain attention,\" with phonetic symbols and Roman letter equivalents. I've aimed for a somewhat melodic and evocative feel.\n\n**Language Name:**  Aethel (pronounced /ˈæθəl/) - meaning \"Noble Echo\"\n\n**Vocabulary:**\n\n*   **'Aeth'** (Pronounced: /ˈæθ/) -  *Meaning:*  Invocation, call, plea. (Root word)\n*   **'Aeth-ra'** (Pronounced: /ˈæθ.rɑ/) - *Meaning:*  Wonder, awe, profound surprise. (Aeth + suffix indicating intensity)\n*   **'Aeth-lin'** (Pronounced: /ˈæθ.lɪn/) - *Meaning:*  Admiration, respect, heartfelt approval. (Aeth + suffix indicating positive regard)\n*   **'Aeth-na'** (Pronounced: /ˈæθ.nɑ/) - *Meaning:*  Attention-getter, a signal for notice, a dramatic pause. (Aeth + suffix indicating action)\n*   **'Aeth-iel'** (Pronounced: /ˈæθ.ɪl/) - *Meaning:*  Exclamation of excitement, joyous surprise. (Aeth + suffix indicating emotion)\n*   **'Aeth-mor'** (Pronounced: /ˈæθ.mɔr/) - *Meaning:*  A grand declaration, a powerful statement. (Aeth + suffix indicating magnitude)\n*   **'Aeth-sil'** (Pronounced: /ˈæθ.sɪl/) - *Meaning:*  A whispered request, a hopeful plea. (Aeth + suffix indicating subtlety)\n*   **'Aeth-van'** (Pronounced: /ˈæθ.vɑn/) - *Meaning:*  A sudden, sharp attention-grabber, a startling announcement. (Aeth + suffix indicating abruptness)\n*   **'Aeth'** (Pronounced: /ˈæθ/) - *Meaning:* (Base) To call out, to address, to invoke. (Simple form)\n*   **'Ra'** (Pronounced: /rɑ/) - *Meaning:*  (Modifier)  Intensity, depth, significance. (Used with Aeth to intensify meaning)\n*   **'Lin'",
+    "generated_word": "A'kuh - (ah-koo)",
     "model": "google/gemma-3-4b-it",
     "language": "en",
     "trial": "trial12"
@@ -10934,7 +10934,7 @@
     "meaning": [
       "Representing the sound of a sneeze."
     ],
-    "generated_word": "Okay, here's a constructed language vocabulary focused on the meaning \"Expressing invocation, surprise, or admiration; (also) used to gain attention,\" with phonetic symbols and Roman letter equivalents. I've aimed for a somewhat melodic and evocative feel.\n\n**Language Name:**  Aethel (pronounced /ˈæθəl/) - meaning \"Noble Echo\"\n\n**Vocabulary:**\n\n*   **'Aeth'** (Pronounced: /ˈæθ/) -  *Meaning:*  Invocation, call, plea. (Root word)\n*   **'Aeth-ra'** (Pronounced: /ˈæθ.rɑ/) - *Meaning:*  Wonder, awe, profound surprise. (Aeth + suffix indicating intensity)\n*   **'Aeth-lin'** (Pronounced: /ˈæθ.lɪn/) - *Meaning:*  Admiration, respect, heartfelt approval. (Aeth + suffix indicating positive regard)\n*   **'Aeth-na'** (Pronounced: /ˈæθ.nɑ/) - *Meaning:*  Attention-getter, a signal for notice, a dramatic pause. (Aeth + suffix indicating action)\n*   **'Aeth-iel'** (Pronounced: /ˈæθ.ɪl/) - *Meaning:*  Exclamation of excitement, joyous surprise. (Aeth + suffix indicating emotion)\n*   **'Aeth-mor'** (Pronounced: /ˈæθ.mɔr/) - *Meaning:*  A grand declaration, a powerful statement. (Aeth + suffix indicating magnitude)\n*   **'Aeth-sil'** (Pronounced: /ˈæθ.sɪl/) - *Meaning:*  A whispered request, a hopeful plea. (Aeth + suffix indicating subtlety)\n*   **'Aeth-van'** (Pronounced: /ˈæθ.vɑn/) - *Meaning:*  A sudden, sharp attention-grabber, a startling announcement. (Aeth + suffix indicating abruptness)\n*   **'Aeth'** (Pronounced: /ˈæθ/) - *Meaning:* (Base) To call out, to address, to invoke. (Simple form)\n*   **'Ra'** (Pronounced: /rɑ/) - *Meaning:*  (Modifier)  Intensity, depth, significance. (Used with Aeth to intensify meaning)\n*   **'Lin'",
+    "generated_word": "A'kuh - (ah-koo)",
     "model": "google/gemma-3-4b-it",
     "language": "en",
     "trial": "trial12"
@@ -10944,7 +10944,7 @@
     "meaning": [
       "An exclamation representing a slight cough or clearing of the throat, used (a) to attract attention, esp. prior to speaking (b) to express hesitation, (mock) disapproval, embarrassment, suggestiveness, etc."
     ],
-    "generated_word": "Okay, here's a constructed language vocabulary focused on the meaning \"Expressing invocation, surprise, or admiration; (also) used to gain attention,\" with phonetic symbols and Roman letter equivalents. I've aimed for a somewhat melodic and evocative feel.\n\n**Language Name:**  Aethel (pronounced /ˈæθəl/) - meaning \"Noble Echo\"\n\n**Vocabulary:**\n\n*   **'Aeth'** (Pronounced: /ˈæθ/) -  *Meaning:*  Invocation, call, plea. (Root word)\n*   **'Aeth-ra'** (Pronounced: /ˈæθ.rɑ/) - *Meaning:*  Wonder, awe, profound surprise. (Aeth + suffix indicating intensity)\n*   **'Aeth-lin'** (Pronounced: /ˈæθ.lɪn/) - *Meaning:*  Admiration, respect, heartfelt approval. (Aeth + suffix indicating positive regard)\n*   **'Aeth-na'** (Pronounced: /ˈæθ.nɑ/) - *Meaning:*  Attention-getter, a signal for notice, a dramatic pause. (Aeth + suffix indicating action)\n*   **'Aeth-iel'** (Pronounced: /ˈæθ.ɪl/) - *Meaning:*  Exclamation of excitement, joyous surprise. (Aeth + suffix indicating emotion)\n*   **'Aeth-mor'** (Pronounced: /ˈæθ.mɔr/) - *Meaning:*  A grand declaration, a powerful statement. (Aeth + suffix indicating magnitude)\n*   **'Aeth-sil'** (Pronounced: /ˈæθ.sɪl/) - *Meaning:*  A whispered request, a hopeful plea. (Aeth + suffix indicating subtlety)\n*   **'Aeth-van'** (Pronounced: /ˈæθ.vɑn/) - *Meaning:*  A sudden, sharp attention-grabber, a startling announcement. (Aeth + suffix indicating abruptness)\n*   **'Aeth'** (Pronounced: /ˈæθ/) - *Meaning:* (Base) To call out, to address, to invoke. (Simple form)\n*   **'Ra'** (Pronounced: /rɑ/) - *Meaning:*  (Modifier)  Intensity, depth, significance. (Used with Aeth to intensify meaning)\n*   **'Lin'",
+    "generated_word": "",
     "model": "google/gemma-3-4b-it",
     "language": "en",
     "trial": "trial12"
@@ -10954,7 +10954,7 @@
     "meaning": [
       "An exclamation of surprise, regret, pain, etc., often used in imitation of foreign speakers of English."
     ],
-    "generated_word": "Okay, here's a constructed language vocabulary focused on the meaning \"Expressing invocation, surprise, or admiration; (also) used to gain attention,\" with phonetic symbols and Roman letter equivalents. I've aimed for a somewhat melodic and evocative feel.\n\n**Language Name:**  Aethel (pronounced /ˈæθəl/) - meaning \"Noble Echo\"\n\n**Vocabulary:**\n\n*   **'Aeth'** (Pronounced: /ˈæθ/) -  *Meaning:*  Invocation, call, plea. (Root word)\n*   **'Aeth-ra'** (Pronounced: /ˈæθ.rɑ/) - *Meaning:*  Wonder, awe, profound surprise. (Aeth + suffix indicating intensity)\n*   **'Aeth-lin'** (Pronounced: /ˈæθ.lɪn/) - *Meaning:*  Admiration, respect, heartfelt approval. (Aeth + suffix indicating positive regard)\n*   **'Aeth-na'** (Pronounced: /ˈæθ.nɑ/) - *Meaning:*  Attention-getter, a signal for notice, a dramatic pause. (Aeth + suffix indicating action)\n*   **'Aeth-iel'** (Pronounced: /ˈæθ.ɪl/) - *Meaning:*  Exclamation of excitement, joyous surprise. (Aeth + suffix indicating emotion)\n*   **'Aeth-mor'** (Pronounced: /ˈæθ.mɔr/) - *Meaning:*  A grand declaration, a powerful statement. (Aeth + suffix indicating magnitude)\n*   **'Aeth-sil'** (Pronounced: /ˈæθ.sɪl/) - *Meaning:*  A whispered request, a hopeful plea. (Aeth + suffix indicating subtlety)\n*   **'Aeth-van'** (Pronounced: /ˈæθ.vɑn/) - *Meaning:*  A sudden, sharp attention-grabber, a startling announcement. (Aeth + suffix indicating abruptness)\n*   **'Aeth'** (Pronounced: /ˈæθ/) - *Meaning:* (Base) To call out, to address, to invoke. (Simple form)\n*   **'Ra'** (Pronounced: /rɑ/) - *Meaning:*  (Modifier)  Intensity, depth, significance. (Used with Aeth to intensify meaning)\n*   **'Lin'",
+    "generated_word": "A'kuh",
     "model": "google/gemma-3-4b-it",
     "language": "en",
     "trial": "trial12"
@@ -10964,7 +10964,7 @@
     "meaning": [
       "Awailing exclamation of resignation, surprise, regret, alarm, etc.; sometimes imitative of non-British speakers of English."
     ],
-    "generated_word": "Okay, here's a constructed language vocabulary focused on the meaning \"Expressing invocation, surprise, or admiration; (also) used to gain attention,\" with phonetic symbols and Roman letter equivalents. I've aimed for a somewhat melodic and evocative feel.\n\n**Language Name:**  Aethel (pronounced /ˈæθəl/) - meaning \"Noble Echo\"\n\n**Vocabulary:**\n\n*   **'Aeth'** (Pronounced: /ˈæθ/) -  *Meaning:*  Invocation, call, plea. (Root word)\n*   **'Aeth-ra'** (Pronounced: /ˈæθ.rɑ/) - *Meaning:*  Wonder, awe, profound surprise. (Aeth + suffix indicating intensity)\n*   **'Aeth-lin'** (Pronounced: /ˈæθ.lɪn/) - *Meaning:*  Admiration, respect, heartfelt approval. (Aeth + suffix indicating positive regard)\n*   **'Aeth-na'** (Pronounced: /ˈæθ.nɑ/) - *Meaning:*  Attention-getter, a signal for notice, a dramatic pause. (Aeth + suffix indicating action)\n*   **'Aeth-iel'** (Pronounced: /ˈæθ.ɪl/) - *Meaning:*  Exclamation of excitement, joyous surprise. (Aeth + suffix indicating emotion)\n*   **'Aeth-mor'** (Pronounced: /ˈæθ.mɔr/) - *Meaning:*  A grand declaration, a powerful statement. (Aeth + suffix indicating magnitude)\n*   **'Aeth-sil'** (Pronounced: /ˈæθ.sɪl/) - *Meaning:*  A whispered request, a hopeful plea. (Aeth + suffix indicating subtlety)\n*   **'Aeth-van'** (Pronounced: /ˈæθ.vɑn/) - *Meaning:*  A sudden, sharp attention-grabber, a startling announcement. (Aeth + suffix indicating abruptness)\n*   **'Aeth'** (Pronounced: /ˈæθ/) - *Meaning:* (Base) To call out, to address, to invoke. (Simple form)\n*   **'Ra'** (Pronounced: /rɑ/) - *Meaning:*  (Modifier)  Intensity, depth, significance. (Used with Aeth to intensify meaning)\n*   **'Lin'",
+    "generated_word": "",
     "model": "google/gemma-3-4b-it",
     "language": "en",
     "trial": "trial12"
@@ -10974,7 +10974,7 @@
     "meaning": [
       "A cry of sorrow or lamentation."
     ],
-    "generated_word": "Okay, here's a constructed language vocabulary focused on the meaning \"Expressing invocation, surprise, or admiration; (also) used to gain attention,\" with phonetic symbols and Roman letter equivalents. I've aimed for a somewhat melodic and evocative feel.\n\n**Language Name:**  Aethel (pronounced /ˈæθəl/) - meaning \"Noble Echo\"\n\n**Vocabulary:**\n\n*   **'Aeth'** (Pronounced: /ˈæθ/) -  *Meaning:*  Invocation, call, plea. (Root word)\n*   **'Aeth-ra'** (Pronounced: /ˈæθ.rɑ/) - *Meaning:*  Wonder, awe, profound surprise. (Aeth + suffix indicating intensity)\n*   **'Aeth-lin'** (Pronounced: /ˈæθ.lɪn/) - *Meaning:*  Admiration, respect, heartfelt approval. (Aeth + suffix indicating positive regard)\n*   **'Aeth-na'** (Pronounced: /ˈæθ.nɑ/) - *Meaning:*  Attention-getter, a signal for notice, a dramatic pause. (Aeth + suffix indicating action)\n*   **'Aeth-iel'** (Pronounced: /ˈæθ.ɪl/) - *Meaning:*  Exclamation of excitement, joyous surprise. (Aeth + suffix indicating emotion)\n*   **'Aeth-mor'** (Pronounced: /ˈæθ.mɔr/) - *Meaning:*  A grand declaration, a powerful statement. (Aeth + suffix indicating magnitude)\n*   **'Aeth-sil'** (Pronounced: /ˈæθ.sɪl/) - *Meaning:*  A whispered request, a hopeful plea. (Aeth + suffix indicating subtlety)\n*   **'Aeth-van'** (Pronounced: /ˈæθ.vɑn/) - *Meaning:*  A sudden, sharp attention-grabber, a startling announcement. (Aeth + suffix indicating abruptness)\n*   **'Aeth'** (Pronounced: /ˈæθ/) - *Meaning:* (Base) To call out, to address, to invoke. (Simple form)\n*   **'Ra'** (Pronounced: /rɑ/) - *Meaning:*  (Modifier)  Intensity, depth, significance. (Used with Aeth to intensify meaning)\n*   **'Lin'",
+    "generated_word": "A'lorn",
     "model": "google/gemma-3-4b-it",
     "language": "en",
     "trial": "trial12"
@@ -10984,7 +10984,7 @@
     "meaning": [
       "Representing the bark of a (small) dog, or a human imitation of such a bark."
     ],
-    "generated_word": "Okay, here's a constructed language vocabulary focused on the meaning \"Expressing invocation, surprise, or admiration; (also) used to gain attention,\" with phonetic symbols and Roman letter equivalents. I've aimed for a somewhat melodic and evocative feel.\n\n**Language Name:**  Aethel (pronounced /ˈæθəl/) - meaning \"Noble Echo\"\n\n**Vocabulary:**\n\n*   **'Aeth'** (Pronounced: /ˈæθ/) -  *Meaning:*  Invocation, call, plea. (Root word)\n*   **'Aeth-ra'** (Pronounced: /ˈæθ.rɑ/) - *Meaning:*  Wonder, awe, profound surprise. (Aeth + suffix indicating intensity)\n*   **'Aeth-lin'** (Pronounced: /ˈæθ.lɪn/) - *Meaning:*  Admiration, respect, heartfelt approval. (Aeth + suffix indicating positive regard)\n*   **'Aeth-na'** (Pronounced: /ˈæθ.nɑ/) - *Meaning:*  Attention-getter, a signal for notice, a dramatic pause. (Aeth + suffix indicating action)\n*   **'Aeth-iel'** (Pronounced: /ˈæθ.ɪl/) - *Meaning:*  Exclamation of excitement, joyous surprise. (Aeth + suffix indicating emotion)\n*   **'Aeth-mor'** (Pronounced: /ˈæθ.mɔr/) - *Meaning:*  A grand declaration, a powerful statement. (Aeth + suffix indicating magnitude)\n*   **'Aeth-sil'** (Pronounced: /ˈæθ.sɪl/) - *Meaning:*  A whispered request, a hopeful plea. (Aeth + suffix indicating subtlety)\n*   **'Aeth-van'** (Pronounced: /ˈæθ.vɑn/) - *Meaning:*  A sudden, sharp attention-grabber, a startling announcement. (Aeth + suffix indicating abruptness)\n*   **'Aeth'** (Pronounced: /ˈæθ/) - *Meaning:* (Base) To call out, to address, to invoke. (Simple form)\n*   **'Ra'** (Pronounced: /rɑ/) - *Meaning:*  (Modifier)  Intensity, depth, significance. (Used with Aeth to intensify meaning)\n*   **'Lin'",
+    "generated_word": "'",
     "model": "google/gemma-3-4b-it",
     "language": "en",
     "trial": "trial12"
@@ -10994,7 +10994,7 @@
     "meaning": [
       "Expressing pain or fright; (also) expressing anguish, disappointment, or frustration."
     ],
-    "generated_word": "Okay, here's a constructed language vocabulary focused on the meaning \"Expressing invocation, surprise, or admiration; (also) used to gain attention,\" with phonetic symbols and Roman letter equivalents. I've aimed for a somewhat melodic and evocative feel.\n\n**Language Name:**  Aethel (pronounced /ˈæθəl/) - meaning \"Noble Echo\"\n\n**Vocabulary:**\n\n*   **'Aeth'** (Pronounced: /ˈæθ/) -  *Meaning:*  Invocation, call, plea. (Root word)\n*   **'Aeth-ra'** (Pronounced: /ˈæθ.rɑ/) - *Meaning:*  Wonder, awe, profound surprise. (Aeth + suffix indicating intensity)\n*   **'Aeth-lin'** (Pronounced: /ˈæθ.lɪn/) - *Meaning:*  Admiration, respect, heartfelt approval. (Aeth + suffix indicating positive regard)\n*   **'Aeth-na'** (Pronounced: /ˈæθ.nɑ/) - *Meaning:*  Attention-getter, a signal for notice, a dramatic pause. (Aeth + suffix indicating action)\n*   **'Aeth-iel'** (Pronounced: /ˈæθ.ɪl/) - *Meaning:*  Exclamation of excitement, joyous surprise. (Aeth + suffix indicating emotion)\n*   **'Aeth-mor'** (Pronounced: /ˈæθ.mɔr/) - *Meaning:*  A grand declaration, a powerful statement. (Aeth + suffix indicating magnitude)\n*   **'Aeth-sil'** (Pronounced: /ˈæθ.sɪl/) - *Meaning:*  A whispered request, a hopeful plea. (Aeth + suffix indicating subtlety)\n*   **'Aeth-van'** (Pronounced: /ˈæθ.vɑn/) - *Meaning:*  A sudden, sharp attention-grabber, a startling announcement. (Aeth + suffix indicating abruptness)\n*   **'Aeth'** (Pronounced: /ˈæθ/) - *Meaning:* (Base) To call out, to address, to invoke. (Simple form)\n*   **'Ra'** (Pronounced: /rɑ/) - *Meaning:*  (Modifier)  Intensity, depth, significance. (Used with Aeth to intensify meaning)\n*   **'Lin'",
+    "generated_word": "K'tharr",
     "model": "google/gemma-3-4b-it",
     "language": "en",
     "trial": "trial12"
@@ -11014,7 +11014,7 @@
     "meaning": [
       "Representing the sound of a sneeze."
     ],
-    "generated_word": "Zylphara!",
+    "generated_word": "Zz'thra!",
     "model": "google/gemma-3-4b-it",
     "language": "en",
     "trial": "trial13"
@@ -11024,7 +11024,7 @@
     "meaning": [
       "Representing the sound of a sneeze."
     ],
-    "generated_word": "Zylphara!",
+    "generated_word": "Zz'thra!",
     "model": "google/gemma-3-4b-it",
     "language": "en",
     "trial": "trial13"
@@ -11034,7 +11034,7 @@
     "meaning": [
       "Representing the sound of a sneeze."
     ],
-    "generated_word": "Zylphara!",
+    "generated_word": "Zz'thra!",
     "model": "google/gemma-3-4b-it",
     "language": "en",
     "trial": "trial13"
@@ -11044,7 +11044,7 @@
     "meaning": [
       "An exclamation representing a slight cough or clearing of the throat, used (a) to attract attention, esp. prior to speaking (b) to express hesitation, (mock) disapproval, embarrassment, suggestiveness, etc."
     ],
-    "generated_word": "Zylphara!",
+    "generated_word": "Shl'k't",
     "model": "google/gemma-3-4b-it",
     "language": "en",
     "trial": "trial13"
@@ -11054,7 +11054,7 @@
     "meaning": [
       "An exclamation of surprise, regret, pain, etc., often used in imitation of foreign speakers of English."
     ],
-    "generated_word": "Zylphara!",
+    "generated_word": "Zz'glorg!",
     "model": "google/gemma-3-4b-it",
     "language": "en",
     "trial": "trial13"
@@ -11064,7 +11064,7 @@
     "meaning": [
       "Awailing exclamation of resignation, surprise, regret, alarm, etc.; sometimes imitative of non-British speakers of English."
     ],
-    "generated_word": "Zylphara!",
+    "generated_word": "K'tharr'glom",
     "model": "google/gemma-3-4b-it",
     "language": "en",
     "trial": "trial13"
@@ -11074,7 +11074,7 @@
     "meaning": [
       "A cry of sorrow or lamentation."
     ],
-    "generated_word": "Zylphara!",
+    "generated_word": "Kryll’shara",
     "model": "google/gemma-3-4b-it",
     "language": "en",
     "trial": "trial13"
@@ -11084,7 +11084,7 @@
     "meaning": [
       "Representing the bark of a (small) dog, or a human imitation of such a bark."
     ],
-    "generated_word": "Zylphara!",
+    "generated_word": "K'wiff",
     "model": "google/gemma-3-4b-it",
     "language": "en",
     "trial": "trial13"
@@ -11094,7 +11094,7 @@
     "meaning": [
       "Expressing pain or fright; (also) expressing anguish, disappointment, or frustration."
     ],
-    "generated_word": "Zylphara!",
+    "generated_word": "K'tharr'glum",
     "model": "google/gemma-3-4b-it",
     "language": "en",
     "trial": "trial13"
@@ -11114,7 +11114,7 @@
     "meaning": [
       "Representing the sound of a sneeze."
     ],
-    "generated_word": "K'tharr",
+    "generated_word": "K'tharr-z'th",
     "model": "google/gemma-3-4b-it",
     "language": "en",
     "trial": "trial14"
@@ -11124,7 +11124,7 @@
     "meaning": [
       "Representing the sound of a sneeze."
     ],
-    "generated_word": "K'tharr",
+    "generated_word": "K'tharr-z'th",
     "model": "google/gemma-3-4b-it",
     "language": "en",
     "trial": "trial14"
@@ -11134,7 +11134,7 @@
     "meaning": [
       "Representing the sound of a sneeze."
     ],
-    "generated_word": "K'tharr",
+    "generated_word": "K'tharr-z'th",
     "model": "google/gemma-3-4b-it",
     "language": "en",
     "trial": "trial14"
@@ -11154,7 +11154,7 @@
     "meaning": [
       "An exclamation of surprise, regret, pain, etc., often used in imitation of foreign speakers of English."
     ],
-    "generated_word": "K'tharr",
+    "generated_word": "",
     "model": "google/gemma-3-4b-it",
     "language": "en",
     "trial": "trial14"
@@ -11164,7 +11164,7 @@
     "meaning": [
       "Awailing exclamation of resignation, surprise, regret, alarm, etc.; sometimes imitative of non-British speakers of English."
     ],
-    "generated_word": "K'tharr",
+    "generated_word": "K'tharr-shil",
     "model": "google/gemma-3-4b-it",
     "language": "en",
     "trial": "trial14"
@@ -11174,7 +11174,7 @@
     "meaning": [
       "A cry of sorrow or lamentation."
     ],
-    "generated_word": "K'tharr",
+    "generated_word": "K'tharr’lin",
     "model": "google/gemma-3-4b-it",
     "language": "en",
     "trial": "trial14"
@@ -11184,7 +11184,7 @@
     "meaning": [
       "Representing the bark of a (small) dog, or a human imitation of such a bark."
     ],
-    "generated_word": "K'tharr",
+    "generated_word": "k'thrip",
     "model": "google/gemma-3-4b-it",
     "language": "en",
     "trial": "trial14"
@@ -11214,7 +11214,7 @@
     "meaning": [
       "Representing the sound of a sneeze."
     ],
-    "generated_word": "K'tharr'ala",
+    "generated_word": "K'tharr-glok",
     "model": "google/gemma-3-4b-it",
     "language": "en",
     "trial": "trial15"
@@ -11224,7 +11224,7 @@
     "meaning": [
       "Representing the sound of a sneeze."
     ],
-    "generated_word": "K'tharr'ala",
+    "generated_word": "K'tharr-glok",
     "model": "google/gemma-3-4b-it",
     "language": "en",
     "trial": "trial15"
@@ -11234,7 +11234,7 @@
     "meaning": [
       "Representing the sound of a sneeze."
     ],
-    "generated_word": "K'tharr'ala",
+    "generated_word": "K'tharr-glok",
     "model": "google/gemma-3-4b-it",
     "language": "en",
     "trial": "trial15"
@@ -11244,7 +11244,7 @@
     "meaning": [
       "An exclamation representing a slight cough or clearing of the throat, used (a) to attract attention, esp. prior to speaking (b) to express hesitation, (mock) disapproval, embarrassment, suggestiveness, etc."
     ],
-    "generated_word": "K'tharr'ala",
+    "generated_word": "K'tharr-sh'el",
     "model": "google/gemma-3-4b-it",
     "language": "en",
     "trial": "trial15"
@@ -11254,7 +11254,7 @@
     "meaning": [
       "An exclamation of surprise, regret, pain, etc., often used in imitation of foreign speakers of English."
     ],
-    "generated_word": "K'tharr'ala",
+    "generated_word": "K'tharr'glok",
     "model": "google/gemma-3-4b-it",
     "language": "en",
     "trial": "trial15"
@@ -11264,7 +11264,7 @@
     "meaning": [
       "Awailing exclamation of resignation, surprise, regret, alarm, etc.; sometimes imitative of non-British speakers of English."
     ],
-    "generated_word": "K'tharr'ala",
+    "generated_word": "K'tharr'glon",
     "model": "google/gemma-3-4b-it",
     "language": "en",
     "trial": "trial15"
@@ -11274,7 +11274,7 @@
     "meaning": [
       "A cry of sorrow or lamentation."
     ],
-    "generated_word": "K'tharr'ala",
+    "generated_word": "K'tharr'al",
     "model": "google/gemma-3-4b-it",
     "language": "en",
     "trial": "trial15"
@@ -11284,7 +11284,7 @@
     "meaning": [
       "Representing the bark of a (small) dog, or a human imitation of such a bark."
     ],
-    "generated_word": "K'tharr'ala",
+    "generated_word": "K'tharr-p'tsh",
     "model": "google/gemma-3-4b-it",
     "language": "en",
     "trial": "trial15"
@@ -11294,7 +11294,7 @@
     "meaning": [
       "Expressing pain or fright; (also) expressing anguish, disappointment, or frustration."
     ],
-    "generated_word": "K'tharr'ala",
+    "generated_word": "K'tharr'glok",
     "model": "google/gemma-3-4b-it",
     "language": "en",
     "trial": "trial15"
@@ -11314,7 +11314,7 @@
     "meaning": [
       "Representing the sound of a sneeze."
     ],
-    "generated_word": "K'tharr-sh'al!",
+    "generated_word": "K'tharr'glok",
     "model": "google/gemma-3-4b-it",
     "language": "en",
     "trial": "trial16"
@@ -11324,7 +11324,7 @@
     "meaning": [
       "Representing the sound of a sneeze."
     ],
-    "generated_word": "K'tharr-sh'al!",
+    "generated_word": "K'tharr'glok",
     "model": "google/gemma-3-4b-it",
     "language": "en",
     "trial": "trial16"
@@ -11334,7 +11334,7 @@
     "meaning": [
       "Representing the sound of a sneeze."
     ],
-    "generated_word": "K'tharr-sh'al!",
+    "generated_word": "K'tharr'glok",
     "model": "google/gemma-3-4b-it",
     "language": "en",
     "trial": "trial16"
@@ -11344,7 +11344,7 @@
     "meaning": [
       "An exclamation representing a slight cough or clearing of the throat, used (a) to attract attention, esp. prior to speaking (b) to express hesitation, (mock) disapproval, embarrassment, suggestiveness, etc."
     ],
-    "generated_word": "K'tharr-sh'al!",
+    "generated_word": "K'tharr, Sh'viss, Gl'ark, T'zool, F'lorn.",
     "model": "google/gemma-3-4b-it",
     "language": "en",
     "trial": "trial16"
@@ -11354,7 +11354,7 @@
     "meaning": [
       "An exclamation of surprise, regret, pain, etc., often used in imitation of foreign speakers of English."
     ],
-    "generated_word": "K'tharr-sh'al!",
+    "generated_word": "K'tharr'glok",
     "model": "google/gemma-3-4b-it",
     "language": "en",
     "trial": "trial16"
@@ -11364,7 +11364,7 @@
     "meaning": [
       "Awailing exclamation of resignation, surprise, regret, alarm, etc.; sometimes imitative of non-British speakers of English."
     ],
-    "generated_word": "K'tharr-sh'al!",
+    "generated_word": "K'tharr'glok",
     "model": "google/gemma-3-4b-it",
     "language": "en",
     "trial": "trial16"
@@ -11374,7 +11374,7 @@
     "meaning": [
       "A cry of sorrow or lamentation."
     ],
-    "generated_word": "K'tharr-sh'al!",
+    "generated_word": "K'tharr'al",
     "model": "google/gemma-3-4b-it",
     "language": "en",
     "trial": "trial16"
@@ -11384,7 +11384,7 @@
     "meaning": [
       "Representing the bark of a (small) dog, or a human imitation of such a bark."
     ],
-    "generated_word": "K'tharr-sh'al!",
+    "generated_word": "K'tharr-k'tharr-p't't",
     "model": "google/gemma-3-4b-it",
     "language": "en",
     "trial": "trial16"
@@ -11394,7 +11394,7 @@
     "meaning": [
       "Expressing pain or fright; (also) expressing anguish, disappointment, or frustration."
     ],
-    "generated_word": "K'tharr-sh'al!",
+    "generated_word": "K'tharr'glok",
     "model": "google/gemma-3-4b-it",
     "language": "en",
     "trial": "trial16"
@@ -11514,7 +11514,7 @@
     "meaning": [
       "Representing the sound of a sneeze."
     ],
-    "generated_word": "",
+    "generated_word": "K'tharr-glok",
     "model": "google/gemma-3-4b-it",
     "language": "en",
     "trial": "trial18"
@@ -11524,7 +11524,7 @@
     "meaning": [
       "Representing the sound of a sneeze."
     ],
-    "generated_word": "",
+    "generated_word": "K'tharr-glok",
     "model": "google/gemma-3-4b-it",
     "language": "en",
     "trial": "trial18"
@@ -11534,7 +11534,7 @@
     "meaning": [
       "Representing the sound of a sneeze."
     ],
-    "generated_word": "",
+    "generated_word": "K'tharr-glok",
     "model": "google/gemma-3-4b-it",
     "language": "en",
     "trial": "trial18"
@@ -11554,7 +11554,7 @@
     "meaning": [
       "An exclamation of surprise, regret, pain, etc., often used in imitation of foreign speakers of English."
     ],
-    "generated_word": "",
+    "generated_word": "K'tharr-sh'el",
     "model": "google/gemma-3-4b-it",
     "language": "en",
     "trial": "trial18"
@@ -11614,7 +11614,7 @@
     "meaning": [
       "Representing the sound of a sneeze."
     ],
-    "generated_word": "K'tharr-shil",
+    "generated_word": "K'tharr-glok",
     "model": "google/gemma-3-4b-it",
     "language": "en",
     "trial": "trial19"
@@ -11624,7 +11624,7 @@
     "meaning": [
       "Representing the sound of a sneeze."
     ],
-    "generated_word": "K'tharr-shil",
+    "generated_word": "K'tharr-glok",
     "model": "google/gemma-3-4b-it",
     "language": "en",
     "trial": "trial19"
@@ -11634,7 +11634,7 @@
     "meaning": [
       "Representing the sound of a sneeze."
     ],
-    "generated_word": "K'tharr-shil",
+    "generated_word": "K'tharr-glok",
     "model": "google/gemma-3-4b-it",
     "language": "en",
     "trial": "trial19"
@@ -11654,7 +11654,7 @@
     "meaning": [
       "An exclamation of surprise, regret, pain, etc., often used in imitation of foreign speakers of English."
     ],
-    "generated_word": "K'tharr-shil",
+    "generated_word": "K'tharr'glok",
     "model": "google/gemma-3-4b-it",
     "language": "en",
     "trial": "trial19"
@@ -11664,7 +11664,7 @@
     "meaning": [
       "Awailing exclamation of resignation, surprise, regret, alarm, etc.; sometimes imitative of non-British speakers of English."
     ],
-    "generated_word": "K'tharr-shil",
+    "generated_word": "K'tharr-sh'vyl",
     "model": "google/gemma-3-4b-it",
     "language": "en",
     "trial": "trial19"
@@ -11674,7 +11674,7 @@
     "meaning": [
       "A cry of sorrow or lamentation."
     ],
-    "generated_word": "K'tharr-shil",
+    "generated_word": "K'tharr-sh'al",
     "model": "google/gemma-3-4b-it",
     "language": "en",
     "trial": "trial19"
@@ -11684,7 +11684,7 @@
     "meaning": [
       "Representing the bark of a (small) dog, or a human imitation of such a bark."
     ],
-    "generated_word": "K'tharr-shil",
+    "generated_word": "K'tharr-piff",
     "model": "google/gemma-3-4b-it",
     "language": "en",
     "trial": "trial19"
@@ -11694,7 +11694,7 @@
     "meaning": [
       "Expressing pain or fright; (also) expressing anguish, disappointment, or frustration."
     ],
-    "generated_word": "K'tharr-shil",
+    "generated_word": "K'tharr-sh'vyl",
     "model": "google/gemma-3-4b-it",
     "language": "en",
     "trial": "trial19"
@@ -11744,7 +11744,7 @@
     "meaning": [
       "An exclamation representing a slight cough or clearing of the throat, used (a) to attract attention, esp. prior to speaking (b) to express hesitation, (mock) disapproval, embarrassment, suggestiveness, etc."
     ],
-    "generated_word": "",
+    "generated_word": "K'tharr, Sh'il, V'rak, Z'el, T'lin",
     "model": "google/gemma-3-4b-it",
     "language": "en",
     "trial": "trial20"
@@ -11774,7 +11774,7 @@
     "meaning": [
       "A cry of sorrow or lamentation."
     ],
-    "generated_word": "",
+    "generated_word": "K'tharr, Sh'al, Gro'thum, L'ira, V'krin",
     "model": "google/gemma-3-4b-it",
     "language": "en",
     "trial": "trial20"
@@ -11794,7 +11794,7 @@
     "meaning": [
       "Expressing pain or fright; (also) expressing anguish, disappointment, or frustration."
     ],
-    "generated_word": "",
+    "generated_word": "\n* **K'tharr:** (kuh-THAR) - A sharp, short burst of sound, like a gasp or a choked cry.  Best for sudden fright or sharp pain.\n* **V'lorn:** (vuhl-ORN) - A drawn-out, wavering sound, suggesting deep sorrow or anguish.  Like a sigh mixed with a sob.\n* **G'rak:** (guh-RAK) - A guttural, throbbing sound, representing physical pain or intense frustration.  Think of a low growl mixed with a moan.\n* **Sh'ill:** (SHEEL) - A quick, fluttering sound, conveying disappointment or a feeling of being unsettled. Like a small, agitated bird.\n* **Z'thum:** (zuh-THUM) - A heavy, collapsing sound, representing a feeling of utter despair or overwhelming frustration.  Like a stone falling.\n* **R'kash:** (ruh-KASH) - A scraping, grating sound, suggesting a feeling of being trapped or restricted, often linked to frustration.\n* **Fl'orr:** (FLOR) - A brief, high-pitched squeak, representing a small, sharp burst of pain or surprise.\n* **D'ronk:** (DOHNK) - A dull, reverberating sound, signifying lingering sadness or disappointment.\n",
     "model": "google/gemma-3-4b-it",
     "language": "en",
     "trial": "trial20"
@@ -11814,7 +11814,7 @@
     "meaning": [
       "Representing the sound of a sneeze."
     ],
-    "generated_word": "\n* **Zylara:** (pronounced Zih-LAH-rah) -  A quick, rising sound like a chime or a small bell combined with a breathy \"z.\"  *Meaning:*  Immediate, bright surprise or a joyful exclamation of recognition.  (Evokes a sudden flash of light.)\n* **K’tharr:** (pronounced K’THAR) -  A guttural, slightly throaty \"k\" followed by a short, sharp \"th\" sound.  It has a slight reverberation. *Meaning:*  A solemn invocation, a plea directed with respect and awe. (Like a whispered prayer with a resonant echo.)\n* **Sh’lorn:** (pronounced Sh’LORN) -  A soft, flowing \"sh\" sound followed by a short, almost sighing \"l.\" *Meaning:*  Gentle admiration, a quiet expression of beauty or wonder. (Like the rustle of silk or a contented sigh.)\n* **R’vix:** (pronounced R’VIX) -  A rolling \"r\" sound combined with a short, sharp \"v\" sound.  It’s slightly forceful. *Meaning:*  A demand for attention, a call to be noticed – not necessarily aggressive, but insistent. (Like a drumbeat or a sharp, clear voice.)\n* **Fl’ara:** (pronounced Fl’AH-rah) -  A soft, fluttering \"fl\" sound followed by a rising \"ah\" vowel. *Meaning:*  A feeling of hopeful anticipation, a whispered wish or a plea for something good to happen. (Like the sound of wings or a gentle breeze.)\n* **G’ron:** (pronounced G’RON) - A deep, resonant \"g\" followed by a short, clipped \"ron\" sound. *Meaning:*  A powerful expression of respect or reverence, often used in formal settings. (Like the sound of a gong or a deep voice.)\n* **T’lix:**",
+    "generated_word": "K'tharr",
     "model": "google/gemma-3-4b-it",
     "language": "en",
     "trial": "trial21"
@@ -11824,7 +11824,7 @@
     "meaning": [
       "Representing the sound of a sneeze."
     ],
-    "generated_word": "\n* **Zylara:** (pronounced Zih-LAH-rah) -  A quick, rising sound like a chime or a small bell combined with a breathy \"z.\"  *Meaning:*  Immediate, bright surprise or a joyful exclamation of recognition.  (Evokes a sudden flash of light.)\n* **K’tharr:** (pronounced K’THAR) -  A guttural, slightly throaty \"k\" followed by a short, sharp \"th\" sound.  It has a slight reverberation. *Meaning:*  A solemn invocation, a plea directed with respect and awe. (Like a whispered prayer with a resonant echo.)\n* **Sh’lorn:** (pronounced Sh’LORN) -  A soft, flowing \"sh\" sound followed by a short, almost sighing \"l.\" *Meaning:*  Gentle admiration, a quiet expression of beauty or wonder. (Like the rustle of silk or a contented sigh.)\n* **R’vix:** (pronounced R’VIX) -  A rolling \"r\" sound combined with a short, sharp \"v\" sound.  It’s slightly forceful. *Meaning:*  A demand for attention, a call to be noticed – not necessarily aggressive, but insistent. (Like a drumbeat or a sharp, clear voice.)\n* **Fl’ara:** (pronounced Fl’AH-rah) -  A soft, fluttering \"fl\" sound followed by a rising \"ah\" vowel. *Meaning:*  A feeling of hopeful anticipation, a whispered wish or a plea for something good to happen. (Like the sound of wings or a gentle breeze.)\n* **G’ron:** (pronounced G’RON) - A deep, resonant \"g\" followed by a short, clipped \"ron\" sound. *Meaning:*  A powerful expression of respect or reverence, often used in formal settings. (Like the sound of a gong or a deep voice.)\n* **T’lix:**",
+    "generated_word": "Okay, let's craft some onomatopoeic/ideophonic words for \"representing the sound of a sneeze\" in a constructed language, aiming for a feeling of both suddenness and a little bit of discomfort. I'll call this language \"Veridian\" – it leans towards a slightly guttural, almost earthy sound.\n\nHere's the vocabulary, with explanations of the reasoning behind the sounds:\n\n*   **'K'tharr:** (Pronounced: K-thar) - This combines a sharp, quick 'k' sound with a longer, slightly vibrating 'th' sound.  It suggests the initial burst of air.  The 'th' adds a little raspiness, like the aftermath of a sneeze.\n\n*   **'Z'il'ak:** (Pronounced: Zihl-ak) -  'Z' represents the sharp, explosive quality. 'il' is a short, clipped vowel, and 'ak' adds a slight, almost choked sound at the end, mimicking the feeling of pressure.\n\n*   **'Gro'n'th:** (Pronounced: Groh-nth) - 'Gro' is a guttural sound, like a rumble, representing the build-up. 'n'th is a quick, nasalized 'th' – the sound of the nose contracting.\n\n*   **'Sh'al'ar:** (Pronounced: Sha-lar) - 'Sh' is a quick, sharp expulsion. 'al' is a short, slightly flat vowel, and 'ar' adds a lingering, almost wet sound.\n\n*   **'R'ok'th:** (Pronounced: Rok-th) - 'R' is a forceful, abrupt sound. 'ok' is a short, closed vowel, and 'th' again provides the nasal rasp.\n\n*   **'F'l'ar'ik:** (Pronounced: Fl-ar-ik) - 'F' is a forceful, quick sound. 'l' is a short, liquid sound, and 'ar' is a slightly drawn-out vowel, and 'ik' adds a final, small, almost painful sound.\n\n*   **'K'ra'sh:** (Pronounced: Krah-sh) - A combination of a quick 'k' and a sharp 'sh' sound, representing the full, sudden release.\n\n*   **'Z'ok'th:** (Pronounced: Zok-th)",
     "model": "google/gemma-3-4b-it",
     "language": "en",
     "trial": "trial21"
@@ -11834,7 +11834,7 @@
     "meaning": [
       "Representing the sound of a sneeze."
     ],
-    "generated_word": "\n* **Zylara:** (pronounced Zih-LAH-rah) -  A quick, rising sound like a chime or a small bell combined with a breathy \"z.\"  *Meaning:*  Immediate, bright surprise or a joyful exclamation of recognition.  (Evokes a sudden flash of light.)\n* **K’tharr:** (pronounced K’THAR) -  A guttural, slightly throaty \"k\" followed by a short, sharp \"th\" sound.  It has a slight reverberation. *Meaning:*  A solemn invocation, a plea directed with respect and awe. (Like a whispered prayer with a resonant echo.)\n* **Sh’lorn:** (pronounced Sh’LORN) -  A soft, flowing \"sh\" sound followed by a short, almost sighing \"l.\" *Meaning:*  Gentle admiration, a quiet expression of beauty or wonder. (Like the rustle of silk or a contented sigh.)\n* **R’vix:** (pronounced R’VIX) -  A rolling \"r\" sound combined with a short, sharp \"v\" sound.  It’s slightly forceful. *Meaning:*  A demand for attention, a call to be noticed – not necessarily aggressive, but insistent. (Like a drumbeat or a sharp, clear voice.)\n* **Fl’ara:** (pronounced Fl’AH-rah) -  A soft, fluttering \"fl\" sound followed by a rising \"ah\" vowel. *Meaning:*  A feeling of hopeful anticipation, a whispered wish or a plea for something good to happen. (Like the sound of wings or a gentle breeze.)\n* **G’ron:** (pronounced G’RON) - A deep, resonant \"g\" followed by a short, clipped \"ron\" sound. *Meaning:*  A powerful expression of respect or reverence, often used in formal settings. (Like the sound of a gong or a deep voice.)\n* **T’lix:**",
+    "generated_word": "Okay, let's craft some onomatopoeic/ideophonic words for \"representing the sound of a sneeze\" in a constructed language, aiming for a feeling of both suddenness and a little bit of discomfort. I'll call this language \"Veridian\" – it leans towards a slightly guttural, almost earthy sound.\n\nHere's the vocabulary, with explanations of the reasoning behind the sounds:\n\n*   **'K'tharr:** (Pronounced: K-thar) - This combines a sharp, quick 'k' sound with a longer, slightly vibrating 'th' sound.  It suggests the initial burst of air.  The 'th' adds a little raspiness, like the aftermath of a sneeze.\n\n*   **'Z'il'ak:** (Pronounced: Zihl-ak) -  'Z' represents the sharp, explosive quality. 'il' is a short, clipped vowel, and 'ak' adds a slight, almost choked sound at the end, mimicking the feeling of pressure.\n\n*   **'Gro'n'th:** (Pronounced: Groh-nth) - 'Gro' is a guttural sound, like a rumble, representing the build-up. 'n'th is a quick, nasalized 'th' – the sound of the nose contracting.\n\n*   **'Sh'al'ar:** (Pronounced: Sha-lar) - 'Sh' is a quick, sharp expulsion. 'al' is a short, slightly flat vowel, and 'ar' adds a lingering, almost wet sound.\n\n*   **'R'ok'th:** (Pronounced: Rok-th) - 'R' is a forceful, abrupt sound. 'ok' is a short, closed vowel, and 'th' again provides the nasal rasp.\n\n*   **'F'l'ar'ik:** (Pronounced: Fl-ar-ik) - 'F' is a forceful, quick sound. 'l' is a short, liquid sound, and 'ar' is a slightly drawn-out vowel, and 'ik' adds a final, small, almost painful sound.\n\n*   **'K'ra'sh:** (Pronounced: Krah-sh) - A combination of a quick 'k' and a sharp 'sh' sound, representing the full, sudden release.\n\n*   **'Z'ok'th:** (Pronounced: Zok-th)",
     "model": "google/gemma-3-4b-it",
     "language": "en",
     "trial": "trial21"
@@ -11844,7 +11844,7 @@
     "meaning": [
       "An exclamation representing a slight cough or clearing of the throat, used (a) to attract attention, esp. prior to speaking (b) to express hesitation, (mock) disapproval, embarrassment, suggestiveness, etc."
     ],
-    "generated_word": "\n* **Zylara:** (pronounced Zih-LAH-rah) -  A quick, rising sound like a chime or a small bell combined with a breathy \"z.\"  *Meaning:*  Immediate, bright surprise or a joyful exclamation of recognition.  (Evokes a sudden flash of light.)\n* **K’tharr:** (pronounced K’THAR) -  A guttural, slightly throaty \"k\" followed by a short, sharp \"th\" sound.  It has a slight reverberation. *Meaning:*  A solemn invocation, a plea directed with respect and awe. (Like a whispered prayer with a resonant echo.)\n* **Sh’lorn:** (pronounced Sh’LORN) -  A soft, flowing \"sh\" sound followed by a short, almost sighing \"l.\" *Meaning:*  Gentle admiration, a quiet expression of beauty or wonder. (Like the rustle of silk or a contented sigh.)\n* **R’vix:** (pronounced R’VIX) -  A rolling \"r\" sound combined with a short, sharp \"v\" sound.  It’s slightly forceful. *Meaning:*  A demand for attention, a call to be noticed – not necessarily aggressive, but insistent. (Like a drumbeat or a sharp, clear voice.)\n* **Fl’ara:** (pronounced Fl’AH-rah) -  A soft, fluttering \"fl\" sound followed by a rising \"ah\" vowel. *Meaning:*  A feeling of hopeful anticipation, a whispered wish or a plea for something good to happen. (Like the sound of wings or a gentle breeze.)\n* **G’ron:** (pronounced G’RON) - A deep, resonant \"g\" followed by a short, clipped \"ron\" sound. *Meaning:*  A powerful expression of respect or reverence, often used in formal settings. (Like the sound of a gong or a deep voice.)\n* **T’lix:**",
+    "generated_word": "\n*   **K'tharr:** (Pronounced: K-thahr) – This is the core word. It’s based on a short, quick, almost brittle \"k\" sound followed by a slightly rolled \"th\" (like in \"thin\").  It evokes a very small, dry rasp – the kind of cough you make before speaking to get someone's attention.  It carries a slight implication of formality or a touch of reserve.\n\n*   **Sh'il:** (Pronounced: Sh-eel) –  A softer, breathier sound.  \"Sh\" followed by a quick, almost silent \"il\" (like the \"il\" in \"ill\").  This represents hesitation, a slight clearing of the throat before a potentially difficult statement, or a moment of considered doubt.  It’s less assertive than *K'tharr*.\n\n*   **R'zht:** (Pronounced: R-zht) –  A short, sharp \"r\" followed by a quick \"zht\" (like the \"zht\" in \"zest\").  This suggests mild disapproval or a subtle, uncomfortable acknowledgement.  It’s a dry, almost prickly sound.  Think of a polite, restrained \"ugh.\"\n\n*   **Gl'orr:** (Pronounced: Gl-orr) –  A glottal stop (\"'\") followed by a soft \"l\" and a short \"orr\" (like \"or\" in \"for\").  This is for embarrassment or a slightly awkward moment. The glottal stop adds a brief, almost choked quality.  It’s a vulnerable sound.\n\n*   **T'krin:** (Pronounced: T-krin) –  A short \"t\" followed by a quick, almost whispered \"krin.\"  This is used for suggestive or slightly provocative intent. The \"krin\" is a delicate, almost breathy sound, implying a careful, considered intention.\n\n*   **F",
     "model": "google/gemma-3-4b-it",
     "language": "en",
     "trial": "trial21"
@@ -11854,7 +11854,7 @@
     "meaning": [
       "An exclamation of surprise, regret, pain, etc., often used in imitation of foreign speakers of English."
     ],
-    "generated_word": "\n* **Zylara:** (pronounced Zih-LAH-rah) -  A quick, rising sound like a chime or a small bell combined with a breathy \"z.\"  *Meaning:*  Immediate, bright surprise or a joyful exclamation of recognition.  (Evokes a sudden flash of light.)\n* **K’tharr:** (pronounced K’THAR) -  A guttural, slightly throaty \"k\" followed by a short, sharp \"th\" sound.  It has a slight reverberation. *Meaning:*  A solemn invocation, a plea directed with respect and awe. (Like a whispered prayer with a resonant echo.)\n* **Sh’lorn:** (pronounced Sh’LORN) -  A soft, flowing \"sh\" sound followed by a short, almost sighing \"l.\" *Meaning:*  Gentle admiration, a quiet expression of beauty or wonder. (Like the rustle of silk or a contented sigh.)\n* **R’vix:** (pronounced R’VIX) -  A rolling \"r\" sound combined with a short, sharp \"v\" sound.  It’s slightly forceful. *Meaning:*  A demand for attention, a call to be noticed – not necessarily aggressive, but insistent. (Like a drumbeat or a sharp, clear voice.)\n* **Fl’ara:** (pronounced Fl’AH-rah) -  A soft, fluttering \"fl\" sound followed by a rising \"ah\" vowel. *Meaning:*  A feeling of hopeful anticipation, a whispered wish or a plea for something good to happen. (Like the sound of wings or a gentle breeze.)\n* **G’ron:** (pronounced G’RON) - A deep, resonant \"g\" followed by a short, clipped \"ron\" sound. *Meaning:*  A powerful expression of respect or reverence, often used in formal settings. (Like the sound of a gong or a deep voice.)\n* **T’lix:**",
+    "generated_word": "\n* **K'tharr:** (Pronounced: K-thahr) -  A sharp, quick \"pop\" or \"crack\" sound.  Used for sudden surprise or a brief, stinging pain.  (Imagine a small firework or a snapping twig.)\n* **Sh'lorn:** (Pronounced: Sh-lorn) - A drawn-out, mournful sigh, like air escaping slowly.  Expresses regret, disappointment, or a feeling of loss. (Think of a deflating balloon.)\n* **G'rak:** (Pronounced: G-rak) - A guttural, throaty groan, like a deep, contained pain.  Used for significant physical or emotional pain. (Like a low rumble.)\n* **Z'vorn:** (Pronounced: Z-vorn) - A short, sharp, almost brittle sound, like a small object breaking.  Represents a sudden, unpleasant realization or a feeling of being betrayed. (Like shattering glass.)\n* **R'thum:** (Pronounced: R-thum) - A bubbling, gurgling sound, like something rising or overflowing.  Used for a feeling of overwhelming emotion – joy, fear, or shock. (Like a shaken soda bottle.)\n* **F'lorn:** (Pronounced: F-lorn) - A soft, fluttering sound, like a wing or a delicate curtain falling.  Expresses a gentle regret or a wistful feeling. (Like a butterfly's wing.)\n* **H'karr:** (Pronounced: H-kahr) - A short, forceful expulsion of breath, like a gasp.  Used for surprise or shock, often with a hint of fear. (Like a quick exhale.)\n* **D'shaan:** (Pronounced: D-shaan) - A low, rumbling vibration, like the earth shaking slightly.  Used for a deep sense of sorrow or impending doom. (Like distant thunder.)\n* **T'",
     "model": "google/gemma-3-4b-it",
     "language": "en",
     "trial": "trial21"
@@ -11864,7 +11864,7 @@
     "meaning": [
       "Awailing exclamation of resignation, surprise, regret, alarm, etc.; sometimes imitative of non-British speakers of English."
     ],
-    "generated_word": "\n* **Zylara:** (pronounced Zih-LAH-rah) -  A quick, rising sound like a chime or a small bell combined with a breathy \"z.\"  *Meaning:*  Immediate, bright surprise or a joyful exclamation of recognition.  (Evokes a sudden flash of light.)\n* **K’tharr:** (pronounced K’THAR) -  A guttural, slightly throaty \"k\" followed by a short, sharp \"th\" sound.  It has a slight reverberation. *Meaning:*  A solemn invocation, a plea directed with respect and awe. (Like a whispered prayer with a resonant echo.)\n* **Sh’lorn:** (pronounced Sh’LORN) -  A soft, flowing \"sh\" sound followed by a short, almost sighing \"l.\" *Meaning:*  Gentle admiration, a quiet expression of beauty or wonder. (Like the rustle of silk or a contented sigh.)\n* **R’vix:** (pronounced R’VIX) -  A rolling \"r\" sound combined with a short, sharp \"v\" sound.  It’s slightly forceful. *Meaning:*  A demand for attention, a call to be noticed – not necessarily aggressive, but insistent. (Like a drumbeat or a sharp, clear voice.)\n* **Fl’ara:** (pronounced Fl’AH-rah) -  A soft, fluttering \"fl\" sound followed by a rising \"ah\" vowel. *Meaning:*  A feeling of hopeful anticipation, a whispered wish or a plea for something good to happen. (Like the sound of wings or a gentle breeze.)\n* **G’ron:** (pronounced G’RON) - A deep, resonant \"g\" followed by a short, clipped \"ron\" sound. *Meaning:*  A powerful expression of respect or reverence, often used in formal settings. (Like the sound of a gong or a deep voice.)\n* **T’lix:**",
+    "generated_word": "K'tharr",
     "model": "google/gemma-3-4b-it",
     "language": "en",
     "trial": "trial21"
@@ -11874,7 +11874,7 @@
     "meaning": [
       "A cry of sorrow or lamentation."
     ],
-    "generated_word": "\n* **Zylara:** (pronounced Zih-LAH-rah) -  A quick, rising sound like a chime or a small bell combined with a breathy \"z.\"  *Meaning:*  Immediate, bright surprise or a joyful exclamation of recognition.  (Evokes a sudden flash of light.)\n* **K’tharr:** (pronounced K’THAR) -  A guttural, slightly throaty \"k\" followed by a short, sharp \"th\" sound.  It has a slight reverberation. *Meaning:*  A solemn invocation, a plea directed with respect and awe. (Like a whispered prayer with a resonant echo.)\n* **Sh’lorn:** (pronounced Sh’LORN) -  A soft, flowing \"sh\" sound followed by a short, almost sighing \"l.\" *Meaning:*  Gentle admiration, a quiet expression of beauty or wonder. (Like the rustle of silk or a contented sigh.)\n* **R’vix:** (pronounced R’VIX) -  A rolling \"r\" sound combined with a short, sharp \"v\" sound.  It’s slightly forceful. *Meaning:*  A demand for attention, a call to be noticed – not necessarily aggressive, but insistent. (Like a drumbeat or a sharp, clear voice.)\n* **Fl’ara:** (pronounced Fl’AH-rah) -  A soft, fluttering \"fl\" sound followed by a rising \"ah\" vowel. *Meaning:*  A feeling of hopeful anticipation, a whispered wish or a plea for something good to happen. (Like the sound of wings or a gentle breeze.)\n* **G’ron:** (pronounced G’RON) - A deep, resonant \"g\" followed by a short, clipped \"ron\" sound. *Meaning:*  A powerful expression of respect or reverence, often used in formal settings. (Like the sound of a gong or a deep voice.)\n* **T’lix:**",
+    "generated_word": "\n*   **Lúmen:** (loo-men) -  A drawn-out, breathy sigh.  The 'Lú' suggests a lingering, almost fading sound.  The 'men' adds a small, wavering quality, like a single tear.  (Meaning: \"A slow, mournful exhale\")\n\n*   **Shíra:** (shee-rah) - A short, sharp, almost brittle sound, like a small, choked sob. The 'Shí' is a quick, high-pitched vibration, and 'ra' adds a slight rasp. (Meaning: \"A stifled gasp\")\n\n*   **Vélan:** (veh-lan) - A deep, resonant, but slightly wet sound, like a low moan. The 'Vé' is a fuller, vibrating sound, and 'lan' suggests a trailing, liquid quality. (Meaning: \"A deep, sorrowful rumble\")\n\n*   **Kri’la:** (kree-lah) - A quick, fragmented sound, like a broken whisper or a small, desperate cry. The 'Kri' is sharp and abrupt, and 'la' adds a delicate, fading quality. (Meaning: \"A fragmented lament\")\n\n*   **F’lorn:** (f-lorn) - A sound that starts with a brief, almost painful vibration, followed by a drawn-out, hollow 'lorn'. The 'F’ represents a sudden, sharp intake of breath. (Meaning: \"A sharp, hollow wail\")\n\n*   **T’rin:** (t-rin) - Similar to F’lorn, but with a more sustained, echoing quality. The 'T’ is a quick, tight vibration, and ‘rin’ is a drawn-out, resonant sound. (Meaning: \"A lingering, echoing sob\")\n\n*   **M’el:** (m-el) - A short, muted sound, like a suppressed whimper. The 'M",
     "model": "google/gemma-3-4b-it",
     "language": "en",
     "trial": "trial21"
@@ -11884,7 +11884,7 @@
     "meaning": [
       "Representing the bark of a (small) dog, or a human imitation of such a bark."
     ],
-    "generated_word": "\n* **Zylara:** (pronounced Zih-LAH-rah) -  A quick, rising sound like a chime or a small bell combined with a breathy \"z.\"  *Meaning:*  Immediate, bright surprise or a joyful exclamation of recognition.  (Evokes a sudden flash of light.)\n* **K’tharr:** (pronounced K’THAR) -  A guttural, slightly throaty \"k\" followed by a short, sharp \"th\" sound.  It has a slight reverberation. *Meaning:*  A solemn invocation, a plea directed with respect and awe. (Like a whispered prayer with a resonant echo.)\n* **Sh’lorn:** (pronounced Sh’LORN) -  A soft, flowing \"sh\" sound followed by a short, almost sighing \"l.\" *Meaning:*  Gentle admiration, a quiet expression of beauty or wonder. (Like the rustle of silk or a contented sigh.)\n* **R’vix:** (pronounced R’VIX) -  A rolling \"r\" sound combined with a short, sharp \"v\" sound.  It’s slightly forceful. *Meaning:*  A demand for attention, a call to be noticed – not necessarily aggressive, but insistent. (Like a drumbeat or a sharp, clear voice.)\n* **Fl’ara:** (pronounced Fl’AH-rah) -  A soft, fluttering \"fl\" sound followed by a rising \"ah\" vowel. *Meaning:*  A feeling of hopeful anticipation, a whispered wish or a plea for something good to happen. (Like the sound of wings or a gentle breeze.)\n* **G’ron:** (pronounced G’RON) - A deep, resonant \"g\" followed by a short, clipped \"ron\" sound. *Meaning:*  A powerful expression of respect or reverence, often used in formal settings. (Like the sound of a gong or a deep voice.)\n* **T’lix:**",
+    "generated_word": "\n* **K'tharr:** (Pronounced: K-thahr) - This is the primary word. It’s built from a short, sharp \"K\" sound (like a quick nip) followed by a slightly rolled \"th\" (like a small, contained growl) and a soft \"arr\" (a breathy, almost pleading sound).  It evokes the core of a small dog's bark – urgent and a little vulnerable.\n\n* **Sh'il:** (Pronounced: Sh-eel) -  A lighter, higher-pitched bark. \"Sh\" represents a quick, sharp exhale, and \"il\" is a short, clipped vowel, suggesting a yipping or playful bark.  Good for a smaller, more energetic dog.\n\n* **G'ronk:** (Pronounced: G-ronk) - A deeper, rumbling bark. \"G\" is a guttural sound, like a low vibration, and \"ronk\" is a short, forceful sound, like a small chest vibrating.  Suitable for a slightly larger or more serious-sounding dog.\n\n* **T'kree:** (Pronounced: T-kree) -  A bark with a slight tremor or uncertainty. \"T\" is a sharp, quick tap, and \"kree\" is a short, wavering sound, suggesting a hesitant or questioning bark.  Useful for an imitation of a nervous dog.\n\n* **F'lark:** (Pronounced: F-lark) -  A drawn-out, almost mournful bark. \"F\" is a breathy, fading sound, and \"lark\" is a longer, sustained vowel, creating a feeling of longing.  This would be used for a more dramatic or emotional imitation.\n\n* **Z'thump:** (Pronounced: Z-thump) - A short, sharp, percussive bark – like a small, surprised yelp. \"Z\" is a quick, buzzing sound, and \"thump\" is a short, impactful sound.\n\n* **R'klick:** (Pronounced",
     "model": "google/gemma-3-4b-it",
     "language": "en",
     "trial": "trial21"
@@ -11894,7 +11894,7 @@
     "meaning": [
       "Expressing pain or fright; (also) expressing anguish, disappointment, or frustration."
     ],
-    "generated_word": "\n* **Zylara:** (pronounced Zih-LAH-rah) -  A quick, rising sound like a chime or a small bell combined with a breathy \"z.\"  *Meaning:*  Immediate, bright surprise or a joyful exclamation of recognition.  (Evokes a sudden flash of light.)\n* **K’tharr:** (pronounced K’THAR) -  A guttural, slightly throaty \"k\" followed by a short, sharp \"th\" sound.  It has a slight reverberation. *Meaning:*  A solemn invocation, a plea directed with respect and awe. (Like a whispered prayer with a resonant echo.)\n* **Sh’lorn:** (pronounced Sh’LORN) -  A soft, flowing \"sh\" sound followed by a short, almost sighing \"l.\" *Meaning:*  Gentle admiration, a quiet expression of beauty or wonder. (Like the rustle of silk or a contented sigh.)\n* **R’vix:** (pronounced R’VIX) -  A rolling \"r\" sound combined with a short, sharp \"v\" sound.  It’s slightly forceful. *Meaning:*  A demand for attention, a call to be noticed – not necessarily aggressive, but insistent. (Like a drumbeat or a sharp, clear voice.)\n* **Fl’ara:** (pronounced Fl’AH-rah) -  A soft, fluttering \"fl\" sound followed by a rising \"ah\" vowel. *Meaning:*  A feeling of hopeful anticipation, a whispered wish or a plea for something good to happen. (Like the sound of wings or a gentle breeze.)\n* **G’ron:** (pronounced G’RON) - A deep, resonant \"g\" followed by a short, clipped \"ron\" sound. *Meaning:*  A powerful expression of respect or reverence, often used in formal settings. (Like the sound of a gong or a deep voice.)\n* **T’lix:**",
+    "generated_word": "\n* **K'tharr:** (Pronounced: K-thahr, with a slight 'h' sound at the end) -  A sharp, short burst of sound, like a gasp of pain or a sudden, startled yelp.  It conveys immediate, sharp distress.  (Think: \"K-tharr!\" - a quick, involuntary intake of breath)\n\n* **Grol'nak:** (Pronounced: Grohl-nahk) - A low, rumbling sound, like a suppressed groan or a feeling of heavy, sinking disappointment.  It suggests a deeper, more prolonged anguish. (Think: \"Grol-nak...\" - a drawn-out, mournful sound)\n\n* **Sh'il:** (Pronounced: Sheel) - A high-pitched, wavering sound, like a choked sob or a frustrated sigh.  It represents vulnerability and emotional release. (Think: \"Sh'il\" - a small, broken sound of grief)\n\n* **R'zark:** (Pronounced: R-zahrk) - A scraping, grinding sound, like a clenched fist or a feeling of being trapped and frustrated.  It implies resistance and internal struggle. (Think: \"R'zark\" - a sound of forceful, contained pressure)\n\n* **V'lorn:** (Pronounced: V-lorn) - A soft, collapsing sound, like a defeated sigh or a feeling of utter disappointment. It suggests a loss of hope. (Think: \"V'lorn\" - a quiet, downward sound of resignation)\n\n* **Z'kree:** (Pronounced: Z-kree) - A rapid, stuttering sound, like a panicked heartbeat or a rush of confused fear.  It represents disorientation and heightened anxiety. (Think: \"Z'kree\" - a quick, irregular pulse of sound)\n\n* **Th'rak:** (Pronounced: Th-rak) - A dull, throbbing sound, like a persistent ache of pain or a lingering sense of sadness. It’s a sustained,",
     "model": "google/gemma-3-4b-it",
     "language": "en",
     "trial": "trial21"
@@ -11914,7 +11914,7 @@
     "meaning": [
       "Representing the sound of a sneeze."
     ],
-    "generated_word": "shala",
+    "generated_word": "k'na",
     "model": "google/gemma-3-4b-it",
     "language": "en",
     "trial": "trial22"
@@ -11924,7 +11924,7 @@
     "meaning": [
       "Representing the sound of a sneeze."
     ],
-    "generated_word": "shala",
+    "generated_word": "m’i-p",
     "model": "google/gemma-3-4b-it",
     "language": "en",
     "trial": "trial22"
@@ -11934,7 +11934,7 @@
     "meaning": [
       "Representing the sound of a sneeze."
     ],
-    "generated_word": "shala",
+    "generated_word": "m’i-p",
     "model": "google/gemma-3-4b-it",
     "language": "en",
     "trial": "trial22"
@@ -11944,7 +11944,7 @@
     "meaning": [
       "An exclamation representing a slight cough or clearing of the throat, used (a) to attract attention, esp. prior to speaking (b) to express hesitation, (mock) disapproval, embarrassment, suggestiveness, etc."
     ],
-    "generated_word": "shala",
+    "generated_word": "shluh",
     "model": "google/gemma-3-4b-it",
     "language": "en",
     "trial": "trial22"
@@ -11954,7 +11954,7 @@
     "meaning": [
       "An exclamation of surprise, regret, pain, etc., often used in imitation of foreign speakers of English."
     ],
-    "generated_word": "shala",
+    "generated_word": "ʔuʔ",
     "model": "google/gemma-3-4b-it",
     "language": "en",
     "trial": "trial22"
@@ -11964,7 +11964,7 @@
     "meaning": [
       "Awailing exclamation of resignation, surprise, regret, alarm, etc.; sometimes imitative of non-British speakers of English."
     ],
-    "generated_word": "shala",
+    "generated_word": "kh’aa-th’ol",
     "model": "google/gemma-3-4b-it",
     "language": "en",
     "trial": "trial22"
@@ -11974,7 +11974,7 @@
     "meaning": [
       "A cry of sorrow or lamentation."
     ],
-    "generated_word": "shala",
+    "generated_word": "'kh'ra-loth'",
     "model": "google/gemma-3-4b-it",
     "language": "en",
     "trial": "trial22"
@@ -11984,7 +11984,7 @@
     "meaning": [
       "Representing the bark of a (small) dog, or a human imitation of such a bark."
     ],
-    "generated_word": "shala",
+    "generated_word": "tʃiʔ",
     "model": "google/gemma-3-4b-it",
     "language": "en",
     "trial": "trial22"
@@ -11994,7 +11994,7 @@
     "meaning": [
       "Expressing pain or fright; (also) expressing anguish, disappointment, or frustration."
     ],
-    "generated_word": "shala",
+    "generated_word": "k'ra",
     "model": "google/gemma-3-4b-it",
     "language": "en",
     "trial": "trial22"
@@ -14398,5 +14398,205 @@
     "model": "google/gemma-3-12b-it",
     "language": "en",
     "trial": "trial22"
+  },
+  {
+    "original_word": "a",
+    "meaning": [
+      "Expressing invocation, surprise, or admiration; (also) used to gain attention."
+    ],
+    "generated_word": "Please provide me with what you’d like me to do! I need a prompt or question to respond to. 😊 \n\nFor example, you could ask me to:\n\n*   Write a story\n*   Answer a question\n*   Translate something\n*   Summarize a topic\n*   Generate some creative text (like a poem or a joke)\n\nJust let me know what you’d like me to do!",
+    "model": "google/gemma-3-1b-it",
+    "language": "en",
+    "trial": "trial23"
+  },
+  {
+    "original_word": "achoo",
+    "meaning": [
+      "Representing the sound of a sneeze."
+    ],
+    "generated_word": "Please provide me with what you’d like me to do! I need a prompt or question to respond to. 😊 \n\nFor example, you could ask me to:\n\n*   Write a story\n*   Answer a question\n*   Translate something\n*   Summarize a topic\n*   Generate some creative text (like a poem or a joke)\n\nJust let me know what you’d like me to do!",
+    "model": "google/gemma-3-1b-it",
+    "language": "en",
+    "trial": "trial23"
+  },
+  {
+    "original_word": "atishoo",
+    "meaning": [
+      "Representing the sound of a sneeze."
+    ],
+    "generated_word": "Please provide me with what you’d like me to do! I need a prompt or question to respond to. 😊 \n\nFor example, you could ask me to:\n\n*   Write a story\n*   Answer a question\n*   Translate something\n*   Summarize a topic\n*   Generate some creative text (like a poem or a joke)\n\nJust let me know what you’d like me to do!",
+    "model": "google/gemma-3-1b-it",
+    "language": "en",
+    "trial": "trial23"
+  },
+  {
+    "original_word": "atichoo",
+    "meaning": [
+      "Representing the sound of a sneeze."
+    ],
+    "generated_word": "Please provide me with what you’d like me to do! I need a prompt or question to respond to. 😊 \n\nFor example, you could ask me to:\n\n*   Write a story\n*   Answer a question\n*   Translate something\n*   Summarize a topic\n*   Generate some creative text (like a poem or a joke)\n\nJust let me know what you’d like me to do!",
+    "model": "google/gemma-3-1b-it",
+    "language": "en",
+    "trial": "trial23"
+  },
+  {
+    "original_word": "ahem",
+    "meaning": [
+      "An exclamation representing a slight cough or clearing of the throat, used (a) to attract attention, esp. prior to speaking (b) to express hesitation, (mock) disapproval, embarrassment, suggestiveness, etc."
+    ],
+    "generated_word": "Please provide me with what you’d like me to do! I need a prompt or question to respond to. 😊 \n\nFor example, you could ask me to:\n\n*   Write a story\n*   Answer a question\n*   Translate something\n*   Summarize a topic\n*   Generate some creative text (like a poem or a joke)\n\nJust let me know what you’d like me to do!",
+    "model": "google/gemma-3-1b-it",
+    "language": "en",
+    "trial": "trial23"
+  },
+  {
+    "original_word": "ai",
+    "meaning": [
+      "An exclamation of surprise, regret, pain, etc., often used in imitation of foreign speakers of English."
+    ],
+    "generated_word": "Please provide me with what you’d like me to do! I need a prompt or question to respond to. 😊 \n\nFor example, you could ask me to:\n\n*   Write a story\n*   Answer a question\n*   Translate something\n*   Summarize a topic\n*   Generate some creative text (like a poem or a joke)\n\nJust let me know what you’d like me to do!",
+    "model": "google/gemma-3-1b-it",
+    "language": "en",
+    "trial": "trial23"
+  },
+  {
+    "original_word": "aie",
+    "meaning": [
+      "Awailing exclamation of resignation, surprise, regret, alarm, etc.; sometimes imitative of non-British speakers of English."
+    ],
+    "generated_word": "Please provide me with what you’d like me to do! I need a prompt or question to respond to. 😊 \n\nFor example, you could ask me to:\n\n*   Write a story\n*   Answer a question\n*   Translate something\n*   Summarize a topic\n*   Generate some creative text (like a poem or a joke)\n\nJust let me know what you’d like me to do!",
+    "model": "google/gemma-3-1b-it",
+    "language": "en",
+    "trial": "trial23"
+  },
+  {
+    "original_word": "alew",
+    "meaning": [
+      "A cry of sorrow or lamentation."
+    ],
+    "generated_word": "Please provide me with what you’d like me to do! I need a prompt or question to respond to. 😊 \n\nFor example, you could ask me to:\n\n*   Write a story\n*   Answer a question\n*   Translate something\n*   Summarize a topic\n*   Generate some creative text (like a poem or a joke)\n\nJust let me know what you’d like me to do!",
+    "model": "google/gemma-3-1b-it",
+    "language": "en",
+    "trial": "trial23"
+  },
+  {
+    "original_word": "arf",
+    "meaning": [
+      "Representing the bark of a (small) dog, or a human imitation of such a bark."
+    ],
+    "generated_word": "Please provide me with what you’d like me to do! I need a prompt or question to respond to. 😊 \n\nFor example, you could ask me to:\n\n*   Write a story\n*   Answer a question\n*   Translate something\n*   Summarize a topic\n*   Generate some creative text (like a poem or a joke)\n\nJust let me know what you’d like me to do!",
+    "model": "google/gemma-3-1b-it",
+    "language": "en",
+    "trial": "trial23"
+  },
+  {
+    "original_word": "argh",
+    "meaning": [
+      "Expressing pain or fright; (also) expressing anguish, disappointment, or frustration."
+    ],
+    "generated_word": "Please provide me with what you’d like me to do! I need a prompt or question to respond to. 😊 \n\nFor example, you could ask me to:\n\n*   Write a story\n*   Answer a question\n*   Translate something\n*   Summarize a topic\n*   Generate some creative text (like a poem or a joke)\n\nJust let me know what you’d like me to do!",
+    "model": "google/gemma-3-1b-it",
+    "language": "en",
+    "trial": "trial23"
+  },
+  {
+    "original_word": "a",
+    "meaning": [
+      "Expressing invocation, surprise, or admiration; (also) used to gain attention."
+    ],
+    "generated_word": "Please provide me with what you'd like me to do! I need some context. \n\nDo you want me to:\n\n* **Answer a question?** (Tell me the question!)\n* **Write something?** (Tell me what you want me to write - a story, poem, email, etc.)\n* **Summarize something?** (Paste the text you want me to summarize.)\n* **Translate something?** (Tell me the text and the languages.)\n* **Generate ideas?** (Tell me the topic.)\n* **Something else entirely?** (Please explain!)\n\nI'm ready when you are!",
+    "model": "google/gemma-3-4b-it",
+    "language": "en",
+    "trial": "trial23"
+  },
+  {
+    "original_word": "achoo",
+    "meaning": [
+      "Representing the sound of a sneeze."
+    ],
+    "generated_word": "Please provide me with what you'd like me to do! I need some context. \n\nDo you want me to:\n\n* **Answer a question?** (Tell me the question!)\n* **Write something?** (Tell me what you want me to write - a story, poem, email, etc.)\n* **Summarize something?** (Paste the text you want me to summarize.)\n* **Translate something?** (Tell me the text and the languages.)\n* **Generate ideas?** (Tell me the topic.)\n* **Something else entirely?** (Please explain!)\n\nI'm ready when you are!",
+    "model": "google/gemma-3-4b-it",
+    "language": "en",
+    "trial": "trial23"
+  },
+  {
+    "original_word": "atishoo",
+    "meaning": [
+      "Representing the sound of a sneeze."
+    ],
+    "generated_word": "Please provide me with what you'd like me to do! I need some context. \n\nDo you want me to:\n\n* **Answer a question?** (Tell me the question!)\n* **Write something?** (Tell me what you want me to write - a story, poem, email, etc.)\n* **Summarize something?** (Paste the text you want me to summarize.)\n* **Translate something?** (Tell me the text and the languages.)\n* **Generate ideas?** (Tell me the topic.)\n* **Something else entirely?** (Please explain!)\n\nI'm ready when you are!",
+    "model": "google/gemma-3-4b-it",
+    "language": "en",
+    "trial": "trial23"
+  },
+  {
+    "original_word": "atichoo",
+    "meaning": [
+      "Representing the sound of a sneeze."
+    ],
+    "generated_word": "Please provide me with what you'd like me to do! I need some context. \n\nDo you want me to:\n\n* **Answer a question?** (Tell me the question!)\n* **Write something?** (Tell me what you want me to write - a story, poem, email, etc.)\n* **Summarize something?** (Paste the text you want me to summarize.)\n* **Translate something?** (Tell me the text and the languages.)\n* **Generate ideas?** (Tell me the topic.)\n* **Something else entirely?** (Please explain!)\n\nI'm ready when you are!",
+    "model": "google/gemma-3-4b-it",
+    "language": "en",
+    "trial": "trial23"
+  },
+  {
+    "original_word": "ahem",
+    "meaning": [
+      "An exclamation representing a slight cough or clearing of the throat, used (a) to attract attention, esp. prior to speaking (b) to express hesitation, (mock) disapproval, embarrassment, suggestiveness, etc."
+    ],
+    "generated_word": "Please provide me with what you'd like me to do! I need some context. \n\nDo you want me to:\n\n* **Answer a question?** (Tell me the question!)\n* **Write something?** (Tell me what you want me to write - a story, poem, email, etc.)\n* **Summarize something?** (Paste the text you want me to summarize.)\n* **Translate something?** (Tell me the text and the languages.)\n* **Generate ideas?** (Tell me the topic.)\n* **Something else entirely?** (Please explain!)\n\nI'm ready when you are!",
+    "model": "google/gemma-3-4b-it",
+    "language": "en",
+    "trial": "trial23"
+  },
+  {
+    "original_word": "ai",
+    "meaning": [
+      "An exclamation of surprise, regret, pain, etc., often used in imitation of foreign speakers of English."
+    ],
+    "generated_word": "Please provide me with what you'd like me to do! I need some context. \n\nDo you want me to:\n\n* **Answer a question?** (Tell me the question!)\n* **Write something?** (Tell me what you want me to write - a story, poem, email, etc.)\n* **Summarize something?** (Paste the text you want me to summarize.)\n* **Translate something?** (Tell me the text and the languages.)\n* **Generate ideas?** (Tell me the topic.)\n* **Something else entirely?** (Please explain!)\n\nI'm ready when you are!",
+    "model": "google/gemma-3-4b-it",
+    "language": "en",
+    "trial": "trial23"
+  },
+  {
+    "original_word": "aie",
+    "meaning": [
+      "Awailing exclamation of resignation, surprise, regret, alarm, etc.; sometimes imitative of non-British speakers of English."
+    ],
+    "generated_word": "Please provide me with what you'd like me to do! I need some context. \n\nDo you want me to:\n\n* **Answer a question?** (Tell me the question!)\n* **Write something?** (Tell me what you want me to write - a story, poem, email, etc.)\n* **Summarize something?** (Paste the text you want me to summarize.)\n* **Translate something?** (Tell me the text and the languages.)\n* **Generate ideas?** (Tell me the topic.)\n* **Something else entirely?** (Please explain!)\n\nI'm ready when you are!",
+    "model": "google/gemma-3-4b-it",
+    "language": "en",
+    "trial": "trial23"
+  },
+  {
+    "original_word": "alew",
+    "meaning": [
+      "A cry of sorrow or lamentation."
+    ],
+    "generated_word": "Please provide me with what you'd like me to do! I need some context. \n\nDo you want me to:\n\n* **Answer a question?** (Tell me the question!)\n* **Write something?** (Tell me what you want me to write - a story, poem, email, etc.)\n* **Summarize something?** (Paste the text you want me to summarize.)\n* **Translate something?** (Tell me the text and the languages.)\n* **Generate ideas?** (Tell me the topic.)\n* **Something else entirely?** (Please explain!)\n\nI'm ready when you are!",
+    "model": "google/gemma-3-4b-it",
+    "language": "en",
+    "trial": "trial23"
+  },
+  {
+    "original_word": "arf",
+    "meaning": [
+      "Representing the bark of a (small) dog, or a human imitation of such a bark."
+    ],
+    "generated_word": "Please provide me with what you'd like me to do! I need some context. \n\nDo you want me to:\n\n* **Answer a question?** (Tell me the question!)\n* **Write something?** (Tell me what you want me to write - a story, poem, email, etc.)\n* **Summarize something?** (Paste the text you want me to summarize.)\n* **Translate something?** (Tell me the text and the languages.)\n* **Generate ideas?** (Tell me the topic.)\n* **Something else entirely?** (Please explain!)\n\nI'm ready when you are!",
+    "model": "google/gemma-3-4b-it",
+    "language": "en",
+    "trial": "trial23"
+  },
+  {
+    "original_word": "argh",
+    "meaning": [
+      "Expressing pain or fright; (also) expressing anguish, disappointment, or frustration."
+    ],
+    "generated_word": "Please provide me with what you'd like me to do! I need some context. \n\nDo you want me to:\n\n* **Answer a question?** (Tell me the question!)\n* **Write something?** (Tell me what you want me to write - a story, poem, email, etc.)\n* **Summarize something?** (Paste the text you want me to summarize.)\n* **Translate something?** (Tell me the text and the languages.)\n* **Generate ideas?** (Tell me the topic.)\n* **Something else entirely?** (Please explain!)\n\nI'm ready when you are!",
+    "model": "google/gemma-3-4b-it",
+    "language": "en",
+    "trial": "trial23"
   }
 ]

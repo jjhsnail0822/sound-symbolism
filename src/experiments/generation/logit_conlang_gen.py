@@ -36,8 +36,9 @@ class LogitConlangGenerator:
     def __init__(self,
                  language: str,
                  model_name: str,
-                 trial_num: str,
-                 tensor_parallel_size: int = 1,
+                 word_nums: int = 10,
+                 samples: int = 1,
+                 tensor_parallel_size: int = 4,
                  max_tokens: int = 32,
                  max_model_len: int = 4096,
                  temperature: float = 0.0,
@@ -46,10 +47,11 @@ class LogitConlangGenerator:
         
         self.language = language
         self.model_name = MODEL_PATHS.get(model_name, model_name)
-        self.trial_num = trial_num
         self.temperature = temperature
         self.thinking = thinking
         self.top_k = top_k
+        self.word_nums = word_nums
+        self.samples = samples
         
         # vLLM 설정
         self.tensor_parallel_size = tensor_parallel_size
@@ -215,16 +217,20 @@ def main():
     parser.add_argument("--thinking", '-t', action='store_true', help="Enable thinking mode for Qwen3")
     parser.add_argument("--word_nums", '-n', type=int, default=10, help="Number of words to generate")
     parser.add_argument("--samples", '-s', type=int, default=1, help="Number of samples to generate")
+    parser.add_argument("--top_k", '-k', type=int, default=3, help="Number of top k logits to return")
     args = parser.parse_args()
     
     generator = LogitConlangGenerator(
         language=args.language,
         model_name=args.model,
-        trial_num=args.trial,
         tensor_parallel_size=args.gpu,
+        max_tokens=args.max_tokens,
+        max_model_len=args.max_model_len,
         temperature=args.temperature,
         thinking=args.thinking,
-        top_k=args.word_nums
+        word_nums=args.word_nums,
+        samples=args.samples,
+        top_k=args.top_k
     )
     
     generator.run(args.samples)
