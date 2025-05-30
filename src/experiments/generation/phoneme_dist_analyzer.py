@@ -111,8 +111,8 @@ class PhonemeDistributionAnalyzer:
 
     def _collect_topk_logprobs(self, prompt_token_ids:List[str] ):
         response = self.model.generate(
-                                       prompt_token_ids = prompt_token_ids,
-                                       sampling_params=self.sampling_params)
+            prompt_token_ids = prompt_token_ids,
+            sampling_params=self.sampling_params)
         result = []
         for rp in response:
             if rp.outputs and rp.outputs[0].logprobs:
