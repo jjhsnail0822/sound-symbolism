@@ -12014,7 +12014,7 @@
     "meaning": [
       "Representing the sound of a sneeze."
     ],
-    "generated_word": "shiloh",
+    "generated_word": "atchu",
     "model": "google/gemma-3-27b-it",
     "language": "en",
     "trial": "trial6"
@@ -12024,7 +12024,7 @@
     "meaning": [
       "Representing the sound of a sneeze."
     ],
-    "generated_word": "shiloh",
+    "generated_word": "atchu",
     "model": "google/gemma-3-27b-it",
     "language": "en",
     "trial": "trial6"
@@ -12034,7 +12034,7 @@
     "meaning": [
       "Representing the sound of a sneeze."
     ],
-    "generated_word": "shiloh",
+    "generated_word": "atchu",
     "model": "google/gemma-3-27b-it",
     "language": "en",
     "trial": "trial6"
@@ -12044,7 +12044,7 @@
     "meaning": [
       "An exclamation representing a slight cough or clearing of the throat, used (a) to attract attention, esp. prior to speaking (b) to express hesitation, (mock) disapproval, embarrassment, suggestiveness, etc."
     ],
-    "generated_word": "shiloh",
+    "generated_word": "kh'rk",
     "model": "google/gemma-3-27b-it",
     "language": "en",
     "trial": "trial6"
@@ -12054,7 +12054,7 @@
     "meaning": [
       "An exclamation of surprise, regret, pain, etc., often used in imitation of foreign speakers of English."
     ],
-    "generated_word": "shiloh",
+    "generated_word": "'glonk'",
     "model": "google/gemma-3-27b-it",
     "language": "en",
     "trial": "trial6"
@@ -12064,7 +12064,7 @@
     "meaning": [
       "Awailing exclamation of resignation, surprise, regret, alarm, etc.; sometimes imitative of non-British speakers of English."
     ],
-    "generated_word": "shiloh",
+    "generated_word": "ohla",
     "model": "google/gemma-3-27b-it",
     "language": "en",
     "trial": "trial6"
@@ -12074,7 +12074,7 @@
     "meaning": [
       "A cry of sorrow or lamentation."
     ],
-    "generated_word": "shiloh",
+    "generated_word": "shilva",
     "model": "google/gemma-3-27b-it",
     "language": "en",
     "trial": "trial6"
@@ -12084,7 +12084,7 @@
     "meaning": [
       "Representing the bark of a (small) dog, or a human imitation of such a bark."
     ],
-    "generated_word": "shiloh",
+    "generated_word": "ruffik",
     "model": "google/gemma-3-27b-it",
     "language": "en",
     "trial": "trial6"
@@ -12094,7 +12094,7 @@
     "meaning": [
       "Expressing pain or fright; (also) expressing anguish, disappointment, or frustration."
     ],
-    "generated_word": "shiloh",
+    "generated_word": "kriish",
     "model": "google/gemma-3-27b-it",
     "language": "en",
     "trial": "trial6"
@@ -12154,7 +12154,7 @@
     "meaning": [
       "An exclamation of surprise, regret, pain, etc., often used in imitation of foreign speakers of English."
     ],
-    "generated_word": "",
+    "generated_word": "'Aiyo!' [ˈaɪjoʊ]",
     "model": "google/gemma-3-27b-it",
     "language": "en",
     "trial": "trial12"
@@ -12194,7 +12194,7 @@
     "meaning": [
       "Expressing pain or fright; (also) expressing anguish, disappointment, or frustration."
     ],
-    "generated_word": "",
+    "generated_word": "/",
     "model": "google/gemma-3-27b-it",
     "language": "en",
     "trial": "trial12"
@@ -12214,7 +12214,7 @@
     "meaning": [
       "Representing the sound of a sneeze."
     ],
-    "generated_word": "shiló",
+    "generated_word": "atchu-pfft",
     "model": "google/gemma-3-27b-it",
     "language": "en",
     "trial": "trial13"
@@ -12224,7 +12224,7 @@
     "meaning": [
       "Representing the sound of a sneeze."
     ],
-    "generated_word": "shiló",
+    "generated_word": "atchu-pfft",
     "model": "google/gemma-3-27b-it",
     "language": "en",
     "trial": "trial13"
@@ -12234,7 +12234,7 @@
     "meaning": [
       "Representing the sound of a sneeze."
     ],
-    "generated_word": "shiló",
+    "generated_word": "atchu-pfft",
     "model": "google/gemma-3-27b-it",
     "language": "en",
     "trial": "trial13"
@@ -12244,7 +12244,7 @@
     "meaning": [
       "An exclamation representing a slight cough or clearing of the throat, used (a) to attract attention, esp. prior to speaking (b) to express hesitation, (mock) disapproval, embarrassment, suggestiveness, etc."
     ],
-    "generated_word": "shiló",
+    "generated_word": "kh'thip",
     "model": "google/gemma-3-27b-it",
     "language": "en",
     "trial": "trial13"
@@ -12254,7 +12254,7 @@
     "meaning": [
       "An exclamation of surprise, regret, pain, etc., often used in imitation of foreign speakers of English."
     ],
-    "generated_word": "shiló",
+    "generated_word": "shinkō",
     "model": "google/gemma-3-27b-it",
     "language": "en",
     "trial": "trial13"
@@ -12264,7 +12264,7 @@
     "meaning": [
       "Awailing exclamation of resignation, surprise, regret, alarm, etc.; sometimes imitative of non-British speakers of English."
     ],
-    "generated_word": "shiló",
+    "generated_word": "shúmbra",
     "model": "google/gemma-3-27b-it",
     "language": "en",
     "trial": "trial13"
@@ -12274,7 +12274,7 @@
     "meaning": [
       "A cry of sorrow or lamentation."
     ],
-    "generated_word": "shiló",
+    "generated_word": "shīr'ala",
     "model": "google/gemma-3-27b-it",
     "language": "en",
     "trial": "trial13"
@@ -12284,7 +12284,7 @@
     "meaning": [
       "Representing the bark of a (small) dog, or a human imitation of such a bark."
     ],
-    "generated_word": "shiló",
+    "generated_word": "rufffu",
     "model": "google/gemma-3-27b-it",
     "language": "en",
     "trial": "trial13"
@@ -12294,7 +12294,7 @@
     "meaning": [
       "Expressing pain or fright; (also) expressing anguish, disappointment, or frustration."
     ],
-    "generated_word": "shiló",
+    "generated_word": "k'tharr",
     "model": "google/gemma-3-27b-it",
     "language": "en",
     "trial": "trial13"
@@ -12314,7 +12314,7 @@
     "meaning": [
       "Representing the sound of a sneeze."
     ],
-    "generated_word": "'shael'kor'",
+    "generated_word": "k'th'pht",
     "model": "google/gemma-3-27b-it",
     "language": "en",
     "trial": "trial14"
@@ -12324,7 +12324,7 @@
     "meaning": [
       "Representing the sound of a sneeze."
     ],
-    "generated_word": "'shael'kor'",
+    "generated_word": "k'th'pft",
     "model": "google/gemma-3-27b-it",
     "language": "en",
     "trial": "trial14"
@@ -12334,7 +12334,7 @@
     "meaning": [
       "Representing the sound of a sneeze."
     ],
-    "generated_word": "'shael'kor'",
+    "generated_word": "k'th'pft",
     "model": "google/gemma-3-27b-it",
     "language": "en",
     "trial": "trial14"
@@ -12344,7 +12344,7 @@
     "meaning": [
       "An exclamation representing a slight cough or clearing of the throat, used (a) to attract attention, esp. prior to speaking (b) to express hesitation, (mock) disapproval, embarrassment, suggestiveness, etc."
     ],
-    "generated_word": "'shael'kor'",
+    "generated_word": "kh'thil",
     "model": "google/gemma-3-27b-it",
     "language": "en",
     "trial": "trial14"
@@ -12354,7 +12354,7 @@
     "meaning": [
       "An exclamation of surprise, regret, pain, etc., often used in imitation of foreign speakers of English."
     ],
-    "generated_word": "'shael'kor'",
+    "generated_word": "'kh'alash",
     "model": "google/gemma-3-27b-it",
     "language": "en",
     "trial": "trial14"
@@ -12364,7 +12364,7 @@
     "meaning": [
       "Awailing exclamation of resignation, surprise, regret, alarm, etc.; sometimes imitative of non-British speakers of English."
     ],
-    "generated_word": "'shael'kor'",
+    "generated_word": "'sh'velk",
     "model": "google/gemma-3-27b-it",
     "language": "en",
     "trial": "trial14"
@@ -12374,7 +12374,7 @@
     "meaning": [
       "A cry of sorrow or lamentation."
     ],
-    "generated_word": "'shael'kor'",
+    "generated_word": "kh'al'shara",
     "model": "google/gemma-3-27b-it",
     "language": "en",
     "trial": "trial14"
@@ -12384,7 +12384,7 @@
     "meaning": [
       "Representing the bark of a (small) dog, or a human imitation of such a bark."
     ],
-    "generated_word": "'shael'kor'",
+    "generated_word": "rufí",
     "model": "google/gemma-3-27b-it",
     "language": "en",
     "trial": "trial14"
@@ -12394,7 +12394,7 @@
     "meaning": [
       "Expressing pain or fright; (also) expressing anguish, disappointment, or frustration."
     ],
-    "generated_word": "'shael'kor'",
+    "generated_word": "k'tharr",
     "model": "google/gemma-3-27b-it",
     "language": "en",
     "trial": "trial14"
@@ -12414,7 +12414,7 @@
     "meaning": [
       "Representing the sound of a sneeze."
     ],
-    "generated_word": "**Shalóka**",
+    "generated_word": "Ksh'tharr.",
     "model": "google/gemma-3-27b-it",
     "language": "en",
     "trial": "trial15"
@@ -12424,7 +12424,7 @@
     "meaning": [
       "Representing the sound of a sneeze."
     ],
-    "generated_word": "**Shalóka**",
+    "generated_word": "Ksh'tharr.",
     "model": "google/gemma-3-27b-it",
     "language": "en",
     "trial": "trial15"
@@ -12434,7 +12434,7 @@
     "meaning": [
       "Representing the sound of a sneeze."
     ],
-    "generated_word": "**Shalóka**",
+    "generated_word": "Ksh'tharr.",
     "model": "google/gemma-3-27b-it",
     "language": "en",
     "trial": "trial15"
@@ -12444,7 +12444,7 @@
     "meaning": [
       "An exclamation representing a slight cough or clearing of the throat, used (a) to attract attention, esp. prior to speaking (b) to express hesitation, (mock) disapproval, embarrassment, suggestiveness, etc."
     ],
-    "generated_word": "**Shalóka**",
+    "generated_word": "kh'thil.",
     "model": "google/gemma-3-27b-it",
     "language": "en",
     "trial": "trial15"
@@ -12454,7 +12454,7 @@
     "meaning": [
       "An exclamation of surprise, regret, pain, etc., often used in imitation of foreign speakers of English."
     ],
-    "generated_word": "**Shalóka**",
+    "generated_word": "**K'tharr**",
     "model": "google/gemma-3-27b-it",
     "language": "en",
     "trial": "trial15"
@@ -12464,7 +12464,7 @@
     "meaning": [
       "Awailing exclamation of resignation, surprise, regret, alarm, etc.; sometimes imitative of non-British speakers of English."
     ],
-    "generated_word": "**Shalóka**",
+    "generated_word": "**Shol'vek**",
     "model": "google/gemma-3-27b-it",
     "language": "en",
     "trial": "trial15"
@@ -12474,7 +12474,7 @@
     "meaning": [
       "A cry of sorrow or lamentation."
     ],
-    "generated_word": "**Shalóka**",
+    "generated_word": "K'tharr'vel.",
     "model": "google/gemma-3-27b-it",
     "language": "en",
     "trial": "trial15"
@@ -12484,7 +12484,7 @@
     "meaning": [
       "Representing the bark of a (small) dog, or a human imitation of such a bark."
     ],
-    "generated_word": "**Shalóka**",
+    "generated_word": "K'rrip",
     "model": "google/gemma-3-27b-it",
     "language": "en",
     "trial": "trial15"
@@ -12494,7 +12494,7 @@
     "meaning": [
       "Expressing pain or fright; (also) expressing anguish, disappointment, or frustration."
     ],
-    "generated_word": "**Shalóka**",
+    "generated_word": "K'tharr.",
     "model": "google/gemma-3-27b-it",
     "language": "en",
     "trial": "trial15"
@@ -12514,7 +12514,7 @@
     "meaning": [
       "Representing the sound of a sneeze."
     ],
-    "generated_word": "*   **Aiya!**\n*   **Oho!**\n*   **Shai!**\n*   **Hwa!**\n*   **Luma!**\n*   **Tsa!**\n*   **Vira!**\n*   **K'ai!**\n*   **Zho!**\n*   **P'ta!**",
+    "generated_word": "* **Ksh'tah**\n* **P'thoo**\n* **H'chuu**\n* **F'shaa**\n* **Tsk'choo**\n* **H'pfft**\n* **K'shoo**\n* **Psh'tik**\n* **Ch'fuh**\n* **T'shuu**",
     "model": "google/gemma-3-27b-it",
     "language": "en",
     "trial": "trial16"
@@ -12524,7 +12524,7 @@
     "meaning": [
       "Representing the sound of a sneeze."
     ],
-    "generated_word": "*   **Aiya!**\n*   **Oho!**\n*   **Shai!**\n*   **Hwa!**\n*   **Luma!**\n*   **Tsa!**\n*   **Vira!**\n*   **K'ai!**\n*   **Zho!**\n*   **P'ta!**",
+    "generated_word": "* **Ksh'tah**\n* **P'thoo**\n* **H'chuu**\n* **F'shaa**\n* **Tsk'choo**\n* **H'pfft**\n* **K'shoo**\n* **Psh'tik**\n* **Ch'fuh**\n* **H'chikk**",
     "model": "google/gemma-3-27b-it",
     "language": "en",
     "trial": "trial16"
@@ -12534,7 +12534,7 @@
     "meaning": [
       "Representing the sound of a sneeze."
     ],
-    "generated_word": "*   **Aiya!**\n*   **Oho!**\n*   **Shai!**\n*   **Hwa!**\n*   **Luma!**\n*   **Tsa!**\n*   **Vira!**\n*   **K'ai!**\n*   **Zho!**\n*   **P'ta!**",
+    "generated_word": "* **Ksh'tah**\n* **P'thoo**\n* **H'chuu**\n* **F'shaa**\n* **Tsk'choo**\n* **H'pfft**\n* **K'shoo**\n* **Psh'tik**\n* **Ch'fuh**\n* **H'chikk**",
     "model": "google/gemma-3-27b-it",
     "language": "en",
     "trial": "trial16"
@@ -12544,7 +12544,7 @@
     "meaning": [
       "An exclamation representing a slight cough or clearing of the throat, used (a) to attract attention, esp. prior to speaking (b) to express hesitation, (mock) disapproval, embarrassment, suggestiveness, etc."
     ],
-    "generated_word": "*   **Aiya!**\n*   **Oho!**\n*   **Shai!**\n*   **Hwa!**\n*   **Luma!**\n*   **Tsa!**\n*   **Vira!**\n*   **K'ai!**\n*   **Zho!**\n*   **P'ta!**",
+    "generated_word": "kh'th\nhm'ph\nt'skh\ngl'kh\nhrrm\nph't\nk'shh\nm'kh",
     "model": "google/gemma-3-27b-it",
     "language": "en",
     "trial": "trial16"
@@ -12554,7 +12554,7 @@
     "meaning": [
       "An exclamation of surprise, regret, pain, etc., often used in imitation of foreign speakers of English."
     ],
-    "generated_word": "*   **Aiya!**\n*   **Oho!**\n*   **Shai!**\n*   **Hwa!**\n*   **Luma!**\n*   **Tsa!**\n*   **Vira!**\n*   **K'ai!**\n*   **Zho!**\n*   **P'ta!**",
+    "generated_word": "* **Vesuvian (based on volcanic eruption sounds):** *boomph*, *khrssk*, *ploom*\n* **Sylvani (based on forest/wind sounds):** *shalla*, *hwiir*, *f'thiss*\n* **Crysalic (based on cracking/shattering sounds):** *k'thak*, *sh'reen*, *gliss-ah*\n* **Lumian (based on light/energy bursts):** *z'plink*, *flarsh*, *voom-ah*\n* **Terran (based on earth/stone sounds):** *gronk*, *thudda*, *k'lunk*\n* **Aetherian (based on airy/ethereal sounds):** *f'shoo*, *wheela*, *h'liss*\n* **Runic (based on sharp, angular sounds):** *k'rak*, *sh'rik*, *t'klak*\n* **Oceanic (based on water/wave sounds):** *sh'wash*, *floosh*, *g'lurp*\n* **Solaris (based on heat/radiance sounds):** *s'tiss*, *hraash*, *f'lamma*\n* **Umbral (based on darkness/shadow sounds):** *kh'thoom*, *sh'loth*, *v'riss*",
     "model": "google/gemma-3-27b-it",
     "language": "en",
     "trial": "trial16"
@@ -12564,7 +12564,7 @@
     "meaning": [
       "Awailing exclamation of resignation, surprise, regret, alarm, etc.; sometimes imitative of non-British speakers of English."
     ],
-    "generated_word": "*   **Aiya!**\n*   **Oho!**\n*   **Shai!**\n*   **Hwa!**\n*   **Luma!**\n*   **Tsa!**\n*   **Vira!**\n*   **K'ai!**\n*   **Zho!**\n*   **P'ta!**",
+    "generated_word": "* **Shayla-ho**\n* **K'tharr**\n* **Vess'lin**\n* **Ohm'rai**\n* **Zhel'kor**\n* **P'tah-leen**\n* **R'shalla**\n* **Glim'vor**\n* **Hess'tai**\n* **Krosh'na**",
     "model": "google/gemma-3-27b-it",
     "language": "en",
     "trial": "trial16"
@@ -12574,7 +12574,7 @@
     "meaning": [
       "A cry of sorrow or lamentation."
     ],
-    "generated_word": "*   **Aiya!**\n*   **Oho!**\n*   **Shai!**\n*   **Hwa!**\n*   **Luma!**\n*   **Tsa!**\n*   **Vira!**\n*   **K'ai!**\n*   **Zho!**\n*   **P'ta!**",
+    "generated_word": "Here are some options, aiming for different *feels* of sorrow/lamentation, in a constructed language I'm calling \"Elyrian\" (with some internal consistency in sound symbolism):\n\n*   **kh'ael'sha** (deep, resonant grief, like a hollow echo)\n*   **s'viss'tra** (a sharp, broken sob)\n*   **lira'mon** (a drawn-out, wailing lament)\n*   **feya'lin** (a quiet, hopeless weeping)\n*   **rosh'kal** (a guttural cry of anguish)\n*   **t'shala'ven** (a trembling, fragile lament)\n*   **h'yara'dol** (a mournful, echoing call)\n*   **v'lorn'sha** (a lingering, fading sorrow)\n*   **k'thiss'ra** (a sudden, piercing wail)\n*   **e'luna'mor** (a soft, heartbroken sigh)",
     "model": "google/gemma-3-27b-it",
     "language": "en",
     "trial": "trial16"
@@ -12584,7 +12584,7 @@
     "meaning": [
       "Representing the bark of a (small) dog, or a human imitation of such a bark."
     ],
-    "generated_word": "*   **Aiya!**\n*   **Oho!**\n*   **Shai!**\n*   **Hwa!**\n*   **Luma!**\n*   **Tsa!**\n*   **Vira!**\n*   **K'ai!**\n*   **Zho!**\n*   **P'ta!**",
+    "generated_word": "ruf-ruf\nwoef-woef\nk'yip-k'yip\nbrrr-ap\nhau-hau\nyip-yip\ng'ruff\np'tak-p'tak",
     "model": "google/gemma-3-27b-it",
     "language": "en",
     "trial": "trial16"
@@ -12594,7 +12594,7 @@
     "meaning": [
       "Expressing pain or fright; (also) expressing anguish, disappointment, or frustration."
     ],
-    "generated_word": "*   **Aiya!**\n*   **Oho!**\n*   **Shai!**\n*   **Hwa!**\n*   **Luma!**\n*   **Tsa!**\n*   **Vira!**\n*   **K'ai!**\n*   **Zho!**\n*   **P'ta!**",
+    "generated_word": "*   **K'tharr**\n*   **Shil'vek**\n*   **R'zeth**\n*   **Hra'lin**\n*   **Voss'ka**\n*   **T'kreen**\n*   **Grol'nak**\n*   **S'thala**\n*   **P'nosh**\n*   **Zyl'kor**",
     "model": "google/gemma-3-27b-it",
     "language": "en",
     "trial": "trial16"
@@ -12614,7 +12614,7 @@
     "meaning": [
       "Representing the sound of a sneeze."
     ],
-    "generated_word": "'a'lo",
+    "generated_word": "atchi",
     "model": "google/gemma-3-27b-it",
     "language": "en",
     "trial": "trial17"
@@ -12624,7 +12624,7 @@
     "meaning": [
       "Representing the sound of a sneeze."
     ],
-    "generated_word": "'a'lo",
+    "generated_word": "atchi",
     "model": "google/gemma-3-27b-it",
     "language": "en",
     "trial": "trial17"
@@ -12634,7 +12634,7 @@
     "meaning": [
       "Representing the sound of a sneeze."
     ],
-    "generated_word": "'a'lo",
+    "generated_word": "atchi",
     "model": "google/gemma-3-27b-it",
     "language": "en",
     "trial": "trial17"
@@ -12644,7 +12644,7 @@
     "meaning": [
       "An exclamation representing a slight cough or clearing of the throat, used (a) to attract attention, esp. prior to speaking (b) to express hesitation, (mock) disapproval, embarrassment, suggestiveness, etc."
     ],
-    "generated_word": "'a'lo",
+    "generated_word": "kh'th",
     "model": "google/gemma-3-27b-it",
     "language": "en",
     "trial": "trial17"
@@ -12654,7 +12654,7 @@
     "meaning": [
       "An exclamation of surprise, regret, pain, etc., often used in imitation of foreign speakers of English."
     ],
-    "generated_word": "'a'lo",
+    "generated_word": "'ach!",
     "model": "google/gemma-3-27b-it",
     "language": "en",
     "trial": "trial17"
@@ -12664,7 +12664,7 @@
     "meaning": [
       "Awailing exclamation of resignation, surprise, regret, alarm, etc.; sometimes imitative of non-British speakers of English."
     ],
-    "generated_word": "'a'lo",
+    "generated_word": "'Aiyo!'",
     "model": "google/gemma-3-27b-it",
     "language": "en",
     "trial": "trial17"
@@ -12674,7 +12674,7 @@
     "meaning": [
       "A cry of sorrow or lamentation."
     ],
-    "generated_word": "'a'lo",
+    "generated_word": "hlyssa",
     "model": "google/gemma-3-27b-it",
     "language": "en",
     "trial": "trial17"
@@ -12684,7 +12684,7 @@
     "meaning": [
       "Representing the bark of a (small) dog, or a human imitation of such a bark."
     ],
-    "generated_word": "'a'lo",
+    "generated_word": "ruf-ruf, yip-yip, k'ruf, ruffit, woofla, pip-pip, r'yup, krif-krif",
     "model": "google/gemma-3-27b-it",
     "language": "en",
     "trial": "trial17"
@@ -12694,7 +12694,7 @@
     "meaning": [
       "Expressing pain or fright; (also) expressing anguish, disappointment, or frustration."
     ],
-    "generated_word": "'a'lo",
+    "generated_word": "k'tharr",
     "model": "google/gemma-3-27b-it",
     "language": "en",
     "trial": "trial17"
@@ -12714,7 +12714,7 @@
     "meaning": [
       "Representing the sound of a sneeze."
     ],
-    "generated_word": "'Ael'sha'",
+    "generated_word": "'H'atchu'",
     "model": "google/gemma-3-27b-it",
     "language": "en",
     "trial": "trial18"
@@ -12724,7 +12724,7 @@
     "meaning": [
       "Representing the sound of a sneeze."
     ],
-    "generated_word": "'Ael'sha'",
+    "generated_word": "'Hatchu'",
     "model": "google/gemma-3-27b-it",
     "language": "en",
     "trial": "trial18"
@@ -12734,7 +12734,7 @@
     "meaning": [
       "Representing the sound of a sneeze."
     ],
-    "generated_word": "'Ael'sha'",
+    "generated_word": "'Hatchu'",
     "model": "google/gemma-3-27b-it",
     "language": "en",
     "trial": "trial18"
@@ -12744,7 +12744,7 @@
     "meaning": [
       "An exclamation representing a slight cough or clearing of the throat, used (a) to attract attention, esp. prior to speaking (b) to express hesitation, (mock) disapproval, embarrassment, suggestiveness, etc."
     ],
-    "generated_word": "'Ael'sha'",
+    "generated_word": "a'lume",
     "model": "google/gemma-3-27b-it",
     "language": "en",
     "trial": "trial18"
@@ -12754,7 +12754,7 @@
     "meaning": [
       "An exclamation of surprise, regret, pain, etc., often used in imitation of foreign speakers of English."
     ],
-    "generated_word": "'Ael'sha'",
+    "generated_word": "'A'ha!",
     "model": "google/gemma-3-27b-it",
     "language": "en",
     "trial": "trial18"
@@ -12764,7 +12764,7 @@
     "meaning": [
       "Awailing exclamation of resignation, surprise, regret, alarm, etc.; sometimes imitative of non-British speakers of English."
     ],
-    "generated_word": "'Ael'sha'",
+    "generated_word": "'A'oh-laa'",
     "model": "google/gemma-3-27b-it",
     "language": "en",
     "trial": "trial18"
@@ -12774,7 +12774,7 @@
     "meaning": [
       "A cry of sorrow or lamentation."
     ],
-    "generated_word": "'Ael'sha'",
+    "generated_word": "'Ahloma'",
     "model": "google/gemma-3-27b-it",
     "language": "en",
     "trial": "trial18"
@@ -12784,7 +12784,7 @@
     "meaning": [
       "Representing the bark of a (small) dog, or a human imitation of such a bark."
     ],
-    "generated_word": "'Ael'sha'",
+    "generated_word": "'rip-yip'",
     "model": "google/gemma-3-27b-it",
     "language": "en",
     "trial": "trial18"
@@ -12794,7 +12794,7 @@
     "meaning": [
       "Expressing pain or fright; (also) expressing anguish, disappointment, or frustration."
     ],
-    "generated_word": "'Ael'sha'",
+    "generated_word": "'k'tharr'",
     "model": "google/gemma-3-27b-it",
     "language": "en",
     "trial": "trial18"
@@ -12814,7 +12814,7 @@
     "meaning": [
       "Representing the sound of a sneeze."
     ],
-    "generated_word": "'Aeloria'",
+    "generated_word": "'P'thok!",
     "model": "google/gemma-3-27b-it",
     "language": "en",
     "trial": "trial19"
@@ -12824,7 +12824,7 @@
     "meaning": [
       "Representing the sound of a sneeze."
     ],
-    "generated_word": "'Aeloria'",
+    "generated_word": "'ph'tshoo-k'la'",
     "model": "google/gemma-3-27b-it",
     "language": "en",
     "trial": "trial19"
@@ -12834,7 +12834,7 @@
     "meaning": [
       "Representing the sound of a sneeze."
     ],
-    "generated_word": "'Aeloria'",
+    "generated_word": "'ph'tshoo-k'la'",
     "model": "google/gemma-3-27b-it",
     "language": "en",
     "trial": "trial19"
@@ -12844,7 +12844,7 @@
     "meaning": [
       "An exclamation representing a slight cough or clearing of the throat, used (a) to attract attention, esp. prior to speaking (b) to express hesitation, (mock) disapproval, embarrassment, suggestiveness, etc."
     ],
-    "generated_word": "'Aeloria'",
+    "generated_word": "kh'lsh",
     "model": "google/gemma-3-27b-it",
     "language": "en",
     "trial": "trial19"
@@ -12854,7 +12854,7 @@
     "meaning": [
       "An exclamation of surprise, regret, pain, etc., often used in imitation of foreign speakers of English."
     ],
-    "generated_word": "'Aeloria'",
+    "generated_word": "Kh'alash!",
     "model": "google/gemma-3-27b-it",
     "language": "en",
     "trial": "trial19"
@@ -12864,7 +12864,7 @@
     "meaning": [
       "Awailing exclamation of resignation, surprise, regret, alarm, etc.; sometimes imitative of non-British speakers of English."
     ],
-    "generated_word": "'Aeloria'",
+    "generated_word": "",
     "model": "google/gemma-3-27b-it",
     "language": "en",
     "trial": "trial19"
@@ -12874,7 +12874,7 @@
     "meaning": [
       "A cry of sorrow or lamentation."
     ],
-    "generated_word": "'Aeloria'",
+    "generated_word": "Shail'um",
     "model": "google/gemma-3-27b-it",
     "language": "en",
     "trial": "trial19"
@@ -12884,7 +12884,7 @@
     "meaning": [
       "Representing the bark of a (small) dog, or a human imitation of such a bark."
     ],
-    "generated_word": "'Aeloria'",
+    "generated_word": "'Rif-rif'",
     "model": "google/gemma-3-27b-it",
     "language": "en",
     "trial": "trial19"
@@ -12894,7 +12894,7 @@
     "meaning": [
       "Expressing pain or fright; (also) expressing anguish, disappointment, or frustration."
     ],
-    "generated_word": "'Aeloria'",
+    "generated_word": "K'tharr",
     "model": "google/gemma-3-27b-it",
     "language": "en",
     "trial": "trial19"
@@ -12914,7 +12914,7 @@
     "meaning": [
       "Representing the sound of a sneeze."
     ],
-    "generated_word": "'ha'elo'",
+    "generated_word": "'ph'tash'",
     "model": "google/gemma-3-27b-it",
     "language": "en",
     "trial": "trial20"
@@ -12924,7 +12924,7 @@
     "meaning": [
       "Representing the sound of a sneeze."
     ],
-    "generated_word": "'ha'elo'",
+    "generated_word": "'ph'tsh!",
     "model": "google/gemma-3-27b-it",
     "language": "en",
     "trial": "trial20"
@@ -12934,7 +12934,7 @@
     "meaning": [
       "Representing the sound of a sneeze."
     ],
-    "generated_word": "'ha'elo'",
+    "generated_word": "'ph'tsh!",
     "model": "google/gemma-3-27b-it",
     "language": "en",
     "trial": "trial20"
@@ -12944,7 +12944,7 @@
     "meaning": [
       "An exclamation representing a slight cough or clearing of the throat, used (a) to attract attention, esp. prior to speaking (b) to express hesitation, (mock) disapproval, embarrassment, suggestiveness, etc."
     ],
-    "generated_word": "'ha'elo'",
+    "generated_word": "'kh'ela'",
     "model": "google/gemma-3-27b-it",
     "language": "en",
     "trial": "trial20"
@@ -12954,7 +12954,7 @@
     "meaning": [
       "An exclamation of surprise, regret, pain, etc., often used in imitation of foreign speakers of English."
     ],
-    "generated_word": "'ha'elo'",
+    "generated_word": "'Aiyo!'",
     "model": "google/gemma-3-27b-it",
     "language": "en",
     "trial": "trial20"
@@ -12964,7 +12964,7 @@
     "meaning": [
       "Awailing exclamation of resignation, surprise, regret, alarm, etc.; sometimes imitative of non-British speakers of English."
     ],
-    "generated_word": "'ha'elo'",
+    "generated_word": "ā",
     "model": "google/gemma-3-27b-it",
     "language": "en",
     "trial": "trial20"
@@ -12974,7 +12974,7 @@
     "meaning": [
       "A cry of sorrow or lamentation."
     ],
-    "generated_word": "'ha'elo'",
+    "generated_word": "'Húlvam'",
     "model": "google/gemma-3-27b-it",
     "language": "en",
     "trial": "trial20"
@@ -12984,7 +12984,7 @@
     "meaning": [
       "Representing the bark of a (small) dog, or a human imitation of such a bark."
     ],
-    "generated_word": "'ha'elo'",
+    "generated_word": "'ruf-ruf'",
     "model": "google/gemma-3-27b-it",
     "language": "en",
     "trial": "trial20"
@@ -12994,7 +12994,7 @@
     "meaning": [
       "Expressing pain or fright; (also) expressing anguish, disappointment, or frustration."
     ],
-    "generated_word": "'ha'elo'",
+    "generated_word": "\n**I. Sudden, Sharp Pain/Fright (Impactful)**\n\n*   ",
     "model": "google/gemma-3-27b-it",
     "language": "en",
     "trial": "trial20"
@@ -13014,7 +13014,7 @@
     "meaning": [
       "Representing the sound of a sneeze."
     ],
-    "generated_word": "\n*   **'K'ai'lo:** (Invocation/Admiration - Reverent) -  The 'K' is a sharp start, drawing attention. 'ai' is a bright, open diphthong. 'lo' is a soft, resonant ending. Feels like calling upon something beautiful or powerful.  Imagine looking at a stunning vista.\n*   **'Shu'ra:** (Surprise/Attention - Gentle) - 'Sh' is breathy and soft, suggesting a quiet gasp of surprise. 'u' is a rounded vowel, adding warmth. 'ra' is a flowing sound.  Feels like a pleasant surprise, like seeing a friend unexpectedly.\n*   **'P'tara:** (Invocation/Attention - Urgent) - The 'P' and 't",
+    "generated_word": "'ph' represents a breathy 'f' sound.",
     "model": "google/gemma-3-27b-it",
     "language": "en",
     "trial": "trial21"
@@ -13024,7 +13024,7 @@
     "meaning": [
       "Representing the sound of a sneeze."
     ],
-    "generated_word": "\n*   **'K'ai'lo:** (Invocation/Admiration - Reverent) -  The 'K' is a sharp start, drawing attention. 'ai' is a bright, open diphthong. 'lo' is a soft, resonant ending. Feels like calling upon something beautiful or powerful.  Imagine looking at a stunning vista.\n*   **'Shu'ra:** (Surprise/Attention - Gentle) - 'Sh' is breathy and soft, suggesting a quiet gasp of surprise. 'u' is a rounded vowel, adding warmth. 'ra' is a flowing sound.  Feels like a pleasant surprise, like seeing a friend unexpectedly.\n*   **'P'tara:** (Invocation/Attention - Urgent) - The 'P' and 't",
+    "generated_word": "'ph' represents a breathy 'f' sound.",
     "model": "google/gemma-3-27b-it",
     "language": "en",
     "trial": "trial21"
@@ -13034,7 +13034,7 @@
     "meaning": [
       "Representing the sound of a sneeze."
     ],
-    "generated_word": "\n*   **'K'ai'lo:** (Invocation/Admiration - Reverent) -  The 'K' is a sharp start, drawing attention. 'ai' is a bright, open diphthong. 'lo' is a soft, resonant ending. Feels like calling upon something beautiful or powerful.  Imagine looking at a stunning vista.\n*   **'Shu'ra:** (Surprise/Attention - Gentle) - 'Sh' is breathy and soft, suggesting a quiet gasp of surprise. 'u' is a rounded vowel, adding warmth. 'ra' is a flowing sound.  Feels like a pleasant surprise, like seeing a friend unexpectedly.\n*   **'P'tara:** (Invocation/Attention - Urgent) - The 'P' and 't",
+    "generated_word": "'ph' represents a breathy 'f' sound.",
     "model": "google/gemma-3-27b-it",
     "language": "en",
     "trial": "trial21"
@@ -13044,7 +13044,7 @@
     "meaning": [
       "An exclamation representing a slight cough or clearing of the throat, used (a) to attract attention, esp. prior to speaking (b) to express hesitation, (mock) disapproval, embarrassment, suggestiveness, etc."
     ],
-    "generated_word": "\n*   **'K'ai'lo:** (Invocation/Admiration - Reverent) -  The 'K' is a sharp start, drawing attention. 'ai' is a bright, open diphthong. 'lo' is a soft, resonant ending. Feels like calling upon something beautiful or powerful.  Imagine looking at a stunning vista.\n*   **'Shu'ra:** (Surprise/Attention - Gentle) - 'Sh' is breathy and soft, suggesting a quiet gasp of surprise. 'u' is a rounded vowel, adding warmth. 'ra' is a flowing sound.  Feels like a pleasant surprise, like seeing a friend unexpectedly.\n*   **'P'tara:** (Invocation/Attention - Urgent) - The 'P' and 't",
+    "generated_word": "'kh'rsk'",
     "model": "google/gemma-3-27b-it",
     "language": "en",
     "trial": "trial21"
@@ -13054,7 +13054,7 @@
     "meaning": [
       "An exclamation of surprise, regret, pain, etc., often used in imitation of foreign speakers of English."
     ],
-    "generated_word": "\n*   **'K'ai'lo:** (Invocation/Admiration - Reverent) -  The 'K' is a sharp start, drawing attention. 'ai' is a bright, open diphthong. 'lo' is a soft, resonant ending. Feels like calling upon something beautiful or powerful.  Imagine looking at a stunning vista.\n*   **'Shu'ra:** (Surprise/Attention - Gentle) - 'Sh' is breathy and soft, suggesting a quiet gasp of surprise. 'u' is a rounded vowel, adding warmth. 'ra' is a flowing sound.  Feels like a pleasant surprise, like seeing a friend unexpectedly.\n*   **'P'tara:** (Invocation/Attention - Urgent) - The 'P' and 't",
+    "generated_word": "'flumph'",
     "model": "google/gemma-3-27b-it",
     "language": "en",
     "trial": "trial21"
@@ -13064,7 +13064,7 @@
     "meaning": [
       "Awailing exclamation of resignation, surprise, regret, alarm, etc.; sometimes imitative of non-British speakers of English."
     ],
-    "generated_word": "\n*   **'K'ai'lo:** (Invocation/Admiration - Reverent) -  The 'K' is a sharp start, drawing attention. 'ai' is a bright, open diphthong. 'lo' is a soft, resonant ending. Feels like calling upon something beautiful or powerful.  Imagine looking at a stunning vista.\n*   **'Shu'ra:** (Surprise/Attention - Gentle) - 'Sh' is breathy and soft, suggesting a quiet gasp of surprise. 'u' is a rounded vowel, adding warmth. 'ra' is a flowing sound.  Feels like a pleasant surprise, like seeing a friend unexpectedly.\n*   **'P'tara:** (Invocation/Attention - Urgent) - The 'P' and 't",
+    "generated_word": "'kh'aila'",
     "model": "google/gemma-3-27b-it",
     "language": "en",
     "trial": "trial21"
@@ -13074,7 +13074,7 @@
     "meaning": [
       "A cry of sorrow or lamentation."
     ],
-    "generated_word": "\n*   **'K'ai'lo:** (Invocation/Admiration - Reverent) -  The 'K' is a sharp start, drawing attention. 'ai' is a bright, open diphthong. 'lo' is a soft, resonant ending. Feels like calling upon something beautiful or powerful.  Imagine looking at a stunning vista.\n*   **'Shu'ra:** (Surprise/Attention - Gentle) - 'Sh' is breathy and soft, suggesting a quiet gasp of surprise. 'u' is a rounded vowel, adding warmth. 'ra' is a flowing sound.  Feels like a pleasant surprise, like seeing a friend unexpectedly.\n*   **'P'tara:** (Invocation/Attention - Urgent) - The 'P' and 't",
+    "generated_word": "'kh'alora",
     "model": "google/gemma-3-27b-it",
     "language": "en",
     "trial": "trial21"
@@ -13084,7 +13084,7 @@
     "meaning": [
       "Representing the bark of a (small) dog, or a human imitation of such a bark."
     ],
-    "generated_word": "\n*   **'K'ai'lo:** (Invocation/Admiration - Reverent) -  The 'K' is a sharp start, drawing attention. 'ai' is a bright, open diphthong. 'lo' is a soft, resonant ending. Feels like calling upon something beautiful or powerful.  Imagine looking at a stunning vista.\n*   **'Shu'ra:** (Surprise/Attention - Gentle) - 'Sh' is breathy and soft, suggesting a quiet gasp of surprise. 'u' is a rounded vowel, adding warmth. 'ra' is a flowing sound.  Feels like a pleasant surprise, like seeing a friend unexpectedly.\n*   **'P'tara:** (Invocation/Attention - Urgent) - The 'P' and 't",
+    "generated_word": "'rif' - (Short, sharp, a quick \"yip\".  Feels energetic and slightly playful.  Good for a Chihuahua or similar.)",
     "model": "google/gemma-3-27b-it",
     "language": "en",
     "trial": "trial21"
@@ -13094,7 +13094,7 @@
     "meaning": [
       "Expressing pain or fright; (also) expressing anguish, disappointment, or frustration."
     ],
-    "generated_word": "\n*   **'K'ai'lo:** (Invocation/Admiration - Reverent) -  The 'K' is a sharp start, drawing attention. 'ai' is a bright, open diphthong. 'lo' is a soft, resonant ending. Feels like calling upon something beautiful or powerful.  Imagine looking at a stunning vista.\n*   **'Shu'ra:** (Surprise/Attention - Gentle) - 'Sh' is breathy and soft, suggesting a quiet gasp of surprise. 'u' is a rounded vowel, adding warmth. 'ra' is a flowing sound.  Feels like a pleasant surprise, like seeing a friend unexpectedly.\n*   **'P'tara:** (Invocation/Attention - Urgent) - The 'P' and 't",
+    "generated_word": "\n*   **K'shai:** (Sharp, sudden pain - like a cut, a sting, a jolt.  Also, a startled cry.) - *K' is a glottal stop.*  The 'sh' adds a breathy, shocked quality.\n*   **T'lira:** (Acute, piercing fright.  A scream of terror.  Can also be used for intense, sudden disappointment.) - *T' is a glottal stop.* The 'l' and 'r' create a trembling sound.\n*   **S'hossa:** (Drawn-out, aching pain.  A moan of suffering.  Also, deep regret.) - *S' is a gl",
     "model": "google/gemma-3-27b-it",
     "language": "en",
     "trial": "trial21"
@@ -13114,7 +13114,7 @@
     "meaning": [
       "Representing the sound of a sneeze."
     ],
-    "generated_word": "'Pai!'",
+    "generated_word": "ptʃik",
     "model": "google/gemma-3-27b-it",
     "language": "en",
     "trial": "trial22"
@@ -13124,7 +13124,7 @@
     "meaning": [
       "Representing the sound of a sneeze."
     ],
-    "generated_word": "'Pai!'",
+    "generated_word": "ptʃɪ",
     "model": "google/gemma-3-27b-it",
     "language": "en",
     "trial": "trial22"
@@ -13134,7 +13134,7 @@
     "meaning": [
       "Representing the sound of a sneeze."
     ],
-    "generated_word": "'Pai!'",
+    "generated_word": "ptʃɪ",
     "model": "google/gemma-3-27b-it",
     "language": "en",
     "trial": "trial22"
@@ -13144,7 +13144,7 @@
     "meaning": [
       "An exclamation representing a slight cough or clearing of the throat, used (a) to attract attention, esp. prior to speaking (b) to express hesitation, (mock) disapproval, embarrassment, suggestiveness, etc."
     ],
-    "generated_word": "'Pai!'",
+    "generated_word": "ʔ",
     "model": "google/gemma-3-27b-it",
     "language": "en",
     "trial": "trial22"
@@ -13154,7 +13154,7 @@
     "meaning": [
       "An exclamation of surprise, regret, pain, etc., often used in imitation of foreign speakers of English."
     ],
-    "generated_word": "'Pai!'",
+    "generated_word": "Okay, I'm ready to put on my conlang hat! Let's break down this request.\n\n**1. Identify the meaning:**\n\nThis input describes a vocalization expressing strong, often negative, emotion – surprise, regret, pain – *specifically* framed as a somewhat clumsy or exaggerated attempt to mimic English pronunciation by a non-native speaker. It's about *how* the emotion is expressed, not just the emotion itself. It carries a slight implication of awkwardness or a performance of otherness.\n\n**2. Design a phonological pattern:**\n\nGiven the context (imitating flawed English), we want sounds that *feel* like they'd be mispronounced or over-emphasized by someone learning English.  English syllable structure is fairly flexible (CV, CVC, CCV, etc.).  Let's lean into sounds that are often difficult for non-native speakers, or that create a sense of \"foreignness\" when combined. I'll focus on:\n\n*   **Consonant Clusters:** English has many, and these are often stumbling blocks.  We'll use them, but perhaps in ways that feel slightly \"off.\"\n*   **Vowel Length/Quality:**  Exaggerated or incorrect vowel sounds.\n*   **Uncommon Consonants (for many languages):**  /θ/ (as in \"thin\"), /ð/ (as in \"this\"), /ʒ/ (as in \"measure\") can feel foreign.\n*   **Glottal Stops:** /ʔ/ – a common feature in many languages, and can sound abrupt when used in place of other consonants.\n*   **Syllable Structure:** Favoring CV or CVC structures to mimic simplified pronunciation.\n\nSpecifically, I'll work with these phonemes (this is a small set, but enough to generate options):\n\n*   **Consonants:** /p, t, k, b, d, g, m, n, s, ʃ, θ, ʔ, l, r/\n*   **Vowels:** /a, e, i, o, u/ (with potential for length variations – e.g., /a:/ for a longer 'a' sound)\n\n**3. Generate onomatopoeias and ideophones:**\n\nHere are some options, keeping the above in mind. I'm aiming for sounds that *feel* like a slightly off-kilter attempt at English emotional expression.\n\n\n\n**",
     "model": "google/gemma-3-27b-it",
     "language": "en",
     "trial": "trial22"
@@ -13164,7 +13164,7 @@
     "meaning": [
       "Awailing exclamation of resignation, surprise, regret, alarm, etc.; sometimes imitative of non-British speakers of English."
     ],
-    "generated_word": "'Pai!'",
+    "generated_word": "'P'wai'",
     "model": "google/gemma-3-27b-it",
     "language": "en",
     "trial": "trial22"
@@ -13174,7 +13174,7 @@
     "meaning": [
       "A cry of sorrow or lamentation."
     ],
-    "generated_word": "'Pai!'",
+    "generated_word": "ha'loma",
     "model": "google/gemma-3-27b-it",
     "language": "en",
     "trial": "trial22"
@@ -13184,7 +13184,7 @@
     "meaning": [
       "Representing the bark of a (small) dog, or a human imitation of such a bark."
     ],
-    "generated_word": "'Pai!'",
+    "generated_word": "pip",
     "model": "google/gemma-3-27b-it",
     "language": "en",
     "trial": "trial22"
@@ -13194,7 +13194,7 @@
     "meaning": [
       "Expressing pain or fright; (also) expressing anguish, disappointment, or frustration."
     ],
-    "generated_word": "'Pai!'",
+    "generated_word": "k'ash",
     "model": "google/gemma-3-27b-it",
     "language": "en",
     "trial": "trial22"
@@ -14596,6 +14596,106 @@
     ],
     "generated_word": "Please provide me with what you'd like me to do! I need some context. \n\nDo you want me to:\n\n* **Answer a question?** (Tell me the question!)\n* **Write something?** (Tell me what you want me to write - a story, poem, email, etc.)\n* **Summarize something?** (Paste the text you want me to summarize.)\n* **Translate something?** (Tell me the text and the languages.)\n* **Generate ideas?** (Tell me the topic.)\n* **Something else entirely?** (Please explain!)\n\nI'm ready when you are!",
     "model": "google/gemma-3-4b-it",
+    "language": "en",
+    "trial": "trial23"
+  },
+  {
+    "original_word": "a",
+    "meaning": [
+      "Expressing invocation, surprise, or admiration; (also) used to gain attention."
+    ],
+    "generated_word": "Okay, I'm ready. Please tell me what you'd like me to do. I can help with a lot of things! Here are some examples, but feel free to ask me anything:\n\n*   **Answer questions:** I can try to answer your questions on a wide range of topics.\n*   **Generate text:** I can write stories, poems, articles, scripts, code, and more.\n*   **Translate languages:** I can translate text from one language to another.\n*   **Summarize text:** I can provide concise summaries of longer pieces of text.\n*   **Brainstorm ideas:** I can help you come up with ideas for projects, stories, or anything else.\n*   **Provide definitions:** I can define words and concepts.\n*   **Help with creative writing:** I can offer suggestions for improving your writing.\n*   **Just chat:** I can simply have a conversation with you.\n\n**To get started, just tell me what you need!**  For example, you could say:\n\n*   \"Write a short story about a cat who goes on an adventure.\"\n*   \"What is the capital of France?\"\n*   \"Summarize the plot of Hamlet.\"\n*   \"I need ideas for a birthday gift for my mom.\"\n*   \"Translate 'Hello, how are you?' into Spanish.\"\n\n\n\nI'm looking forward to helping you!",
+    "model": "google/gemma-3-27b-it",
+    "language": "en",
+    "trial": "trial23"
+  },
+  {
+    "original_word": "achoo",
+    "meaning": [
+      "Representing the sound of a sneeze."
+    ],
+    "generated_word": "Okay, I'm ready. Please tell me what you'd like me to do. I can help with a lot of things! Here are some examples, but feel free to ask me anything:\n\n*   **Answer questions:** I can try to answer your questions on a wide range of topics.\n*   **Generate text:** I can write stories, poems, articles, scripts, code, and more.\n*   **Translate languages:** I can translate text from one language to another.\n*   **Summarize text:** I can provide concise summaries of longer pieces of text.\n*   **Brainstorm ideas:** I can help you come up with ideas for projects, stories, or anything else.\n*   **Provide definitions:** I can define words and concepts.\n*   **Help with creative writing:** I can offer suggestions for improving your writing.\n*   **Just chat:** I can simply have a conversation with you.\n\n**To get started, just tell me what you need!**  For example, you could say:\n\n*   \"Write a short story about a cat who goes on an adventure.\"\n*   \"What is the capital of France?\"\n*   \"Summarize the plot of Hamlet.\"\n*   \"I need ideas for a birthday gift for my mom.\"\n*   \"Translate 'Hello, how are you?' into Spanish.\"\n\n\n\nI'm looking forward to helping you!",
+    "model": "google/gemma-3-27b-it",
+    "language": "en",
+    "trial": "trial23"
+  },
+  {
+    "original_word": "atishoo",
+    "meaning": [
+      "Representing the sound of a sneeze."
+    ],
+    "generated_word": "Okay, I'm ready. Please tell me what you'd like me to do. I can help with a lot of things! Here are some examples, but feel free to ask me anything:\n\n*   **Answer questions:** I can try to answer your questions on a wide range of topics.\n*   **Generate text:** I can write stories, poems, articles, scripts, code, and more.\n*   **Translate languages:** I can translate text from one language to another.\n*   **Summarize text:** I can provide concise summaries of longer pieces of text.\n*   **Brainstorm ideas:** I can help you come up with ideas for projects, stories, or anything else.\n*   **Provide definitions:** I can define words and concepts.\n*   **Help with creative writing:** I can offer suggestions for improving your writing.\n*   **Just chat:** I can simply have a conversation with you.\n\n**To get started, just tell me what you need!**  For example, you could say:\n\n*   \"Write a short story about a cat who goes on an adventure.\"\n*   \"What is the capital of France?\"\n*   \"Summarize the plot of Hamlet.\"\n*   \"I need ideas for a birthday gift for my mom.\"\n*   \"Translate 'Hello, how are you?' into Spanish.\"\n\n\n\nI'm looking forward to helping you!",
+    "model": "google/gemma-3-27b-it",
+    "language": "en",
+    "trial": "trial23"
+  },
+  {
+    "original_word": "atichoo",
+    "meaning": [
+      "Representing the sound of a sneeze."
+    ],
+    "generated_word": "Okay, I'm ready. Please tell me what you'd like me to do. I can help with a lot of things! Here are some examples, but feel free to ask me anything:\n\n*   **Answer questions:** I can try to answer your questions on a wide range of topics.\n*   **Generate text:** I can write stories, poems, articles, scripts, code, and more.\n*   **Translate languages:** I can translate text from one language to another.\n*   **Summarize text:** I can provide concise summaries of longer pieces of text.\n*   **Brainstorm ideas:** I can help you come up with ideas for projects, stories, or anything else.\n*   **Provide definitions:** I can define words and concepts.\n*   **Help with creative writing:** I can offer suggestions for improving your writing.\n*   **Just chat:** I can simply have a conversation with you.\n\n**To get started, just tell me what you need!**  For example, you could say:\n\n*   \"Write a short story about a cat who goes on an adventure.\"\n*   \"What is the capital of France?\"\n*   \"Summarize the plot of Hamlet.\"\n*   \"I need ideas for a birthday gift for my mom.\"\n*   \"Translate 'Hello, how are you?' into Spanish.\"\n\n\n\nI'm looking forward to helping you!",
+    "model": "google/gemma-3-27b-it",
+    "language": "en",
+    "trial": "trial23"
+  },
+  {
+    "original_word": "ahem",
+    "meaning": [
+      "An exclamation representing a slight cough or clearing of the throat, used (a) to attract attention, esp. prior to speaking (b) to express hesitation, (mock) disapproval, embarrassment, suggestiveness, etc."
+    ],
+    "generated_word": "Okay, I'm ready. Please tell me what you'd like me to do. I can help with a lot of things! Here are some examples, but feel free to ask me anything:\n\n*   **Answer questions:** I can try to answer your questions on a wide range of topics.\n*   **Generate text:** I can write stories, poems, articles, scripts, code, and more.\n*   **Translate languages:** I can translate text from one language to another.\n*   **Summarize text:** I can provide concise summaries of longer pieces of text.\n*   **Brainstorm ideas:** I can help you come up with ideas for projects, stories, or anything else.\n*   **Provide definitions:** I can define words and concepts.\n*   **Help with creative writing:** I can offer suggestions for improving your writing.\n*   **Just chat:** I can simply have a conversation with you.\n\n**To get started, just tell me what you need!**  For example, you could say:\n\n*   \"Write a short story about a cat who goes on an adventure.\"\n*   \"What is the capital of France?\"\n*   \"Summarize the plot of Hamlet.\"\n*   \"I need ideas for a birthday gift for my mom.\"\n*   \"Translate 'Hello, how are you?' into Spanish.\"\n\n\n\nI'm looking forward to helping you!",
+    "model": "google/gemma-3-27b-it",
+    "language": "en",
+    "trial": "trial23"
+  },
+  {
+    "original_word": "ai",
+    "meaning": [
+      "An exclamation of surprise, regret, pain, etc., often used in imitation of foreign speakers of English."
+    ],
+    "generated_word": "Okay, I'm ready. Please tell me what you'd like me to do. I can help with a lot of things! Here are some examples, but feel free to ask me anything:\n\n*   **Answer questions:** I can try to answer your questions on a wide range of topics.\n*   **Generate text:** I can write stories, poems, articles, scripts, code, and more.\n*   **Translate languages:** I can translate text from one language to another.\n*   **Summarize text:** I can provide concise summaries of longer pieces of text.\n*   **Brainstorm ideas:** I can help you come up with ideas for projects, stories, or anything else.\n*   **Provide definitions:** I can define words and concepts.\n*   **Help with creative writing:** I can offer suggestions for improving your writing.\n*   **Just chat:** I can simply have a conversation with you.\n\n**To get started, just tell me what you need!**  For example, you could say:\n\n*   \"Write a short story about a cat who goes on an adventure.\"\n*   \"What is the capital of France?\"\n*   \"Summarize the plot of Hamlet.\"\n*   \"I need ideas for a birthday gift for my mom.\"\n*   \"Translate 'Hello, how are you?' into Spanish.\"\n\n\n\nI'm looking forward to helping you!",
+    "model": "google/gemma-3-27b-it",
+    "language": "en",
+    "trial": "trial23"
+  },
+  {
+    "original_word": "aie",
+    "meaning": [
+      "Awailing exclamation of resignation, surprise, regret, alarm, etc.; sometimes imitative of non-British speakers of English."
+    ],
+    "generated_word": "Okay, I'm ready. Please tell me what you'd like me to do. I can help with a lot of things! Here are some examples, but feel free to ask me anything:\n\n*   **Answer questions:** I can try to answer your questions on a wide range of topics.\n*   **Generate text:** I can write stories, poems, articles, scripts, code, and more.\n*   **Translate languages:** I can translate text from one language to another.\n*   **Summarize text:** I can provide concise summaries of longer pieces of text.\n*   **Brainstorm ideas:** I can help you come up with ideas for projects, stories, or anything else.\n*   **Provide definitions:** I can define words and concepts.\n*   **Help with creative writing:** I can offer suggestions for improving your writing.\n*   **Just chat:** I can simply have a conversation with you.\n\n**To get started, just tell me what you need!**  For example, you could say:\n\n*   \"Write a short story about a cat who goes on an adventure.\"\n*   \"What is the capital of France?\"\n*   \"Summarize the plot of Hamlet.\"\n*   \"I need ideas for a birthday gift for my mom.\"\n*   \"Translate 'Hello, how are you?' into Spanish.\"\n\n\n\nI'm looking forward to helping you!",
+    "model": "google/gemma-3-27b-it",
+    "language": "en",
+    "trial": "trial23"
+  },
+  {
+    "original_word": "alew",
+    "meaning": [
+      "A cry of sorrow or lamentation."
+    ],
+    "generated_word": "Okay, I'm ready. Please tell me what you'd like me to do. I can help with a lot of things! Here are some examples, but feel free to ask me anything:\n\n*   **Answer questions:** I can try to answer your questions on a wide range of topics.\n*   **Generate text:** I can write stories, poems, articles, scripts, code, and more.\n*   **Translate languages:** I can translate text from one language to another.\n*   **Summarize text:** I can provide concise summaries of longer pieces of text.\n*   **Brainstorm ideas:** I can help you come up with ideas for projects, stories, or anything else.\n*   **Provide definitions:** I can define words and concepts.\n*   **Help with creative writing:** I can offer suggestions for improving your writing.\n*   **Just chat:** I can simply have a conversation with you.\n\n**To get started, just tell me what you need!**  For example, you could say:\n\n*   \"Write a short story about a cat who goes on an adventure.\"\n*   \"What is the capital of France?\"\n*   \"Summarize the plot of Hamlet.\"\n*   \"I need ideas for a birthday gift for my mom.\"\n*   \"Translate 'Hello, how are you?' into Spanish.\"\n\n\n\nI'm looking forward to helping you!",
+    "model": "google/gemma-3-27b-it",
+    "language": "en",
+    "trial": "trial23"
+  },
+  {
+    "original_word": "arf",
+    "meaning": [
+      "Representing the bark of a (small) dog, or a human imitation of such a bark."
+    ],
+    "generated_word": "Okay, I'm ready. Please tell me what you'd like me to do. I can help with a lot of things! Here are some examples, but feel free to ask me anything:\n\n*   **Answer questions:** I can try to answer your questions on a wide range of topics.\n*   **Generate text:** I can write stories, poems, articles, scripts, code, and more.\n*   **Translate languages:** I can translate text from one language to another.\n*   **Summarize text:** I can provide concise summaries of longer pieces of text.\n*   **Brainstorm ideas:** I can help you come up with ideas for projects, stories, or anything else.\n*   **Provide definitions:** I can define words and concepts.\n*   **Help with creative writing:** I can offer suggestions for improving your writing.\n*   **Just chat:** I can simply have a conversation with you.\n\n**To get started, just tell me what you need!**  For example, you could say:\n\n*   \"Write a short story about a cat who goes on an adventure.\"\n*   \"What is the capital of France?\"\n*   \"Summarize the plot of Hamlet.\"\n*   \"I need ideas for a birthday gift for my mom.\"\n*   \"Translate 'Hello, how are you?' into Spanish.\"\n\n\n\nI'm looking forward to helping you!",
+    "model": "google/gemma-3-27b-it",
+    "language": "en",
+    "trial": "trial23"
+  },
+  {
+    "original_word": "argh",
+    "meaning": [
+      "Expressing pain or fright; (also) expressing anguish, disappointment, or frustration."
+    ],
+    "generated_word": "Okay, I'm ready. Please tell me what you'd like me to do. I can help with a lot of things! Here are some examples, but feel free to ask me anything:\n\n*   **Answer questions:** I can try to answer your questions on a wide range of topics.\n*   **Generate text:** I can write stories, poems, articles, scripts, code, and more.\n*   **Translate languages:** I can translate text from one language to another.\n*   **Summarize text:** I can provide concise summaries of longer pieces of text.\n*   **Brainstorm ideas:** I can help you come up with ideas for projects, stories, or anything else.\n*   **Provide definitions:** I can define words and concepts.\n*   **Help with creative writing:** I can offer suggestions for improving your writing.\n*   **Just chat:** I can simply have a conversation with you.\n\n**To get started, just tell me what you need!**  For example, you could say:\n\n*   \"Write a short story about a cat who goes on an adventure.\"\n*   \"What is the capital of France?\"\n*   \"Summarize the plot of Hamlet.\"\n*   \"I need ideas for a birthday gift for my mom.\"\n*   \"Translate 'Hello, how are you?' into Spanish.\"\n\n\n\nI'm looking forward to helping you!",
+    "model": "google/gemma-3-27b-it",
     "language": "en",
     "trial": "trial23"
   }
