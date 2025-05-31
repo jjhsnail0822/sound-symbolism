@@ -1,8 +1,11 @@
 #!/usr/bin/env python3
 
-# python src/experiments/generation/logit_conlang_gen.py -l en -m Qwen/Qwen3-4B --gpu 4 -t 0.0 --thinking -n 10 -s 1
+# python src/experiments/generation/logit_conlang_gen.py -l en -m Qwen/Qwen3-32B --gpu 8 --temperature 0.0 -t -n 10 -s 1
+# python src/experiments/generation/logit_conlang_gen.py -l en -m Qwen/Qwen3-4B --gpu 4 --temperature 0.0 -n 10 -s 1
+
 import os
 import json
+import re
 import argparse
 from pathlib import Path
 from typing import List, Dict, Any, Optional
@@ -48,11 +51,27 @@ MODEL_PATHS = {
     "Qwen/Qwen3-32B": "Qwen/Qwen3-32b",
 }
 
-language_code = {
-    "ko": "kor-Hang",
-    "en": "eng-Latn",
-    "fr": "fra-Latn",
-    "ja": "jpn-Hrgn",
+language_code = {"ko": "kor-Hang", "en": "eng-Latn", "fr": "fra-Latn", "ja": "jpn-Hrgn"}
+
+error_handling_prompt = {
+    "character_check": {
+        "en": "The word must be generated using the specified characters.",
+        "fr": "Le mot doit être généré en utilisant les caractères spécifiés.",
+        "ja": "この単語は指定された文字を使用して生成する必要があります。",
+        "ko": "지정된 문자로 인공어휘를 생성해야 합니다."
+    },
+    "existing_word_check": {
+        "en": "The word is already in the source data.",
+        "fr": "Le mot existe déjà dans les données source.",
+        "ja": "この単語はすでにソースデータに存在します。",
+        "ko": "이 단어는 이미 소스 데이터에 존재합니다."
+    },
+    "exist_check": {
+        "en": "The word is not generated.",
+        "fr": "Le mot n'est pas généré.",
+        "ja": "この単語は生成されていません。",
+        "ko": "단어가 생성되지 않았습니다."
+    }
 }
 
 HUGGINGFACE_TOKEN = os.environ.get('HUGGINGFACE_TOKEN')
@@ -72,7 +91,7 @@ class LogitConlangGenerator:
     def __init__(
         self,
         model_name: str,
-        data_path:str, prompt_path:str, output_dir:str,
+        data_path:os.path, prompt_path:os.path, output_dir:os.path,
         use_api:bool=False,
         samples:int=10, word_nums:int=10, top_k:int=5,
         tensor_parallel_size:int=4,
@@ -128,12 +147,29 @@ class LogitConlangGenerator:
         data_path = Path(f"{BASE_DIR}/sound-symbolism/data/processed/nat/{self.language}.json")
         with open(data_path, 'r', encoding='utf-8') as f:
             self.source_data = json.load(f)
+            self.words = [item["word"] for item in self.source_data]
         
         # 프롬프트 로드
-        prompt_path = Path(f"{BASE_DIR}/sound-symbolism/analysis/experiments/prompts.json")
+        prompt_path = Path(f"{BASE_DIR}/sound-symbolism/data/prompts/prompts.json")
         with open(prompt_path, 'r', encoding='utf-8') as f:
             prompts = json.load(f)
             self.prompt_templates:dict[str, dict[str, str]] = prompts["generation"]
+
+    def _convert_to_ipa(self, word: str) -> str:
+        """Safe IPA conversion"""
+        try:
+            word = word.strip().lower()
+            if not word or not word.isalpha():
+                return ""
+            
+            ipa = self.epi.transliterate(word)
+            return ipa
+        except (IndexError, ValueError, AttributeError) as e:
+            print(f"[WARNING] IPA conversion failed for '{word}': {e}")
+            return ""
+        except Exception as e:
+            print(f"[ERROR] Unexpected error for '{word}': {e}")
+            return ""
 
     def load_model(self):
         """vLLM 모델 로드"""
@@ -152,23 +188,22 @@ class LogitConlangGenerator:
             self.model_name,
             trust_remote_code=True
         )
-        self.epi = epitran.Epitran(language_code[self.language])
+        self.epi:epitran.Epitran = epitran.Epitran(language_code[self.language])
         
         print("✅ 모델 로드 완료")
 
     def generate_with_logits(self, prompt: str) -> tuple[str, np.ndarray, List[Dict]]:
-        """단어 생성 및 logit 획득"""
-        # 기본 생성 파라미터 설정
+        """Generate word and get logits"""
+        # Set basic generation parameters
         sampling_params = SamplingParams(
             temperature=self.temperature,
             max_tokens=self.max_tokens,
-            return_logits=True,  # logit 반환 활성화
-            logprobs=self.top_k,  # top k개의 logit 값 반환
-            prompt_logprobs=self.top_k,  # 프롬프트에 대한 logit도 반환
-            stop=['<end_of_turn>', '</s>', '<|endoftext|>']  # 모델별 stop 토큰
+            logprobs=self.top_k,
+            prompt_logprobs=self.top_k,
+            stop=['<end_of_turn>', '</s>', '<|endoftext|>']
         )
         
-        # 모델별 프롬프트 형식 설정
+        # Set prompt format for each model
         if 'Qwen3' in self.model_name:
             conversation = [{"role": "user", "content": prompt}]
             formatted_prompt = self.tokenizer.apply_chat_template(
@@ -182,20 +217,21 @@ class LogitConlangGenerator:
         else:
             formatted_prompt = prompt
         
-        # 텍스트 생성 및 logit 수집
+        # Generate text and collect logits
         outputs = self.model.generate(formatted_prompt, sampling_params)
-        generated_text = outputs[0].outputs[0].text.strip()
+        # breakpoint()
+        generated_text = outputs[0].outputs[0].text.strip().strip("`")
         
-        # logit 정보 수집
+        # Collect logit information
         logits_list = []
         token_logprobs_list = []
         
         for output in outputs[0].outputs:
-            # 전체 logit 행렬 수집
+            # Collect entire logit matrix
             if hasattr(output, 'logits'):
                 logits_list.append(output.logits)
             
-            # 토큰별 상위 k개 logit 정보 수집
+            # Collect top k logit information for each token
             if hasattr(output, 'logprobs') and output.logprobs:
                 token_info = {}
                 for token_id, logprob_data in output.logprobs[0].items():
@@ -204,33 +240,67 @@ class LogitConlangGenerator:
                         'token_id': token_id,
                         'logprob': logprob_data.logprob,
                         'prob': np.exp(logprob_data.logprob),
-                        'rank': len(token_info) + 1  # 토큰의 순위
+                        'rank': len(token_info) + 1
                     }
                 token_logprobs_list.append(token_info)
         
-        # 생성된 단어 추출 및 전처리
         if '`' in generated_text:
-            word = generated_text.split('`')[1].strip()
+            word = generated_text.split('`')[1].strip().lower()
         else:
-            # 백틱이 없는 경우 전체 텍스트에서 단어 추출 시도
-            word = generated_text.strip()
-            # 필요한 경우 추가 전처리 (예: 특수문자 제거 등)
+            # If there is no backtick, try to extract word from entire text
+            word = generated_text.strip().lower()
+            # Additional preprocessing if needed (e.g., removing special characters)
         
-        # IPA 변환 시도 (가능한 경우)
-        try:
-            ipa = self.epi.transliterate(word)
-            word_info = {'word': word, 'ipa': ipa}
-        except:
-            word_info = {'word': word}
-        
-        # logit 행렬 변환 및 정규화
+        breakpoint()
+        ipa = self._convert_to_ipa(word)
+        word_info = {'word': word, 'ipa': ipa}
+
+        # Convert logit matrix and normalize
         logits_matrix = np.array(logits_list)
         if logits_matrix.size > 0:
-            # softmax 적용하여 확률로 변환
+            # Apply softmax to convert to probabilities
             logits_matrix = np.exp(logits_matrix) / np.sum(np.exp(logits_matrix), axis=-1, keepdims=True)
         
         return word_info, logits_matrix, token_logprobs_list
+    
+    def _error_check(self, word_info:dict, logits:np.ndarray, token_logprobs:List[Dict]) -> None:
+        """Check if 
+        (1) the characters align with self.language
+        (2) the logits and token_logprobs are not empty
+        """
+        character_check = True
+        logit_check = True
+        existing_word_check = True
+        exist_check = True
+        
+        if len(word_info['word']) == 0 or logits.size == 0:
+            exist_check = False
 
+        if len(token_logprobs) == 0:
+            logit_check = False
+
+        if word_info['word'] in self.words:
+            existing_word_check = False
+            
+        # Remove backticks, special characters like '/"\~- using regex
+        word_info["word"] = re.sub(r'`|[/\"~\]', '', word_info["word"])
+        if self.language == "ko":
+            if not all('가' <= char <= '힣' or char.isspace() for char in word_info["word"]):
+                character_check = False
+        elif self.language == "en":
+            if not all(char.isascii() and char.isalpha() or char.isspace() for char in word_info["word"]):
+                character_check = False
+        elif self.language == "fr":
+            if not all((char.isascii() and char.isalpha() or char in "éèêëàâäôöûüç" or char.isspace()) for char in word_info["word"]):
+                character_check = False
+        elif self.language == "ja":
+            if not all('\u3040' <= char <= '\u30ff' or char.isspace() for char in word_info["word"]):
+                character_check = False
+        else:
+            raise ValueError(f"Unsupported language: {self.language}")
+        
+        return character_check, logit_check, existing_word_check, exist_check
+    
     def save_results(self, all_results: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
         output_file:os.path = os.path.join(self.output_dir, f"{self.language}_pseudo_words.json")
         csv_file:os.path = os.path.join(self.output_dir, f"{self.language}_pseudo_words.csv")
@@ -281,66 +351,109 @@ class LogitConlangGenerator:
     
     def run(self, max_samples: Optional[int] = None):
         """전체 실행 프로세스"""
-        if not all([self.load_data(), self.load_model()]):
-            return
+        print("Starting run process...")  # 디버그용 출력 추가
+        
+        # 데이터와 모델 로드
+        self.load_data()
+        self.load_model()
         
         results = []
         processed = 0
         prompt_keys = self.prompt_templates.keys()
+        
+        print(f"Processing {len(self.source_data)} items with prompts: {list(prompt_keys)}")  # 디버그용 출력
+        
         for key in prompt_keys:
             blank_prompt:str = self.prompt_templates[key][self.language]["user_prompt"]
-            for i, item in tqdm(enumerate(self.source_data)):
+            print(f"\nUsing prompt template: {key}")  # 디버그용 출력
+            
+            for i, item in enumerate(tqdm(self.source_data)):
                 if self.word_nums > 0 and i >= self.word_nums:
+                    print(f"\nReached word limit: {self.word_nums}")
                     break
+                
                 if max_samples and processed >= max_samples:
+                    print(f"\nReached sample limit: {max_samples}")
                     break
                 
                 num_trials = 0
                 word = item["word"]
-                
-                # 의미 추출
-                if self.language == "ko":
-                    definitions:list[str] = item["definitions"]
-                    meaning = definitions[0].strip(".")
-                else:
-                    meaning = item["meaning"].strip(".")
-                
-                # 프롬프트 생성 및 단어 생성
-                prompt = blank_prompt.format(meaning=meaning)
-                word_info, logits, token_logprobs = self.generate_with_logits(prompt)
-                
-                if len(word_info['word']) > 0 and logits.size > 0:
-                    results.append({
-                        "original_word": item["word"],
-                        "meaning": item["meaning"],
-                        "generated_word": word_info["word"],
-                        "ipa": word_info["ipa"],
-                        "logits_matrix": logits,  # 전체 logit 행렬
-                        "token_logprobs": token_logprobs,  # 토큰별 상위 k개 logit 값
-                        "model": self.model_name,
-                        "trial": key
-                    })
-                    processed += 1
-                
-                # 메모리 정리
-                if processed % 10 == 0:
-                    gc.collect()
-                    torch.cuda.empty_cache()
+                character_check, logit_check, existing_word_check, exist_check = True, True, True, True
+                print("trials initialized")
+                # breakpoint()
+                while num_trials < 3:
+                    try:
+                        # Extract meaning
+                        if self.language == "ko":
+                            definitions:list[str] = item["definitions"]
+                            # breakpoint()
+                            meaning = definitions[0].strip(".")
+                        else:
+                            meaning = item["meaning"][0].strip(".")
+                        
+                        # Create prompt and word
+                        prompt = blank_prompt.format(meaning=meaning)
+                        character_check_prompt = "\n" + error_handling_prompt["character_check"][self.language] if not character_check else ""
+                        existing_word_check_prompt = "\n" + error_handling_prompt["existing_word_check"][self.language] if not existing_word_check else ""
+                        exist_check_prompt = "\n" + error_handling_prompt["exist_check"][self.language] if not exist_check else ""
+                        prompt = prompt + character_check_prompt + existing_word_check_prompt + exist_check_prompt
+                        
+                        word_info, logits, token_logprobs = self.generate_with_logits(prompt)
+                        
+                        character_check, logit_check, existing_word_check, exist_check = self._error_check(word_info, logits, token_logprobs)
+                        
+                        if not (character_check and logit_check and existing_word_check and exist_check):
+                            print(f"🔄 Word generation failed: {word_info['word']}")
+                            num_trials += 1
+                            continue
+                        
+                        if len(word_info['word']) > 0 and logits.size > 0:
+                            results.append({
+                                "original_word": item["word"],
+                                "meaning": item["meaning"],
+                                "generated_word": word_info["word"],
+                                "ipa": word_info["ipa"],
+                                "logits_matrix": logits,
+                                "token_logprobs": token_logprobs,
+                                "model": self.model_name,
+                                "trial": key
+                            })
+                            processed += 1
+                        print("results appended")
+                        break
+                    except Exception as e:
+                        num_trials += 1
+                        print(f"🔄 단어 생성 실패: {e}")
+                        breakpoint()
+                    finally:
+                        gc.collect()
+                        torch.cuda.empty_cache()
+
+        if not self.use_api:
+            del model
+            self._cleanup()
+        final_results = self.save_results(results)
         
         # 결과 저장
         if results:
-            output_file = self.output_dir / f"{self.language}_logit_{self.model_name.replace('/', '-')}.pkl"
+            output_file = self.logit_output_dir / f"{self.language}_logit_{self.model_name.replace('/', '-')}.pkl"
             with open(output_file, 'wb') as f:
                 pickle.dump(results, f)
-            print(f"✅ 결과 저장 완료: {output_file}")
+            print(f"\n✅ Saved results to: {output_file}")
+            print(f"Total processed items: {len(results)}")
+        
+        return results
 
 def main():
-    parser = argparse.ArgumentParser(description='Conlang 생성 및 Logit 분석')
-    parser.add_argument('--language', '-l', required=True, choices=['en', 'fr', 'ko', 'ja'], help='언어 코드')
-    parser.add_argument('--model', '-m', required=True, help='모델 이름')
-    parser.add_argument('--gpu', type=int, default=4, help='사용할 GPU 수')
+    parser = argparse.ArgumentParser(description='Generate conlang and analyze logits')
+    parser.add_argument('--language', '-l', required=True, choices=['en', 'fr', 'ko', 'ja'], help='Language code')
+    parser.add_argument('--model', '-m', required=True, help='Model name')
+    parser.add_argument('--gpu', type=int, default=4, help='Number of GPUs to use')
     parser.add_argument("--max-tokens", type=int, default=512, help="Maximum tokens to generate")
     parser.add_argument("--max-model-len", type=int, default=4096, help="Maximum model length")
+    parser.add_argument("--output", '-o', type=str, default="data/processed/art/", help="Directory to save results")
+    parser.add_argument("--data", '-d', default= "data/processed/nat/",type=str, help="Path to the preprocessed data JSON file")
+    parser.add_argument("--prompt", '-p', default= "data/prompts/prompts.json",type=str, help="Path to the prompt JSON file")
     parser.add_argument("--temperature", type=float, default=0.0, help="Sampling temperature")
     parser.add_argument("--api", action='store_true', help="Use OpenAI API instead of local model")
     parser.add_argument("--thinking", '-t', action='store_true', help="Enable thinking mode for Qwen3")
@@ -353,6 +466,9 @@ def main():
         language=args.language,
         model_name=args.model,
         tensor_parallel_size=args.gpu,
+        data_path=args.data,
+        prompt_path=args.prompt,
+        output_dir=args.output,
         max_tokens=args.max_tokens,
         max_model_len=args.max_model_len,
         temperature=args.temperature,

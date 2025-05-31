@@ -440,17 +440,65 @@
                 "비고" : "Two-shot learning 시도"
             },
             "en": {
+                "user_prompt": "Generate a sound symbolic word in a constructed language with the following meaning: \"{meaning}\". The word should be enclosed in backticks (`).\n\nExample 1:\nMeaning: [A rough, careless attitude]\nGenerated sound symbolic word: `딱슬딱슬`\n\nExample 2:\nMeaning: [Doing something without care or effort]\nGenerated sound symbolic word: `타믈타믈`\n\nNow, for the meaning: [{meaning}], generate a sound symbolic word:"
+            },
+            "fr": {
+                "user_prompt": "Générez un mot symbolique sonore dans une langue construite avec le sens suivant : \"{meaning}\". Le mot doit être entouré de guillemets (`).\n\nExemple 1:\nSens: [Une attitude grossière et sans soin]\nMot symbolique sonore généré: `딱슬딱슬`\n\nExemple 2:\nSens: [Faire quelque chose sans soin ou effort]\nMot symbolique sonore généré: `타믈타믈`\n\nMaintenant, pour le sens: [{meaning}], générez un mot symbolique sonore:"
+            },
+            "ko": {
+                "user_prompt": "다음 패턴을 따라 음성상징어를 생성하세요. 의미 : [대충, 정성이 없고 태도가 성의 없이 하는 모습] -> 생성된 음성상징어 : `딱슬딱슬`\n의미 : [정성을 들이지 않고 대강대강 일을 하는 모양] -> 생성된 음성상징어 : `타믈타믈`\n의미 : [작은 물체가 조금씩 이리저리 쏠리어 자꾸 움직이는 모양] -> 생성된 음성상징어 : `키르키르`\n의미 : [{meaning}] -> 답변 : "
+            },
+            "ja": { 
+                "user_prompt": "次のパターンに従って音声象徴語を生成してください。意味 : [大まかで気が散る態度]\n生成された音声象徴語 : `딱슬딱슬`\n意味 : [気が散ることなく、大まかに行動する態度]\n生成された音声象徴語 : `타믈타믈`\n意味 : [{meaning}] -> 答え : "
+            }
+        },
+        "semdim1": {
+            "explanation": {
+                "문자지정": "명시",
+                "언어지정": "",
+                "가상어명칭": "",
+                "제공되는 정보": "",
+                "비고": "의미 차원을 하나 대립시켜 생성하는 프롬프트"
+            },
+            "en": {
                 "user_prompt": ""
             },
             "fr": {
                 "user_prompt": ""
             },
             "ko": {
-                "user_prompt": "의미 : [대충, 정성이 없고 태도가 성의 없이 하는 모습] -> 생성된 음성상징어 : `딱슬딱슬`\n의미 : [정성을 들이지 않고 대강대강 일을 하는 모양] -> 생성된 음성상징어 : `타믈타믈`\n의미 : [작은 물체가 조금씩 이리저리 쏠리어 자꾸 움직이는 모양] -> 생성된 음성상징어 : `키르키르`\n의미 : [{meaning}] -> 답변 : "
+                "user_prompt": ""
             },
-            "ja": { 
+            "ja": {
                 "user_prompt": ""
             }
         }
-    }
+    },
+    "semantic_dimention": [
+        ["good", "bad"],
+        ["beautiful", "ugly"],
+        ["pleasant", "unpleasant"],
+        ["strong", "weak"],
+        ["big", "small"],
+        ["rugged", "delicate"],
+        ["active", "passive"],
+        ["fast", "slow"],
+        ["sharp", "round"],
+        ["realistic", "fantastical"],
+        ["structured", "disorganized"],
+        ["ordinary", "unique"],
+        ["interesting", "uninteresting"],
+        ["simple", "complex"],
+        ["abrupt", "continuous"],
+        ["exciting", "calming"],
+        ["hard", "soft"],
+        ["happy", "sad"],
+        ["harsh", "mellow"],
+        ["heavy", "light"],
+        ["inhibited", "free"],
+        ["masculine", "feminine"],
+        ["solid", "nonsolid"],
+        ["tense", "relaxed"],
+        ["dangerous", "safe"]
+    ]
 }
