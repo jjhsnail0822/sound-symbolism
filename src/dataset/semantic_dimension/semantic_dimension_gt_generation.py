@@ -203,7 +203,7 @@ class MCQExperiment:
                             probabilities_for_123 = {'1': 0.0, '2': 0.0, '3': 0.0}
 
                             first_token_raw_logprobs = response.choices[0].logprobs.content[0].top_logprobs
-                            print(first_token_raw_logprobs)
+                            # print(first_token_raw_logprobs)
 
                             # Iterate through the logprobs provided by OpenAI for the first token
                             for token in first_token_raw_logprobs:
