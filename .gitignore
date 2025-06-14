@@ -20,3 +20,4 @@ data/processed/nat/clustering/*.pkl
 data/raw/dictionaries/
 results/experiments/understanding/**/[^a]*.json
 data/processed/nat/tts/
+data/processed/nat/semantic_dimension/semantic_dimension_*.json

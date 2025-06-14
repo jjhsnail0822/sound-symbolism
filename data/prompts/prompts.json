@@ -178,6 +178,32 @@
             "user_prompt": "Given an English [MEANING], which word (IPA) from languages other than English sounds most fitting based on auditory impression?\n\n[MEANING]\n{meaning}\n\n[OPTIONS]\n{options}\n\nAnswer with the number only. (1-{MAX_OPTION})"
         }
     },
+    "word_meaning_matching": {
+        "word_to_meaning_original": {
+            "user_prompt": "Given a [WORD], which option is the most appropriate meaning of this onomatopoeic/mimetic word based on auditory impression?\n\n[WORD]\n{word}\n\n[OPTIONS]\n{options}\n\nAnswer with the number only. (1-{MAX_OPTION})"
+        },
+        "meaning_to_word_original": {
+            "user_prompt": "Given the following [MEANING], which word sounds most fitting based on auditory impression?\n\n[MEANING]\n{meaning}\n\n[OPTIONS]\n{options}\n\nAnswer with the number only. (1-{MAX_OPTION})"
+        },
+        "word_to_meaning_romanized": {
+            "user_prompt": "Given a Romanized [WORD], which option is the most appropriate meaning of this onomatopoeic/mimetic word based on auditory impression?\n\n[WORD]\n{word}\n\n[OPTIONS]\n{options}\n\nAnswer with the number only. (1-{MAX_OPTION})"
+        },
+        "meaning_to_word_romanized": {
+            "user_prompt": "Given the following [MEANING], which Romanized word sounds most fitting based on auditory impression?\n\n[MEANING]\n{meaning}\n\n[OPTIONS]\n{options}\n\nAnswer with the number only. (1-{MAX_OPTION})"
+        },
+        "word_to_meaning_ipa": {
+            "user_prompt": "Given a IPA [WORD], which option is the most appropriate meaning of this onomatopoeic/mimetic word based on auditory impression?\n\n[WORD]\n{word}\n\n[OPTIONS]\n{options}\n\nAnswer with the number only. (1-{MAX_OPTION})"
+        },
+        "meaning_to_word_ipa": {
+            "user_prompt": "Given the following [MEANING], which IPA word sounds most fitting based on auditory impression?\n\n[MEANING]\n{meaning}\n\n[OPTIONS]\n{options}\n\nAnswer with the number only. (1-{MAX_OPTION})"
+        },
+        "word_to_meaning_audio": {
+            "user_prompt": "Given a spoken [WORD], which option is the most appropriate meaning of this onomatopoeic/mimetic word based on auditory impression?\n\n[WORD]\n{word}\n\n[OPTIONS]\n{options}\n\nAnswer with the number only. (1-{MAX_OPTION})"
+        },
+        "meaning_to_word_audio": {
+            "user_prompt": "Given the following [MEANING], which spoken word sounds most fitting based on auditory impression?\n\n[MEANING]\n{meaning}\n\n[OPTIONS]\n{options}\n\nAnswer with the number only. (1-{MAX_OPTION})"
+        }
+    },
     "generation": {
         "trial6": {
             "explanation": {

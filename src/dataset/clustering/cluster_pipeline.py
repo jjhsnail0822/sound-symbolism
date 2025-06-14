@@ -10,7 +10,8 @@ import time
 from typing import Dict, List, Any, Optional, Set, Tuple
 
 # --- Constants ---
-DEFAULT_INPUT_DIR = "data/processed/nat/clustering"
+DEFAULT_INPUT_DIR = "data/processed/nat"
+DEFAULT_EMBEDDING_INPUT_DIR = "data/processed/nat/clustering"
 DEFAULT_OUTPUT_DIR = "data/processed/nat/clustering"
 DEFAULT_NUM_CLUSTERS = 430
 DEFAULT_NUM_DISTRACTORS = 3
@@ -89,14 +90,15 @@ def get_ipa_length(ipa_string: Optional[str]) -> Optional[int]:
 
 # --- Phase 1: Embedding Clustering ---
 
-def perform_embedding_clustering(language: str, num_clusters: int, input_dir: str, output_dir: str) -> Optional[str]:
+def perform_embedding_clustering(language: str, num_clusters: int, input_embedding_dir: str, input_dir: str, output_dir: str) -> Optional[str]:
     """
     Performs K-means clustering on word embeddings and saves the clustered data.
 
     Args:
         language: Language code (e.g., 'ko').
         num_clusters: Number of clusters for K-means.
-        input_dir: Directory containing embeddings and original data.
+        input_embedding_dir: Directory containing embeddings.
+        input_dir: Directory containing original data.
         output_dir: Directory to save the clustered JSON file.
 
     Returns:
@@ -106,7 +108,7 @@ def perform_embedding_clustering(language: str, num_clusters: int, input_dir: st
     start_time = time.time()
 
     # 1. Load Embeddings
-    embeddings_path = os.path.join(input_dir, f'{language}_embeddings.pkl')
+    embeddings_path = os.path.join(input_embedding_dir, f'{language}_embeddings.pkl')
     print(f"Loading embeddings from {embeddings_path}")
     embeddings = load_pickle(embeddings_path)
     if embeddings is None: return None
@@ -433,7 +435,9 @@ if __name__ == "__main__":
     parser.add_argument("--lang", "-l", type=str, required=True,
                         help="Language code (e.g., 'en', 'ko', 'ja', 'fr').")
     parser.add_argument("--input_dir", "-i", type=str, default=DEFAULT_INPUT_DIR,
-                        help=f"Directory containing input files ({'{lang}'}.json, {'{lang}'}_embeddings.pkl). Default: {DEFAULT_INPUT_DIR}")
+                        help=f"Directory containing input files ({'{lang}'}.json). Default: {DEFAULT_INPUT_DIR}")
+    parser.add_argument("--input_embedding_dir", "-e", type=str, default=DEFAULT_EMBEDDING_INPUT_DIR,
+                        help=f"Directory containing embedding files ({'{lang}_embeddings.pkl'}). Default: {DEFAULT_EMBEDDING_INPUT_DIR}")
     parser.add_argument("--output_dir", "-o", type=str, default=DEFAULT_OUTPUT_DIR,
                         help=f"Directory to save intermediate and final output files. Default: {DEFAULT_OUTPUT_DIR}")
     parser.add_argument("--num_clusters", "-k", type=int, default=DEFAULT_NUM_CLUSTERS,
@@ -449,6 +453,7 @@ if __name__ == "__main__":
         language=args.lang,
         num_clusters=args.num_clusters,
         input_dir=args.input_dir,
+        input_embedding_dir=args.input_embedding_dir,
         output_dir=args.output_dir
     )
 
