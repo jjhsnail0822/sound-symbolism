@@ -1,0 +1,34 @@
+[
+    {
+        "model": "Qwen/Qwen2.5-Omni-3B",
+        "accuracy": 0.2605335327848417,
+        "correct_count": 1045,
+        "total_count": 4011,
+        "data_path": "data/prompts/word_meaning_matching/word_to_meaning_ipa-common.json",
+        "thinking": false
+    },
+    {
+        "model": "Qwen/Qwen2.5-Omni-3B",
+        "accuracy": 0.3106457242582897,
+        "correct_count": 1246,
+        "total_count": 4011,
+        "data_path": "data/prompts/word_meaning_matching/meaning_to_word_ipa-common.json",
+        "thinking": false
+    },
+    {
+        "model": "Qwen/Qwen2.5-Omni-3B",
+        "accuracy": 0.27072506805246227,
+        "correct_count": 1094,
+        "total_count": 4041,
+        "data_path": "data/prompts/word_meaning_matching/word_to_meaning_ipa-rare.json",
+        "thinking": false
+    },
+    {
+        "model": "Qwen/Qwen2.5-Omni-3B",
+        "accuracy": 0.3001732244493937,
+        "correct_count": 1213,
+        "total_count": 4041,
+        "data_path": "data/prompts/word_meaning_matching/meaning_to_word_ipa-rare.json",
+        "thinking": false
+    }
+]

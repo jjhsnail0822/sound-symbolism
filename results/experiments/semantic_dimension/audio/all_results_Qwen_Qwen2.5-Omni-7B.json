@@ -1,0 +1,18 @@
+[
+    {
+        "model": "Qwen/Qwen2.5-Omni-7B",
+        "accuracy": 0.5024183495387684,
+        "correct_count": 50380,
+        "total_count": 100275,
+        "data_path": "data/prompts/semantic_dimension/semantic_dimension_audio-common.json",
+        "thinking": false
+    },
+    {
+        "model": "Qwen/Qwen2.5-Omni-7B",
+        "accuracy": 0.5002524127691166,
+        "correct_count": 50538,
+        "total_count": 101025,
+        "data_path": "data/prompts/semantic_dimension/semantic_dimension_audio-rare.json",
+        "thinking": false
+    }
+]
