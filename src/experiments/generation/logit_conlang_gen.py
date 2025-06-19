@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-# python src/experiments/generation/logit_conlang_gen.py -l en -m Qwen/Qwen3-32B --gpu 8 --temperature 0.0 -t -n 10 -s 1
+# python src/experiments/generation/logit_conlang_gen.py -l en -m Qwen/Qwen3-32B --gpu 8 --temperature 0.0 -n 10 -s 1
 # python src/experiments/generation/logit_conlang_gen.py -l en -m Qwen/Qwen3-4B --gpu 4 --temperature 0.0 -n 10 -s 1
 
 import os
@@ -13,6 +13,7 @@ import numpy as np
 import pandas as pd
 import pickle
 import pprint
+# import flite
 
 from dotenv import load_dotenv
 from huggingface_hub import login, model_info
@@ -97,7 +98,8 @@ class LogitConlangGenerator:
         tensor_parallel_size:int=4,
         max_tokens:int=512, max_model_len:int=4096,
         temperature:float=0.0, thinking:bool=False,
-        language:str="ko"
+        language:str="ko",
+        use_ipa:bool=False
     ):
         
         self.model_name = MODEL_PATHS.get(model_name, model_name)
@@ -115,6 +117,7 @@ class LogitConlangGenerator:
         self.word_nums = word_nums
         self.samples = samples
         self.data_path = os.path.join(data_base_path, f"{language}.json")
+        self.use_ipa = use_ipa
         
         env_path = Path('.env.local')
         load_dotenv(dotenv_path=env_path)
@@ -156,13 +159,15 @@ class LogitConlangGenerator:
             self.prompt_templates:dict[str, dict[str, str]] = prompts["generation"]
 
     def _convert_to_ipa(self, word: str) -> str:
-        """Safe IPA conversion"""
+        """Safe IPA conversion (옵션에 따라 동작)"""
+        if not self.use_ipa:
+            return ""
         try:
             word = word.strip().lower()
             if not word or not word.isalpha():
                 return ""
-            
-            ipa = self.epi.transliterate(word)
+            epi = epitran.Epitran(language_code[self.language])
+            ipa = epi.transliterate(word)
             return ipa
         except (IndexError, ValueError, AttributeError) as e:
             print(f"[WARNING] IPA conversion failed for '{word}': {e}")
@@ -243,7 +248,8 @@ class LogitConlangGenerator:
                         'rank': len(token_info) + 1
                     }
                 token_logprobs_list.append(token_info)
-        
+        if self.thinking:
+            generated_text = re.sub(r'<think>.*?</think>', '', generated_text, flags=re.DOTALL)
         if '`' in generated_text:
             word = generated_text.split('`')[1].strip().lower()
         else:
@@ -251,9 +257,8 @@ class LogitConlangGenerator:
             word = generated_text.strip().lower()
             # Additional preprocessing if needed (e.g., removing special characters)
         
-        breakpoint()
-        ipa = self._convert_to_ipa(word)
-        word_info = {'word': word, 'ipa': ipa}
+        # ipa = self._convert_to_ipa(word)
+        word_info = {'word': word, 'ipa': ""}
 
         # Convert logit matrix and normalize
         logits_matrix = np.array(logits_list)
@@ -349,65 +354,79 @@ class LogitConlangGenerator:
         
         return list(result_dict.values())
     
-    def run(self, max_samples: Optional[int] = None):
-        """전체 실행 프로세스"""
-        print("Starting run process...")  # 디버그용 출력 추가
-        
-        # 데이터와 모델 로드
+    def export_for_ipa(self, export_path: str, results: list = None):
+        """IPA 변환이 필요한 단어 리스트를 파일로 저장"""
+        if results is None:
+            # 기본적으로 source_data의 단어를 export
+            self.load_data()
+            words = [item["word"] for item in self.source_data]
+        else:
+            words = [item["generated_word"] for item in results if "generated_word" in item]
+        export_data = [{"word": w} for w in words]
+        with open(export_path, 'w', encoding='utf-8') as f:
+            json.dump(export_data, f, ensure_ascii=False, indent=2)
+        print(f"✅ IPA 변환용 단어 리스트를 저장했습니다: {export_path}")
+
+    def import_ipa_results(self, import_path: str, results: list) -> list:
+        """외부에서 변환된 ipa 정보를 결과에 반영"""
+        with open(import_path, 'r', encoding='utf-8') as f:
+            ipa_data = json.load(f)
+        ipa_dict = {item["word"]: item.get("ipa", "") for item in ipa_data}
+        for item in results:
+            w = item.get("generated_word", "")
+            if w in ipa_dict:
+                item["ipa"] = ipa_dict[w]
+        print(f"✅ 외부 IPA 변환 결과를 반영했습니다: {import_path}")
+        return results
+
+    def run(self, max_samples: Optional[int] = None, export_ipa_file: str = None, import_ipa_file: str = None):
+        print("Starting run process...")
         self.load_data()
+        if export_ipa_file:
+            self.export_for_ipa(export_ipa_file)
+            print("Export only mode. 종료합니다.")
+            return []
         self.load_model()
-        
         results = []
         processed = 0
         prompt_keys = self.prompt_templates.keys()
-        
-        print(f"Processing {len(self.source_data)} items with prompts: {list(prompt_keys)}")  # 디버그용 출력
-        
+        print(f"Processing {len(self.source_data)} items with prompts: {list(prompt_keys)}")
         for key in prompt_keys:
             blank_prompt:str = self.prompt_templates[key][self.language]["user_prompt"]
-            print(f"\nUsing prompt template: {key}")  # 디버그용 출력
-            
+            print(f"\nUsing prompt template: {key}")
             for i, item in enumerate(tqdm(self.source_data)):
                 if self.word_nums > 0 and i >= self.word_nums:
                     print(f"\nReached word limit: {self.word_nums}")
                     break
-                
                 if max_samples and processed >= max_samples:
                     print(f"\nReached sample limit: {max_samples}")
                     break
-                
                 num_trials = 0
                 word = item["word"]
                 character_check, logit_check, existing_word_check, exist_check = True, True, True, True
                 print("trials initialized")
-                # breakpoint()
                 while num_trials < 3:
                     try:
-                        # Extract meaning
                         if self.language == "ko":
                             definitions:list[str] = item["definitions"]
-                            # breakpoint()
                             meaning = definitions[0].strip(".")
                         else:
                             meaning = item["meaning"][0].strip(".")
-                        
-                        # Create prompt and word
                         prompt = blank_prompt.format(meaning=meaning)
                         character_check_prompt = "\n" + error_handling_prompt["character_check"][self.language] if not character_check else ""
                         existing_word_check_prompt = "\n" + error_handling_prompt["existing_word_check"][self.language] if not existing_word_check else ""
                         exist_check_prompt = "\n" + error_handling_prompt["exist_check"][self.language] if not exist_check else ""
                         prompt = prompt + character_check_prompt + existing_word_check_prompt + exist_check_prompt
-                        
                         word_info, logits, token_logprobs = self.generate_with_logits(prompt)
-                        
                         character_check, logit_check, existing_word_check, exist_check = self._error_check(word_info, logits, token_logprobs)
-                        
                         if not (character_check and logit_check and existing_word_check and exist_check):
                             print(f"🔄 Word generation failed: {word_info['word']}")
                             num_trials += 1
                             continue
-                        
                         if len(word_info['word']) > 0 and logits.size > 0:
+                            # IPA 변환 옵션에 따라 처리
+                            if self.use_ipa:
+                                word_info["ipa"] = self._convert_to_ipa(word_info["word"])
                             results.append({
                                 "original_word": item["word"],
                                 "meaning": item["meaning"],
@@ -428,20 +447,19 @@ class LogitConlangGenerator:
                     finally:
                         gc.collect()
                         torch.cuda.empty_cache()
-
         if not self.use_api:
             del model
             self._cleanup()
+        # import ipa 결과 반영
+        if import_ipa_file:
+            results = self.import_ipa_results(import_ipa_file, results)
         final_results = self.save_results(results)
-        
-        # 결과 저장
         if results:
             output_file = self.logit_output_dir / f"{self.language}_logit_{self.model_name.replace('/', '-')}.pkl"
             with open(output_file, 'wb') as f:
                 pickle.dump(results, f)
             print(f"\n✅ Saved results to: {output_file}")
             print(f"Total processed items: {len(results)}")
-        
         return results
 
 def main():
@@ -460,8 +478,10 @@ def main():
     parser.add_argument("--word_nums", '-n', type=int, default=10, help="Number of words to generate")
     parser.add_argument("--samples", '-s', type=int, default=1, help="Number of samples to generate")
     parser.add_argument("--top_k", '-k', type=int, default=3, help="Number of top k logits to return")
+    parser.add_argument("--use-ipa", action='store_true', help="Enable IPA conversion (default: off)")
+    parser.add_argument("--export-ipa-file", type=str, default=None, help="Export word list for IPA conversion and exit")
+    parser.add_argument("--import-ipa-file", type=str, default=None, help="Import IPA conversion results from file")
     args = parser.parse_args()
-    
     generator = LogitConlangGenerator(
         language=args.language,
         model_name=args.model,
@@ -475,10 +495,10 @@ def main():
         thinking=args.thinking,
         word_nums=args.word_nums,
         samples=args.samples,
-        top_k=args.top_k
+        top_k=args.top_k,
+        use_ipa=args.use_ipa
     )
-    
-    generator.run(args.samples)
+    generator.run(args.samples, export_ipa_file=args.export_ipa_file, import_ipa_file=args.import_ipa_file)
 
 if __name__ == "__main__":
     main()
