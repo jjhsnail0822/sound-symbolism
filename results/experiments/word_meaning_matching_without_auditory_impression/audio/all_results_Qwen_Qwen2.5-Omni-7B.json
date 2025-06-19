@@ -1,0 +1,34 @@
+[
+    {
+        "model": "Qwen/Qwen2.5-Omni-7B",
+        "accuracy": 0.42782348541510845,
+        "correct_count": 1716,
+        "total_count": 4011,
+        "data_path": "data/prompts/word_meaning_matching_without_auditory_impression/word_to_meaning_audio-common.json",
+        "thinking": false
+    },
+    {
+        "model": "Qwen/Qwen2.5-Omni-7B",
+        "accuracy": 0.5033657442034405,
+        "correct_count": 2019,
+        "total_count": 4011,
+        "data_path": "data/prompts/word_meaning_matching_without_auditory_impression/meaning_to_word_audio-common.json",
+        "thinking": false
+    },
+    {
+        "model": "Qwen/Qwen2.5-Omni-7B",
+        "accuracy": 0.38332096015837663,
+        "correct_count": 1549,
+        "total_count": 4041,
+        "data_path": "data/prompts/word_meaning_matching_without_auditory_impression/word_to_meaning_audio-rare.json",
+        "thinking": false
+    },
+    {
+        "model": "Qwen/Qwen2.5-Omni-7B",
+        "accuracy": 0.48230635981192777,
+        "correct_count": 1949,
+        "total_count": 4041,
+        "data_path": "data/prompts/word_meaning_matching_without_auditory_impression/meaning_to_word_audio-rare.json",
+        "thinking": false
+    }
+]

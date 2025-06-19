@@ -102,7 +102,7 @@ exp_configs = {
     'IPA': 'ipa',
     'Audio': 'audio'
 }
-exp_base_dir = 'results/experiments/word_meaning_matching'
+exp_base_dir = 'results/experiments/word_meaning_matching_without_auditory_impression'
 
 # 2) Load data from all experiments
 all_data = {}
@@ -172,7 +172,7 @@ if any(plot_data_w2m.values()):
         plot_data_w2m,
         all_models,
         'Word→Meaning Matching Accuracy (All Models)',
-        'results/plots/experiments/word_meaning_matching/summary_w2m_indiv.png',
+        'results/plots/experiments/word_meaning_matching_without_auditory_impression/summary_w2m_indiv.png',
         y_lims
     )
 
@@ -181,6 +181,6 @@ if any(plot_data_m2w.values()):
         plot_data_m2w,
         all_models,
         'Meaning→Word Matching Accuracy (All Models)',
-        'results/plots/experiments/word_meaning_matching/summary_m2w_indiv.png',
+        'results/plots/experiments/word_meaning_matching_without_auditory_impression/summary_m2w_indiv.png',
         y_lims
     )

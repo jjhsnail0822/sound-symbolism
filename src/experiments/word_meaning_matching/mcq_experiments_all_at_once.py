@@ -37,6 +37,10 @@ parser.add_argument(
              "word_meaning_matching_romanized",
              "word_meaning_matching_ipa",
              "word_meaning_matching_audio",
+             "word_meaning_matching_without_auditory_impression_original",
+             "word_meaning_matching_without_auditory_impression_romanized",
+             "word_meaning_matching_without_auditory_impression_ipa",
+             "word_meaning_matching_without_auditory_impression_audio"
     ]
 )
 args = parser.parse_args()
@@ -67,6 +71,30 @@ elif args.experiment == "word_meaning_matching_audio":
         'data/prompts/word_meaning_matching/meaning_to_word_audio-{word_group}.json'
     ]
     OUTPUT_DIR = f"results/experiments/word_meaning_matching/audio"
+elif args.experiment == "word_meaning_matching_without_auditory_impression_original":
+    data_paths = [
+        'data/prompts/word_meaning_matching_without_auditory_impression/word_to_meaning_original-{word_group}.json',
+        'data/prompts/word_meaning_matching_without_auditory_impression/meaning_to_word_original-{word_group}.json'
+    ]
+    OUTPUT_DIR = f"results/experiments/word_meaning_matching_without_auditory_impression/original"
+elif args.experiment == "word_meaning_matching_without_auditory_impression_romanized":
+    data_paths = [
+        'data/prompts/word_meaning_matching_without_auditory_impression/word_to_meaning_romanized-{word_group}.json',
+        'data/prompts/word_meaning_matching_without_auditory_impression/meaning_to_word_romanized-{word_group}.json'
+    ]
+    OUTPUT_DIR = f"results/experiments/word_meaning_matching_without_auditory_impression/romanized"
+elif args.experiment == "word_meaning_matching_without_auditory_impression_ipa":
+    data_paths = [
+        'data/prompts/word_meaning_matching_without_auditory_impression/word_to_meaning_ipa-{word_group}.json',
+        'data/prompts/word_meaning_matching_without_auditory_impression/meaning_to_word_ipa-{word_group}.json'
+    ]
+    OUTPUT_DIR = f"results/experiments/word_meaning_matching_without_auditory_impression/ipa"
+elif args.experiment == "word_meaning_matching_without_auditory_impression_audio":
+    data_paths = [
+        'data/prompts/word_meaning_matching_without_auditory_impression/word_to_meaning_audio-{word_group}.json',
+        'data/prompts/word_meaning_matching_without_auditory_impression/meaning_to_word_audio-{word_group}.json'
+    ]
+    OUTPUT_DIR = f"results/experiments/word_meaning_matching_without_auditory_impression/audio"
 else:
     raise ValueError(f"Unsupported experiment: {args.experiment}")
 

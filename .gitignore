@@ -23,5 +23,7 @@ data/processed/nat/tts/
 data/processed/nat/semantic_dimension/semantic_dimension_gt_*.json
 audio-flamingo/
 results/experiments/word_meaning_matching/**/[^a]*.json
+results/experiments/word_meaning_matching_without_auditory_impression/**/[^a]*.json
 results/experiments/semantic_dimension/**/[^a]*.json
 data/prompts/semantic_dimension/
+data/prompts/word_meaning_matching_without_auditory_impression/
