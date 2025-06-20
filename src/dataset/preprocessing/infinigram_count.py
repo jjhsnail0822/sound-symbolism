@@ -3,10 +3,17 @@ import json
 from tqdm import tqdm
 
 langs = ['en', 'fr', 'ja', 'ko']
+datasets = [
+    'v4_olmo-mix-1124_llama',
+    'v4_dolma-v1_7_llama',
+    'v4_rpj_llama_s4',
+    'v4_piletrain_llama',
+    'v4_c4train_llama',
+]
 
-def get_infinigram_count(query):
+def get_infinigram_count(query, dataset):
     payload = {
-        'index': 'v4_olmo-2-0325-32b-instruct_llama',
+        'index': dataset,
         'query_type': 'count',
         'query': query,
     }
@@ -25,7 +32,10 @@ for lang in langs:
         data = json.load(f)
     print(f"Processing {lang} data...")
     for item in tqdm(data):
-        item['infinigram_count'] = get_infinigram_count(item['word'])
-    with open(f'data/processed/nat/{lang}.json', 'w', encoding='utf-8') as f:
-        json.dump(data, f, ensure_ascii=False, indent=4)
+        item['infinigram_count'] = {}
+        for dataset in datasets:
+            item['infinigram_count'][dataset] = get_infinigram_count(item['word'], dataset)
+        item['infinigram_count']['total'] = sum(item['infinigram_count'].values())
+        with open(f'data/processed/nat/{lang}.json', 'w', encoding='utf-8') as f:
+            json.dump(data, f, ensure_ascii=False, indent=4)
     print(f"Finished processing {lang} data.")

@@ -34,7 +34,7 @@ for file_spec in files_to_process:
             with open(current_data_file_path, 'r', encoding='utf-8') as f:
                 data = json.load(f)
             
-            current_counts = [item.get('infinigram_count', 0) for item in data]
+            current_counts = [item['infinigram_count']['total'] for item in data]
 
             if not current_counts:
                 no_data_msg = "No data in file"

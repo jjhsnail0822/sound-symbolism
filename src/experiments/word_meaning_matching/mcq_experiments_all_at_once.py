@@ -41,6 +41,9 @@ parser.add_argument(
              "word_meaning_matching_without_auditory_impression_romanized",
              "word_meaning_matching_without_auditory_impression_ipa",
              "word_meaning_matching_without_auditory_impression_audio"
+             "word_meaning_matching_original_and_audio",
+             "word_meaning_matching_romanized_and_audio",
+             "word_meaning_matching_ipa_and_audio",
     ]
 )
 args = parser.parse_args()
@@ -95,6 +98,24 @@ elif args.experiment == "word_meaning_matching_without_auditory_impression_audio
         'data/prompts/word_meaning_matching_without_auditory_impression/meaning_to_word_audio-{word_group}.json'
     ]
     OUTPUT_DIR = f"results/experiments/word_meaning_matching_without_auditory_impression/audio"
+elif args.experiment == "word_meaning_matching_original_and_audio":
+    data_paths = [
+        'data/prompts/word_meaning_matching/word_to_meaning_original_and_audio-{word_group}.json',
+        'data/prompts/word_meaning_matching/meaning_to_word_original_and_audio-{word_group}.json'
+    ]
+    OUTPUT_DIR = f"results/experiments/word_meaning_matching/original_and_audio"
+elif args.experiment == "word_meaning_matching_romanized_and_audio":
+    data_paths = [
+        'data/prompts/word_meaning_matching/word_to_meaning_romanized_and_audio-{word_group}.json',
+        'data/prompts/word_meaning_matching/meaning_to_word_romanized_and_audio-{word_group}.json'
+    ]
+    OUTPUT_DIR = f"results/experiments/word_meaning_matching/romanized_and_audio"
+elif args.experiment == "word_meaning_matching_ipa_and_audio":
+    data_paths = [
+        'data/prompts/word_meaning_matching/word_to_meaning_ipa_and_audio-{word_group}.json',
+        'data/prompts/word_meaning_matching/meaning_to_word_ipa_and_audio-{word_group}.json'
+    ]
+    OUTPUT_DIR = f"results/experiments/word_meaning_matching/ipa_and_audio"
 else:
     raise ValueError(f"Unsupported experiment: {args.experiment}")
 

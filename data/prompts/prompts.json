@@ -198,10 +198,28 @@
             "user_prompt": "Given the following [MEANING], which IPA word sounds most fitting based on auditory impression?\n\n[MEANING]\n{meaning}\n\n[OPTIONS]\n{options}\n\nAnswer with the number only. (1-{MAX_OPTION})"
         },
         "word_to_meaning_audio": {
-            "user_prompt": "Given a spoken [WORD], which option is the most appropriate meaning of this onomatopoeic/mimetic word based on auditory impression?\n\n[WORD]\n{word}\n\n[OPTIONS]\n{options}\n\nAnswer with the number only. (1-{MAX_OPTION})"
+            "user_prompt": "Given a spoken [WORD], which option is the most appropriate meaning of this onomatopoeic/mimetic word based on auditory impression?\n\n[WORD]\n{audio}\n\n[OPTIONS]\n{options}\n\nAnswer with the number only. (1-{MAX_OPTION})"
         },
         "meaning_to_word_audio": {
             "user_prompt": "Given the following [MEANING], which spoken word sounds most fitting based on auditory impression?\n\n[MEANING]\n{meaning}\n\n[OPTIONS]\n{options}\n\nAnswer with the number only. (1-{MAX_OPTION})"
+        },
+        "word_to_meaning_original_and_audio": {
+            "user_prompt": "Given a [WORD] with its pronunciation audio, which option is the most appropriate meaning of this onomatopoeic/mimetic word based on auditory impression?\n\n[WORD]\n{word}\n\n[AUDIO]\n{audio}\n\n[OPTIONS]\n{options}\n\nAnswer with the number only. (1-{MAX_OPTION})"
+        },
+        "meaning_to_word_original_and_audio": {
+            "user_prompt": "Given the following [MEANING], which word with its pronunciation audio sounds most fitting based on auditory impression?\n\n[MEANING]\n{meaning}\n\n[OPTIONS]\n{options}\n\nAnswer with the number only. (1-{MAX_OPTION})"
+        },
+        "word_to_meaning_romanized_and_audio": {
+            "user_prompt": "Given a Romanized [WORD] with its pronunciation audio, which option is the most appropriate meaning of this onomatopoeic/mimetic word based on auditory impression?\n\n[WORD]\n{word}\n\n[AUDIO]\n{audio}\n\n[OPTIONS]\n{options}\n\nAnswer with the number only. (1-{MAX_OPTION})"
+        },
+        "meaning_to_word_romanized_and_audio": {
+            "user_prompt": "Given the following [MEANING], which Romanized word with its pronunciation audio sounds most fitting based on auditory impression?\n\n[MEANING]\n{meaning}\n\n[OPTIONS]\n{options}\n\nAnswer with the number only. (1-{MAX_OPTION})"
+        },
+        "word_to_meaning_ipa_and_audio": {
+            "user_prompt": "Given a IPA [WORD] with its pronunciation audio, which option is the most appropriate meaning of this onomatopoeic/mimetic word based on auditory impression?\n\n[WORD]\n{word}\n\n[AUDIO]\n{audio}\n\n[OPTIONS]\n{options}\n\nAnswer with the number only. (1-{MAX_OPTION})"
+        },
+        "meaning_to_word_ipa_and_audio": {
+            "user_prompt": "Given the following [MEANING], which IPA word with its pronunciation audio sounds most fitting based on auditory impression?\n\n[MEANING]\n{meaning}\n\n[OPTIONS]\n{options}\n\nAnswer with the number only. (1-{MAX_OPTION})"
         }
     },
     "word_meaning_matching_without_auditory_impression": {

@@ -199,7 +199,12 @@ def generate_datasets(word_group, task, experiment_name, input_dir, output_dir, 
             if local_is_option_meaning: 
                 option_string_output += f"{prefix}{text_opt_val}\n"
             else: 
-                if "audio" in experiment_name: 
+                if "and_audio" in experiment_name: # text and audio options
+                     # use original word for audio options
+                     if final_shuffled_full_info_list and final_shuffled_full_info_list[i].get('original_word'):
+                         original_text_opt_val = final_shuffled_full_info_list[i]['original_word']
+                     option_string_output += f"{prefix}{text_opt_val} (AUDIO: <AUDIO: {original_text_opt_val}>)\n"
+                elif "audio" in experiment_name: # only audio options
                      option_string_output += f"{prefix}<AUDIO: {text_opt_val}>\n"
                 else: 
                      option_string_output += f"{prefix}{text_opt_val}\n"
@@ -245,6 +250,7 @@ def generate_datasets(word_group, task, experiment_name, input_dir, output_dir, 
                  return # Stop for this specific group
 
             word_for_prompt = ""
+            audio_for_prompt = ""
             if "original" in EXPERIMENT_NAME:
                 word_for_prompt = word_text
             elif "romanized" in EXPERIMENT_NAME:
@@ -260,17 +266,18 @@ def generate_datasets(word_group, task, experiment_name, input_dir, output_dir, 
                     print(f"Warning: 'ipa' field not found for word '{word_text}' in EXPERIMENT_NAME '{EXPERIMENT_NAME}'. Using the word itself as a fallback.")
             elif "audio" in EXPERIMENT_NAME:
                 if IS_OPTION_MEANING: # e.g., word_to_meaning_audio
-                    word_for_prompt = AUDIO_TOKEN
+                    audio_for_prompt = AUDIO_TOKEN
                 else: # e.g., meaning_to_word_audio
-                    word_for_prompt = f"<AUDIO: {word_text}>"
+                    audio_for_prompt = f"<AUDIO: {word_text}>"
             else:
-                # Fallback for experiment names not explicitly handled, though ideally all should be.
                 print(f"Warning: Experiment name '{EXPERIMENT_NAME}' does not explicitly define word type. Defaulting to word text for 'word' field in prompt.")
                 word_for_prompt = word_text
+                audio_for_prompt = "" # No audio for original word experiments
 
             try:
                  question = prompt_template.format(
-                     word=word_for_prompt, 
+                     word=word_for_prompt,
+                     audio=audio_for_prompt, # This is used for audio experiments
                      meaning=meaning_text_for_prompt, # This is subject_word_info.get('en_meaning')
                      options=option_string,
                      MAX_OPTION=MAX_OPTION
@@ -332,7 +339,13 @@ if __name__ == "__main__":
             "word_to_meaning_ipa",
             "meaning_to_word_ipa",
             "word_to_meaning_audio",
-            "meaning_to_word_audio"
+            "meaning_to_word_audio",
+            "word_to_meaning_original_and_audio",
+            "meaning_to_word_original_and_audio",
+            "word_to_meaning_romanized_and_audio",
+            "meaning_to_word_romanized_and_audio",
+            "word_to_meaning_ipa_and_audio",
+            "meaning_to_word_ipa_and_audio"
         ]
     }
 
