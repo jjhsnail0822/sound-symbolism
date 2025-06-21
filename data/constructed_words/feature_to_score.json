@@ -1,0 +1,290 @@
+{
+    "Abrupt-Continuous": {
+        "consonants": {
+            "sonorant": 0.85,
+            "voiced fricative": -0.503,
+            "voiceless fricative": 0.0,
+            "voiceless stop": -0.491,
+            "voiced stop": 0.0
+        },
+        "vowels": {
+            "front": 0.0
+        }
+    },
+    "Beautiful-Ugly": {
+        "consonants": {
+            "sonorant": -0.383,
+            "voiced fricative": 0.0,
+            "voiceless fricative": -0.3298,
+            "voiceless stop": 0.0,
+            "voiced stop": 0.3927
+        },
+        "vowels": {
+            "front": 0.0
+        }
+    },
+    "Big-Small": {
+        "consonants": {
+            "sonorant": 0.5182,
+            "voiced fricative": -0.483,
+            "voiceless fricative": 0.3142,
+            "voiceless stop": 0.0,
+            "voiced stop": -0.3798
+        },
+        "vowels": {
+            "front": 0.7252
+        }
+    },
+    "Dangerous-Safe": {
+        "consonants": {
+            "sonorant": 0.5558,
+            "voiced fricative": -0.4128,
+            "voiceless fricative": 0.0,
+            "voiceless stop": -0.3755,
+            "voiced stop": 0.0
+        },
+        "vowels": {
+            "front": 0.0
+        }
+    },
+    "Delicate-Rugged": {
+        "consonants": {
+            "sonorant": -0.905,
+            "voiced fricative": 0.414,
+            "voiceless fricative": 0.0,
+            "voiceless stop": 0.48,
+            "voiced stop": 0.0
+        },
+        "vowels": {
+            "front": 0.0
+        }
+    },
+    "Exciting-Calming": {
+        "consonants": {
+            "sonorant": 0.868,
+            "voiced fricative": -0.5988,
+            "voiceless fricative": 0.0,
+            "voiceless stop": -0.4156,
+            "voiced stop": 0.0
+        },
+        "vowels": {
+            "front": -0.3467
+        }
+    },
+    "Fast-Slow": {
+        "consonants": {
+            "sonorant": 0.7293,
+            "voiced fricative": -0.5218,
+            "voiceless fricative": 0.0,
+            "voiceless stop": -0.3911,
+            "voiced stop": 0.0
+        },
+        "vowels": {
+            "front": -0.5065
+        }
+    },
+    "Good-Bad": {
+        "consonants": {
+            "sonorant": 0.0,
+            "voiced fricative": 0.0,
+            "voiceless fricative": 0.0,
+            "voiceless stop": 0.0,
+            "voiced stop": 0.0
+        },
+        "vowels": {
+            "front": 0.0
+        }
+    },
+    "Happy-Sad": {
+        "consonants": {
+            "sonorant": 0.0,
+            "voiced fricative": 0.0,
+            "voiceless fricative": 0.0,
+            "voiceless stop": 0.0,
+            "voiced stop": 0.0
+        },
+        "vowels": {
+            "front": -0.4123
+        }
+    },
+    "Hard-Soft": {
+        "consonants": {
+            "sonorant": 0.889,
+            "voiced fricative": -0.524,
+            "voiceless fricative": 0.382,
+            "voiceless stop": -0.589,
+            "voiced stop": 0.0
+        },
+        "vowels": {
+            "front": 0.0
+        }
+    },
+    "Harsh-Mellow": {
+        "consonants": {
+            "sonorant": 0.8982,
+            "voiced fricative": -0.5386,
+            "voiceless fricative": 0.0,
+            "voiceless stop": -0.4848,
+            "voiced stop": 0.0
+        },
+        "vowels": {
+            "front": 0.0
+        }
+    },
+    "Heavy-Light": {
+        "consonants": {
+            "sonorant": 0.632,
+            "voiced fricative": -0.413,
+            "voiceless fricative": 0.401,
+            "voiceless stop": 0.0,
+            "voiced stop": -0.376
+        },
+        "vowels": {
+            "front": 0.3677
+        }
+    },
+    "Inhibited-Free": {
+        "consonants": {
+            "sonorant": 0.5216,
+            "voiced fricative": 0.0,
+            "voiceless fricative": 0.0,
+            "voiceless stop": -0.4105,
+            "voiced stop": 0.0
+        },
+        "vowels": {
+            "front": 0.0
+        }
+    },
+    "Interesting-Uninteresting": {
+        "consonants": {
+            "sonorant": 0.0,
+            "voiced fricative": -0.2894,
+            "voiceless fricative": 0.0,
+            "voiceless stop": 0.0,
+            "voiced stop": 0.2698
+        },
+        "vowels": {
+            "front": 0.0
+        }
+    },
+    "Masculine-Feminine": {
+        "consonants": {
+            "sonorant": 0.728,
+            "voiced fricative": 0.0,
+            "voiceless fricative": 0.682,
+            "voiceless stop": -0.676,
+            "voiced stop": -0.443
+        },
+        "vowels": {
+            "front": 0.46593
+        }
+    },
+    "Ordinary-Unique": {
+        "consonants": {
+            "sonorant": -0.346,
+            "voiced fricative": 0.492,
+            "voiceless fricative": 0.0,
+            "voiceless stop": 0.0,
+            "voiced stop": 0.0
+        },
+        "vowels": {
+            "front": 0.0
+        }
+    },
+    "Passive-Active": {
+        "consonants": {
+            "sonorant": -0.6501,
+            "voiced fricative": 0.5193,
+            "voiceless fricative": 0.0,
+            "voiceless stop": 0.0,
+            "voiced stop": 0.0
+        },
+        "vowels": {
+            "front": 0.3048
+        }
+    },
+    "Pleasant-Unpleasant": {
+        "consonants": {
+            "sonorant": 0.0,
+            "voiced fricative": 0.0,
+            "voiceless fricative": 0.0,
+            "voiceless stop": 0.0,
+            "voiced stop": 0.0
+        },
+        "vowels": {
+            "front": 0.0
+        }
+    },
+    "Realistic-Fantastical": {
+        "consonants": {
+            "sonorant": 0.0,
+            "voiced fricative": 0.41327,
+            "voiceless fricative": 0.0,
+            "voiceless stop": -0.34634,
+            "voiced stop": 0.0
+        },
+        "vowels": {
+            "front": -0.2744
+        }
+    },
+    "Sharp-Round": {
+        "consonants": {
+            "sonorant": 1.00169,
+            "voiced fricative": -0.81813,
+            "voiceless fricative": 0.0,
+            "voiceless stop": -0.65012,
+            "voiced stop": 0.45799
+        },
+        "vowels": {
+            "front": -0.5138
+        }
+    },
+    "Simple-Complex": {
+        "consonants": {
+            "sonorant": -0.75118,
+            "voiced fricative": 0.79506,
+            "voiceless fricative": 0.0,
+            "voiceless stop": 0.0,
+            "voiced stop": 0.0
+        },
+        "vowels": {
+            "front": 0.0
+        }
+    },
+    "Solid-NonSolid": {
+        "consonants": {
+            "sonorant": 0.741,
+            "voiced fricative": 0.0,
+            "voiceless fricative": 0.0,
+            "voiceless stop": -0.411,
+            "voiced stop": 0.0
+        },
+        "vowels": {
+            "front": 0.0
+        }
+    },
+    "Strong-Weak": {
+        "consonants": {
+            "sonorant": 0.6359,
+            "voiced fricative": -0.4309,
+            "voiceless fricative": 0.0,
+            "voiceless stop": -0.2294,
+            "voiced stop": 0.0
+        },
+        "vowels": {
+            "front": 0.0
+        }
+    },
+    "Tense-Relaxed": {
+        "consonants": {
+            "sonorant": 0.6631,
+            "voiced fricative": 0.0,
+            "voiceless fricative": 0.0,
+            "voiceless stop": -0.4976,
+            "voiced stop": 0.0
+        },
+        "vowels": {
+            "front": 0.0
+        }
+    }
+}

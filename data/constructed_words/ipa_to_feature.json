@@ -1,0 +1,25 @@
+{
+    "consonants": {
+        "l": "sonorants",
+        "m": "sonorants",
+        "n": "sonorants",
+        "v": "voiced_ficatives",
+        "ð": "voiced_ficatives",
+        "z": "voiced_ficatives",
+        "f": "voiceless_fricatives",
+        "s": "voiceless_fricatives",
+        "ʃ": "voiceless_fricatives",
+        "b": "voiced_stops",
+        "d": "voiced_stops",
+        "g": "voiced_stops",
+        "p": "voiceless_stops",
+        "t": "voiceless_stops",
+        "k": "voiceless_stops"
+    },
+    "vowels": {
+        "i": "front",
+        "ej": "front",
+        "ɑ": "back",
+        "ow": "back"
+    }
+}
