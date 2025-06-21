@@ -196,7 +196,7 @@ def generate_datasets(word_group, task, experiment_name, input_dir, output_dir, 
         option_string_output = ""
         for i, text_opt_val in enumerate(final_shuffled_texts_list):
             prefix = f"{i + 1}: "
-            if local_is_option_meaning: 
+            if local_is_option_meaning:
                 option_string_output += f"{prefix}{text_opt_val}\n"
             else: 
                 if "and_audio" in experiment_name: # text and audio options
@@ -264,15 +264,17 @@ def generate_datasets(word_group, task, experiment_name, input_dir, output_dir, 
                 word_for_prompt = subject_word_info.get('ipa')
                 if 'ipa' not in subject_word_info:
                     print(f"Warning: 'ipa' field not found for word '{word_text}' in EXPERIMENT_NAME '{EXPERIMENT_NAME}'. Using the word itself as a fallback.")
-            elif "audio" in EXPERIMENT_NAME:
+            
+            if "audio" in EXPERIMENT_NAME:
                 if IS_OPTION_MEANING: # e.g., word_to_meaning_audio
                     audio_for_prompt = AUDIO_TOKEN
                 else: # e.g., meaning_to_word_audio
                     audio_for_prompt = f"<AUDIO: {word_text}>"
-            else:
-                print(f"Warning: Experiment name '{EXPERIMENT_NAME}' does not explicitly define word type. Defaulting to word text for 'word' field in prompt.")
-                word_for_prompt = word_text
-                audio_for_prompt = "" # No audio for original word experiments
+            
+            if not word_for_prompt and "audio" not in EXPERIMENT_NAME:
+                print(f"Warning: No valid word for prompt in '{EXPERIMENT_NAME}' for word '{word_text}'. Skipping.")
+                skipped_count += 1
+                continue
 
             try:
                  question = prompt_template.format(

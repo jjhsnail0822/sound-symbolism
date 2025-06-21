@@ -40,7 +40,7 @@ parser.add_argument(
              "word_meaning_matching_without_auditory_impression_original",
              "word_meaning_matching_without_auditory_impression_romanized",
              "word_meaning_matching_without_auditory_impression_ipa",
-             "word_meaning_matching_without_auditory_impression_audio"
+             "word_meaning_matching_without_auditory_impression_audio",
              "word_meaning_matching_original_and_audio",
              "word_meaning_matching_romanized_and_audio",
              "word_meaning_matching_ipa_and_audio",
