@@ -76,7 +76,7 @@ class QwenOmniMCQExperiment:
                     question_parts = re.split(r'<AUDIO: .*?>', query['question'])
                     option_audio_paths = []
                     for option in query['options_info']:
-                        option_audio_paths.append(f'data/processed/nat/tts/{option["language"]}/{option["text"]}.wav')
+                        option_audio_paths.append(f'data/processed/nat/tts/{option["language"]}/{option["original_word"]}.wav')
                         # check if the audio file exists
                         if not os.path.exists(option_audio_paths[-1]):
                             raise FileNotFoundError(f"Audio file not found: {option_audio_paths[-1]}")
