@@ -7,7 +7,14 @@ Qwen2.5-Omni inference와 동일한 방식으로 attention heatmap을 추출/시
 - matplotlib/seaborn으로 heatmap 저장
 
 사용 예시:
-python src/analysis/heatmap/experiment_heatmap_check.py --result-file results/experiments/semantic_dimension/meaning_to_word_audio-common_Qwen2.5-Omni-7B.json --model Qwen/Qwen2.5-Omni-7B --output-dir heatmap_results --exp-name audio --max_samples 5
+python src/analysis/heatmap/experiment_heatmap_check.py
+--result-file results/experiments/understanding/pair_matching/audiolm/all_results_Qwen_Qwen2.5-Omni-7B.json
+--model Qwen/Qwen2.5-Omni-7B
+--output-dir heatmap_results
+--exp-name audio
+--max_samples 5
+--layer 0
+--head 0
 """
 import sys
 import os
@@ -59,7 +66,7 @@ def main():
     parser.add_argument('--model', '-m', type=str, required=True, help='모델 이름 (예: Qwen/Qwen2.5-Omni-7B)')
     parser.add_argument('--output-dir', '-o', type=str, required=True, help='heatmap 이미지 저장 디렉토리')
     parser.add_argument('--exp-name', type=str, required=True, help='실험 이름 (멀티모달 처리 분기용)')
-    parser.add_argument('--max-samples', type=int, default=20, help='최대 시각화 샘플 수')
+    parser.add_argument('--max_samples', type=int, default=20, help='최대 시각화 샘플 수')
     parser.add_argument('--layer', type=int, default=0, help='시각화할 attention layer 인덱스')
     parser.add_argument('--head', type=int, default=0, help='시각화할 attention head 인덱스')
     args = parser.parse_args()
@@ -80,6 +87,7 @@ def main():
         device_map="auto",
         attn_implementation="flash_attention_2",
     )
+    model.disable_talker()
     model.eval()
     processor = Qwen2_5OmniProcessor.from_pretrained(args.model, cache_dir=os.path.join("../","models"))
 
