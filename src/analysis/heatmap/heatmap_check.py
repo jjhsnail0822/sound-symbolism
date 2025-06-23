@@ -3,88 +3,224 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import numpy as np
 import soundfile as sf
-from transformers import AutoProcessor, AutoModelForCausalLM
+from transformers import Qwen2_5OmniForConditionalGeneration, Qwen2_5OmniProcessor
 import os
+from tqdm import tqdm
+from qwen_omni_utils import process_mm_info
 import librosa
 import json
+import re
 
-PROMPT_JSON_PATH = os.path.join(os.path.dirname(__file__), '../../data/prompts/prompts.json')
+# python src/analysis/heatmap/heatmap_check.py --model Qwen/Qwen2.5-Omni-7B --data data/prompts/understanding/pair_matching/audiolm/masked_meaning_to_word_mcq_no_dialogue-en.json --output src/analysis/heatmap/heatmap_results --head 0
+PROMPT_JSON_PATH = os.path.join(os.path.dirname(__file__), '../../../data/prompts/prompts.json')
 
 class QwenOmniAttentionVisualizer:
-    def __init__(self, model_name, device=None):
-        self.model_name = model_name
-        self.device = device or ("cuda" if torch.cuda.is_available() else "cpu")
-        print(f"Loading model: {model_name}")
-        self.model = AutoModelForCausalLM.from_pretrained(
-            model_name,
-            torch_dtype=torch.float16 if torch.cuda.is_available() else torch.float32,
-            device_map=self.device,
-            trust_remote_code=True
+    def __init__(
+            self,
+            model_path: str,
+            data_path: str,
+            output_dir: str,
+            exp_name: str,
+            max_tokens: int = 32,
+            temperature: float = 0.0,
+    ):
+        self.model_path = model_path
+        self.data_path = data_path
+        self.output_dir = output_dir
+        self.max_tokens = max_tokens
+        self.temperature = temperature
+        self.exp_name = exp_name
+
+        # Load Qwen Omni model
+        print(f"Loading Qwen Omni model from {self.model_path}")
+        self.model = Qwen2_5OmniForConditionalGeneration.from_pretrained(
+            self.model_path,
+            torch_dtype="auto",
+            device_map="auto",
+            # attn_implementation="flash_attention_2",
+            attn_implementation="eager",
         )
-        self.model.eval()
-        self.processor = AutoProcessor.from_pretrained(model_name, trust_remote_code=True)
+        self.model.disable_talker()
+        
+        self.processor = Qwen2_5OmniProcessor.from_pretrained(self.model_path)
 
-    def prepare_multimodal_input(self, text, audio_path):
-        audio, sr = sf.read(audio_path)
-        if len(audio.shape) > 1:
-            audio = audio.mean(axis=1)
-        if sr != 16000:
-            audio = librosa.resample(audio, orig_sr=sr, target_sr=16000)
-            sr = 16000
-        conversation = [
-            {"role": "system", "content": [
-                {"type": "text", "text": "You are Qwen, a virtual human developed by the Qwen Team, Alibaba Group, capable of perceiving auditory and visual inputs, as well as generating text and speech."}
-            ]},
-            {"role": "user", "content": [
-                {"type": "audio", "audio": audio},
-                {"type": "text", "text": text}
-            ]}
-        ]
-        prompt = self.processor.apply_chat_template(conversation, add_generation_prompt=True, tokenize=False)
-        inputs = self.processor(
-            text=prompt,
-            audio=audio,
-            sampling_rate=sr,
-            return_tensors="pt",
-            padding=True,
-            use_audio_in_video=True
-        )
-        inputs = {k: v.to(self.model.device) for k, v in inputs.items()}
-        return inputs, prompt
+    def run_mcq_experiment(self, visualize_sample_indices=None, layer_gap=3, head=0):
+        print(f"Loading MCQ data from {self.data_path}")
+        with open(self.data_path, 'r', encoding='utf-8') as f:
+            mcq_data = json.load(f)
+        print(f"Loaded {len(mcq_data)} questions.")
+        print(f"Running MCQ experiment on {len(mcq_data)} questions...")
+        all_results = []
+        if visualize_sample_indices is None:
+            visualize_sample_indices = []
+        for idx, query in enumerate(tqdm(mcq_data)):
+            word = query['meta_data']['word']
+            language = query['meta_data']['language']
+            if '<AUDIO>' in query['question']:
+                question_first_part = query['question'].split("<AUDIO>")[0]
+                question_second_part = query['question'].split("<AUDIO>")[1]
+                audio_path = f'data/processed/nat/tts/{language}/{word}.wav'
+                prompt = f"{question_first_part}<AUDIO>{question_second_part}"
+                conversation = [
+                    {
+                        "role": "system",
+                        "content": [
+                            {"type": "text", "text": "You are Qwen, a virtual human developed by the Qwen Team, Alibaba Group, capable of perceiving auditory and visual inputs, as well as generating text and speech."}
+                        ],
+                    },
+                    {
+                        "role": "user",
+                        "content": [
+                            {"type": "text", "text": question_first_part},
+                            {"type": "audio", "audio": audio_path},
+                            {"type": "text", "text": question_second_part},
+                        ],
+                    },
+                ]
+            else: # meaning -> word
+                question_parts = re.split(r'<AUDIO: .*?>', query['question'])
+                option_audio_paths = []
+                for option in query['options_info']:
+                    option_audio_paths.append(f'data/processed/nat/tts/{option["language"]}/{option["original_word"]}.wav')
+                    if not os.path.exists(option_audio_paths[-1]):
+                        raise FileNotFoundError(f"Audio file not found: {option_audio_paths[-1]}")
+                content = [{"type": "text", "text": question_parts[0]}]
+                for i in range(len(option_audio_paths)):
+                    content.append({"type": "audio", "audio": option_audio_paths[i]})
+                    if i + 1 < len(question_parts):
+                        content.append({"type": "text", "text": question_parts[i + 1]})
+                prompt = query['question']
+                conversation = [
+                    {
+                        "role": "system",
+                        "content": [
+                            {"type": "text", "text": "You are Qwen, a virtual human developed by the Qwen Team, Alibaba Group, capable of perceiving auditory and visual inputs, as well as generating text and speech."}
+                        ],
+                    },
+                    {
+                        "role": "user",
+                        "content": content,
+                    },
+                ]
+            USE_AUDIO_IN_VIDEO = True
+            text = self.processor.apply_chat_template(conversation, add_generation_prompt=True, tokenize=False)
+            audios, images, videos = process_mm_info(conversation, use_audio_in_video=USE_AUDIO_IN_VIDEO)
+            inputs = self.processor(
+                text=text, 
+                audio=audios, 
+                images=images, 
+                videos=videos, 
+                return_tensors="pt", 
+                padding=True, 
+                use_audio_in_video=USE_AUDIO_IN_VIDEO
+            )
+            inputs = inputs.to(self.model.device).to(self.model.dtype)
+            with torch.no_grad():
+                text_ids = self.model.generate(
+                    **inputs, 
+                    use_audio_in_video=USE_AUDIO_IN_VIDEO,
+                    max_new_tokens=self.max_tokens,
+                )
+            full_text = self.processor.batch_decode(text_ids, skip_special_tokens=True, clean_up_tokenization_spaces=False)[0]
+            print('Full text:', full_text)
+            if "assistant\n" in full_text:
+                model_answer = full_text.split("assistant\n")[-1].strip()
+            else:
+                raise ValueError(f"Unexpected format in model output: {full_text}")
+            answer_match = re.search(r'\d+', model_answer)
+            if answer_match:
+                extracted_answer = answer_match.group(0)
+            else:
+                extracted_answer = None
+            if extracted_answer is None:
+                print(f"Warning: Model output is empty for query: {query['question'][:50]}...")
+                extracted_answer = "0"
+            try:
+                is_correct = int(extracted_answer) == query['answer']
+            except ValueError:
+                print(f"Warning: Model output '{extracted_answer}' is not a valid integer. Marking as incorrect.")
+                is_correct = False
+            result = {
+                "query": query['question'],
+                "correct_answer": query['answer'],
+                "model_answer": extracted_answer,
+                "full_response": model_answer,
+                "is_correct": is_correct
+            }
+            all_results.append(result)
 
-    def get_attention_and_tokens(self, inputs):
-        with torch.no_grad():
-            outputs = self.model(**inputs, output_attentions=True, return_dict=True)
-        attentions = outputs.attentions
-        input_ids = inputs.get('input_ids', None)
-        if input_ids is not None:
-            tokens = self.processor.tokenizer.convert_ids_to_tokens(input_ids[0])
-        else:
-            tokens = [str(i) for i in range(attentions[-1].shape[-1])]
-        return attentions, tokens
-
-    def find_option_token_indices(self, tokens, option_type="number", num_options=4):
-        if option_type == "number":
-            option_prefixes = [f"{i+1}." for i in range(num_options)]
-        elif option_type == "alpha":
-            option_prefixes = [f"{chr(97+i)}." for i in range(num_options)]
-        else:
-            raise ValueError("option_type must be 'number' or 'alpha'")
-        indices = []
-        for prefix in option_prefixes:
-            found = False
-            for idx, tok in enumerate(tokens):
-                if prefix in tok:
-                    indices.append(idx)
-                    found = True
-                    break
-            if not found:
-                indices.append(None)
-        return indices
-
-    def find_audio_token_indices(self, tokens):
-        audio_token_indices = [i for i, t in enumerate(tokens) if "audio" in t or t.startswith("<|extra_id_")]
-        return audio_token_indices
+            # === Attention Visualization & Score Plot ===
+            if idx in visualize_sample_indices:
+                # Prepare input for attention extraction
+                att_inputs, _ = self.prepare_multimodal_input(prompt)
+                options = [opt["text"] if isinstance(opt, dict) and "text" in opt else str(opt) for opt in query.get("options_info", query.get("options", []))]
+                option_type = "number"
+                num_options = len(options)
+                attentions, tokens = self.get_attention_and_tokens(att_inputs)
+                option_indices = self.find_option_token_indices(tokens, option_type=option_type, num_options=num_options)
+                audio_token_indices = self.find_audio_token_indices(tokens)
+                print(f"[INFO] Sample {idx} - Audio token indices: {audio_token_indices}")
+                print(f"[INFO] Sample {idx} - Option token indices: {option_indices}")
+                num_layers = len(attentions)
+                layers_to_check = [0] + [i for i in range(layer_gap, num_layers-1, layer_gap)] + [num_layers-1]
+                for lidx in sorted(set(layers_to_check)):
+                    attn = attentions[lidx][0, head].cpu().numpy()
+                    title = f"Attention Heatmap (Sample {idx}, Layer {lidx}, Head {head})"
+                    spath = os.path.join(self.output_dir, f"sample{idx}_layer{lidx}_head{head}_attn.png")
+                    self.plot_attention_heatmap(
+                        attn, tokens,
+                        option_indices=option_indices,
+                        correct_option_idx=query['answer'] if query['answer'] is not None else 0,
+                        audio_token_indices=audio_token_indices,
+                        highlight_audio=True,
+                        highlight_option=True,
+                        save_path=spath,
+                        title=title
+                    )
+                attn_stats = self.analyze_attention_across_layers(attentions, tokens, audio_token_indices, option_indices, query['answer'] if query['answer'] is not None else 0, layer_gap=layer_gap)
+                print(f"[ATTN SCORE SUMMARY] Sample {idx}")
+                for stat in attn_stats:
+                    print(f"Layer {stat['layer']}: audio->option sum={stat['audio_to_option_sum']:.4f}, option->audio sum={stat['option_to_audio_sum']:.4f}")
+                # 꺾은선 그래프
+                layers = [stat['layer'] for stat in attn_stats]
+                audio2opt = [stat['audio_to_option_sum'] for stat in attn_stats]
+                opt2audio = [stat['option_to_audio_sum'] for stat in attn_stats]
+                plt.figure(figsize=(8,5))
+                plt.plot(layers, audio2opt, marker='o', label='Audio→Option attention sum')
+                plt.plot(layers, opt2audio, marker='s', label='Option→Audio attention sum')
+                plt.xlabel('Layer')
+                plt.ylabel('Attention Score Sum')
+                plt.title(f'Attention Score Sum Across Layers (Sample {idx})')
+                plt.legend()
+                plt.grid(True, linestyle='--', alpha=0.5)
+                plot_path = os.path.join(self.output_dir, f"sample{idx}_attn_score_flow.png")
+                plt.savefig(plot_path, dpi=200, bbox_inches='tight')
+                plt.close()
+                print(f"[INFO] Saved attention score plot: {plot_path}")
+        correct_count = sum(1 for r in all_results if r["is_correct"])
+        total_count = len(all_results)
+        accuracy = correct_count / total_count if total_count > 0 else 0
+        print(f"Experiment completed. Accuracy: {accuracy:.2%} ({correct_count}/{total_count})")
+        model_name = os.path.basename(self.model_path)
+        if not os.path.exists(self.output_dir):
+            os.makedirs(self.output_dir, exist_ok=True)
+        results_filename = f"{self.output_dir}/{self.data_path.split('/')[-1].replace('.json', '')}_{model_name}.json"
+        results_dict = {
+            "model": self.model_path,
+            "accuracy": accuracy,
+            "correct_count": correct_count,
+            "total_count": total_count,
+            "results": all_results,
+        }
+        with open(results_filename, 'w', encoding='utf-8') as f:
+            json.dump(results_dict, f, ensure_ascii=False, indent=4)
+        print(f"Results saved to: {results_filename}")
+        del self.model
+        del self.processor
+        if torch.cuda.is_available():
+            torch.cuda.empty_cache()
+            torch.cuda.synchronize()
+        return results_dict, results_filename
 
     def plot_attention_heatmap(self, attention_matrix, tokens, option_indices=None, correct_option_idx=None, audio_token_indices=None, highlight_audio=True, highlight_option=True, save_path=None, title=None):
         seq_len = len(tokens)
@@ -110,109 +246,110 @@ class QwenOmniAttentionVisualizer:
         if save_path:
             plt.savefig(save_path, dpi=300, bbox_inches='tight')
             print(f"[INFO] Saved heatmap: {save_path}")
-        plt.show()
 
-    def visualize_mcq_attention(self, text, audio_path, correct_option_idx=0, option_type="number", num_options=4, layer=None, head=0, save_path=None):
-        inputs, prompt = self.prepare_multimodal_input(text, audio_path)
-        print("[DEBUG] Model prompt:")
-        print(prompt)
-        attentions, tokens = self.get_attention_and_tokens(inputs)
-        if layer is None:
-            layer = len(attentions) - 1
-        attn = attentions[layer][0, head].cpu().numpy()
-        option_indices = self.find_option_token_indices(tokens, option_type=option_type, num_options=num_options)
-        audio_token_indices = self.find_audio_token_indices(tokens)
-        print("[INFO] Audio token indices:", audio_token_indices)
-        print("[INFO] Option token indices:", option_indices)
-        self.plot_attention_heatmap(
-            attn, tokens,
-            option_indices=option_indices,
-            correct_option_idx=correct_option_idx,
-            audio_token_indices=audio_token_indices,
-            highlight_audio=True,
-            highlight_option=True,
-            save_path=save_path,
-            title=f"Attention Heatmap (Layer {layer}, Head {head})"
+    def prepare_multimodal_input(self, text):
+        conversation = [
+            {
+                "role": "system",
+                "content": [
+                    {"type": "text", "text": "You are Qwen, a virtual human developed by the Qwen Team, Alibaba Group, capable of perceiving auditory and visual inputs, as well as generating text and speech."}
+                ],
+            },
+            {
+                "role": "user",
+                "content": [
+                    {"type": "text", "text": text},
+                ],
+            },
+        ]
+        USE_AUDIO_IN_VIDEO = True
+        prompt = self.processor.apply_chat_template(conversation, add_generation_prompt=True, tokenize=False)
+        audios, images, videos = process_mm_info(conversation, use_audio_in_video=USE_AUDIO_IN_VIDEO)
+        inputs = self.processor(
+            text=prompt,
+            audio=audios,
+            images=images,
+            videos=videos,
+            return_tensors="pt",
+            padding=True,
+            use_audio_in_video=USE_AUDIO_IN_VIDEO
         )
-        for idx in audio_token_indices:
-            print(f"Audio token at index {idx}: context window: {tokens[max(0, idx-3):idx+4]}")
+        inputs = inputs.to(self.model.device).to(self.model.dtype)
+        return inputs, prompt
 
-def load_prompt_template(language="en"):
-    with open(PROMPT_JSON_PATH, "r", encoding="utf-8") as f:
-        prompts = json.load(f)
-    return prompts["word_meaning_matching"]["word_to_meaning_audio"]["user_prompt"]
+    def get_attention_and_tokens(self, inputs):
+        with torch.no_grad():
+            outputs = self.model(
+                **inputs,
+                use_audio_in_video=True,
+                output_attentions=True,
+                return_dict=True
+            )
+        attentions = outputs.attentions
+        if 'input_ids' in inputs:
+            tokens = self.processor.tokenizer.convert_ids_to_tokens(inputs['input_ids'][0])
+        else:
+            tokens = [str(i) for i in range(attentions[0].shape[-1])]
+        return attentions, tokens
 
-def build_mcq_prompt(word, options, language="en"):
-    template = load_prompt_template(language)
-    options_str = "\n".join([f"{i+1}. {opt}" for i, opt in enumerate(options)])
-    prompt = template.format(word=word, options=options_str, MAX_OPTION=len(options))
-    return prompt
+    def find_option_token_indices(self, tokens, option_type="number", num_options=4):
+        indices = []
+        for i in range(num_options):
+            if option_type == "number":
+                pattern = f"{i+1}."
+            else:
+                pattern = chr(ord('A') + i) + "."
+            found = None
+            for idx, t in enumerate(tokens):
+                if pattern in t:
+                    found = idx
+                    break
+            indices.append(found)
+        return indices
 
-def get_audio_path(word, language):
-    return f"data/processed/nat/tts/{language}/{word}.wav"
+    def find_audio_token_indices(self, tokens):
+        indices = [i for i, t in enumerate(tokens) if "<|audio|>" in t or "<audio>" in t]
+        return indices
 
-def extract_sample_info(sample):
-    """
-    Extracts word, options, language, correct answer index from a sample dict.
-    """
-    # Try to get word, language, options, answer
-    word = sample.get("word")
-    language = sample.get("language")
-    if not word and "meta_data" in sample:
-        word = sample["meta_data"].get("word")
-    if not language and "meta_data" in sample:
-        language = sample["meta_data"].get("language")
-    # Options: try 'options_info' (list of dicts with 'text'), else 'options' (list of str)
-    if "options_info" in sample:
-        options = [opt["text"] if isinstance(opt, dict) and "text" in opt else str(opt) for opt in sample["options_info"]]
-    elif "options" in sample:
-        options = [str(opt) for opt in sample["options"]]
-    else:
-        options = []
-    # Correct answer: try 'answer', else 'meta_data.answer'
-    correct = sample.get("answer")
-    if correct is None and "meta_data" in sample:
-        correct = sample["meta_data"].get("answer")
-    # Option type: number (default), or alpha if specified
-    option_type = "number"
-    return word, options, language, correct, option_type
+    def analyze_attention_across_layers(self, attentions, tokens, audio_token_indices, option_indices, correct_option_idx, layer_gap=3):
+        num_layers = len(attentions)
+        results = []
+        layers_to_check = [0] + [i for i in range(layer_gap, num_layers-1, layer_gap)] + [num_layers-1]
+        for layer in sorted(set(layers_to_check)):
+            attn = attentions[layer][0, 0].cpu().numpy()
+            audio_sum = 0.0
+            option_sum = 0.0
+            for aidx in audio_token_indices:
+                oidx = option_indices[correct_option_idx] if correct_option_idx is not None else None
+                if oidx is not None:
+                    audio_sum += attn[aidx, oidx]
+                    option_sum += attn[oidx, aidx]
+            results.append({
+                "layer": layer,
+                "audio_to_option_sum": audio_sum,
+                "option_to_audio_sum": option_sum
+            })
+        return results
 
 if __name__ == "__main__":
     import argparse
     parser = argparse.ArgumentParser(description="Visualize Qwen2.5-Omni MCQ attention heatmap from MCQ JSON file (audio+text, word_to_meaning_audio prompt)")
     parser.add_argument('--model', type=str, default="Qwen/Qwen2.5-Omni-7B", help="Model name (7B or 3B)")
-    parser.add_argument('--json', type=str, required=True, help="Path to MCQ JSON file (e.g. masked_meaning_to_word_mcq_no_dialogue-en.json)")
-    parser.add_argument('--sample', type=int, default=0, help="Index of the sample to visualize")
-    parser.add_argument('--layer', type=int, default=None, help="Layer index (default: last)")
+    parser.add_argument('--data', type=str, default="data/processed/nat/mcq/masked_meaning_to_word_mcq_no_dialogue-en.json", help="Path to MCQ JSON file (e.g. masked_meaning_to_word_mcq_no_dialogue-en.json)")
+    parser.add_argument('--output', type=str, default="src/analysis/heatmap/heatmap_results", help="Path to save heatmap image")
+    parser.add_argument('--max-tokens', type=int, default=32, help="Maximum tokens to generate")
+    parser.add_argument('--temperature', type=float, default=0.0, help="Sampling temperature")
+    parser.add_argument('--sample', type=int, default=0, help="Index of the sample to visualize (for attention plot)")
+    parser.add_argument('--layer-gap', type=int, default=3, help="Layer gap for attention score plot")
     parser.add_argument('--head', type=int, default=0, help="Head index")
-    parser.add_argument('--save', type=str, default=None, help="Path to save heatmap image")
     args = parser.parse_args()
 
-    # Load MCQ data
-    with open(args.json, 'r', encoding='utf-8') as f:
-        data = json.load(f)
-    if not isinstance(data, list):
-        raise ValueError("JSON file must contain a list of samples.")
-    if args.sample < 0 or args.sample >= len(data):
-        raise IndexError(f"Sample index {args.sample} out of range (0-{len(data)-1})")
-    sample = data[args.sample]
-    word, options, language, correct, option_type = extract_sample_info(sample)
-    if not word or not language or not options:
-        raise ValueError(f"Sample missing required fields: word={word}, language={language}, options={options}")
-    audio_path = get_audio_path(word, language)
-    if not os.path.exists(audio_path):
-        raise FileNotFoundError(f"Audio file not found: {audio_path}")
-    prompt = build_mcq_prompt(word, options, language=language)
-    print(f"[INFO] Visualizing sample {args.sample} from {args.json}")
-    print(f"[INFO] Word: {word}, Language: {language}, Options: {options}, Correct: {correct}")
-    visualizer = QwenOmniAttentionVisualizer(args.model)
-    visualizer.visualize_mcq_attention(
-        text=prompt,
-        audio_path=audio_path,
-        correct_option_idx=correct if correct is not None else 0,
-        option_type=option_type,
-        num_options=len(options),
-        layer=args.layer,
-        head=args.head,
-        save_path=args.save
+    visualizer = QwenOmniAttentionVisualizer(
+        model_path=args.model,
+        data_path=args.data,
+        output_dir=args.output, 
+        max_tokens=args.max_tokens,
+        temperature=args.temperature,
     )
+    # Only visualize the sample specified by --sample
+    visualizer.run_mcq_experiment(visualize_sample_indices=[args.sample], layer_gap=args.layer_gap, head=args.head)
