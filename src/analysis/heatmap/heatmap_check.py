@@ -81,7 +81,8 @@ class QwenOmniAttentionVisualizer:
                 question_parts = re.split(r'<AUDIO: .*?>', query['question'])
                 option_audio_paths = []
                 for option in query['options_info']:
-                    option_audio_paths.append(f'data/processed/nat/tts/{option["language"]}/{option["original_word"]}.wav')
+                    # breakpoint()
+                    option_audio_paths.append(f'data/processed/nat/tts/{option["language"]}/{option["text"]}.wav')
                     if not os.path.exists(option_audio_paths[-1]):
                         raise FileNotFoundError(f"Audio file not found: {option_audio_paths[-1]}")
                 content = [{"type": "text", "text": question_parts[0]}]
@@ -275,13 +276,16 @@ class QwenOmniAttentionVisualizer:
             use_audio_in_video=USE_AUDIO_IN_VIDEO
         )
         inputs = inputs.to(self.model.device).to(self.model.dtype)
-        return inputs, prompt
+        return {"text": prompt, "audio": audios, "images": images, "videos": videos, "use_audio_in_video": USE_AUDIO_IN_VIDEO}, prompt
 
     def get_attention_and_tokens(self, inputs):
         with torch.no_grad():
             outputs = self.model(
-                **inputs,
-                use_audio_in_video=True,
+                text=inputs["text"],
+                audio=inputs["audio"],
+                images=inputs["images"],
+                videos=inputs["videos"],
+                use_audio_in_video=inputs["use_audio_in_video"],
                 output_attentions=True,
                 return_dict=True
             )
@@ -342,6 +346,7 @@ if __name__ == "__main__":
     parser.add_argument('--sample', type=int, default=0, help="Index of the sample to visualize (for attention plot)")
     parser.add_argument('--layer-gap', type=int, default=3, help="Layer gap for attention score plot")
     parser.add_argument('--head', type=int, default=0, help="Head index")
+    parser.add_argument('--exp_name', type=str, default="word_to_meaning_audio", help="Experiment name")
     args = parser.parse_args()
 
     visualizer = QwenOmniAttentionVisualizer(
@@ -350,6 +355,7 @@ if __name__ == "__main__":
         output_dir=args.output, 
         max_tokens=args.max_tokens,
         temperature=args.temperature,
+        exp_name=args.exp_name,
     )
     # Only visualize the sample specified by --sample
     visualizer.run_mcq_experiment(visualize_sample_indices=[args.sample], layer_gap=args.layer_gap, head=args.head)
