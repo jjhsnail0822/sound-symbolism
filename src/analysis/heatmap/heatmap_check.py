@@ -11,7 +11,7 @@ import librosa
 import json
 import re
 
-# python src/analysis/heatmap/heatmap_check.py --model Qwen/Qwen2.5-Omni-7B --data data/prompts/understanding/pair_matching/audiolm/masked_meaning_to_word_mcq_no_dialogue-en.json --output src/analysis/heatmap/plots --head 0
+# python src/analysis/heatmap/heatmap_check.py --model Qwen/Qwen2.5-Omni-7B --data data/prompts/understanding/pair_matching/audiolm/masked_meaning_to_word_mcq_no_dialogue-en.json --output src/analysis/heatmap/plots --head 0 --sample 0 --use-hooks --hook-type simple
 PROMPT_JSON_PATH = os.path.join(os.path.dirname(__file__), '../../../data/prompts/prompts.json')
 
 class QwenOmniAttentionVisualizer:
@@ -59,6 +59,11 @@ class QwenOmniAttentionVisualizer:
         all_results = []
         if visualize_sample_indices is None:
             visualize_sample_indices = []
+        
+        # For collecting attention scores across all questions
+        all_attention_stats = []
+        cherry_pick_samples = []  # Every 10th sample for heatmap visualization
+        
         for idx, query in enumerate(tqdm(mcq_data)):
             word = query['meta_data']['word']
             language = query['meta_data']['language']
@@ -129,7 +134,7 @@ class QwenOmniAttentionVisualizer:
                     max_new_tokens=self.max_tokens,
                 )
             full_text = self.processor.batch_decode(text_ids, skip_special_tokens=True, clean_up_tokenization_spaces=False)[0]
-            print('Full text:', full_text)
+            # print('Full text:', full_text)
             if "assistant\n" in full_text:
                 model_answer = full_text.split("assistant\n")[-1].strip()
             else:
@@ -156,63 +161,98 @@ class QwenOmniAttentionVisualizer:
             }
             all_results.append(result)
 
-            # === Attention Visualization & Score Plot ===
-            if idx in visualize_sample_indices:
-                # Use the existing conversation for attention extraction
-                USE_AUDIO_IN_VIDEO = True
-                att_text = self.processor.apply_chat_template(conversation, add_generation_prompt=True, tokenize=False)
-                att_audios, att_images, att_videos = process_mm_info(conversation, use_audio_in_video=USE_AUDIO_IN_VIDEO)
-                att_inputs = self.processor(
-                    text=att_text,
-                    audio=att_audios,
-                    images=att_images,
-                    videos=att_videos,
-                    return_tensors="pt",
-                    padding=True,
-                    use_audio_in_video=USE_AUDIO_IN_VIDEO
-                )
-                att_inputs = att_inputs.to(self.model.device).to(self.model.dtype)
-                
-                options = [opt["text"] if isinstance(opt, dict) and "text" in opt else str(opt) for opt in query.get("options_info", query.get("options", []))]
-                option_type = "number"
-                num_options = len(options)
-                
-                # Choose attention extraction method
-                if use_hooks:
-                    print(f"[INFO] Using {hook_type} hook-based attention extraction for sample {idx}")
-                    if hook_type == 'simple':
-                        attentions, tokens = self.get_attention_with_simple_hooks(att_inputs)
-                    elif hook_type == 'qwen':
-                        attentions, tokens = self.get_attention_with_qwen_hooks(att_inputs)
-                    elif hook_type == 'forward':
-                        attentions, tokens = self.get_attention_with_forward_hooks(att_inputs)
-                    else:
-                        attentions, tokens = self.get_attention_and_tokens(att_inputs)
+            # === Attention Analysis for ALL questions ===
+            # Use the existing conversation for attention extraction
+            USE_AUDIO_IN_VIDEO = True
+            att_text = self.processor.apply_chat_tokenize(conversation, add_generation_prompt=True, tokenize=False)
+            att_audios, att_images, att_videos = process_mm_info(conversation, use_audio_in_video=USE_AUDIO_IN_VIDEO)
+            att_inputs = self.processor(
+                text=att_text,
+                audio=att_audios,
+                images=att_images,
+                videos=att_videos,
+                return_tensors="pt",
+                padding=True,
+                use_audio_in_video=USE_AUDIO_IN_VIDEO
+            )
+            att_inputs = att_inputs.to(self.model.device).to(self.model.dtype)
+            
+            options = [opt["text"] if isinstance(opt, dict) and "text" in opt else str(opt) for opt in query.get("options_info", query.get("options", []))]
+            option_type = "number"
+            num_options = len(options)
+            
+            # Choose attention extraction method
+            if use_hooks:
+                print(f"[INFO] Using {hook_type} hook-based attention extraction for sample {idx}")
+                if hook_type == 'simple':
+                    attentions, tokens = self.get_attention_with_simple_hooks(att_inputs)
+                elif hook_type == 'qwen':
+                    attentions, tokens = self.get_attention_with_qwen_hooks(att_inputs)
+                elif hook_type == 'forward':
+                    attentions, tokens = self.get_attention_with_forward_hooks(att_inputs)
                 else:
                     attentions, tokens = self.get_attention_and_tokens(att_inputs)
-                
-                option_indices = self.find_option_token_indices(tokens, option_type=option_type, num_options=num_options)
-                audio_token_indices = self.find_audio_token_indices(tokens)
+            else:
+                attentions, tokens = self.get_attention_and_tokens(att_inputs)
+            
+            option_indices = self.find_option_token_indices(tokens, option_type=option_type, num_options=num_options)
+            audio_token_indices = self.find_audio_token_indices(tokens)
+            
+            # Calculate attention scores for this question
+            attn_stats = self.analyze_attention_across_layers(attentions, tokens, audio_token_indices, option_indices, query['answer'] if query['answer'] is not None else 0, layer_gap=layer_gap)
+            all_attention_stats.append(attn_stats)
+            
+            # Cherry pick every 10th sample for heatmap visualization
+            if idx % 10 == 0:
+                print(f"[INFO] Cherry-picking sample {idx} (word: {word}, language: {language})")
+                cherry_pick_samples.append({
+                    'idx': idx,
+                    'attentions': attentions,
+                    'tokens': tokens,
+                    'option_indices': option_indices,
+                    'audio_token_indices': audio_token_indices,
+                    'correct_answer': query['answer'] if query['answer'] is not None else 0,
+                    'word': word,
+                    'language': language
+                })
+            
+            # === Individual Sample Visualization (if specified) ===
+            if idx in visualize_sample_indices:
                 print(f"[INFO] Sample {idx} - Audio token indices: {audio_token_indices}")
                 print(f"[INFO] Sample {idx} - Option token indices: {option_indices}")
                 num_layers = len(attentions)
                 layers_to_check = [0] + [i for i in range(layer_gap, num_layers-1, layer_gap)] + [num_layers-1]
+                # === Relevant token filtering ===
+                relevant_indices = self.find_relevant_token_indices(tokens, query['question'], options)
                 for lidx in sorted(set(layers_to_check)):
                     attn = attentions[lidx][0, head].cpu().float().numpy()
+                    # attention, tokens, indices 줄이기
+                    attn_reduced = attn[np.ix_(relevant_indices, relevant_indices)]
+                    tokens_reduced = [tokens[i] for i in relevant_indices]
+                    option_indices_reduced = [relevant_indices.index(i) if i in relevant_indices else None for i in option_indices]
+                    audio_token_indices_reduced = [relevant_indices.index(i) for i in audio_token_indices if i in relevant_indices]
                     title = f"Attention Heatmap (Sample {idx}, Layer {lidx}, Head {head})"
                     spath = os.path.join(self.output_dir, f"sample{idx}_layer{lidx}_head{head}_attn.png")
                     self.plot_attention_heatmap(
-                        attn, tokens,
-                        option_indices=option_indices,
+                        attn_reduced, tokens_reduced,
+                        option_indices=option_indices_reduced,
                         correct_option_idx=query['answer'] if query['answer'] is not None else 0,
-                        audio_token_indices=audio_token_indices,
+                        audio_token_indices=audio_token_indices_reduced,
                         highlight_audio=True,
                         highlight_option=True,
                         save_path=spath,
                         title=title
                     )
-                attn_stats = self.analyze_attention_across_layers(attentions, tokens, audio_token_indices, option_indices, query['answer'] if query['answer'] is not None else 0, layer_gap=layer_gap)
                 print(f"[ATTN SCORE SUMMARY] Sample {idx}")
+                # attention score도 relevant indices만 사용
+                attn_stats = self.analyze_attention_across_layers(
+                    [a[0, :, :, :].cpu().float().numpy()[np.ix_(relevant_indices, relevant_indices)][None, ...] if isinstance(a, torch.Tensor) else a for a in attentions],
+                    [tokens[i] for i in relevant_indices],
+                    [relevant_indices.index(i) for i in audio_token_indices if i in relevant_indices],
+                    [relevant_indices.index(i) if i in relevant_indices else None for i in option_indices],
+                    query['answer'] if query['answer'] is not None else 0,
+                    layer_gap=layer_gap
+                )
                 for stat in attn_stats:
                     print(f"Layer {stat['layer']}: audio->option sum={stat['audio_to_option_sum']:.4f}, option->audio sum={stat['option_to_audio_sum']:.4f}")
                 # 꺾은선 그래프
@@ -231,13 +271,53 @@ class QwenOmniAttentionVisualizer:
                 plt.savefig(plot_path, dpi=200, bbox_inches='tight')
                 plt.close()
                 print(f"[INFO] Saved attention score plot: {plot_path}")
+        
+        # === Generate Cherry-picked Heatmaps ===
+        print(f"[INFO] Generating heatmaps for {len(cherry_pick_samples)} cherry-picked samples...")
+        print(f"[INFO] Cherry-picked samples: {[sample['idx'] for sample in cherry_pick_samples]}")
+        for sample_data in cherry_pick_samples:
+            idx = sample_data['idx']
+            attentions = sample_data['attentions']
+            tokens = sample_data['tokens']
+            option_indices = sample_data['option_indices']
+            audio_token_indices = sample_data['audio_token_indices']
+            correct_answer = sample_data['correct_answer']
+            word = sample_data['word']
+            language = sample_data['language']
+            num_layers = len(attentions)
+            layers_to_check = [0] + [i for i in range(layer_gap, num_layers-1, layer_gap)] + [num_layers-1]
+            # === Relevant token filtering ===
+            # options 추출
+            options = [opt["text"] if isinstance(opt, dict) and "text" in opt else str(opt) for opt in sample_data.get("options", [])]
+            relevant_indices = self.find_relevant_token_indices(tokens, sample_data.get('query', ''), options)
+            for lidx in sorted(set(layers_to_check)):
+                attn = attentions[lidx][0, head].cpu().float().numpy()
+                attn_reduced = attn[np.ix_(relevant_indices, relevant_indices)]
+                tokens_reduced = [tokens[i] for i in relevant_indices]
+                option_indices_reduced = [relevant_indices.index(i) if i in relevant_indices else None for i in option_indices]
+                audio_token_indices_reduced = [relevant_indices.index(i) for i in audio_token_indices if i in relevant_indices]
+                title = f"Attention Heatmap (Sample {idx}, Layer {lidx}, Head {head}, Word: {word}, Lang: {language})"
+                spath = os.path.join(self.output_dir, f"cherry_pick_sample{idx}_layer{lidx}_head{head}_attn.png")
+                self.plot_attention_heatmap(
+                    attn_reduced, tokens_reduced,
+                    option_indices=option_indices_reduced,
+                    correct_option_idx=correct_answer,
+                    audio_token_indices=audio_token_indices_reduced,
+                    highlight_audio=True,
+                    highlight_option=True,
+                    save_path=spath,
+                    title=title
+                )
+        
+        # === Generate Average Attention Score Plot ===
+        print("[INFO] Generating average attention score plot across all questions...")
+        self.generate_average_attention_plot(all_attention_stats, layer_gap)
+        
         correct_count = sum(1 for r in all_results if r["is_correct"])
         total_count = len(all_results)
         accuracy = correct_count / total_count if total_count > 0 else 0
         print(f"Experiment completed. Accuracy: {accuracy:.2%} ({correct_count}/{total_count})")
         model_name = os.path.basename(self.model_path)
-        if not os.path.exists(self.output_dir):
-            os.makedirs(self.output_dir, exist_ok=True)
         results_filename = f"{self.output_dir}/{self.data_path.split('/')[-1].replace('.json', '')}_{model_name}.json"
         results_dict = {
             "model": self.model_path,
@@ -258,24 +338,79 @@ class QwenOmniAttentionVisualizer:
 
     def plot_attention_heatmap(self, attention_matrix, tokens, option_indices=None, correct_option_idx=None, audio_token_indices=None, highlight_audio=True, highlight_option=True, save_path=None, title=None):
         seq_len = len(tokens)
-        fig, ax = plt.subplots(figsize=(max(10, seq_len//2), max(8, seq_len//2)))
-        token_labels = [t if len(t) < 12 else t[:9]+"..." for t in tokens]
-        sns.heatmap(attention_matrix, xticklabels=token_labels, yticklabels=token_labels, cmap='Blues', ax=ax, cbar_kws={'label': 'Attention Weight'})
+        fig, ax = plt.subplots(figsize=(max(12, seq_len//2), max(10, seq_len//2)))
+        
+        # Truncate long token labels for better visualization
+        token_labels = []
+        for t in tokens:
+            if len(t) < 15:
+                token_labels.append(t)
+            else:
+                token_labels.append(t[:12] + "...")
+        
+        # Create heatmap
+        sns.heatmap(attention_matrix, xticklabels=token_labels, yticklabels=token_labels, 
+                   cmap='Blues', ax=ax, cbar_kws={'label': 'Attention Weight'})
+        
         ax.set_xlabel('Key Tokens')
         ax.set_ylabel('Query Tokens')
         plt.xticks(rotation=45, ha='right')
         plt.yticks(rotation=0)
+        
         if title:
             ax.set_title(title)
+        
+        # Highlight audio tokens (red rectangles)
         if highlight_audio and audio_token_indices:
             for idx in audio_token_indices:
-                ax.add_patch(plt.Rectangle((idx, -0.5), 1, seq_len, fill=False, edgecolor='red', lw=2, linestyle='--'))
-                ax.add_patch(plt.Rectangle((-0.5, idx), seq_len, 1, fill=False, edgecolor='red', lw=2, linestyle='--'))
+                if idx < seq_len:
+                    # Highlight the entire row and column for audio tokens
+                    ax.add_patch(plt.Rectangle((idx, -0.5), 1, seq_len, fill=False, 
+                                             edgecolor='red', lw=2, linestyle='--'))
+                    ax.add_patch(plt.Rectangle((-0.5, idx), seq_len, 1, fill=False, 
+                                             edgecolor='red', lw=2, linestyle='--'))
+        
+        # Highlight correct option token (green rectangles)
         if highlight_option and option_indices and correct_option_idx is not None:
-            opt_idx = option_indices[correct_option_idx]
-            if opt_idx is not None:
-                ax.add_patch(plt.Rectangle((opt_idx, -0.5), 1, seq_len, fill=False, edgecolor='green', lw=2))
-                ax.add_patch(plt.Rectangle((-0.5, opt_idx), seq_len, 1, fill=False, edgecolor='green', lw=2))
+            # 안전하게 인덱스 체크
+            if (
+                isinstance(correct_option_idx, int)
+                and 0 <= correct_option_idx < len(option_indices)
+                and option_indices[correct_option_idx] is not None
+                and option_indices[correct_option_idx] < seq_len
+            ):
+                opt_idx = option_indices[correct_option_idx]
+                # Highlight the entire row and column for correct option
+                ax.add_patch(plt.Rectangle((opt_idx, -0.5), 1, seq_len, fill=False, 
+                                         edgecolor='green', lw=2))
+                ax.add_patch(plt.Rectangle((-0.5, opt_idx), seq_len, 1, fill=False, 
+                                         edgecolor='green', lw=2))
+                # Highlight the rectangular region between audio and correct option
+                if audio_token_indices:
+                    for aidx in audio_token_indices:
+                        if aidx < seq_len:
+                            # Draw rectangle for audio->option attention
+                            ax.add_patch(plt.Rectangle((opt_idx, aidx), 1, 1, fill=False, 
+                                                     edgecolor='orange', lw=3, linestyle='-'))
+                            # Draw rectangle for option->audio attention  
+                            ax.add_patch(plt.Rectangle((aidx, opt_idx), 1, 1, fill=False, 
+                                                     edgecolor='purple', lw=3, linestyle='-'))
+            else:
+                print(f"[WARNING] correct_option_idx {correct_option_idx} is out of range for option_indices (len={len(option_indices)}), or option_indices[correct_option_idx] is None.")
+        
+        # Add legend
+        legend_elements = []
+        if audio_token_indices:
+            legend_elements.append(plt.Line2D([0], [0], color='red', lw=2, linestyle='--', label='Audio Tokens'))
+        if option_indices and correct_option_idx is not None:
+            legend_elements.append(plt.Line2D([0], [0], color='green', lw=2, label='Correct Option'))
+        if audio_token_indices and option_indices and correct_option_idx is not None:
+            legend_elements.append(plt.Line2D([0], [0], color='orange', lw=3, label='Audio→Option'))
+            legend_elements.append(plt.Line2D([0], [0], color='purple', lw=3, label='Option→Audio'))
+        
+        if legend_elements:
+            ax.legend(handles=legend_elements, loc='upper right', bbox_to_anchor=(1.15, 1))
+        
         plt.tight_layout()
         if save_path:
             plt.savefig(save_path, dpi=300, bbox_inches='tight')
@@ -527,20 +662,48 @@ class QwenOmniAttentionVisualizer:
         num_layers = len(attentions)
         results = []
         layers_to_check = [0] + [i for i in range(layer_gap, num_layers-1, layer_gap)] + [num_layers-1]
+        
         for layer in sorted(set(layers_to_check)):
-            attn = attentions[layer][0, 0].cpu().float().numpy()
-            audio_sum = 0.0
-            option_sum = 0.0
-            for aidx in audio_token_indices:
-                oidx = option_indices[correct_option_idx] if correct_option_idx is not None else None
-                if oidx is not None:
-                    audio_sum += attn[aidx, oidx]
-                    option_sum += attn[oidx, aidx]
+            # Get attention matrix for this layer (all heads)
+            attn = attentions[layer][0]  # Shape: (num_heads, seq_len, seq_len)
+            
+            # Calculate attention scores across all heads
+            audio_to_option_sum = 0.0
+            option_to_audio_sum = 0.0
+            
+            # Get the correct option index
+            oidx = option_indices[correct_option_idx] if correct_option_idx is not None and correct_option_idx < len(option_indices) else None
+            
+            if oidx is not None and audio_token_indices:
+                # Calculate attention from audio tokens to correct option token (rectangular region)
+                # This represents how much audio tokens attend to the correct option
+                for head in range(attn.shape[0]):  # Iterate over all heads
+                    head_attn = attn[head].cpu().float().numpy()
+                    
+                    # Sum attention from all audio tokens to the correct option token
+                    for aidx in audio_token_indices:
+                        if aidx < head_attn.shape[0] and oidx < head_attn.shape[1]:
+                            audio_to_option_sum += head_attn[aidx, oidx]
+                    
+                    # Sum attention from the correct option token to all audio tokens
+                    for aidx in audio_token_indices:
+                        if oidx < head_attn.shape[0] and aidx < head_attn.shape[1]:
+                            option_to_audio_sum += head_attn[oidx, aidx]
+                
+                # Average across heads
+                num_heads = attn.shape[0]
+                audio_to_option_sum /= num_heads
+                option_to_audio_sum /= num_heads
+            
             results.append({
                 "layer": layer,
-                "audio_to_option_sum": audio_sum,
-                "option_to_audio_sum": option_sum
+                "audio_to_option_sum": audio_to_option_sum,
+                "option_to_audio_sum": option_to_audio_sum,
+                "num_audio_tokens": len(audio_token_indices),
+                "correct_option_idx": oidx,
+                "correct_answer": correct_option_idx
             })
+        
         return results
 
     def get_attention_with_simple_hooks(self, inputs):
@@ -590,6 +753,114 @@ class QwenOmniAttentionVisualizer:
         finally:
             for hook in hooks:
                 hook.remove()
+
+    def generate_average_attention_plot(self, all_attention_stats, layer_gap):
+        """Generate average attention score plot across all questions"""
+        if not all_attention_stats:
+            print("[WARNING] No attention stats available for averaging")
+            return
+        
+        # Get all unique layers from the first sample
+        first_sample_layers = [stat['layer'] for stat in all_attention_stats[0]]
+        
+        # Calculate averages for each layer
+        layer_averages = {}
+        for layer in first_sample_layers:
+            audio_to_option_sums = []
+            option_to_audio_sums = []
+            
+            for sample_stats in all_attention_stats:
+                # Find the stats for this layer
+                for stat in sample_stats:
+                    if stat['layer'] == layer:
+                        audio_to_option_sums.append(stat['audio_to_option_sum'])
+                        option_to_audio_sums.append(stat['option_to_audio_sum'])
+                        break
+            
+            if audio_to_option_sums:  # Only add if we have data for this layer
+                layer_averages[layer] = {
+                    'audio_to_option_avg': np.mean(audio_to_option_sums),
+                    'option_to_audio_avg': np.mean(option_to_audio_sums),
+                    'audio_to_option_std': np.std(audio_to_option_sums),
+                    'option_to_audio_std': np.std(option_to_audio_sums)
+                }
+        
+        # Sort layers and create plot
+        sorted_layers = sorted(layer_averages.keys())
+        audio2opt_avg = [layer_averages[layer]['audio_to_option_avg'] for layer in sorted_layers]
+        opt2audio_avg = [layer_averages[layer]['option_to_audio_avg'] for layer in sorted_layers]
+        audio2opt_std = [layer_averages[layer]['audio_to_option_std'] for layer in sorted_layers]
+        opt2audio_std = [layer_averages[layer]['option_to_audio_std'] for layer in sorted_layers]
+        
+        plt.figure(figsize=(12, 8))
+        
+        # Plot with error bars
+        plt.errorbar(sorted_layers, audio2opt_avg, yerr=audio2opt_std, marker='o', 
+                    label='Audio→Option attention sum (avg)', capsize=5, capthick=2)
+        plt.errorbar(sorted_layers, opt2audio_avg, yerr=opt2audio_std, marker='s', 
+                    label='Option→Audio attention sum (avg)', capsize=5, capthick=2)
+        
+        plt.xlabel('Layer')
+        plt.ylabel('Average Attention Score Sum')
+        plt.title(f'Average Attention Score Sum Across Layers (All {len(all_attention_stats)} Questions)')
+        plt.legend()
+        plt.grid(True, linestyle='--', alpha=0.5)
+        
+        # Add some statistics to the plot
+        total_questions = len(all_attention_stats)
+        plt.text(0.02, 0.98, f'Total Questions: {total_questions}', 
+                transform=plt.gca().transAxes, verticalalignment='top',
+                bbox=dict(boxstyle='round', facecolor='wheat', alpha=0.8))
+        
+        plot_path = os.path.join(self.output_dir, "average_attn_score_flow.png")
+        plt.savefig(plot_path, dpi=200, bbox_inches='tight')
+        plt.close()
+        print(f"[INFO] Saved average attention score plot: {plot_path}")
+        
+        # Also save the numerical data
+        data_path = os.path.join(self.output_dir, "average_attention_stats.json")
+        stats_data = {
+            'total_questions': total_questions,
+            'layer_averages': layer_averages,
+            'sorted_layers': sorted_layers,
+            'audio_to_option_averages': audio2opt_avg,
+            'option_to_audio_averages': opt2audio_avg,
+            'audio_to_option_stds': audio2opt_std,
+            'option_to_audio_stds': opt2audio_std
+        }
+        with open(data_path, 'w', encoding='utf-8') as f:
+            json.dump(stats_data, f, ensure_ascii=False, indent=4, default=str)
+        print(f"[INFO] Saved attention statistics data: {data_path}")
+
+    def find_relevant_token_indices(self, tokens, question, options):
+        """
+        tokens: 토크나이즈된 전체 토큰 리스트
+        question: MCQ의 question string
+        options: MCQ의 options (list of str or dict)
+        """
+        import re
+        def normalize(s):
+            return re.sub(r'[^a-zA-Z0-9가-힣ㄱ-ㅎㅏ-ㅣ一-龥ぁ-ゔァ-ヴー々〆〤 ]', '', s).strip().lower()
+        # audio 토큰 인덱스
+        audio_indices = self.find_audio_token_indices(tokens)
+        # question에서 단어 추출
+        question_words = set(normalize(question).split())
+        # options에서 단어 추출
+        option_words = set()
+        for opt in options:
+            if isinstance(opt, dict) and "text" in opt:
+                option_words.update(normalize(opt["text"]).split())
+            else:
+                option_words.update(normalize(str(opt)).split())
+        relevant_words = question_words | option_words
+        relevant_indices = []
+        for i, t in enumerate(tokens):
+            t_norm = normalize(t)
+            if t_norm in relevant_words:
+                relevant_indices.append(i)
+        # audio + 주요 단어 인덱스 합치기 (중복 제거)
+        all_relevant_indices = sorted(set(audio_indices + relevant_indices))
+        return all_relevant_indices
 
 if __name__ == "__main__":
     import argparse
