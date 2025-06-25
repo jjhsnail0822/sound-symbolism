@@ -1,25 +1,20 @@
-import os
-import json
-import unicodedata
 import argparse 
+import unicodedata
 from typing import List
+from pathlib import Path
 from itertools import product
 
-from phonemes import IPA_PHONEMES, IPA_TO_ALPHABET
+import pandas as pd
+from phoneme_data import PhonemeData
 
 class CVCVWordGenerator:
-    def __init__(self, data_dir:str, ensure_nonword:bool=False):
-        self.data_dir = data_dir
+    def __init__(self, phoneme_data:PhonemeData, ensure_nonword:bool=False):
+        self.phoneme_data = phoneme_data
         self.ensure_nonword = ensure_nonword
 
-        self.consonants = IPA_PHONEMES['consonants']
-        self.vowels = IPA_PHONEMES['vowels']
-        self.ipa_to_word = self._load_ipa_to_word()
-    
-    def _load_ipa_to_word(self):
-        ipa_to_word_path = os.path.join(self.data_dir, 'ipa_to_word_en_US.json')
-        with open(ipa_to_word_path, 'r', encoding='utf-8') as f:
-            return json.load(f)
+        self.consonants = phoneme_data.phonemes['consonants']
+        self.vowels = phoneme_data.phonemes['vowels']
+
 
     def __call__(self):
         # IPA format
@@ -32,29 +27,8 @@ class CVCVWordGenerator:
         cvcv_ipa_list = [''.join(cvcv) for cvcv in cvcv_ipa_list]
         cvcv_alphabet_list = [''.join(cvcv) for cvcv in cvcv_alphabet_list]
 
+        return list(zip(cvcv_ipa_list, cvcv_alphabet_list))
 
-        # Save the constructed words to a file
-        self.save_to_file(cvcv_ipa_list, cvcv_alphabet_list)
-
-        return zip(cvcv_ipa_list, cvcv_alphabet_list)
-
-
-
-    def save_to_file(self, cvcv_ipa_list: List[str], cvcv_alphabet_list: List[str]):
-        """
-        Save the generated CVCV words in both IPA and Alphabet format to a CSV file.
-        """
-        fname = 'constructed_words_ensure_nonword.csv' if self.ensure_nonword else 'constructed_words.csv' 
-        output_path = os.path.join(self.data_dir, fname)
-
-        with open(output_path, 'w') as f:
-            f.write("index,ipa,alphabet\n")
-        
-        with open(output_path, 'a') as f:
-            for i, (ipa, alphabet) in enumerate(zip(cvcv_ipa_list, cvcv_alphabet_list)):
-                f.write(f"{i},{ipa},{alphabet}\n")
-
-        
     def generate_cvcv_words(self) -> List[List[str]]:
         """
         Generate CVCV words in IPA format, using the consonants and vowels defined in IPA_PHONEMES.
@@ -64,8 +38,7 @@ class CVCVWordGenerator:
         result = []
         for cvcv in cvcv_list:
             if self.ensure_nonword:
-                condition1 = (not self._is_exists(cvcv))
-                condition2 = self._is_valid(cvcv)
+
                 filter_condition = (not self._is_exists(cvcv)) and self._is_valid(cvcv)
             else:
                 filter_condition = self._is_valid(cvcv)
@@ -79,11 +52,11 @@ class CVCVWordGenerator:
     def make_alphabet_word(self, cvcv_ipa) -> List[str]:
         c1, v1, c2, v2 = cvcv_ipa
         
-        aph_result = {'c1': IPA_TO_ALPHABET[c1],
-                  'v1': IPA_TO_ALPHABET[v1],
-                  'c2': IPA_TO_ALPHABET[c2],
-                  'v2': IPA_TO_ALPHABET[v2]}
-        
+        aph_result = {'c1': self.phoneme_data.ipa_to_alphabet[c1],
+                'v1': self.phoneme_data.ipa_to_alphabet[v1],
+                'c2': self.phoneme_data.ipa_to_alphabet[c2],
+                'v2': self.phoneme_data.ipa_to_alphabet[v2]}
+
         # ===Change c1===
         # ipa: `ɡi`, alphabet: `gi` -> `ghi`
         if c1 + v1 == 'ɡi':
@@ -132,7 +105,7 @@ class CVCVWordGenerator:
     
     def _is_exists(self, cvcv):
         cvcv = [unicodedata.normalize('NFKC', phoneme) for phoneme in cvcv]
-        result = self.ipa_to_word.get(''.join(cvcv), None)
+        result = self.phoneme_data.ipa_to_word.get(''.join(cvcv), None)
         if result:
             print(f'[DEBUG] {"".join(cvcv)}: {result}')
         return True if result is not None else False
@@ -150,8 +123,22 @@ class CVCVWordGenerator:
 
 
 def main(args):
-    generator = CVCVWordGenerator(args.data_dir, args.ensure_nonword)
-    generator()
+    phoneme_data = PhonemeData(args.data_dir)
+    generator = CVCVWordGenerator(phoneme_data, args.ensure_nonword)
+    words = generator()
+
+
+    df = pd.DataFrame(words, columns=['ipa', 'alphabet'])
+    output_dir = Path(args.data_dir) / 'outputs' 
+    output_dir.mkdir(parents=True, exist_ok=True)
+    if args.ensure_nonword:
+        df.to_csv( output_dir / 'constructed_nonwords.csv',
+            index_label='index')
+    else:
+        df.to_csv( output_dir / 'constructed_words.csv',
+    index_label='index')
+
+
 
 if __name__ == "__main__":    
     parser = argparse.ArgumentParser(description="Generate CVCV words based on phonemes.")
