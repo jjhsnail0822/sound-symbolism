@@ -37,7 +37,6 @@ class QwenOmniAttentionVisualizer:
             self.model_path,
             torch_dtype="auto",
             device_map="auto",
-            # attn_implementation="flash_attention_2",
             attn_implementation="eager",
         )
         self.model.disable_talker()
@@ -92,7 +91,6 @@ class QwenOmniAttentionVisualizer:
                 question_parts = re.split(r'<AUDIO: .*?>', query['question'])
                 option_audio_paths = []
                 for option in query['options_info']:
-                    # breakpoint()
                     option_audio_paths.append(f'data/processed/nat/tts/{option["language"]}/{option["text"]}.wav')
                     if not os.path.exists(option_audio_paths[-1]):
                         raise FileNotFoundError(f"Audio file not found: {option_audio_paths[-1]}")
@@ -134,7 +132,6 @@ class QwenOmniAttentionVisualizer:
                     max_new_tokens=self.max_tokens,
                 )
             full_text = self.processor.batch_decode(text_ids, skip_special_tokens=True, clean_up_tokenization_spaces=False)[0]
-            # print('Full text:', full_text)
             if "assistant\n" in full_text:
                 model_answer = full_text.split("assistant\n")[-1].strip()
             else:
@@ -164,7 +161,7 @@ class QwenOmniAttentionVisualizer:
             # === Attention Analysis for ALL questions ===
             # Use the existing conversation for attention extraction
             USE_AUDIO_IN_VIDEO = True
-            att_text = self.processor.apply_chat_tokenize(conversation, add_generation_prompt=True, tokenize=False)
+            att_text = self.processor.apply_chat_template(conversation, add_generation_prompt=True, tokenize=False)
             att_audios, att_images, att_videos = process_mm_info(conversation, use_audio_in_video=USE_AUDIO_IN_VIDEO)
             att_inputs = self.processor(
                 text=att_text,
@@ -184,14 +181,7 @@ class QwenOmniAttentionVisualizer:
             # Choose attention extraction method
             if use_hooks:
                 print(f"[INFO] Using {hook_type} hook-based attention extraction for sample {idx}")
-                if hook_type == 'simple':
-                    attentions, tokens = self.get_attention_with_simple_hooks(att_inputs)
-                elif hook_type == 'qwen':
-                    attentions, tokens = self.get_attention_with_qwen_hooks(att_inputs)
-                elif hook_type == 'forward':
-                    attentions, tokens = self.get_attention_with_forward_hooks(att_inputs)
-                else:
-                    attentions, tokens = self.get_attention_and_tokens(att_inputs)
+                attentions, tokens = self.get_attention_with_simple_hooks(att_inputs)
             else:
                 attentions, tokens = self.get_attention_and_tokens(att_inputs)
             
@@ -213,7 +203,9 @@ class QwenOmniAttentionVisualizer:
                     'audio_token_indices': audio_token_indices,
                     'correct_answer': query['answer'] if query['answer'] is not None else 0,
                     'word': word,
-                    'language': language
+                    'language': language,
+                    'query': query['question'],
+                    'options': options
                 })
             
             # === Individual Sample Visualization (if specified) ===
@@ -222,9 +214,21 @@ class QwenOmniAttentionVisualizer:
                 print(f"[INFO] Sample {idx} - Option token indices: {option_indices}")
                 num_layers = len(attentions)
                 layers_to_check = [0] + [i for i in range(layer_gap, num_layers-1, layer_gap)] + [num_layers-1]
-                # === Relevant token filtering ===
+                
+                # === Relevant token filtering with bounds checking ===
                 relevant_indices = self.find_relevant_token_indices(tokens, query['question'], options)
+                # Ensure all indices are within bounds
+                max_seq_len = attentions[0].shape[-1] if attentions else len(tokens)
+                relevant_indices = [i for i in relevant_indices if i < max_seq_len]
+                
+                if not relevant_indices:
+                    print(f"[WARNING] No relevant indices found for sample {idx}, skipping visualization")
+                    continue
+                
                 for lidx in sorted(set(layers_to_check)):
+                    if lidx >= len(attentions):
+                        continue
+                    
                     attn = attentions[lidx][0, head].cpu().float().numpy()
                     # attention, tokens, indices 줄이기
                     attn_reduced = attn[np.ix_(relevant_indices, relevant_indices)]
@@ -245,9 +249,37 @@ class QwenOmniAttentionVisualizer:
                     )
                 print(f"[ATTN SCORE SUMMARY] Sample {idx}")
                 # attention score도 relevant indices만 사용
+                attentions_reduced = []
+                for a in attentions:
+                    if isinstance(a, torch.Tensor):
+                        # Get the actual sequence length from the attention tensor
+                        # a.shape is [batch, heads, seq_len, seq_len]
+                        actual_seq_len = a.shape[-1]  # This should be the same as a.shape[-2]
+                        
+                        # Filter relevant indices to be within bounds
+                        valid_indices = [i for i in relevant_indices if i < actual_seq_len]
+                        
+                        if valid_indices:
+                            try:
+                                # Extract attention for valid indices only
+                                attn_reduced = a[0, :, :, :].cpu().float().numpy()[np.ix_(valid_indices, valid_indices)][None, ...]
+                                attentions_reduced.append(attn_reduced)
+                            except Exception as e:
+                                print(f"[WARNING] Error processing attention tensor: {e}")
+                                print(f"[WARNING] a.shape: {a.shape}")
+                                print(f"[WARNING] valid_indices: {valid_indices}")
+                                print(f"[WARNING] max valid index: {max(valid_indices) if valid_indices else 'None'}")
+                                # Fallback: use original tensor
+                                attentions_reduced.append(a)
+                        else:
+                            print(f"[WARNING] No valid indices found for attention tensor with shape {a.shape}")
+                            attentions_reduced.append(a)
+                    else:
+                        attentions_reduced.append(a)
+                
                 attn_stats = self.analyze_attention_across_layers(
-                    [a[0, :, :, :].cpu().float().numpy()[np.ix_(relevant_indices, relevant_indices)][None, ...] if isinstance(a, torch.Tensor) else a for a in attentions],
-                    [tokens[i] for i in relevant_indices],
+                    attentions_reduced,
+                    [tokens[i] for i in relevant_indices if i < len(tokens)],
                     [relevant_indices.index(i) for i in audio_token_indices if i in relevant_indices],
                     [relevant_indices.index(i) if i in relevant_indices else None for i in option_indices],
                     query['answer'] if query['answer'] is not None else 0,
@@ -284,13 +316,25 @@ class QwenOmniAttentionVisualizer:
             correct_answer = sample_data['correct_answer']
             word = sample_data['word']
             language = sample_data['language']
+            options = sample_data['options']
+            query = sample_data['query']
+            
             num_layers = len(attentions)
             layers_to_check = [0] + [i for i in range(layer_gap, num_layers-1, layer_gap)] + [num_layers-1]
-            # === Relevant token filtering ===
-            # options 추출
-            options = [opt["text"] if isinstance(opt, dict) and "text" in opt else str(opt) for opt in sample_data.get("options", [])]
-            relevant_indices = self.find_relevant_token_indices(tokens, sample_data.get('query', ''), options)
+            
+            # === Relevant token filtering with bounds checking ===
+            relevant_indices = self.find_relevant_token_indices(tokens, query, options)
+            max_seq_len = attentions[0].shape[-1] if attentions else len(tokens)
+            relevant_indices = [i for i in relevant_indices if i < max_seq_len]
+            
+            if not relevant_indices:
+                print(f"[WARNING] No relevant indices found for cherry-pick sample {idx}, skipping")
+                continue
+            
             for lidx in sorted(set(layers_to_check)):
+                if lidx >= len(attentions):
+                    continue
+                    
                 attn = attentions[lidx][0, head].cpu().float().numpy()
                 attn_reduced = attn[np.ix_(relevant_indices, relevant_indices)]
                 tokens_reduced = [tokens[i] for i in relevant_indices]
@@ -372,14 +416,16 @@ class QwenOmniAttentionVisualizer:
         
         # Highlight correct option token (green rectangles)
         if highlight_option and option_indices and correct_option_idx is not None:
+            # Adjust to 0-based indexing
+            adjusted_correct_idx = correct_option_idx - 1 if correct_option_idx is not None else None
             # 안전하게 인덱스 체크
             if (
-                isinstance(correct_option_idx, int)
-                and 0 <= correct_option_idx < len(option_indices)
-                and option_indices[correct_option_idx] is not None
-                and option_indices[correct_option_idx] < seq_len
+                isinstance(adjusted_correct_idx, int)
+                and 0 <= adjusted_correct_idx < len(option_indices)
+                and option_indices[adjusted_correct_idx] is not None
+                and option_indices[adjusted_correct_idx] < seq_len
             ):
-                opt_idx = option_indices[correct_option_idx]
+                opt_idx = option_indices[adjusted_correct_idx]
                 # Highlight the entire row and column for correct option
                 ax.add_patch(plt.Rectangle((opt_idx, -0.5), 1, seq_len, fill=False, 
                                          edgecolor='green', lw=2))
@@ -396,7 +442,7 @@ class QwenOmniAttentionVisualizer:
                             ax.add_patch(plt.Rectangle((aidx, opt_idx), 1, 1, fill=False, 
                                                      edgecolor='purple', lw=3, linestyle='-'))
             else:
-                print(f"[WARNING] correct_option_idx {correct_option_idx} is out of range for option_indices (len={len(option_indices)}), or option_indices[correct_option_idx] is None.")
+                print(f"[WARNING] adjusted_correct_idx {adjusted_correct_idx} is out of range for option_indices (len={len(option_indices)}), or option_indices[adjusted_correct_idx] is None.")
         
         # Add legend
         legend_elements = []
@@ -416,41 +462,10 @@ class QwenOmniAttentionVisualizer:
             plt.savefig(save_path, dpi=300, bbox_inches='tight')
             print(f"[INFO] Saved heatmap: {save_path}")
 
-    def prepare_multimodal_input(self, text):
-        conversation = [
-            {
-                "role": "system",
-                "content": [
-                    {"type": "text", "text": "You are Qwen, a virtual human developed by the Qwen Team, Alibaba Group, capable of perceiving auditory and visual inputs, as well as generating text and speech."}
-                ],
-            },
-            {
-                "role": "user",
-                "content": [
-                    {"type": "text", "text": text},
-                ],
-            },
-        ]
-        USE_AUDIO_IN_VIDEO = True
-        prompt = self.processor.apply_chat_template(conversation, add_generation_prompt=True, tokenize=False)
-        audios, images, videos = process_mm_info(conversation, use_audio_in_video=USE_AUDIO_IN_VIDEO)
-        inputs = self.processor(
-            text=prompt,
-            audio=audios,
-            images=images,
-            videos=videos,
-            return_tensors="pt",
-            padding=True,
-            use_audio_in_video=USE_AUDIO_IN_VIDEO
-        )
-        inputs = inputs.to(self.model.device).to(self.model.dtype)
-        return inputs, prompt
-
     def get_attention_and_tokens(self, inputs):
         """Extract attention from Qwen2.5-Omni model by accessing internal thinker model"""
         with torch.no_grad():
             thinker_model = self.model.thinker.model # Newly added. Test and remove if not needed.
-            
             # Call the thinker model's forward method
             outputs = thinker_model(
                 input_ids=inputs['input_ids'],
@@ -461,250 +476,7 @@ class QwenOmniAttentionVisualizer:
         
         attentions = outputs.attentions
         tokens = self.processor.tokenizer.convert_ids_to_tokens(inputs['input_ids'][0])
-        # if 'input_ids' in inputs:
-        #     tokens = self.processor.tokenizer.convert_ids_to_tokens(inputs['input_ids'][0])
-        # else:
-        #     tokens = [str(i) for i in range(attentions[0].shape[-1])]
         return attentions, tokens
-
-    def get_attention_with_hooks(self, inputs):
-        """Extract attention using PyTorch hooks - more elegant approach"""
-        attention_outputs = []
-        
-        def attention_hook(module, input, output):
-            # For multi-head attention, output is typically (batch, seq_len, seq_len, num_heads)
-            # or (batch, num_heads, seq_len, seq_len)
-            if hasattr(output, 'attentions') and output.attentions is not None:
-                attention_outputs.extend(output.attentions)
-            elif isinstance(output, tuple) and len(output) > 1 and hasattr(output[1], 'attentions'):
-                attention_outputs.extend(output[1].attentions)
-        
-        # Register hooks on attention layers
-        hooks = []
-        thinker_model = self.model.thinker.model
-        
-        # Find all attention layers in the model
-        for name, module in thinker_model.named_modules():
-            if 'attention' in name.lower() and hasattr(module, 'forward'):
-                hook = module.register_forward_hook(attention_hook)
-                hooks.append(hook)
-        
-        try:
-            with torch.no_grad():
-                outputs = thinker_model(
-                    input_ids=inputs['input_ids'],
-                    attention_mask=inputs['attention_mask'],
-                    output_attentions=True,
-                    return_dict=True
-                )
-            
-            # If hooks didn't capture attention, fall back to outputs
-            if not attention_outputs and hasattr(outputs, 'attentions'):
-                attention_outputs = outputs.attentions
-            
-            tokens = self.processor.tokenizer.convert_ids_to_tokens(inputs['input_ids'][0])
-            return attention_outputs, tokens
-            
-        finally:
-            # Remove hooks
-            for hook in hooks:
-                hook.remove()
-
-    def get_attention_with_forward_hooks(self, inputs):
-        """Alternative approach using forward hooks on specific attention modules"""
-        attention_maps = []
-        
-        def attention_forward_hook(module, input, output):
-            # For Qwen2.5-Omni, attention output might be in a specific format
-            if isinstance(output, tuple):
-                # Some models return (hidden_states, attention_weights)
-                if len(output) > 1 and output[1] is not None:
-                    attention_maps.append(output[1])
-            elif hasattr(output, 'attentions'):
-                attention_maps.extend(output.attentions)
-        
-        hooks = []
-        thinker_model = self.model.thinker.model
-        
-        # Register hooks on transformer blocks
-        for name, module in thinker_model.named_modules():
-            if 'block' in name or 'layer' in name:
-                # Try to find attention submodules
-                for subname, submodule in module.named_modules():
-                    if 'attn' in subname.lower() or 'attention' in subname.lower():
-                        hook = submodule.register_forward_hook(attention_forward_hook)
-                        hooks.append(hook)
-        
-        try:
-            with torch.no_grad():
-                outputs = thinker_model(
-                    input_ids=inputs['input_ids'],
-                    attention_mask=inputs['attention_mask'],
-                    output_attentions=True,
-                    return_dict=True
-                )
-            
-            # Fallback to direct output if hooks didn't work
-            if not attention_maps and hasattr(outputs, 'attentions'):
-                attention_maps = outputs.attentions
-            
-            tokens = self.processor.tokenizer.convert_ids_to_tokens(inputs['input_ids'][0])
-            return attention_maps, tokens
-            
-        finally:
-            for hook in hooks:
-                hook.remove()
-
-    def get_attention_with_qwen_hooks(self, inputs):
-        """Specialized hook method for Qwen2.5-Omni architecture"""
-        attention_scores = []
-        
-        def attention_score_hook(module, input, output):
-            """Hook to capture attention scores from Qwen attention modules"""
-            # For Qwen models, attention scores are typically computed in the attention module
-            # and stored in the module's state or passed through output
-            if hasattr(module, '_attention_scores'):
-                attention_scores.append(module._attention_scores)
-            elif isinstance(output, tuple) and len(output) > 1:
-                # Check if attention weights are in the output tuple
-                if isinstance(output[1], torch.Tensor) and len(output[1].shape) >= 3:
-                    attention_scores.append(output[1])
-        
-        def attention_compute_hook(module, input, output):
-            """Hook to capture attention during computation"""
-            # This hook captures the attention computation process
-            if hasattr(module, 'attn_weights'):
-                attention_scores.append(module.attn_weights)
-        
-        hooks = []
-        thinker_model = self.model.thinker.model
-        
-        # Find and hook attention modules in Qwen architecture
-        for name, module in thinker_model.named_modules():
-            # Look for specific attention module patterns in Qwen
-            if any(pattern in name.lower() for pattern in ['attn', 'attention', 'self_attn']):
-                # Register hook for attention score capture
-                hook1 = module.register_forward_hook(attention_score_hook)
-                hook2 = module.register_forward_hook(attention_compute_hook)
-                hooks.extend([hook1, hook2])
-                
-                # Also try to hook the compute_attention method if it exists
-                if hasattr(module, 'compute_attention'):
-                    original_compute = module.compute_attention
-                    
-                    def compute_hook(*args, **kwargs):
-                        result = original_compute(*args, **kwargs)
-                        if isinstance(result, tuple) and len(result) > 1:
-                            attention_scores.append(result[1])
-                        return result
-                    
-                    module.compute_attention = compute_hook
-                    hooks.append(lambda: setattr(module, 'compute_attention', original_compute))
-        
-        try:
-            with torch.no_grad():
-                outputs = thinker_model(
-                    input_ids=inputs['input_ids'],
-                    attention_mask=inputs['attention_mask'],
-                    output_attentions=True,
-                    return_dict=True
-                )
-            
-            # If hooks didn't capture anything, use the direct output
-            if not attention_scores and hasattr(outputs, 'attentions'):
-                attention_scores = outputs.attentions
-            
-            tokens = self.processor.tokenizer.convert_ids_to_tokens(inputs['input_ids'][0])
-            return attention_scores, tokens
-            
-        finally:
-            # Clean up hooks
-            for hook in hooks:
-                if callable(hook):
-                    hook()
-                else:
-                    hook.remove()
-
-    def debug_model_structure(self):
-        """Debug method to understand the model structure for hook placement"""
-        thinker_model = self.model.thinker.model
-        print("=== Qwen2.5-Omni Thinker Model Structure ===")
-        
-        attention_modules = []
-        for name, module in thinker_model.named_modules():
-            if 'attn' in name.lower() or 'attention' in name.lower():
-                attention_modules.append((name, type(module).__name__))
-                print(f"Attention module: {name} ({type(module).__name__})")
-        
-        print(f"\nTotal attention modules found: {len(attention_modules)}")
-        return attention_modules
-
-    def find_option_token_indices(self, tokens, option_type="number", num_options=4):
-        indices = []
-        for i in range(num_options):
-            if option_type == "number":
-                pattern = f"{i+1}."
-            else:
-                pattern = chr(ord('A') + i) + "."
-            found = None
-            for idx, t in enumerate(tokens):
-                if pattern in t:
-                    found = idx
-                    break
-            indices.append(found)
-        return indices
-
-    def find_audio_token_indices(self, tokens):
-        indices = [i for i, t in enumerate(tokens) if "<|audio|>" in t or "<audio>" in t]
-        return indices
-
-    def analyze_attention_across_layers(self, attentions, tokens, audio_token_indices, option_indices, correct_option_idx, layer_gap=3):
-        num_layers = len(attentions)
-        results = []
-        layers_to_check = [0] + [i for i in range(layer_gap, num_layers-1, layer_gap)] + [num_layers-1]
-        
-        for layer in sorted(set(layers_to_check)):
-            # Get attention matrix for this layer (all heads)
-            attn = attentions[layer][0]  # Shape: (num_heads, seq_len, seq_len)
-            
-            # Calculate attention scores across all heads
-            audio_to_option_sum = 0.0
-            option_to_audio_sum = 0.0
-            
-            # Get the correct option index
-            oidx = option_indices[correct_option_idx] if correct_option_idx is not None and correct_option_idx < len(option_indices) else None
-            
-            if oidx is not None and audio_token_indices:
-                # Calculate attention from audio tokens to correct option token (rectangular region)
-                # This represents how much audio tokens attend to the correct option
-                for head in range(attn.shape[0]):  # Iterate over all heads
-                    head_attn = attn[head].cpu().float().numpy()
-                    
-                    # Sum attention from all audio tokens to the correct option token
-                    for aidx in audio_token_indices:
-                        if aidx < head_attn.shape[0] and oidx < head_attn.shape[1]:
-                            audio_to_option_sum += head_attn[aidx, oidx]
-                    
-                    # Sum attention from the correct option token to all audio tokens
-                    for aidx in audio_token_indices:
-                        if oidx < head_attn.shape[0] and aidx < head_attn.shape[1]:
-                            option_to_audio_sum += head_attn[oidx, aidx]
-                
-                # Average across heads
-                num_heads = attn.shape[0]
-                audio_to_option_sum /= num_heads
-                option_to_audio_sum /= num_heads
-            
-            results.append({
-                "layer": layer,
-                "audio_to_option_sum": audio_to_option_sum,
-                "option_to_audio_sum": option_to_audio_sum,
-                "num_audio_tokens": len(audio_token_indices),
-                "correct_option_idx": oidx,
-                "correct_answer": correct_option_idx
-            })
-        
-        return results
 
     def get_attention_with_simple_hooks(self, inputs):
         """Simplified hook method that directly captures attention from Qwen2.5-Omni"""
@@ -753,6 +525,109 @@ class QwenOmniAttentionVisualizer:
         finally:
             for hook in hooks:
                 hook.remove()
+
+    def debug_model_structure(self):
+        """Debug method to understand the model structure for hook placement"""
+        thinker_model = self.model.thinker.model
+        print("=== Qwen2.5-Omni Thinker Model Structure ===")
+        
+        attention_modules = []
+        for name, module in thinker_model.named_modules():
+            if 'attn' in name.lower() or 'attention' in name.lower():
+                attention_modules.append((name, type(module).__name__))
+                print(f"Attention module: {name} ({type(module).__name__})")
+        
+        print(f"\nTotal attention modules found: {len(attention_modules)}")
+        return attention_modules
+
+    def find_option_token_indices(self, tokens, option_type="number", num_options=4):
+        indices = []
+        for i in range(num_options):
+            if option_type == "number":
+                # Try multiple patterns for number options
+                patterns = [f"{i+1}.", f"{i+1})", f"{i+1} )", f" {i+1}.", f"{i+1}"]
+            else:
+                # Try multiple patterns for letter options
+                letter = chr(ord('A') + i)
+                patterns = [f"{letter}.", f"{letter})", f"{letter} )", f" {letter}.", f"{letter}"]
+            
+            found = None
+            for pattern in patterns:
+                for idx, t in enumerate(tokens):
+                    if pattern in t:
+                        found = idx
+                        break
+                if found is not None:
+                    break
+            
+            indices.append(found)
+        
+        return indices
+
+    def find_audio_token_indices(self, tokens):
+        """Find audio token indices with improved pattern matching"""
+        indices = []
+        audio_patterns = ["<|audio|>", "<audio>", "<|AUDIO|>", "<AUDIO>", "audio", "AUDIO"]
+        
+        for idx, t in enumerate(tokens):
+            for pattern in audio_patterns:
+                if pattern in t:
+                    indices.append(idx)
+                    break
+        
+        return indices
+
+    def analyze_attention_across_layers(self, attentions, tokens, audio_token_indices, option_indices, correct_option_idx, layer_gap=3):
+        num_layers = len(attentions)
+        results = []
+        layers_to_check = [0] + [i for i in range(layer_gap, num_layers-1, layer_gap)] + [num_layers-1]
+        
+        for layer in sorted(set(layers_to_check)):
+            if layer >= num_layers:
+                continue
+                
+            # Get attention matrix for this layer (all heads)
+            attn = attentions[layer][0]  # Shape: (num_heads, seq_len, seq_len)
+            
+            # Calculate attention scores across all heads
+            audio_to_option_sum = 0.0
+            option_to_audio_sum = 0.0
+            
+            # Get the correct option index (adjust to 0-based indexing)
+            adjusted_correct_idx = correct_option_idx - 1 if correct_option_idx is not None else None
+            oidx = option_indices[adjusted_correct_idx] if adjusted_correct_idx is not None and adjusted_correct_idx < len(option_indices) else None
+            
+            if oidx is not None and audio_token_indices:
+                # Calculate attention from audio tokens to correct option token (rectangular region)
+                # This represents how much audio tokens attend to the correct option
+                for head in range(attn.shape[0]):  # Iterate over all heads
+                    head_attn = attn[head].cpu().float().numpy()
+                    
+                    # Sum attention from all audio tokens to the correct option token
+                    for aidx in audio_token_indices:
+                        if aidx < head_attn.shape[0] and oidx < head_attn.shape[1]:
+                            audio_to_option_sum += head_attn[aidx, oidx]
+                    
+                    # Sum attention from the correct option token to all audio tokens
+                    for aidx in audio_token_indices:
+                        if oidx < head_attn.shape[0] and aidx < head_attn.shape[1]:
+                            option_to_audio_sum += head_attn[oidx, aidx]
+                
+                # Average across heads
+                num_heads = attn.shape[0]
+                audio_to_option_sum /= num_heads
+                option_to_audio_sum /= num_heads
+            
+            results.append({
+                "layer": layer,
+                "audio_to_option_sum": audio_to_option_sum,
+                "option_to_audio_sum": option_to_audio_sum,
+                "num_audio_tokens": len(audio_token_indices),
+                "correct_option_idx": oidx,
+                "correct_answer": correct_option_idx
+            })
+        
+        return results
 
     def generate_average_attention_plot(self, all_attention_stats, layer_gap):
         """Generate average attention score plot across all questions"""
@@ -841,10 +716,13 @@ class QwenOmniAttentionVisualizer:
         import re
         def normalize(s):
             return re.sub(r'[^a-zA-Z0-9가-힣ㄱ-ㅎㅏ-ㅣ一-龥ぁ-ゔァ-ヴー々〆〤 ]', '', s).strip().lower()
+        
         # audio 토큰 인덱스
         audio_indices = self.find_audio_token_indices(tokens)
+        
         # question에서 단어 추출
         question_words = set(normalize(question).split())
+        
         # options에서 단어 추출
         option_words = set()
         for opt in options:
@@ -855,11 +733,18 @@ class QwenOmniAttentionVisualizer:
         relevant_words = question_words | option_words
         relevant_indices = []
         for i, t in enumerate(tokens):
+            if i >= len(tokens):  # Safety check
+                break
             t_norm = normalize(t)
             if t_norm in relevant_words:
                 relevant_indices.append(i)
         # audio + 주요 단어 인덱스 합치기 (중복 제거)
         all_relevant_indices = sorted(set(audio_indices + relevant_indices))
+        
+        # Final safety check: ensure all indices are within bounds
+        max_valid_index = len(tokens) - 1
+        all_relevant_indices = [i for i in all_relevant_indices if 0 <= i <= max_valid_index]
+        
         return all_relevant_indices
 
 if __name__ == "__main__":
