@@ -1,0 +1,108 @@
+/home/sheepswool/anaconda3/envs/llm/lib/python3.10/site-packages/transformers/utils/hub.py:111: FutureWarning: Using `TRANSFORMERS_CACHE` is deprecated and will be removed in v5 of Transformers. Use `HF_HOME` instead.
+  warnings.warn(
+usage: semdim_heatmap.py [-h] [--model MODEL] [--data-path DATA_PATH]
+                         [--output-dir OUTPUT_DIR]
+                         [--data-type {audio,original,romanized,ipa}]
+                         [--max-tokens MAX_TOKENS] [--temperature TEMPERATURE]
+                         [--max-samples MAX_SAMPLES]
+                         [--languages LANGUAGES [LANGUAGES ...]]
+semdim_heatmap.py: error: unrecognized arguments: --sample-limit 5000
+/home/sheepswool/anaconda3/envs/llm/lib/python3.10/site-packages/transformers/utils/hub.py:111: FutureWarning: Using `TRANSFORMERS_CACHE` is deprecated and will be removed in v5 of Transformers. Use `HF_HOME` instead.
+  warnings.warn(
+usage: semdim_heatmap.py [-h] [--model MODEL] [--data-path DATA_PATH]
+                         [--output-dir OUTPUT_DIR]
+                         [--data-type {audio,original,romanized,ipa}]
+                         [--max-tokens MAX_TOKENS] [--temperature TEMPERATURE]
+                         [--max-samples MAX_SAMPLES]
+                         [--languages LANGUAGES [LANGUAGES ...]]
+semdim_heatmap.py: error: unrecognized arguments: --sample-limit 5000
+/home/sheepswool/anaconda3/envs/llm/lib/python3.10/site-packages/transformers/utils/hub.py:111: FutureWarning: Using `TRANSFORMERS_CACHE` is deprecated and will be removed in v5 of Transformers. Use `HF_HOME` instead.
+  warnings.warn(
+usage: semdim_heatmap.py [-h] [--model MODEL] [--data-path DATA_PATH]
+                         [--output-dir OUTPUT_DIR]
+                         [--data-type {audio,original,romanized,ipa}]
+                         [--max-tokens MAX_TOKENS] [--temperature TEMPERATURE]
+                         [--max-samples MAX_SAMPLES]
+                         [--languages LANGUAGES [LANGUAGES ...]]
+semdim_heatmap.py: error: unrecognized arguments: --sample-limit 5000
+/home/sheepswool/anaconda3/envs/llm/lib/python3.10/site-packages/transformers/utils/hub.py:111: FutureWarning: Using `TRANSFORMERS_CACHE` is deprecated and will be removed in v5 of Transformers. Use `HF_HOME` instead.
+  warnings.warn(
+usage: semdim_heatmap.py [-h] [--model MODEL] [--data-path DATA_PATH]
+                         [--output-dir OUTPUT_DIR]
+                         [--data-type {audio,original,romanized,ipa}]
+                         [--max-tokens MAX_TOKENS] [--temperature TEMPERATURE]
+                         [--max-samples MAX_SAMPLES]
+                         [--languages LANGUAGES [LANGUAGES ...]]
+semdim_heatmap.py: error: unrecognized arguments: --sample-limit 5000
+/home/sheepswool/anaconda3/envs/llm/lib/python3.10/site-packages/transformers/utils/hub.py:111: FutureWarning: Using `TRANSFORMERS_CACHE` is deprecated and will be removed in v5 of Transformers. Use `HF_HOME` instead.
+  warnings.warn(
+usage: semdim_heatmap.py [-h] [--model MODEL] [--data-path DATA_PATH]
+                         [--output-dir OUTPUT_DIR]
+                         [--data-type {audio,original,romanized,ipa}]
+                         [--max-tokens MAX_TOKENS] [--temperature TEMPERATURE]
+                         [--max-samples MAX_SAMPLES]
+                         [--languages LANGUAGES [LANGUAGES ...]]
+semdim_heatmap.py: error: unrecognized arguments: --sample-limit 5000
+/home/sheepswool/anaconda3/envs/llm/lib/python3.10/site-packages/transformers/utils/hub.py:111: FutureWarning: Using `TRANSFORMERS_CACHE` is deprecated and will be removed in v5 of Transformers. Use `HF_HOME` instead.
+  warnings.warn(
+usage: semdim_heatmap.py [-h] [--model MODEL] [--data-path DATA_PATH]
+                         [--output-dir OUTPUT_DIR]
+                         [--data-type {audio,original,romanized,ipa}]
+                         [--max-tokens MAX_TOKENS] [--temperature TEMPERATURE]
+                         [--max-samples MAX_SAMPLES]
+                         [--languages LANGUAGES [LANGUAGES ...]]
+semdim_heatmap.py: error: unrecognized arguments: --sample-limit 5000
+/home/sheepswool/anaconda3/envs/llm/lib/python3.10/site-packages/transformers/utils/hub.py:111: FutureWarning: Using `TRANSFORMERS_CACHE` is deprecated and will be removed in v5 of Transformers. Use `HF_HOME` instead.
+  warnings.warn(
+usage: semdim_heatmap.py [-h] [--model MODEL] [--data-path DATA_PATH]
+                         [--output-dir OUTPUT_DIR]
+                         [--data-type {audio,original,romanized,ipa}]
+                         [--max-tokens MAX_TOKENS] [--temperature TEMPERATURE]
+                         [--max-samples MAX_SAMPLES]
+                         [--languages LANGUAGES [LANGUAGES ...]]
+semdim_heatmap.py: error: unrecognized arguments: --sample-limit 5000
+/home/sheepswool/anaconda3/envs/llm/lib/python3.10/site-packages/transformers/utils/hub.py:111: FutureWarning: Using `TRANSFORMERS_CACHE` is deprecated and will be removed in v5 of Transformers. Use `HF_HOME` instead.
+  warnings.warn(
+usage: semdim_heatmap.py [-h] [--model MODEL] [--data-path DATA_PATH]
+                         [--output-dir OUTPUT_DIR]
+                         [--data-type {audio,original,romanized,ipa}]
+                         [--max-tokens MAX_TOKENS] [--temperature TEMPERATURE]
+                         [--max-samples MAX_SAMPLES]
+                         [--languages LANGUAGES [LANGUAGES ...]]
+semdim_heatmap.py: error: unrecognized arguments: --sample-limit 5000
+/home/sheepswool/anaconda3/envs/llm/lib/python3.10/site-packages/transformers/utils/hub.py:111: FutureWarning: Using `TRANSFORMERS_CACHE` is deprecated and will be removed in v5 of Transformers. Use `HF_HOME` instead.
+  warnings.warn(
+usage: semdim_heatmap.py [-h] [--model MODEL] [--data-path DATA_PATH]
+                         [--output-dir OUTPUT_DIR]
+                         [--data-type {audio,original,romanized,ipa}]
+                         [--max-tokens MAX_TOKENS] [--temperature TEMPERATURE]
+                         [--max-samples MAX_SAMPLES]
+                         [--languages LANGUAGES [LANGUAGES ...]]
+semdim_heatmap.py: error: unrecognized arguments: --sample-limit 5000
+/home/sheepswool/anaconda3/envs/llm/lib/python3.10/site-packages/transformers/utils/hub.py:111: FutureWarning: Using `TRANSFORMERS_CACHE` is deprecated and will be removed in v5 of Transformers. Use `HF_HOME` instead.
+  warnings.warn(
+usage: semdim_heatmap.py [-h] [--model MODEL] [--data-path DATA_PATH]
+                         [--output-dir OUTPUT_DIR]
+                         [--data-type {audio,original,romanized,ipa}]
+                         [--max-tokens MAX_TOKENS] [--temperature TEMPERATURE]
+                         [--max-samples MAX_SAMPLES]
+                         [--languages LANGUAGES [LANGUAGES ...]]
+semdim_heatmap.py: error: unrecognized arguments: --sample-limit 5000
+/home/sheepswool/anaconda3/envs/llm/lib/python3.10/site-packages/transformers/utils/hub.py:111: FutureWarning: Using `TRANSFORMERS_CACHE` is deprecated and will be removed in v5 of Transformers. Use `HF_HOME` instead.
+  warnings.warn(
+usage: semdim_heatmap.py [-h] [--model MODEL] [--data-path DATA_PATH]
+                         [--output-dir OUTPUT_DIR]
+                         [--data-type {audio,original,romanized,ipa}]
+                         [--max-tokens MAX_TOKENS] [--temperature TEMPERATURE]
+                         [--max-samples MAX_SAMPLES]
+                         [--languages LANGUAGES [LANGUAGES ...]]
+semdim_heatmap.py: error: unrecognized arguments: --sample-limit 5000
+/home/sheepswool/anaconda3/envs/llm/lib/python3.10/site-packages/transformers/utils/hub.py:111: FutureWarning: Using `TRANSFORMERS_CACHE` is deprecated and will be removed in v5 of Transformers. Use `HF_HOME` instead.
+  warnings.warn(
+usage: semdim_heatmap.py [-h] [--model MODEL] [--data-path DATA_PATH]
+                         [--output-dir OUTPUT_DIR]
+                         [--data-type {audio,original,romanized,ipa}]
+                         [--max-tokens MAX_TOKENS] [--temperature TEMPERATURE]
+                         [--max-samples MAX_SAMPLES]
+                         [--languages LANGUAGES [LANGUAGES ...]]
+semdim_heatmap.py: error: unrecognized arguments: --sample-limit 5000
