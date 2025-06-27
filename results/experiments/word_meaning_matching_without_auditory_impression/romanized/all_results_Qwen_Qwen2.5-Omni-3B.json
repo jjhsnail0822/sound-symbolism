@@ -1,0 +1,34 @@
+[
+    {
+        "model": "Qwen/Qwen2.5-Omni-3B",
+        "accuracy": 0.34099520080828494,
+        "correct_count": 1350,
+        "total_count": 3959,
+        "data_path": "data/prompts/word_meaning_matching_without_auditory_impression/word_to_meaning_romanized-common.json",
+        "thinking": false
+    },
+    {
+        "model": "Qwen/Qwen2.5-Omni-3B",
+        "accuracy": 0.47385703460469814,
+        "correct_count": 1876,
+        "total_count": 3959,
+        "data_path": "data/prompts/word_meaning_matching_without_auditory_impression/meaning_to_word_romanized-common.json",
+        "thinking": false
+    },
+    {
+        "model": "Qwen/Qwen2.5-Omni-3B",
+        "accuracy": 0.32201319325677985,
+        "correct_count": 1318,
+        "total_count": 4093,
+        "data_path": "data/prompts/word_meaning_matching_without_auditory_impression/word_to_meaning_romanized-rare.json",
+        "thinking": false
+    },
+    {
+        "model": "Qwen/Qwen2.5-Omni-3B",
+        "accuracy": 0.28243342291717566,
+        "correct_count": 1156,
+        "total_count": 4093,
+        "data_path": "data/prompts/word_meaning_matching_without_auditory_impression/meaning_to_word_romanized-rare.json",
+        "thinking": false
+    }
+]

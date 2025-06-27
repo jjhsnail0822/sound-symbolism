@@ -7,6 +7,9 @@ import os
 import re
 from dotenv import load_dotenv
 from pathlib import Path
+import random
+
+random.seed(42)
 
 # Load environment variables from .env.local file
 env_path = Path('.env.local')
@@ -53,7 +56,12 @@ class GPTMCQExperiment:
         # Run experiment
         print(f"Running MCQ experiment on {len(mcq_data)} questions...")
         all_results = []
-        
+
+        # Pick random 50 questions for testing
+        if len(mcq_data) > 50:
+            print("More than 50 questions found, selecting a random sample of 50.")
+            mcq_data = random.sample(mcq_data, 50)
+
         # Process each question
         for query in tqdm(mcq_data):
             # The user content will be a list for multimodal input

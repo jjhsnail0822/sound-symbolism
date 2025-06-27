@@ -1,4 +1,5 @@
 from qwen_omni_inference import QwenOmniMCQExperiment
+from gpt_inference import GPTMCQExperiment
 import argparse
 import json
 
@@ -103,6 +104,15 @@ for word_group in word_groups:
                 max_tokens=32,
                 temperature=0.0,
                 exp_name=args.experiment,
+            )
+        elif 'gpt' in args.model.lower():
+            experiment = GPTMCQExperiment(
+                model_name=args.model,
+                data_path=formatted_path,
+                output_dir=OUTPUT_DIR,
+                exp_name=args.experiment,
+                max_tokens=32,
+                temperature=0.0,
             )
         else:
             raise ValueError("Unsupported model type. Only Qwen Omni models are supported in this script.")

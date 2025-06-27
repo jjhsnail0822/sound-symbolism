@@ -52,9 +52,10 @@ def get_dimension_accuracies(result_file_path):
     return dim_accuracies
 
 # --- Plotting Function ---
-def plot_sorted_bars(ax, accuracies, title, color_map):
+def plot_sorted_bars(ax, accuracies, title):
     """
-    Creates a vertical bar chart of dimensions sorted by accuracy, using a consistent color map.
+    Creates a vertical bar chart of dimensions sorted by accuracy.
+    Bar color is determined by accuracy value (blue for <0.5, red for >0.5).
     """
     if not accuracies:
         ax.text(0.5, 0.5, 'No data available', ha='center', va='center', transform=ax.transAxes)
@@ -64,10 +65,22 @@ def plot_sorted_bars(ax, accuracies, title, color_map):
     # Sort in descending order based on accuracy
     sorted_items = sorted(accuracies.items(), key=lambda item: item[1], reverse=True)
     dimensions = [item[0].replace('_', ' ').title() for item in sorted_items]
-    acc_values = [item[1] for item in sorted_items]
+    acc_values = np.array([item[1] for item in sorted_items])
     
-    # Assign colors based on the consistent dimension-to-color map
-    bar_colors = [color_map.get(item[0], '#CCCCCC') for item in sorted_items] # Default to gray if not found
+    # Assign colors based on accuracy value relative to 0.5 baseline
+    # Using a diverging colormap (coolwarm: blue -> white -> red)
+    cmap = plt.get_cmap('coolwarm')
+    
+    # Create a continuous, non-linear mapping to enhance color saturation.
+    # This avoids the pale center of the 'coolwarm' map while maintaining a smooth gradient.
+    power = 0.25  # Exponent < 1 pushes values away from the center (0.5), increasing saturation.
+    centered_values = acc_values - 0.5  # Center values around 0. Range: [-0.5, 0.5]
+    
+    # Apply power transformation to absolute values and then restore sign
+    transformed_abs = (np.abs(centered_values) / 0.5)**power * 0.5
+    color_norm_values = 0.5 + np.sign(centered_values) * transformed_abs
+
+    bar_colors = cmap(color_norm_values)
 
     bars = ax.bar(dimensions, acc_values, color=bar_colors)
 
@@ -90,7 +103,7 @@ def main():
     """
     Main function to run the analysis and plotting for all specified experiments.
     Averages results across all found models for each experiment.
-    Ensures consistent dimension coloring across all plots.
+    Bar colors are based on accuracy relative to the 50% baseline.
     """
     # --- Configuration ---
     EXPERIMENTS = [
@@ -119,9 +132,8 @@ def main():
     output_base_dir = os.path.join('results', 'plots', 'experiments', 'semantic_dimension_binary_breakdown')
     os.makedirs(output_base_dir, exist_ok=True)
 
-    # --- Phase 1: Collect all data and dimension names ---
+    # --- Phase 1: Collect all data ---
     all_experiments_data = []
-    all_dimension_names = set()
 
     for config in EXPERIMENTS:
         EXP_NAME = config["name"]
@@ -171,30 +183,10 @@ def main():
                 "common": avg_common_accuracies,
                 "rare": avg_rare_accuracies
             })
-            all_dimension_names.update(avg_common_accuracies.keys())
-            all_dimension_names.update(avg_rare_accuracies.keys())
         else:
             print(f"  Skipping plot for {EXP_NAME} due to missing data across all models.")
 
-    # --- Phase 2: Create a consistent color map for all dimensions ---
-    sorted_dims = sorted(list(all_dimension_names))
-    num_dims = len(sorted_dims)
-
-    # Select a color map that provides good visual distinction for the number of dimensions.
-    if num_dims <= 20:
-        # 'tab20' is excellent for up to 20 categories.
-        colors = list(plt.cm.get_cmap('tab20').colors)
-    elif num_dims <= 40:
-        # For up to 40, we can combine 'tab20' and 'tab20b' for more distinct colors.
-        colors = list(plt.cm.get_cmap('tab20').colors) + list(plt.cm.get_cmap('tab20b').colors)
-    else:
-        # For a large number of categories, 'hsv' provides a wide spectrum of distinct hues.
-        # This is better for categorical data than a sequential map like 'viridis'.
-        colors = plt.cm.hsv(np.linspace(0, 1, num_dims))
-
-    dimension_color_map = {dim: colors[i] for i, dim in enumerate(sorted_dims)}
-
-    # --- Phase 3: Plot all experiments with the consistent color map ---
+    # --- Phase 2: Plot all experiments ---
     for exp_data in all_experiments_data:
         config = exp_data["config"]
         avg_common_accuracies = exp_data["common"]
@@ -208,8 +200,8 @@ def main():
         fig, axes = plt.subplots(1, 2, figsize=(28, 12), sharey=True)
         fig.suptitle(f'{TITLE_PREFIX}', fontsize=20, weight='bold')
 
-        plot_sorted_bars(axes[0], avg_common_accuracies, 'Common Words', dimension_color_map)
-        plot_sorted_bars(axes[1], avg_rare_accuracies, 'Rare Words', dimension_color_map)
+        plot_sorted_bars(axes[0], avg_common_accuracies, 'Common Words')
+        plot_sorted_bars(axes[1], avg_rare_accuracies, 'Rare Words')
 
         plt.tight_layout(rect=[0, 0, 1, 0.95])
 

@@ -12,7 +12,7 @@ def create_summary_plot(plot_data, all_models, title, output_filename, y_lims):
     """
     plt.style.use('seaborn-v0_8-whitegrid')
     # Adjust figsize for a denser plot
-    fig, ax = plt.subplots(figsize=(9, 7))
+    fig, ax = plt.subplots(figsize=(12, 7))
 
     x_labels = list(plot_data.keys())
     x_pos = np.arange(len(x_labels))
@@ -97,10 +97,13 @@ def create_summary_plot(plot_data, all_models, title, output_filename, y_lims):
 
 # 1) Define experiment configurations
 exp_configs = {
-    'Original Text': 'original',
+    'Original': 'original',
+    'Original & Audio': 'original_and_audio',
     'Romanized': 'romanized',
+    'Romanized & Audio': 'romanized_and_audio',
     'IPA': 'ipa',
-    'Audio': 'audio'
+    'IPA & Audio': 'ipa_and_audio',
+    'Audio': 'audio',
 }
 exp_base_dir = 'results/experiments/word_meaning_matching'
 
