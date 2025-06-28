@@ -17,43 +17,9 @@ import matplotlib
 import matplotlib.font_manager as fm
 from tqdm import tqdm
 from qwen_omni_utils import process_mm_info
-def set_font_for_language(lang):
-    """Set appropriate font based on language with fallback system"""
-    import os
-    
-    # Define font preferences for each language with fallbacks
-    font_preferences = {
-        "en": ["DejaVu Sans", "Arial", "Liberation Sans", "sans-serif"],
-        "fr": ["DejaVu Sans", "Arial", "Liberation Sans", "sans-serif"],
-        "ko": ["Malgun Gothic", "Nanum Gothic", "DejaVu Sans", "sans-serif"],
-        "ja": ["Noto Sans CJK JP", "Source Han Sans JP", "Hiragino Sans", "Yu Gothic", "DejaVu Sans", "sans-serif"]
-    }
-    
-    # Get available fonts
-    available_fonts = [f.name for f in fm.fontManager.ttflist]
-    
-    # Try to find an available font from preferences
-    fonts_to_try = font_preferences.get(lang, ["DejaVu Sans", "sans-serif"])
-    
-    selected_font = None
-    for font in fonts_to_try:
-        if font in available_fonts or font == "sans-serif":
-            selected_font = font
-            break
-    
-    if selected_font:
-        matplotlib.rcParams['font.family'] = selected_font
-        # Only print if it's not the default fallback
-        if selected_font != "DejaVu Sans":
-            print(f"Set font for language '{lang}' to: {selected_font}")
-    else:
-        # Ultimate fallback
-        matplotlib.rcParams['font.family'] = 'sans-serif'
-        print(f"Warning: No suitable font found for language '{lang}', using default sans-serif")
-    
-    # Enable Unicode support and set font properties
-    matplotlib.rcParams['axes.unicode_minus'] = False
-    matplotlib.rcParams['font.sans-serif'] = [selected_font] if selected_font else ['sans-serif']
+# Import the new heatmap plotting module
+from heatmap_plot import SemanticDimensionHeatmapPlotter, set_font_for_language
+
 language = ["en", "fr", "ko", "ja"]
 data_types = ["original", "romanized", "ipa", "audio"]
 data_path = "data/processed/nat/semantic_dimension/semantic_dimension_binary_gt.json"
@@ -243,7 +209,7 @@ class QwenOmniSemanticDimensionVisualizer:
         # print(f"Ending get_attention_matrix function")
         return attentions, tokens, inputs
     
-    def save_matrix(self, attention_matrix, dimension1, dimension2, answer, word_tokens, option_tokens, layer_type="self", lang="en"):
+    def save_matrix(self, attention_matrix, dimension1, dimension2, answer, word_tokens, option_tokens, layer_type="self", lang="en", tokens=None):
         # print(f"Starting save_matrix function")
         """Save matrix as pickle file
         # Composition
@@ -251,6 +217,7 @@ class QwenOmniSemanticDimensionVisualizer:
         - dimension1, dimension2, answer
         - corresponding word tokens with index
         - corresponding option tokens with index
+        - tokens (for visualization)
         """
         matrix_data = {
             "attention_matrix": attention_matrix,
@@ -258,7 +225,8 @@ class QwenOmniSemanticDimensionVisualizer:
             "dimension2": dimension2,
             "answer": answer,
             "word_tokens": word_tokens,
-            "option_tokens": option_tokens
+            "option_tokens": option_tokens,
+            "tokens": tokens  # Add tokens for visualization
         }
         output_dir = os.path.join(self.output_dir, self.exp_type, self.data_type, lang)
         os.makedirs(output_dir, exist_ok=True)
@@ -566,171 +534,6 @@ class QwenOmniSemanticDimensionVisualizer:
                 computed_matrix = filtered_attention_matrix
         return computed_matrix
     
-    def plot_heatmap(self, attention_matrix, tokens, dimension1, dimension2, answer, word_tokens, option_tokens, data_type="audio", layer_type="self", head=0, layer=0, lang="en"):
-        """Plot attention heatmap for semantic dimension analysis"""
-        
-        # Set font based on language
-        set_font_for_language(lang)
-        
-        # Filter relevant indices
-        filtered_matrix, row_indices, col_indices = self.filter_relevant_indices(
-            attention_matrix, tokens, tokens, word_tokens, option_tokens, dimension1, dimension2, answer, layer_type
-        )
-        # Compute matrix based on purpose
-        computed_matrix = self.matrix_computation(filtered_matrix, "heatmap", head, layer, phoneme_mean_map)
-        # Convert to CPU numpy array if it's a tensor
-        if hasattr(computed_matrix, 'cpu'):
-            # Convert to float32 first to handle BFloat16
-            computed_matrix = computed_matrix.float().cpu().numpy()
-        elif hasattr(computed_matrix, 'numpy'):
-            computed_matrix = computed_matrix.numpy()
-        
-        # Create token labels
-        if row_indices and col_indices:
-            # Remove "Ġ" from token labels
-            row_labels = [tokens[i].replace("Ġ", "") if tokens[i].startswith("Ġ") else tokens[i] for i in row_indices]
-            col_labels = [tokens[i].replace("Ġ", "") if tokens[i].startswith("Ġ") else tokens[i] for i in col_indices]
-        else:
-            # Remove "Ġ" from all token labels
-            row_labels = [token.replace("Ġ", "") if token.startswith("Ġ") else token for token in tokens]
-            col_labels = [token.replace("Ġ", "") if token.startswith("Ġ") else token for token in tokens]
-        # Ensure matrix and labels have compatible dimensions
-        if len(row_labels) != computed_matrix.shape[0] or len(col_labels) != computed_matrix.shape[1]:
-            # Adjust matrix size to match labels
-            min_rows = min(len(row_labels), computed_matrix.shape[0])
-            min_cols = min(len(col_labels), computed_matrix.shape[1])
-            computed_matrix = computed_matrix[:min_rows, :min_cols]
-            row_labels = row_labels[:min_rows]
-            col_labels = col_labels[:min_cols]
-        
-        # Create heatmap
-        plt.figure(figsize=(12, 10))
-        sns.heatmap(computed_matrix, xticklabels=col_labels, yticklabels=row_labels, 
-                   cmap='Blues', annot=True, fmt='.3f')
-        
-        plt.title(f'Semantic Dimension Attention Heatmap\nWord: {word_tokens}, Dim1: {dimension1}, Dim2: {dimension2}, Answer: {answer}\nLayer: {layer}, Head: {head}, Type: {layer_type}')
-        plt.xlabel('Key Tokens')
-        plt.ylabel('Query Tokens')
-        # Remove X-axis rotation
-        plt.xticks(rotation=0)
-        plt.yticks(rotation=0)
-        
-        # Save plot
-        os.makedirs(os.path.join(self.output_dir, self.exp_type), exist_ok=True)
-        save_path = os.path.join(self.output_dir, f"semdim_{data_type}_{self.exp_type}_{layer_type}_layer{layer}_head{head}_{dimension1}_{dimension2}_{word_tokens}.png")
-        plt.savefig(save_path, dpi=300, bbox_inches='tight')
-        plt.close()
-        print(f"Saved heatmap to {save_path}")
-        # print(f"Ending plot_heatmap function")
-    
-    def plot_average_heatmap(self, avg_matrix, tokens, dimension1, dimension2, answer, word_tokens, option_tokens, data_type="audio", layer_type="self", lang="en"):
-        """Plot average attention heatmap across all layers"""
-        # Set font based on language
-        set_font_for_language(lang)
-        
-        # Get token indices for labels (use the same filtering logic as plot_heatmap)
-        word_indices = self.find_token_indices(tokens, [word_tokens])
-        if self.data_type == "audio":
-            word_indices = self.find_token_indices(tokens, ["<|AUDIO|>"])
-        dim1_indices = self.find_token_indices(tokens, [dimension1])
-        dim2_indices = self.find_token_indices(tokens, [dimension2])
-        
-        # Collect relevant indices
-        relevant_indices = []
-        for idx, token in enumerate(tokens):
-            if idx in word_indices or idx in dim1_indices or idx in dim2_indices:
-                relevant_indices.append(idx)
-        
-        # Create token labels (remove "Ġ" if present)
-        if relevant_indices:
-            row_labels = [tokens[i].replace("Ġ", "") if tokens[i].startswith("Ġ") else tokens[i] for i in relevant_indices]
-            col_labels = [tokens[i].replace("Ġ", "") if tokens[i].startswith("Ġ") else tokens[i] for i in relevant_indices]
-        else:
-            row_labels = [token.replace("Ġ", "") if token.startswith("Ġ") else token for token in tokens]
-            col_labels = [token.replace("Ġ", "") if token.startswith("Ġ") else token for token in tokens]
-        
-        # Ensure matrix and labels have compatible dimensions
-        if len(row_labels) != avg_matrix.shape[0] or len(col_labels) != avg_matrix.shape[1]:
-            min_rows = min(len(row_labels), avg_matrix.shape[0])
-            min_cols = min(len(col_labels), avg_matrix.shape[1])
-            avg_matrix = avg_matrix[:min_rows, :min_cols]
-            row_labels = row_labels[:min_rows]
-            col_labels = col_labels[:min_cols]
-        
-        # Create average heatmap
-        plt.figure(figsize=(12, 10))
-        sns.heatmap(avg_matrix, xticklabels=col_labels, yticklabels=row_labels, 
-                   cmap='Blues', annot=True, fmt='.3f')
-        
-        plt.title(f'Semantic Dimension Average Attention Heatmap (All Layers)\nWord: {word_tokens}, Dim1: {dimension1}, Dim2: {dimension2}, Answer: {answer}')
-        plt.xlabel('Key Tokens')
-        plt.ylabel('Query Tokens')
-        # Remove X-axis rotation
-        plt.xticks(rotation=0)
-        plt.yticks(rotation=0)
-        
-        # Save plot
-        os.makedirs(os.path.join(self.output_dir, self.data_type, lang), exist_ok=True)
-        save_path = os.path.join(self.output_dir, self.data_type, lang, f"semdim_avg_heatmap_{data_type}_{layer_type}_{word_tokens}.png")
-        plt.savefig(save_path, dpi=300, bbox_inches='tight')
-        plt.close()
-        print(f"Saved average heatmap to {save_path}")
-    
-    def plot_flow(self, attention_matrix, tokens, dimension1, dimension2, answer, word_tokens, option_tokens, data_type="audio", layer_type="self", lang="en"):
-        # print(f"Starting plot_flow function")
-        """Plot attention flow across layers"""
-        
-        # Set font based on language
-        set_font_for_language(lang)
-        
-        # Filter relevant indices
-        filtered_matrix, row_indices, col_indices = self.filter_relevant_indices(
-            attention_matrix, tokens, tokens, word_tokens, option_tokens, dimension1, dimension2, answer, layer_type
-        )
-        
-        # Compute flow matrix
-        flow_matrix = self.matrix_computation(filtered_matrix, "flow", "all", "all", phoneme_mean_map)
-        
-        # Convert to CPU numpy array if it's a tensor
-        if hasattr(flow_matrix, 'cpu'):
-            # print(f"Debug - Converting flow tensor to CPU numpy array")
-            # Convert to float32 first to handle BFloat16
-            flow_matrix = flow_matrix.float().cpu().numpy()
-        elif hasattr(flow_matrix, 'numpy'):
-            # print(f"Debug - Converting flow to numpy array")
-            flow_matrix = flow_matrix.numpy()
-        
-        # Create flow plot
-        plt.figure(figsize=(12, 8))
-        
-        # Plot attention flow across all layers
-        if len(flow_matrix.shape) == 1:
-            # Single line plot
-            plt.plot(range(len(flow_matrix)), flow_matrix, marker='o', linewidth=2, markersize=6, 
-                    label=f'Attention Score ({dimension1} vs {dimension2})')
-        else:
-            # Multiple lines plot (if we have multiple attention patterns)
-            for i in range(flow_matrix.shape[0]):
-                plt.plot(range(flow_matrix.shape[1]), flow_matrix[i], marker='o', linewidth=2, markersize=6,
-                        label=f'Pattern {i+1}')
-        
-        plt.title(f'Semantic Dimension Attention Flow\nWord: {word_tokens}, Dim1: {dimension1}, Dim2: {dimension2}, Answer: {answer}')
-        plt.xlabel('Attention Layer')
-        plt.ylabel('Attention Score')
-        plt.ylim(0, 1.0)  # Set Y-axis maximum to 1.0
-        plt.grid(True, alpha=0.3)
-        plt.legend()
-        
-        # Set X-axis to show integer values for all layers
-        plt.xticks(range(len(flow_matrix) if len(flow_matrix.shape) == 1 else flow_matrix.shape[1]))
-        
-        # Save plot
-        save_path = os.path.join(self.output_dir, f"semdim_flow_{data_type}_{layer_type}.png")
-        plt.savefig(save_path, dpi=300, bbox_inches='tight')
-        plt.close()
-        print(f"Saved flow plot to {save_path}")
-        # print(f"Ending plot_flow function")
-    
     def inference_with_hooks(self, word, lang, constructed_prompt, dim1, dim2, answer, data, dimension_name):
         # print(f"Starting inference_with_hooks function")
         """Main inference function with attention extraction and visualization"""
@@ -744,7 +547,16 @@ class QwenOmniSemanticDimensionVisualizer:
         word_tokens = data['word']
         option_tokens = [dim1, dim2]
         # Save attention matrix
-        self.save_matrix(attentions, dim1, dim2, answer, word_tokens, option_tokens, "self", lang)
+        self.save_matrix(attentions, dim1, dim2, answer, word_tokens, option_tokens, "self", lang, tokens)
+        
+        # Initialize heatmap plotter for visualization
+        plotter = SemanticDimensionHeatmapPlotter(
+            output_dir=self.output_dir,
+            exp_type=self.exp_type,
+            data_type=self.data_type,
+            phoneme_mean_map=phoneme_mean_map
+        )
+        
         # Generate heatmaps for all layers and calculate average
         num_layers = len(attentions)
         all_layer_matrices = []
@@ -766,20 +578,20 @@ class QwenOmniSemanticDimensionVisualizer:
             else:
                 computed_matrix_np = np.array(computed_matrix)
             all_layer_matrices.append(computed_matrix_np)
-            # Plot heatmap for this layer
-            self.plot_heatmap(
+            # Plot heatmap for this layer using the plotter
+            plotter.plot_heatmap(
                 layer_attention, tokens, dim1, dim2, answer, word_tokens, option_tokens,
                 data_type=self.data_type, layer_type="self", head=0, layer=layer, lang=lang
             )
         # Calculate and plot average heatmap
         if all_layer_matrices:
             avg_matrix = np.mean(np.stack(all_layer_matrices), axis=0)
-            self.plot_average_heatmap(
+            plotter.plot_average_heatmap(
                 avg_matrix, tokens, dim1, dim2, answer, word_tokens, option_tokens,
                 data_type=self.data_type, layer_type="self", lang=lang
             )
         # Plot attention flow across layers
-        self.plot_flow(
+        plotter.plot_flow(
             attentions, tokens, dim1, dim2, answer, word_tokens, option_tokens,
             data_type=self.data_type, layer_type="self", lang=lang
         )
