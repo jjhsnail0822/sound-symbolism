@@ -1,0 +1,693 @@
+﻿original_meaning,original_word,generated_word,trial,model,language,words_per_meaning
+넓고 얇은 쇠붙이 따위가 자꾸 서로 부딪쳐 울리는 소리.,쩌르렁쩌르렁,,trial2,Qwen/Qwen3-4B,ko,2
+넓고 얇은 쇠붙이 따위가 자꾸 서로 부딪쳐 울리는 소리.,쩌르렁쩌르렁,,trial2,Qwen/Qwen3-4B,ko,2
+여럿이 다 또는 몹시 꽉 차고도 남을 만큼 넉넉한 상태.,흠씬흠씬,,trial2,Qwen/Qwen3-4B,ko,2
+여럿이 다 또는 몹시 꽉 차고도 남을 만큼 넉넉한 상태.,흠씬흠씬,,trial2,Qwen/Qwen3-4B,ko,2
+주위에 아무것도 없어서 아주 또는 계속 공허한 느낌.,하전하전,,trial2,Qwen/Qwen3-4B,ko,2
+주위에 아무것도 없어서 아주 또는 계속 공허한 느낌.,하전하전,,trial2,Qwen/Qwen3-4B,ko,2
+나뭇가지나 물건의 틈 사이로 바람이 자꾸 몰아쳐 부는 소리.,쐐쐐,,trial2,Qwen/Qwen3-4B,ko,2
+나뭇가지나 물건의 틈 사이로 바람이 자꾸 몰아쳐 부는 소리.,쐐쐐,,trial2,Qwen/Qwen3-4B,ko,2
+작은 물건이 계속 구르는 모양.,대굴대굴,,trial2,Qwen/Qwen3-4B,ko,2
+작은 물건이 계속 구르는 모양.,대굴대굴,,trial2,Qwen/Qwen3-4B,ko,2
+작고 가벼운 물건이 바닥이나 물체 위에 떨어지거나 부딪쳐 나는 소리.,콩,,trial2,google/gemma-3-12b-it,ko,2
+어떤 감정을 나타내면서 입이나 눈이 자꾸 실그러졌다 샐그러졌다 하며 움직이는 모양.,실쭉샐쭉,,trial2,google/gemma-3-12b-it,ko,2
+몹시 아프거나 힘에 겨워 조금 괴롭게 자꾸 내는 소리.,깽깽,,trial2,google/gemma-3-12b-it,ko,2
+음식이나 재물에 욕심을 부려 염치없이 구는 모양.,걸걸,,trial2,google/gemma-3-12b-it,ko,2
+무엇을 내다보거나 목구멍에 걸린 것을 삼키려고 목을 길게 빼어 자꾸 앞으로 내미는 모양.,끼룩끼룩,,trial2,google/gemma-3-12b-it,ko,2
+검은 점이나 얼룩이 굵게 여기저기 박혀 있는 모양.,검적검적,,trial2,google/gemma-3-12b-it,ko,2
+남김없이 시원스럽게 잇따라 벗거나 벗어진 모양.,활딱활딱,,trial2,google/gemma-3-12b-it,ko,2
+말이나 행동을 일부러 분명하게 하지 아니하고 적당히 살짝 넘기는 모양.,어물쩍,,trial2,google/gemma-3-12b-it,ko,2
+짧은 다리를 모으고 힘 있게 솟구쳐 뛰는 모양.,강중,,trial2,google/gemma-3-12b-it,ko,2
+뜸부기가 우는 소리.,뜸북뜸북,,trial2,google/gemma-3-12b-it,ko,2
+큰 눈이 슬쩍 자꾸 감겼다 뜨였다 하는 모양.,끔쩍끔쩍,,trial2,google/gemma-3-12b-it,ko,2
+남을 은근히 비웃는 태도로 계속 놀리는 모양.,빈정빈정,,trial2,google/gemma-3-12b-it,ko,2
+매우 또는 여기저기가 야들야들하게 보드랍고 무른 느낌.,말랑말랑,,trial2,google/gemma-3-12b-it,ko,2
+남이 알아듣지 못하도록 낮은 목소리로 조금 수선스럽게 자꾸 이야기하는 소리. 또는 그 모양.,쑥덜쑥덜,,trial2,google/gemma-3-12b-it,ko,2
+여럿이 다 또는 자꾸 눈을 함부로 흘기며 번쩍이는 모양.,훌근번쩍훌근번쩍,,trial2,google/gemma-3-12b-it,ko,2
+여럿이 다 깊은 맛이 있게 조금 신 맛이나 냄새가 있는 느낌.,시금시금,,trial2,google/gemma-3-12b-it,ko,2
+여럿이 한곳으로 갑자기 몰리는 모양.,왁,,trial2,google/gemma-3-12b-it,ko,2
+크고 동그란 눈알이 힘 있게 움직이는 모양.,되록,,trial2,google/gemma-3-12b-it,ko,2
+놀라서 갑자기 몸을 가볍게 자꾸 움직이는 모양.,옴칫옴칫,,trial2,google/gemma-3-12b-it,ko,2
+"마른 잎이나 검불, 종이 따위를 밟거나 건드릴 때 나는 소리.",부스럭,,trial2,google/gemma-3-12b-it,ko,2
+물기나 풀기가 있는 물체의 거죽이 거의 말라서 빳빳한 상태.,가닥가닥,,trial2,google/gemma-3-4b-it,ko,2
+불빛이나 별빛 따위가 자꾸 어두워졌다 밝아지는 모양.,깜빡깜빡,,trial2,google/gemma-3-4b-it,ko,2
+반반하게 생긴 사람이 자꾸 이죽이죽하면서 느물거리는 모양.,뺜죽뺜죽,,trial2,google/gemma-3-4b-it,ko,2
+얇은 쇠붙이 따위가 마구 부딪쳐 울리는 가벼운 소리. 또는 그 모양.,왱강쟁강,,trial2,google/gemma-3-4b-it,ko,2
+계속 넘어다보는 모양.,넘성넘성,,trial2,google/gemma-3-4b-it,ko,2
+작고 얇은 쇠붙이 따위가 조금 가볍게 떨어지거나 맞부딪쳐 울리는 소리. 또는 그 모양.,잘그랑,,trial2,google/gemma-3-4b-it,ko,2
+밥알 따위가 물기가 적거나 말라서 속은 무르고 겉은 조금 굳은 상태.,꼬들꼬들,,trial2,google/gemma-3-4b-it,ko,2
+어떤 감정을 나타내면서 입이나 눈이 한쪽으로 약간 샐그러지게 움직이는 모양.,샐쭉,,trial2,google/gemma-3-4b-it,ko,2
+큰 불빛이나 별빛 따위가 갑자기 어두워졌다 밝아지는 모양. 또는 밝아졌다 어두워지는 모양.,끔벅,,trial2,google/gemma-3-4b-it,ko,2
+고개를 앞뒤로 천천히 끄덕이는 모양.,주억,,trial2,google/gemma-3-4b-it,ko,2
+큰 빛이 잠깐 나타났다가 사라지는 모양.,뻔적,,trial2,google/gemma-3-4b-it,ko,2
+여러 개의 가는 사물의 끝이 아주 짧고 무딘 모양.,몽똑몽똑,,trial2,google/gemma-3-4b-it,ko,2
+작은북 따위를 장단에 맞추어 흥겹게 두드리는 소리.,콩작콩,,trial2,google/gemma-3-4b-it,ko,2
+쌓여 있던 단단한 물건들이 잇따라 야단스럽게 무너지는 소리. 또는 그 모양.,와르르와르르,,trial2,google/gemma-3-4b-it,ko,2
+뜻밖의 일 따위에 탄복할 때 나오는 소리.,어쩜,,trial2,google/gemma-3-4b-it,ko,2
+갑자기 목청을 높여 자꾸 지르는 소리. 또는 그 모양.,꽥꽥,,trial2,google/gemma-3-4b-it,ko,2
+여럿이 다 또는 매우 포근하게 보드랍고 탄력이 있는 느낌.,폭신폭신,,trial2,google/gemma-3-4b-it,ko,2
+여럿이 다 끝이 점차 가늘어져서 날카로운 모양.,뾰족뾰족,,trial2,google/gemma-3-4b-it,ko,2
+작은 물건이 깜찍하게 매달려 있는 모양.,대롱,,trial2,google/gemma-3-4b-it,ko,2
+자꾸 몹시 기를 쓰며 고집을 부리거나 애를 쓰는 모양.,으등으등,,trial2,google/gemma-3-4b-it,ko,2
+매우 급하거나 바빠서 몹시 서두르는 모양.,진둥한둥,,trial2,google/gemma-3-4b-it,ko,2
+다리에 힘이 없어 가볍게 다리를 절며 걷는 모양.,자축자축,,trial2,google/gemma-3-4b-it,ko,2
+호루라기나 호각 따위를 부는 소리.,호로로,,trial2,google/gemma-3-4b-it,ko,2
+많은 사람이 좁은 곳에 모여 수선스럽게 잇따라 들끓는 모양.,복작복작,,trial2,google/gemma-3-4b-it,ko,2
+일을 자꾸 미루어 시간을 끌어 가는 모양.,미룸미룸,,trial2,google/gemma-3-4b-it,ko,2
+서로 겨루느라고 버티는 모양.,겯거니틀거니,,trial2,google/gemma-3-4b-it,ko,2
+먼지나 때 따위가 좀 두껍게 붙어 있는 모양.,덕적덕적,,trial2,google/gemma-3-4b-it,ko,2
+성질이 털털하여 꼼꼼하지 못한 모양.,데설데설,,trial2,google/gemma-3-4b-it,ko,2
+큰 물체가 물에 부딪치거나 잠기는 소리. 또는 그 모양.,점벙,,trial2,google/gemma-3-4b-it,ko,2
+기한이나 일 따위를 우물쩍거리며 잇따라 미루는 모양.,을밋을밋,,trial2,google/gemma-3-4b-it,ko,2
+"사람이나 물체, 빛 따위가 먼 곳에서 자꾸 아렴풋이 움직이는 모양.",감실감실,,trial2,google/gemma-3-4b-it,ko,2
+숨을 자꾸 가쁘고 거칠게 쉬는 소리. 또는 그 모양.,헐떡헐떡,,trial2,google/gemma-3-4b-it,ko,2
+발에 힘을 주어 살짝 내디디는 소리.,짜박,,trial2,google/gemma-3-4b-it,ko,2
+걸을 때에 잇따라 다리를 몹시 저는 모양.,쩔룩쩔룩,,trial2,google/gemma-3-4b-it,ko,2
+허리를 가볍게 좌우로 자꾸 흔드는 모양.,얄쭉얄쭉,,trial2,google/gemma-3-4b-it,ko,2
+작고 단단한 물건이 잇따라 부딪쳐 흔들리면서 맞닿는 소리.,달그락달그락,,trial2,google/gemma-3-4b-it,ko,2
+여러 가지 빛깔의 작은 점이나 줄 따위가 고르지 아니하고 촘촘하게 무늬를 이룬 모양.,아롱다롱,,trial2,google/gemma-3-4b-it,ko,2
+힘없이 가볍게 주저앉는 소리. 또는 그 모양.,팍삭,,trial2,google/gemma-3-4b-it,ko,2
+산에 나무가 없어 반반한 모양.,맨둥맨둥,,trial2,google/gemma-3-4b-it,ko,2
+눈을 함부로 흘기며 번쩍이는 모양.,훌근번쩍,,trial2,google/gemma-3-4b-it,ko,2
+무른 똥을 조금 힘들여 누는 소리.,포도독,,trial2,google/gemma-3-4b-it,ko,2
+보이지 아니하는 데 있는 것을 찾으려고 자꾸 이리저리 더듬어 뒤지는 모양.,훔척훔척,,trial2,google/gemma-3-4b-it,ko,2
+천연두나 헌데 따위가 딱지가 붙을 정도로 조금 마른 모양.,수슬수슬,,trial2,google/gemma-3-4b-it,ko,2
+작은 덩이로 자꾸 똑똑 끊어지거나 잘라지는 모양.,몬탁몬탁,,trial2,google/gemma-3-4b-it,ko,2
+새 따위가 날개를 가볍게 치며 날아가는 소리. 또는 그 모양.,후르르,,trial2,google/gemma-3-4b-it,ko,2
+얇고 조금 무거운 쇠붙이나 유리 따위가 떨어지거나 부딪쳐 맑게 울리는 소리.,쩽겅,,trial2,google/gemma-3-4b-it,ko,2
+큰북 따위를 장단에 맞추어 흥겹게 두드리는 소리.,쿵적쿵,,trial2,google/gemma-3-4b-it,ko,2
+눈과 입을 살며시 움직이며 소리 없이 부드럽게 웃는 모양.,생그레,,trial2,google/gemma-3-4b-it,ko,2
+조금 수다스럽게 재잘거리는 소리. 또는 그 모양.,재재,,trial2,google/gemma-3-4b-it,ko,2
+눈과 입을 귀엽게 움직이며 소리 없이 가볍게 웃는 모양.,상끗,,trial2,google/gemma-3-4b-it,ko,2
+느슨하여진 나무틀이나 엉성하게 묶인 짐짝 따위가 자꾸 쓸리는 소리.,찌꺽찌꺽,,trial2,google/gemma-3-4b-it,ko,2
+여럿이 다 보기 좋을 정도로 조금 가늘고 긴 듯한 모양.,갸름갸름,,trial2,google/gemma-3-4b-it,ko,2
+얇고 넓은 물건이 자꾸 가볍게 날리어 흔들리는 모양.,나푼나푼,,trial2,google/gemma-3-4b-it,ko,2
+눈이 살짝 감겼다 뜨이는 모양.,깜짝,,trial2,google/gemma-3-4b-it,ko,2
+느슨하여진 나무틀이나 엉성하게 묶인 짐짝 따위가 자꾸 쏠리는 소리.,찌걱찌걱,,trial2,google/gemma-3-4b-it,ko,2
+부피만 크고 바탕이 거친 물건 따위가 자꾸 쉽게 부스러지는 소리. 또는 그 모양.,푸석푸석,,trial2,google/gemma-3-4b-it,ko,2
+고개 따위를 아래위로 거볍게 계속 움직이는 모양.,끄떡끄떡,,trial2,google/gemma-3-4b-it,ko,2
+짧은 다리를 모으고 힘 있게 솟구쳐 뛰는 모양.,깡쭝,,trial2,google/gemma-3-4b-it,ko,2
+입을 슬며시 벌릴 듯하면서 소리 없이 거볍고 온화하게 잇따라 웃는 모양.,빙싯빙싯,,trial2,google/gemma-3-4b-it,ko,2
+큼직한 물건이 볼썽사납게 매달려 있는 모양.,데룽,,trial2,google/gemma-3-4b-it,ko,2
+짧은 다리를 모으고 힘 있게 솟구쳐 뛰는 모양.,강중,,trial2,google/gemma-3-4b-it,ko,2
+뒤죽박죽 어긋나 있는 모양.,억박적박,,trial2,google/gemma-3-4b-it,ko,2
+작은 벌레 따위가 한곳에 많이 모여 자꾸 움직이는 모양.,옴실옴실,,trial2,google/gemma-3-4b-it,ko,2
+몸에 지닌 물건들을 주책없이 여기저기 자꾸 흘리거나 빠뜨리는 모양.,쨀쨀,,trial2,google/gemma-3-4b-it,ko,2
+한데 모여 있는 작은 물건 여럿이 생김새나 크기가 제각기 다른 모양.,오롱조롱,,trial2,google/gemma-3-4b-it,ko,2
+넘칠 정도로 가득하거나 소복한 모양.,담뿍,,trial2,google/gemma-3-4b-it,ko,2
+매워서 입안이 매우 알알한 느낌.,알근알근,,trial2,google/gemma-3-4b-it,ko,2
+작고 단단한 물건이 자꾸 부딪쳐 울리는 소리.,딸까당딸까당,,trial2,google/gemma-3-4b-it,ko,2
+크고 단단한 물건이 자꾸 부러지거나 부서지는 소리. 또는 그 모양.,우지끈우지끈,,trial2,google/gemma-3-4b-it,ko,2
+무게는 나가지 아니하지만 부피가 매우 큰 듯한 모양.,부픗부픗,,trial2,google/gemma-3-4b-it,ko,2
+물결 따위가 부드럽게 자꾸 움직이는 모양.,늠실늠실,,trial2,google/gemma-3-4b-it,ko,2
+추위나 두려움으로 몸이 몹시 떨리는 모양.,으르르,,trial2,google/gemma-3-4b-it,ko,2
+젖먹이가 자꾸 우는 소리.,으앙으앙,,trial2,google/gemma-3-4b-it,ko,2
+크고 사나운 짐승 따위가 성내어 크고 세차게 울부짖는 소리. 또는 그 모양.,으르렁,,trial2,google/gemma-3-4b-it,ko,2
+헛된 장담을 쉽게 하는 모양.,땅땅,,trial2,google/gemma-3-4b-it,ko,2
+서두르지 않고 느릿느릿 굼뜨게 행동하는 모양.,스렁스렁,,trial2,google/gemma-3-4b-it,ko,2
+신이 나서 팔다리를 흥겹고 귀엽게 자꾸 놀리며 춤을 추는 모양.,당실당실,,trial2,google/gemma-3-4b-it,ko,2
+엷게 뻘그스름한 모양.,뻘그레,,trial2,google/gemma-3-4b-it,ko,2
+말대답을 하거나 무엇을 받아먹을 때 입을 냉큼 벌렸다가 닫는 모양.,납작,,trial2,google/gemma-3-4b-it,ko,2
+여럿이 다 끝이 조금 길게 내밀려 있는 모양.,삐쭉삐쭉,,trial2,google/gemma-3-4b-it,ko,2
+바람에 빠르고 가볍게 잇따라 나부끼는 소리. 또는 그 모양.,팔락팔락,,trial2,google/gemma-3-4b-it,ko,2
+얼음장이나 굳은 물질 따위가 좀 급자기 갈라질 때 나는 소리. 또는 그 모양.,찡,,trial2,google/gemma-3-4b-it,ko,2
+얼굴에 잘고 굵은 것이 섞이어 깊게 얽은 자국이 많은 모양.,얽죽얽죽,,trial2,google/gemma-3-4b-it,ko,2
+몸에 털이 있어야 할 곳에 털이 없어 번번한 모양.,민숭민숭,,trial2,google/gemma-3-4b-it,ko,2
+자꾸 좀 얄밉게 넘어다보는 모양.,남상남상,,trial2,google/gemma-3-4b-it,ko,2
+몹시 질긴 듯한 느낌.,찔깃찔깃,,trial2,google/gemma-3-4b-it,ko,2
+숨을 매우 가쁘고 거칠게 쉬는 소리.,식식,,trial2,google/gemma-3-4b-it,ko,2
+물체가 한쪽으로 약간 갸울어지는 모양.,갸우뚱,,trial2,google/gemma-3-4b-it,ko,2
+"눈이나 먼지, 연기 따위가 흩날리는 모양.",폴폴,,trial2,google/gemma-3-4b-it,ko,2
+고김살이 생기게 자꾸 함부로 고기는 모양.,꼬깃꼬깃,,trial2,google/gemma-3-4b-it,ko,2
+성질이나 태도가 검질기고 끈덕진 모양.,초근초근,,trial2,google/gemma-3-4b-it,ko,2
+입을 예쁘게 약간 벌리며 자꾸 소리 없이 가볍게 웃는 모양.,방끗방끗,,trial2,google/gemma-3-4b-it,ko,2
+정신없이 물끄러미 보고 있는 모양.,멀거니,,trial2,google/gemma-3-4b-it,ko,2
+고개 따위를 아래위로 거볍게 한 번 움직이는 모양.,끄떡,,trial2,google/gemma-3-4b-it,ko,2
+눈 따위를 슬쩍슬쩍 자꾸 찌그리는 모양.,찌긋찌긋,,trial2,google/gemma-3-4b-it,ko,2
+몸이나 몸의 일부를 잇따라 움직이는 모양.,움찍움찍,,trial2,google/gemma-3-4b-it,ko,2
+적은 양의 액체나 기름 따위가 걸쭉하게 잦아들면서 잇따라 끓는 소리. 또는 그 모양.,짜글짜글,,trial2,google/gemma-3-4b-it,ko,2
+걸을 때에 두 팔을 몹시 휘젓는 모양.,휘적,,trial2,google/gemma-3-4b-it,ko,2
+다리를 가볍게 높이 들어 떼어 놓은 모양.,상큼,,trial2,google/gemma-3-4b-it,ko,2
+눈과 입을 살며시 움직이며 소리 없이 가볍고 환하게 웃는 모양.,쌩긋빵긋,,trial2,google/gemma-3-4b-it,ko,2
+몸의 한 부분을 옴츠리거나 펴거나 하며 작게 한 번 움직이는 모양.,옴짝,,trial2,Qwen/Qwen2.5-3B-Instruct,ko,2
+"사람이나 물체, 빛 따위가 먼 곳에서 자꾸 아렴풋이 움직이는 모양.",감실감실,,trial2,Qwen/Qwen2.5-3B-Instruct,ko,2
+몸살이나 감기 따위로 몸이 무겁고 거북한 모양.,찌뿌드드,,trial2,Qwen/Qwen2.5-3B-Instruct,ko,2
+하나도 흩어지지 않게 말끔히 잘 가다듬어 수습하는 모양.,깐동깐동,,trial2,Qwen/Qwen2.5-3B-Instruct,ko,2
+혀끝으로 가볍게 잇따라 핥는 모양.,할쭉할쭉,,trial2,Qwen/Qwen2.5-3B-Instruct,ko,2
+실없이 웃으며 쓸데없는 말을 자꾸 하는 모양.,실떡실떡,,trial2,Qwen/Qwen2.5-3B-Instruct,ko,2
+조금 도도록하게 나오거나 약간 높직이 솟아 있는 모양.,봉곳,,trial2,Qwen/Qwen2.5-3B-Instruct,ko,2
+만족스러운 듯이 자꾸 귀엽게 살짝 웃는 모양.,해죽해죽,,trial2,Qwen/Qwen2.5-3B-Instruct,ko,2
+개구리가 자꾸 우는 소리.,개골개골,,trial2,Qwen/Qwen2.5-3B-Instruct,ko,2
+곁눈으로 자꾸 슬쩍 흘겨보는 모양.,흘끗흘끗,,trial2,Qwen/Qwen2.5-3B-Instruct,ko,2
+젖먹이가 걸음발 타듯이 서툰 걸음으로 주춤거리며 자꾸 걷는 모양.,자칫자칫,,trial2,Qwen/Qwen2.5-3B-Instruct,ko,2
+종이나 헝겊 따위를 칼이나 가위로 단번에 베는 소리. 또는 그 모양.,싹,,trial2,Qwen/Qwen2.5-3B-Instruct,ko,2
+한곳에 많은 사람이 모여 매우 수선스럽게 뒤끓는 모양.,북덕북덕,,trial2,Qwen/Qwen2.5-3B-Instruct,ko,2
+입을 살짝 벌릴 듯하면서 소리 없이 자꾸 가볍게 웃는 모양.,뱅끗뱅끗,,trial2,Qwen/Qwen2.5-3B-Instruct,ko,2
+큰 빛이 잇따라 잠깐 나타났다가 사라지는 모양.,번적번적,,trial2,Qwen/Qwen2.5-3B-Instruct,ko,2
+소리가 거의 나지 아니할 정도로 발을 거볍게 얼른 내디디는 소리. 또는 그 모양.,서풋,,trial2,Qwen/Qwen2.5-3B-Instruct,ko,2
+여러 군데가 몹시 윤기가 없고 거친 모양.,꺼칠꺼칠,,trial2,Qwen/Qwen2.5-3B-Instruct,ko,2
+크고 단단한 물건이 자꾸 서로 닿아서 갈릴 때 나는 소리.,삐꺼덕삐꺼덕,,trial2,Qwen/Qwen2.5-3B-Instruct,ko,2
+몸이 불편하거나 마음에 못마땅하여 자꾸 짜증을 내며 중얼거리거나 보채는 소리. 또는 그런 모양.,칭얼칭얼,,trial2,Qwen/Qwen2.5-3B-Instruct,ko,2
+숨이 차서 숨소리가 고르지 아니하고 가쁘고 급하게 나는 모양.,쌔근팔딱,,trial2,Qwen/Qwen2.5-3B-Instruct,ko,2
+물기가 조금 있으면서 물렁물렁하여 건드리는 대로 쭈그러지는 모양.,헙신헙신,,trial2,Qwen/Qwen2.5-3B-Instruct,ko,2
+조금 서늘한 바람이 거볍게 자꾸 부는 모양.,설렁설렁,,trial2,Qwen/Qwen2.5-3B-Instruct,ko,2
+여럿이 고르지 못하고 서로 어그러지고 버그러진 모양.,어긋버긋,,trial2,Qwen/Qwen2.5-3B-Instruct,ko,2
+닭이 놀랐거나 알을 낳은 뒤에 잇따라 우는 소리.,꼬꼬댁꼬꼬댁,,trial2,Qwen/Qwen2.5-3B-Instruct,ko,2
+물건의 거죽이나 바닥이 여기저기 굵게 부풀어 올라 고르지 못한 모양.,우툴두툴,,trial2,Qwen/Qwen2.5-3B-Instruct,ko,2
+탄력 있는 큰 물체가 잇따라 약간 벌어졌다 오므라들었다 하는 모양.,발룽발룽,,trial2,Qwen/Qwen2.5-3B-Instruct,ko,2
+촘촘하고 많은 별빛이 또렷또렷한 모양.,총총,,trial2,Qwen/Qwen2.5-3B-Instruct,ko,2
+줄이나 금 따위를 잇따라 곧게 긋는 모양.,쭉쭉,,trial2,Qwen/Qwen2.5-3B-Instruct,ko,2
+길게 드리운 물건이 자꾸 이리저리 부드럽게 흔들리는 모양.,치렁치렁,,trial2,Qwen/Qwen2.5-3B-Instruct,ko,2
+가는 물줄기 따위가 빠르게 자꾸 흘렀다 그쳤다 하는 소리. 또는 그 모양.,조르륵조르륵,,trial2,Qwen/Qwen2.5-3B-Instruct,ko,2
+크고 단단한 물체가 맞부딪치는 소리. 또는 그 모양.,쩔거덕,,trial2,Qwen/Qwen2.5-3B-Instruct,ko,2
+설멍한 다리를 가볍게 들어 옮기면서 걷는 모양.,설멍설멍,,trial2,Qwen/Qwen2.5-3B-Instruct,ko,2
+작고 연한 물건이 잘 드는 칼에 쉽게 베어지는 소리. 또는 그 모양.,쌈빡,,trial2,Qwen/Qwen2.5-3B-Instruct,ko,2
+눈과 입을 슬며시 움직이며 소리 없이 가볍게 웃는 모양.,싱끗,,trial2,Qwen/Qwen2.5-3B-Instruct,ko,2
+작은 물체나 물방울 따위가 잇따라 가볍게 아래로 떨어지는 소리. 또는 그 모양.,똑똑,,trial2,Qwen/Qwen2.5-3B-Instruct,ko,2
+때나 먼지 따위가 많이 끼어 있는 모양.,닥지닥지,,trial2,Qwen/Qwen2.5-3B-Instruct,ko,2
+짧은 다리를 모으고 자꾸 가볍게 내뛰는 모양.,깡창깡창,,trial2,Qwen/Qwen2.5-3B-Instruct,ko,2
+자꾸 슬쩍 문지르거나 비비는 모양.,쓱쓱,,trial2,Qwen/Qwen2.5-3B-Instruct,ko,2
+바닥에 늘어지거나 닿아서 느리게 끌리는 모양.,찔찔,,trial2,Qwen/Qwen2.5-3B-Instruct,ko,2
+작은 빛이 잇따라 잠깐 나타났다가 사라지는 모양.,빤짝빤짝,,trial2,Qwen/Qwen2.5-3B-Instruct,ko,2
+몸이나 물건 따위가 넓게 한 바퀴 도는 모양.,핑그르르,,trial2,Qwen/Qwen2.5-3B-Instruct,ko,2
+그릇에서 물이나 찌개 따위가 거품을 일으키며 자꾸 요란스럽게 끓어오르는 소리. 또는 그 모양.,우글부글,,trial2,Qwen/Qwen2.5-3B-Instruct,ko,2
+무엇이 조금씩 보이다 말다 하는 모양.,알른알른,,trial2,Qwen/Qwen2.5-3B-Instruct,ko,2
+경박스럽게 함부로 자꾸 들추거나 뒤지거나 쑤시는 모양.,쏘삭쏘삭,,trial2,Qwen/Qwen2.5-3B-Instruct,ko,2
+조금 큰 것이 눈앞에 잠깐 나타났다 없어지는 모양.,얼씬,,trial2,Qwen/Qwen2.5-3B-Instruct,ko,2
+노끈을 드리운 듯 빗발이 굵고 곧게 뻗치며 죽죽 내리쏟아지는 모양.,노드리듯,,trial2,Qwen/Qwen2.5-3B-Instruct,ko,2
+물 위나 공중에 가볍게 떠서 움직이는 모양.,두리둥실,,trial2,Qwen/Qwen2.5-3B-Instruct,ko,2
+손톱이나 날카로운 물건 따위로 계속 가볍게 긁어 조금 헤치는 모양.,하빗하빗,,trial2,Qwen/Qwen2.5-3B-Instruct,ko,2
+크고 거볍게 떠는 모양.,푸르르,,trial2,Qwen/Qwen2.5-3B-Instruct,ko,2
+몸을 자꾸 크게 부르르 떠는 모양.,푸들푸들,,trial2,Qwen/Qwen2.5-3B-Instruct,ko,2
+한쪽 다리가 짧거나 탈이 나서 자꾸 뒤뚝뒤뚝 저는 모양.,절뚝절뚝,,trial2,Qwen/Qwen2.5-3B-Instruct,ko,2
+설움이 북받쳐 갑자기 숨을 거칠게 쉬며 우는 소리.,흑,,trial2,Qwen/Qwen2.5-3B-Instruct,ko,2
+작거나 희미한 것이 보일 듯 말 듯 하게 조금씩 자꾸 움직이는 모양.,아물아물,,trial2,Qwen/Qwen2.5-3B-Instruct,ko,2
+갑자기 목청을 높여 자꾸 지르는 소리. 또는 그 모양.,꽥꽥,,trial2,Qwen/Qwen2.5-3B-Instruct,ko,2
+크고 단단한 물체가 자꾸 맞부딪치는 소리. 또는 그 모양.,절거덕절거덕,,trial2,Qwen/Qwen2.5-3B-Instruct,ko,2
+눈과 입을 살며시 움직이며 소리 없이 정답게 자꾸 웃는 모양.,생글생글,,trial2,Qwen/Qwen2.5-3B-Instruct,ko,2
+큰 사람이 매우 공손하게 머리를 숙여 절하는 모양.,너부시,,trial2,Qwen/Qwen2.5-3B-Instruct,ko,2
+어떤 물건을 도구나 기계 따위가 해결할 수 있을 만큼의 힘으로 자꾸 자르거나 베는 소리. 또는 그 모양.,석둑석둑,,trial2,Qwen/Qwen2.5-3B-Instruct,ko,2
+크고 두드러진 덩어리들이 고르지 않고 빽빽하게 벌여 있는 모양.,울뭉줄뭉,,trial2,Qwen/Qwen2.5-3B-Instruct,ko,2
+조금 거만스럽게 잘난 체하며 버릇없이 자꾸 구는 모양.,까뜨락까뜨락,,trial2,Qwen/Qwen2.5-3B-Instruct,ko,2
+몸을 바로 가누지 못하고 쓰러질 듯이 이리저리 어지럽게 잇따라 비틀거리는 모양.,비칠비칠,,trial2,Qwen/Qwen2.5-3B-Instruct,ko,2
+몹시 지치거나 느른하여 힘없이 발을 떼어 놓으며 매우 느리게 계속 걷는 모양.,터덕터덕,,trial2,Qwen/Qwen2.5-3B-Instruct,ko,2
+작고 단단한 물건이 서로 닿아서 갈릴 때 나는 소리.,빼가닥,,trial2,Qwen/Qwen2.5-3B-Instruct,ko,2
+살가죽이 아주 쭈그러질 정도로 심하게 여윈 모양.,비썩비썩,,trial2,Qwen/Qwen2.5-3B-Instruct,ko,2
+질고 물기가 많은 물건을 자꾸 주무르거나 누르는 소리. 또는 그 모양.,꿀찌럭꿀찌럭,,trial2,Qwen/Qwen2.5-3B-Instruct,ko,2
+자루나 봉지 따위에 물건이 꽉 들어차지 아니하여 많이 들썩거리는 모양.,쿠렁쿠렁,,trial2,Qwen/Qwen2.5-3B-Instruct,ko,2
+작은 물건이 단단한 바닥 위를 구르는 소리. 또는 그 모양.,따르르,,trial2,Qwen/Qwen2.5-3B-Instruct,ko,2
+입을 슬며시 벌릴 듯하면서 소리 없이 거볍고 온화하게 잇따라 웃는 모양.,빙싯빙싯,,trial2,Qwen/Qwen2.5-3B-Instruct,ko,2
+머리를 숙이거나 몸을 한 번 가볍게 굽히는 모양.,곱작,,trial2,Qwen/Qwen2.5-3B-Instruct,ko,2
+몸을 아주 조금 움직이는 모양.,옴짝달싹,,trial2,Qwen/Qwen2.5-3B-Instruct,ko,2
+몹시 고집을 부리거나 애를 쓰는 모양.,아득바득,,trial2,Qwen/Qwen2.5-3B-Instruct,ko,2
+고르지 아니한 여러 개의 큰 물건이 뒤섞여 있는 모양.,쭐멍쭐멍,,trial2,Qwen/Qwen2.5-3B-Instruct,ko,2
+가볍고 단단한 물체가 바닥에 떨어지거나 다른 물체와 부딪쳐 울리는 소리.,캉,,trial2,Qwen/Qwen2.5-3B-Instruct,ko,2
+여러 번 접어서 포개는 모양.,접첨접첨,,trial2,Qwen/Qwen2.5-3B-Instruct,ko,2
+눕거나 앉아 있다가 조금 큰 동작으로 갑자기 일어나는 모양.,벌떡,,trial2,Qwen/Qwen2.5-3B-Instruct,ko,2
+왈칵 달려들어 냉큼 물거나 움켜잡는 모양.,탑삭,,trial2,Qwen/Qwen2.5-3B-Instruct,ko,2
+얇은 쇠붙이 따위가 떨어지거나 맞부딪치는 소리. 또는 그 모양.,절그럭,,trial2,Qwen/Qwen2.5-3B-Instruct,ko,2
+큰 방울이나 얇은 쇠붙이 따위가 흔들리거나 부딪쳐 울리는 소리.,쩔렁,,trial2,Qwen/Qwen2.5-3B-Instruct,ko,2
+여럿이 다 끝이 점차 가늘어져서 날카로운 모양.,뾰족뾰족,,trial2,Qwen/Qwen2.5-3B-Instruct,ko,2
+입술을 힘없이 터뜨리며 자꾸 싱겁게 웃을 때 나는 소리. 또는 그 모양.,피식피식,,trial2,Qwen/Qwen2.5-3B-Instruct,ko,2
+크고 단단한 물건이 자꾸 부딪쳐 흔들리면서 맞닿는 소리.,떨그럭떨그럭,,trial2,Qwen/Qwen2.5-3B-Instruct,ko,2
+얇은 쇠붙이 따위가 자꾸 서로 가볍게 부딪쳐 울리는 소리.,자르랑자르랑,,trial2,Qwen/Qwen2.5-3B-Instruct,ko,2
+큰 방울 따위가 흔들리며 요란스럽게 부딪치는 소리.,웽그렁,,trial2,Qwen/Qwen2.5-3B-Instruct,ko,2
+숫기 좋게 입을 벌려 소리 없이 방긋 웃는 모양.,발씬,,trial2,Qwen/Qwen2.5-3B-Instruct,ko,2
+잘 울리는 바닥에 단단하고 큰 물건이 몹시 요란하게 떨어지거나 부딪칠 때 나는 소리.,쿠당탕,,trial2,Qwen/Qwen2.5-3B-Instruct,ko,2
+얇은 쇠붙이 따위가 자꾸 서로 부딪쳐 짧게 울리는 소리.,처렁처렁,,trial2,Qwen/Qwen2.5-3B-Instruct,ko,2
+가슴 속 깊은 곳에서 몹시 거칠게 울려 나오는 기침 소리.,쿨럭,,trial2,Qwen/Qwen2.5-3B-Instruct,ko,2
+작은 벌레 따위가 한데 어우러져 조금씩 자꾸 굼뜨게 움직이는 모양.,곰실곰실,,trial2,Qwen/Qwen2.5-3B-Instruct,ko,2
+지직한 반죽이나 진흙 따위를 자꾸 깊이 쑤시거나 주무르거나 밟을 때 나는 소리. 또는 그 모양.,불컥불컥,,trial2,Qwen/Qwen2.5-3B-Instruct,ko,2
+높았다 낮았다 하여 높낮이가 고르지 않은 모양.,높으락낮으락,,trial2,Qwen/Qwen2.5-3B-Instruct,ko,2
+팔다리나 몸이 심하게 자꾸 떨리는 모양.,화들화들,,trial2,Qwen/Qwen2.5-3B-Instruct,ko,2
+사람이나 물건이 어떤 공간에 빈틈없이 아주 꽉 찬 모양.,삐국,,trial2,Qwen/Qwen2.5-3B-Instruct,ko,2
+껄끄럽고 거칠게 뜨끔거리는 느낌.,껄쭉껄쭉,,trial2,Qwen/Qwen2.5-3B-Instruct,ko,2
+여러 가닥이 자꾸 어지럽게 늘어져 흔들리는 모양.,너덜너덜,,trial2,Qwen/Qwen2.5-3B-Instruct,ko,2
+센 바람이 조금 거칠게 스쳐 지나가는 소리.,회,,trial2,Qwen/Qwen2.5-3B-Instruct,ko,2
+작은 덩이로 똑 끊어지거나 잘라지는 모양.,몬탁,,trial2,Qwen/Qwen2.5-3B-Instruct,ko,2
+어찌할 줄을 몰라 갈팡질팡하며 자꾸 다급하게 서두르는 모양.,허둥허둥,,trial2,Qwen/Qwen2.5-3B-Instruct,ko,2
+눈꺼풀을 움직이며 눈을 한 번 감았다 뜨는 모양.,슴뻑,,trial2,Qwen/Qwen2.5-3B-Instruct,ko,2
+바퀴 따위가 단단한 바닥을 굴러가는 소리. 또는 그 모양.,뜰뜰,,trial2,Qwen/Qwen2.5-3B-Instruct,ko,2
+가는 물줄기 따위가 빠르게 잠깐 흐르다가 그치는 소리. 또는 그 모양.,쪼르륵,,trial2,Qwen/Qwen2.5-3B-Instruct,ko,2
+눈과 입을 귀엽게 움직이며 소리 없이 정답게 웃는 모양.,상글,,trial2,google/gemma-3-27b-it,ko,2
+활개를 벌려 거벼이 저으며 걷는 모양.,헤적헤적,,trial2,google/gemma-3-27b-it,ko,2
+잇따라 갑작스럽게 거꾸로 뒤집거나 뒤집히는 모양.,휘딱휘딱,,trial2,google/gemma-3-27b-it,ko,2
+숨이 차서 숨소리가 고르지 아니하고 가쁘고 급하게 나는 모양.,쌔근팔딱,,trial2,google/gemma-3-27b-it,ko,2
+잘 익거나 물러서 연하고 말랑한 느낌.,말씬,,trial2,google/gemma-3-27b-it,ko,2
+입을 슬쩍 벌릴 듯하면서 소리 없이 자꾸 거볍게 웃는 모양.,빙끗빙끗,,trial2,google/gemma-3-27b-it,ko,2
+여러 가지 빛깔의 크고 뚜렷한 점이나 줄 따위가 고르지 아니하고 조금 성기게 무늬를 이룬 모양.,얼루룽덜루룽,,trial2,google/gemma-3-27b-it,ko,2
+"천, 대나무 따위의 짜임새나 엮음새가 여럿이 다 또는 매우 설핏한 모양.",늘썽늘썽,,trial2,google/gemma-3-27b-it,ko,2
+어떤 기회가 자꾸 닥쳐오는 모양.,하마하마,,trial2,google/gemma-3-27b-it,ko,2
+누워서 자꾸 이리저리 구르는 모양.,뒹굴뒹굴,,trial2,google/gemma-3-27b-it,ko,2
+여럿이 다 조금 신 맛이 있는 느낌.,새콤새콤,,trial2,google/gemma-3-27b-it,ko,2
+나아가지 못하고 제자리에서 조금 작은 동작으로 게으르게 행동하는 모양.,몽그작몽그작,,trial2,google/gemma-3-27b-it,ko,2
+몹시 놀라거나 숨이 차서 숨을 자꾸 몰아쉬는 소리. 또는 그 모양.,헉헉,,trial2,google/gemma-3-27b-it,ko,2
+가볍게 한 번 할겨 보는 모양.,할낏,,trial2,google/gemma-3-27b-it,ko,2
+물줄기나 작은 물체 따위가 한 번 세차게 쏟아지는 소리. 또는 그 모양.,쫘르륵,,trial2,google/gemma-3-27b-it,ko,2
+어떤 일을 잇따라 시원스럽게 해치우는 모양.,째까닥째까닥,,trial2,google/gemma-3-27b-it,ko,2
+절구나 방아를 찧을 때 나는 소리. 또는 그 모양.,쿵덕,,trial2,google/gemma-3-27b-it,ko,2
+사람이나 물체가 중심을 잃고 자꾸 이리저리 기울어지는 모양.,휘우뚱휘우뚱,,trial2,google/gemma-3-27b-it,ko,2
+살갗 따위에 조금씩 닿아 자꾸 걸리는 모양.,가칫가칫,,trial2,google/gemma-3-27b-it,ko,2
+크고 단단한 물건이 갑자기 세게 부러지거나 깨지는 소리. 또는 그 모양.,지끈,,trial2,google/gemma-3-27b-it,ko,2
+우유나 풀 따위 속에 멍울이 여기저기 잘고 둥글게 엉겨 있는 모양.,멍울멍울,,trial2,google/gemma-3-27b-it,ko,2
+뱃속이나 대통의 진 따위가 몹시 끓는 소리.,꾸르륵,,trial2,google/gemma-3-27b-it,ko,2
+몸을 둔하고 느리게 조금 움직이는 모양.,꼼작,,trial2,google/gemma-3-27b-it,ko,2
+깜짝 놀라 갑자기 몸을 잇따라 옴츠리는 모양.,옴찔옴찔,,trial2,google/gemma-3-27b-it,ko,2
+쌓여 있던 단단한 물건들이 갑자기 야단스럽게 무너지는 소리. 또는 그 모양.,와르르,,trial2,google/gemma-3-27b-it,ko,2
+무엇을 찾거나 알아보려고 손으로 자꾸 이리저리 좀 만지는 모양.,다듬다듬,,trial2,google/gemma-3-27b-it,ko,2
+깨나 콩 따위를 볶을 때 크게 튀는 소리.,후드득,,trial2,google/gemma-3-27b-it,ko,2
+도톰한 물건이나 자리 따위가 매우 보드랍고 따뜻한 느낌.,포근포근,,trial2,google/gemma-3-27b-it,ko,2
+큰 덩어리가 고르지 않게 많이 벌여 있는 모양.,울먹줄먹,,trial2,google/gemma-3-27b-it,ko,2
+덩이진 가루 따위가 물기가 적어 엉기지 못하고 바스러지기 쉬운 모양.,포슬포슬,,trial2,google/gemma-3-27b-it,ko,2
+몸을 몹시 조금 움직이는 모양.,움쭉달싹,,trial2,google/gemma-3-27b-it,ko,2
+얇은 쇠붙이나 유리 따위가 자꾸 떨어지거나 부딪쳐 울리는 소리.,쩽그렁쩽그렁,,trial2,google/gemma-3-27b-it,ko,2
+작고 단단한 물건이 자꾸 부딪쳐 울리는 소리.,딸카당딸카당,,trial2,google/gemma-3-27b-it,ko,2
+갑자기 소름이 끼치도록 무시무시하고 끔찍한 느낌이 드는 모양.,섬찟,,trial2,google/gemma-3-27b-it,ko,2
+조금 짧은 다리로 가볍게 뛰는 모양.,깡동,,trial2,google/gemma-3-27b-it,ko,2
+큰 물체가 가로로 자꾸 조금씩 흔들리는 모양.,끈덕끈덕,,trial2,google/gemma-3-27b-it,ko,2
+물기가 조금 있는 물건이 연하고 무른 모양.,허분허분,,trial2,google/gemma-3-27b-it,ko,2
+가볍게 금이나 줄을 그을 때 나는 소리. 또는 그 모양.,닥,,trial2,google/gemma-3-27b-it,ko,2
+피리나 뿔 나팔 따위를 부는 소리.,왜뚜,,trial2,google/gemma-3-27b-it,ko,2
+냄새나 연기 따위가 조금씩 약하게 피어오르는 모양.,몰몰,,trial2,google/gemma-3-27b-it,ko,2
+남이 알아듣지 못하도록 낮은 목소리로 은밀하게 자꾸 이야기하는 소리. 또는 그 모양.,숙덕숙덕,,trial2,google/gemma-3-27b-it,ko,2
+가늘고 보드라운 털이나 풀 따위가 짧고 성기게 나 있는 모양.,나스르르,,trial2,google/gemma-3-27b-it,ko,2
+"새, 사람 또는 기적 따위가 갑자기 자꾸 날카롭게 지르거나 내는 소리.",빽빽,,trial2,google/gemma-3-27b-it,ko,2
+물기 있는 물건이 뜨거운 열에 닿아서 급히 타거나 졸아붙는 소리.,뿌지직,,trial2,google/gemma-3-27b-it,ko,2
+입담 좋게 잇따라 말을 늘어놓는 모양.,야스락야스락,,trial2,google/gemma-3-27b-it,ko,2
+게으름을 피우며 부끄러운 줄 모르고 뻔뻔스럽게 놀기만 하는 모양.,핀들핀들,,trial2,google/gemma-3-27b-it,ko,2
+해의 밝은 빛이 약해진 모양.,설핏,,trial2,google/gemma-3-27b-it,ko,2
+아주 가볍고도 재빠르게 잇따라 행동하는 모양.,빨랑빨랑,,trial2,google/gemma-3-27b-it,ko,2
+게으름을 피우며 아무 일도 하지 않고 놀기만 하는 모양.,밴둥밴둥,,trial2,google/gemma-3-27b-it,ko,2
+묵직한 물체가 물에 거칠게 부딪치는 소리. 또는 그 모양.,철버덩,,trial2,google/gemma-3-27b-it,ko,2
+얇은 쇠붙이 따위가 서로 가볍게 부딪쳐 짧게 울리는 소리.,차랑,,trial2,google/gemma-3-27b-it,ko,2
+옅은 물이나 진창을 거칠게 밟거나 치는 소리. 또는 그 모양.,절퍼덕,,trial2,google/gemma-3-27b-it,ko,2
+무겁고 단단한 물체가 바닥에 떨어지거나 다른 물체와 부딪쳐 크게 울리는 소리.,퀑,,trial2,google/gemma-3-27b-it,ko,2
+크고 얇은 쇠붙이 따위가 자꾸 떨어지거나 맞부딪쳐 울리는 소리.,철그렁철그렁,,trial2,google/gemma-3-27b-it,ko,2
+실없이 웃으며 가볍게 자꾸 지껄이는 모양.,새새,,trial2,google/gemma-3-27b-it,ko,2
+몹시 조르는 모양.,오복조르듯,,trial2,google/gemma-3-27b-it,ko,2
+작은 새가 가볍고 재빠르게 잇따라 날개를 치는 소리. 또는 그 모양.,포닥포닥,,trial2,google/gemma-3-27b-it,ko,2
+흐트러진 일이나 물건을 대강대강 가리고 골라서 가지런하게 하는 모양.,건중건중,,trial2,google/gemma-3-27b-it,ko,2
+바람에 빠르고 가볍게 잇따라 나부끼는 소리. 또는 그 모양.,팔락팔락,,trial2,google/gemma-3-27b-it,ko,2
+좁은 틈이나 구멍 속을 자꾸 함부로 파내는 모양.,오비작오비작,,trial2,google/gemma-3-27b-it,ko,2
+시계 따위의 톱니바퀴가 한 번 돌아가는 소리.,째깍,,trial2,google/gemma-3-27b-it,ko,2
+아주 앉지도 서지도 아니하고 몸을 반쯤 굽히고 있는 모양.,엉거주춤,,trial2,google/gemma-3-27b-it,ko,2
+바람에 계속 크고 힘차게 나부끼는 모양.,펄렁펄렁,,trial2,google/gemma-3-27b-it,ko,2
+물체가 배스듬하게 이쪽저쪽으로 자꾸 기울어지는 모양.,빼딱빼딱,,trial2,google/gemma-3-27b-it,ko,2
+마른 물건이 잇따라 가볍게 부스러지는 소리. 또는 그 모양.,뿌석뿌석,,trial2,google/gemma-3-27b-it,ko,2
+갑자기 소름이 끼치도록 무섭고 끔찍한 느낌이 자꾸 드는 모양.,섬뜩섬뜩,,trial2,google/gemma-3-27b-it,ko,2
+팔이나 다리 따위를 가볍게 흔들며 잇따라 춤을 추는 모양.,더덩실더덩실,,trial2,google/gemma-3-27b-it,ko,2
+상태나 하는 짓이 깨끗하지 못하고 구저분한 모양.,꾸질꾸질,,trial2,google/gemma-3-27b-it,ko,2
+눈이나 코를 자꾸 약간씩 찡그리는 모양.,찡끗찡끗,,trial2,google/gemma-3-27b-it,ko,2
+자꾸 갑작스럽게 화를 내거나 기운을 쓰는 모양.,발깍발깍,,trial2,google/gemma-3-27b-it,ko,2
+작은 몸집의 사람이 하는 일 없이 이리저리 찬찬히 걸어가는 모양.,아장바장,,trial2,google/gemma-3-27b-it,ko,2
+계속 넘어다보는 모양.,넘성넘성,,trial2,google/gemma-3-27b-it,ko,2
+빛이 갑자기 나타났다 없어지는 모양.,번뜻,,trial2,google/gemma-3-27b-it,ko,2
+입을 슬쩍 벌릴 듯하면서 소리 없이 자꾸 거볍게 웃는 모양.,빙긋빙긋,,trial2,google/gemma-3-27b-it,ko,2
+배에서 잇따라 노를 젓고 닻을 감는 소리.,지국총지국총,,trial2,google/gemma-3-27b-it,ko,2
+여럿이 한곳에 많이 모여 조금 수선스럽게 들끓는 모양.,욱적욱적,,trial2,google/gemma-3-27b-it,ko,2
+작은 물건이 많이 매달려 있거나 늘어져 있는 모양.,다래다래,,trial2,google/gemma-3-27b-it,ko,2
+잇따라 작게 잘리거나 끊어지는 모양.,몽땅몽땅,,trial2,google/gemma-3-27b-it,ko,2
+빛이 약하거나 멀어서 어둑하고 희미한 모양.,어슴푸레,,trial2,google/gemma-3-27b-it,ko,2
+입이나 허리 따위를 이리저리 자꾸 느리게 움직이는 모양.,일기죽일기죽,,trial2,google/gemma-3-27b-it,ko,2
+어떤 일을 아주 시원스럽게 빨리 해치우는 모양.,쩨꺼덕,,trial2,google/gemma-3-27b-it,ko,2
+크고 단단한 물건이 자꾸 맞부딪치는 소리.,덜거덕덜거덕,,trial2,google/gemma-3-27b-it,ko,2
+풍선이나 폭탄 따위가 갑자기 잇따라 요란스럽게 터지는 소리.,펑펑,,trial2,google/gemma-3-27b-it,ko,2
+크고 단단한 물건이 자꾸 맞부딪치는 소리.,덜커덕덜커덕,,trial2,google/gemma-3-27b-it,ko,2
+더부룩한 물건 따위가 조금 길게 늘어져 바람에 자꾸 흔들리는 모양.,더펄더펄,,trial2,google/gemma-3-27b-it,ko,2
+어떤 물체가 단단하지 못하여 부스러지거나 헤지기 쉬운 모양.,헤실헤실,,trial2,google/gemma-3-27b-it,ko,2
+꽹과리나 징 따위를 치는 소리.,꽹,,trial2,google/gemma-3-27b-it,ko,2
+지쳐서 맥없이 가볍게 자꾸 쓰러질 때 나는 소리. 또는 그 모양.,픽픽,,trial2,google/gemma-3-27b-it,ko,2
+여럿이 다 엉클어지거나 흐리지 아니하고 아주 분명한 모양.,두렷두렷,,trial2,google/gemma-3-27b-it,ko,2
+"손이나 어깨, 엉덩이 따위가 자꾸 천천히 가볍게 들렸다 놓였다 하는 모양.",달망달망,,trial2,google/gemma-3-27b-it,ko,2
+작은 문 따위를 갑작스레 한 번 열거나 닫는 모양.,폴짝,,trial2,google/gemma-3-27b-it,ko,2
+몸의 한 부분을 움츠리거나 펴거나 하며 크게 자꾸 움직이는 모양.,움쩍움쩍,,trial2,google/gemma-3-27b-it,ko,2
+매워서 입안이 매우 알알한 느낌.,알근알근,,trial2,google/gemma-3-27b-it,ko,2
+넓은 범위나 여러 갈래로 자꾸 흩어져 퍼지는 모양.,좍좍,,trial2,google/gemma-3-27b-it,ko,2
+작은 덩어리들이 고르지 않게 많이 벌여 있는 모양.,올막졸막,,trial2,google/gemma-3-27b-it,ko,2
+꽤 단단한 물건을 깨물어 단번에 부스러뜨릴 때 나는 소리.,어적,,trial2,google/gemma-3-27b-it,ko,2
+가늘고 긴 물건이 굽지 아니하고 쪽 곧은 모양.,꼬장꼬장,,trial2,google/gemma-3-27b-it,ko,2
+거죽이나 바닥이 고르지 아니하게 군데군데 도드라져 있는 모양.,오돌토돌,,trial2,google/gemma-3-27b-it,ko,2
+여럿이 다 끝이 고르지 아니하게 조금씩 내밀려 있는 모양.,비죽배죽,,trial2,google/gemma-3-27b-it,ko,2
+눈꺼풀을 움직이며 눈을 한 번 감았다 뜨는 모양.,씀뻑,,trial2,google/gemma-3-27b-it,ko,2
+갓난아이가 잇따라 우는 소리.,응아응아,,trial2,Qwen/Qwen2.5-7B-Instruct,ko,2
+작은 천 조각이나 종이 따위가 자꾸 빠르고 가볍게 나부끼는 모양.,나팔나팔,,trial2,Qwen/Qwen2.5-7B-Instruct,ko,2
+물체의 거죽 여러 군데가 조금 도드라지거나 쏙 내밀린 모양.,뽈록뽈록,,trial2,Qwen/Qwen2.5-7B-Instruct,ko,2
+어떤 행동이나 걸음 따위를 망설이며 자꾸 머뭇거리는 모양.,주춤주춤,,trial2,Qwen/Qwen2.5-7B-Instruct,ko,2
+불빛이나 별빛 따위가 잠깐 어두워졌다 밝아지는 모양. 또는 밝아졌다 어두워지는 모양.,깜빡,,trial2,Qwen/Qwen2.5-7B-Instruct,ko,2
+"혀, 손 따위를 빠르게 내밀었다 들이는 모양.",널름,,trial2,Qwen/Qwen2.5-7B-Instruct,ko,2
+가벼운 물체 따위가 잇따라 들렸다 내려앉았다 하는 모양.,딸막딸막,,trial2,Qwen/Qwen2.5-7B-Instruct,ko,2
+큰 물건이 구르다가 뚝 멎는 소리.,드르륵,,trial2,Qwen/Qwen2.5-7B-Instruct,ko,2
+얇고 조금 무거운 쇠붙이나 유리 따위가 떨어지거나 부딪쳐 맑게 울리는 소리.,쩽겅,,trial2,Qwen/Qwen2.5-7B-Instruct,ko,2
+몸을 제대로 가누지 못하고 조금 배틀거리며 걷는 모양.,배트작배트작,,trial2,Qwen/Qwen2.5-7B-Instruct,ko,2
+작고 단단한 물건이 맞부딪치는 소리.,딸까닥,,trial2,Qwen/Qwen2.5-7B-Instruct,ko,2
+여럿이 다 조금 가벼운 듯한 느낌.,가붓가붓,,trial2,Qwen/Qwen2.5-7B-Instruct,ko,2
+크기가 비슷한 물건들이 여기저기 모여 있는 모양.,중기중기,,trial2,Qwen/Qwen2.5-7B-Instruct,ko,2
+여럿이 다 맛깔스럽게 조금 신 맛이나 냄새가 있는 느낌.,새큼새큼,,trial2,Qwen/Qwen2.5-7B-Instruct,ko,2
+조금 흥에 겹게 계속해서 종알종알 재깔이는 소리. 또는 그 모양.,홍알홍알,,trial2,Qwen/Qwen2.5-7B-Instruct,ko,2
+무겁고 단단한 물체가 바닥에 떨어지거나 다른 물체와 부딪쳐 울리는 소리.,꽝,,trial2,Qwen/Qwen2.5-7B-Instruct,ko,2
+만족스러운 듯이 귀엽게 살짝 한 번 웃는 모양.,해죽,,trial2,Qwen/Qwen2.5-7B-Instruct,ko,2
+여럿이 매우 어수선하게 떠들거나 웃는 소리. 또는 그 모양.,왁작,,trial2,Qwen/Qwen2.5-7B-Instruct,ko,2
+그릇 따위가 부딪치거나 깨어질 때 요란스럽게 나는 소리. 또는 그 모양.,왜깍대깍,,trial2,Qwen/Qwen2.5-7B-Instruct,ko,2
+매달리거나 한쪽이 늘어진 물건이 잇따라 흔들리는 소리. 또는 그 모양.,탈락탈락,,trial2,Qwen/Qwen2.5-7B-Instruct,ko,2
+힘을 모아 자꾸 거볍게 뛰는 모양.,풀떡풀떡,,trial2,Qwen/Qwen2.5-7B-Instruct,ko,2
+여럿이 한데 모여서 자꾸 수선스럽게 움직이는 모양.,욱닥욱닥,,trial2,Qwen/Qwen2.5-7B-Instruct,ko,2
+남의 흠이나 트집을 잡으면서 자꾸 비위를 거스르는 모양.,티적티적,,trial2,Qwen/Qwen2.5-7B-Instruct,ko,2
+입이나 허리 따위를 이리저리 느리고 고르지 아니하게 움직이는 모양.,일기죽얄기죽,,trial2,Qwen/Qwen2.5-7B-Instruct,ko,2
+몸의 한 부분을 움츠리거나 펴거나 하며 잇따라 움직이는 모양.,움쭉움쭉,,trial2,Qwen/Qwen2.5-7B-Instruct,ko,2
+조금 짧은 다리로 가볍게 계속해서 뛰는 모양.,깡똥깡똥,,trial2,Qwen/Qwen2.5-7B-Instruct,ko,2
+고르지 아니한 여러 개의 작은 물건이 뒤섞여 있어 보기에 사랑스러운 모양.,쫄망쫄망,,trial2,Qwen/Qwen2.5-7B-Instruct,ko,2
+사람이나 사물이 외따로 오뚝하게 있는 모양.,동그마니,,trial2,Qwen/Qwen2.5-7B-Instruct,ko,2
+여럿이 다 끝이 조금 길게 내밀려 있는 모양.,삐죽삐죽,,trial2,Qwen/Qwen2.5-7B-Instruct,ko,2
+크고 무거운 물건이 물에 떨어져 잠기는 소리.,텀벙,,trial2,Qwen/Qwen2.5-7B-Instruct,ko,2
+날벌레나 돌팔매 따위가 빠르게 날아가는 소리.,웽,,trial2,Qwen/Qwen2.5-7B-Instruct,ko,2
+부드럽지 못하고 조금 뻑뻑한 느낌.,뿌덕뿌덕,,trial2,Qwen/Qwen2.5-7B-Instruct,ko,2
+입술을 조금 실그러뜨리며 소리 없이 능청스럽게 한 번 웃는 모양.,히물,,trial2,Qwen/Qwen2.5-7B-Instruct,ko,2
+연한 물건을 조금 큼직하고 거칠게 자꾸 빨리 써는 모양.,쑹덩쑹덩,,trial2,Qwen/Qwen2.5-7B-Instruct,ko,2
+검은 점이나 얼룩이 굵게 여기저기 박혀 있는 모양.,검적검적,,trial2,Qwen/Qwen2.5-7B-Instruct,ko,2
+대수롭지 아니한 일로 서로 자꾸 다투는 모양.,아웅다웅,,trial2,Qwen/Qwen2.5-7B-Instruct,ko,2
+자꾸 입맛을 쩍쩍 다시며 맛있게 먹는 모양.,쩌금쩌금,,trial2,Qwen/Qwen2.5-7B-Instruct,ko,2
+자꾸 머리나 몸을 멋쩍게 숙였다 들었다 하는 모양.,꺼벅꺼벅,,trial2,Qwen/Qwen2.5-7B-Instruct,ko,2
+바람이 부드럽게 불어오는 모양.,건들,,trial2,Qwen/Qwen2.5-7B-Instruct,ko,2
+그릇 따위가 부딪치거나 깨어질 때 요란스럽게 나는 소리. 또는 그 모양.,왜각대각,,trial2,Qwen/Qwen2.5-7B-Instruct,ko,2
+정신을 못 차릴 정도로 힘에 부쳐 자꾸 쩔쩔매거나 괴로워하며 애쓰는 모양.,허덕지덕,,trial2,Qwen/Qwen2.5-7B-Instruct,ko,2
+물체가 이쪽저쪽으로 자꾸 갸울어지며 흔들리는 모양.,갸우뚱갸우뚱,,trial2,Qwen/Qwen2.5-7B-Instruct,ko,2
+몸을 자꾸 작게 파르르 떠는 모양.,파들파들,,trial2,Qwen/Qwen2.5-7B-Instruct,ko,2
+마른 물건이 가볍게 바스러지는 소리. 또는 그 모양.,보삭,,trial2,Qwen/Qwen2.5-7B-Instruct,ko,2
+잇따라 왈칵 달려들어 닁큼 물거나 움켜잡는 모양.,텁석텁석,,trial2,Qwen/Qwen2.5-7B-Instruct,ko,2
+작고 단단한 물건들이 어수선하게 자꾸 부딪치는 소리. 또는 그 모양.,왈캉달캉,,trial2,Qwen/Qwen2.5-7B-Instruct,ko,2
+입을 약간 벌리고 소리 없이 부드럽게 웃는 모양.,빙그레,,trial2,Qwen/Qwen2.5-7B-Instruct,ko,2
+작은 빛이 잠깐 나타났다가 사라지는 모양.,반작,,trial2,Qwen/Qwen2.5-7B-Instruct,ko,2
+남이 알아듣기 어려운 정도의 낮은 목소리로 불평을 자꾸 하는 모양.,투덜투덜,,trial2,Qwen/Qwen2.5-7B-Instruct,ko,2
+큰북 따위를 두드리는 소리.,둥,,trial2,Qwen/Qwen2.5-7B-Instruct,ko,2
+두 물체를 맞대어 가볍게 잇따라 문지르는 모양.,뱌비작뱌비작,,trial2,Qwen/Qwen2.5-7B-Instruct,ko,2
+눕거나 앉아 있다가 날랜 동작으로 갑자기 일어나는 모양.,발딱,,trial2,Qwen/Qwen2.5-7B-Instruct,ko,2
+천연두나 헌데 따위가 딱지가 붙을 정도로 조금 마른 모양.,수슬수슬,,trial2,Qwen/Qwen2.5-7B-Instruct,ko,2
+단단하고 질기거나 반드러운 물건을 자꾸 세게 문지를 때 잇따라 되알지게 울리며 나는 소리.,빠드등빠드등,,trial2,Qwen/Qwen2.5-7B-Instruct,ko,2
+몹시 지치거나 나른하여 힘없이 발을 떼어 놓으며 느리게 계속 걷는 모양.,타닥타닥,,trial2,Qwen/Qwen2.5-7B-Instruct,ko,2
+줄이나 획을 함부로 긋는 소리. 또는 그 모양.,짝짝,,trial2,Qwen/Qwen2.5-7B-Instruct,ko,2
+입을 조금 크게 벌리고 소리 없이 거볍게 자꾸 웃는 모양.,뻥끗뻥끗,,trial2,Qwen/Qwen2.5-7B-Instruct,ko,2
+입을 약간 벌리고 소리 없이 부드럽게 웃는 모양.,삥그레,,trial2,Qwen/Qwen2.5-7B-Instruct,ko,2
+선뜻하게 조금 붉은 모양.,불그스레,,trial2,Qwen/Qwen2.5-7B-Instruct,ko,2
+먹은 것을 조금씩 잇따라 게우는 소리. 또는 그 모양.,올각올각,,trial2,Qwen/Qwen2.5-7B-Instruct,ko,2
+눈과 입을 귀엽게 움직이며 소리 없이 부드럽게 웃는 모양.,상그레,,trial2,Qwen/Qwen2.5-7B-Instruct,ko,2
+갑자기 무섭거나 차가움을 느낄 때 몸이 자꾸 약간 움츠러드는 모양.,아쓱아쓱,,trial2,Qwen/Qwen2.5-7B-Instruct,ko,2
+입을 예쁘게 약간 벌리며 자꾸 소리 없이 가볍게 웃는 모양.,방긋방긋,,trial2,Qwen/Qwen2.5-7B-Instruct,ko,2
+깨끗하고 반지르르 윤이 나는 모양.,함치르르,,trial2,Qwen/Qwen2.5-7B-Instruct,ko,2
+액체나 음식물 따위가 목구멍이나 좁은 구멍으로 한꺼번에 많이 자꾸 넘어가는 소리. 또는 그 모양.,꿀꺽꿀꺽,,trial2,Qwen/Qwen2.5-7B-Instruct,ko,2
+작은 것 여럿이 다 속이 비어서 아무것도 없는 모양.,탕탕,,trial2,Qwen/Qwen2.5-7B-Instruct,ko,2
+큰 쇠붙이 따위가 둔하게 울리는 소리.,광광,,trial2,Qwen/Qwen2.5-7B-Instruct,ko,2
+가볍게 발소리를 내면서 자꾸 가만가만 걷는 소리. 또는 그 모양.,자박자박,,trial2,Qwen/Qwen2.5-7B-Instruct,ko,2
+조금 긴 다리로 거볍게 계속해서 뛰는 모양.,껑뚱껑뚱,,trial2,Qwen/Qwen2.5-7B-Instruct,ko,2
+거죽이 윤기가 흐르고 매우 미끄러운 모양.,번질번질,,trial2,Qwen/Qwen2.5-7B-Instruct,ko,2
+나뭇가지나 물건의 틈 사이로 바람이 자꾸 스쳐 부는 소리.,쏴쏴,,trial2,Qwen/Qwen2.5-7B-Instruct,ko,2
+실없이 웃으며 가볍게 자꾸 지껄이는 모양.,새새,,trial2,Qwen/Qwen2.5-7B-Instruct,ko,2
+"빛깔이나 소리, 형체 따위가 선명하지 못하고 약간 흐리거나 약한 모양.",여릿여릿,,trial2,Qwen/Qwen2.5-7B-Instruct,ko,2
+신이 나서 팔다리를 흥겹고 귀엽게 놀리며 춤을 추는 모양.,당실,,trial2,Qwen/Qwen2.5-7B-Instruct,ko,2
+거볍게 슬쩍슬쩍 자꾸 흘겨보는 모양.,힐끗힐끗,,trial2,Qwen/Qwen2.5-7B-Instruct,ko,2
+성질이나 태도가 검질기고 끈덕진 모양.,추근추근,,trial2,Qwen/Qwen2.5-7B-Instruct,ko,2
+강아지 따위가 놀라거나 아파서 애달프게 자꾸 짖는 소리.,캥캥,,trial2,Qwen/Qwen2.5-7B-Instruct,ko,2
+남의 운에 끌리어 멋모르고 행동하는 모양.,얼싸둥둥,,trial2,Qwen/Qwen2.5-7B-Instruct,ko,2
+성이 나서 갑자기 기를 쓰거나 소리를 냅다 지르는 모양.,버럭,,trial2,Qwen/Qwen2.5-7B-Instruct,ko,2
+잠이 푸근하게 깊이 들거나 곤한 몸을 매우 흡족하게 쉬는 모양.,푹,,trial2,Qwen/Qwen2.5-7B-Instruct,ko,2
+작은 물체가 얄밉게 흔들리거나 고갯짓을 하는 모양.,깐딱,,trial2,Qwen/Qwen2.5-7B-Instruct,ko,2
+크고 두드러진 덩어리들이 고르지 않고 빽빽하게 벌여 있는 모양.,울뭉줄뭉,,trial2,Qwen/Qwen2.5-7B-Instruct,ko,2
+다리에 힘이 없어 다리를 절며 걷는 모양.,저축저축,,trial2,Qwen/Qwen2.5-7B-Instruct,ko,2
+기다란 물건의 한 군데가 패어 들어가 오목한 모양.,짤록,,trial2,Qwen/Qwen2.5-7B-Instruct,ko,2
+입을 조금 크게 벌리고 소리 없이 부드럽게 자꾸 웃는 모양.,뻥글뻥글,,trial2,Qwen/Qwen2.5-7B-Instruct,ko,2
+거볍게 곁눈질하여 슬쩍 한 번 쳐다보는 모양.,힐끔,,trial2,Qwen/Qwen2.5-7B-Instruct,ko,2
+작고 단단한 물건들이 서로 맞닿는 소리.,때그락,,trial2,Qwen/Qwen2.5-7B-Instruct,ko,2
+머리카락이나 털 따위가 고불고불하거나 말려 있는 모양.,곱슬곱슬,,trial2,Qwen/Qwen2.5-7B-Instruct,ko,2
+물체의 겉에 볼록한 작은 것들이 솟아 나오거나 붙어 있어 고르지 않은 모양.,도톨도톨,,trial2,Qwen/Qwen2.5-7B-Instruct,ko,2
+단단한 물건을 자꾸 대중없이 크게 써는 모양.,꺽둑꺽둑,,trial2,Qwen/Qwen2.5-7B-Instruct,ko,2
+갑자기 행동하는 모양.,와락,,trial2,Qwen/Qwen2.5-7B-Instruct,ko,2
+말이나 행동을 뚜렷하게 정함이 없이 그러하고 저러하게 되는대로 하는 모양.,그리저리,,trial2,Qwen/Qwen2.5-7B-Instruct,ko,2
+본디의 기운이 그대로 남아 있어 생생한 모양.,생동생동,,trial2,Qwen/Qwen2.5-7B-Instruct,ko,2
+눈꺼풀을 움직이며 눈을 자꾸 감았다 떴다 하는 모양.,씀벅씀벅,,trial2,Qwen/Qwen2.5-7B-Instruct,ko,2
+코를 찌를 듯이 매우 심한 냄새가 자꾸 나는 듯한 모양.,물컥물컥,,trial2,Qwen/Qwen2.5-7B-Instruct,ko,2
+고김살이 생기게 자꾸 함부로 고기는 모양.,고깃고깃,,trial2,Qwen/Qwen2.5-7B-Instruct,ko,2
+얼굴에 잘고 얕게 얽은 자국이 듬성듬성 있는 모양.,솜솜,,trial2,Qwen/Qwen2.5-7B-Instruct,ko,2
+사람이나 짐승 따위가 몹시 놀라거나 죽게 될 때 잇따라 지르는 소리.,꺅꺅,,trial2,Qwen/Qwen2.5-7B-Instruct,ko,2
+주책없이 쓸데없는 말을 자꾸 지껄이는 모양.,사부랑사부랑,,trial2,Qwen/Qwen2.5-7B-Instruct,ko,2
+단단한 물건이 무너져 떨어지며 요란하게 울리는 소리. 또는 그 모양.,우두덩,,trial2,Qwen/Qwen2.5-7B-Instruct,ko,2
+가운데가 둥그스름하게 푹 패거나 들어가 있는 모양.,우묵,,trial2,Qwen/Qwen2.5-14B-Instruct,ko,2
+다소 큰 여러 개의 물건 하나하나가 보기보다 제법 무거운 상태.,묵직묵직,,trial2,Qwen/Qwen2.5-14B-Instruct,ko,2
+크고 단단한 물건이 맞부딪쳐 울리는 소리.,털커덩,,trial2,Qwen/Qwen2.5-14B-Instruct,ko,2
+머리가 어지러워 자꾸 정신을 잃고 까무러칠 듯한 모양.,아뜩아뜩,,trial2,Qwen/Qwen2.5-14B-Instruct,ko,2
+일정한 약간 넓은 범위를 한 바퀴 도는 모양.,핑,,trial2,Qwen/Qwen2.5-14B-Instruct,ko,2
+몸을 둔하고 느리게 조금 움직이는 모양.,꼼작,,trial2,Qwen/Qwen2.5-14B-Instruct,ko,2
+물체가 비스듬히 한쪽으로 기울어서 자꾸 흔들리는 모양.,삐뚝삐뚝,,trial2,Qwen/Qwen2.5-14B-Instruct,ko,2
+정돈되지 아니하여 어수선하고 엉성한 모양.,에푸수수,,trial2,Qwen/Qwen2.5-14B-Instruct,ko,2
+크고 동그란 눈알이 힘 있게 움직이는 모양.,되록,,trial2,Qwen/Qwen2.5-14B-Instruct,ko,2
+살이 찌고 털이 많아서 매우 탐스러운 모양.,북슬북슬,,trial2,Qwen/Qwen2.5-14B-Instruct,ko,2
+무엇을 내다보거나 목구멍에 걸린 것을 삼키려고 목을 조금 길게 빼어 자꾸 앞으로 내미는 모양.,꺄룩꺄룩,,trial2,Qwen/Qwen2.5-14B-Instruct,ko,2
+큰북이나 속이 빈 나무통 따위를 두드려 울리는 소리.,퉁,,trial2,Qwen/Qwen2.5-14B-Instruct,ko,2
+몹시 여위어 마른 모양.,깨깨,,trial2,Qwen/Qwen2.5-14B-Instruct,ko,2
+작은 빛이 잇따라 잠깐 나타났다가 사라지는 모양.,빤작빤작,,trial2,Qwen/Qwen2.5-14B-Instruct,ko,2
+입이나 구멍 따위가 속이 들여다보일 정도로 조금 넓게 바라진 모양.,해발쪽,,trial2,Qwen/Qwen2.5-14B-Instruct,ko,2
+든든하고 질기거나 번드러운 물건을 되게 문지르거나 마주 갈 때에 나는 소리.,부드득,,trial2,Qwen/Qwen2.5-14B-Instruct,ko,2
+"빛깔이나 소리, 형체 따위가 선명하지 못하고 조금 흐리거나 약한 모양.",야릿야릿,,trial2,Qwen/Qwen2.5-14B-Instruct,ko,2
+크고 단단한 쇠붙이 따위가 자꾸 맞부딪쳐 울리는 소리. 또는 그 모양.,절거덩절거덩,,trial2,Qwen/Qwen2.5-14B-Instruct,ko,2
+부엉이가 잇따라 우는 소리.,부엉부엉,,trial2,Qwen/Qwen2.5-14B-Instruct,ko,2
+크고 연한 물건이 잘 드는 칼에 쉽게 자꾸 베어지는 소리. 또는 그 모양.,썸벅썸벅,,trial2,Qwen/Qwen2.5-14B-Instruct,ko,2
+성질이나 태도가 검질기고 끈덕진 모양.,추근추근,,trial2,Qwen/Qwen2.5-14B-Instruct,ko,2
+어린아이가 소리 없이 탐스럽고 귀엽게 웃는 모양.,앙글방글,,trial2,Qwen/Qwen2.5-14B-Instruct,ko,2
+작고 무거운 물건이 얕은 물에 잇따라 떨어질 때 나는 소리.,팡당팡당,,trial2,Qwen/Qwen2.5-14B-Instruct,ko,2
+쌓여 있던 크고 단단한 물건이 갑자기 무너지는 소리. 또는 그 모양.,워그르르,,trial2,Qwen/Qwen2.5-14B-Instruct,ko,2
+크고 단단한 물건이 부딪치는 소리.,털커덕,,trial2,Qwen/Qwen2.5-14B-Instruct,ko,2
+호루라기나 호각(號角) 따위를 조금 세게 부는 소리.,후루루,,trial2,Qwen/Qwen2.5-14B-Instruct,ko,2
+높이 쌓여 있던 큰 물건들이 갑자기 야단스럽게 무너지는 소리. 또는 그 모양.,워르르,,trial2,Qwen/Qwen2.5-14B-Instruct,ko,2
+굵고 거친 목소리로 자꾸 불평하는 모양.,게두덜게두덜,,trial2,Qwen/Qwen2.5-14B-Instruct,ko,2
+연기나 구름 따위가 작게 둥근 모양을 이루면서 잇따라 나오는 모양.,몽개몽개,,trial2,Qwen/Qwen2.5-14B-Instruct,ko,2
+나뭇가지나 물건의 틈 사이로 바람이 자꾸 스쳐 부는 소리.,쏴쏴,,trial2,Qwen/Qwen2.5-14B-Instruct,ko,2
+멀어서 아득한 모양.,감감,,trial2,Qwen/Qwen2.5-14B-Instruct,ko,2
+탄력 있는 물체가 부드럽고 넓게 벌어졌다 우므러졌다 하는 모양.,벌름,,trial2,Qwen/Qwen2.5-14B-Instruct,ko,2
+액체 따위를 남김없이 잇따라 들이마시는 소리. 또는 그 모양.,훌쩍훌쩍,,trial2,Qwen/Qwen2.5-14B-Instruct,ko,2
+크고 단단한 물건이나 질기고 뻣뻣한 물건이 맞닿을 때 나는 소리.,뻐꺽,,trial2,Qwen/Qwen2.5-14B-Instruct,ko,2
+분수없이 잘난 체하며 자꾸 매우 경망하게 행동하는 모양.,꺼떡꺼떡,,trial2,Qwen/Qwen2.5-14B-Instruct,ko,2
+여러 가지 빛깔의 작은 점이나 줄 따위가 고르고 조금 성기게 무늬를 이룬 모양.,아로롱아로롱,,trial2,Qwen/Qwen2.5-14B-Instruct,ko,2
+여럿이 다 조금 긴 듯한 모양.,기름기름,,trial2,Qwen/Qwen2.5-14B-Instruct,ko,2
+몸이나 얼굴이 살져 통통하고 매우 보드라운 모양.,오동보동,,trial2,Qwen/Qwen2.5-14B-Instruct,ko,2
+큰 빛이 잠깐 나타났다가 사라지는 모양.,번적,,trial2,Qwen/Qwen2.5-14B-Instruct,ko,2
+여러 가지 밝은 빛깔의 점이나 줄 따위 무늬가 고르게 촘촘한 모양.,알락알락,,trial2,Qwen/Qwen2.5-14B-Instruct,ko,2
+줄이나 획을 함부로 긋는 소리. 또는 그 모양.,작작,,trial2,google/gemma-3-27b-it,ko,2
+게으름을 피우며 아무 일도 하지 아니하고 놀기만 하는 모양.,삔둥삔둥,,trial2,google/gemma-3-27b-it,ko,2
+매미가 울음을 그칠 때 내는 소리.,맴,,trial2,google/gemma-3-27b-it,ko,2
+"불평이나 원망, 탄식 따위를 입속말로 혼자 계속 해 대는 소리. 또는 그 모양.",웅절웅절,,trial2,google/gemma-3-27b-it,ko,2
+작고 단단한 물건이 갑자기 세게 부러지거나 깨지는 모양.,작신,,trial2,google/gemma-3-27b-it,ko,2
+단단한 물건을 잇따라 가볍게 두드리는 소리.,톡탁톡탁,,trial2,google/gemma-3-27b-it,ko,2
+작은 물체가 매달려 조금 가볍고 느리게 옆으로 자꾸 흔들리는 모양.,간드랑간드랑,,trial2,google/gemma-3-27b-it,ko,2
+정답게 이야기하거나 의좋게 지내는 모양.,오손도손,,trial2,google/gemma-3-27b-it,ko,2
+깜짝 놀라 갑자기 몸을 옴츠리는 모양.,옴칠,,trial2,google/gemma-3-27b-it,ko,2
+혀를 차면서 입맛을 크게 한 번 다시는 소리. 또는 그 모양.,쩍,,trial2,google/gemma-3-27b-it,ko,2
+하찮은 일 따위로 옥신각신하며 자꾸 다투는 모양.,짜그락짜그락,,trial2,google/gemma-3-27b-it,ko,2
+작고 단단한 물건이 부딪쳐 울리는 소리.,딸가당,,trial2,google/gemma-3-27b-it,ko,2
+참다못하여 입속에서 새어 나오는 웃음소리. 또는 그 모양.,키드득,,trial2,google/gemma-3-27b-it,ko,2
+곁눈으로 살짝 한 번 할겨 보는 모양.,할긋,,trial2,google/gemma-3-27b-it,ko,2
+작은 덩이로 자꾸 똑똑 끊어지거나 잘라지는 모양.,몬닥몬닥,,trial2,google/gemma-3-27b-it,ko,2
+여럿이 다 그런 것 같기도 하고 그렇지 않은 것 같기도 하여 또렷하게 분간하기 어려운 모양.,아리송아리송,,trial2,google/gemma-3-27b-it,ko,2
+물체가 물크러질 정도로 힘없이 자꾸 축 처지거나 물러지는 모양.,는질는질,,trial2,google/gemma-3-27b-it,ko,2
+속의 것이 드러나 보일 듯 말 듯 조금 바라진 모양.,빨쪽,,trial2,google/gemma-3-27b-it,ko,2
+작고 여린 뼈나 말린 날밤처럼 깨물기에 조금 단단한 상태.,오돌오돌,,trial2,google/gemma-3-27b-it,ko,2
+갑자기 정신이 아득하고 조금 어지러운 느낌.,아찔,,trial2,google/gemma-3-27b-it,ko,2
+큰 새가 갑자기 날개를 치며 나는 소리. 또는 그 모양.,푸두둥,,trial2,google/gemma-3-27b-it,ko,2
+군데군데 누르스름한 모양.,누름누름,,trial2,google/gemma-3-27b-it,ko,2
+입이나 허리 따위를 이리저리 느리게 자꾸 조금씩 움직이는 모양.,얄기죽얄기죽,,trial2,google/gemma-3-27b-it,ko,2
+먹은 것을 조금씩 잇따라 게우는 소리. 또는 그 모양.,올각올각,,trial2,google/gemma-3-27b-it,ko,2
+바라보일 만한 정도로 뒤에 멀리 떨어져 따라가는 모양.,바람만바람만,,trial2,google/gemma-3-27b-it,ko,2
+천연두나 헌데 따위가 딱지가 붙을 정도로 조금 마른 모양.,수슬수슬,,trial2,google/gemma-3-27b-it,ko,2
+여럿이 다 끝이 날카로운 모양.,빼족빼족,,trial2,google/gemma-3-27b-it,ko,2
+가득 찬 액체가 흔들려서 자꾸 조금씩 넘치는 모양.,찔름찔름,,trial2,google/gemma-3-27b-it,ko,2
+물 따위가 거침없이 자꾸 번져 흐르는 소리. 또는 그 모양.,솰솰,,trial2,google/gemma-3-27b-it,ko,2
+질긴 물건을 입에 넣고 볼을 오물거리며 자꾸 씹는 모양.,올근올근,,trial2,google/gemma-3-27b-it,ko,2
+작은 덩이로 똑 끊어지거나 잘라지는 모양.,몬탁,,trial2,google/gemma-3-27b-it,ko,2
+작은 천 조각이나 종이 따위가 자꾸 빠르고 가볍게 나부끼는 모양.,나팔나팔,,trial2,google/gemma-3-27b-it,ko,2
+물체가 한쪽으로 약간 갸울어지는 모양.,꺄우뚱,,trial2,google/gemma-3-27b-it,ko,2
+가는 물줄기나 빗물 따위가 빠르게 자꾸 흐르거나 내리는 소리. 또는 그 모양.,조록조록,,trial2,google/gemma-3-27b-it,ko,2
+"마른 잎이나 검불, 종이 따위를 자꾸 밟거나 건드릴 때 나는 소리.",부스럭부스럭,,trial2,google/gemma-3-27b-it,ko,2
+군데군데 동그스름하게 푹 패거나 들어가 있는 모양.,오목오목,,trial2,google/gemma-3-27b-it,ko,2
+여럿이 다 약간 굽은 듯한 모양.,구붓구붓,,trial2,google/gemma-3-27b-it,ko,2
+빛이 잇따라 갑자기 나타났다 없어졌다 하는 모양.,번뜻번뜻,,trial2,google/gemma-3-27b-it,ko,2
+까마귀나 까치 따위가 우는 소리.,깍,,trial2,google/gemma-3-27b-it,ko,2
+걸을 때 조금 절뚝거리는 모양.,절쑥절쑥,,trial2,google/gemma-3-27b-it,ko,2
+입을 예쁘게 벌리며 소리 없이 가볍고 보드랍게 살짝 한 번 웃는 모양.,방싯,,trial2,google/gemma-3-27b-it,ko,2
+쌓여 있던 크고 단단한 물건이 갑자기 무너지는 소리. 또는 그 모양.,워그르르,,trial2,google/gemma-3-27b-it,ko,2
+입을 조금 벌리고 소리 없이 귀엽고 보드랍게 한 번 웃는 모양.,빵글,,trial2,google/gemma-3-27b-it,ko,2
+거볍게 슬쩍 한 번 흘겨보는 모양.,힐긋,,trial2,google/gemma-3-27b-it,ko,2
+실없이 웃으면서 조금 큰 소리로 계속 이야기하는 모양.,시시덕시시덕,,trial2,google/gemma-3-27b-it,ko,2
+바람이 부드럽게 불어오는 모양.,건들,,trial2,google/gemma-3-27b-it,ko,2
+여기저기가 성긴 모양.,엉기성기,,trial2,google/gemma-3-27b-it,ko,2
+꾀꼬리가 우는 소리.,꾀꼴,,trial2,google/gemma-3-27b-it,ko,2
+여러 가지 빛깔의 크고 뚜렷한 점이나 줄 따위가 고르지 아니하고 촘촘하게 무늬를 이룬 모양.,얼룽덜룽,,trial2,google/gemma-3-27b-it,ko,2
+코나 침 따위를 보기 흉하게 흘리거나 지저분하게 묻힌 모양.,게게,,trial2,google/gemma-3-27b-it,ko,2
+가늘고 긴 막대기나 줄 따위가 자꾸 탄력 있게 흔들리는 모양.,능청능청,,trial2,google/gemma-3-27b-it,ko,2
+바람이 가볍고 부드럽게 살랑살랑 부는 모양.,간들간들,,trial2,google/gemma-3-27b-it,ko,2
+넓은 그릇의 물 따위가 천천히 고루 끓는 모양.,쌀쌀,,trial2,google/gemma-3-27b-it,ko,2
+작은 물체 따위가 도드라지게 잇따라 치밀거나 솟아오르거나 떠오르는 모양.,볼끈볼끈,,trial2,google/gemma-3-27b-it,ko,2
+바람에 날리어 거볍고 빠르게 한 번 나부끼는 모양.,풀럭,,trial2,google/gemma-3-27b-it,ko,2
+자꾸 버릇없이 까부는 모양.,희룽희룽,,trial2,google/gemma-3-27b-it,ko,2
+가볍게 한 번 흘겨보는 모양.,흘깃,,trial2,google/gemma-3-27b-it,ko,2
+맞추어 끼일 물건이 꼭 들어맞지 않고 자꾸 조금 어긋나는 모양.,빼끗빼끗,,trial2,google/gemma-3-27b-it,ko,2
+눈과 입을 살며시 움직이며 소리 없이 가볍고 환하게 웃는 모양.,쌩끗빵끗,,trial2,google/gemma-3-27b-it,ko,2
+풀기가 센 옷이나 얇고 뻣뻣한 물건이 자꾸 서로 세게 스치거나 부서지는 소리.,워석워석,,trial2,google/gemma-3-27b-it,ko,2
+무엇을 내다보거나 목구멍에 걸린 것을 삼키려고 목을 조금 길게 빼어 앞으로 내미는 모양.,꺄룩,,trial2,google/gemma-3-27b-it,ko,2
+남이 알아듣지 못하도록 작은 목소리로 자질구레하게 자꾸 이야기하는 소리. 또는 그 모양.,속살속살,,trial2,google/gemma-3-27b-it,ko,2
+설멍한 다리를 가볍게 들어 옮기면서 걷는 모양.,설멍설멍,,trial2,google/gemma-3-27b-it,ko,2
+입을 슬며시 벌릴 듯 말 듯 하면서 소리 없이 부드럽게 한 번 웃는 모양.,삥글,,trial2,google/gemma-3-27b-it,ko,2
+힘이 없거나 어지러워서 몸을 바로 가누지 못하고 이리저리 쓰러질 듯이 걷는 모양.,비틀,,trial2,google/gemma-3-27b-it,ko,2
+작은 구멍이나 틈 따위가 깊고 또렷하게 나 있는 모양.,빠끔,,trial2,google/gemma-3-27b-it,ko,2
+작고 단단한 쇠붙이 따위가 조금 가볍게 자꾸 맞부딪쳐 울리는 소리. 또는 그 모양.,찰가당찰가당,,trial2,google/gemma-3-27b-it,ko,2
+눈과 입을 살며시 움직이며 소리 없이 가볍게 자꾸 웃는 모양.,쌩긋쌩긋,,trial2,google/gemma-3-27b-it,ko,2
+야살스럽게 웃는 소리. 또는 그 모양.,애해해,,trial2,google/gemma-3-27b-it,ko,2
+한 번 끓어오르는 모양.,한소끔,,trial2,google/gemma-3-27b-it,ko,2
+마른 물건이 잇따라 가볍게 바스러지는 소리. 또는 그 모양.,보싹보싹,,trial2,google/gemma-3-27b-it,ko,2
+작고 단단한 쇠붙이 따위가 조금 가볍게 맞부딪쳐 울리는 소리. 또는 그 모양.,잘까당,,trial2,google/gemma-3-27b-it,ko,2
+여러 군데가 조금 구부러져 있는 모양.,구부정구부정,,trial2,google/gemma-3-27b-it,ko,2
+작은 방울이나 매달린 물체 따위가 한 번 흔들리는 소리. 또는 그 모양.,달랑,,trial2,google/gemma-3-27b-it,ko,2
+몹시 못마땅하거나 안타까워 혀를 차는 소리.,쩟,,trial2,google/gemma-3-27b-it,ko,2
+많은 수효가 듬성듬성 흩어져 있는 모양.,겅성드뭇,,trial2,google/gemma-3-27b-it,ko,2
+입만 예쁘게 조금 벌리고 소리 없이 보드랍게 웃는 모양.,방그레,,trial2,google/gemma-3-27b-it,ko,2
+깊고 좁은 틈이나 구멍 속을 잇따라 조금씩 자꾸 갉거나 돌려 파내는 모양.,호빗호빗,,trial2,google/gemma-3-27b-it,ko,2
+단단하고 질기거나 반드러운 물건을 야무지게 문지르거나 비빌 때 나는 소리.,포드득,,trial2,google/gemma-3-27b-it,ko,2
+드물고 성긴 모양.,담상담상,,trial2,google/gemma-3-27b-it,ko,2
+여러 군데가 모두 사이나 간격이 조금 뜬 듯한 모양.,상깃상깃,,trial2,google/gemma-3-27b-it,ko,2
+크고 연한 물건이 잘 드는 칼에 쉽게 자꾸 베어지는 소리. 또는 그 모양.,썸벅썸벅,,trial2,google/gemma-3-27b-it,ko,2
+서늘한 바람이 가볍고 부드럽게 부는 모양.,선들,,trial2,google/gemma-3-27b-it,ko,2
+한쪽 다리가 짧거나 탈이 나서 자꾸 되똑되똑 저는 모양.,잘똑잘똑,,trial2,google/gemma-3-27b-it,ko,2
+문이나 뚜껑 따위를 급작스럽게 여는 모양.,펄쩍,,trial2,google/gemma-3-27b-it,ko,2
+여러 가지 어두운 빛깔의 점이나 줄 따위가 조금 성기고 고르지 아니하게 무늬를 이룬 모양.,얼루룩덜루룩,,trial2,google/gemma-3-27b-it,ko,2
+일을 다 끝내지 못하고 중도에서 성의 없이 그만두는 모양.,건둥반둥,,trial2,google/gemma-3-27b-it,ko,2
+몸을 둔하고 느리게 움직이는 모양.,꿈적,,trial2,google/gemma-3-27b-it,ko,2
+옅은 물이나 진창을 거칠게 밟거나 치는 소리. 또는 그 모양.,절버덕,,trial2,google/gemma-3-27b-it,ko,2
+크고 단단한 물건이 자꾸 부러지거나 부서지는 소리. 또는 그 모양.,우지끈우지끈,,trial2,google/gemma-3-27b-it,ko,2
+풍선이나 폭탄 따위가 갑자기 터지는 소리.,팡,,trial2,google/gemma-3-27b-it,ko,2
+발을 크고 묵직하게 내디디며 잇따라 걷는 소리. 또는 그 모양.,저벅저벅,,trial2,google/gemma-3-27b-it,ko,2
+빈틈이 없이 빽빽한 모양.,꼬지꼬지,,trial2,google/gemma-3-27b-it,ko,2
+보이지 아니하는 데 있는 것을 찾으려고 자꾸 이리저리 더듬어 뒤지는 모양.,훔척훔척,,trial2,google/gemma-3-27b-it,ko,2
+꽤 단단한 물건을 깨물어 부스러뜨릴 때 잇따라 나는 소리.,으적으적,,trial2,google/gemma-3-27b-it,ko,2
+입을 살며시 벌릴 듯하면서 자꾸 소리 없이 보드랍게 웃는 모양.,뱅글뱅글,,trial2,google/gemma-3-27b-it,ko,2
+굵은 물줄기 따위가 빠르게 잠깐 흐르다가 그치는 소리. 또는 그 모양.,쭈르륵,,trial2,google/gemma-3-27b-it,ko,2
+여럿이 다 또는 매우 몸이 가늘고 키가 커서 맵시가 있는 모양.,늘씬늘씬,,trial2,Qwen/Qwen3-32B,ko,2
+물체가 이쪽저쪽으로 자꾸 갸울어지며 흔들리는 모양.,갸우뚱갸우뚱,,trial2,Qwen/Qwen3-32B,ko,2
+매우 속이 상하거나 안타까워서 애가 자꾸 타는 모양.,부질부질,,trial2,Qwen/Qwen3-32B,ko,2
+풀이나 나무 따위가 여럿이 다 거칠게 수북한 모양.,더부룩더부룩,,trial2,Qwen/Qwen3-32B,ko,2
+부드럽고 무른 물건의 거죽을 자꾸 세게 갈거나 긁는 소리. 또는 그 모양.,뿍뿍,,trial2,Qwen/Qwen3-32B,ko,2
+말소리 따위가 또렷또렷하고 센 모양.,때군때군,,trial2,Qwen/Qwen3-32B,ko,2
+물체의 거죽이 크게 두드러지거나 쑥 내밀린 모양.,불룩,,trial2,Qwen/Qwen3-32B,ko,2
+거죽에 기름기나 물기 따위가 묻어서 윤이 나고 매끄러운 모양.,반지르르,,trial2,Qwen/Qwen3-32B,ko,2
+어떤 행동을 망설이지 아니하고 빠르고 시원스럽게 해내는 모양.,홱,,trial2,Qwen/Qwen3-32B,ko,2
+작은 벌레 따위가 한데 어우러져 굼뜨게 자꾸 움직이는 모양.,굼실굼실,,trial2,Qwen/Qwen3-32B,ko,2
+중도에서 지체하지 아니하고 곧장 빠르게 가는 모양.,휭하니,,trial2,Qwen/Qwen3-32B,ko,2
+물기 있는 물건이 뜨거운 열에 닿아 타거나 졸아드는 소리.,부지지,,trial2,Qwen/Qwen3-32B,ko,2
+한곳에 서 있지 않고 자꾸 주위를 왔다 갔다 하는 모양.,서성서성,,trial2,Qwen/Qwen3-32B,ko,2
+여러 군데가 구부러져 있는 모양.,꾸부정꾸부정,,trial2,Qwen/Qwen3-32B,ko,2
+살이 찌고 털이 많아서 귀엽고 탐스러운 모양.,복슬복슬,,trial2,Qwen/Qwen3-32B,ko,2
+물기 있는 물건이 뜨거운 열에 닿아 가볍게 타거나 졸아드는 소리.,빠지지,,trial2,Qwen/Qwen3-32B,ko,2
+몹시 미끄러워 넘어질 듯 넘어질 듯 자꾸 밀리어 나가는 모양.,미끄덩미끄덩,,trial2,Qwen/Qwen3-32B,ko,2
+설익은 곡식이나 열매 따위가 자꾸 씹히는 소리. 또는 그 느낌.,설겅설겅,,trial2,Qwen/Qwen3-32B,ko,2
+물 따위가 자꾸 잔물결을 이루며 흔들리는 소리. 또는 그 모양.,촐랑촐랑,,trial2,Qwen/Qwen3-32B,ko,2
+탄력 있고 작게 자꾸 뛰는 모양.,팔딱팔딱,,trial2,Qwen/Qwen3-32B,ko,2
+질거나 끈기 있는 물건을 자꾸 주무르거나 누르는 소리. 또는 그 모양.,꿀쩍꿀쩍,,trial2,Qwen/Qwen3-32B,ko,2
+단단하고 오돌오돌한 물건이 입안 깊숙이에서 요리조리 자꾸 미끄러지는 모양.,올공올공,,trial2,Qwen/Qwen3-32B,ko,2
+여러 가지 빛깔의 큰 점이나 줄 따위가 고르고 조금 성기게 무늬를 이룬 모양.,어루룽어루룽,,trial2,Qwen/Qwen3-32B,ko,2
+크고 단단한 물건이나 질기고 뻣뻣한 물건이 맞닿을 때 나는 소리.,뻐걱,,trial2,Qwen/Qwen3-32B,ko,2
+음식을 시원스럽게 먹지 아니하고 께지럭대며 조금씩 다랍게 먹는 모양.,쪽잘쪽잘,,trial2,Qwen/Qwen3-32B,ko,2
+작고 단단한 물건이 단단한 바닥에서 구르는 소리. 또는 그 모양.,때구루루,,trial2,Qwen/Qwen3-32B,ko,2
+가득 찬 액체가 흔들려서 자꾸 조금씩 넘치는 모양.,잘름잘름,,trial2,Qwen/Qwen3-32B,ko,2
+말대답을 하거나 무엇을 받아먹을 때 입을 자꾸 닁큼닁큼 벌렸다 닫았다 하는 모양.,넙적넙적,,trial2,Qwen/Qwen3-32B,ko,2
+남을 은근히 비웃는 태도로 계속 놀리는 모양.,빈정빈정,,trial2,Qwen/Qwen3-32B,ko,2
+조금 짧은 다리로 가볍게 뛰는 모양.,강동,,trial2,Qwen/Qwen3-32B,ko,2
+남이 모르게 비밀리 행동하는 모양.,쓰렁쓰렁,,trial2,google/gemma-3-27b-it,ko,2
+자꾸 갑작스럽게 화를 내거나 기운을 쓰는 모양.,빨깍빨깍,,trial2,google/gemma-3-27b-it,ko,2
+여러 군데가 고부라져 있는 모양.,꼬부장꼬부장,,trial2,google/gemma-3-27b-it,ko,2
+책을 막힘없이 줄줄 잘 읽는 소리. 또는 그 모양.,댕글댕글,,trial2,google/gemma-3-27b-it,ko,2
+여럿이 다 조금 긴 듯한 모양.,기름기름,,trial2,google/gemma-3-27b-it,ko,2
+경솔하고 아주 방정맞게 까불며 자꾸 지껄이는 모양.,시룽시룽,,trial2,google/gemma-3-27b-it,ko,2
+크고 단단한 물건이 맞부딪치는 소리.,덜커덕,,trial2,google/gemma-3-27b-it,ko,2
+입술을 힘없이 터뜨리며 싱겁게 한 번 웃을 때 나는 소리. 또는 그 모양.,피식,,trial2,google/gemma-3-27b-it,ko,2
+가랑잎이나 마른 검불 따위의 잘 마른 물건을 밟는 소리. 또는 그 모양.,버석,,trial2,google/gemma-3-27b-it,ko,2
+자꾸 손톱이나 칼끝 따위로 뜯거나 진집을 내는 모양.,뜯적뜯적,,trial2,google/gemma-3-27b-it,ko,2
+작고 단단한 물건이 갑자기 세게 자꾸 부러지거나 깨지는 소리. 또는 그 모양.,자끈자끈,,trial2,google/gemma-3-27b-it,ko,2
+"마른 잎이나 검불, 종이 따위를 밟거나 건드릴 때 나는 소리.",부스럭,,trial2,google/gemma-3-27b-it,ko,2
+물체가 한쪽으로 천천히 조금 기울어지거나 비뚤어지는 모양.,씰기죽,,trial2,google/gemma-3-27b-it,ko,2
+크고 단단한 물건이 잇따라 가볍게 부딪치거나 부러지는 소리.,떼걱떼걱,,trial2,google/gemma-3-27b-it,ko,2
+단단하고 질기거나 반드러운 물건을 야무지게 문지르거나 비빌 때 나는 소리.,뽀드득,,trial2,google/gemma-3-27b-it,ko,2
+띄엄띄엄 징거서 꿰매는 모양.,찡검찡검,,trial2,google/gemma-3-27b-it,ko,2
+작은북 따위를 두드리는 소리.,동,,trial2,google/gemma-3-27b-it,ko,2
+먹은 것을 계속 게워 내는 모양.,올딱올딱,,trial2,google/gemma-3-27b-it,ko,2
+크고 얇은 쇠붙이 따위가 떨어지거나 맞부딪쳐 울리는 소리. 또는 그 모양.,철그렁,,trial2,google/gemma-3-27b-it,ko,2
+반들반들 윤기가 돌고 보드라운 모양.,야드르르,,trial2,google/gemma-3-27b-it,ko,2
+물줄기나 작은 물체 따위가 자꾸 세차게 쏟아지는 소리. 또는 그 모양.,좌르륵좌르륵,,trial2,google/gemma-3-27b-it,ko,2
+바람에 날리어 자꾸 거볍고 빠르게 나부끼는 모양.,풀럭풀럭,,trial2,google/gemma-3-27b-it,ko,2
+얇은 쇠붙이 따위가 잇따라 조금 가볍게 떨어지거나 맞부딪치는 소리. 또는 그 모양.,잘그락잘그락,,trial2,google/gemma-3-27b-it,ko,2
+어떤 것에 조금씩 자꾸 더하는 모양.,더금더금,,trial2,google/gemma-3-27b-it,ko,2
+산에 나무가 없어 반반한 모양.,맨둥맨둥,,trial2,google/gemma-3-27b-it,ko,2
+눈이 자꾸 살짝 감겼다 뜨이는 모양.,깜짝깜짝,,trial2,google/gemma-3-27b-it,ko,2
+작은북 따위를 막대기로 가볍게 잇따라 두드리는 소리.,콩작콩작,,trial2,google/gemma-3-27b-it,ko,2
+마른 물건이 잇따라 가볍게 바스러지는 소리. 또는 그 모양.,보삭보삭,,trial2,google/gemma-3-27b-it,ko,2
+잇달아 공중으로 뛰는 모양.,방방,,trial2,google/gemma-3-27b-it,ko,2
+연하고 싱싱한 과일이나 채소 따위를 보드랍게 베어 물 때 나는 소리.,아삭,,trial2,google/gemma-3-27b-it,ko,2
+여럿이 다 보기 좋을 정도로 조금 가늘고 긴 듯한 모양.,갸름갸름,,trial2,google/gemma-3-27b-it,ko,2
+배에서 노를 젓고 닻을 감는 소리. 한자를 빌려 ‘至匊葱’으로 적기도 한다.,지국총,,trial2,google/gemma-3-27b-it,ko,2
+물 따위의 액체가 가는 줄기로 몰리어 흐르는 소리.,콜콜,,trial2,google/gemma-3-27b-it,ko,2
+눕거나 앉아 있다가 조금 큰 동작으로 갑자기 일어나는 모양.,벌떡,,trial2,google/gemma-3-27b-it,ko,2
+많은 양의 액체가 급히 쏟아져 흐르는 소리.,꽐꽐,,trial2,google/gemma-3-27b-it,ko,2
+작고 단단한 물건이 다른 단단한 물체에 잇따라 부딪치면서 굴러가는 소리. 또는 그 모양.,닥다글닥다글,,trial2,google/gemma-3-27b-it,ko,2
+작은 몸집이 갑자기 힘없이 주저앉거나 쓰러지는 소리. 또는 그 모양.,탈싹,,trial2,google/gemma-3-27b-it,ko,2
+무엇을 이루려고 애를 쓰거나 우겨 대는 모양.,아등바등,,trial2,google/gemma-3-27b-it,ko,2
+똥그스름하게 솟아난 모양.,똥또도롬,,trial2,google/gemma-3-27b-it,ko,2
+긴 다리로 채신없이 거볍게 뛰는 모양.,껑뚱,,trial2,google/gemma-3-27b-it,ko,2
+작고 연한 물건이 잘 드는 칼에 쉽게 베어지는 소리. 또는 그 모양.,쌈빡,,trial2,google/gemma-3-27b-it,ko,2
+단단한 물건이 부러지거나 서로 부딪치는 소리. 또는 그 모양.,딱,,trial2,google/gemma-3-27b-it,ko,2
+추위 따위로 몸을 한 번 크게 떠는 모양.,더르르,,trial2,google/gemma-3-27b-it,ko,2
+작은 물체가 물에 자꾸 부딪치거나 잠기는 소리. 또는 그 모양.,참방참방,,trial2,google/gemma-3-27b-it,ko,2
+사소한 일에 걸핏하면 왈칵 성을 내는 모양.,빨끈,,trial2,google/gemma-3-27b-it,ko,2
+매미가 우는 소리.,맴맴,,trial2,google/gemma-3-27b-it,ko,2
+큰 물건이 단단한 바닥 위를 구르는 소리. 또는 그 모양.,드르르,,trial2,google/gemma-3-27b-it,ko,2
+정신을 못 차릴 정도로 힘에 부쳐 자꾸 쩔쩔매거나 괴로워하며 애쓰는 모양.,허덕지덕,,trial2,google/gemma-3-27b-it,ko,2
+여럿이 한데 모여 몹시 어지럽게 들끓는 모양.,욱시글득시글,,trial2,google/gemma-3-27b-it,ko,2
+숨이 차서 숨소리가 고르지 아니하고 가쁘고 급하게 자꾸 나는 모양.,쌔근팔딱쌔근팔딱,,trial2,google/gemma-3-27b-it,ko,2
+일을 세밀하지는 못하여도 쉽고 빠르게 하는 모양.,거충거충,,trial2,google/gemma-3-27b-it,ko,2
+머리카락이나 털 따위가 고불고불하거나 말려 있는 모양.,곱슬곱슬,,trial2,google/gemma-3-27b-it,ko,2
+가늘고 긴 것이 탄력 있게 휘어지며 느리게 한 번 흔들리는 모양.,휘청,,trial2,google/gemma-3-27b-it,ko,2
+구르는 바퀴의 살 따위에 무엇인가가 잇따라 닿는 소리.,다다닥다다닥,,trial2,google/gemma-3-27b-it,ko,2
+분량이나 수효 따위가 어떤 범위나 한도에 꽉 찬 모양.,가득,,trial2,google/gemma-3-27b-it,ko,2
+느릿느릿 굼뜨게 걷거나 행동하는 모양.,흘근흘근,,trial2,google/gemma-3-27b-it,ko,2
+작고 연한 물건이 잘 드는 칼에 쉽게 베어지는 소리. 또는 그 모양.,삼박,,trial2,google/gemma-3-27b-it,ko,2
+넓은 범위나 여러 갈래로 흩어져 퍼지는 모양.,좍,,trial2,google/gemma-3-27b-it,ko,2
+물체가 힘없이 자꾸 촉 처지거나 조금 물러지는 모양.,난작난작,,trial2,google/gemma-3-27b-it,ko,2
+단단하고 질기거나 반드러운 물건을 거세게 문지를 때 되바라지게 나는 소리.,파드득,,trial2,google/gemma-3-27b-it,ko,2
+게으르거나 기운이 없어 나릿나릿 자꾸 힘없이 행동하는 모양.,개신개신,,trial2,google/gemma-3-27b-it,ko,2
+크고 단단한 물건이나 질기고 뻣뻣한 물건이 자꾸 맞닿을 때 나는 소리.,버걱버걱,,trial2,google/gemma-3-27b-it,ko,2
+자꾸 이리저리 들추어 뒤지는 모양.,들척들척,,trial2,google/gemma-3-27b-it,ko,2
+가는 물줄기 따위가 빠르게 잠깐 흐르다가 그치는 소리. 또는 그 모양.,쪼르륵,,trial2,google/gemma-3-27b-it,ko,2
+작은 빛이 잠깐 나타났다가 사라지는 모양.,빤짝,,trial2,google/gemma-3-27b-it,ko,2
+많은 양의 물 따위가 자꾸 흘러넘치거나 가볍게 부딪치는 소리. 또는 그 모양.,철럭철럭,,trial2,google/gemma-3-27b-it,ko,2
+잇따라 왈칵 달려들어 냉큼 물거나 움켜잡는 모양.,답삭답삭,,trial2,google/gemma-3-27b-it,ko,2
+몹시 아프거나 힘에 겨워 괴롭게 내는 소리.,낑,,trial2,google/gemma-3-27b-it,ko,2
+작은 몸을 좌우로 둔하게 움직이며 느리게 걷는 모양.,아기똥아기똥,,trial2,google/gemma-3-27b-it,ko,2
+어떤 물체의 밋밋한 끝이 조금 내밀어져 있는 모양.,뱐미주룩,,trial2,google/gemma-3-27b-it,ko,2
+잇따라 지저귀는 소리. 또는 그 모양.,지저지저,,trial2,google/gemma-3-27b-it,ko,2
+진흙이나 반죽 따위가 물기가 많아 매우 부드럽게 진 느낌.,질버덕질버덕,,trial2,google/gemma-3-27b-it,ko,2
+먹은 음식이 잘 삭지 않아 가슴에 몽치어 있는 듯한 느낌.,몽글,,trial2,google/gemma-3-27b-it,ko,2
+곁눈으로 자꾸 슬쩍 흘겨보는 모양.,흘끗흘끗,,trial2,google/gemma-3-27b-it,ko,2
+들기 좋을 정도로 여럿이 다 또는 매우 가벼운 모양.,가분가분,,trial2,google/gemma-3-27b-it,ko,2
+그러하고 저러한 모양.,그러저러,,trial2,google/gemma-3-27b-it,ko,2
+몹시 무섭거나 추워서 자꾸 몸이 움츠러들거나 소름이 끼치는 모양.,오삭오삭,,trial2,google/gemma-3-27b-it,ko,2
+눈과 입을 천연스럽게 움직이며 소리 없이 정답고 환하게 웃는 모양.,썽글뻥글,,trial2,google/gemma-3-27b-it,ko,2
+작고 연한 물건이 잘 드는 칼에 쉽게 자꾸 베어지는 소리. 또는 그 모양.,삼빡삼빡,,trial2,google/gemma-3-27b-it,ko,2
+끊어질 듯이 자꾸 이어지는 모양.,미식미식,,trial2,google/gemma-3-27b-it,ko,2
+장구를 울리는 소리.,덩더럭,,trial2,google/gemma-3-27b-it,ko,2
+단단하고 질기거나 반드러운 물건을 자꾸 야무지게 문지르거나 비빌 때 잇따라 나는 소리. 또는 그 모양.,뽀드득뽀드득,,trial2,google/gemma-3-27b-it,ko,2
+가슴 속 얕은 곳에서 힘없이 거칠게 잇따라 울려 나오는 기침 소리.,칼락칼락,,trial2,google/gemma-3-27b-it,ko,2
+연한 물건을 조금 잘게 빨리 써는 모양.,송송,,trial2,google/gemma-3-27b-it,ko,2
+느리게 자꾸 아장아장 걷는 모양.,쪼작쪼작,,trial2,google/gemma-3-27b-it,ko,2
+몹시 지치거나 나른하여 힘없이 발을 떼어 놓으며 느리게 계속 걷는 모양.,타닥타닥,,trial2,google/gemma-3-27b-it,ko,2
+큰 새가 갑자기 날개를 치며 날 때 잇따라 나는 소리. 또는 그 모양.,푸두둥푸두둥,,trial2,google/gemma-3-27b-it,ko,2
+소리 없이 입을 예쁘게 벌리고 밝고 보드랍게 살그머니 웃는 모양.,빵시레,,trial2,google/gemma-3-27b-it,ko,2
+목구멍에 깊이 걸린 것을 목구멍을 바짝 좁혀서 힘 있게 내뱉는 소리.,캭,,trial2,google/gemma-3-27b-it,ko,2
+작은 물체가 공중이나 물 위에 가볍게 떠서 잇따라 움직이는 모양.,동실동실,,trial2,google/gemma-3-27b-it,ko,2
+이것저것 가리지 아니하고 닥치는 대로 마구 해치우는 모양.,휘뚜루마뚜루,,trial2,google/gemma-3-27b-it,ko,2
+하나도 흩어지지 않게 말끔히 잘 가다듬어 수습하는 모양.,깐동깐동,,trial2,google/gemma-3-27b-it,ko,2
+말이나 행동이 들떠 미덥지 아니하고 허황된 모양.,껄렁,,trial2,google/gemma-3-27b-it,ko,2
+크고 단단한 물건들이 다른 물건에 야단스럽게 부딪치면서 잇따라 굴러가는 소리. 또는 그 모양.,웍더글덕더글,,trial2,google/gemma-3-27b-it,ko,2
+견주어 보아서 서로 비슷한 모양.,비금비금,,trial2,google/gemma-3-27b-it,ko,2

@@ -1,0 +1,3030 @@
+[
+    {
+        "crosslingual_cluster_id": 0,
+        "words": [
+            {
+                "word": "boffo",
+                "meaning": [
+                    "A hearty laugh."
+                ],
+                "ref": "Oxford English Dictionary",
+                "url": "https://www.oed.com",
+                "found": true,
+                "ipa": "b ɔ f o w",
+                "ipa_source": "epitran",
+                "romanization": "boffo",
+                "en_meaning": "A hearty laugh.",
+                "infinigram_count": 123348,
+                "language": "en",
+                "crosslingual_cluster_id": 0
+            },
+            {
+                "word": "chuckle",
+                "meaning": [
+                    "To laugh vehemently; to laugh convulsively."
+                ],
+                "ref": "Rhyme Over Reason : Phonological Motivation in English",
+                "url": "Rhyme Over Reason : Phonological Motivation in English",
+                "found": true,
+                "ipa": "t͡ʃ ʌ k ə l",
+                "ipa_source": "epitran",
+                "romanization": "chuckle",
+                "en_meaning": "To laugh vehemently; to laugh convulsively.",
+                "infinigram_count": 9166389,
+                "language": "en",
+                "crosslingual_cluster_id": 0
+            },
+            {
+                "word": "gawf",
+                "meaning": [
+                    "A loud noisy laugh."
+                ],
+                "ref": "Rhyme Over Reason : Phonological Motivation in English",
+                "url": "Rhyme Over Reason : Phonological Motivation in English",
+                "found": true,
+                "ipa": "ɡ ɔ f",
+                "ipa_source": "epitran",
+                "romanization": "gawf",
+                "en_meaning": "A loud noisy laugh.",
+                "infinigram_count": 2429,
+                "language": "en",
+                "crosslingual_cluster_id": 0
+            },
+            {
+                "word": "guffaw",
+                "meaning": [
+                    "A burst of coarse laughter; a loud or boisterous laugh."
+                ],
+                "ref": "Rhyme Over Reason : Phonological Motivation in English",
+                "url": "Rhyme Over Reason : Phonological Motivation in English",
+                "found": true,
+                "ipa": "ɡ ʌ f ɔ",
+                "ipa_source": "epitran",
+                "romanization": "guffaw",
+                "en_meaning": "A burst of coarse laughter; a loud or boisterous laugh.",
+                "infinigram_count": 959212,
+                "language": "en",
+                "crosslingual_cluster_id": 0
+            },
+            {
+                "word": "yock",
+                "meaning": [
+                    "A laugh, esp. a loud or hearty one; a burst of laughter.",
+                    "To laugh, esp. loudly or uproariously."
+                ],
+                "ref": "Rhyme Over Reason : Phonological Motivation in English",
+                "url": "Rhyme Over Reason : Phonological Motivation in English",
+                "found": true,
+                "ipa": "j ɑ k",
+                "ipa_source": "epitran",
+                "romanization": "yock",
+                "en_meaning": "A laugh, esp. a loud or hearty one; a burst of laughter.",
+                "infinigram_count": 12444,
+                "language": "en",
+                "crosslingual_cluster_id": 0
+            },
+            {
+                "word": "ouar ouar",
+                "meaning": [
+                    "bruit de gros rire."
+                ],
+                "url": "dictionnaire des onomatopées",
+                "found": true,
+                "ref": "dictionnaire des onomatopées",
+                "ipa": "w a ʀ w a ʀ",
+                "ipa_source": "epitran",
+                "romanization": "ouar ouar",
+                "en_meaning": "sound of loud laughter",
+                "infinigram_count": 0,
+                "language": "fr",
+                "crosslingual_cluster_id": 0
+            },
+            {
+                "word": "wouahah",
+                "meaning": [
+                    "bruit de gros rire."
+                ],
+                "url": "dictionnaire des onomatopées",
+                "found": true,
+                "ref": "dictionnaire des onomatopées",
+                "ipa": "w w a a",
+                "ipa_source": "epitran",
+                "romanization": "wouahah",
+                "en_meaning": "sound of loud laughter",
+                "infinigram_count": 7,
+                "language": "fr",
+                "crosslingual_cluster_id": 0
+            },
+            {
+                "word": "あはは",
+                "meaning": "口を大きくあけて高く笑う声。",
+                "ref": "nikkoku",
+                "url": "精選版 日本国語大辞典",
+                "found": true,
+                "ipa": "a h a h a",
+                "ipa_source": "epitran",
+                "romanization": "ahaha",
+                "en_meaning": "The sound of laughing loudly with one's mouth wide open.",
+                "infinigram_count": 1817,
+                "language": "ja",
+                "crosslingual_cluster_id": 0
+            },
+            {
+                "word": "がはは",
+                "meaning": "口を大きく開けて豪快に笑う声。",
+                "ref": "daijisen",
+                "url": "デジタル大辞泉",
+                "found": true,
+                "ipa": "ɡ a h a h a",
+                "ipa_source": "epitran",
+                "romanization": "gahaha",
+                "en_meaning": "The sound of laughing heartily with one's mouth wide open.",
+                "infinigram_count": 80,
+                "language": "ja",
+                "crosslingual_cluster_id": 0
+            },
+            {
+                "word": "げらげら",
+                "meaning": "大声で笑うさま、哄笑するさまを表わす語。",
+                "ref": "nikkoku",
+                "url": "精選版 日本国語大辞典",
+                "found": true,
+                "ipa": "ɡ e ɾ a ɡ e ɾ a",
+                "ipa_source": "epitran",
+                "romanization": "geragera",
+                "en_meaning": "A word that describes the state of laughing loudly or bursting into loud laughter.",
+                "infinigram_count": 146,
+                "language": "ja",
+                "crosslingual_cluster_id": 0
+            },
+            {
+                "word": "はっ",
+                "meaning": "急に笑う声。",
+                "ref": "kojien",
+                "url": "広辞苑 第七版",
+                "found": true,
+                "ipa": "h a ʔ",
+                "ipa_source": "epitran",
+                "romanization": "hatsu",
+                "en_meaning": "A sudden burst of laughter.",
+                "infinigram_count": 23610,
+                "language": "ja",
+                "crosslingual_cluster_id": 0
+            },
+            {
+                "word": "わはは",
+                "meaning": "大声で笑う声。",
+                "ref": "nikkoku",
+                "url": "精選版 日本国語大辞典",
+                "found": true,
+                "ipa": "ɰ a h a h a",
+                "ipa_source": "epitran",
+                "romanization": "wahaha",
+                "en_meaning": "The sound of laughing loudly.",
+                "infinigram_count": 172,
+                "language": "ja",
+                "crosslingual_cluster_id": 0
+            },
+            {
+                "word": "わーっ",
+                "meaning": "泣いたり、笑ったり、驚いたり、また元気をつけたりする時などに発する大声。",
+                "ref": "nikkoku",
+                "url": "精選版 日本国語大辞典",
+                "found": true,
+                "ipa": "ɰ aː ʔ",
+                "ipa_source": "epitran",
+                "romanization": "waatsu",
+                "en_meaning": "A loud voice uttered when crying, laughing, being surprised, or trying to cheer oneself up.",
+                "infinigram_count": 231,
+                "language": "ja",
+                "crosslingual_cluster_id": 0
+            },
+            {
+                "word": "까르르",
+                "definitions": [
+                    "한꺼번에 자지러지게 웃는 소리. 또는 그 모양. 주로 여자나 아이들이 웃는 소리나 모양을 이른다.",
+                    "아기가 갑자기 자지러지게 우는 소리. 또는 그 모양."
+                ],
+                "url": "https://stdict.korean.go.kr",
+                "found": true,
+                "meaning": "한꺼번에 자지러지게 웃는 소리. 또는 그 모양. 주로 여자나 아이들이 웃는 소리나 모양을 이른다.",
+                "ref": "표준국어대사전 20250306",
+                "ipa": "k͈ a l ɯ l ɯ",
+                "ipa_source": "epitran",
+                "romanization": "kkarŭrŭ",
+                "en_meaning": "The sound or manner of laughing all at once in a high-pitched, bubbly way. It usually refers to the laughter or appearance of women or children.",
+                "language": "ko",
+                "crosslingual_cluster_id": 0
+            },
+            {
+                "word": "까르르까르르",
+                "definitions": [
+                    "한꺼번에 자지러지게 자꾸 웃는 소리. 또는 그 모양. 주로 여자나 아이들이 웃는 소리나 모양을 이른다.",
+                    "아기가 갑자기 자지러지게 자꾸 우는 소리. 또는 그 모양."
+                ],
+                "url": "https://stdict.korean.go.kr",
+                "found": true,
+                "meaning": "한꺼번에 자지러지게 자꾸 웃는 소리. 또는 그 모양. 주로 여자나 아이들이 웃는 소리나 모양을 이른다.",
+                "ref": "표준국어대사전 20250306",
+                "ipa": "k͈ a l ɯ l ɯ k͈ a l ɯ l ɯ",
+                "ipa_source": "epitran",
+                "romanization": "kkarŭrŭkkarŭrŭ",
+                "en_meaning": "The repeated sound or appearance of people bursting into laughter all at once. It usually refers to the laughter or way of laughing of women or children.",
+                "language": "ko",
+                "crosslingual_cluster_id": 0
+            },
+            {
+                "word": "깔깔",
+                "definitions": [
+                    "되바라진 목소리로 못 참을 듯이 웃는 소리."
+                ],
+                "url": "https://stdict.korean.go.kr",
+                "found": true,
+                "meaning": "되바라진 목소리로 못 참을 듯이 웃는 소리.",
+                "ref": "표준국어대사전 20250306",
+                "ipa": "k͈ a l k͈ a l",
+                "ipa_source": "epitran",
+                "romanization": "kkalkkal",
+                "en_meaning": "The sound of laughing uncontrollably in a bold, high-pitched voice.",
+                "language": "ko",
+                "crosslingual_cluster_id": 0
+            },
+            {
+                "word": "꺼이꺼이",
+                "definitions": [
+                    "목이 멜 만큼 요란하게 우는 소리. 또는 그 모양."
+                ],
+                "url": "https://stdict.korean.go.kr",
+                "found": true,
+                "meaning": "목이 멜 만큼 요란하게 우는 소리. 또는 그 모양.",
+                "ref": "표준국어대사전 20250306",
+                "ipa": "k͈ ʌ i k͈ ʌ i",
+                "ipa_source": "epitran",
+                "romanization": "kkŏikkŏi",
+                "en_meaning": "The loud sound of crying to the point of being choked up, or the appearance of doing so.",
+                "language": "ko",
+                "crosslingual_cluster_id": 0
+            },
+            {
+                "word": "껄껄",
+                "definitions": [
+                    "매우 시원스럽고 우렁찬 목소리로 못 참을 듯이 웃는 소리."
+                ],
+                "url": "https://stdict.korean.go.kr",
+                "found": true,
+                "meaning": "매우 시원스럽고 우렁찬 목소리로 못 참을 듯이 웃는 소리.",
+                "ref": "표준국어대사전 20250306",
+                "ipa": "k͈ ʌ l k͈ ʌ l",
+                "ipa_source": "epitran",
+                "romanization": "kkŏlkkŏl",
+                "en_meaning": "The sound of laughing loudly and heartily in a very refreshing and booming voice, as if unable to hold back.",
+                "language": "ko",
+                "crosslingual_cluster_id": 0
+            },
+            {
+                "word": "따따부따",
+                "definitions": [
+                    "딱딱한 말씨로 따지고 다투는 소리. 또는 그 모양."
+                ],
+                "url": "https://stdict.korean.go.kr",
+                "found": true,
+                "meaning": "딱딱한 말씨로 따지고 다투는 소리. 또는 그 모양.",
+                "ref": "표준국어대사전 20250306",
+                "ipa": "t͈ a t͈ a p u t͈ a",
+                "ipa_source": "epitran",
+                "romanization": "ttattabutta",
+                "en_meaning": "The sound or manner of arguing and disputing in a curt and blunt tone.",
+                "language": "ko",
+                "crosslingual_cluster_id": 0
+            },
+            {
+                "word": "사분사분",
+                "definitions": [
+                    "살짝살짝 우스운 소리를 해 가면서 자꾸 성가시게 구는 모양.",
+                    "가만가만 가볍게 행동하거나 말하는 모양."
+                ],
+                "url": "https://stdict.korean.go.kr",
+                "found": true,
+                "meaning": "살짝살짝 우스운 소리를 해 가면서 자꾸 성가시게 구는 모양.",
+                "ref": "표준국어대사전 20250306",
+                "ipa": "s a p u n s a p u n",
+                "ipa_source": "epitran",
+                "romanization": "sabunsabun",
+                "en_meaning": "The manner of repeatedly behaving in an annoying way while making light, slightly amusing sounds.",
+                "language": "ko",
+                "crosslingual_cluster_id": 0
+            },
+            {
+                "word": "서분서분",
+                "definitions": [
+                    "슬쩍슬쩍 우스운 소리를 해 가면서 자꾸 성가시게 구는 모양.",
+                    "가만가만 거볍게 행동하거나 지껄이는 모양."
+                ],
+                "url": "https://stdict.korean.go.kr",
+                "found": true,
+                "meaning": "슬쩍슬쩍 우스운 소리를 해 가면서 자꾸 성가시게 구는 모양.",
+                "ref": "표준국어대사전 20250306",
+                "ipa": "s ʌ p u n s ʌ p u n",
+                "ipa_source": "epitran",
+                "romanization": "sŏbunsŏbun",
+                "en_meaning": "The manner of repeatedly behaving in an annoying way while making slyly amusing remarks.",
+                "language": "ko",
+                "crosslingual_cluster_id": 0
+            },
+            {
+                "word": "아하하",
+                "definitions": [
+                    "거리낌 없이 큰 소리로 웃는 소리."
+                ],
+                "url": "https://stdict.korean.go.kr",
+                "found": true,
+                "meaning": "거리낌 없이 큰 소리로 웃는 소리.",
+                "ref": "표준국어대사전 20250306",
+                "ipa": "a a h a",
+                "ipa_source": "epitran",
+                "romanization": "ahaha",
+                "en_meaning": "The sound of laughing loudly and freely without restraint.",
+                "language": "ko",
+                "crosslingual_cluster_id": 0
+            },
+            {
+                "word": "앙앙",
+                "definitions": [
+                    "어린아이가 크게 우는 소리. 또는 그 모양.",
+                    "앙탈을 부리며 자꾸 보채는 소리. 또는 그 모양."
+                ],
+                "url": "https://stdict.korean.go.kr",
+                "found": true,
+                "meaning": "어린아이가 크게 우는 소리. 또는 그 모양.",
+                "ref": "표준국어대사전 20250306",
+                "ipa": "a ŋ a ŋ",
+                "ipa_source": "epitran",
+                "romanization": "angang",
+                "en_meaning": "The loud crying sound of a young child, or the appearance of such.",
+                "language": "ko",
+                "crosslingual_cluster_id": 0
+            },
+            {
+                "word": "애고대고",
+                "definitions": [
+                    "소리를 마구 지르며 우는 모양."
+                ],
+                "url": "https://stdict.korean.go.kr",
+                "found": true,
+                "meaning": "소리를 마구 지르며 우는 모양.",
+                "ref": "표준국어대사전 20250306",
+                "ipa": "ɛ k o t ɛ k o",
+                "ipa_source": "epitran",
+                "romanization": "aegodaego",
+                "en_meaning": "The appearance of crying while loudly and uncontrollably making noises.",
+                "language": "ko",
+                "crosslingual_cluster_id": 0
+            },
+            {
+                "word": "애해해",
+                "definitions": [
+                    "야살스럽게 웃는 소리. 또는 그 모양."
+                ],
+                "url": "https://stdict.korean.go.kr",
+                "found": true,
+                "meaning": "야살스럽게 웃는 소리. 또는 그 모양.",
+                "ref": "표준국어대사전 20250306",
+                "ipa": "ɛ ɛ h ɛ",
+                "ipa_source": "epitran",
+                "romanization": "aehaehae",
+                "en_meaning": "The sound of laughing in a coquettish or playful manner, or the appearance of doing so.",
+                "language": "ko",
+                "crosslingual_cluster_id": 0
+            },
+            {
+                "word": "와하하",
+                "definitions": [
+                    "거리낌 없이 크고 떠들썩하게 웃는 소리. 또는 그 모양."
+                ],
+                "url": "https://stdict.korean.go.kr",
+                "found": true,
+                "meaning": "거리낌 없이 크고 떠들썩하게 웃는 소리. 또는 그 모양.",
+                "ref": "표준국어대사전 20250306",
+                "ipa": "w a a h a",
+                "ipa_source": "epitran",
+                "romanization": "wahaha",
+                "en_meaning": "The sound or manner of laughing loudly and boisterously without restraint.",
+                "language": "ko",
+                "crosslingual_cluster_id": 0
+            },
+            {
+                "word": "으흐흐",
+                "definitions": [
+                    "짐짓 내숭스럽게 웃는 소리. 또는 그 모양.",
+                    "슬퍼서 흐느껴 우는 소리. 또는 그 모양."
+                ],
+                "url": "https://stdict.korean.go.kr",
+                "found": true,
+                "meaning": "짐짓 내숭스럽게 웃는 소리. 또는 그 모양.",
+                "ref": "표준국어대사전 20250306",
+                "ipa": "ɯ ɯ h ɯ",
+                "ipa_source": "epitran",
+                "romanization": "ŭhŭhŭ",
+                "en_meaning": "The sound or manner of laughing in a deliberately coy or affected way.",
+                "language": "ko",
+                "crosslingual_cluster_id": 0
+            },
+            {
+                "word": "으흐흑",
+                "definitions": [
+                    "몹시 놀라거나 슬퍼서 흐느껴 우는 소리. 또는 그 모양."
+                ],
+                "url": "https://stdict.korean.go.kr",
+                "found": true,
+                "meaning": "몹시 놀라거나 슬퍼서 흐느껴 우는 소리. 또는 그 모양.",
+                "ref": "표준국어대사전 20250306",
+                "ipa": "ɯ ɯ h ɯ k",
+                "ipa_source": "epitran",
+                "romanization": "ŭhŭhŭk",
+                "en_meaning": "The sound of sobbing or weeping when extremely surprised or sad, or the appearance of such.",
+                "language": "ko",
+                "crosslingual_cluster_id": 0
+            },
+            {
+                "word": "이히히",
+                "definitions": [
+                    "자지러질 듯이 크게 웃는 소리.",
+                    "익살맞게 또는 어리석게 웃는 소리."
+                ],
+                "url": "https://stdict.korean.go.kr",
+                "found": true,
+                "meaning": "자지러질 듯이 크게 웃는 소리.",
+                "ref": "표준국어대사전 20250306",
+                "ipa": "i i h i",
+                "ipa_source": "epitran",
+                "romanization": "ihihi",
+                "en_meaning": "The sound of laughing loudly as if one might collapse with laughter.",
+                "language": "ko",
+                "crosslingual_cluster_id": 0
+            },
+            {
+                "word": "재갈재갈",
+                "definitions": [
+                    "나직한 소리로 조금 떠들썩하게 자꾸 이야기하는 소리. 또는 그 모양."
+                ],
+                "url": "https://stdict.korean.go.kr",
+                "found": true,
+                "meaning": "나직한 소리로 조금 떠들썩하게 자꾸 이야기하는 소리. 또는 그 모양.",
+                "ref": "표준국어대사전 20250306",
+                "ipa": "t͡ɕ ɛ k a l t͡ɕ ɛ k a l",
+                "ipa_source": "epitran",
+                "romanization": "chaegaljaegal",
+                "en_meaning": "The sound or manner of talking repeatedly in a low voice, somewhat noisily.",
+                "language": "ko",
+                "crosslingual_cluster_id": 0
+            },
+            {
+                "word": "재깔재깔",
+                "definitions": [
+                    "나직한 소리로 조금 떠들썩하게 자꾸 이야기하는 소리. 또는 그 모양."
+                ],
+                "url": "https://stdict.korean.go.kr",
+                "found": true,
+                "meaning": "나직한 소리로 조금 떠들썩하게 자꾸 이야기하는 소리. 또는 그 모양.",
+                "ref": "표준국어대사전 20250306",
+                "ipa": "t͡ɕ ɛ k͈ a l t͡ɕ ɛ k͈ a l",
+                "ipa_source": "epitran",
+                "romanization": "chaekkaljaekkal",
+                "en_meaning": "The sound or manner of repeatedly talking in a somewhat lively way with low voices.",
+                "language": "ko",
+                "crosslingual_cluster_id": 0
+            },
+            {
+                "word": "재자재자",
+                "definitions": [
+                    "자꾸 가볍게 지저귀는 소리. 또는 그 모양."
+                ],
+                "url": "https://stdict.korean.go.kr",
+                "found": true,
+                "meaning": "자꾸 가볍게 지저귀는 소리. 또는 그 모양.",
+                "ref": "표준국어대사전 20250306",
+                "ipa": "t͡ɕ ɛ t͡ɕ a t͡ɕ ɛ t͡ɕ a",
+                "ipa_source": "epitran",
+                "romanization": "chaejajaeja",
+                "en_meaning": "The repeated light chirping sound. Or the appearance of such.",
+                "language": "ko",
+                "crosslingual_cluster_id": 0
+            },
+            {
+                "word": "종잘종잘",
+                "definitions": [
+                    "수다스럽게 종알거리는 소리. 또는 그 모양."
+                ],
+                "url": "https://stdict.korean.go.kr",
+                "found": true,
+                "meaning": "수다스럽게 종알거리는 소리. 또는 그 모양.",
+                "ref": "표준국어대사전 20250306",
+                "ipa": "t͡ɕ o ŋ t͡ɕ a l t͡ɕ o ŋ t͡ɕ a l",
+                "ipa_source": "epitran",
+                "romanization": "chongjaljongjal",
+                "en_meaning": "The sound of chattering noisily, or the appearance of doing so.",
+                "language": "ko",
+                "crosslingual_cluster_id": 0
+            },
+            {
+                "word": "중절중절",
+                "definitions": [
+                    "수다스럽게 중얼거리는 소리. 또는 그 모양."
+                ],
+                "url": "https://stdict.korean.go.kr",
+                "found": true,
+                "meaning": "수다스럽게 중얼거리는 소리. 또는 그 모양.",
+                "ref": "표준국어대사전 20250306",
+                "ipa": "t͡ɕ u ŋ t͡ɕ ʌ l t͡ɕ u ŋ t͡ɕ ʌ l",
+                "ipa_source": "epitran",
+                "romanization": "chungjŏljungjŏl",
+                "en_meaning": "The sound of chattering murmurs, or the appearance of such.",
+                "language": "ko",
+                "crosslingual_cluster_id": 0
+            },
+            {
+                "word": "지껄지껄",
+                "definitions": [
+                    "약간 큰 소리로 떠들썩하게 자꾸 이야기하는 소리. 또는 그 모양."
+                ],
+                "url": "https://stdict.korean.go.kr",
+                "found": true,
+                "meaning": "약간 큰 소리로 떠들썩하게 자꾸 이야기하는 소리. 또는 그 모양.",
+                "ref": "표준국어대사전 20250306",
+                "ipa": "t͡ɕ i k͈ ʌ l t͡ɕ i k͈ ʌ l",
+                "ipa_source": "epitran",
+                "romanization": "chikkŏljikkŏl",
+                "en_meaning": "The sound or manner of people repeatedly talking noisily in rather loud voices.",
+                "language": "ko",
+                "crosslingual_cluster_id": 0
+            },
+            {
+                "word": "지저지저",
+                "definitions": [
+                    "잇따라 지저귀는 소리. 또는 그 모양."
+                ],
+                "url": "https://stdict.korean.go.kr",
+                "found": true,
+                "meaning": "잇따라 지저귀는 소리. 또는 그 모양.",
+                "ref": "표준국어대사전 20250306",
+                "ipa": "t͡ɕ i t͡ɕ ʌ t͡ɕ i t͡ɕ ʌ",
+                "ipa_source": "epitran",
+                "romanization": "chijŏjijŏ",
+                "en_meaning": "The sound of birds chirping continuously, or the state resembling that.",
+                "language": "ko",
+                "crosslingual_cluster_id": 0
+            },
+            {
+                "word": "지지",
+                "definitions": [
+                    "수다스럽게 지껄이는 소리. 또는 그 모양."
+                ],
+                "url": "https://stdict.korean.go.kr",
+                "found": true,
+                "meaning": "수다스럽게 지껄이는 소리. 또는 그 모양.",
+                "ref": "표준국어대사전 20250306",
+                "ipa": "t͡ɕ i t͡ɕ i",
+                "ipa_source": "epitran",
+                "romanization": "chiji",
+                "en_meaning": "The sound of chattering noisily, or the appearance of such.",
+                "language": "ko",
+                "crosslingual_cluster_id": 0
+            },
+            {
+                "word": "지지지지",
+                "definitions": [
+                    "자꾸 수다스럽게 지껄이는 소리. 또는 그 모양."
+                ],
+                "url": "https://stdict.korean.go.kr",
+                "found": true,
+                "meaning": "자꾸 수다스럽게 지껄이는 소리. 또는 그 모양.",
+                "ref": "표준국어대사전 20250306",
+                "ipa": "t͡ɕ i t͡ɕ i t͡ɕ i t͡ɕ i",
+                "ipa_source": "epitran",
+                "romanization": "chijijiji",
+                "en_meaning": "The sound of chattering noisily and incessantly, or the appearance of such.",
+                "language": "ko",
+                "crosslingual_cluster_id": 0
+            },
+            {
+                "word": "쫑잘쫑잘",
+                "definitions": [
+                    "자꾸 수다스럽게 종알거리는 소리. 또는 그 모양."
+                ],
+                "url": "https://stdict.korean.go.kr",
+                "found": true,
+                "meaning": "자꾸 수다스럽게 종알거리는 소리. 또는 그 모양.",
+                "ref": "표준국어대사전 20250306",
+                "ipa": "t͈͡ɕ o ŋ t͡ɕ a l t͈͡ɕ o ŋ t͡ɕ a l",
+                "ipa_source": "epitran",
+                "romanization": "tchongjaltchongjal",
+                "en_meaning": "The sound of chattering noisily and incessantly, or the manner of doing so.",
+                "language": "ko",
+                "crosslingual_cluster_id": 0
+            },
+            {
+                "word": "쭝절쭝절",
+                "definitions": [
+                    "자꾸 수다스럽게 중얼거리는 소리. 또는 그 모양."
+                ],
+                "url": "https://stdict.korean.go.kr",
+                "found": true,
+                "meaning": "자꾸 수다스럽게 중얼거리는 소리. 또는 그 모양.",
+                "ref": "표준국어대사전 20250306",
+                "ipa": "t͈͡ɕ u ŋ t͡ɕ ʌ l t͈͡ɕ u ŋ t͡ɕ ʌ l",
+                "ipa_source": "epitran",
+                "romanization": "tchungjŏltchungjŏl",
+                "en_meaning": "The repeated sound of chattering or mumbling noisily. Or the appearance of such behavior.",
+                "language": "ko",
+                "crosslingual_cluster_id": 0
+            },
+            {
+                "word": "캐드득",
+                "definitions": [
+                    "참다못하여 조금 높고 날카롭게 새어 나오는 웃음소리. 또는 그 모양."
+                ],
+                "url": "https://stdict.korean.go.kr",
+                "found": true,
+                "meaning": "참다못하여 조금 높고 날카롭게 새어 나오는 웃음소리. 또는 그 모양.",
+                "ref": "표준국어대사전 20250306",
+                "ipa": "kʰ ɛ t ɯ t ɯ k",
+                "ipa_source": "epitran",
+                "romanization": "k'aedŭdŭk",
+                "en_meaning": "A slightly high-pitched and sharp laugh that escapes when one can no longer hold it in, or the manner of such a laugh.",
+                "language": "ko",
+                "crosslingual_cluster_id": 0
+            },
+            {
+                "word": "캐드득캐드득",
+                "definitions": [
+                    "참다못하여 조금 높고 날카롭게 자꾸 새어 나오는 웃음소리. 또는 그 모양."
+                ],
+                "url": "https://stdict.korean.go.kr",
+                "found": true,
+                "meaning": "참다못하여 조금 높고 날카롭게 자꾸 새어 나오는 웃음소리. 또는 그 모양.",
+                "ref": "표준국어대사전 20250306",
+                "ipa": "kʰ ɛ t ɯ t ɯ k kʰ ɛ t ɯ t ɯ k",
+                "ipa_source": "epitran",
+                "romanization": "k'aedŭdŭkk'aedŭdŭk",
+                "en_meaning": "A repeatedly escaping laugh that is slightly high-pitched and sharp, let out when one can no longer hold it in; or the manner of such laughter.",
+                "language": "ko",
+                "crosslingual_cluster_id": 0
+            },
+            {
+                "word": "캴캴",
+                "definitions": [
+                    "새된 목소리로 못 참을 듯이 웃는 소리."
+                ],
+                "url": "https://stdict.korean.go.kr",
+                "found": true,
+                "meaning": "새된 목소리로 못 참을 듯이 웃는 소리.",
+                "ref": "표준국어대사전 20250306",
+                "ipa": "kʰ j a l kʰ j a l",
+                "ipa_source": "epitran",
+                "romanization": "k'yalk'yal",
+                "en_meaning": "The sound of laughing uncontrollably in a shrill voice.",
+                "language": "ko",
+                "crosslingual_cluster_id": 0
+            },
+            {
+                "word": "키드득",
+                "definitions": [
+                    "참다못하여 입속에서 새어 나오는 웃음소리. 또는 그 모양."
+                ],
+                "url": "https://stdict.korean.go.kr",
+                "found": true,
+                "meaning": "참다못하여 입속에서 새어 나오는 웃음소리. 또는 그 모양.",
+                "ref": "표준국어대사전 20250306",
+                "ipa": "kʰ i t ɯ t ɯ k",
+                "ipa_source": "epitran",
+                "romanization": "k'idŭdŭk",
+                "en_meaning": "A sound of laughter that escapes from the mouth when one can no longer hold it in, or the appearance of such laughter.",
+                "language": "ko",
+                "crosslingual_cluster_id": 0
+            },
+            {
+                "word": "키드득키드득",
+                "definitions": [
+                    "참다못하여 입속에서 자꾸 새어 나오는 웃음소리. 또는 그 모양."
+                ],
+                "url": "https://stdict.korean.go.kr",
+                "found": true,
+                "meaning": "참다못하여 입속에서 자꾸 새어 나오는 웃음소리. 또는 그 모양.",
+                "ref": "표준국어대사전 20250306",
+                "ipa": "kʰ i t ɯ t ɯ k kʰ i t ɯ t ɯ k",
+                "ipa_source": "epitran",
+                "romanization": "k'idŭdŭkk'idŭdŭk",
+                "en_meaning": "The sound of laughter that keeps escaping from one's mouth when one can no longer hold it in, or the appearance of such laughter.",
+                "language": "ko",
+                "crosslingual_cluster_id": 0
+            },
+            {
+                "word": "해득해득",
+                "definitions": [
+                    "자꾸 가볍고 경망스럽게 웃는 소리. 또는 그 모양."
+                ],
+                "url": "https://stdict.korean.go.kr",
+                "found": true,
+                "meaning": "자꾸 가볍고 경망스럽게 웃는 소리. 또는 그 모양.",
+                "ref": "표준국어대사전 20250306",
+                "ipa": "h ɛ t ɯ kʰ ɛ t ɯ k",
+                "ipa_source": "epitran",
+                "romanization": "haedŭkhaedŭk",
+                "en_meaning": "The sound of repeatedly laughing lightly and frivolously, or the appearance of doing so.",
+                "language": "ko",
+                "crosslingual_cluster_id": 0
+            },
+            {
+                "word": "해들해들",
+                "definitions": [
+                    "걷잡지 못하는 웃음을 조금 싱겁게 자꾸 웃는 소리. 또는 그 모양."
+                ],
+                "url": "https://stdict.korean.go.kr",
+                "found": true,
+                "meaning": "걷잡지 못하는 웃음을 조금 싱겁게 자꾸 웃는 소리. 또는 그 모양.",
+                "ref": "표준국어대사전 20250306",
+                "ipa": "h ɛ t ɯ l ɛ t ɯ l",
+                "ipa_source": "epitran",
+                "romanization": "haedŭrhaedŭl",
+                "en_meaning": "The sound or manner of repeatedly laughing in a somewhat silly or uncontrollable way.",
+                "language": "ko",
+                "crosslingual_cluster_id": 0
+            },
+            {
+                "word": "흐흐",
+                "definitions": [
+                    "털털하고 걸걸하게 웃는 소리. 또는 그 모양.",
+                    "흐뭇함을 참지 못하여 입을 조금 벌리고 은근히 웃는 소리. 또는 그 모양."
+                ],
+                "url": "https://stdict.korean.go.kr",
+                "found": true,
+                "meaning": "털털하고 걸걸하게 웃는 소리. 또는 그 모양.",
+                "ref": "표준국어대사전 20250306",
+                "ipa": "h ɯ ɯ",
+                "ipa_source": "epitran",
+                "romanization": "hŭhŭ",
+                "en_meaning": "The sound of laughing in a hearty and rough manner, or the appearance of such laughter.",
+                "language": "ko",
+                "crosslingual_cluster_id": 0
+            },
+            {
+                "word": "희희",
+                "definitions": [
+                    "바보같이 웃는 소리. 또는 그 모양."
+                ],
+                "url": "https://stdict.korean.go.kr",
+                "found": true,
+                "meaning": "바보같이 웃는 소리. 또는 그 모양.",
+                "ref": "표준국어대사전 20250306",
+                "ipa": "h i i",
+                "ipa_source": "epitran",
+                "romanization": "hŭihŭi",
+                "en_meaning": "The sound of laughing foolishly, or the appearance of doing so.",
+                "language": "ko",
+                "crosslingual_cluster_id": 0
+            }
+        ],
+        "source_base_cluster_id": "en_25",
+        "associated_target_clusters": {
+            "ja_129": 0.9045810699462891,
+            "ko_55": 0.8249689340591431,
+            "fr_384": 0.8008244037628174
+        }
+    },
+    {
+        "crosslingual_cluster_id": 1,
+        "words": [
+            {
+                "word": "flump",
+                "meaning": [
+                    "To fall or move heavily with a dull noise."
+                ],
+                "ref": "Rhyme Over Reason : Phonological Motivation in English",
+                "url": "Rhyme Over Reason : Phonological Motivation in English",
+                "found": true,
+                "ipa": "f l ʌ m p",
+                "ipa_source": "epitran",
+                "romanization": "flump",
+                "en_meaning": "To fall or move heavily with a dull noise.",
+                "infinigram_count": 45828,
+                "language": "en",
+                "crosslingual_cluster_id": 1
+            },
+            {
+                "word": "lunch",
+                "meaning": [
+                    "The sound made by the fall of a soft heavy body."
+                ],
+                "ref": "Rhyme Over Reason : Phonological Motivation in English",
+                "url": "Rhyme Over Reason : Phonological Motivation in English",
+                "found": true,
+                "ipa": "l ʌ n t͡ʃ",
+                "ipa_source": "epitran",
+                "romanization": "lunch",
+                "en_meaning": "The sound made by the fall of a soft heavy body.",
+                "infinigram_count": 108147106,
+                "language": "en",
+                "crosslingual_cluster_id": 1
+            },
+            {
+                "word": "soss",
+                "meaning": [
+                    "The sound made by a heavy, soft body falling upon or otherwise coming in contact with a surface; a heavy, awkward fall."
+                ],
+                "ref": "Rhyme Over Reason : Phonological Motivation in English",
+                "url": "Rhyme Over Reason : Phonological Motivation in English",
+                "found": true,
+                "ipa": "s ɔ s",
+                "ipa_source": "epitran",
+                "romanization": "soss",
+                "en_meaning": "The sound made by a heavy, soft body falling upon or otherwise coming in contact with a surface; a heavy, awkward fall.",
+                "infinigram_count": 22876,
+                "language": "en",
+                "crosslingual_cluster_id": 1
+            },
+            {
+                "word": "splosh",
+                "meaning": [
+                    "The dull, splashing sound of the impact of a hard object striking or struck by something wet and soft; the impact itself."
+                ],
+                "ref": "Rhyme Over Reason : Phonological Motivation in English",
+                "url": "Rhyme Over Reason : Phonological Motivation in English",
+                "found": true,
+                "ipa": "s p l ɔ ʃ",
+                "ipa_source": "epitran",
+                "romanization": "splosh",
+                "en_meaning": "The dull, splashing sound of the impact of a hard object striking or struck by something wet and soft; the impact itself.",
+                "infinigram_count": 64081,
+                "language": "en",
+                "crosslingual_cluster_id": 1
+            },
+            {
+                "word": "squelch",
+                "meaning": [
+                    "A heavy crushing fall or blow acting on a soft body; the sound produced by this."
+                ],
+                "ref": "Rhyme Over Reason : Phonological Motivation in English",
+                "url": "Rhyme Over Reason : Phonological Motivation in English",
+                "found": true,
+                "ipa": "s k w ɛ l t͡ʃ",
+                "ipa_source": "epitran",
+                "romanization": "squelch",
+                "en_meaning": "A heavy crushing fall or blow acting on a soft body; the sound produced by this.",
+                "infinigram_count": 1505857,
+                "language": "en",
+                "crosslingual_cluster_id": 1
+            },
+            {
+                "word": "sumph",
+                "meaning": [
+                    "The sound of something heavy and limp falling."
+                ],
+                "ref": "Rhyme Over Reason : Phonological Motivation in English",
+                "url": "Rhyme Over Reason : Phonological Motivation in English",
+                "found": true,
+                "ipa": "s ʌ m f",
+                "ipa_source": "epitran",
+                "romanization": "sumph",
+                "en_meaning": "The sound of something heavy and limp falling.",
+                "infinigram_count": 6833,
+                "language": "en",
+                "crosslingual_cluster_id": 1
+            },
+            {
+                "word": "whump",
+                "meaning": [
+                    "A dull thudding sound, as of a body landing heavily."
+                ],
+                "ref": "Rhyme Over Reason : Phonological Motivation in English",
+                "url": "Rhyme Over Reason : Phonological Motivation in English",
+                "found": true,
+                "ipa": "w ʌ m p",
+                "ipa_source": "epitran",
+                "romanization": "whump",
+                "en_meaning": "A dull thudding sound, as of a body landing heavily.",
+                "infinigram_count": 113381,
+                "language": "en",
+                "crosslingual_cluster_id": 1
+            },
+            {
+                "word": "wumph",
+                "meaning": [
+                    "A sudden deep sound, as of the impact of a soft, heavy object."
+                ],
+                "ref": "Rhyme Over Reason : Phonological Motivation in English",
+                "url": "Rhyme Over Reason : Phonological Motivation in English",
+                "found": true,
+                "ipa": "w ʌ m f",
+                "ipa_source": "epitran",
+                "romanization": "wumph",
+                "en_meaning": "A sudden deep sound, as of the impact of a soft, heavy object.",
+                "infinigram_count": 1193,
+                "language": "en",
+                "crosslingual_cluster_id": 1
+            },
+            {
+                "word": "plaoutch",
+                "meaning": [
+                    "bruit d'un coup violent, d'une chute, d'un corps qui s'écrase."
+                ],
+                "url": "dictionnaire des onomatopées",
+                "found": true,
+                "ref": "dictionnaire des onomatopées",
+                "ipa": "p l a u t ʃ",
+                "ipa_source": "epitran",
+                "romanization": "plaoutch",
+                "en_meaning": "sound of a violent blow, a fall, or a body crashing down",
+                "infinigram_count": 0,
+                "language": "fr",
+                "crosslingual_cluster_id": 1
+            },
+            {
+                "word": "platch",
+                "meaning": [
+                    "bruit d'un coup violent, d'une chute, d'un corps qui s'écrase."
+                ],
+                "url": "dictionnaire des onomatopées",
+                "found": true,
+                "ref": "dictionnaire des onomatopées",
+                "ipa": "p l a t ʃ",
+                "ipa_source": "epitran",
+                "romanization": "platch",
+                "en_meaning": "sound of a violent blow, a fall, or a body crashing down",
+                "infinigram_count": 2248,
+                "language": "fr",
+                "crosslingual_cluster_id": 1
+            },
+            {
+                "word": "がしゃん",
+                "meaning": "物が落ちてこわれる音を表す語。",
+                "ref": "daijirin",
+                "url": "大辞林 第四版",
+                "found": true,
+                "ipa": "ɡ a ɕ a ɴ",
+                "ipa_source": "epitran",
+                "romanization": "gashan",
+                "en_meaning": "A word that represents the sound of something falling and breaking.",
+                "infinigram_count": 15,
+                "language": "ja",
+                "crosslingual_cluster_id": 1
+            },
+            {
+                "word": "がたん",
+                "meaning": "重い物が落ちたり、ぶつかったり、はずれたりしてたてる音を表わす語。",
+                "ref": "nikkoku",
+                "url": "精選版 日本国語大辞典",
+                "found": true,
+                "ipa": "ɡ a t a ɴ",
+                "ipa_source": "epitran",
+                "romanization": "gatan",
+                "en_meaning": "A word that represents the sound made when a heavy object falls, bumps into something, or comes off.",
+                "infinigram_count": 120,
+                "language": "ja",
+                "crosslingual_cluster_id": 1
+            },
+            {
+                "word": "がったり",
+                "meaning": "物が倒れたり揺れたりして、響く音を表わす語。",
+                "ref": "nikkoku",
+                "url": "精選版 日本国語大辞典",
+                "found": true,
+                "ipa": "ɡ a t t a ɾʲ i",
+                "ipa_source": "epitran",
+                "romanization": "gattari",
+                "en_meaning": "A word that represents a resounding noise made when something falls over or shakes.",
+                "infinigram_count": 622,
+                "language": "ja",
+                "crosslingual_cluster_id": 1
+            },
+            {
+                "word": "ずでん",
+                "meaning": "人や物が勢いよく音を立てて落ちたり倒れたりするさまを表わす語。",
+                "ref": "nikkoku",
+                "url": "精選版 日本国語大辞典",
+                "found": true,
+                "ipa": "d͡z ɯ d e ŋ",
+                "ipa_source": "epitran",
+                "romanization": "zuden",
+                "en_meaning": "A word that describes the state of a person or object falling or toppling over with a loud, forceful sound.",
+                "infinigram_count": 2,
+                "language": "ja",
+                "crosslingual_cluster_id": 1
+            },
+            {
+                "word": "だっ",
+                "meaning": "重い物が落ちたりぶつかったりする音、また、勢いよくとび出すさまなどを表わす語。",
+                "ref": "nikkoku",
+                "url": "精選版 日本国語大辞典",
+                "found": true,
+                "ipa": "d a ʔ",
+                "ipa_source": "epitran",
+                "romanization": "datsu",
+                "en_meaning": "A word that represents the sound of something heavy falling or hitting, or the state of something dashing out vigorously.",
+                "infinigram_count": 159484,
+                "language": "ja",
+                "crosslingual_cluster_id": 1
+            },
+            {
+                "word": "どさっ",
+                "meaning": "重いものが落ちたり倒れたりする音のさま。",
+                "ref": "kojien",
+                "url": "広辞苑 第七版",
+                "found": true,
+                "ipa": "d o s a ʔ",
+                "ipa_source": "epitran",
+                "romanization": "dosatsu",
+                "en_meaning": "The sound of something heavy falling or toppling over.",
+                "infinigram_count": 92,
+                "language": "ja",
+                "crosslingual_cluster_id": 1
+            },
+            {
+                "word": "どさり",
+                "meaning": "重いものが落ちたり倒れたりする音、また、重いものを一度におろす音、力づよく打ったり踏んだりする音など、また、それらのさまを表わす語。",
+                "ref": "nikkoku",
+                "url": "精選版 日本国語大辞典",
+                "found": true,
+                "ipa": "d o s a ɾʲ i",
+                "ipa_source": "epitran",
+                "romanization": "dosari",
+                "en_meaning": "A word that represents the sound or state of something heavy falling or toppling over, the sound of lowering something heavy all at once, or the sound of striking or stepping forcefully.",
+                "infinigram_count": 55,
+                "language": "ja",
+                "crosslingual_cluster_id": 1
+            },
+            {
+                "word": "どさん",
+                "meaning": "重い物が急に落ちたり、勢いよくおろしたりするときの音やようすを表す語。",
+                "ref": "daijirin",
+                "url": "大辞林 第四版",
+                "found": true,
+                "ipa": "d o s a ɴ",
+                "ipa_source": "epitran",
+                "romanization": "dosan",
+                "en_meaning": "A word that represents the sound or state when a heavy object suddenly falls or is set down with force.",
+                "infinigram_count": 794,
+                "language": "ja",
+                "crosslingual_cluster_id": 1
+            },
+            {
+                "word": "どしん",
+                "meaning": "重い物が落ちたり倒れたりぶつかったりする音、また、そのさまを表わす語。",
+                "ref": "nikkoku",
+                "url": "精選版 日本国語大辞典",
+                "found": true,
+                "ipa": "d o ɕ i ŋ",
+                "ipa_source": "epitran",
+                "romanization": "doshin",
+                "en_meaning": "A word that represents the sound or manner of a heavy object falling, toppling over, or crashing into something.",
+                "infinigram_count": 52,
+                "language": "ja",
+                "crosslingual_cluster_id": 1
+            },
+            {
+                "word": "どすん",
+                "meaning": "大きく重い物などが突き当たったり倒れたりしてたてる、力強くにぶい音、また、そのさまを表わす語。",
+                "ref": "nikkoku",
+                "url": "精選版 日本国語大辞典",
+                "found": true,
+                "ipa": "d o s ɯ ɴ",
+                "ipa_source": "epitran",
+                "romanization": "dosun",
+                "en_meaning": "A word that represents a strong, dull sound made when something large and heavy bumps into something or falls over, or the state of such an occurrence.",
+                "infinigram_count": 144,
+                "language": "ja",
+                "crosslingual_cluster_id": 1
+            },
+            {
+                "word": "どたり",
+                "meaning": "重い物などが倒れたり、落ちたり、ぶつかったりするさまを表わす語。",
+                "ref": "nikkoku",
+                "url": "精選版 日本国語大辞典",
+                "found": true,
+                "ipa": "d o t a ɾʲ i",
+                "ipa_source": "epitran",
+                "romanization": "dotari",
+                "en_meaning": "A word that describes the state of a heavy object falling over, dropping, or bumping into something.",
+                "infinigram_count": 49,
+                "language": "ja",
+                "crosslingual_cluster_id": 1
+            },
+            {
+                "word": "どたりばたり",
+                "meaning": "重い物などがぶつかったり倒れたりしてたてる、あらあらしくさわがしい音を表わす語。",
+                "ref": "nikkoku",
+                "url": "精選版 日本国語大辞典",
+                "found": true,
+                "ipa": "d o t a ɾʲ i b a t a ɾʲ i",
+                "ipa_source": "epitran",
+                "romanization": "dotaribatari",
+                "en_meaning": "A word that represents rough, loud sounds made when heavy objects collide or fall over.",
+                "infinigram_count": 0,
+                "language": "ja",
+                "crosslingual_cluster_id": 1
+            },
+            {
+                "word": "どたん",
+                "meaning": "重い物が倒れ、または落ちる音。",
+                "ref": "nikkoku",
+                "url": "精選版 日本国語大辞典",
+                "found": true,
+                "ipa": "d o t a ɴ",
+                "ipa_source": "epitran",
+                "romanization": "dotan",
+                "en_meaning": "The sound of a heavy object falling over or dropping.",
+                "infinigram_count": 239,
+                "language": "ja",
+                "crosslingual_cluster_id": 1
+            },
+            {
+                "word": "どっさり",
+                "meaning": "重い物が落ちたり倒れたりぶつかったりする音やそのさまを表わす語。人を斬り倒すときにもいう。",
+                "ref": "nikkoku",
+                "url": "精選版 日本国語大辞典",
+                "found": true,
+                "ipa": "d o s s a ɾʲ i",
+                "ipa_source": "epitran",
+                "romanization": "dossari",
+                "en_meaning": "A word that represents the sound or state of heavy objects falling, toppling over, or colliding. It is also used when describing the act of cutting down people.",
+                "infinigram_count": 222,
+                "language": "ja",
+                "crosslingual_cluster_id": 1
+            },
+            {
+                "word": "どっしり",
+                "meaning": "重いものが落ちたり倒れたりする音やそのさまを表わす語。",
+                "ref": "nikkoku",
+                "url": "精選版 日本国語大辞典",
+                "found": true,
+                "ipa": "d o ɕ ɕ i ɾʲ i",
+                "ipa_source": "epitran",
+                "romanization": "dosshiri",
+                "en_meaning": "A word that describes the sound or state of something heavy falling or toppling over.",
+                "infinigram_count": 201,
+                "language": "ja",
+                "crosslingual_cluster_id": 1
+            },
+            {
+                "word": "ぱたっ",
+                "meaning": "物が急に落ちたり倒れたりぶつかったりする音やそのさまを表わす語。",
+                "ref": "nikkoku",
+                "url": "精選版 日本国語大辞典",
+                "found": true,
+                "ipa": "p a t a ʔ",
+                "ipa_source": "epitran",
+                "romanization": "patatsu",
+                "en_meaning": "A word that represents the sound or state of something suddenly falling, toppling over, or bumping into something.",
+                "infinigram_count": 3,
+                "language": "ja",
+                "crosslingual_cluster_id": 1
+            },
+            {
+                "word": "ぱったり",
+                "meaning": "それほど重くないものが突然倒れたり打ち当たったりするさま。",
+                "ref": "kojien",
+                "url": "広辞苑 第七版",
+                "found": true,
+                "ipa": "p a t t a ɾʲ i",
+                "ipa_source": "epitran",
+                "romanization": "pattari",
+                "en_meaning": "The state of something not very heavy suddenly falling over or hitting against something.",
+                "infinigram_count": 8,
+                "language": "ja",
+                "crosslingual_cluster_id": 1
+            },
+            {
+                "word": "みしみし",
+                "meaning": "荒々しく物を動かしたり、踏みつけたりする音、物のこわれる音、また、そのさまを表わす語。",
+                "ref": "nikkoku",
+                "url": "精選版 日本国語大辞典",
+                "found": true,
+                "ipa": "mʲ i ɕ i mʲ i ɕ i",
+                "ipa_source": "epitran",
+                "romanization": "mishimishi",
+                "en_meaning": "A word that represents the sound or state of something being moved roughly, stepped on, or breaking.",
+                "infinigram_count": 1,
+                "language": "ja",
+                "crosslingual_cluster_id": 1
+            },
+            {
+                "word": "꽁",
+                "definitions": [
+                    "작고 가벼운 물건이 바닥이나 물체 위에 떨어지거나 부딪쳐 나는 소리."
+                ],
+                "url": "https://stdict.korean.go.kr",
+                "found": true,
+                "meaning": "작고 가벼운 물건이 바닥이나 물체 위에 떨어지거나 부딪쳐 나는 소리.",
+                "ref": "표준국어대사전 20250306",
+                "ipa": "k͈ o ŋ",
+                "ipa_source": "epitran",
+                "romanization": "kkong",
+                "en_meaning": "The sound made when a small, light object falls onto or hits the floor or another surface.",
+                "language": "ko",
+                "crosslingual_cluster_id": 1
+            },
+            {
+                "word": "꽈당",
+                "definitions": [
+                    "무거운 물체가 떨어지거나 발로 굴러 단단한 바닥에 부딪치는 소리. 또는 그 모양."
+                ],
+                "url": "https://stdict.korean.go.kr",
+                "found": true,
+                "meaning": "무거운 물체가 떨어지거나 발로 굴러 단단한 바닥에 부딪치는 소리. 또는 그 모양.",
+                "ref": "표준국어대사전 20250306",
+                "ipa": "k͈ w a t a ŋ",
+                "ipa_source": "epitran",
+                "romanization": "kkwadang",
+                "en_meaning": "The sound or appearance of a heavy object falling or rolling and hitting a hard surface.",
+                "language": "ko",
+                "crosslingual_cluster_id": 1
+            },
+            {
+                "word": "꽈당꽈당",
+                "definitions": [
+                    "무거운 물체가 떨어지거나 발로 굴러 단단한 바닥에 잇따라 부딪치는 소리. 또는 그 모양."
+                ],
+                "url": "https://stdict.korean.go.kr",
+                "found": true,
+                "meaning": "무거운 물체가 떨어지거나 발로 굴러 단단한 바닥에 잇따라 부딪치는 소리. 또는 그 모양.",
+                "ref": "표준국어대사전 20250306",
+                "ipa": "k͈ w a t a ŋ k͈ w a t a ŋ",
+                "ipa_source": "epitran",
+                "romanization": "kkwadangkkwadang",
+                "en_meaning": "The sound or appearance of a heavy object falling or rolling with the feet and repeatedly hitting a hard floor.",
+                "language": "ko",
+                "crosslingual_cluster_id": 1
+            },
+            {
+                "word": "꽝",
+                "definitions": [
+                    "무겁고 단단한 물체가 바닥에 떨어지거나 다른 물체와 부딪쳐 울리는 소리.",
+                    "총이나 대포를 쏘거나 폭발물이 터져서 울리는 소리."
+                ],
+                "url": "https://stdict.korean.go.kr",
+                "found": true,
+                "meaning": "무겁고 단단한 물체가 바닥에 떨어지거나 다른 물체와 부딪쳐 울리는 소리.",
+                "ref": "표준국어대사전 20250306",
+                "ipa": "k͈ w a ŋ",
+                "ipa_source": "epitran",
+                "romanization": "kkwang",
+                "en_meaning": "The sound made when a heavy and solid object falls to the ground or strikes another object and reverberates.",
+                "language": "ko",
+                "crosslingual_cluster_id": 1
+            },
+            {
+                "word": "꽝꽝",
+                "definitions": [
+                    "무겁고 단단한 물체가 잇따라 바닥에 떨어지거나 다른 물체와 부딪쳐 울리는 소리.",
+                    "잇따라 총이나 대포를 쏘거나 폭발물이 터져서 울리는 소리.",
+                    "기세 좋게 일이 진행되는 모양.",
+                    "매우 단단하게 굳어지는 모양."
+                ],
+                "url": "https://stdict.korean.go.kr",
+                "found": true,
+                "meaning": "무겁고 단단한 물체가 잇따라 바닥에 떨어지거나 다른 물체와 부딪쳐 울리는 소리.",
+                "ref": "표준국어대사전 20250306",
+                "ipa": "k͈ w a ŋ k͈ w a ŋ",
+                "ipa_source": "epitran",
+                "romanization": "kkwangkkwang",
+                "en_meaning": "The sound of heavy and hard objects repeatedly falling to the floor or striking other objects and resonating.",
+                "language": "ko",
+                "crosslingual_cluster_id": 1
+            },
+            {
+                "word": "꿍",
+                "definitions": [
+                    "크고 무거운 물건이 바닥이나 물체 위에 떨어지거나 부딪쳐 나는 소리.",
+                    "멀리서 포탄 따위가 터지는 소리.",
+                    "큰북이나 장구 따위의 매우 깊은 소리."
+                ],
+                "url": "https://stdict.korean.go.kr",
+                "found": true,
+                "meaning": "크고 무거운 물건이 바닥이나 물체 위에 떨어지거나 부딪쳐 나는 소리.",
+                "ref": "표준국어대사전 20250306",
+                "ipa": "k͈ u ŋ",
+                "ipa_source": "epitran",
+                "romanization": "kkung",
+                "en_meaning": "The sound made when a large and heavy object falls onto or hits the floor or another surface.",
+                "language": "ko",
+                "crosslingual_cluster_id": 1
+            },
+            {
+                "word": "꿍꿍",
+                "definitions": [
+                    "크고 무거운 물건이 잇따라 바닥이나 물체 위에 떨어지거나 부딪쳐 나는 소리.",
+                    "멀리서 포탄 따위가 터져 잇따라 나는 소리.",
+                    "큰북이나 장구 따위가 잇따라 울리는 매우 깊은 소리.",
+                    "몹시 아프거나 괴로울 때에 견디지 못하여 내는 앓는 소리."
+                ],
+                "url": "https://stdict.korean.go.kr",
+                "found": true,
+                "meaning": "크고 무거운 물건이 잇따라 바닥이나 물체 위에 떨어지거나 부딪쳐 나는 소리.",
+                "ref": "표준국어대사전 20250306",
+                "ipa": "k͈ u ŋ k͈ u ŋ",
+                "ipa_source": "epitran",
+                "romanization": "kkungkkung",
+                "en_meaning": "The sound made when large and heavy objects repeatedly fall onto or hit the floor or another surface.",
+                "language": "ko",
+                "crosslingual_cluster_id": 1
+            },
+            {
+                "word": "꿩",
+                "definitions": [
+                    "무겁고 단단한 물체가 바닥에 떨어지거나 다른 물체와 부딪쳐 크게 울리는 소리.",
+                    "총이나 대포를 쏘거나 폭발물이 터져서 크게 울리는 소리."
+                ],
+                "url": "https://stdict.korean.go.kr",
+                "found": true,
+                "meaning": "무겁고 단단한 물체가 바닥에 떨어지거나 다른 물체와 부딪쳐 크게 울리는 소리.",
+                "ref": "표준국어대사전 20250306",
+                "ipa": "k͈ w ʌ ŋ",
+                "ipa_source": "epitran",
+                "romanization": "kkwŏng",
+                "en_meaning": "The loud sound made when a heavy and solid object falls to the floor or strikes another object.",
+                "language": "ko",
+                "crosslingual_cluster_id": 1
+            },
+            {
+                "word": "꿩꿩",
+                "definitions": [
+                    "무겁고 단단한 물체가 잇따라 바닥에 떨어지거나 다른 물체와 부딪쳐 크게 울리는 소리.",
+                    "잇따라 총이나 대포를 쏘거나 폭발물이 터져서 크게 울리는 소리."
+                ],
+                "url": "https://stdict.korean.go.kr",
+                "found": true,
+                "meaning": "무겁고 단단한 물체가 잇따라 바닥에 떨어지거나 다른 물체와 부딪쳐 크게 울리는 소리.",
+                "ref": "표준국어대사전 20250306",
+                "ipa": "k͈ w ʌ ŋ k͈ w ʌ ŋ",
+                "ipa_source": "epitran",
+                "romanization": "kkwŏngkkwŏng",
+                "en_meaning": "The loud sound made when a heavy and solid object repeatedly falls to the floor or strikes another object.",
+                "language": "ko",
+                "crosslingual_cluster_id": 1
+            },
+            {
+                "word": "캉",
+                "definitions": [
+                    "가볍고 단단한 물체가 바닥에 떨어지거나 다른 물체와 부딪쳐 울리는 소리."
+                ],
+                "url": "https://stdict.korean.go.kr",
+                "found": true,
+                "meaning": "가볍고 단단한 물체가 바닥에 떨어지거나 다른 물체와 부딪쳐 울리는 소리.",
+                "ref": "표준국어대사전 20250306",
+                "ipa": "kʰ a ŋ",
+                "ipa_source": "epitran",
+                "romanization": "k'ang",
+                "en_meaning": "The sound made when a light, hard object falls to the floor or strikes another object and resonates.",
+                "language": "ko",
+                "crosslingual_cluster_id": 1
+            },
+            {
+                "word": "콩",
+                "definitions": [
+                    "작고 가벼운 물건이 바닥이나 물체 위에 떨어지거나 부딪쳐 나는 소리."
+                ],
+                "url": "https://stdict.korean.go.kr",
+                "found": true,
+                "meaning": "작고 가벼운 물건이 바닥이나 물체 위에 떨어지거나 부딪쳐 나는 소리.",
+                "ref": "표준국어대사전 20250306",
+                "ipa": "kʰ o ŋ",
+                "ipa_source": "epitran",
+                "romanization": "k'ong",
+                "en_meaning": "The sound made when a small, light object falls onto or hits the floor or another surface.",
+                "language": "ko",
+                "crosslingual_cluster_id": 1
+            },
+            {
+                "word": "콩콩",
+                "definitions": [
+                    "작고 가벼운 물건이 자꾸 바닥이나 물체 위에 떨어지거나 부딪쳐 나는 소리.",
+                    "심리적으로 충격을 받아서 가슴이 자꾸 조금 세게 뛰는 소리. 또는 그 모양.",
+                    "강아지가 짖는 소리."
+                ],
+                "url": "https://stdict.korean.go.kr",
+                "found": true,
+                "meaning": "작고 가벼운 물건이 자꾸 바닥이나 물체 위에 떨어지거나 부딪쳐 나는 소리.",
+                "ref": "표준국어대사전 20250306",
+                "ipa": "kʰ o ŋ kʰ o ŋ",
+                "ipa_source": "epitran",
+                "romanization": "k'ongk'ong",
+                "en_meaning": "The repeated sound made when a small, light object falls onto or hits the floor or another surface.",
+                "language": "ko",
+                "crosslingual_cluster_id": 1
+            },
+            {
+                "word": "쾅",
+                "definitions": [
+                    "무겁고 단단한 물체가 바닥에 떨어지거나 다른 물체와 부딪쳐 울리는 소리.",
+                    "총이나 대포를 쏘거나 폭발물이 터져서 울리는 소리."
+                ],
+                "url": "https://stdict.korean.go.kr",
+                "found": true,
+                "meaning": "무겁고 단단한 물체가 바닥에 떨어지거나 다른 물체와 부딪쳐 울리는 소리.",
+                "ref": "표준국어대사전 20250306",
+                "ipa": "kʰ w a ŋ",
+                "ipa_source": "epitran",
+                "romanization": "k'wang",
+                "en_meaning": "The sound made when a heavy and solid object falls to the ground or strikes another object with a resounding noise.",
+                "language": "ko",
+                "crosslingual_cluster_id": 1
+            },
+            {
+                "word": "쾅쾅",
+                "definitions": [
+                    "무겁고 단단한 물체가 잇따라 바닥에 떨어지거나 다른 물체와 부딪쳐 울리는 소리.",
+                    "잇따라 총이나 대포를 쏘거나 폭발물이 터져서 울리는 소리."
+                ],
+                "url": "https://stdict.korean.go.kr",
+                "found": true,
+                "meaning": "무겁고 단단한 물체가 잇따라 바닥에 떨어지거나 다른 물체와 부딪쳐 울리는 소리.",
+                "ref": "표준국어대사전 20250306",
+                "ipa": "kʰ w a ŋ kʰ w a ŋ",
+                "ipa_source": "epitran",
+                "romanization": "k'wangk'wang",
+                "en_meaning": "The sound of heavy and solid objects repeatedly falling to the floor or striking other objects with a resounding noise.",
+                "language": "ko",
+                "crosslingual_cluster_id": 1
+            },
+            {
+                "word": "쿵",
+                "definitions": [
+                    "크고 무거운 물건이 바닥이나 물체 위에 떨어지거나 부딪쳐 나는 소리.",
+                    "멀리서 포탄 따위가 터지는 소리.",
+                    "큰북이나 장구 따위가 울리는 매우 깊은 소리.",
+                    "심리적으로 충격을 받아서 갑자기 가슴이 세게 뛰는 소리. 또는 그 모양."
+                ],
+                "url": "https://stdict.korean.go.kr",
+                "found": true,
+                "meaning": "크고 무거운 물건이 바닥이나 물체 위에 떨어지거나 부딪쳐 나는 소리.",
+                "ref": "표준국어대사전 20250306",
+                "ipa": "kʰ u ŋ",
+                "ipa_source": "epitran",
+                "romanization": "k'ung",
+                "en_meaning": "The sound made when a large and heavy object falls or hits the floor or another surface.",
+                "language": "ko",
+                "crosslingual_cluster_id": 1
+            },
+            {
+                "word": "쿵쿵",
+                "definitions": [
+                    "크고 무거운 물건이 잇따라 바닥이나 물체 위에 떨어지거나 부딪쳐 나는 소리.",
+                    "멀리서 포탄 따위가 터져 잇따라 나는 소리.",
+                    "큰북이나 장구 따위가 잇따라 울리는 매우 깊은 소리.",
+                    "심리적으로 충격을 받아서 가슴이 자꾸 세차게 뛰는 소리. 또는 그 모양."
+                ],
+                "url": "https://stdict.korean.go.kr",
+                "found": true,
+                "meaning": "크고 무거운 물건이 잇따라 바닥이나 물체 위에 떨어지거나 부딪쳐 나는 소리.",
+                "ref": "표준국어대사전 20250306",
+                "ipa": "kʰ u ŋ kʰ u ŋ",
+                "ipa_source": "epitran",
+                "romanization": "k'ungk'ung",
+                "en_meaning": "The sound made when large and heavy objects repeatedly fall onto or hit the floor or another surface.",
+                "language": "ko",
+                "crosslingual_cluster_id": 1
+            },
+            {
+                "word": "퀑",
+                "definitions": [
+                    "무겁고 단단한 물체가 바닥에 떨어지거나 다른 물체와 부딪쳐 크게 울리는 소리.",
+                    "총이나 대포를 쏘거나 폭발물이 터져서 크게 울리는 소리."
+                ],
+                "url": "https://stdict.korean.go.kr",
+                "found": true,
+                "meaning": "무겁고 단단한 물체가 바닥에 떨어지거나 다른 물체와 부딪쳐 크게 울리는 소리.",
+                "ref": "표준국어대사전 20250306",
+                "ipa": "kʰ w ʌ ŋ",
+                "ipa_source": "epitran",
+                "romanization": "k'wŏng",
+                "en_meaning": "The loud sound made when a heavy and solid object falls to the ground or collides with another object.",
+                "language": "ko",
+                "crosslingual_cluster_id": 1
+            },
+            {
+                "word": "퀑퀑",
+                "definitions": [
+                    "무겁고 단단한 물체가 잇따라 바닥에 떨어지거나 다른 물체와 부딪쳐 크게 울리는 소리.",
+                    "잇따라 총이나 대포를 쏘거나 폭발물이 터져서 크게 울리는 소리."
+                ],
+                "url": "https://stdict.korean.go.kr",
+                "found": true,
+                "meaning": "무겁고 단단한 물체가 잇따라 바닥에 떨어지거나 다른 물체와 부딪쳐 크게 울리는 소리.",
+                "ref": "표준국어대사전 20250306",
+                "ipa": "kʰ w ʌ ŋ kʰ w ʌ ŋ",
+                "ipa_source": "epitran",
+                "romanization": "k'wŏngk'wŏng",
+                "en_meaning": "The sound made when heavy and solid objects repeatedly fall to the floor or collide with other objects, producing a loud echoing noise.",
+                "language": "ko",
+                "crosslingual_cluster_id": 1
+            },
+            {
+                "word": "투두둑",
+                "definitions": [
+                    "우박 따위가 바닥이나 나뭇잎 위에 세게 떨어지는 소리."
+                ],
+                "url": "https://stdict.korean.go.kr",
+                "found": true,
+                "meaning": "우박 따위가 바닥이나 나뭇잎 위에 세게 떨어지는 소리.",
+                "ref": "표준국어대사전 20250306",
+                "ipa": "tʰ u t u t u k",
+                "ipa_source": "epitran",
+                "romanization": "t'ududuk",
+                "en_meaning": "The sound of hail or something similar falling hard onto the ground or onto leaves.",
+                "language": "ko",
+                "crosslingual_cluster_id": 1
+            },
+            {
+                "word": "투두둑투두둑",
+                "definitions": [
+                    "우박 따위가 바닥이나 나뭇잎 위에 잇따라 세게 떨어지는 소리."
+                ],
+                "url": "https://stdict.korean.go.kr",
+                "found": true,
+                "meaning": "우박 따위가 바닥이나 나뭇잎 위에 잇따라 세게 떨어지는 소리.",
+                "ref": "표준국어대사전 20250306",
+                "ipa": "tʰ u t u t u k tʰ u t u t u k",
+                "ipa_source": "epitran",
+                "romanization": "t'ududukt'ududuk",
+                "en_meaning": "The sound of hail or something similar repeatedly and forcefully falling onto the ground or leaves.",
+                "language": "ko",
+                "crosslingual_cluster_id": 1
+            }
+        ],
+        "source_base_cluster_id": "en_170",
+        "associated_target_clusters": {
+            "ko_139": 0.8722623586654663,
+            "ja_259": 0.8558453917503357,
+            "fr_356": 0.8278707265853882
+        }
+    },
+    {
+        "crosslingual_cluster_id": 2,
+        "words": [
+            {
+                "word": "chock",
+                "meaning": [
+                    "A short hollow sound, such as that produced by hammering or chopping, by a heavy object striking a hard surface, etc.",
+                    "Representing a short hollow sound, such as that produced by hammering or chopping, by a heavy object striking a hard surface, etc."
+                ],
+                "ref": "Rhyme Over Reason : Phonological Motivation in English",
+                "url": "Rhyme Over Reason : Phonological Motivation in English",
+                "found": true,
+                "ipa": "t͡ʃ ɑ k",
+                "ipa_source": "epitran",
+                "romanization": "chock",
+                "en_meaning": "A short hollow sound, such as that produced by hammering or chopping, by a heavy object striking a hard surface, etc.",
+                "infinigram_count": 4366862,
+                "language": "en",
+                "crosslingual_cluster_id": 2
+            },
+            {
+                "word": "clash",
+                "meaning": [
+                    "The loud sound of collision made by a heavy stroke or blow, the first impact of which is firm and hard, but is followed by a confused sound of many looser and lighter impacts."
+                ],
+                "ref": "Rhyme Over Reason : Phonological Motivation in English",
+                "url": "Rhyme Over Reason : Phonological Motivation in English",
+                "found": true,
+                "ipa": "k l æ ʃ",
+                "ipa_source": "epitran",
+                "romanization": "clash",
+                "en_meaning": "The loud sound of collision made by a heavy stroke or blow, the first impact of which is firm and hard, but is followed by a confused sound of many looser and lighter impacts.",
+                "infinigram_count": 26991974,
+                "language": "en",
+                "crosslingual_cluster_id": 2
+            },
+            {
+                "word": "rap",
+                "meaning": [
+                    "Senses relating to a blow, stroke, or loud noise."
+                ],
+                "ref": "Rhyme Over Reason : Phonological Motivation in English",
+                "url": "Rhyme Over Reason : Phonological Motivation in English",
+                "found": true,
+                "ipa": "ɹ æ p",
+                "ipa_source": "epitran",
+                "romanization": "rap",
+                "en_meaning": "Senses relating to a blow, stroke, or loud noise.",
+                "infinigram_count": 48119545,
+                "language": "en",
+                "crosslingual_cluster_id": 2
+            },
+            {
+                "word": "thrump",
+                "meaning": [
+                    "The sound of a blow, heavy fall or beat, etc."
+                ],
+                "ref": "Rhyme Over Reason : Phonological Motivation in English",
+                "url": "Rhyme Over Reason : Phonological Motivation in English",
+                "found": true,
+                "ipa": "θ ɹ ə m p",
+                "ipa_source": "epitran",
+                "romanization": "thrump",
+                "en_meaning": "The sound of a blow, heavy fall or beat, etc.",
+                "infinigram_count": 8851,
+                "language": "en",
+                "crosslingual_cluster_id": 2
+            },
+            {
+                "word": "thunge",
+                "meaning": [
+                    "A loud, hollow sound; a heavy blow or fall producing such a sound."
+                ],
+                "ref": "Rhyme Over Reason : Phonological Motivation in English",
+                "url": "Rhyme Over Reason : Phonological Motivation in English",
+                "found": true,
+                "ipa": "θ ʌ n d͡ʒ",
+                "ipa_source": "epitran",
+                "romanization": "thunge",
+                "en_meaning": "A loud, hollow sound; a heavy blow or fall producing such a sound.",
+                "infinigram_count": 89,
+                "language": "en",
+                "crosslingual_cluster_id": 2
+            },
+            {
+                "word": "whang",
+                "meaning": [
+                    "A resounding blow or stroke, or the sound of such a blow; a bang."
+                ],
+                "ref": "Rhyme Over Reason : Phonological Motivation in English",
+                "url": "Rhyme Over Reason : Phonological Motivation in English",
+                "found": true,
+                "ipa": "w æ ŋ",
+                "ipa_source": "epitran",
+                "romanization": "whang",
+                "en_meaning": "A resounding blow or stroke, or the sound of such a blow; a bang.",
+                "infinigram_count": 55139,
+                "language": "en",
+                "crosslingual_cluster_id": 2
+            },
+            {
+                "word": "woomph",
+                "meaning": [
+                    "A sudden, violent rushing sound; a forceful thudding sound."
+                ],
+                "ref": "Oxford English Dictionary",
+                "url": "https://www.oed.com",
+                "found": true,
+                "ipa": "w u m f",
+                "ipa_source": "epitran",
+                "romanization": "woomph",
+                "en_meaning": "A sudden, violent rushing sound; a forceful thudding sound.",
+                "infinigram_count": 3739,
+                "language": "en",
+                "crosslingual_cluster_id": 2
+            },
+            {
+                "word": "chac",
+                "meaning": [
+                    "bruit produit par un coup violent."
+                ],
+                "url": "dictionnaire des onomatopées",
+                "found": true,
+                "ref": "dictionnaire des onomatopées",
+                "ipa": "ʃ a k",
+                "ipa_source": "epitran",
+                "romanization": "chac",
+                "en_meaning": "sound produced by a violent blow",
+                "infinigram_count": 503946,
+                "language": "fr",
+                "crosslingual_cluster_id": 2
+            },
+            {
+                "word": "pflaf",
+                "meaning": [
+                    "bruit produit par un coup brutal, un choc violent."
+                ],
+                "url": "dictionnaire des onomatopées",
+                "found": true,
+                "ref": "dictionnaire des onomatopées",
+                "ipa": "p f l a f",
+                "ipa_source": "epitran",
+                "romanization": "pflaf",
+                "en_meaning": "sound produced by a brutal blow, a violent impact.",
+                "infinigram_count": 1,
+                "language": "fr",
+                "crosslingual_cluster_id": 2
+            },
+            {
+                "word": "schlaf",
+                "meaning": [
+                    "bruit produit par un coup violent."
+                ],
+                "url": "dictionnaire des onomatopées",
+                "found": true,
+                "ref": "dictionnaire des onomatopées",
+                "ipa": "s ʃ l a f",
+                "ipa_source": "epitran",
+                "romanization": "schlaf",
+                "en_meaning": "sound produced by a violent blow.",
+                "infinigram_count": 29026,
+                "language": "fr",
+                "crosslingual_cluster_id": 2
+            },
+            {
+                "word": "ばーん",
+                "meaning": "物を勢いよく打ったり、たたいたりする音、また、物が破裂する音を表わす語。",
+                "ref": "nikkoku",
+                "url": "精選版 日本国語大辞典",
+                "found": true,
+                "ipa": "b aː ɴ",
+                "ipa_source": "epitran",
+                "romanization": "baan",
+                "en_meaning": "A word that represents the sound of something being struck or hit with force, or the sound of something bursting.",
+                "infinigram_count": 73,
+                "language": "ja",
+                "crosslingual_cluster_id": 2
+            },
+            {
+                "word": "びしっ",
+                "meaning": "棒などで強く打ったり、太い物が一瞬に折れたりするさま、また、そのようにして鋭く音を立てるさまを表わす語。",
+                "ref": "nikkoku",
+                "url": "精選版 日本国語大辞典",
+                "found": true,
+                "ipa": "bʲ i ɕ i ʔ",
+                "ipa_source": "epitran",
+                "romanization": "bishitsu",
+                "en_meaning": "A word that describes the state or sound of being struck sharply with a stick or similar object, or of something thick snapping in an instant, as well as the sharp noise produced in such situations.",
+                "infinigram_count": 232,
+                "language": "ja",
+                "crosslingual_cluster_id": 2
+            },
+            {
+                "word": "びしり",
+                "meaning": "棒などで強く打ったり、木などが折れたりする音や、そのさまを表す語。",
+                "ref": "daijisen",
+                "url": "デジタル大辞泉",
+                "found": true,
+                "ipa": "bʲ i ɕ i ɾʲ i",
+                "ipa_source": "epitran",
+                "romanization": "bishiri",
+                "en_meaning": "A word that represents the sound or state of being struck hard with a stick or similar object, or the sound of something like wood breaking.",
+                "infinigram_count": 40,
+                "language": "ja",
+                "crosslingual_cluster_id": 2
+            },
+            {
+                "word": "ぴしり",
+                "meaning": "平手やむちなどで鋭く一撃する音、木などが勢いよく割れたり折れたりする音を表わす語。",
+                "ref": "nikkoku",
+                "url": "精選版 日本国語大辞典",
+                "found": true,
+                "ipa": "pʲ i ɕ i ɾʲ i",
+                "ipa_source": "epitran",
+                "romanization": "pishiri",
+                "en_meaning": "A word that represents the sharp sound of a single strike with an open hand or a whip, or the vigorous sound of something like wood splitting or breaking.",
+                "infinigram_count": 0,
+                "language": "ja",
+                "crosslingual_cluster_id": 2
+            },
+            {
+                "word": "ぴちり",
+                "meaning": "固い物が、勢いよく打ち当たったり、折れたりはねたりなどして響く音、またそのさまを表わす語。",
+                "ref": "nikkoku",
+                "url": "精選版 日本国語大辞典",
+                "found": true,
+                "ipa": "pʲ i t͡ɕ i ɾʲ i",
+                "ipa_source": "epitran",
+                "romanization": "pichiri",
+                "en_meaning": "A word that represents the sound or manner of a hard object striking, snapping, or bouncing vigorously and resonantly.",
+                "infinigram_count": 0,
+                "language": "ja",
+                "crosslingual_cluster_id": 2
+            },
+            {
+                "word": "ぴちん",
+                "meaning": "固い物が、勢いよく打ち当たったり、折れたりはねたりなどして響く音、またそのさまを表わす語。",
+                "ref": "nikkoku",
+                "url": "精選版 日本国語大辞典",
+                "found": true,
+                "ipa": "pʲ i t͡ɕ i ŋ",
+                "ipa_source": "epitran",
+                "romanization": "pichin",
+                "en_meaning": "A word that represents the sound or state of a hard object striking, snapping, or bouncing vigorously and resonantly.",
+                "infinigram_count": 0,
+                "language": "ja",
+                "crosslingual_cluster_id": 2
+            },
+            {
+                "word": "볼칵",
+                "definitions": [
+                    "지직한 반죽이나 진흙 따위를 조금 쑤시거나 주무르거나 밟을 때 나는 소리. 또는 그 모양."
+                ],
+                "url": "https://stdict.korean.go.kr",
+                "found": true,
+                "meaning": "지직한 반죽이나 진흙 따위를 조금 쑤시거나 주무르거나 밟을 때 나는 소리. 또는 그 모양.",
+                "ref": "표준국어대사전 20250306",
+                "ipa": "p o l kʰ a k",
+                "ipa_source": "epitran",
+                "romanization": "polk'ak",
+                "en_meaning": "The sound or appearance produced when poking, kneading, or stepping on a sticky dough or mud.",
+                "language": "ko",
+                "crosslingual_cluster_id": 2
+            },
+            {
+                "word": "볼칵볼칵",
+                "definitions": [
+                    "지직한 반죽이나 진흙 따위를 자꾸 조금 쑤시거나 주무르거나 밟을 때 나는 소리. 또는 그 모양."
+                ],
+                "url": "https://stdict.korean.go.kr",
+                "found": true,
+                "meaning": "지직한 반죽이나 진흙 따위를 자꾸 조금 쑤시거나 주무르거나 밟을 때 나는 소리. 또는 그 모양.",
+                "ref": "표준국어대사전 20250306",
+                "ipa": "p o l kʰ a k p͈ o l kʰ a k",
+                "ipa_source": "epitran",
+                "romanization": "polk'akpolk'ak",
+                "en_meaning": "The sound made when repeatedly poking, kneading, or stepping on sticky dough or mud, or the appearance of such an action.",
+                "language": "ko",
+                "crosslingual_cluster_id": 2
+            },
+            {
+                "word": "불컥",
+                "definitions": [
+                    "지직한 반죽이나 진흙 따위를 깊이 쑤시거나 주무르거나 밟을 때 나는 소리. 또는 그 모양."
+                ],
+                "url": "https://stdict.korean.go.kr",
+                "found": true,
+                "meaning": "지직한 반죽이나 진흙 따위를 깊이 쑤시거나 주무르거나 밟을 때 나는 소리. 또는 그 모양.",
+                "ref": "표준국어대사전 20250306",
+                "ipa": "p u l kʰ ʌ k",
+                "ipa_source": "epitran",
+                "romanization": "pulk'ŏk",
+                "en_meaning": "The sound or appearance produced when poking, kneading, or stepping deeply into thick batter, mud, or similar substances.",
+                "language": "ko",
+                "crosslingual_cluster_id": 2
+            },
+            {
+                "word": "불컥불컥",
+                "definitions": [
+                    "지직한 반죽이나 진흙 따위를 자꾸 깊이 쑤시거나 주무르거나 밟을 때 나는 소리. 또는 그 모양."
+                ],
+                "url": "https://stdict.korean.go.kr",
+                "found": true,
+                "meaning": "지직한 반죽이나 진흙 따위를 자꾸 깊이 쑤시거나 주무르거나 밟을 때 나는 소리. 또는 그 모양.",
+                "ref": "표준국어대사전 20250306",
+                "ipa": "p u l kʰ ʌ k p͈ u l kʰ ʌ k",
+                "ipa_source": "epitran",
+                "romanization": "pulk'ŏkpulk'ŏk",
+                "en_meaning": "The sound or appearance produced when repeatedly poking, kneading, or stepping deeply into thick batter, mud, or similar substances.",
+                "language": "ko",
+                "crosslingual_cluster_id": 2
+            },
+            {
+                "word": "와당탕",
+                "definitions": [
+                    "잘 울리는 바닥에 무엇이 요란하게 떨어지거나 부딪칠 때 나는 소리."
+                ],
+                "url": "https://stdict.korean.go.kr",
+                "found": true,
+                "meaning": "잘 울리는 바닥에 무엇이 요란하게 떨어지거나 부딪칠 때 나는 소리.",
+                "ref": "표준국어대사전 20250306",
+                "ipa": "w a t a ŋ tʰ a ŋ",
+                "ipa_source": "epitran",
+                "romanization": "wadangt'ang",
+                "en_meaning": "The sound made when something falls or crashes noisily onto a resonant floor.",
+                "language": "ko",
+                "crosslingual_cluster_id": 2
+            },
+            {
+                "word": "와당탕와당탕",
+                "definitions": [
+                    "잘 울리는 바닥에 무엇이 자꾸 요란하게 떨어지거나 부딪칠 때 나는 소리."
+                ],
+                "url": "https://stdict.korean.go.kr",
+                "found": true,
+                "meaning": "잘 울리는 바닥에 무엇이 자꾸 요란하게 떨어지거나 부딪칠 때 나는 소리.",
+                "ref": "표준국어대사전 20250306",
+                "ipa": "w a t a ŋ tʰ a ŋ w a t a ŋ tʰ a ŋ",
+                "ipa_source": "epitran",
+                "romanization": "wadangt'angwadangt'ang",
+                "en_meaning": "The sound made when something repeatedly falls or crashes noisily onto a resonant floor.",
+                "language": "ko",
+                "crosslingual_cluster_id": 2
+            },
+            {
+                "word": "와당탕퉁탕",
+                "definitions": [
+                    "잘 울리는 바닥에 무엇이 요란스럽게 떨어지거나 부딪치거나 뛰는 소리. 또는 그 모양."
+                ],
+                "url": "https://stdict.korean.go.kr",
+                "found": true,
+                "meaning": "잘 울리는 바닥에 무엇이 요란스럽게 떨어지거나 부딪치거나 뛰는 소리. 또는 그 모양.",
+                "ref": "표준국어대사전 20250306",
+                "ipa": "w a t a ŋ tʰ a ŋ tʰ u ŋ tʰ a ŋ",
+                "ipa_source": "epitran",
+                "romanization": "wadangt'angt'ungt'ang",
+                "en_meaning": "The loud sound or appearance of something falling, bumping, or jumping noisily on a resonant floor.",
+                "language": "ko",
+                "crosslingual_cluster_id": 2
+            },
+            {
+                "word": "왜각대각",
+                "definitions": [
+                    "그릇 따위가 부딪치거나 깨어질 때 요란스럽게 나는 소리. 또는 그 모양."
+                ],
+                "url": "https://stdict.korean.go.kr",
+                "found": true,
+                "meaning": "그릇 따위가 부딪치거나 깨어질 때 요란스럽게 나는 소리. 또는 그 모양.",
+                "ref": "표준국어대사전 20250306",
+                "ipa": "w ɛ k a k t͈ ɛ k a k",
+                "ipa_source": "epitran",
+                "romanization": "waegaktaegak",
+                "en_meaning": "A loud noise made when dishes or similar objects collide or break, or the appearance of such an event.",
+                "language": "ko",
+                "crosslingual_cluster_id": 2
+            },
+            {
+                "word": "왜깍대깍",
+                "definitions": [
+                    "그릇 따위가 부딪치거나 깨어질 때 요란스럽게 나는 소리. 또는 그 모양."
+                ],
+                "url": "https://stdict.korean.go.kr",
+                "found": true,
+                "meaning": "그릇 따위가 부딪치거나 깨어질 때 요란스럽게 나는 소리. 또는 그 모양.",
+                "ref": "표준국어대사전 20250306",
+                "ipa": "w ɛ k͈ a k t͈ ɛ k͈ a k",
+                "ipa_source": "epitran",
+                "romanization": "waekkaktaekkak",
+                "en_meaning": "A loud noise made when dishes or similar objects collide or break, or the appearance of such an event.",
+                "language": "ko",
+                "crosslingual_cluster_id": 2
+            },
+            {
+                "word": "우걱우걱",
+                "definitions": [
+                    "짐을 진 마소가 걸음을 걸을 때마다 잇따라 나는 소리.",
+                    "음식 따위를 입안에 가득 넣으면서 자꾸 거칠고 급하게 먹는 모양."
+                ],
+                "url": "https://stdict.korean.go.kr",
+                "found": true,
+                "meaning": "짐을 진 마소가 걸음을 걸을 때마다 잇따라 나는 소리.",
+                "ref": "표준국어대사전 20250306",
+                "ipa": "u k ʌ k u k ʌ k",
+                "ipa_source": "epitran",
+                "romanization": "ugŏgugŏk",
+                "en_meaning": "The repeated sound made each time a pack animal takes a step while carrying a load.",
+                "language": "ko",
+                "crosslingual_cluster_id": 2
+            },
+            {
+                "word": "우당탕",
+                "definitions": [
+                    "잘 울리는 바닥에 무엇이 몹시 요란하게 떨어지거나 부딪칠 때 나는 소리."
+                ],
+                "url": "https://stdict.korean.go.kr",
+                "found": true,
+                "meaning": "잘 울리는 바닥에 무엇이 몹시 요란하게 떨어지거나 부딪칠 때 나는 소리.",
+                "ref": "표준국어대사전 20250306",
+                "ipa": "u t a ŋ tʰ a ŋ",
+                "ipa_source": "epitran",
+                "romanization": "udangt'ang",
+                "en_meaning": "The sound made when something falls or crashes noisily onto a resonant floor.",
+                "language": "ko",
+                "crosslingual_cluster_id": 2
+            },
+            {
+                "word": "우당탕우당탕",
+                "definitions": [
+                    "잘 울리는 바닥에 무엇이 자꾸 몹시 요란하게 떨어지거나 부딪칠 때 나는 소리."
+                ],
+                "url": "https://stdict.korean.go.kr",
+                "found": true,
+                "meaning": "잘 울리는 바닥에 무엇이 자꾸 몹시 요란하게 떨어지거나 부딪칠 때 나는 소리.",
+                "ref": "표준국어대사전 20250306",
+                "ipa": "u t a ŋ tʰ a ŋ u t a ŋ tʰ a ŋ",
+                "ipa_source": "epitran",
+                "romanization": "udangt'angudangt'ang",
+                "en_meaning": "The sound made when something keeps falling or hitting noisily and repeatedly on a resonant floor.",
+                "language": "ko",
+                "crosslingual_cluster_id": 2
+            },
+            {
+                "word": "우당탕퉁탕",
+                "definitions": [
+                    "잘 울리는 바닥에 무엇이 몹시 요란스럽게 떨어지거나 부딪치거나 뛰는 소리. 또는 그 모양."
+                ],
+                "url": "https://stdict.korean.go.kr",
+                "found": true,
+                "meaning": "잘 울리는 바닥에 무엇이 몹시 요란스럽게 떨어지거나 부딪치거나 뛰는 소리. 또는 그 모양.",
+                "ref": "표준국어대사전 20250306",
+                "ipa": "u t a ŋ tʰ a ŋ tʰ u ŋ tʰ a ŋ",
+                "ipa_source": "epitran",
+                "romanization": "udangt'angt'ungt'ang",
+                "en_meaning": "The loud, boisterous sound or appearance of something falling, bumping, or jumping noisily on a resonant floor.",
+                "language": "ko",
+                "crosslingual_cluster_id": 2
+            },
+            {
+                "word": "우당퉁탕",
+                "definitions": [
+                    "잘 울리는 바닥에 무엇이 몹시 요란스럽게 떨어지거나 부딪치거나 뛰는 소리. 또는 그 모양."
+                ],
+                "url": "https://stdict.korean.go.kr",
+                "found": true,
+                "meaning": "잘 울리는 바닥에 무엇이 몹시 요란스럽게 떨어지거나 부딪치거나 뛰는 소리. 또는 그 모양.",
+                "ref": "표준국어대사전 20250306",
+                "ipa": "u t a ŋ tʰ u ŋ tʰ a ŋ",
+                "ipa_source": "epitran",
+                "romanization": "udangt'ungt'ang",
+                "en_meaning": "The loud, boisterous sound or appearance of something falling, bumping, or jumping noisily onto a resonant floor.",
+                "language": "ko",
+                "crosslingual_cluster_id": 2
+            },
+            {
+                "word": "쿠당탕",
+                "definitions": [
+                    "잘 울리는 바닥에 단단하고 큰 물건이 몹시 요란하게 떨어지거나 부딪칠 때 나는 소리."
+                ],
+                "url": "https://stdict.korean.go.kr",
+                "found": true,
+                "meaning": "잘 울리는 바닥에 단단하고 큰 물건이 몹시 요란하게 떨어지거나 부딪칠 때 나는 소리.",
+                "ref": "표준국어대사전 20250306",
+                "ipa": "kʰ u t a ŋ tʰ a ŋ",
+                "ipa_source": "epitran",
+                "romanization": "k'udangt'ang",
+                "en_meaning": "The sound made when a hard and large object falls or crashes noisily onto a resonant floor.",
+                "language": "ko",
+                "crosslingual_cluster_id": 2
+            }
+        ],
+        "source_base_cluster_id": "en_9",
+        "associated_target_clusters": {
+            "fr_404": 0.8515719175338745,
+            "ja_195": 0.8315147757530212,
+            "ko_112": 0.8098500967025757
+        }
+    },
+    {
+        "crosslingual_cluster_id": 3,
+        "words": [
+            {
+                "word": "cheet",
+                "meaning": [
+                    "Representing the high-pitched call of certain birds.",
+                    "To chirp, squeak."
+                ],
+                "ref": "Oxford English Dictionary",
+                "url": "https://www.oed.com",
+                "found": true,
+                "ipa": "t͡ʃ i t",
+                "ipa_source": "epitran",
+                "romanization": "cheet",
+                "en_meaning": "Representing the high-pitched call of certain birds.",
+                "infinigram_count": 3413288,
+                "language": "en",
+                "crosslingual_cluster_id": 3
+            },
+            {
+                "word": "cluck",
+                "meaning": [
+                    "An imitation of the abrupt hollow guttural sound made by a hen desiring to sit, or calling her brood together, or of a similar sound."
+                ],
+                "ref": "Rhyme Over Reason : Phonological Motivation in English",
+                "url": "Rhyme Over Reason : Phonological Motivation in English",
+                "found": true,
+                "ipa": "k l ʌ k",
+                "ipa_source": "epitran",
+                "romanization": "cluck",
+                "en_meaning": "An imitation of the abrupt hollow guttural sound made by a hen desiring to sit, or calling her brood together, or of a similar sound.",
+                "infinigram_count": 1514651,
+                "language": "en",
+                "crosslingual_cluster_id": 3
+            },
+            {
+                "word": "guit-guit",
+                "meaning": [
+                    "A name, presumably in imitation of the cry of a bird."
+                ],
+                "ref": "Rhyme Over Reason : Phonological Motivation in English",
+                "url": "Rhyme Over Reason : Phonological Motivation in English",
+                "found": true,
+                "ipa": "ɡ t ɡ t",
+                "ipa_source": "epitran",
+                "romanization": "guit-guit",
+                "en_meaning": "A name, presumably in imitation of the cry of a bird.",
+                "infinigram_count": 1,
+                "language": "en",
+                "crosslingual_cluster_id": 3
+            },
+            {
+                "word": "pleep",
+                "meaning": [
+                    "A shrill piping cry, esp. that of a wading bird; the weak peeping cry of a young bird."
+                ],
+                "ref": "Rhyme Over Reason : Phonological Motivation in English",
+                "url": "Rhyme Over Reason : Phonological Motivation in English",
+                "found": true,
+                "ipa": "p l i p",
+                "ipa_source": "epitran",
+                "romanization": "pleep",
+                "en_meaning": "A shrill piping cry, esp. that of a wading bird; the weak peeping cry of a young bird.",
+                "infinigram_count": 1078,
+                "language": "en",
+                "crosslingual_cluster_id": 3
+            },
+            {
+                "word": "scape",
+                "meaning": [
+                    "A conventional imitation of the cry of the snipe when flushed (also used for the brambling’s call)."
+                ],
+                "ref": "Rhyme Over Reason : Phonological Motivation in English",
+                "url": "Rhyme Over Reason : Phonological Motivation in English",
+                "found": true,
+                "ipa": "s k e j p",
+                "ipa_source": "epitran",
+                "romanization": "scape",
+                "en_meaning": "A conventional imitation of the cry of the snipe when flushed (also used for the brambling’s call).",
+                "infinigram_count": 872054,
+                "language": "en",
+                "crosslingual_cluster_id": 3
+            },
+            {
+                "word": "tewit",
+                "meaning": [
+                    "Imitations of the cry of some birds."
+                ],
+                "ref": "Oxford English Dictionary",
+                "url": "https://www.oed.com",
+                "found": true,
+                "ipa": "t͡ʃ u w ɪ t",
+                "ipa_source": "epitran",
+                "romanization": "tewit",
+                "en_meaning": "Imitations of the cry of some birds.",
+                "infinigram_count": 308,
+                "language": "en",
+                "crosslingual_cluster_id": 3
+            },
+            {
+                "word": "twee",
+                "meaning": [
+                    "An imitation of the sound of a horn, and also of the notes of some birds."
+                ],
+                "ref": "Rhyme Over Reason : Phonological Motivation in English",
+                "url": "Rhyme Over Reason : Phonological Motivation in English",
+                "found": true,
+                "ipa": "t w i",
+                "ipa_source": "epitran",
+                "romanization": "twee",
+                "en_meaning": "An imitation of the sound of a horn, and also of the notes of some birds.",
+                "infinigram_count": 1216494,
+                "language": "en",
+                "crosslingual_cluster_id": 3
+            },
+            {
+                "word": "weet",
+                "meaning": [
+                    "An imitation of the cry of certain small birds."
+                ],
+                "ref": "Rhyme Over Reason : Phonological Motivation in English",
+                "url": "Rhyme Over Reason : Phonological Motivation in English",
+                "found": true,
+                "ipa": "w i t",
+                "ipa_source": "epitran",
+                "romanization": "weet",
+                "en_meaning": "An imitation of the cry of certain small birds.",
+                "infinigram_count": 270397,
+                "language": "en",
+                "crosslingual_cluster_id": 3
+            },
+            {
+                "word": "weet-weet",
+                "meaning": [
+                    "An imitation of the cry of certain birds, esp. the sandpiper and chaffinch."
+                ],
+                "ref": "Rhyme Over Reason : Phonological Motivation in English",
+                "url": "Rhyme Over Reason : Phonological Motivation in English",
+                "found": true,
+                "ipa": "w i t w i t",
+                "ipa_source": "epitran",
+                "romanization": "weet-weet",
+                "en_meaning": "An imitation of the cry of certain birds, esp. the sandpiper and chaffinch.",
+                "infinigram_count": 869,
+                "language": "en",
+                "crosslingual_cluster_id": 3
+            },
+            {
+                "word": "hou hou",
+                "meaning": [
+                    "bruit d'un cri d'oiseau.",
+                    "bruit d'aboiement ou de hurlement."
+                ],
+                "url": "dictionnaire des onomatopées",
+                "found": true,
+                "ref": "dictionnaire des onomatopées",
+                "ipa": "u u",
+                "ipa_source": "epitran",
+                "romanization": "hou hou",
+                "en_meaning": "sound of a bird's cry.",
+                "infinigram_count": 1956,
+                "language": "fr",
+                "crosslingual_cluster_id": 3
+            },
+            {
+                "word": "pi-huit",
+                "meaning": [
+                    "bruit de cri d'oiseau.",
+                    "bruit produit par un sifflement d'appel."
+                ],
+                "url": "dictionnaire des onomatopées",
+                "found": true,
+                "ref": "dictionnaire des onomatopées",
+                "ipa": "p i ɥ i",
+                "ipa_source": "epitran",
+                "romanization": "pi-huit",
+                "en_meaning": "sound of a bird's cry.",
+                "infinigram_count": 0,
+                "language": "fr",
+                "crosslingual_cluster_id": 3
+            },
+            {
+                "word": "pi-ouit",
+                "meaning": [
+                    "bruit de cri d'oiseau.",
+                    "bruit produit par un sifflement d'appel."
+                ],
+                "url": "dictionnaire des onomatopées",
+                "found": true,
+                "ref": "dictionnaire des onomatopées",
+                "ipa": "p i w i",
+                "ipa_source": "epitran",
+                "romanization": "pi-ouit",
+                "en_meaning": "sound of a bird's cry.",
+                "infinigram_count": 0,
+                "language": "fr",
+                "crosslingual_cluster_id": 3
+            },
+            {
+                "word": "pil-ouit",
+                "meaning": [
+                    "bruit de cri d'oiseau.",
+                    "bruit produit par un sifflement d'appel."
+                ],
+                "url": "dictionnaire des onomatopées",
+                "found": true,
+                "ref": "dictionnaire des onomatopées",
+                "ipa": "p i l w i",
+                "ipa_source": "epitran",
+                "romanization": "pil-ouit",
+                "en_meaning": "sound of a bird's cry",
+                "infinigram_count": 0,
+                "language": "fr",
+                "crosslingual_cluster_id": 3
+            },
+            {
+                "word": "pirouite",
+                "meaning": [
+                    "bruit de cri d'oiseau.",
+                    "bruit produit par un sifflement d'appel."
+                ],
+                "url": "dictionnaire des onomatopées",
+                "found": true,
+                "ref": "dictionnaire des onomatopées",
+                "ipa": "p i ʀ w i t",
+                "ipa_source": "epitran",
+                "romanization": "pirouite",
+                "en_meaning": "sound of a bird's cry",
+                "infinigram_count": 0,
+                "language": "fr",
+                "crosslingual_cluster_id": 3
+            },
+            {
+                "word": "ちりちり",
+                "meaning": "千鳥や雲雀など、小鳥の鳴き声を表わす語。",
+                "ref": "nikkoku",
+                "url": "精選版 日本国語大辞典",
+                "found": true,
+                "ipa": "t͡ɕ i ɾʲ i t͡ɕ i ɾʲ i",
+                "ipa_source": "epitran",
+                "romanization": "chirichiri",
+                "en_meaning": "A word that represents the chirping of small birds, such as plovers or skylarks.",
+                "infinigram_count": 75,
+                "language": "ja",
+                "crosslingual_cluster_id": 3
+            },
+            {
+                "word": "ほろ",
+                "meaning": "雉子・山鳥・杜鵑などの鳴き声を表わす語。",
+                "ref": "nikkoku",
+                "url": "精選版 日本国語大辞典",
+                "found": true,
+                "ipa": "h o ɾ o",
+                "ipa_source": "epitran",
+                "romanization": "horo",
+                "en_meaning": "A word that represents the cries of pheasants, copper pheasants, cuckoos, and similar birds.",
+                "infinigram_count": 2985,
+                "language": "ja",
+                "crosslingual_cluster_id": 3
+            },
+            {
+                "word": "ほろろ",
+                "meaning": "雉子、山鳥などの鳴く声を表わす語。",
+                "ref": "nikkoku",
+                "url": "精選版 日本国語大辞典",
+                "found": true,
+                "ipa": "h o ɾ o ɾ o",
+                "ipa_source": "epitran",
+                "romanization": "hororo",
+                "en_meaning": "A word that represents the cry of pheasants, copper pheasants, and similar birds.",
+                "infinigram_count": 23,
+                "language": "ja",
+                "crosslingual_cluster_id": 3
+            },
+            {
+                "word": "걀걀",
+                "definitions": [
+                    "암탉이나 갈매기 따위가 내는 소리."
+                ],
+                "url": "https://stdict.korean.go.kr",
+                "found": true,
+                "meaning": "암탉이나 갈매기 따위가 내는 소리.",
+                "ref": "표준국어대사전 20250306",
+                "ipa": "k j a l k j a l",
+                "ipa_source": "epitran",
+                "romanization": "kyalgyal",
+                "en_meaning": "The sound made by a hen, a seagull, or similar animals.",
+                "language": "ko",
+                "crosslingual_cluster_id": 3
+            },
+            {
+                "word": "까옥까옥",
+                "definitions": [
+                    "까마귀가 잇따라 우는 소리."
+                ],
+                "url": "https://stdict.korean.go.kr",
+                "found": true,
+                "meaning": "까마귀가 잇따라 우는 소리.",
+                "ref": "표준국어대사전 20250306",
+                "ipa": "k͈ a o k k͈ a o k",
+                "ipa_source": "epitran",
+                "romanization": "kkaokkaok",
+                "en_meaning": "The sound of crows cawing repeatedly.",
+                "language": "ko",
+                "crosslingual_cluster_id": 3
+            },
+            {
+                "word": "깍깍",
+                "definitions": [
+                    "까마귀나 까치 따위가 자꾸 우는 소리."
+                ],
+                "url": "https://stdict.korean.go.kr",
+                "found": true,
+                "meaning": "까마귀나 까치 따위가 자꾸 우는 소리.",
+                "ref": "표준국어대사전 20250306",
+                "ipa": "k͈ a k k͈ a k",
+                "ipa_source": "epitran",
+                "romanization": "kkakkak",
+                "en_meaning": "The repeated sound made by crows, magpies, or similar birds.",
+                "language": "ko",
+                "crosslingual_cluster_id": 3
+            },
+            {
+                "word": "꺌꺌",
+                "definitions": [
+                    "암탉이나 갈매기 따위가 내는 소리."
+                ],
+                "url": "https://stdict.korean.go.kr",
+                "found": true,
+                "meaning": "암탉이나 갈매기 따위가 내는 소리.",
+                "ref": "표준국어대사전 20250306",
+                "ipa": "k͈ j a l k͈ j a l",
+                "ipa_source": "epitran",
+                "romanization": "kkyalkkyal",
+                "en_meaning": "The sound made by animals such as hens or seagulls.",
+                "language": "ko",
+                "crosslingual_cluster_id": 3
+            },
+            {
+                "word": "끼루룩",
+                "definitions": [
+                    "기러기나 갈매기 따위의 새가 우는 소리."
+                ],
+                "url": "https://stdict.korean.go.kr",
+                "found": true,
+                "meaning": "기러기나 갈매기 따위의 새가 우는 소리.",
+                "ref": "표준국어대사전 20250306",
+                "ipa": "k͈ i l u l u k",
+                "ipa_source": "epitran",
+                "romanization": "kkiruruk",
+                "en_meaning": "The sound made by birds such as geese or seagulls.",
+                "language": "ko",
+                "crosslingual_cluster_id": 3
+            },
+            {
+                "word": "끼루룩끼루룩",
+                "definitions": [
+                    "기러기나 갈매기 따위의 새가 자꾸 우는 소리."
+                ],
+                "url": "https://stdict.korean.go.kr",
+                "found": true,
+                "meaning": "기러기나 갈매기 따위의 새가 자꾸 우는 소리.",
+                "ref": "표준국어대사전 20250306",
+                "ipa": "k͈ i l u l u k k͈ i l u l u k",
+                "ipa_source": "epitran",
+                "romanization": "kkirurukkiruruk",
+                "en_meaning": "The repeated cry made by birds such as geese or seagulls.",
+                "language": "ko",
+                "crosslingual_cluster_id": 3
+            },
+            {
+                "word": "끼룩끼루룩",
+                "definitions": [
+                    "기러기나 갈매기 따위의 새가 짧게 한 번 울고 이어서 길게 또 한 번 우는 소리."
+                ],
+                "url": "https://stdict.korean.go.kr",
+                "found": true,
+                "meaning": "기러기나 갈매기 따위의 새가 짧게 한 번 울고 이어서 길게 또 한 번 우는 소리.",
+                "ref": "표준국어대사전 20250306",
+                "ipa": "k͈ i l u k k͈ i l u l u k",
+                "ipa_source": "epitran",
+                "romanization": "kkirukkiruruk",
+                "en_meaning": "The sound made by birds such as geese or seagulls when they cry out once briefly and then again for a longer duration.",
+                "language": "ko",
+                "crosslingual_cluster_id": 3
+            },
+            {
+                "word": "배쫑배쫑",
+                "definitions": [
+                    "산새가 잇따라 우는 소리."
+                ],
+                "url": "https://stdict.korean.go.kr",
+                "found": true,
+                "meaning": "산새가 잇따라 우는 소리.",
+                "ref": "표준국어대사전 20250306",
+                "ipa": "p ɛ t͈͡ɕ o ŋ p ɛ t͈͡ɕ o ŋ",
+                "ipa_source": "epitran",
+                "romanization": "paetchongbaetchong",
+                "en_meaning": "The sound of mountain birds calling one after another.",
+                "language": "ko",
+                "crosslingual_cluster_id": 3
+            },
+            {
+                "word": "비비배배",
+                "definitions": [
+                    "종달새 따위가 지저귀는 소리."
+                ],
+                "url": "https://stdict.korean.go.kr",
+                "found": true,
+                "meaning": "종달새 따위가 지저귀는 소리.",
+                "ref": "표준국어대사전 20250306",
+                "ipa": "p i p i p ɛ p ɛ",
+                "ipa_source": "epitran",
+                "romanization": "pibibaebae",
+                "en_meaning": "The sound of a skylark or similar bird chirping.",
+                "language": "ko",
+                "crosslingual_cluster_id": 3
+            },
+            {
+                "word": "소쩍",
+                "definitions": [
+                    "소쩍새가 우는 소리."
+                ],
+                "url": "https://stdict.korean.go.kr",
+                "found": true,
+                "meaning": "소쩍새가 우는 소리.",
+                "ref": "표준국어대사전 20250306",
+                "ipa": "s o t͈͡ɕ ʌ k",
+                "ipa_source": "epitran",
+                "romanization": "sotchŏk",
+                "en_meaning": "The sound of a scops owl crying.",
+                "language": "ko",
+                "crosslingual_cluster_id": 3
+            },
+            {
+                "word": "소쩍소쩍",
+                "definitions": [
+                    "소쩍새가 잇따라 우는 소리."
+                ],
+                "url": "https://stdict.korean.go.kr",
+                "found": true,
+                "meaning": "소쩍새가 잇따라 우는 소리.",
+                "ref": "표준국어대사전 20250306",
+                "ipa": "s o t͈͡ɕ ʌ k s͈ o t͈͡ɕ ʌ k",
+                "ipa_source": "epitran",
+                "romanization": "sotchŏksotchŏk",
+                "en_meaning": "The repeated cry of a scops owl.",
+                "language": "ko",
+                "crosslingual_cluster_id": 3
+            },
+            {
+                "word": "지지배배",
+                "definitions": [
+                    "종다리나 제비 따위의 새가 지저귀는 소리."
+                ],
+                "url": "https://stdict.korean.go.kr",
+                "found": true,
+                "meaning": "종다리나 제비 따위의 새가 지저귀는 소리.",
+                "ref": "표준국어대사전 20250306",
+                "ipa": "t͡ɕ i t͡ɕ i p ɛ p ɛ",
+                "ipa_source": "epitran",
+                "romanization": "chijibaebae",
+                "en_meaning": "The sound of birds such as larks or swallows chirping.",
+                "language": "ko",
+                "crosslingual_cluster_id": 3
+            },
+            {
+                "word": "짹",
+                "definitions": [
+                    "참새 따위가 우는 소리."
+                ],
+                "url": "https://stdict.korean.go.kr",
+                "found": true,
+                "meaning": "참새 따위가 우는 소리.",
+                "ref": "표준국어대사전 20250306",
+                "ipa": "t͈͡ɕ ɛ k",
+                "ipa_source": "epitran",
+                "romanization": "tchaek",
+                "en_meaning": "The sound made by a sparrow or similar bird.",
+                "language": "ko",
+                "crosslingual_cluster_id": 3
+            },
+            {
+                "word": "짹짹",
+                "definitions": [
+                    "자꾸 참새 따위가 우는 소리."
+                ],
+                "url": "https://stdict.korean.go.kr",
+                "found": true,
+                "meaning": "자꾸 참새 따위가 우는 소리.",
+                "ref": "표준국어대사전 20250306",
+                "ipa": "t͈͡ɕ ɛ k t͈͡ɕ ɛ k",
+                "ipa_source": "epitran",
+                "romanization": "tchaektchaek",
+                "en_meaning": "The repeated chirping sound made by sparrows and similar birds.",
+                "language": "ko",
+                "crosslingual_cluster_id": 3
+            }
+        ],
+        "source_base_cluster_id": "en_65",
+        "associated_target_clusters": {
+            "ko_196": 0.8502447605133057,
+            "ja_43": 0.8383506536483765,
+            "fr_12": 0.83598792552948
+        }
+    },
+    {
+        "crosslingual_cluster_id": 4,
+        "words": [
+            {
+                "word": "arf",
+                "meaning": [
+                    "Representing the bark of a (small) dog, or a human imitation of such a bark."
+                ],
+                "ref": "Rhyme Over Reason : Phonological Motivation in English",
+                "url": "Rhyme Over Reason : Phonological Motivation in English",
+                "found": true,
+                "ipa": "ɑ ɹ f",
+                "ipa_source": "epitran",
+                "romanization": "arf",
+                "en_meaning": "Representing the bark of a (small) dog, or a human imitation of such a bark.",
+                "infinigram_count": 209026,
+                "language": "en",
+                "crosslingual_cluster_id": 4
+            },
+            {
+                "word": "baw-waw",
+                "meaning": [
+                    "The barking of a dog."
+                ],
+                "ref": "Rhyme Over Reason : Phonological Motivation in English",
+                "url": "Rhyme Over Reason : Phonological Motivation in English",
+                "found": true,
+                "ipa": "b ɔ w ɔ",
+                "ipa_source": "epitran",
+                "romanization": "baw-waw",
+                "en_meaning": "The barking of a dog.",
+                "infinigram_count": 15,
+                "language": "en",
+                "crosslingual_cluster_id": 4
+            },
+            {
+                "word": "bow-wow",
+                "meaning": [
+                    "An imitation of the barking of a dog."
+                ],
+                "ref": "Rhyme Over Reason : Phonological Motivation in English",
+                "url": "Rhyme Over Reason : Phonological Motivation in English",
+                "found": true,
+                "ipa": "b a w w a w",
+                "ipa_source": "epitran",
+                "romanization": "bow-wow",
+                "en_meaning": "An imitation of the barking of a dog.",
+                "infinigram_count": 32159,
+                "language": "en",
+                "crosslingual_cluster_id": 4
+            },
+            {
+                "word": "ruff",
+                "meaning": [
+                    "Representing the characteristic bark of a dog, or a human imitation of such a bark.",
+                    "One of the ornamental rudiments of side drum playing, consisting of three quick strokes followed by a fourth, producing a light militaristic roll."
+                ],
+                "ref": "Rhyme Over Reason : Phonological Motivation in English",
+                "url": "Rhyme Over Reason : Phonological Motivation in English",
+                "found": true,
+                "ipa": "ɹ ʌ f",
+                "ipa_source": "epitran",
+                "romanization": "ruff",
+                "en_meaning": "Representing the characteristic bark of a dog, or a human imitation of such a bark.",
+                "infinigram_count": 6579455,
+                "language": "en",
+                "crosslingual_cluster_id": 4
+            },
+            {
+                "word": "woof",
+                "meaning": [
+                    "Imitation of a gruff abrupt bark of a dog."
+                ],
+                "ref": "Rhyme Over Reason : Phonological Motivation in English",
+                "url": "Rhyme Over Reason : Phonological Motivation in English",
+                "found": true,
+                "ipa": "w u f",
+                "ipa_source": "epitran",
+                "romanization": "woof",
+                "en_meaning": "Imitation of a gruff abrupt bark of a dog.",
+                "infinigram_count": 1468069,
+                "language": "en",
+                "crosslingual_cluster_id": 4
+            },
+            {
+                "word": "mouaoû",
+                "meaning": [
+                    "bruit du cri du chien."
+                ],
+                "url": "dictionnaire des onomatopées",
+                "found": true,
+                "ref": "dictionnaire des onomatopées",
+                "ipa": "m w a u",
+                "ipa_source": "epitran",
+                "romanization": "mouaoû",
+                "en_meaning": "sound of a dog's bark",
+                "infinigram_count": 0,
+                "language": "fr",
+                "crosslingual_cluster_id": 4
+            },
+            {
+                "word": "oa",
+                "meaning": [
+                    "bruit du cri du chien."
+                ],
+                "url": "dictionnaire des onomatopées",
+                "found": true,
+                "ref": "dictionnaire des onomatopées",
+                "ipa": "ɔ a",
+                "ipa_source": "epitran",
+                "romanization": "oa",
+                "en_meaning": "sound of a dog's bark.",
+                "infinigram_count": 442947,
+                "language": "fr",
+                "crosslingual_cluster_id": 4
+            },
+            {
+                "word": "oua",
+                "meaning": [
+                    "bruit du cri du chien."
+                ],
+                "url": "dictionnaire des onomatopées",
+                "found": true,
+                "ref": "dictionnaire des onomatopées",
+                "ipa": "w a",
+                "ipa_source": "epitran",
+                "romanization": "oua",
+                "en_meaning": "sound of a dog's bark.",
+                "infinigram_count": 23848,
+                "language": "fr",
+                "crosslingual_cluster_id": 4
+            },
+            {
+                "word": "ouach",
+                "meaning": [
+                    "bruit du cri du chien."
+                ],
+                "url": "dictionnaire des onomatopées",
+                "found": true,
+                "ref": "dictionnaire des onomatopées",
+                "ipa": "w a ʃ",
+                "ipa_source": "epitran",
+                "romanization": "ouach",
+                "en_meaning": "sound of a dog's bark.",
+                "infinigram_count": 8866,
+                "language": "fr",
+                "crosslingual_cluster_id": 4
+            },
+            {
+                "word": "ouaf",
+                "meaning": [
+                    "bruit du cri du chien.",
+                    "bruit de bateau à vapeur."
+                ],
+                "url": "dictionnaire des onomatopées",
+                "found": true,
+                "ref": "dictionnaire des onomatopées",
+                "ipa": "w a f",
+                "ipa_source": "epitran",
+                "romanization": "ouaf",
+                "en_meaning": "sound of a dog's bark.",
+                "infinigram_count": 1407,
+                "language": "fr",
+                "crosslingual_cluster_id": 4
+            },
+            {
+                "word": "ouah-ouah",
+                "meaning": [
+                    "bruit du cri du chien."
+                ],
+                "url": "dictionnaire des onomatopées",
+                "found": true,
+                "ref": "https://www.aproposdecriture.com/wp-content/uploads/2018/09/Liste-non-exhaustive-d.pdf",
+                "ipa": "w a w a",
+                "ipa_source": "epitran",
+                "romanization": "ouah-ouah",
+                "en_meaning": "sound of a dog's bark.",
+                "infinigram_count": 221,
+                "language": "fr",
+                "crosslingual_cluster_id": 4
+            },
+            {
+                "word": "vouah",
+                "meaning": [
+                    "bruit du cri du chien."
+                ],
+                "url": "dictionnaire des onomatopées",
+                "found": true,
+                "ref": "dictionnaire des onomatopées",
+                "ipa": "v w a",
+                "ipa_source": "epitran",
+                "romanization": "vouah",
+                "en_meaning": "sound of a dog's bark",
+                "infinigram_count": 7,
+                "language": "fr",
+                "crosslingual_cluster_id": 4
+            },
+            {
+                "word": "vouaou",
+                "meaning": [
+                    "bruit du cri du chien."
+                ],
+                "url": "dictionnaire des onomatopées",
+                "found": true,
+                "ref": "dictionnaire des onomatopées",
+                "ipa": "v w a u",
+                "ipa_source": "epitran",
+                "romanization": "vouaou",
+                "en_meaning": "sound of a dog's bark",
+                "infinigram_count": 0,
+                "language": "fr",
+                "crosslingual_cluster_id": 4
+            },
+            {
+                "word": "waw",
+                "meaning": [
+                    "bruit du cri du chien."
+                ],
+                "url": "dictionnaire des onomatopées",
+                "found": true,
+                "ref": "dictionnaire des onomatopées",
+                "ipa": "w a w",
+                "ipa_source": "epitran",
+                "romanization": "waw",
+                "en_meaning": "sound of a dog's bark.",
+                "infinigram_count": 335965,
+                "language": "fr",
+                "crosslingual_cluster_id": 4
+            },
+            {
+                "word": "wouaf",
+                "meaning": [
+                    "bruit du cri du chien.",
+                    "bruit de bateau à vapeur."
+                ],
+                "url": "dictionnaire des onomatopées",
+                "found": true,
+                "ref": "dictionnaire des onomatopées",
+                "ipa": "w w a f",
+                "ipa_source": "epitran",
+                "romanization": "wouaf",
+                "en_meaning": "sound of a dog's bark.",
+                "infinigram_count": 264,
+                "language": "fr",
+                "crosslingual_cluster_id": 4
+            },
+            {
+                "word": "かなかな",
+                "meaning": "（鳴き声から）ヒグラシの別称。",
+                "ref": "kojien",
+                "url": "広辞苑 第七版",
+                "found": true,
+                "ipa": "k a n a k a n a",
+                "ipa_source": "epitran",
+                "romanization": "kanakana",
+                "en_meaning": "(From its call) Another name for the evening cicada (Higurashi).",
+                "infinigram_count": 121,
+                "language": "ja",
+                "crosslingual_cluster_id": 4
+            },
+            {
+                "word": "きゃん",
+                "meaning": "犬が打たれたりした時たてるなき声を表わす語。",
+                "ref": "nikkoku",
+                "url": "精選版 日本国語大辞典",
+                "found": true,
+                "ipa": "kʲ a ɴ",
+                "ipa_source": "epitran",
+                "romanization": "kyan",
+                "en_meaning": "A word that represents the cry a dog makes when it is struck or hurt.",
+                "infinigram_count": 880,
+                "language": "ja",
+                "crosslingual_cluster_id": 4
+            },
+            {
+                "word": "きゃんきゃん",
+                "meaning": "犬が打たれたりした時たてるなき声を表わす語。また、子犬のかん高いなき声などにもいう。",
+                "ref": "nikkoku",
+                "url": "精選版 日本国語大辞典",
+                "found": true,
+                "ipa": "kʲ a ŋ kʲ a ɴ",
+                "ipa_source": "epitran",
+                "romanization": "kyankyan",
+                "en_meaning": "A word that represents the sound a dog makes when it is struck or hurt. It is also used for the high-pitched barking of puppies.",
+                "infinigram_count": 158,
+                "language": "ja",
+                "crosslingual_cluster_id": 4
+            },
+            {
+                "word": "くんくん",
+                "meaning": "動物がにおいをかいだり鼻を鳴らしたりする声を表わす語。",
+                "ref": "nikkoku",
+                "url": "精選版 日本国語大辞典",
+                "found": true,
+                "ipa": "k ɯ ŋ k ɯ ɴ",
+                "ipa_source": "epitran",
+                "romanization": "kunkun",
+                "en_meaning": "A word that represents the sound of an animal sniffing or making noises with its nose.",
+                "infinigram_count": 204,
+                "language": "ja",
+                "crosslingual_cluster_id": 4
+            },
+            {
+                "word": "わん",
+                "meaning": "犬の鳴き声を表わす語。",
+                "ref": "nikkoku",
+                "url": "精選版 日本国語大辞典",
+                "found": true,
+                "ipa": "ɰ a ɴ",
+                "ipa_source": "epitran",
+                "romanization": "wan",
+                "en_meaning": "A word that represents the sound of a dog's bark.",
+                "infinigram_count": 12236,
+                "language": "ja",
+                "crosslingual_cluster_id": 4
+            },
+            {
+                "word": "わんわん",
+                "meaning": "犬のほえる声を表わす語。",
+                "ref": "nikkoku",
+                "url": "精選版 日本国語大辞典",
+                "found": true,
+                "ipa": "ɰ a ã ɰ a ɴ",
+                "ipa_source": "epitran",
+                "romanization": "wanwan",
+                "en_meaning": "A word that represents the sound of a dog barking.",
+                "infinigram_count": 1355,
+                "language": "ja",
+                "crosslingual_cluster_id": 4
+            },
+            {
+                "word": "깨개갱",
+                "definitions": [
+                    "개가 아프거나 무서워서 길게 지르는 소리."
+                ],
+                "url": "https://stdict.korean.go.kr",
+                "found": true,
+                "meaning": "개가 아프거나 무서워서 길게 지르는 소리.",
+                "ref": "표준국어대사전 20250306",
+                "ipa": "k͈ ɛ k ɛ k ɛ ŋ",
+                "ipa_source": "epitran",
+                "romanization": "kkaegaegaeng",
+                "en_meaning": "The long sound a dog makes when it is in pain or scared.",
+                "language": "ko",
+                "crosslingual_cluster_id": 4
+            },
+            {
+                "word": "깨갱",
+                "definitions": [
+                    "개가 아프거나 무서워서 지르는 소리."
+                ],
+                "url": "https://stdict.korean.go.kr",
+                "found": true,
+                "meaning": "개가 아프거나 무서워서 지르는 소리.",
+                "ref": "표준국어대사전 20250306",
+                "ipa": "k͈ ɛ k ɛ ŋ",
+                "ipa_source": "epitran",
+                "romanization": "kkaegaeng",
+                "en_meaning": "The sound a dog makes when it is in pain or frightened.",
+                "language": "ko",
+                "crosslingual_cluster_id": 4
+            },
+            {
+                "word": "깨갱깨갱",
+                "definitions": [
+                    "개가 무섭거나 아파서 자꾸 지르는 소리."
+                ],
+                "url": "https://stdict.korean.go.kr",
+                "found": true,
+                "meaning": "개가 무섭거나 아파서 자꾸 지르는 소리.",
+                "ref": "표준국어대사전 20250306",
+                "ipa": "k͈ ɛ k ɛ ŋ k͈ ɛ k ɛ ŋ",
+                "ipa_source": "epitran",
+                "romanization": "kkaegaengkkaegaeng",
+                "en_meaning": "The repeated sound a dog makes when it is scared or in pain.",
+                "language": "ko",
+                "crosslingual_cluster_id": 4
+            },
+            {
+                "word": "껑껑",
+                "definitions": [
+                    "개가 몹시 짖는 소리."
+                ],
+                "url": "https://stdict.korean.go.kr",
+                "found": true,
+                "meaning": "개가 몹시 짖는 소리.",
+                "ref": "표준국어대사전 20250306",
+                "ipa": "k͈ ʌ ŋ k͈ ʌ ŋ",
+                "ipa_source": "epitran",
+                "romanization": "kkŏngkkŏng",
+                "en_meaning": "The sound of a dog barking loudly.",
+                "language": "ko",
+                "crosslingual_cluster_id": 4
+            },
+            {
+                "word": "끼깅",
+                "definitions": [
+                    "개가 아프거나 무서워서 간신히 지르는 소리."
+                ],
+                "url": "https://stdict.korean.go.kr",
+                "found": true,
+                "meaning": "개가 아프거나 무서워서 간신히 지르는 소리.",
+                "ref": "표준국어대사전 20250306",
+                "ipa": "k͈ i k i ŋ",
+                "ipa_source": "epitran",
+                "romanization": "kkiging",
+                "en_meaning": "The faint sound a dog makes when it is in pain or scared.",
+                "language": "ko",
+                "crosslingual_cluster_id": 4
+            },
+            {
+                "word": "끼깅끼깅",
+                "definitions": [
+                    "개가 아프거나 무서워서 간신히 자꾸 지르는 소리."
+                ],
+                "url": "https://stdict.korean.go.kr",
+                "found": true,
+                "meaning": "개가 아프거나 무서워서 간신히 자꾸 지르는 소리.",
+                "ref": "표준국어대사전 20250306",
+                "ipa": "k͈ i k i ŋ k͈ i k i ŋ",
+                "ipa_source": "epitran",
+                "romanization": "kkigingkkiging",
+                "en_meaning": "The repeated sound a dog makes when it is sick or scared, barely managing to bark.",
+                "language": "ko",
+                "crosslingual_cluster_id": 4
+            },
+            {
+                "word": "멍멍",
+                "definitions": [
+                    "개가 짖는 소리."
+                ],
+                "url": "https://stdict.korean.go.kr",
+                "found": true,
+                "meaning": "개가 짖는 소리.",
+                "ref": "표준국어대사전 20250306",
+                "ipa": "m ʌ ŋ m ʌ ŋ",
+                "ipa_source": "epitran",
+                "romanization": "mŏngmŏng",
+                "en_meaning": "The sound of a dog barking.",
+                "language": "ko",
+                "crosslingual_cluster_id": 4
+            },
+            {
+                "word": "컹컹",
+                "definitions": [
+                    "개가 크게 짖는 소리."
+                ],
+                "url": "https://stdict.korean.go.kr",
+                "found": true,
+                "meaning": "개가 크게 짖는 소리.",
+                "ref": "표준국어대사전 20250306",
+                "ipa": "kʰ ʌ ŋ kʰ ʌ ŋ",
+                "ipa_source": "epitran",
+                "romanization": "k'ŏngk'ŏng",
+                "en_meaning": "The sound of a dog barking loudly.",
+                "language": "ko",
+                "crosslingual_cluster_id": 4
+            }
+        ],
+        "source_base_cluster_id": "en_148",
+        "associated_target_clusters": {
+            "fr_13": 0.8284369111061096,
+            "ko_206": 0.812760591506958,
+            "ja_266": 0.8091278672218323
+        }
+    }
+]

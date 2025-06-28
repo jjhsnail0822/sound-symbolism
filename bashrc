@@ -1,0 +1,3 @@
+
+export PATH="$HOME/anaconda3/envs/llm/bin:$PATH"
+

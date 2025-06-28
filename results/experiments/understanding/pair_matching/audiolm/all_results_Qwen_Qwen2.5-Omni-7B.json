@@ -1,0 +1,66 @@
+[
+    {
+        "model": "Qwen/Qwen2.5-Omni-7B",
+        "accuracy": 0.5,
+        "correct_count": 413,
+        "total_count": 826,
+        "data_path": "data/prompts/understanding/pair_matching/audiolm/unmasked_word_to_meaning_mcq_no_dialogue-en.json",
+        "thinking": false
+    },
+    {
+        "model": "Qwen/Qwen2.5-Omni-7B",
+        "accuracy": 0.635593220338983,
+        "correct_count": 525,
+        "total_count": 826,
+        "data_path": "data/prompts/understanding/pair_matching/audiolm/masked_meaning_to_word_mcq_no_dialogue-en.json",
+        "thinking": false
+    },
+    {
+        "model": "Qwen/Qwen2.5-Omni-7B",
+        "accuracy": 0.38936959208899874,
+        "correct_count": 315,
+        "total_count": 809,
+        "data_path": "data/prompts/understanding/pair_matching/audiolm/unmasked_word_to_meaning_mcq_no_dialogue-fr.json",
+        "thinking": false
+    },
+    {
+        "model": "Qwen/Qwen2.5-Omni-7B",
+        "accuracy": 0.453646477132262,
+        "correct_count": 367,
+        "total_count": 809,
+        "data_path": "data/prompts/understanding/pair_matching/audiolm/masked_meaning_to_word_mcq_no_dialogue-fr.json",
+        "thinking": false
+    },
+    {
+        "model": "Qwen/Qwen2.5-Omni-7B",
+        "accuracy": 0.46262341325811,
+        "correct_count": 656,
+        "total_count": 1418,
+        "data_path": "data/prompts/understanding/pair_matching/audiolm/unmasked_word_to_meaning_mcq_no_dialogue-ja.json",
+        "thinking": false
+    },
+    {
+        "model": "Qwen/Qwen2.5-Omni-7B",
+        "accuracy": 0.4837799717912553,
+        "correct_count": 686,
+        "total_count": 1418,
+        "data_path": "data/prompts/understanding/pair_matching/audiolm/masked_meaning_to_word_mcq_no_dialogue-ja.json",
+        "thinking": false
+    },
+    {
+        "model": "Qwen/Qwen2.5-Omni-7B",
+        "accuracy": 0.3746749349869974,
+        "correct_count": 1873,
+        "total_count": 4999,
+        "data_path": "data/prompts/understanding/pair_matching/audiolm/unmasked_word_to_meaning_mcq_no_dialogue-ko.json",
+        "thinking": false
+    },
+    {
+        "model": "Qwen/Qwen2.5-Omni-7B",
+        "accuracy": 0.39707941588317663,
+        "correct_count": 1985,
+        "total_count": 4999,
+        "data_path": "data/prompts/understanding/pair_matching/audiolm/masked_meaning_to_word_mcq_no_dialogue-ko.json",
+        "thinking": false
+    }
+]

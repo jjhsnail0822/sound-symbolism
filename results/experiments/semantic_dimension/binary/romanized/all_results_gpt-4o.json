@@ -1,0 +1,18 @@
+[
+    {
+        "model": "gpt-4o",
+        "accuracy": 0.48,
+        "correct_count": 24,
+        "total_count": 50,
+        "data_path": "data/prompts/semantic_dimension/semantic_dimension_binary_romanized-common.json",
+        "thinking": false
+    },
+    {
+        "model": "gpt-4o",
+        "accuracy": 0.6,
+        "correct_count": 30,
+        "total_count": 50,
+        "data_path": "data/prompts/semantic_dimension/semantic_dimension_binary_romanized-rare.json",
+        "thinking": false
+    }
+]

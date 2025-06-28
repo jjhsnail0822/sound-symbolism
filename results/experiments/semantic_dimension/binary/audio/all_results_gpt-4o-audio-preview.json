@@ -1,0 +1,18 @@
+[
+    {
+        "model": "gpt-4o-audio-preview",
+        "accuracy": 0.56,
+        "correct_count": 28,
+        "total_count": 50,
+        "data_path": "data/prompts/semantic_dimension/semantic_dimension_binary_audio-common.json",
+        "thinking": false
+    },
+    {
+        "model": "gpt-4o-audio-preview",
+        "accuracy": 0.54,
+        "correct_count": 27,
+        "total_count": 50,
+        "data_path": "data/prompts/semantic_dimension/semantic_dimension_binary_audio-rare.json",
+        "thinking": false
+    }
+]
