@@ -1,0 +1,7 @@
+#!/bin/bash
+
+# sbatch --gres=gpu:4 -p big_suma_rtx3090 -q big_qos /scratch2/sheepswool/workspace/sound-symbolism/src/analysis/heatmap/run.sh --pty bash -i
+python src/analysis/heatmap/semdim_heatmap.py --model_path qwen2.5-omni-7b --data_path data/processed/nat/semantic_dimension/semantic_dimension_binary_gt.json --output_dir results/experiments/understanding/attention_heatmap --exp_type semantic_dimension --data_type audio --max_tokens 32 --temperature 0.0
+python src/analysis/heatmap/semdim_heatmap.py --model_path qwen2.5-omni-7b --data_path data/processed/nat/semantic_dimension/semantic_dimension_binary_gt.json --output_dir results/experiments/understanding/attention_heatmap --exp_type semantic_dimension --data_type ipa --max_tokens 32 --temperature 0.0
+python src/analysis/heatmap/semdim_heatmap.py --model_path qwen2.5-omni-7b --data_path data/processed/nat/semantic_dimension/semantic_dimension_binary_gt.json --output_dir results/experiments/understanding/attention_heatmap --exp_type semantic_dimension --data_type romanized --max_tokens 32 --temperature 0.0
+python src/analysis/heatmap/semdim_heatmap.py --model_path qwen2.5-omni-7b --data_path data/processed/nat/semantic_dimension/semantic_dimension_binary_gt.json --output_dir results/experiments/understanding/attention_heatmap --exp_type semantic_dimension --data_type original --max_tokens 32 --temperature 0.0
