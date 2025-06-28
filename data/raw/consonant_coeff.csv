@@ -1,0 +1,25 @@
+﻿Scale,Sonorant,Voiced Fricative,Voiceless Fricative,Voiceless Stop,Voiced Stop
+Abrupt-Continuous,0.85,-0.503,NA,-0.491,NA
+Beautiful-Ugly,-0.383,NA,-0.3298,NA,0.3927
+Big-Small,0.5182,-0.483,0.3142,NA,-0.3798
+Dangerous-Safe,0.5558,-0.4128,NA,-0.3755,NA
+Delicate-Rugged,-0.905,0.414,NA,0.48,NA
+Exciting-Calming,0.868,-0.5988,NA,-0.4156,NA
+Fast-Slow,0.7293,-0.5218,NA,-0.3911,NA
+Good-Bad,NA,NA,NA,NA,NA
+Happy-Sad,NA,NA,NA,NA,NA
+Hard-Soft,0.889,-0.524,0.382,-0.589,NA
+Harsh-Mellow,0.8982,-0.5386,NA,-0.4848,NA
+Heavy-Light,0.632,-0.413,0.401,NA,-0.376
+Inhibited-Free,0.5216,NA,NA,-0.4105,NA
+Interesting-Uninteresting,NA,-0.2894,NA,NA,0.2698
+Masculine-Feminine,0.728,NA,0.682,-0.676,-0.443
+Ordinary-Unique,-0.346,0.492,NA,NA,NA
+Passive-Active,-0.6501,0.5193,NA,NA,NA
+Pleasant-Unpleasant,NA,NA,NA,NA,NA
+Realistic-Fantastical,NA,0.41327,NA,-0.34634,NA
+Sharp-Round,1.00169,-0.81813,NA,-0.65012,0.45799
+Simple-Complex,-0.75118,0.79506,NA,NA,NA
+Solid-NonSolid,0.741,NA,NA,-0.411,NA
+Strong-Weak,0.6359,-0.4309,NA,-0.2294,NA
+Tense-Relaxed,0.6631,NA,NA,-0.4976,NA

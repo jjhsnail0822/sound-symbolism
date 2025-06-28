@@ -1,0 +1,600 @@
+{
+    "dialogue_generation": {
+        "en": {
+            "system_prompt": "You are an assistant that generates a natural conversation between two people. The dialog should be naturally infused with onomatopoeia/mimetic word '{word}' that conveys the meaning of '{meaning}'. Make sure the whole dialog is contextualized and has a consistent flow.",
+            "user_prompt_set1": "Condition 1: Generate a dialog between two people that naturally contains the onomatopoeia/mimetic word '{word}' that conveys the meaning of '{meaning}'.\nCondition 2: The dialog consists of a total of {num_turns} turns ({num_utterances} utterances).\nFirst try to envision the overall flow and structure of the dialog, and then organize your answer step by step. Condition 3: '{word}' must be contained within the {ss_idx}th utterance; the preceding and following utterances can be adjusted as needed to keep the utterance within its natural context.",
+            "user_prompt_set2": "Condition 4: Make sure that the meaning of the onomatopoeia/mimetic word never appears in any other part of the conversation, and that it fits into the context.\nThink through each step to deduce at your answer.\nCondition 5: Choose names for your characters that are actually used in English-speaking world. There must be a total of two characters.\nCondition 6: Instead of using typical greetings or farewells (e.g., 'hello' or 'goodbye'), construct sentences using expressions that reflect the context and personality of the conversation.\nThink logically through each step and organize your answer.",
+            "dialogue_format": "Please format your response as a JSON array like this:\n```json[\n    {\"Speaker\": \"Person1\", \"Utterance Number\": 1, \"Utterance\": \"Content\"},\n    {\"Speaker\": \"Person2\", \"Utterance Number\": 2, \"Utterance\": \"Content\"},\n    {\"Speaker\": \"Person1\", \"Utterance Number\": 3, \"Utterance\": \"Content\"},\n    {\"Speaker\": \"Person2\", \"Utterance Number\": 4, \"Utterance\": \"Content\"},\n    {\"Speaker\": \"Person1\", \"Utterance Number\": 5, \"Utterance\": \"Content\"},\n    {\"Speaker\": \"Person2\", \"Utterance Number\": 6, \"Utterance\": \"Content\"}\n]```",
+            "test_prompt": "<dialog generation condition>\n{user_prompt_set1}\n</dialog generation condition>\n\n<generated dialogue>\n{parsed_dialogue}\n</generated dialogue>\n Return only True or False if the <generated_dialogue> meets all of the <dialog generation condition>.",
+            "fix_prompt": "The dialog needs to be modified for the following reasons:\n{issues_text}\n\nCurrent dialog: {final_dialogue}\n\nTo fix these issues, please rewrite the dialog according to the following conditions:\n1. '{word}' must only appear in the {ss_idx}th utterance.\n2. The dialog must consist of exactly {num_utterances} utterances.\n3. Choose names for your characters that are actually used in English-speaking world.\nUse the exact JSON format specified below.\n{json_format}",
+            "word_in_correct_place": "The word '{word}' must appear in the {ss_idx}th utterance.",
+            "word_in_wrong_place": "The word '{word}' must ONLY appear in the {ss_idx}th utterance, not in any other utterance.",
+            "correct_utterance_num": "The dialog must consist of exactly {num_utterances} utterances."
+        },
+        "fr": {
+            "system_prompt": "Vous êtes un assistant qui crée un dialogue naturel entre deux personnes. Le dialogue doit être naturellement imprégné d'onomatopées/idéophones « {word} » qui véhiculent le sens de « {meaning} ». Veillez à ce que l'ensemble du dialogue soit contextuel et s'enchaîne de manière cohérente.",
+            "user_prompt_set1": "Condition 1 : Générer un dialogue entre deux personnes qui contient naturellement l'onomatopée/idéophones « {word} » qui transmet le sens de « {meaning} ».\nCondition 2 : Le dialogue consiste en un total de {num_turns} tours ({num_utterances} énoncés).\nTentez d'abord d'imaginer le flux et la structure du dialogue global, puis organisez votre réponse étape par étape.\nCondition 3 : « {word} » doit être contenu dans le {ss_idx}ème énoncé ; les énoncés précédents et suivants peuvent être ajustés si nécessaire pour garantir que l'énoncé se trouve dans son contexte naturel.",
+            "user_prompt_set2": "Condition 4 : Veillez à ne pas utiliser l'onomatopée/idéophone dans une autre partie du dialogue, et essayez de l'intégrer dans le contexte.\nRéfléchissez à chaque étape pour parvenir à votre réponse.\nCondition 5 : Choisissez pour vos personnages des noms qui sont réellement utilisés dans le monde francophone. Il doit y avoir deux personnages au total.\nCondition 6 : Au lieu d'utiliser des salutations ou des adieux typiques (par exemple, « bonjour », « au revoir »), construisez des phrases en utilisant des expressions qui reflètent le contexte et la personnalité du dialogue.\nRéfléchissez logiquement à chaque étape et structurez votre réponse.",
+            "dialogue_format": "Veuillez formater votre réponse sous la forme d'un tableau JSON comme suit:\n```json[\n    {\"Locuteur\": \"Personne1\", \"Numéro de réplique\": 1, \"Réplique\": \"Contenu\"},\n    {\"Locuteur\": \"Personne2\", \"Numéro de réplique\": 2, \"Réplique\": \"Contenu\"},\n    {\"Locuteur\": \"Personne1\", \"Numéro de réplique\": 3, \"Réplique\": \"Contenu\"},\n    {\"Locuteur\": \"Personne2\", \"Numéro de réplique\": 4, \"Réplique\": \"Contenu\"},\n    {\"Locuteur\": \"Personne1\", \"Numéro de réplique\": 5, \"Réplique\": \"Contenu\"},\n    {\"Locuteur\": \"Personne2\", \"Numéro de réplique\": 6, \"Réplique\": \"Contenu\"}\n]```",
+            "test_prompt": "<conditions de génération du dialogue>\n{user_prompt_set1}\n</conditions de génération du dialogue>\n<dialogue généré>\n{dialogue_parsé}\n</dialogue généré>\nRetourne uniquement True ou False si le <dialogue généré> remplit toutes les <conditions de génération du dialogue>.",
+            "fix_prompt": "Le dialogue doit être modifié pour les raisons suivantes:\n{issues_text}\n\nLe dialogue actuel : {final_dialogue}\n\nPour résoudre ces problèmes, veuillez réécrire le dialogue conformément aux conditions suivantes:\n1. '{word}' doit apparaître UNIQUEMENT dans la {ss_idx}ème énonciation.\n2. Le dialogue doit comporter exactement {num_utterances} énonciations.\n3. Choisissez pour vos personnages des noms qui sont réellement utilisés dans le monde francophone.\nUtilisez le format JSON exact spécifié ci-dessous.\n{json_format}",
+            "word_in_correct_place": "Le mot '{word}' doit apparaître dans la {ss_idx}ème énonciation.",
+            "word_in_wrong_place": "Le mot '{word}' doit apparaître UNIQUEMENT dans la {ss_idx}ème énonciation, pas dans une autre énonciation.",
+            "correct_utterance_num": "Le dialogue doit comporter exactement {num_utterances} énonciations."
+        },
+        "ko": {
+            "system_prompt": "당신은 두 사람의 대화를 자연스럽게 생성하는 도우미입니다. 대화에는 반드시 '{meaning}'의 의미를 전달하는 의성어/의태어 '{word}'가 자연스레 녹아들어야 합니다. 전체 대화가 문맥에 맞고 일관된 흐름을 유지하도록 해주세요.",
+            "user_prompt_set1": "조건 1: '{meaning}'의 의미를 전달하는 의성어/의태어 '{word}'가 자연스럽게 포함된 두 사람 간의 대화를 생성합니다.\n조건 2: 대화는 총 {num_turns}턴 (발화 {num_utterances}회)으로 구성됩니다.\n먼저 전체적인 대화의 흐름과 구조를 구상해보고, 단계별로 답안을 구성해 주세요.\n조건 3: '{word}'는 반드시 {ss_idx}번째 발화 내에 포함되어야 합니다. 해당 발화가 자연스러운 문맥 내에서 이루어지도록 앞뒤 내용도 필요시 조정할 수 있습니다.",
+            "user_prompt_set2": "조건 4: 대화의 다른 부분에서는 의성어/의태어의 의미가 절대 등장하지 않도록 주의하며, 문맥에 녹아들도록 표현해 주세요.\n각 단계별로 생각하며 답안을 도출해 주세요.\n조건 5: 등장 인물의 이름은 한국어권에서 실제로 사용되는 이름으로 선택합니다. 인물은 총 2명이어야 합니다.\n조건 6: 전형적인 인사말이나 작별 인사(예: '안녕', '잘 가') 대신 대화의 맥락과 개성을 반영한 표현을 사용하여 문장을 구성해 주세요.\n각 단계별로 논리적으로 생각하고 답안을 구성해 주세요.",
+            "dialogue_format": "응답을 다음과 같은 JSON 배열 형식으로 작성해주세요:\n```json[\n    {\"화자\": \"사람1\", \"발화 번호\": 1, \"발화\": \"내용\"},\n    {\"화자\": \"사람2\", \"발화 번호\": 2, \"발화\": \"내용\"},\n    {\"화자\": \"사람1\", \"발화 번호\": 3, \"발화\": \"내용\"},\n    {\"화자\": \"사람2\", \"발화 번호\": 4, \"발화\": \"내용\"},\n    {\"화자\": \"사람1\", \"발화 번호\": 5, \"발화\": \"내용\"},\n    {\"화자\": \"사람2\", \"발화 번호\": 6, \"발화\": \"내용\"}\n]```",
+            "test_prompt": "<대화문 생성 조건>\n{user_prompt_set1}\n</대화문 생성 조건>\n\n<생성된 대화문>\n{parsed_dialogue}\n</생성된 대화문>\n<생성된 대화문>이 <대화문 생성 조건>을 모두 충족하는지 True 또는 False로만 반환하세요.",
+            "fix_prompt": "다음과 같은 이유로 대화를 수정해야 합니다.\n{issues_text}\n\n현재 대화: {final_dialogue}\n\n이러한 문제를 해결하기 위해 다음의 조건에 따라 대화를 다시 작성해주세요.\n1. '{word}'는 반드시 {ss_idx}번째 발화에만 나타나야 합니다.\n2. 대화는 정확히 {num_utterances}개의 발화로 구성되어야 합니다.\n3. 등장 인물의 이름은 한국어권에서 실제로 사용되는 이름으로 선택합니다.\n아래에 지정된 정확한 JSON 형식을 사용하세요.\n{json_format}",
+            "word_in_correct_place": "단어 '{word}'는 반드시 {ss_idx}번째 발화에만 나타나야 합니다.",
+            "word_in_wrong_place": "단어 '{word}'는 반드시 {ss_idx}번째 발화에만 나타나야 합니다. 다른 발화에는 나타나지 않아야 합니다.",
+            "correct_utterance_num": "대화는 반드시 {num_utterances}개의 발화로 구성되어야 합니다."
+        },
+        "ja": {
+            "system_prompt": "あなたは二人の自然な会話を作成するアシスタントです。会話には、必ず「{meaning}」を表す擬音語・擬態語の「{word}」を自然な形で含める必要があります。全体の会話が文脈に適しており、一貫性のある流れになるようにしてください。",
+            "user_prompt_set1": "条件1: 「{meaning}」を意味する擬音語・擬態語の「{word}」を自然に含む二人の会話を作成してください。\n条件2: 会話は合計{num_turns}ターン（{num_utterances}回の発話）で構成してください。\nまず、全体の会話の流れや構成を考え、段階的に回答を作成してください。\n条件3: 「{word}」は、必ず{ss_idx}番目の発話に含めてください。その発話が自然に馴染むように、必要なら前後の文脈を調整してください。",
+            "user_prompt_set2": "条件4: 会話の他の部分では、擬音語・擬態語の意味が絶対に現れないように注意し、文脈に溶け込むように表現してください。\n段階的に考えながら回答を導出してください。\n条件5: 登場人物の名前は、日本語圏で広く使われるものにしてください。登場人物は合わせて二人です。\n条件6: 典型的な挨拶や別れの時の言葉（例：「こんにちは」、「さようなら」）は使わず、会話の流れやキャラクターに適した表現を使用してください。\n論理的に考え、段階的に回答を作成してください。",
+            "dialogue_format": "回答を次のようなJSON配列の形式で作成してください:\n```json[\n    {\"話者\": \"人物1\", \"発話番号\": 1, \"発話\": \"発話内容\"},\n    {\"話者\": \"人物2\", \"発話番号\": 2, \"発話\": \"発話内容\"},\n    {\"話者\": \"人物1\", \"発話番号\": 3, \"発話\": \"発話内容\"},\n    {\"話者\": \"人物2\", \"発話番号\": 4, \"発話\": \"発話内容\"},\n    {\"話者\": \"人物1\", \"発話番号\": 5, \"発話\": \"発話内容\"},\n    {\"話者\": \"人物2\", \"発話番号\": 6, \"発話\": \"発話内容\"}\n]```",
+            "test_prompt": "<会話生成条件>\n{user_prompt_set1}\n</会話生成条件>\n\n<生成された会話>\n{parsed_dialogue}\n</生成された会話>\n<生成された会話>が<会話生成条件>を全て満たすかどうかTrueまたはFalseでのみ返してください。",
+            "fix_prompt": "以下の理由で会話を修正する必要があります:\n{issues_text}\n\n現在の会話: {final_dialogue}\n\nこのような問題を解決するために、以下の条件に従って会話を再作成してください。\n1. 「{word}」は必ず{ss_idx}番目の発話にのみ登場しなければなりません。\n2. 会話は正確に{num_utterances}つの発話で構成される必要があります。\n3. 登場人物の名前は、日本語圏で広く使われるものにしてください。\n以下に指定された正確なJSON形式を使用してください。\n{json_format}",
+            "word_in_correct_place": "単語「{word}」は、必ず{ss_idx}番目の発話にのみ登場します。",
+            "word_in_wrong_place": "単語「{word}」は、必ず{ss_idx}番目の発話にのみ登場します。他の発話に登場させてはなりません。",
+            "correct_utterance_num": "会話は必ず{num_utterances}つの発話で構成される必要があります。"
+        }
+    },
+    "dialogue_translation": {
+        "user_prompt": "You are a JSON dialogue translator.\nYour task is to take the following JSON object and output the same JSON, but with:\n\nEach \"speaker\" and \"text\" value translated from {source_language} into natural, fluent English.\nAny onomatopoeia or mimetic word enclosed in square brackets [...] replaced by an appropriate English onomatopoeia or mimetic word also enclosed in [...].\nThe JSON structure (keys, array order, spacing) must be preserved exactly—do not add or remove any fields or change the formatting outside of the translations.\nHere is the JSON to translate:\n\n{json_dialogue_string}\n\nOnly output the translated JSON—nothing else.",
+        "retranslation_prompt": "The square brackets ([...]) must ONLY appear in the {ss_idx}th utterance, not in any other utterance."
+    },
+    "meaning_translation": {
+        "user_prompt": "You are an {target_language} translator. Translate the following definition of the onomatopoeic/mimetic word into {target_language}.\n\n[WORD]\n{word}\n\n[DEFINITION]\n{definition}\n\nOnly output the translated definition—nothing else."
+    },
+    "understanding": {
+        "unmasked_word_to_meaning_mcq": {
+            "en": {
+                "user_prompt": "Given the following [DIALOGUE] and a [WORD], which option is the most appropriate meaning of this onomatopoeic/mimetic word in the context of the dialogue?\n\n[WORD]\n{word}\n\n[DIALOGUE]\n{dialogue}\n\n[OPTIONS]\n{options}\n\nAnswer with the number only. (1-{MAX_OPTION})"
+            },
+            "fr": {
+                "user_prompt": "Étant donné le [DIALOGUE] et le [MOT] suivants, quelle est la signification la plus appropriée de cette onomatopée/idéophone dans le contexte du dialogue:\n\n[MOT]\n{word}\n\n[DIALOGUE]\n{dialogue}\n\n[OPTIONS]\n{options}\n\nNe répondez que par des chiffres. (1-{MAX_OPTION})"
+            },
+            "ko": {
+                "user_prompt": "다음 [대화]와 [단어]가 주어졌을 때, 대화의 문맥상 이 의성어/의태어의 가장 적절한 의미는 어느 것입니까?\n\n[단어]\n{word}\n\n[대화]\n{dialogue}\n\n[옵션]\n{options}\n\n오직 숫자로만 대답하세요. (1-{MAX_OPTION})"
+            },
+            "ja": {
+                "user_prompt": "次の[会話]と[単語]に対して、対話の文脈におけるこの擬音語・擬態語の意味として最も適切な選択肢はどれですか。\n\n[単語]\n{word}\n\n[会話]\n{dialogue}\n\n[選択肢]\n{options}\n\n数字のみで答えてください。 (1-{MAX_OPTION})"
+            }
+        },
+        "masked_meaning_to_word_mcq": {
+            "en": {
+                "user_prompt": "Given the following [DIALOGUE], which option is the most appropriate onomatopoeic/mimetic word that has the [MEANING] of the masked ({MASKING_WORD}) part of the dialogue in context?\n\n[MEANING]\n{meaning}\n\n[DIALOGUE]\n{dialogue}\n\n[OPTIONS]\n{options}\n\nAnswer with the number only. (1-{MAX_OPTION})"
+            },
+            "fr": {
+                "user_prompt": "Étant donné le [DIALOGUE] suivant, quelle est l'onomatopée/idéophone la plus appropriée pour la partie masquée ({MASKING_WORD}) du dialogue dans le contexte:\n\n[SENS]\n{meaning}\n\n[DIALOGUE]\n{dialogue}\n\n[OPTIONS]\n{options}\n\nNe répondez que par des chiffres. (1-{MAX_OPTION})"
+            },
+            "ko": {
+                "user_prompt": "다음 [대화]가 주어졌을 때, 대화의 문맥상 마스킹된 ({MASKING_WORD}) 부분에 들어갈 [의미]를 가지는 가장 적절한 의성어/의태어는 어느 것입니까?\n\n[의미]\n{meaning}\n\n[대화]\n{dialogue}\n\n[옵션]\n{options}\n\n오직 숫자로만 대답하세요. (1-{MAX_OPTION})"
+            },
+            "ja": {
+                "user_prompt": "次の[会話]に対して、対話の文脈上、マスキング({MASKING_WORD})された部分に入る[意味]を持つ最も適切な擬音語・擬態語はどれですか。\n\n[意味]\n{meaning}\n\n[会話]\n{dialogue}\n\n[選択肢]\n{options}\n\n数字のみで答えてください。 (1-{MAX_OPTION})"
+            }
+        },
+        "unmasked_word_to_meaning_mcq_no_dialogue": {
+            "en": {
+                "user_prompt": "Given a [WORD], which option is the most appropriate meaning of this onomatopoeic/mimetic word based on auditory impression?\n\n[WORD]\n{word}\n\n[OPTIONS]\n{options}\n\nAnswer with the number only. (1-{MAX_OPTION})"
+            },
+            "fr": {
+                "user_prompt": "Étant donné le [MOT], quelle est la signification la plus appropriée de cette onomatopée/idéophone basée sur l'impression auditive?\n\n[MOT]\n{word}\n\n[OPTIONS]\n{options}\n\nNe répondez que par des chiffres. (1-{MAX_OPTION})"
+            },
+            "ko": {
+                "user_prompt": "다음 [단어]가 주어졌을 때, 청각적 인상에 비추어 이 의성어/의태어의 가장 적절한 의미는 어느 것입니까?\n\n[단어]\n{word}\n\n[옵션]\n{options}\n\n오직 숫자로만 대답하세요. (1-{MAX_OPTION})"
+            },
+            "ja": {
+                "user_prompt": "次の[単語]に対して、聴覚的印象に基づいてこの擬音語・擬態語の意味として最も適切な選択肢はどれですか。\n\n[単語]\n{word}\n\n[選択肢]\n{options}\n\n数字のみで答えてください。 (1-{MAX_OPTION})"
+            }
+        },
+        "masked_meaning_to_word_mcq_no_dialogue": {
+            "en": {
+                "user_prompt": "Given the following [MEANING], which word sounds most fitting based on auditory impression?\n\n[MEANING]\n{meaning}\n\n[OPTIONS]\n{options}\n\nAnswer with the number only. (1-{MAX_OPTION})"
+            },
+            "fr": {
+                "user_prompt": "Étant donné le [SENS] suivant, quel mot semble le plus approprié en fonction de l'impression auditive?\n\n[SENS]\n{meaning}\n\n[OPTIONS]\n{options}\n\nNe répondez que par des chiffres. (1-{MAX_OPTION})"
+            },
+            "ko": {
+                "user_prompt": "다음 [의미]가 주어졌을 때, 청각적 인상에 비추어 가장 적절한 의성어/의태어는 무엇입니까?\n\n[의미]\n{meaning}\n\n[옵션]\n{options}\n\n오직 숫자로만 대답하세요. (1-{MAX_OPTION})"
+            },
+            "ja": {
+                "user_prompt": "次の[意味]に対して、聴覚的印象に基づいて最も適切な擬音語・擬態語はどれですか。\n\n[意味]\n{meaning}\n\n[選択肢]\n{options}\n\n数字のみで答えてください。 (1-{MAX_OPTION})"
+            }
+        },
+        "ipa_unmasked_word_to_meaning_mcq": {
+            "en": {
+                "user_prompt": "Given the following [DIALOGUE] and a [WORD] (IPA), which option is the most appropriate meaning of this onomatopoeic/mimetic word in the context of the dialogue?\n\n[WORD]\n{word}\n\n[DIALOGUE]\n{dialogue}\n\n[OPTIONS]\n{options}\n\nAnswer with the number only. (1-{MAX_OPTION})"
+            },
+            "fr": {
+                "user_prompt": "Étant donné le [DIALOGUE] et le [MOT] (IPA) suivants, quelle est la signification la plus appropriée de cette onomatopée/idéophone dans le contexte du dialogue:\n\n[MOT]\n{word}\n\n[DIALOGUE]\n{dialogue}\n\n[OPTIONS]\n{options}\n\nNe répondez que par des chiffres. (1-{MAX_OPTION})"
+            },
+            "ko": {
+                "user_prompt": "다음 [대화]와 [단어] (IPA)가 주어졌을 때, 대화의 문맥상 이 의성어/의태어의 가장 적절한 의미는 어느 것입니까?\n\n[단어]\n{word}\n\n[대화]\n{dialogue}\n\n[옵션]\n{options}\n\n오직 숫자로만 대답하세요. (1-{MAX_OPTION})"
+            },
+            "ja": {
+                "user_prompt": "次の[会話]と[単語] (IPA)に対して、対話の文脈におけるこの擬音語・擬態語の意味として最も適切な選択肢はどれですか。\n\n[単語]\n{word}\n\n[会話]\n{dialogue}\n\n[選択肢]\n{options}\n\n数字のみで答えてください。 (1-{MAX_OPTION})"
+            }
+        },
+        "ipa_masked_meaning_to_word_mcq": {
+            "en": {
+                "user_prompt": "Given the following [DIALOGUE], which option is the most appropriate onomatopoeic/mimetic word (IPA) that has the [MEANING] of the masked ({MASKING_WORD}) part of the dialogue in context?\n\n[MEANING]\n{meaning}\n\n[DIALOGUE]\n{dialogue}\n\n[OPTIONS]\n{options}\n\nAnswer with the number only. (1-{MAX_OPTION})"
+            },
+            "fr": {
+                "user_prompt": "Étant donné le [DIALOGUE] suivant, quelle est l'onomatopée/idéophone (IPA) la plus appropriée pour la partie masquée ({MASKING_WORD}) du dialogue dans le contexte:\n\n[SENS]\n{meaning}\n\n[DIALOGUE]\n{dialogue}\n\n[OPTIONS]\n{options}\n\nNe répondez que par des chiffres. (1-{MAX_OPTION})"
+            },
+            "ko": {
+                "user_prompt": "다음 [대화]가 주어졌을 때, 대화의 문맥상 마스킹된 ({MASKING_WORD}) 부분에 들어갈 [의미]를 가지는 가장 적절한 의성어/의태어 (IPA)는 어느 것입니까?\n\n[의미]\n{meaning}\n\n[대화]\n{dialogue}\n\n[옵션]\n{options}\n\n오직 숫자로만 대답하세요. (1-{MAX_OPTION})"
+            },
+            "ja": {
+                "user_prompt": "次の[会話]に対して、対話の文脈上、マスキング({MASKING_WORD})された部分に入る[意味]を持つ最も適切な擬音語・擬態語 (IPA)はどれですか。\n\n[意味]\n{meaning}\n\n[会話]\n{dialogue}\n\n[選択肢]\n{options}\n\n数字のみで答えてください。 (1-{MAX_OPTION})"
+            }
+        },
+        "ipa_unmasked_word_to_meaning_mcq_no_dialogue": {
+            "en": {
+                "user_prompt": "Given a [WORD] (IPA), which option is the most appropriate meaning of this onomatopoeic/mimetic word based on auditory impression?\n\n[WORD]\n{word}\n\n[OPTIONS]\n{options}\n\nAnswer with the number only. (1-{MAX_OPTION})"
+            },
+            "fr": {
+                "user_prompt": "Étant donné le [MOT] (IPA), quelle est la signification la plus appropriée de cette onomatopée/idéophone basée sur l'impression auditive?\n\n[MOT]\n{word}\n\n[OPTIONS]\n{options}\n\nNe répondez que par des chiffres. (1-{MAX_OPTION})"
+            },
+            "ko": {
+                "user_prompt": "다음 [단어] (IPA)가 주어졌을 때, 청각적 인상에 비추어 이 의성어/의태어의 가장 적절한 의미는 어느 것입니까?\n\n[단어]\n{word}\n\n[옵션]\n{options}\n\n오직 숫자로만 대답하세요. (1-{MAX_OPTION})"
+            },
+            "ja": {
+                "user_prompt": "次の[単語] (IPA)に対して、聴覚的印象に基づいてこの擬音語・擬態語の意味として最も適切な選択肢はどれですか。\n\n[単語]\n{word}\n\n[選択肢]\n{options}\n\n数字のみで答えてください。 (1-{MAX_OPTION})"
+            }
+        },
+        "ipa_masked_meaning_to_word_mcq_no_dialogue": {
+            "en": {
+                "user_prompt": "Given the following [MEANING], which word (IPA) sounds most fitting based on auditory impression?\n\n[MEANING]\n{meaning}\n\n[OPTIONS]\n{options}\n\nAnswer with the number only. (1-{MAX_OPTION})"
+            },
+            "fr": {
+                "user_prompt": "Étant donné le [SENS] suivant, quel mot (IPA) semble le plus approprié en fonction de l'impression auditive?\n\n[SENS]\n{meaning}\n\n[OPTIONS]\n{options}\n\nNe répondez que par des chiffres. (1-{MAX_OPTION})"
+            },
+            "ko": {
+                "user_prompt": "다음 [의미]가 주어졌을 때, 청각적 인상에 비추어 가장 적절한 의성어/의태어 (IPA)는 무엇입니까?\n\n[의미]\n{meaning}\n\n[옵션]\n{options}\n\n오직 숫자로만 대답하세요. (1-{MAX_OPTION})"
+            },
+            "ja": {
+                "user_prompt": "次の[意味]に対して、聴覚的印象に基づいて最も適切な擬音語・擬態語 (IPA)はどれですか。\n\n[意味]\n{meaning}\n\n[選択肢]\n{options}\n\n数字のみで答えてください。 (1-{MAX_OPTION})"
+            }
+        },
+        "non_en_unmasked_word_to_meaning_mcq": {
+            "user_prompt": "Given the following [DIALOGUE] and a [WORD] (IPA) from languages other than English, which English meaning best matches the word's auditory impression in context?\n\n[WORD]\n{word}\n\n[DIALOGUE]\n{dialogue}\n\n[OPTIONS]\n{options}\n\nAnswer with the number only. (1-{MAX_OPTION})"
+        },
+        "non_en_masked_meaning_to_word_mcq": {
+            "user_prompt": "Given the following [DIALOGUE] with a masked ({MASKING_WORD}) word and its English [MEANING], which word (IPA) from languages other than English sounds most fitting in context based on auditory impression?\n\n[MEANING]\n{meaning}\n\n[DIALOGUE]\n{dialogue}\n\n[OPTIONS]\n{options}\n\nAnswer with the number only. (1-{MAX_OPTION})"
+        },
+        "non_en_unmasked_word_to_meaning_mcq_no_dialogue": {
+            "user_prompt": "Given a [WORD] (IPA) from languages other than English, which English meaning best matches the word’s auditory impression?\n\n[WORD]\n{word}\n\n[OPTIONS]\n{options}\n\nAnswer with the number only. (1-{MAX_OPTION})"
+        },
+        "non_en_masked_meaning_to_word_mcq_no_dialogue": {
+            "user_prompt": "Given an English [MEANING], which word (IPA) from languages other than English sounds most fitting based on auditory impression?\n\n[MEANING]\n{meaning}\n\n[OPTIONS]\n{options}\n\nAnswer with the number only. (1-{MAX_OPTION})"
+        }
+    },
+    "word_meaning_matching": {
+        "word_to_meaning_original": {
+            "user_prompt": "Given a [WORD], which option is the most appropriate meaning of this onomatopoeic/mimetic word based on auditory impression?\n\n[WORD]\n{word}\n\n[OPTIONS]\n{options}\n\nAnswer with the number only. (1-{MAX_OPTION})"
+        },
+        "meaning_to_word_original": {
+            "user_prompt": "Given the following [MEANING], which word sounds most fitting based on auditory impression?\n\n[MEANING]\n{meaning}\n\n[OPTIONS]\n{options}\n\nAnswer with the number only. (1-{MAX_OPTION})"
+        },
+        "word_to_meaning_romanized": {
+            "user_prompt": "Given a Romanized [WORD], which option is the most appropriate meaning of this onomatopoeic/mimetic word based on auditory impression?\n\n[WORD]\n{word}\n\n[OPTIONS]\n{options}\n\nAnswer with the number only. (1-{MAX_OPTION})"
+        },
+        "meaning_to_word_romanized": {
+            "user_prompt": "Given the following [MEANING], which Romanized word sounds most fitting based on auditory impression?\n\n[MEANING]\n{meaning}\n\n[OPTIONS]\n{options}\n\nAnswer with the number only. (1-{MAX_OPTION})"
+        },
+        "word_to_meaning_ipa": {
+            "user_prompt": "Given a IPA [WORD], which option is the most appropriate meaning of this onomatopoeic/mimetic word based on auditory impression?\n\n[WORD]\n{word}\n\n[OPTIONS]\n{options}\n\nAnswer with the number only. (1-{MAX_OPTION})"
+        },
+        "meaning_to_word_ipa": {
+            "user_prompt": "Given the following [MEANING], which IPA word sounds most fitting based on auditory impression?\n\n[MEANING]\n{meaning}\n\n[OPTIONS]\n{options}\n\nAnswer with the number only. (1-{MAX_OPTION})"
+        },
+        "word_to_meaning_audio": {
+            "user_prompt": "Given a spoken [WORD], which option is the most appropriate meaning of this onomatopoeic/mimetic word based on auditory impression?\n\n[WORD]\n{audio}\n\n[OPTIONS]\n{options}\n\nAnswer with the number only. (1-{MAX_OPTION})"
+        },
+        "meaning_to_word_audio": {
+            "user_prompt": "Given the following [MEANING], which spoken word sounds most fitting based on auditory impression?\n\n[MEANING]\n{meaning}\n\n[OPTIONS]\n{options}\n\nAnswer with the number only. (1-{MAX_OPTION})"
+        },
+        "word_to_meaning_original_and_audio": {
+            "user_prompt": "Given a [WORD] with its pronunciation audio, which option is the most appropriate meaning of this onomatopoeic/mimetic word based on auditory impression?\n\n[WORD]\n{word} (AUDIO: {audio})\n\n[OPTIONS]\n{options}\n\nAnswer with the number only. (1-{MAX_OPTION})"
+        },
+        "meaning_to_word_original_and_audio": {
+            "user_prompt": "Given the following [MEANING], which word with its pronunciation audio sounds most fitting based on auditory impression?\n\n[MEANING]\n{meaning}\n\n[OPTIONS]\n{options}\n\nAnswer with the number only. (1-{MAX_OPTION})"
+        },
+        "word_to_meaning_romanized_and_audio": {
+            "user_prompt": "Given a Romanized [WORD] with its pronunciation audio, which option is the most appropriate meaning of this onomatopoeic/mimetic word based on auditory impression?\n\n[WORD]\n{word} (AUDIO: {audio})\n\n[OPTIONS]\n{options}\n\nAnswer with the number only. (1-{MAX_OPTION})"
+        },
+        "meaning_to_word_romanized_and_audio": {
+            "user_prompt": "Given the following [MEANING], which Romanized word with its pronunciation audio sounds most fitting based on auditory impression?\n\n[MEANING]\n{meaning}\n\n[OPTIONS]\n{options}\n\nAnswer with the number only. (1-{MAX_OPTION})"
+        },
+        "word_to_meaning_ipa_and_audio": {
+            "user_prompt": "Given a IPA [WORD] with its pronunciation audio, which option is the most appropriate meaning of this onomatopoeic/mimetic word based on auditory impression?\n\n[WORD]\n{word} (AUDIO: {audio})\n\n[OPTIONS]\n{options}\n\nAnswer with the number only. (1-{MAX_OPTION})"
+        },
+        "meaning_to_word_ipa_and_audio": {
+            "user_prompt": "Given the following [MEANING], which IPA word with its pronunciation audio sounds most fitting based on auditory impression?\n\n[MEANING]\n{meaning}\n\n[OPTIONS]\n{options}\n\nAnswer with the number only. (1-{MAX_OPTION})"
+        }
+    },
+    "word_meaning_matching_without_auditory_impression": {
+        "word_to_meaning_original": {
+            "user_prompt": "Given a [WORD], which option is the most appropriate meaning of this onomatopoeic/mimetic word?\n\n[WORD]\n{word}\n\n[OPTIONS]\n{options}\n\nAnswer with the number only. (1-{MAX_OPTION})"
+        },
+        "meaning_to_word_original": {
+            "user_prompt": "Given the following [MEANING], which word sounds most fitting?\n\n[MEANING]\n{meaning}\n\n[OPTIONS]\n{options}\n\nAnswer with the number only. (1-{MAX_OPTION})"
+        },
+        "word_to_meaning_romanized": {
+            "user_prompt": "Given a Romanized [WORD], which option is the most appropriate meaning of this onomatopoeic/mimetic word?\n\n[WORD]\n{word}\n\n[OPTIONS]\n{options}\n\nAnswer with the number only. (1-{MAX_OPTION})"
+        },
+        "meaning_to_word_romanized": {
+            "user_prompt": "Given the following [MEANING], which Romanized word sounds most fitting?\n\n[MEANING]\n{meaning}\n\n[OPTIONS]\n{options}\n\nAnswer with the number only. (1-{MAX_OPTION})"
+        },
+        "word_to_meaning_ipa": {
+            "user_prompt": "Given a IPA [WORD], which option is the most appropriate meaning of this onomatopoeic/mimetic word?\n\n[WORD]\n{word}\n\n[OPTIONS]\n{options}\n\nAnswer with the number only. (1-{MAX_OPTION})"
+        },
+        "meaning_to_word_ipa": {
+            "user_prompt": "Given the following [MEANING], which IPA word sounds most fitting?\n\n[MEANING]\n{meaning}\n\n[OPTIONS]\n{options}\n\nAnswer with the number only. (1-{MAX_OPTION})"
+        },
+        "word_to_meaning_audio": {
+            "user_prompt": "Given a spoken [WORD], which option is the most appropriate meaning of this onomatopoeic/mimetic word?\n\n[WORD]\n{word}\n\n[OPTIONS]\n{options}\n\nAnswer with the number only. (1-{MAX_OPTION})"
+        },
+        "meaning_to_word_audio": {
+            "user_prompt": "Given the following [MEANING], which spoken word sounds most fitting?\n\n[MEANING]\n{meaning}\n\n[OPTIONS]\n{options}\n\nAnswer with the number only. (1-{MAX_OPTION})"
+        }
+    },
+    "semantic_dimension": {
+        "semantic_dimension_original": {
+            "user_prompt": "Given a [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\n{word}\n\n[SEMANTIC DIMENSION]\n{dimension1} vs {dimension2}\n\n[OPTIONS]\n1: {dimension1}\n2: {dimension2}\n3: neither\nAnswer with the number only. (1-3)"
+        },
+        "semantic_dimension_romanized": {
+            "user_prompt": "Given a Romanized [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\n{word}\n\n[SEMANTIC DIMENSION]\n{dimension1} vs {dimension2}\n\n[OPTIONS]\n1: {dimension1}\n2: {dimension2}\n3: neither\nAnswer with the number only. (1-3)"
+        },
+        "semantic_dimension_ipa": {
+            "user_prompt": "Given a IPA [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\n{word}\n\n[SEMANTIC DIMENSION]\n{dimension1} vs {dimension2}\n\n[OPTIONS]\n1: {dimension1}\n2: {dimension2}\n3: neither\nAnswer with the number only. (1-3)"
+        },
+        "semantic_dimension_audio": {
+            "user_prompt": "Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\n{word}\n\n[SEMANTIC DIMENSION]\n{dimension1} vs {dimension2}\n\n[OPTIONS]\n1: {dimension1}\n2: {dimension2}\n3: neither\nAnswer with the number only. (1-3)"
+        },
+        "semantic_dimension_binary_original": {
+            "user_prompt": "Given a [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\n{word}\n\n[SEMANTIC DIMENSION]\n{dimension1} vs {dimension2}\n\n[OPTIONS]\n1: {dimension1}\n2: {dimension2}\nAnswer with the number only. (1-2)"
+        },
+        "semantic_dimension_binary_romanized": {
+            "user_prompt": "Given a Romanized [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\n{word}\n\n[SEMANTIC DIMENSION]\n{dimension1} vs {dimension2}\n\n[OPTIONS]\n1: {dimension1}\n2: {dimension2}\nAnswer with the number only. (1-2)"
+        },
+        "semantic_dimension_binary_ipa": {
+            "user_prompt": "Given a IPA [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\n{word}\n\n[SEMANTIC DIMENSION]\n{dimension1} vs {dimension2}\n\n[OPTIONS]\n1: {dimension1}\n2: {dimension2}\nAnswer with the number only. (1-2)"
+        },
+        "semantic_dimension_binary_audio": {
+            "user_prompt": "Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\n{word}\n\n[SEMANTIC DIMENSION]\n{dimension1} vs {dimension2}\n\n[OPTIONS]\n1: {dimension1}\n2: {dimension2}\nAnswer with the number only. (1-2)"
+        }
+    },
+    "generation": {
+        "trial6": {
+            "explanation": {
+                "문자지정" : "명시",
+                "언어지정" : "비명시",
+                "가상어명칭" : "",
+                "제공되는 정보" : "의미만",
+                "비고" : "믹야리어는 이전 poc 단계에서 임의로 시도한 가상어 명칭"
+            },
+            "en": {
+                "user_prompt": "Create a sound symbolic word with the following [meaning] in a constructed language, with characters in Roman letters. Create only the constructed vocabulary, enclosed in backticks (`):\n[meaning] : {meaning}"
+            },
+            "fr": {
+                "user_prompt": "Créez un symbole phonétique avec le [sens] suivant dans une langue construite, avec les caractères en lettres romaines. Ne créez que le vocabulaire construit, entre crochets (`):\n[sens] : {meaning}"
+            },
+            "ko": {
+                "user_prompt": "다음의 [의미]를 가진 음성상징어를, 문자는 한글로 하여 인공어로 생성하십시오. 가상의 어휘만을 백틱 문자(`)로 묶어서 생성하십시오.\n[의미] : {meaning}"
+            },
+            "ja": {
+                "user_prompt": "次の[意味]を持つ音象徴語を、文字はひらがなで、架空の言語で生成してください。架空の語彙だけをバックティック文字(`)で囲んで生成してください。 \n[意味] : {meaning}"
+            }
+        },
+        "trial12": {
+            "explanation": {
+                "문자지정" : "명시",
+                "언어지정" : "비명시",
+                "가상어명칭" : "",
+                "제공되는 정보" : "의미만",
+                "비고" : "의미를 분리하여 설명하지 않고, 초반에 기술"
+            },
+            "en": {
+                "user_prompt": "Create a constructed language with phonetic symbols whose meaning is \"{meaning}\" and characters in Roman letters. Create only the constructed vocabulary, enclosing it in backticks (`)."
+            },
+            "fr": {
+                "user_prompt": "Créez une langue construite avec des symboles phonétiques signifiant « {meaning} » et des caractères en lettres romaines. Créez uniquement le vocabulaire construit, en l'entourant de bâtons (`)."
+            },
+            "ko": {
+                "user_prompt": "\"{meaning}\"(을)를 의미로 가지는 음성상징어를, 문자는 한글로 하여 인공어로 생성하십시오. 가상의 어휘만을 백틱 문자(`)로 묶어서 생성하십시오."
+            },
+            "ja": {
+                "user_prompt": "「{meaning}」を意味する音象徴語を、文字はひらがなで、架空の言語で生成してください。架空の語彙だけをバックティック文字(`)で囲んで生成してください。"
+            }
+        },
+        "trial13": {
+            "explanation": {
+                "문자지정" : "명시",
+                "언어지정" : "비명시",
+                "가상어명칭" : "",
+                "제공되는 정보" : "의미만",
+                "비고" : "의미를 분리하여 설명하지 않고, 초반에 기술. 일부 표현 수정"
+            },
+            "en": {
+                "user_prompt": "Create a constructed onomatopoeia or ideophone with the meaning \"{meaning}\" and the letters are Romanized. Create only the constructed vocabulary, enclosing it in backticks (`)."
+            },
+            "fr": {
+                "user_prompt": "Créez une onomatopée ou une idéophone construite dont le sens est « {meaning} » et dont les lettres sont romaines. Créez un lexème construit entouré d'une coche (`)."
+            },
+            "ko": {
+                "user_prompt": "\"{meaning}\"(을)를 의미로 가지면서 문자는 한글인 인공어의 의성어 또는 의태어를 생성하십시오. 가상의 어휘만을 백틱 문자(`)로 묶어서 생성하십시오."
+            },
+            "ja": {
+                "user_prompt": "「{meaning}」の意味を持ちながら、文字はひらがなである架空の擬音語または擬態語を生成してください。架空の語彙だけをバックティック文字(`)で囲んで生成してください。"
+            }
+        },
+        "trial14": {
+            "explanation": {
+                "문자지정" : "명시",
+                "언어지정" : "비명시",
+                "가상어명칭" : "",
+                "제공되는 정보" : "의미만",
+                "비고" : "의미를 분리하여 설명하지 않고, 초반에 기술. '가상의 언어'라는 표현을 명시. 일부 표현 수정."
+            },
+            "en": {
+                "user_prompt": "Create an onomatopoeia or ideophone word that means \"{meaning}\" in a constructed language distinct from English, romanized. Create only the constructed vocabulary, enclosed in backtick characters (`)."
+            },
+            "fr": {
+                "user_prompt": "Créer une onomatopée ou une idéophone pour « {meaning} » dans une langue construite distincte du français, en caractères romains. Ne créez que le vocabulaire construit, en l'entourant d'un astérisque (`)."
+            },
+            "ko": {
+                "user_prompt": "한국어와는 구별되는 인공 언어에서 \"{meaning}\"(을)를 뜻하는 의성어 또는 의태어를 한글로 생성하십시오. 인공 어휘만을 백틱 문자(`)로 묶어서 생성하십시오."
+            },
+            "ja": {
+                "user_prompt": "日本語と区別される架空の言語で、「{meaning}」を意味する擬音語または擬態語をひらがなで生成してください。架空の語彙だけをバックティック文字(`)で囲んで生成してください。"
+            }
+        },
+        "trial15": {
+            "explanation": {
+                "문자지정" : "명시",
+                "언어지정" : "비명시",
+                "가상어명칭" : "",
+                "제공되는 정보" : "의미만",
+                "비고" : "의미를 분리하여 설명하지 않고, 초반에 기술. '인공 언어'라는 표현을 명시. 일부 표현 수정."
+            },
+            "en": {
+                "user_prompt": "Generate an onomatopoeia or ideophone word for \"{meaning}\" in a constructed language distinct from English, romanized. Return only the generated constructed vocabulary as an answer."
+            },
+            "fr": {
+                "user_prompt": "Générer une onomatopée ou un mot idéophone pour « {meaning} » dans une langue construite distincte du français, en lettres romaines. Ne renvoyez comme réponse que le vocabulaire construit généré."
+            },
+            "ko": {
+                "user_prompt": "한국어와는 구별되는 인공 언어에서 \"{meaning}\"(을)를 뜻하는 의성어 또는 의태어를 한글로 생성하세요. 생성된 인공 어휘만을 답변으로 반환하세요."
+            },
+            "ja": {
+                "user_prompt": "日本語と区別される架空の言語で「{meaning}」を意味する擬音語または擬態語をひらがなで生成してください。生成された架空の語彙だけを回答として返してください。"
+            }
+        },
+        "trial16": {
+            "explanation": {
+                "문자지정" : "명시",
+                "언어지정" : "비명시",
+                "가상어명칭" : "",
+                "제공되는 정보" : "의미만",
+                "비고" : "의미를 분리하여 설명하지 않고, 초반에 기술. '인공 언어'라는 표현을 명시. 일부 표현 수정."
+            },
+            "en": {
+                "user_prompt": "Generate onomatopoeia/ideophone for \"{meaning}\" in a constructed language other than English, in Romanized letters. Return only the generated vocabulary as an answer."
+            },
+            "fr": {
+                "user_prompt": "Générer une onomatopée/idéophone pour « {meaning} » dans une langue construite autre que le français, en romanisation. Ne renvoyez que le vocabulaire généré comme réponse."
+            },
+            "ko": {
+                "user_prompt": "한국어가 아닌 인공 언어에서 \"{meaning}\"(을)를 뜻하는 의성어/의태어를 한글로 생성하세요. 생성된 어휘만을 답변으로 반환하세요."
+            },
+            "ja": {
+                "user_prompt": "日本語ではない架空の言語で「{meaning}」を意味する擬音語・擬態語をひらがなで生成してください。生成された語彙のみを回答として返してください。"
+            }
+        },
+        "trial17": {
+            "explanation": {
+                "문자지정" : "명시",
+                "언어지정" : "비명시",
+                "가상어명칭" : "",
+                "제공되는 정보" : "의미만",
+                "비고" : "의미를 분리하여 설명하지 않고, 초반에 기술. '가상의 언어'라는 표현을 명시. 일부 표현 수정."
+            },
+            "en": {
+                "user_prompt": "Generate onomatopoeia/ideophone for \"{meaning}\" in a non-English constructed language in Romanized characters. Return only the generated vocabulary, enclosed in backtick characters (`)."
+            },
+            "fr": {
+                "user_prompt": "Générer des onomatopée/idéophone pour « {meaning} » dans une langue construite autre que le français, en caractères romains. Ne retourner que le vocabulaire généré entouré de caractères backtick (`)."
+            },
+            "ko": {
+                "user_prompt": "한국어가 아닌 인공 언어에서 \"{meaning}\"을(를) 뜻하는 의성어/의태어를 한글로 생성하세요. 생성된 어휘만을 백틱 문자(`)로 묶어서 반환하세요."
+            },
+            "ja": {
+                "user_prompt": "日本語ではないの架空の言語で「{meaning}」を意味する擬音語・擬態語をひらがなで生成してください。生成された語彙のみをバックティック文字(`)で囲んで返してください。"
+            }
+        },
+        "trial18": {
+            "explanation": {
+                "문자지정" : "명시",
+                "언어지정" : "비명시",
+                "가상어명칭" : "",
+                "제공되는 정보" : "의미만",
+                "비고" : "의미를 분리하여 설명하지 않고 초반에 제시. '가상의 언어'라는 표현을 명시. 일부 표현 수정. 기타 표현도 나오도록 함."
+            },
+            "en": {
+                "user_prompt": "Generate onomatopoeia/ideophone for \"{meaning}\" in a non-English constructed language in Romanized characters. Return the generated vocabulary enclosed in backtick characters (`)."
+            },
+            "fr": {
+                "user_prompt": "Générer une onomatopée/idéophone pour « {meaning} » dans une langue construite autre que le français, en caractères romains. Retourner le vocabulaire généré entre les caractères backtick (`)."
+            },
+            "ko": {
+                "user_prompt": "한국어가 아닌 인공 언어에서 \"{meaning}\"을(를) 뜻하는 의성어/의태어를 한글로 생성하세요. 생성된 어휘는 백틱 문자(`)로 묶어서 반환하세요."
+            },
+            "ja": {
+                "user_prompt": "日本語ではない架空の言語で「{meaning}」を意味する擬音語・擬態語を仮名で生成してください。生成された語彙はバックティック文字(`)で囲んで返してください。"
+            }
+        },
+        "trial19": {
+            "explanation": {
+                "문자지정" : "명시",
+                "언어지정" : "비명시",
+                "가상어명칭" : "",
+                "제공되는 정보" : "의미만",
+                "비고" : "의미를 분리하여 설명하지 않고 초반에 제시. '가상의 언어'라는 표현을 명시. 일부 표현 수정. 기타 표현도 나오도록 함."
+            },
+            "en": {
+                "user_prompt": "Generate a creative onomatopoeia/ideophone for \"{meaning}\" in a non-English constructed language in Romanized characters. Return the generated vocabulary enclosed in backtick characters (`)."
+            },
+            "fr": {
+                "user_prompt": "Générer une onomatopée/idéophone créative pour « {meaning} » dans une langue construite autre que le français, en lettres romaines. Renvoyer le vocabulaire généré entre les caractères backtick (`)."
+            },
+            "ko": {
+                "user_prompt": "한국어가 아닌 인공 언어에서 \"{meaning}\"을(를) 뜻하는 창의적인 의성어/의태어를 한글로 생성하세요. 생성된 어휘는 백틱 문자(`)로 묶어서 반환하세요."
+            },
+            "ja": {
+                "user_prompt": "日本語ではない架空の言語で「{meaning}」を意味する創造的な擬音語・擬態語をひらがなで生成してください。生成された語彙はバックティック文字(`)で囲んで返してください。"
+            }
+        },
+        "trial20": {
+            "explanation": {
+                "문자지정" : "명시",
+                "언어지정" : "비명시",
+                "가상어명칭" : "",
+                "제공되는 정보" : "의미만",
+                "비고" : "의미를 분리하여 설명하지 않고 초반에 제시. '가상의 언어'라는 표현을 명시. 일부 표현 수정. 기타 표현도 나오도록 함."
+            },
+            "en": {
+                "user_prompt": "Generate intuitive onomatopoeia/ideophone for \"{meaning}\" in a non-English constructed language, in Romanized characters. Return the generated vocabulary enclosed in a backtick character (`)."
+            },
+            "fr": {
+                "user_prompt": "Générer des onomatopée/idéophone intuitives pour « {meaning} » dans une langue construite autre que le français, en lettres romaines. Renvoyer le vocabulaire généré entre les caractères backtick (`)."
+            },
+            "ko": {
+                "user_prompt": "한국어가 아닌 인공 언어에서 \"{meaning}\"을(를) 뜻하는 직관적인 의성어/의태어를 한글로 생성하세요. 생성된 어휘는 백틱 문자(`)로 묶어서 반환하세요."
+            },
+            "ja": {
+                "user_prompt": "日本語ではない架空の言語で「{meaning}」を意味する直感的な擬音語・擬態語をひらがなで生成してください。生成された語彙はバックティック文字(`)で囲んで返してください。"
+            }
+        },
+        "trial21": {
+            "explanation": {
+                "문자지정" : "명시",
+                "언어지정" : "비명시",
+                "가상어명칭" : "",
+                "제공되는 정보" : "의미만",
+                "비고" : "의미를 분리하여 설명하지 않고 초반에 제시. '가상의 언어'라는 표현을 명시. 일부 표현 수정. 기타 표현도 나오도록 함."
+            },
+            "en": {
+                "user_prompt": "Generate creative and intuitive onomatopoeia/ideophone words in Roman alphabet that mean \"{meaning}\" in a constructed language other than English. Return the generated vocabulary enclosed in a backtick character (`)."
+            },
+            "fr": {
+                "user_prompt": "Générer des onomatopée/idéophone créatives et intuitives en français qui signifient « {meaning} » dans une langue construite autre que le français, en lettres romaines. Renvoyer le vocabulaire généré entre les caractères backtick (`)."
+            },
+            "ko": {
+                "user_prompt": "한국어가 아닌 인공 언어에서 \"{meaning}\"을(를) 뜻하는 창의적이고 직관적인 의성어/의태어를 한글로 생성하세요. 생성된 어휘는 백틱 문자(`)로 묶어서 반환하세요."
+            },
+            "ja": {
+                "user_prompt": "日本語ではない架空の言語で「{meaning}」を意味する創造的で直感的な擬音語・擬態語をひらがなで生成してください。生成された語彙はバックティック文字(`)で囲んで返してください。"
+            }
+        },
+        "trial22": {
+            "explanation": {
+                "문자지정" : "명시",
+                "언어지정" : "비명시",
+                "가상어명칭" : "",
+                "제공되는 정보" : "의미만",
+                "비고" : "의미를 분리하여 설명하지 않고 초반에 제시. '인공 언어'라는 표현을 명시. 일부 표현 수정. 기타 표현도 나오도록 함."
+            },
+            "en": {
+                "user_prompt": "You are a 'constructed language creation expert'. Please follow the instructions below:\n\n1. **Identify the meaning**\n - Summarize the emotional, situational, and sound characteristics of the input \"{meaning}\" in a short sentence.\n2. **Design a phonological pattern**\n - Considering the syllable structure of English, suggest phoneme combinations that are likely to be used in a fictional language.\n3. **Generate onomatopoeias and ideophones**\n - Using the phonological patterns you designed, generate creative and intuitive onomatopoeia or ideophone for \"{meaning}\".\n - Present each one in a backtick (`).\n4. **Constraints**\n\nNow, given the meaning \"{meaning}\", generate an onomatopoeia or ideophone in the backticked(`) format above."
+            },
+            "fr": {
+                "user_prompt": "Vous êtes un « expert en création de langue construite ». Veuillez suivre les instructions ci-dessous:\n1. **Identifier le sens**\n - Résumez les caractéristiques émotionnelles, situationnelles et sonores de l'entrée « {meaning} » en une courte phrase.\n2. **Concevoir un modèle phonologique**\n - En tenant compte de la structure syllabique du français, suggérez des combinaisons de phonèmes qui sont susceptibles d'être utilisées dans une langue construite.\n3. **Générer d'onomatopée et d'idéophone**\n - En utilisant les modèles phonologiques que vous avez conçus, générez d'onomatopée ou d'idéophone créative et intuitive pour « {meaning} ».\n - Présentez chacune d'entre elles dans une coche (`).\n4. **Contraintes**\n\nMaintenant, étant donné « {meaning} », générez une onomatopée ou une idéophone avec coche dans le format ci-dessus."
+            },
+            "ko": {
+                "user_prompt": "당신은 '인공 언어 창작 전문가'입니다. 아래 지시 사항을 따라주세요:\n\n1. **의미 파악**\n - 입력된 \"{meaning}\"의 감정·상황·소리 특성을 간단히 한 문장으로 요약합니다.\n2. **음운 패턴 설계**\n - 한글 음절 구조를 고려해, 인공공 언어에서 자주 쓰일 법한 음소 조합을 제안합니다.\n3. **의성어·의태어 생성**\n   - 앞서 설계한 음운 패턴을 활용해, \"{meaning}\"에 어울리는 창의적이고 직관적인 의성·의태어를 만들어냅니다.\n - 각각을 백틱(`)으로 감싸서 제시하세요.\n4. **제약 조건**\n\n이제 \"{meaning}\"를(을) 입력받아 위 형식대로 백틱 묶음 의성·의태어를 생성해 주세요."
+            },
+            "ja": { 
+                "user_prompt": "「あなたは「人工言語創作の専門家」です。以下の指示に従ってください:\n\n1. **意味把握**\n - 入力された\"{meaning}\"の感情・状況・音の特徴を簡単な文章で要約します.\n2. **音韻パターンの設計**\n - 仮名の音節構造を考慮し、仮想言語でよく使われそうな音素の組み合わせを提案します.\n3. **擬声語・擬態語の生成**\n - 先に設計した音韻パターンを活用して、\"{meaning}\"に合う創造的で直感的な擬声語・擬態語を作成します.\n - それぞれをバックティック(`)で囲んで提示してください.\n4. **制約条件**\n\n今から、「{meaning}」の入力に対して、上記の形式でバックティック(`)で囲まれた擬声語・擬態語を生成してください。」"
+            }
+        },
+        "trial23": {
+            "explanation": {
+                "문자지정" : "명시",
+                "언어지정" : "비명시",
+                "가상어명칭" : "",
+                "제공되는 정보" : "의미만",
+                "비고" : "Two-shot learning 시도"
+            },
+            "en": {
+                "user_prompt": "Generate a sound symbolic word in a constructed language with the following meaning: \"{meaning}\". The word should be enclosed in backticks (`).\n\nExample 1:\nMeaning: [A rough, careless attitude]\nGenerated sound symbolic word: `딱슬딱슬`\n\nExample 2:\nMeaning: [Doing something without care or effort]\nGenerated sound symbolic word: `타믈타믈`\n\nNow, for the meaning: [{meaning}], generate a sound symbolic word:"
+            },
+            "fr": {
+                "user_prompt": "Générez un mot symbolique sonore dans une langue construite avec le sens suivant : \"{meaning}\". Le mot doit être entouré de guillemets (`).\n\nExemple 1:\nSens: [Une attitude grossière et sans soin]\nMot symbolique sonore généré: `딱슬딱슬`\n\nExemple 2:\nSens: [Faire quelque chose sans soin ou effort]\nMot symbolique sonore généré: `타믈타믈`\n\nMaintenant, pour le sens: [{meaning}], générez un mot symbolique sonore:"
+            },
+            "ko": {
+                "user_prompt": "다음 패턴을 따라 음성상징어를 생성하세요. 의미 : [대충, 정성이 없고 태도가 성의 없이 하는 모습] -> 생성된 음성상징어 : `딱슬딱슬`\n의미 : [정성을 들이지 않고 대강대강 일을 하는 모양] -> 생성된 음성상징어 : `타믈타믈`\n의미 : [작은 물체가 조금씩 이리저리 쏠리어 자꾸 움직이는 모양] -> 생성된 음성상징어 : `키르키르`\n의미 : [{meaning}] -> 답변 : "
+            },
+            "ja": { 
+                "user_prompt": "次のパターンに従って音声象徴語を生成してください。意味 : [大まかで気が散る態度]\n生成された音声象徴語 : `딱슬딱슬`\n意味 : [気が散ることなく、大まかに行動する態度]\n生成された音声象徴語 : `타믈타믈`\n意味 : [{meaning}] -> 答え : "
+            }
+        },
+        "semdim1": {
+            "explanation": {
+                "문자지정": "명시",
+                "언어지정": "",
+                "가상어명칭": "",
+                "제공되는 정보": "",
+                "비고": "의미 차원을 하나 대립시켜 생성하는 프롬프트"
+            },
+            "en": {
+                "user_prompt": ""
+            },
+            "fr": {
+                "user_prompt": ""
+            },
+            "ko": {
+                "user_prompt": ""
+            },
+            "ja": {
+                "user_prompt": ""
+            }
+        }
+    },
+    "semantic_dimention": [
+        ["good", "bad"],
+        ["beautiful", "ugly"],
+        ["pleasant", "unpleasant"],
+        ["strong", "weak"],
+        ["big", "small"],
+        ["rugged", "delicate"],
+        ["active", "passive"],
+        ["fast", "slow"],
+        ["sharp", "round"],
+        ["realistic", "fantastical"],
+        ["structured", "disorganized"],
+        ["ordinary", "unique"],
+        ["interesting", "uninteresting"],
+        ["simple", "complex"],
+        ["abrupt", "continuous"],
+        ["exciting", "calming"],
+        ["hard", "soft"],
+        ["happy", "sad"],
+        ["harsh", "mellow"],
+        ["heavy", "light"],
+        ["inhibited", "free"],
+        ["masculine", "feminine"],
+        ["solid", "nonsolid"],
+        ["tense", "relaxed"],
+        ["dangerous", "safe"]
+    ]
+}

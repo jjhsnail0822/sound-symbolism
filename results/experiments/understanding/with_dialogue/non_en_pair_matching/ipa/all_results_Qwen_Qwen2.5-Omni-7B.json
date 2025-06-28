@@ -1,0 +1,66 @@
+[
+    {
+        "model": "Qwen/Qwen2.5-Omni-7B",
+        "accuracy": 0.8325092707045736,
+        "correct_count": 1347,
+        "total_count": 1618,
+        "data_path": "data/prompts/understanding/non_en_pair_matching/ipa/non_en_unmasked_word_to_meaning_mcq-fr.json",
+        "thinking": false
+    },
+    {
+        "model": "Qwen/Qwen2.5-Omni-7B",
+        "accuracy": 0.4103831891223733,
+        "correct_count": 664,
+        "total_count": 1618,
+        "data_path": "data/prompts/understanding/non_en_pair_matching/ipa/non_en_masked_meaning_to_word_mcq-fr.json",
+        "thinking": false
+    },
+    {
+        "model": "Qwen/Qwen2.5-Omni-7B",
+        "accuracy": 0.9231311706629055,
+        "correct_count": 2618,
+        "total_count": 2836,
+        "data_path": "data/prompts/understanding/non_en_pair_matching/ipa/non_en_unmasked_word_to_meaning_mcq-ja.json",
+        "thinking": false
+    },
+    {
+        "model": "Qwen/Qwen2.5-Omni-7B",
+        "accuracy": 0.36071932299012693,
+        "correct_count": 1023,
+        "total_count": 2836,
+        "data_path": "data/prompts/understanding/non_en_pair_matching/ipa/non_en_masked_meaning_to_word_mcq-ja.json",
+        "thinking": false
+    },
+    {
+        "model": "Qwen/Qwen2.5-Omni-7B",
+        "accuracy": 0.9334866973394679,
+        "correct_count": 9333,
+        "total_count": 9998,
+        "data_path": "data/prompts/understanding/non_en_pair_matching/ipa/non_en_unmasked_word_to_meaning_mcq-ko.json",
+        "thinking": false
+    },
+    {
+        "model": "Qwen/Qwen2.5-Omni-7B",
+        "accuracy": 0.2720544108821764,
+        "correct_count": 2720,
+        "total_count": 9998,
+        "data_path": "data/prompts/understanding/non_en_pair_matching/ipa/non_en_masked_meaning_to_word_mcq-ko.json",
+        "thinking": false
+    },
+    {
+        "model": "Qwen/Qwen2.5-Omni-7B",
+        "accuracy": 0.9270689177968447,
+        "correct_count": 13398,
+        "total_count": 14452,
+        "data_path": "data/prompts/understanding/non_en_pair_matching/ipa/non_en_unmasked_word_to_meaning_mcq-cross_language.json",
+        "thinking": false
+    },
+    {
+        "model": "Qwen/Qwen2.5-Omni-7B",
+        "accuracy": 0.33241073899806256,
+        "correct_count": 4804,
+        "total_count": 14452,
+        "data_path": "data/prompts/understanding/non_en_pair_matching/ipa/non_en_masked_meaning_to_word_mcq-cross_language.json",
+        "thinking": false
+    }
+]

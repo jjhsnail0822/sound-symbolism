@@ -1,0 +1,66 @@
+[
+    {
+        "model": "allenai/OLMo-2-0325-32B-Instruct",
+        "accuracy": 0.899876390605686,
+        "correct_count": 1456,
+        "total_count": 1618,
+        "data_path": "dataset/3_questions/nat/understanding_non_en_pair_matching/non_en_unmasked_word_to_meaning_mcq-fr.json",
+        "thinking": false
+    },
+    {
+        "model": "allenai/OLMo-2-0325-32B-Instruct",
+        "accuracy": 0.522867737948084,
+        "correct_count": 846,
+        "total_count": 1618,
+        "data_path": "dataset/3_questions/nat/understanding_non_en_pair_matching/non_en_masked_meaning_to_word_mcq-fr.json",
+        "thinking": false
+    },
+    {
+        "model": "allenai/OLMo-2-0325-32B-Instruct",
+        "accuracy": 0.9516925246826516,
+        "correct_count": 2699,
+        "total_count": 2836,
+        "data_path": "dataset/3_questions/nat/understanding_non_en_pair_matching/non_en_unmasked_word_to_meaning_mcq-ja.json",
+        "thinking": false
+    },
+    {
+        "model": "allenai/OLMo-2-0325-32B-Instruct",
+        "accuracy": 0.4541607898448519,
+        "correct_count": 1288,
+        "total_count": 2836,
+        "data_path": "dataset/3_questions/nat/understanding_non_en_pair_matching/non_en_masked_meaning_to_word_mcq-ja.json",
+        "thinking": false
+    },
+    {
+        "model": "allenai/OLMo-2-0325-32B-Instruct",
+        "accuracy": 0.9467893578715744,
+        "correct_count": 9466,
+        "total_count": 9998,
+        "data_path": "dataset/3_questions/nat/understanding_non_en_pair_matching/non_en_unmasked_word_to_meaning_mcq-ko.json",
+        "thinking": false
+    },
+    {
+        "model": "allenai/OLMo-2-0325-32B-Instruct",
+        "accuracy": 0.35927185437087417,
+        "correct_count": 3592,
+        "total_count": 9998,
+        "data_path": "dataset/3_questions/nat/understanding_non_en_pair_matching/non_en_masked_meaning_to_word_mcq-ko.json",
+        "thinking": false
+    },
+    {
+        "model": "allenai/OLMo-2-0325-32B-Instruct",
+        "accuracy": 0.9438140049820094,
+        "correct_count": 13640,
+        "total_count": 14452,
+        "data_path": "dataset/3_questions/nat/understanding_non_en_pair_matching/non_en_unmasked_word_to_meaning_mcq-cross_language.json",
+        "thinking": false
+    },
+    {
+        "model": "allenai/OLMo-2-0325-32B-Instruct",
+        "accuracy": 0.4840160531414337,
+        "correct_count": 6995,
+        "total_count": 14452,
+        "data_path": "dataset/3_questions/nat/understanding_non_en_pair_matching/non_en_masked_meaning_to_word_mcq-cross_language.json",
+        "thinking": false
+    }
+]

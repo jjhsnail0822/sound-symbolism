@@ -1,0 +1,34 @@
+[
+    {
+        "model": "Qwen/Qwen2.5-Omni-3B",
+        "accuracy": 0.3947966658247032,
+        "correct_count": 1563,
+        "total_count": 3959,
+        "data_path": "data/prompts/word_meaning_matching/word_to_meaning_ipa_and_audio-common.json",
+        "thinking": false
+    },
+    {
+        "model": "Qwen/Qwen2.5-Omni-3B",
+        "accuracy": 0.46627936347562515,
+        "correct_count": 1846,
+        "total_count": 3959,
+        "data_path": "data/prompts/word_meaning_matching/meaning_to_word_ipa_and_audio-common.json",
+        "thinking": false
+    },
+    {
+        "model": "Qwen/Qwen2.5-Omni-3B",
+        "accuracy": 0.3857806010261422,
+        "correct_count": 1579,
+        "total_count": 4093,
+        "data_path": "data/prompts/word_meaning_matching/word_to_meaning_ipa_and_audio-rare.json",
+        "thinking": false
+    },
+    {
+        "model": "Qwen/Qwen2.5-Omni-3B",
+        "accuracy": 0.34131443928658683,
+        "correct_count": 1397,
+        "total_count": 4093,
+        "data_path": "data/prompts/word_meaning_matching/meaning_to_word_ipa_and_audio-rare.json",
+        "thinking": false
+    }
+]

@@ -1,0 +1,66 @@
+[
+    {
+        "model": "allenai/OLMo-2-0325-32B-Instruct",
+        "accuracy": 0.9642857142857143,
+        "correct_count": 1593,
+        "total_count": 1652,
+        "data_path": "dataset/3_questions/nat/understanding-unmasked_word_to_meaning_mcq-en.json",
+        "thinking": false
+    },
+    {
+        "model": "allenai/OLMo-2-0325-32B-Instruct",
+        "accuracy": 0.8050847457627118,
+        "correct_count": 1330,
+        "total_count": 1652,
+        "data_path": "dataset/3_questions/nat/understanding-masked_meaning_to_word_mcq-en.json",
+        "thinking": false
+    },
+    {
+        "model": "allenai/OLMo-2-0325-32B-Instruct",
+        "accuracy": 0.8553770086526576,
+        "correct_count": 1384,
+        "total_count": 1618,
+        "data_path": "dataset/3_questions/nat/understanding-unmasked_word_to_meaning_mcq-fr.json",
+        "thinking": false
+    },
+    {
+        "model": "allenai/OLMo-2-0325-32B-Instruct",
+        "accuracy": 0.6711990111248455,
+        "correct_count": 1086,
+        "total_count": 1618,
+        "data_path": "dataset/3_questions/nat/understanding-masked_meaning_to_word_mcq-fr.json",
+        "thinking": false
+    },
+    {
+        "model": "allenai/OLMo-2-0325-32B-Instruct",
+        "accuracy": 0.8794076163610719,
+        "correct_count": 2494,
+        "total_count": 2836,
+        "data_path": "dataset/3_questions/nat/understanding-unmasked_word_to_meaning_mcq-ja.json",
+        "thinking": false
+    },
+    {
+        "model": "allenai/OLMo-2-0325-32B-Instruct",
+        "accuracy": 0.6791255289139634,
+        "correct_count": 1926,
+        "total_count": 2836,
+        "data_path": "dataset/3_questions/nat/understanding-masked_meaning_to_word_mcq-ja.json",
+        "thinking": false
+    },
+    {
+        "model": "allenai/OLMo-2-0325-32B-Instruct",
+        "accuracy": 0.8621724344868974,
+        "correct_count": 8620,
+        "total_count": 9998,
+        "data_path": "dataset/3_questions/nat/understanding-unmasked_word_to_meaning_mcq-ko.json",
+        "thinking": false
+    },
+    {
+        "model": "allenai/OLMo-2-0325-32B-Instruct",
+        "accuracy": 0.45019003800760155,
+        "correct_count": 4501,
+        "total_count": 9998,
+        "data_path": "dataset/3_questions/nat/understanding-masked_meaning_to_word_mcq-ko.json",
+        "thinking": false
+    }
+]

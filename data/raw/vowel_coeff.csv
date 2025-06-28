@@ -1,0 +1,26 @@
+﻿Scale,Coefficient,Comparison
+Abrupt-Continuous,NA,Vowel Frontness
+Beautiful-Ugly,NA,Vowel Frontness
+Big-Small,0.7252,Vowel Frontness
+Dangerous-Safe,NA,Vowel Frontness
+Delicate-Rugged,NA,Vowel Frontness
+Exciting-Calming,-0.3467,Vowel Frontness
+Fast-Slow,-0.5065,Vowel Frontness
+Good-Bad,NA,Vowel Frontness
+Happy-Sad,-0.4123,Vowel Frontness
+Hard-Soft,NA,Vowel Frontness
+Harsh-Mellow,NA,Vowel Frontness
+Heavy-Light,0.3677,Vowel Frontness
+Inhibited-Free,NA,Vowel Frontness
+Interesting-Uninteresting,NA,Vowel Frontness
+Masculine-Feminine,0.46593,Vowel Frontness
+Ordinary-Unique,NA,Vowel Frontness
+Passive-Active,0.3048,Vowel Frontness
+Pleasant-Unpleasant,NA,Vowel Frontness
+Realistic-Fantastical,-0.2744,Vowel Frontness
+Sharp-Round,-0.5138,Vowel Frontness
+Simple-Complex,NA,Vowel Frontness
+Solid-NonSolid,NA,Vowel Frontness
+Strong-Weak,NA,Vowel Frontness
+Structured-Disorganized,NA,Vowel Frontness
+Tense-Relaxed,NA,Vowel Frontness

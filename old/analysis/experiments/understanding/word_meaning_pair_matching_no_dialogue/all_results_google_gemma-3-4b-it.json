@@ -1,0 +1,66 @@
+[
+    {
+        "model": "google/gemma-3-4b-it",
+        "accuracy": 0.5399515738498789,
+        "correct_count": 446,
+        "total_count": 826,
+        "data_path": "dataset/3_questions/nat/understanding_pair_matching_no_dialogue/unmasked_word_to_meaning_mcq_no_dialogue-en.json",
+        "thinking": false
+    },
+    {
+        "model": "google/gemma-3-4b-it",
+        "accuracy": 0.662227602905569,
+        "correct_count": 547,
+        "total_count": 826,
+        "data_path": "dataset/3_questions/nat/understanding_pair_matching_no_dialogue/masked_meaning_to_word_mcq_no_dialogue-en.json",
+        "thinking": false
+    },
+    {
+        "model": "google/gemma-3-4b-it",
+        "accuracy": 0.40667490729295425,
+        "correct_count": 329,
+        "total_count": 809,
+        "data_path": "dataset/3_questions/nat/understanding_pair_matching_no_dialogue/unmasked_word_to_meaning_mcq_no_dialogue-fr.json",
+        "thinking": false
+    },
+    {
+        "model": "google/gemma-3-4b-it",
+        "accuracy": 0.49443757725587145,
+        "correct_count": 400,
+        "total_count": 809,
+        "data_path": "dataset/3_questions/nat/understanding_pair_matching_no_dialogue/masked_meaning_to_word_mcq_no_dialogue-fr.json",
+        "thinking": false
+    },
+    {
+        "model": "google/gemma-3-4b-it",
+        "accuracy": 0.5677009873060649,
+        "correct_count": 805,
+        "total_count": 1418,
+        "data_path": "dataset/3_questions/nat/understanding_pair_matching_no_dialogue/unmasked_word_to_meaning_mcq_no_dialogue-ja.json",
+        "thinking": false
+    },
+    {
+        "model": "google/gemma-3-4b-it",
+        "accuracy": 0.6382228490832158,
+        "correct_count": 905,
+        "total_count": 1418,
+        "data_path": "dataset/3_questions/nat/understanding_pair_matching_no_dialogue/masked_meaning_to_word_mcq_no_dialogue-ja.json",
+        "thinking": false
+    },
+    {
+        "model": "google/gemma-3-4b-it",
+        "accuracy": 0.42948589717943586,
+        "correct_count": 2147,
+        "total_count": 4999,
+        "data_path": "dataset/3_questions/nat/understanding_pair_matching_no_dialogue/unmasked_word_to_meaning_mcq_no_dialogue-ko.json",
+        "thinking": false
+    },
+    {
+        "model": "google/gemma-3-4b-it",
+        "accuracy": 0.5371074214842969,
+        "correct_count": 2685,
+        "total_count": 4999,
+        "data_path": "dataset/3_questions/nat/understanding_pair_matching_no_dialogue/masked_meaning_to_word_mcq_no_dialogue-ko.json",
+        "thinking": false
+    }
+]

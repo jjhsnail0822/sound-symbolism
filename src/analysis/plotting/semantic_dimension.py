@@ -1,0 +1,169 @@
+import os
+import glob
+import json
+import numpy as np
+import matplotlib.pyplot as plt
+from matplotlib.ticker import PercentFormatter
+
+EXP_NAME = 'semantic_dimension_audio'
+
+if EXP_NAME == "semantic_dimension_original":
+    TITLE = 'Semantic Dimension A/B Test using Original Words'
+    exp_dir = f'results/experiments/semantic_dimension/original'
+elif EXP_NAME == "semantic_dimension_romanized":
+    TITLE = 'Semantic Dimension A/B Test using Romanized Words'
+    exp_dir = f'results/experiments/semantic_dimension/romanized'
+elif EXP_NAME == "semantic_dimension_ipa":
+    TITLE = 'Semantic Dimension A/B Test using IPA Words'
+    exp_dir = f'results/experiments/semantic_dimension/ipa'
+elif EXP_NAME == "semantic_dimension_audio":
+    TITLE = 'Semantic Dimension A/B Test using Spoken Words'
+    exp_dir = f'results/experiments/semantic_dimension/audio'
+else:
+    raise ValueError(f"Unknown experiment name: {EXP_NAME}")
+
+# 1) Collect result file paths
+files = glob.glob(os.path.join(exp_dir, 'all_results_*.json'))
+
+# 2) Data structure: models, categories, and accuracies
+models = []
+cats = []
+data = {}  # data[model][cat] = accuracy
+
+for fp in files:
+    arr = json.load(open(fp, 'r', encoding='utf-8'))
+    for rec in arr:
+        m = rec['model'].split('/')[-1]
+        dp = os.path.basename(rec['data_path'])
+        # Category name: word_group
+        cat = dp.split('-')[-1].split('.')[0].upper()
+        if m not in data:
+            data[m] = {}
+        data[m][cat] = rec['accuracy']
+        if m not in models:
+            models.append(m)
+        if cat not in cats:
+            cats.append(cat)
+
+# Define a fixed model ordering
+desired_order = [
+    'gemma-3-4b-it',
+    'gemma-3-12b-it',
+    'gemma-3-27b-it',
+    # 'Qwen2.5-3B-Instruct',
+    # 'Qwen2.5-7B-Instruct',
+    # 'Qwen2.5-14B-Instruct',
+    # 'Qwen2.5-32B-Instruct',
+    # 'Qwen2.5-72B-Instruct',
+    'Qwen3-4B',
+    'Qwen3-8B',
+    'Qwen3-14B',
+    'Qwen3-32B',
+    'Qwen3-4B-thinking',
+    'Qwen3-8B-thinking',
+    'Qwen3-14B-thinking',
+    'Qwen3-32B-thinking',
+    'gpt-4o',
+    'gpt-4.1',
+    'o4-mini',
+    'OLMo-2-1124-7B-Instruct',
+    'OLMo-2-1124-13B-Instruct',
+    'OLMo-2-0325-32B-Instruct',
+    'Qwen2.5-Omni-3B_text_only', # Text-only version of Qwen2.5 Omni 3B
+    'Qwen2.5-Omni-7B_text_only', # Text-only version of Qwen2.5 Omni 7B
+    'Qwen2.5-Omni-3B',
+    'Qwen2.5-Omni-7B',
+]
+# Sort models based on desired_order
+models = [m for m in desired_order if m in models] + [m for m in models if m not in desired_order]
+
+cats = sorted(cats)
+
+# 3) Plotting: create a single plot
+fig, ax = plt.subplots(1, 1, figsize=(8, 6))
+
+fig.suptitle(f'{TITLE}', fontsize=16, y=0.98)
+
+# Define color palettes for model families
+gemma_colors = plt.get_cmap('Blues')([0.4, 0.6, 0.8]) # Lighter to darker blues
+qwen_colors = plt.get_cmap('Oranges')([0.3, 0.5, 0.7, 0.9]) # Lighter to darker oranges/browns
+olmo_colors = plt.get_cmap('Purples')([0.4, 0.6, 0.8]) # Lighter to darker purples
+gpt_colors = plt.get_cmap('Greens')([0.4, 0.6, 0.8]) # Lighter to darker greens
+qwen_omni_colors = plt.get_cmap('Reds')([0.3, 0.7]) # Lighter to darker reds
+# Add more colors if needed, e.g., from 'Greens'
+# qwen_colors = plt.get_cmap('Greens')([0.3, 0.5, 0.7, 0.9])
+
+def plot_group(ax, subcats, title):
+    width = 0.15
+    gap = 0.2 # spacing between word groups
+    num_models = len(models)
+    group_width = width * num_models + gap
+    x = np.arange(len(subcats)) * group_width
+    gemma_idx = 0
+    qwen_idx = 0
+    qwen_thinking_idx = 0
+    olmo_idx = 0
+    gpt_idx = 0
+    qwen_omni_index = 0
+    qwen_omni_text_only_index = 0
+    for i, m in enumerate(models):
+        y = [data[m].get(c, np.nan) for c in subcats]
+        # Assign color based on model family
+        if 'gemma' in m.lower():
+            color = gemma_colors[gemma_idx % len(gemma_colors)]
+            gemma_idx += 1
+        elif 'text_only' in m.lower(): # Text-only versions of Qwen2.5 Omni
+            color = qwen_colors[qwen_omni_text_only_index % len(qwen_colors)]
+            qwen_omni_text_only_index += 1
+        elif 'qwen2.5-omni' in m.lower():
+            color = qwen_omni_colors[qwen_omni_index % len(qwen_omni_colors)]
+            qwen_omni_index += 1
+        elif 'qwen3' in m.lower():
+            color = qwen_colors[qwen_idx % len(qwen_colors)]
+            qwen_idx += 1
+        elif 'qwen3' in m.lower() and 'thinking' in m.lower():
+            color = qwen_colors[qwen_thinking_idx % len(qwen_colors)]
+            qwen_thinking_idx += 1
+        elif 'olmo' in m.lower():
+            color = olmo_colors[olmo_idx % len(olmo_colors)]
+            olmo_idx += 1
+        elif 'gpt' in m.lower() or 'o' in m.lower():
+            color = gpt_colors[gpt_idx % len(gpt_colors)]
+            gpt_idx += 1
+        else:
+            color = plt.get_cmap('tab10').colors[i % 10]
+
+        bars = ax.bar(x + i*width, y, width, label=m, color=color)
+        # Annotate each bar with its value as a percentage
+        for bar in bars:
+            h = bar.get_height()
+            ax.text(
+                bar.get_x() + bar.get_width()/2,
+                h + 0.005,
+                f'{h*100:.1f}',
+                ha='center', va='bottom',
+                # fontsize=4
+            )
+    ax.set_xticks(x + (width * num_models) / 2)
+    ax.set_xticklabels(subcats, rotation=0, ha='center')
+    ax.set_title(title)
+
+plot_group(ax, cats, 'Accuracy by Semantic Category')
+
+ax.axhline(1/3, color='gray', linestyle=':', linewidth=1.5)
+ax.text(
+    0.01, 1/3 - 0.01,  # Move text slightly below the line
+    'Baseline 33.3%', color='gray',
+    transform=ax.get_yaxis_transform(),
+    va='top', ha='left', fontsize=6
+)
+
+ax.set_ylabel('Accuracy (%)')
+ax.yaxis.set_major_formatter(PercentFormatter(xmax=1))
+ax.set_ylim(0, 1.02)
+
+ax.legend(loc='upper left', bbox_to_anchor=(1,1))
+plt.tight_layout(rect=[0, 0, 1, 0.95])  # leave space at top for the suptitle
+out_png = f'results/plots/experiments/semantic_dimension/{EXP_NAME}.png'
+plt.savefig(out_png, dpi=300)
+plt.show()

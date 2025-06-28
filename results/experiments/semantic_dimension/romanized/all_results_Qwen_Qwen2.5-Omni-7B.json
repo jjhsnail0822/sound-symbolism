@@ -1,0 +1,18 @@
+[
+    {
+        "model": "Qwen/Qwen2.5-Omni-7B",
+        "accuracy": 0.5279211922202577,
+        "correct_count": 52251,
+        "total_count": 98975,
+        "data_path": "data/prompts/semantic_dimension/semantic_dimension_romanized-common.json",
+        "thinking": false
+    },
+    {
+        "model": "Qwen/Qwen2.5-Omni-7B",
+        "accuracy": 0.45661373075983386,
+        "correct_count": 46723,
+        "total_count": 102325,
+        "data_path": "data/prompts/semantic_dimension/semantic_dimension_romanized-rare.json",
+        "thinking": false
+    }
+]

@@ -1,0 +1,66 @@
+[
+    {
+        "model": "google/gemma-3-27b-it",
+        "accuracy": 0.4647713226205192,
+        "correct_count": 376,
+        "total_count": 809,
+        "data_path": "dataset/3_questions/nat/understanding_non_en_pair_matching_no_dialogue/non_en_unmasked_word_to_meaning_mcq_no_dialogue-fr.json",
+        "thinking": false
+    },
+    {
+        "model": "google/gemma-3-27b-it",
+        "accuracy": 0.5030902348578492,
+        "correct_count": 407,
+        "total_count": 809,
+        "data_path": "dataset/3_questions/nat/understanding_non_en_pair_matching_no_dialogue/non_en_masked_meaning_to_word_mcq_no_dialogue-fr.json",
+        "thinking": false
+    },
+    {
+        "model": "google/gemma-3-27b-it",
+        "accuracy": 0.3427362482369535,
+        "correct_count": 486,
+        "total_count": 1418,
+        "data_path": "dataset/3_questions/nat/understanding_non_en_pair_matching_no_dialogue/non_en_unmasked_word_to_meaning_mcq_no_dialogue-ja.json",
+        "thinking": false
+    },
+    {
+        "model": "google/gemma-3-27b-it",
+        "accuracy": 0.5133991537376587,
+        "correct_count": 728,
+        "total_count": 1418,
+        "data_path": "dataset/3_questions/nat/understanding_non_en_pair_matching_no_dialogue/non_en_masked_meaning_to_word_mcq_no_dialogue-ja.json",
+        "thinking": false
+    },
+    {
+        "model": "google/gemma-3-27b-it",
+        "accuracy": 0.34286857371474294,
+        "correct_count": 1714,
+        "total_count": 4999,
+        "data_path": "dataset/3_questions/nat/understanding_non_en_pair_matching_no_dialogue/non_en_unmasked_word_to_meaning_mcq_no_dialogue-ko.json",
+        "thinking": false
+    },
+    {
+        "model": "google/gemma-3-27b-it",
+        "accuracy": 0.3358671734346869,
+        "correct_count": 1679,
+        "total_count": 4999,
+        "data_path": "dataset/3_questions/nat/understanding_non_en_pair_matching_no_dialogue/non_en_masked_meaning_to_word_mcq_no_dialogue-ko.json",
+        "thinking": false
+    },
+    {
+        "model": "google/gemma-3-27b-it",
+        "accuracy": 0.347079988928868,
+        "correct_count": 2508,
+        "total_count": 7226,
+        "data_path": "dataset/3_questions/nat/understanding_non_en_pair_matching_no_dialogue/non_en_unmasked_word_to_meaning_mcq_no_dialogue-cross_language.json",
+        "thinking": false
+    },
+    {
+        "model": "google/gemma-3-27b-it",
+        "accuracy": 0.38153888735123165,
+        "correct_count": 2757,
+        "total_count": 7226,
+        "data_path": "dataset/3_questions/nat/understanding_non_en_pair_matching_no_dialogue/non_en_masked_meaning_to_word_mcq_no_dialogue-cross_language.json",
+        "thinking": false
+    }
+]

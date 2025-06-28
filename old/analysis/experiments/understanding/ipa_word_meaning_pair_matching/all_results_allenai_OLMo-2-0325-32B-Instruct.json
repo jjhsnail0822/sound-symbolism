@@ -1,0 +1,66 @@
+[
+    {
+        "model": "allenai/OLMo-2-0325-32B-Instruct",
+        "accuracy": 0.9576271186440678,
+        "correct_count": 1582,
+        "total_count": 1652,
+        "data_path": "dataset/3_questions/nat/understanding_ipa_pair_matching/ipa_unmasked_word_to_meaning_mcq-en.json",
+        "thinking": false
+    },
+    {
+        "model": "allenai/OLMo-2-0325-32B-Instruct",
+        "accuracy": 0.6828087167070218,
+        "correct_count": 1128,
+        "total_count": 1652,
+        "data_path": "dataset/3_questions/nat/understanding_ipa_pair_matching/ipa_masked_meaning_to_word_mcq-en.json",
+        "thinking": false
+    },
+    {
+        "model": "allenai/OLMo-2-0325-32B-Instruct",
+        "accuracy": 0.8411619283065513,
+        "correct_count": 1361,
+        "total_count": 1618,
+        "data_path": "dataset/3_questions/nat/understanding_ipa_pair_matching/ipa_unmasked_word_to_meaning_mcq-fr.json",
+        "thinking": false
+    },
+    {
+        "model": "allenai/OLMo-2-0325-32B-Instruct",
+        "accuracy": 0.5339925834363412,
+        "correct_count": 864,
+        "total_count": 1618,
+        "data_path": "dataset/3_questions/nat/understanding_ipa_pair_matching/ipa_masked_meaning_to_word_mcq-fr.json",
+        "thinking": false
+    },
+    {
+        "model": "allenai/OLMo-2-0325-32B-Instruct",
+        "accuracy": 0.8515514809590973,
+        "correct_count": 2415,
+        "total_count": 2836,
+        "data_path": "dataset/3_questions/nat/understanding_ipa_pair_matching/ipa_unmasked_word_to_meaning_mcq-ja.json",
+        "thinking": false
+    },
+    {
+        "model": "allenai/OLMo-2-0325-32B-Instruct",
+        "accuracy": 0.44428772919605075,
+        "correct_count": 1260,
+        "total_count": 2836,
+        "data_path": "dataset/3_questions/nat/understanding_ipa_pair_matching/ipa_masked_meaning_to_word_mcq-ja.json",
+        "thinking": false
+    },
+    {
+        "model": "allenai/OLMo-2-0325-32B-Instruct",
+        "accuracy": 0.8499699939987998,
+        "correct_count": 8498,
+        "total_count": 9998,
+        "data_path": "dataset/3_questions/nat/understanding_ipa_pair_matching/ipa_unmasked_word_to_meaning_mcq-ko.json",
+        "thinking": false
+    },
+    {
+        "model": "allenai/OLMo-2-0325-32B-Instruct",
+        "accuracy": 0.35757151430286055,
+        "correct_count": 3575,
+        "total_count": 9998,
+        "data_path": "dataset/3_questions/nat/understanding_ipa_pair_matching/ipa_masked_meaning_to_word_mcq-ko.json",
+        "thinking": false
+    }
+]
