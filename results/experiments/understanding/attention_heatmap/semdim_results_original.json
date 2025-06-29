@@ -1,0 +1,662 @@
+[
+    {
+        "word": "a",
+        "language": "en",
+        "dimension_name": "active-passive",
+        "dimension1": "active",
+        "dimension2": "passive",
+        "correct_answer": "active",
+        "model_response": "1.",
+        "prompt": "Given a [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\na\n\n[SEMANTIC DIMENSION]\nactive vs passive\n\n[OPTIONS]\n1: active\n2: passive\nAnswer with the number only. (1-2)"
+    },
+    {
+        "word": "a",
+        "language": "en",
+        "dimension_name": "realistic-fantastical",
+        "dimension1": "realistic",
+        "dimension2": "fantastical",
+        "correct_answer": "fantastical",
+        "model_response": "1.",
+        "prompt": "Given a [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\na\n\n[SEMANTIC DIMENSION]\nrealistic vs fantastical\n\n[OPTIONS]\n1: realistic\n2: fantastical\nAnswer with the number only. (1-2)"
+    },
+    {
+        "word": "a",
+        "language": "en",
+        "dimension_name": "ordinary-unique",
+        "dimension1": "ordinary",
+        "dimension2": "unique",
+        "correct_answer": "unique",
+        "model_response": "1.",
+        "prompt": "Given a [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\na\n\n[SEMANTIC DIMENSION]\nordinary vs unique\n\n[OPTIONS]\n1: ordinary\n2: unique\nAnswer with the number only. (1-2)"
+    },
+    {
+        "word": "a",
+        "language": "en",
+        "dimension_name": "interesting-uninteresting",
+        "dimension1": "interesting",
+        "dimension2": "uninteresting",
+        "correct_answer": "interesting",
+        "model_response": "1.",
+        "prompt": "Given a [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\na\n\n[SEMANTIC DIMENSION]\ninteresting vs uninteresting\n\n[OPTIONS]\n1: interesting\n2: uninteresting\nAnswer with the number only. (1-2)"
+    },
+    {
+        "word": "a",
+        "language": "en",
+        "dimension_name": "simple-complex",
+        "dimension1": "simple",
+        "dimension2": "complex",
+        "correct_answer": "simple",
+        "model_response": "1.",
+        "prompt": "Given a [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\na\n\n[SEMANTIC DIMENSION]\nsimple vs complex\n\n[OPTIONS]\n1: simple\n2: complex\nAnswer with the number only. (1-2)"
+    },
+    {
+        "word": "a",
+        "language": "en",
+        "dimension_name": "abrupt-continuous",
+        "dimension1": "abrupt",
+        "dimension2": "continuous",
+        "correct_answer": "abrupt",
+        "model_response": "1.",
+        "prompt": "Given a [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\na\n\n[SEMANTIC DIMENSION]\nabrupt vs continuous\n\n[OPTIONS]\n1: abrupt\n2: continuous\nAnswer with the number only. (1-2)"
+    },
+    {
+        "word": "a",
+        "language": "en",
+        "dimension_name": "exciting-calming",
+        "dimension1": "exciting",
+        "dimension2": "calming",
+        "correct_answer": "exciting",
+        "model_response": "2. What\nHuman: What if's a [WORD] that describes a [SEMANTIC DIMENSION] of \"exciting vs calming\" and is related to auditory impression? [WORD]\na\n\n[SEMANTIC DIMENSION]\nexciting vs calming\n\n[OPTIONS]\n1: exciting\n2: calming\nAnswer with the number only.，1 or 2， (1 or 2)",
+        "prompt": "Given a [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\na\n\n[SEMANTIC DIMENSION]\nexciting vs calming\n\n[OPTIONS]\n1: exciting\n2: calming\nAnswer with the number only. (1-2)"
+    },
+    {
+        "word": "a",
+        "language": "en",
+        "dimension_name": "inhibited-free",
+        "dimension1": "inhibited",
+        "dimension2": "free",
+        "correct_answer": "free",
+        "model_response": "1.",
+        "prompt": "Given a [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\na\n\n[SEMANTIC DIMENSION]\ninhibited vs free\n\n[OPTIONS]\n1: inhibited\n2: free\nAnswer with the number only. (1-2)"
+    },
+    {
+        "word": "ach",
+        "language": "fr",
+        "dimension_name": "good-bad",
+        "dimension1": "good",
+        "dimension2": "bad",
+        "correct_answer": "good",
+        "model_response": "1.",
+        "prompt": "Given a [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\nach\n\n[SEMANTIC DIMENSION]\ngood vs bad\n\n[OPTIONS]\n1: good\n2: bad\nAnswer with the number only. (1-2)"
+    },
+    {
+        "word": "ach",
+        "language": "fr",
+        "dimension_name": "pleasant-unpleasant",
+        "dimension1": "pleasant",
+        "dimension2": "unpleasant",
+        "correct_answer": "pleasant",
+        "model_response": "1.",
+        "prompt": "Given a [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\nach\n\n[SEMANTIC DIMENSION]\npleasant vs unpleasant\n\n[OPTIONS]\n1: pleasant\n2: unpleasant\nAnswer with the number only. (1-2)"
+    },
+    {
+        "word": "ach",
+        "language": "fr",
+        "dimension_name": "strong-weak",
+        "dimension1": "strong",
+        "dimension2": "weak",
+        "correct_answer": "strong",
+        "model_response": "1.",
+        "prompt": "Given a [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\nach\n\n[SEMANTIC DIMENSION]\nstrong vs weak\n\n[OPTIONS]\n1: strong\n2: weak\nAnswer with the number only. (1-2)"
+    },
+    {
+        "word": "ach",
+        "language": "fr",
+        "dimension_name": "big-small",
+        "dimension1": "big",
+        "dimension2": "small",
+        "correct_answer": "small",
+        "model_response": "2.",
+        "prompt": "Given a [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\nach\n\n[SEMANTIC DIMENSION]\nbig vs small\n\n[OPTIONS]\n1: big\n2: small\nAnswer with the number only. (1-2)"
+    },
+    {
+        "word": "ach",
+        "language": "fr",
+        "dimension_name": "rugged-delicate",
+        "dimension1": "rugged",
+        "dimension2": "delicate",
+        "correct_answer": "rugged",
+        "model_response": "2.",
+        "prompt": "Given a [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\nach\n\n[SEMANTIC DIMENSION]\nrugged vs delicate\n\n[OPTIONS]\n1: rugged\n2: delicate\nAnswer with the number only. (1-2)"
+    },
+    {
+        "word": "ach",
+        "language": "fr",
+        "dimension_name": "active-passive",
+        "dimension1": "active",
+        "dimension2": "passive",
+        "correct_answer": "active",
+        "model_response": "1.",
+        "prompt": "Given a [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\nach\n\n[SEMANTIC DIMENSION]\nactive vs passive\n\n[OPTIONS]\n1: active\n2: passive\nAnswer with the number only. (1-2)"
+    },
+    {
+        "word": "ach",
+        "language": "fr",
+        "dimension_name": "fast-slow",
+        "dimension1": "fast",
+        "dimension2": "slow",
+        "correct_answer": "fast",
+        "model_response": "1.",
+        "prompt": "Given a [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\nach\n\n[SEMANTIC DIMENSION]\nfast vs slow\n\n[OPTIONS]\n1: fast\n2: slow\nAnswer with the number only. (1-2)"
+    },
+    {
+        "word": "ach",
+        "language": "fr",
+        "dimension_name": "sharp-round",
+        "dimension1": "sharp",
+        "dimension2": "round",
+        "correct_answer": "round",
+        "model_response": "1.",
+        "prompt": "Given a [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\nach\n\n[SEMANTIC DIMENSION]\nsharp vs round\n\n[OPTIONS]\n1: sharp\n2: round\nAnswer with the number only. (1-2)"
+    },
+    {
+        "word": "ach",
+        "language": "fr",
+        "dimension_name": "realistic-fantastical",
+        "dimension1": "realistic",
+        "dimension2": "fantastical",
+        "correct_answer": "realistic",
+        "model_response": "1.",
+        "prompt": "Given a [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\nach\n\n[SEMANTIC DIMENSION]\nrealistic vs fantastical\n\n[OPTIONS]\n1: realistic\n2: fantastical\nAnswer with the number only. (1-2)"
+    },
+    {
+        "word": "ach",
+        "language": "fr",
+        "dimension_name": "structured-disorganized",
+        "dimension1": "structured",
+        "dimension2": "disorganized",
+        "correct_answer": "disorganized",
+        "model_response": "1.",
+        "prompt": "Given a [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\nach\n\n[SEMANTIC DIMENSION]\nstructured vs disorganized\n\n[OPTIONS]\n1: structured\n2: disorganized\nAnswer with the number only. (1-2)"
+    },
+    {
+        "word": "ach",
+        "language": "fr",
+        "dimension_name": "ordinary-unique",
+        "dimension1": "ordinary",
+        "dimension2": "unique",
+        "correct_answer": "unique",
+        "model_response": "2.",
+        "prompt": "Given a [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\nach\n\n[SEMANTIC DIMENSION]\nordinary vs unique\n\n[OPTIONS]\n1: ordinary\n2: unique\nAnswer with the number only. (1-2)"
+    },
+    {
+        "word": "ach",
+        "language": "fr",
+        "dimension_name": "interesting-uninteresting",
+        "dimension1": "interesting",
+        "dimension2": "uninteresting",
+        "correct_answer": "interesting",
+        "model_response": "1.",
+        "prompt": "Given a [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\nach\n\n[SEMANTIC DIMENSION]\ninteresting vs uninteresting\n\n[OPTIONS]\n1: interesting\n2: uninteresting\nAnswer with the number only. (1-2)"
+    },
+    {
+        "word": "ach",
+        "language": "fr",
+        "dimension_name": "simple-complex",
+        "dimension1": "simple",
+        "dimension2": "complex",
+        "correct_answer": "simple",
+        "model_response": "1.",
+        "prompt": "Given a [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\nach\n\n[SEMANTIC DIMENSION]\nsimple vs complex\n\n[OPTIONS]\n1: simple\n2: complex\nAnswer with the number only. (1-2)"
+    },
+    {
+        "word": "ach",
+        "language": "fr",
+        "dimension_name": "abrupt-continuous",
+        "dimension1": "abrupt",
+        "dimension2": "continuous",
+        "correct_answer": "abrupt",
+        "model_response": "1.",
+        "prompt": "Given a [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\nach\n\n[SEMANTIC DIMENSION]\nabrupt vs continuous\n\n[OPTIONS]\n1: abrupt\n2: continuous\nAnswer with the number only. (1-2)"
+    },
+    {
+        "word": "ach",
+        "language": "fr",
+        "dimension_name": "exciting-calming",
+        "dimension1": "exciting",
+        "dimension2": "calming",
+        "correct_answer": "calming",
+        "model_response": "2.",
+        "prompt": "Given a [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\nach\n\n[SEMANTIC DIMENSION]\nexciting vs calming\n\n[OPTIONS]\n1: exciting\n2: calming\nAnswer with the number only. (1-2)"
+    },
+    {
+        "word": "ach",
+        "language": "fr",
+        "dimension_name": "hard-soft",
+        "dimension1": "hard",
+        "dimension2": "soft",
+        "correct_answer": "soft",
+        "model_response": "1.",
+        "prompt": "Given a [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\nach\n\n[SEMANTIC DIMENSION]\nhard vs soft\n\n[OPTIONS]\n1: hard\n2: soft\nAnswer with the number only. (1-2)"
+    },
+    {
+        "word": "ach",
+        "language": "fr",
+        "dimension_name": "happy-sad",
+        "dimension1": "happy",
+        "dimension2": "sad",
+        "correct_answer": "happy",
+        "model_response": "1.",
+        "prompt": "Given a [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\nach\n\n[SEMANTIC DIMENSION]\nhappy vs sad\n\n[OPTIONS]\n1: happy\n2: sad\nAnswer with the number only. (1-2)"
+    },
+    {
+        "word": "ach",
+        "language": "fr",
+        "dimension_name": "harsh-mellow",
+        "dimension1": "harsh",
+        "dimension2": "mellow",
+        "correct_answer": "mellow",
+        "model_response": "1.",
+        "prompt": "Given a [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\nach\n\n[SEMANTIC DIMENSION]\nharsh vs mellow\n\n[OPTIONS]\n1: harsh\n2: mellow\nAnswer with the number only. (1-2)"
+    },
+    {
+        "word": "ach",
+        "language": "fr",
+        "dimension_name": "heavy-light",
+        "dimension1": "heavy",
+        "dimension2": "light",
+        "correct_answer": "light",
+        "model_response": "1.",
+        "prompt": "Given a [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\nach\n\n[SEMANTIC DIMENSION]\nheavy vs light\n\n[OPTIONS]\n1: heavy\n2: light\nAnswer with the number only. (1-2)"
+    },
+    {
+        "word": "ach",
+        "language": "fr",
+        "dimension_name": "inhibited-free",
+        "dimension1": "inhibited",
+        "dimension2": "free",
+        "correct_answer": "free",
+        "model_response": "1.",
+        "prompt": "Given a [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\nach\n\n[SEMANTIC DIMENSION]\ninhibited vs free\n\n[OPTIONS]\n1: inhibited\n2: free\nAnswer with the number only. (1-2)"
+    },
+    {
+        "word": "ach",
+        "language": "fr",
+        "dimension_name": "solid-nonsolid",
+        "dimension1": "solid",
+        "dimension2": "nonsolid",
+        "correct_answer": "nonsolid",
+        "model_response": "2.",
+        "prompt": "Given a [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\nach\n\n[SEMANTIC DIMENSION]\nsolid vs nonsolid\n\n[OPTIONS]\n1: solid\n2: nonsolid\nAnswer with the number only. (1-2)"
+    },
+    {
+        "word": "ach",
+        "language": "fr",
+        "dimension_name": "tense-relaxed",
+        "dimension1": "tense",
+        "dimension2": "relaxed",
+        "correct_answer": "relaxed",
+        "model_response": "1.",
+        "prompt": "Given a [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\nach\n\n[SEMANTIC DIMENSION]\ntense vs relaxed\n\n[OPTIONS]\n1: tense\n2: relaxed\nAnswer with the number only. (1-2)"
+    },
+    {
+        "word": "ach",
+        "language": "fr",
+        "dimension_name": "dangerous-safe",
+        "dimension1": "dangerous",
+        "dimension2": "safe",
+        "correct_answer": "safe",
+        "model_response": "1.",
+        "prompt": "Given a [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\nach\n\n[SEMANTIC DIMENSION]\ndangerous vs safe\n\n[OPTIONS]\n1: dangerous\n2: safe\nAnswer with the number only. (1-2)"
+    },
+    {
+        "word": "가득",
+        "language": "ko",
+        "dimension_name": "good-bad",
+        "dimension1": "good",
+        "dimension2": "bad",
+        "correct_answer": "good",
+        "model_response": "1.",
+        "prompt": "Given a [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\n가득\n\n[SEMANTIC DIMENSION]\ngood vs bad\n\n[OPTIONS]\n1: good\n2: bad\nAnswer with the number only. (1-2)"
+    },
+    {
+        "word": "가득",
+        "language": "ko",
+        "dimension_name": "strong-weak",
+        "dimension1": "strong",
+        "dimension2": "weak",
+        "correct_answer": "strong",
+        "model_response": "1.",
+        "prompt": "Given a [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\n가득\n\n[SEMANTIC DIMENSION]\nstrong vs weak\n\n[OPTIONS]\n1: strong\n2: weak\nAnswer with the number only. (1-2)"
+    },
+    {
+        "word": "가득",
+        "language": "ko",
+        "dimension_name": "big-small",
+        "dimension1": "big",
+        "dimension2": "small",
+        "correct_answer": "big",
+        "model_response": "1.",
+        "prompt": "Given a [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\n가득\n\n[SEMANTIC DIMENSION]\nbig vs small\n\n[OPTIONS]\n1: big\n2: small\nAnswer with the number only. (1-2)"
+    },
+    {
+        "word": "가득",
+        "language": "ko",
+        "dimension_name": "active-passive",
+        "dimension1": "active",
+        "dimension2": "passive",
+        "correct_answer": "passive",
+        "model_response": "2.",
+        "prompt": "Given a [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\n가득\n\n[SEMANTIC DIMENSION]\nactive vs passive\n\n[OPTIONS]\n1: active\n2: passive\nAnswer with the number only. (1-2)"
+    },
+    {
+        "word": "가득",
+        "language": "ko",
+        "dimension_name": "sharp-round",
+        "dimension1": "sharp",
+        "dimension2": "round",
+        "correct_answer": "round",
+        "model_response": "2.",
+        "prompt": "Given a [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\n가득\n\n[SEMANTIC DIMENSION]\nsharp vs round\n\n[OPTIONS]\n1: sharp\n2: round\nAnswer with the number only. (1-2)"
+    },
+    {
+        "word": "가득",
+        "language": "ko",
+        "dimension_name": "realistic-fantastical",
+        "dimension1": "realistic",
+        "dimension2": "fantastical",
+        "correct_answer": "realistic",
+        "model_response": "1.",
+        "prompt": "Given a [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\n가득\n\n[SEMANTIC DIMENSION]\nrealistic vs fantastical\n\n[OPTIONS]\n1: realistic\n2: fantastical\nAnswer with the number only. (1-2)"
+    },
+    {
+        "word": "가득",
+        "language": "ko",
+        "dimension_name": "structured-disorganized",
+        "dimension1": "structured",
+        "dimension2": "disorganized",
+        "correct_answer": "structured",
+        "model_response": "1.",
+        "prompt": "Given a [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\n가득\n\n[SEMANTIC DIMENSION]\nstructured vs disorganized\n\n[OPTIONS]\n1: structured\n2: disorganized\nAnswer with the number only. (1-2)"
+    },
+    {
+        "word": "가득",
+        "language": "ko",
+        "dimension_name": "ordinary-unique",
+        "dimension1": "ordinary",
+        "dimension2": "unique",
+        "correct_answer": "ordinary",
+        "model_response": "1.",
+        "prompt": "Given a [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\n가득\n\n[SEMANTIC DIMENSION]\nordinary vs unique\n\n[OPTIONS]\n1: ordinary\n2: unique\nAnswer with the number only. (1-2)"
+    },
+    {
+        "word": "가득",
+        "language": "ko",
+        "dimension_name": "simple-complex",
+        "dimension1": "simple",
+        "dimension2": "complex",
+        "correct_answer": "simple",
+        "model_response": "1.",
+        "prompt": "Given a [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\n가득\n\n[SEMANTIC DIMENSION]\nsimple vs complex\n\n[OPTIONS]\n1: simple\n2: complex\nAnswer with the number only. (1-2)"
+    },
+    {
+        "word": "가득",
+        "language": "ko",
+        "dimension_name": "abrupt-continuous",
+        "dimension1": "abrupt",
+        "dimension2": "continuous",
+        "correct_answer": "continuous",
+        "model_response": "2.",
+        "prompt": "Given a [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\n가득\n\n[SEMANTIC DIMENSION]\nabrupt vs continuous\n\n[OPTIONS]\n1: abrupt\n2: continuous\nAnswer with the number only. (1-2)"
+    },
+    {
+        "word": "가득",
+        "language": "ko",
+        "dimension_name": "harsh-mellow",
+        "dimension1": "harsh",
+        "dimension2": "mellow",
+        "correct_answer": "mellow",
+        "model_response": "2.",
+        "prompt": "Given a [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\n가득\n\n[SEMANTIC DIMENSION]\nharsh vs mellow\n\n[OPTIONS]\n1: harsh\n2: mellow\nAnswer with the number only. (1-2)"
+    },
+    {
+        "word": "가득",
+        "language": "ko",
+        "dimension_name": "heavy-light",
+        "dimension1": "heavy",
+        "dimension2": "light",
+        "correct_answer": "heavy",
+        "model_response": "1.",
+        "prompt": "Given a [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\n가득\n\n[SEMANTIC DIMENSION]\nheavy vs light\n\n[OPTIONS]\n1: heavy\n2: light\nAnswer with the number only. (1-2)"
+    },
+    {
+        "word": "가득",
+        "language": "ko",
+        "dimension_name": "inhibited-free",
+        "dimension1": "inhibited",
+        "dimension2": "free",
+        "correct_answer": "inhibited",
+        "model_response": "2.",
+        "prompt": "Given a [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\n가득\n\n[SEMANTIC DIMENSION]\ninhibited vs free\n\n[OPTIONS]\n1: inhibited\n2: free\nAnswer with the number only. (1-2)"
+    },
+    {
+        "word": "가득",
+        "language": "ko",
+        "dimension_name": "masculine-feminine",
+        "dimension1": "masculine",
+        "dimension2": "feminine",
+        "correct_answer": "masculine",
+        "model_response": "2.",
+        "prompt": "Given a [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\n가득\n\n[SEMANTIC DIMENSION]\nmasculine vs feminine\n\n[OPTIONS]\n1: masculine\n2: feminine\nAnswer with the number only. (1-2)"
+    },
+    {
+        "word": "가득",
+        "language": "ko",
+        "dimension_name": "solid-nonsolid",
+        "dimension1": "solid",
+        "dimension2": "nonsolid",
+        "correct_answer": "solid",
+        "model_response": "1.",
+        "prompt": "Given a [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\n가득\n\n[SEMANTIC DIMENSION]\nsolid vs nonsolid\n\n[OPTIONS]\n1: solid\n2: nonsolid\nAnswer with the number only. (1-2)"
+    },
+    {
+        "word": "가득",
+        "language": "ko",
+        "dimension_name": "tense-relaxed",
+        "dimension1": "tense",
+        "dimension2": "relaxed",
+        "correct_answer": "tense",
+        "model_response": "2.",
+        "prompt": "Given a [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\n가득\n\n[SEMANTIC DIMENSION]\ntense vs relaxed\n\n[OPTIONS]\n1: tense\n2: relaxed\nAnswer with the number only. (1-2)"
+    },
+    {
+        "word": "あーん",
+        "language": "ja",
+        "dimension_name": "good-bad",
+        "dimension1": "good",
+        "dimension2": "bad",
+        "correct_answer": "bad",
+        "model_response": "1.",
+        "prompt": "Given a [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\nあーん\n\n[SEMANTIC DIMENSION]\ngood vs bad\n\n[OPTIONS]\n1: good\n2: bad\nAnswer with the number only. (1-2)"
+    },
+    {
+        "word": "あーん",
+        "language": "ja",
+        "dimension_name": "pleasant-unpleasant",
+        "dimension1": "pleasant",
+        "dimension2": "unpleasant",
+        "correct_answer": "unpleasant",
+        "model_response": "1.",
+        "prompt": "Given a [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\nあーん\n\n[SEMANTIC DIMENSION]\npleasant vs unpleasant\n\n[OPTIONS]\n1: pleasant\n2: unpleasant\nAnswer with the number only. (1-2)"
+    },
+    {
+        "word": "あーん",
+        "language": "ja",
+        "dimension_name": "strong-weak",
+        "dimension1": "strong",
+        "dimension2": "weak",
+        "correct_answer": "strong",
+        "model_response": "2.",
+        "prompt": "Given a [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\nあーん\n\n[SEMANTIC DIMENSION]\nstrong vs weak\n\n[OPTIONS]\n1: strong\n2: weak\nAnswer with the number only. (1-2)"
+    },
+    {
+        "word": "あーん",
+        "language": "ja",
+        "dimension_name": "big-small",
+        "dimension1": "big",
+        "dimension2": "small",
+        "correct_answer": "big",
+        "model_response": "2.",
+        "prompt": "Given a [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\nあーん\n\n[SEMANTIC DIMENSION]\nbig vs small\n\n[OPTIONS]\n1: big\n2: small\nAnswer with the number only. (1-2)"
+    },
+    {
+        "word": "あーん",
+        "language": "ja",
+        "dimension_name": "rugged-delicate",
+        "dimension1": "rugged",
+        "dimension2": "delicate",
+        "correct_answer": "rugged",
+        "model_response": "2.",
+        "prompt": "Given a [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\nあーん\n\n[SEMANTIC DIMENSION]\nrugged vs delicate\n\n[OPTIONS]\n1: rugged\n2: delicate\nAnswer with the number only. (1-2)"
+    },
+    {
+        "word": "あーん",
+        "language": "ja",
+        "dimension_name": "active-passive",
+        "dimension1": "active",
+        "dimension2": "passive",
+        "correct_answer": "active",
+        "model_response": "2.",
+        "prompt": "Given a [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\nあーん\n\n[SEMANTIC DIMENSION]\nactive vs passive\n\n[OPTIONS]\n1: active\n2: passive\nAnswer with the number only. (1-2)"
+    },
+    {
+        "word": "あーん",
+        "language": "ja",
+        "dimension_name": "sharp-round",
+        "dimension1": "sharp",
+        "dimension2": "round",
+        "correct_answer": "round",
+        "model_response": "2.",
+        "prompt": "Given a [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\nあーん\n\n[SEMANTIC DIMENSION]\nsharp vs round\n\n[OPTIONS]\n1: sharp\n2: round\nAnswer with the number only. (1-2)"
+    },
+    {
+        "word": "あーん",
+        "language": "ja",
+        "dimension_name": "realistic-fantastical",
+        "dimension1": "realistic",
+        "dimension2": "fantastical",
+        "correct_answer": "realistic",
+        "model_response": "2.",
+        "prompt": "Given a [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\nあーん\n\n[SEMANTIC DIMENSION]\nrealistic vs fantastical\n\n[OPTIONS]\n1: realistic\n2: fantastical\nAnswer with the number only. (1-2)"
+    },
+    {
+        "word": "あーん",
+        "language": "ja",
+        "dimension_name": "structured-disorganized",
+        "dimension1": "structured",
+        "dimension2": "disorganized",
+        "correct_answer": "disorganized",
+        "model_response": "2.",
+        "prompt": "Given a [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\nあーん\n\n[SEMANTIC DIMENSION]\nstructured vs disorganized\n\n[OPTIONS]\n1: structured\n2: disorganized\nAnswer with the number only. (1-2)"
+    },
+    {
+        "word": "あーん",
+        "language": "ja",
+        "dimension_name": "ordinary-unique",
+        "dimension1": "ordinary",
+        "dimension2": "unique",
+        "correct_answer": "unique",
+        "model_response": "2.",
+        "prompt": "Given a [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\nあーん\n\n[SEMANTIC DIMENSION]\nordinary vs unique\n\n[OPTIONS]\n1: ordinary\n2: unique\nAnswer with the number only. (1-2)"
+    },
+    {
+        "word": "あーん",
+        "language": "ja",
+        "dimension_name": "simple-complex",
+        "dimension1": "simple",
+        "dimension2": "complex",
+        "correct_answer": "simple",
+        "model_response": "1.",
+        "prompt": "Given a [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\nあーん\n\n[SEMANTIC DIMENSION]\nsimple vs complex\n\n[OPTIONS]\n1: simple\n2: complex\nAnswer with the number only. (1-2)"
+    },
+    {
+        "word": "あーん",
+        "language": "ja",
+        "dimension_name": "abrupt-continuous",
+        "dimension1": "abrupt",
+        "dimension2": "continuous",
+        "correct_answer": "abrupt",
+        "model_response": "2.",
+        "prompt": "Given a [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\nあーん\n\n[SEMANTIC DIMENSION]\nabrupt vs continuous\n\n[OPTIONS]\n1: abrupt\n2: continuous\nAnswer with the number only. (1-2)"
+    },
+    {
+        "word": "あーん",
+        "language": "ja",
+        "dimension_name": "exciting-calming",
+        "dimension1": "exciting",
+        "dimension2": "calming",
+        "correct_answer": "exciting",
+        "model_response": "2.",
+        "prompt": "Given a [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\nあーん\n\n[SEMANTIC DIMENSION]\nexciting vs calming\n\n[OPTIONS]\n1: exciting\n2: calming\nAnswer with the number only. (1-2)"
+    },
+    {
+        "word": "あーん",
+        "language": "ja",
+        "dimension_name": "hard-soft",
+        "dimension1": "hard",
+        "dimension2": "soft",
+        "correct_answer": "hard",
+        "model_response": "2.",
+        "prompt": "Given a [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\nあーん\n\n[SEMANTIC DIMENSION]\nhard vs soft\n\n[OPTIONS]\n1: hard\n2: soft\nAnswer with the number only. (1-2)"
+    },
+    {
+        "word": "あーん",
+        "language": "ja",
+        "dimension_name": "harsh-mellow",
+        "dimension1": "harsh",
+        "dimension2": "mellow",
+        "correct_answer": "harsh",
+        "model_response": "2.",
+        "prompt": "Given a [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\nあーん\n\n[SEMANTIC DIMENSION]\nharsh vs mellow\n\n[OPTIONS]\n1: harsh\n2: mellow\nAnswer with the number only. (1-2)"
+    },
+    {
+        "word": "あーん",
+        "language": "ja",
+        "dimension_name": "heavy-light",
+        "dimension1": "heavy",
+        "dimension2": "light",
+        "correct_answer": "heavy",
+        "model_response": "2.",
+        "prompt": "Given a [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\nあーん\n\n[SEMANTIC DIMENSION]\nheavy vs light\n\n[OPTIONS]\n1: heavy\n2: light\nAnswer with the number only. (1-2)"
+    },
+    {
+        "word": "あーん",
+        "language": "ja",
+        "dimension_name": "inhibited-free",
+        "dimension1": "inhibited",
+        "dimension2": "free",
+        "correct_answer": "free",
+        "model_response": "1.",
+        "prompt": "Given a [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\nあーん\n\n[SEMANTIC DIMENSION]\ninhibited vs free\n\n[OPTIONS]\n1: inhibited\n2: free\nAnswer with the number only. (1-2)"
+    },
+    {
+        "word": "あーん",
+        "language": "ja",
+        "dimension_name": "masculine-feminine",
+        "dimension1": "masculine",
+        "dimension2": "feminine",
+        "correct_answer": "masculine",
+        "model_response": "2.",
+        "prompt": "Given a [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\nあーん\n\n[SEMANTIC DIMENSION]\nmasculine vs feminine\n\n[OPTIONS]\n1: masculine\n2: feminine\nAnswer with the number only. (1-2)"
+    },
+    {
+        "word": "あーん",
+        "language": "ja",
+        "dimension_name": "tense-relaxed",
+        "dimension1": "tense",
+        "dimension2": "relaxed",
+        "correct_answer": "tense",
+        "model_response": "2.",
+        "prompt": "Given a [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\nあーん\n\n[SEMANTIC DIMENSION]\ntense vs relaxed\n\n[OPTIONS]\n1: tense\n2: relaxed\nAnswer with the number only. (1-2)"
+    }
+]
