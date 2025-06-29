@@ -460,6 +460,12 @@ class SemanticDimensionHeatmapPlotter:
         """Batch plot from all available pkl files for a language"""
         pkl_files = self.list_available_pkl_files(lang)
         
+        if not pkl_files:
+            print(f"No pickle files found for language {lang}")
+            return
+        
+        print(f"Found {len(pkl_files)} pickle files to process for language {lang}")
+        
         for pkl_file in tqdm(pkl_files, desc=f"Processing {lang} files"):
             try:
                 # Parse filename to extract word_tokens, dimension1, dimension2
@@ -478,6 +484,43 @@ class SemanticDimensionHeatmapPlotter:
             except Exception as e:
                 print(f"Error processing {pkl_file}: {e}")
                 continue
+    
+    def auto_process_all_languages(self, layer_type="self", head=0, layer=0, data_type="audio"):
+        """Automatically process all available languages"""
+        available_languages = []
+        
+        # Check which languages have pickle files
+        for lang in ["en", "fr", "ko", "ja"]:
+            pkl_dir = os.path.join(self.output_dir, self.exp_type, self.data_type, lang)
+            if os.path.exists(pkl_dir) and os.listdir(pkl_dir):
+                available_languages.append(lang)
+        
+        if not available_languages:
+            print("No pickle files found in any language directory")
+            return
+        
+        print(f"Found pickle files for languages: {available_languages}")
+        
+        for lang in available_languages:
+            print(f"\nProcessing language: {lang}")
+            self.batch_plot_from_pkl(lang, layer_type, head, layer, data_type)
+    
+    def get_processing_summary(self):
+        """Get a summary of available pickle files and their status"""
+        summary = {}
+        
+        for lang in ["en", "fr", "ko", "ja"]:
+            pkl_dir = os.path.join(self.output_dir, self.exp_type, self.data_type, lang)
+            if os.path.exists(pkl_dir):
+                pkl_files = [f for f in os.listdir(pkl_dir) if f.endswith('.pkl')]
+                summary[lang] = {
+                    'total_files': len(pkl_files),
+                    'files': pkl_files[:10] if len(pkl_files) > 10 else pkl_files  # Show first 10 files
+                }
+            else:
+                summary[lang] = {'total_files': 0, 'files': []}
+        
+        return summary
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Semantic Dimension Heatmap Plotter")
@@ -498,6 +541,10 @@ if __name__ == "__main__":
                        help="Layer index")
     parser.add_argument('--batch-mode', action='store_true', 
                        help="Process all available pkl files in batch mode")
+    parser.add_argument('--auto-process-all', action='store_true', 
+                       help="Automatically process all available languages")
+    parser.add_argument('--summary', action='store_true', 
+                       help="Show summary of available pickle files")
     parser.add_argument('--word-tokens', type=str, default=None, 
                        help="Specific word tokens to plot")
     parser.add_argument('--dimension1', type=str, default=None, 
@@ -521,8 +568,29 @@ if __name__ == "__main__":
         data_type=args.data_type
     )
     
-    if args.batch_mode:
-        # Batch process all available pkl files
+    if args.summary:
+        # Show summary of available files
+        print("\n=== Processing Summary ===")
+        summary = plotter.get_processing_summary()
+        for lang, info in summary.items():
+            print(f"{lang}: {info['total_files']} files")
+            if info['files']:
+                print(f"  Sample files: {info['files'][:3]}...")
+        print()
+    
+    elif args.auto_process_all:
+        # Automatically process all available languages
+        print("\n=== Auto-processing all available languages ===")
+        plotter.auto_process_all_languages(
+            layer_type=args.layer_type, 
+            head=args.head, 
+            layer=args.layer, 
+            data_type=args.data_type
+        )
+    
+    elif args.batch_mode:
+        # Batch process specified languages
+        print("\n=== Batch processing specified languages ===")
         for lang in args.languages:
             print(f"\nProcessing language: {lang}")
             plotter.batch_plot_from_pkl(
@@ -532,9 +600,11 @@ if __name__ == "__main__":
                 layer=args.layer, 
                 data_type=args.data_type
             )
+    
     else:
         # Process specific word and dimensions
         if args.word_tokens and args.dimension1 and args.dimension2:
+            print(f"\n=== Processing specific word: {args.word_tokens} ===")
             plotter.plot_from_pkl(
                 word_tokens=args.word_tokens,
                 dimension1=args.dimension1,
@@ -546,8 +616,11 @@ if __name__ == "__main__":
                 data_type=args.data_type
             )
         else:
-            print("Please provide --word-tokens, --dimension1, and --dimension2 for specific plotting")
-            print("Or use --batch-mode to process all available files")
+            print("Please provide one of the following options:")
+            print("  --summary: Show summary of available pickle files")
+            print("  --auto-process-all: Process all available languages automatically")
+            print("  --batch-mode: Process all files for specified languages")
+            print("  --word-tokens, --dimension1, --dimension2: Process specific word")
     
     print(f"\nPlotting completed!")
     print(f"Results saved to: {args.output_dir}") 

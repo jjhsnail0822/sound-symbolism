@@ -19,7 +19,6 @@ old/analysis/experiments/understanding/word_meaning_pair_matching_no_dialogue/un
 data/processed/nat/clustering/*.pkl
 data/raw/dictionaries/
 results/experiments/understanding/**/[^a]*.json
-data/processed/nat/tts/**/*.wav
 data/processed/nat/semantic_dimension/semantic_dimension_gt_*.json
 audio-flamingo/
 results/experiments/word_meaning_matching/**/[^a]*.json
@@ -27,7 +26,7 @@ results/experiments/word_meaning_matching_without_auditory_impression/**/[^a]*.j
 results/experiments/semantic_dimension/**/[^a]*.json
 data/prompts/semantic_dimension/
 data/prompts/word_meaning_matching_without_auditory_impression/
-data/processed/nat/tts
+data/processed/nat/tts/
 src/analysis/heatmap/plots/
 slurm-*.out
 results/experiments/understanding/attention_heatmap/semantic_dimension/*/en/*.pkl
