@@ -1,4 +1,5 @@
 # Model : Qwen2.5-Omni-7B
+# python src/analysis/heatmap/semdim_heatmap.py --max-samples 5000 --languages en
 import json
 import re
 import os
@@ -6,19 +7,11 @@ import argparse
 import pickle as pkl
 from typing import Union
 import warnings
-# Suppress matplotlib UserWarnings globally
-warnings.filterwarnings("ignore", category=UserWarning, module="matplotlib")
-import seaborn as sns
 import numpy as np
 from transformers import Qwen2_5OmniForConditionalGeneration, Qwen2_5OmniProcessor
 import torch
-import matplotlib.pyplot as plt
-import matplotlib
-import matplotlib.font_manager as fm
 from tqdm import tqdm
 from qwen_omni_utils import process_mm_info
-# Import the new heatmap plotting module
-from heatmap_plot import SemanticDimensionHeatmapPlotter, set_font_for_language
 
 language = ["en", "fr", "ko", "ja"]
 data_types = ["original", "romanized", "ipa", "audio"]
@@ -30,6 +23,7 @@ phoneme_mean_map = None # TODO
 data_type = "audio" # Change into argparse later, with "audio", "original", "romanized", "ipa"
 with open(prompt_path, "r") as f:
     prompts = json.load(f)
+
 class QwenOmniSemanticDimensionVisualizer:
     def __init__(
             self,
@@ -535,67 +529,19 @@ class QwenOmniSemanticDimensionVisualizer:
         return computed_matrix
     
     def inference_with_hooks(self, word, lang, constructed_prompt, dim1, dim2, answer, data, dimension_name):
-        # print(f"Starting inference_with_hooks function")
-        """Main inference function with attention extraction and visualization"""
-        # print(f"Processing word: {data['word']}, language: {data['language']}")
-        # print(f"Constructed prompt: {constructed_prompt}")
-        # print(f"Dimension1: {dim1}, Dimension2: {dim2}, Answer: {answer}")
-        # print(f"Dimension Name: {dimension_name}")
+        """Main inference function with attention extraction and matrix saving"""
         # Get attention matrix
         attentions, tokens, inputs = self.get_attention_matrix(constructed_prompt, data)
+        
         # Extract word and option tokens
         word_tokens = data['word']
         option_tokens = [dim1, dim2]
+        
         # Save attention matrix
         self.save_matrix(attentions, dim1, dim2, answer, word_tokens, option_tokens, "self", lang, tokens)
         
-        # Initialize heatmap plotter for visualization
-        plotter = SemanticDimensionHeatmapPlotter(
-            output_dir=self.output_dir,
-            exp_type=self.exp_type,
-            data_type=self.data_type,
-            phoneme_mean_map=phoneme_mean_map
-        )
-        
-        # Generate heatmaps for all layers and calculate average
-        num_layers = len(attentions)
-        all_layer_matrices = []
-        # Process all layers for heatmaps
-        for layer in range(num_layers):
-            # Get attention matrix for this layer
-            # attentions[layer] shape: [batch, seq_len, seq_len] or [seq_len, seq_len]
-            layer_attention = attentions[layer][0] if attentions[layer].ndim == 3 else attentions[layer]
-            # Filter and compute matrix for this layer
-            filtered_matrix, row_indices, col_indices = self.filter_relevant_indices(
-                layer_attention, tokens, tokens, word_tokens, option_tokens, dim1, dim2, answer, "self"
-            )
-            computed_matrix = self.matrix_computation(filtered_matrix, "heatmap", 0, layer, phoneme_mean_map)
-            # Convert to numpy for averaging
-            if hasattr(computed_matrix, 'cpu'):
-                computed_matrix_np = computed_matrix.float().cpu().numpy()
-            elif hasattr(computed_matrix, 'numpy'):
-                computed_matrix_np = computed_matrix.numpy()
-            else:
-                computed_matrix_np = np.array(computed_matrix)
-            all_layer_matrices.append(computed_matrix_np)
-            # Plot heatmap for this layer using the plotter
-            plotter.plot_heatmap(
-                layer_attention, tokens, dim1, dim2, answer, word_tokens, option_tokens,
-                data_type=self.data_type, layer_type="self", head=0, layer=layer, lang=lang
-            )
-        # Calculate and plot average heatmap
-        if all_layer_matrices:
-            avg_matrix = np.mean(np.stack(all_layer_matrices), axis=0)
-            plotter.plot_average_heatmap(
-                avg_matrix, tokens, dim1, dim2, answer, word_tokens, option_tokens,
-                data_type=self.data_type, layer_type="self", lang=lang
-            )
-        # Plot attention flow across layers
-        plotter.plot_flow(
-            attentions, tokens, dim1, dim2, answer, word_tokens, option_tokens,
-            data_type=self.data_type, layer_type="self", lang=lang
-        )
-        # print(f"Ending inference_with_hooks function")
+        print(f"Saved attention matrix for {word_tokens} - {dim1}-{dim2} to pickle file")
+
 if __name__ == "__main__":
     import argparse
     
@@ -656,22 +602,24 @@ if __name__ == "__main__":
     
     # Process samples
     processed_count = 0
-    for lang in args.languages:
+    languages = args.languages[0].split(",")
+    
+    for lang in languages:
         print(f"\nProcessing language: {lang}")
-        
+        # breakpoint()
         # Filter samples for this language
-        lang_samples = [sample for sample in data if sample.get("language") == lang]
-        print(f"Found {len(lang_samples)} samples for language {lang}")
+        lang_data = data[lang]
+        print(f"Found {len(lang_data)} samples for language {lang}")
         
         if args.max_samples:
-            lang_samples = lang_samples[:args.max_samples]
-            print(f"Limiting to {len(lang_samples)} samples")
+            lang_data = lang_data[:args.max_samples]
+            print(f"Limiting to {len(lang_data)} samples")
         
-        for sample_idx, sample in enumerate(tqdm(lang_samples, desc=f"Processing {lang}")):
+        for sample_idx, sample in enumerate(tqdm(lang_data, desc=f"Processing {lang}")):
             try:
                 # Process each dimension for this sample
                 for dimension_name in sample.get("dimensions", {}):
-                    print(f"\nProcessing sample {sample_idx + 1}/{len(lang_samples)} - {sample['word']} - {dimension_name}")
+                    print(f"\nProcessing sample {sample_idx + 1}/{len(lang_data)} - {sample['word']} - {dimension_name}")
                     
                     # Construct prompt and get dimension info
                     constructed_prompt, dim1, dim2, answer, word, dim_name = visualizer.prmpt_dims_answrs(
