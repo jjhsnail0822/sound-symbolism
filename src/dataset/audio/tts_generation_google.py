@@ -4,25 +4,32 @@ from gtts import gTTS
 from pydub import AudioSegment
 from tqdm import tqdm
 
+# word type: `art`(artificial) or `nat`(natural)
+WORD_TYPE= 'art'
 # List of languages to process
 # langs = ['en', 'fr', 'ja', 'ko']
 langs = ['ko']
 # Base path for the output audio files
-OUTPUT_BASE_PATH = 'data/processed/nat/tts'
+OUTPUT_BASE_PATH = f'data/processed/{WORD_TYPE}/tts'
 
 class TTSGenerator:
     """
     A class to generate Text-to-Speech audio using gTTS
     and save it as a WAV file.
     """
-    def __init__(self, language):
+    def __init__(self, language, output_path:str = None):
         """
         Initializes the TTSGenerator.
         Args:
             language (str): The language for TTS generation (e.g., 'en', 'ko').
         """
         self.language = language
-        self.output_path = f"{OUTPUT_BASE_PATH}/{self.language}"
+        self.output_path = output_path
+
+        if self.output_path is None:
+            self.output_path = f"{OUTPUT_BASE_PATH}/{self.language}"
+
+           
 
     def generate(self, text):
         """
@@ -58,26 +65,41 @@ class TTSGenerator:
 
 # Main script execution
 if __name__ == "__main__":
-    # Loop through each language
-    for lang in langs:
-        # Create the output directory for the language if it doesn't exist
-        lang_output_path = f"{OUTPUT_BASE_PATH}/{lang}"
-        os.makedirs(lang_output_path, exist_ok=True)
+    if WORD_TYPE == 'nat':
+        # Loop through each language
+        for lang in langs:
+            # Create the output directory for the language if it doesn't exist
+            lang_output_path = f"{OUTPUT_BASE_PATH}/{lang}"
+            os.makedirs(lang_output_path, exist_ok=True)
 
-        # Load the corresponding JSON data file
-        json_path = f'data/processed/nat/{lang}.json'
-        if not os.path.exists(json_path):
-            print(f"Warning: JSON file not found at {json_path}. Skipping language {lang}.")
-            continue
+            # Load the corresponding JSON data file
+            json_path = f'data/processed/nat/{lang}.json'
+            if not os.path.exists(json_path):
+                print(f"Warning: JSON file not found at {json_path}. Skipping language {lang}.")
+                continue
+                
+            with open(json_path, 'r') as f:
+                data = json.load(f)
+                
+            # Initialize the TTS generator for the current language
+            tts = TTSGenerator(lang)
             
-        with open(json_path, 'r') as f:
-            data = json.load(f)
-            
-        # Initialize the TTS generator for the current language
-        tts = TTSGenerator(lang)
+            # Generate audio for each word in the data
+            for item in tqdm(data, desc=f"Generating TTS for {lang}"):
+                if 'word' in item:
+                    tts.generate(item['word'])
+                else:
+                    print(f"Warning: 'word' key not found in item: {item}")
+    elif WORD_TYPE=='art':
+        os.makedirs(OUTPUT_BASE_PATH, exist_ok=True)
+        json_path ='data/processed/art/art_nonword.json'
         
-        # Generate audio for each word in the data
-        for item in tqdm(data, desc=f"Generating TTS for {lang}"):
+        with open(json_path, 'r', encoding='utf-8') as f:
+            data = json.load(f)
+
+        tts = TTSGenerator('en', output_path = OUTPUT_BASE_PATH)
+
+        for item in tqdm(data, desc='Generating TTS for artificial nonwords'):
             if 'word' in item:
                 tts.generate(item['word'])
             else:
