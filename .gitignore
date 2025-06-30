@@ -30,3 +30,10 @@ data/processed/nat/tts/
 src/analysis/heatmap/plots/
 slurm-*.out
 results/experiments/understanding/attention_heatmap/semantic_dimension/*/en/*.pkl
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.pdf
+*.pkl
+*.wav
