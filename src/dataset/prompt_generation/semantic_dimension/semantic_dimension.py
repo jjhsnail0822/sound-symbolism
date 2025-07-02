@@ -8,7 +8,7 @@ random.seed(42)
 WORD_GROUPS = ["common", "rare"]
 LANGUAGES = ["en", "fr", "ja", "ko"]
 
-def generate_datasets(word_group, task, experiment_name, input_dir, output_dir, prompts_file):
+def generate_datasets(word_group, task, experiment_name, input_dir, input_dir_constructed, output_dir, prompts_file):
     WORD_GROUP = word_group
     TASK = task
     EXPERIMENT_NAME = experiment_name
@@ -35,10 +35,13 @@ def generate_datasets(word_group, task, experiment_name, input_dir, output_dir, 
          return
     
     # Load the semantic dimension gt
-    if 'binary' in EXPERIMENT_NAME:
-        gt_file_path = os.path.join(input_dir, f"semantic_dimension_binary_gt.json")
-    else:
-        gt_file_path = os.path.join(input_dir, f"semantic_dimension_gt.json")
+    if word_group == "constructed":
+        gt_file_path = os.path.join(input_dir_constructed, f"semantic_dimension_binary_gt.json")
+    else: # common or rare
+        if 'binary' in EXPERIMENT_NAME:
+            gt_file_path = os.path.join(input_dir, f"semantic_dimension_binary_gt.json")
+        else:
+            gt_file_path = os.path.join(input_dir, f"semantic_dimension_gt.json")
     try:
         with open(gt_file_path, 'r', encoding='utf-8') as f:
             semantic_dimension_gt = json.load(f)
@@ -92,7 +95,7 @@ def generate_datasets(word_group, task, experiment_name, input_dir, output_dir, 
                     if 'ipa' not in subject_word_info:
                         print(f"Warning: 'ipa' field not found for word '{word_text}' in EXPERIMENT_NAME '{EXPERIMENT_NAME}'. Using the word itself as a fallback.")
                 elif "audio" in EXPERIMENT_NAME:
-                    word_for_prompt = AUDIO_TOKEN
+                    word_for_prompt = ""
                 else:
                     # Fallback for experiment names not explicitly handled, though ideally all should be.
                     print(f"Warning: Experiment name '{EXPERIMENT_NAME}' does not explicitly define word type. Defaulting to word text for 'word' field in prompt.")
@@ -101,6 +104,7 @@ def generate_datasets(word_group, task, experiment_name, input_dir, output_dir, 
                 try:
                     question = prompt_template.format(
                         word=word_for_prompt,
+                        audio=AUDIO_TOKEN,
                         dimension1=dimension1,
                         dimension2=dimension2,
                     )
@@ -150,6 +154,8 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Generate Word <-> Meaning MCQ questions using predefined distractors.")
     parser.add_argument("--input_dir", "-i", type=str, default="data/processed/nat/semantic_dimension",
                         help="Directory containing the semantic dimension ground truth file.")
+    parser.add_argument("--input_dir_constructed", "-ic", type=str, default="data/processed/art/semantic_dimension",
+                        help="Directory containing the semantic dimension ground truth file for constructed words.")
     parser.add_argument("--output_dir", "-o", type=str, default="data/prompts/semantic_dimension",
                         help="Directory to save the generated question files.")
     parser.add_argument("--prompts_file", "-p", type=str, default="data/prompts/prompts.json",
@@ -159,14 +165,17 @@ if __name__ == "__main__":
     # Define the experiments to generate
     experiments = {
         "semantic_dimension": [
-            "semantic_dimension_original",
-            "semantic_dimension_romanized",
-            "semantic_dimension_ipa",
-            "semantic_dimension_audio",
+            # "semantic_dimension_original",
+            # "semantic_dimension_romanized",
+            # "semantic_dimension_ipa",
+            # "semantic_dimension_audio",
             "semantic_dimension_binary_original",
             "semantic_dimension_binary_romanized",
             "semantic_dimension_binary_ipa",
             "semantic_dimension_binary_audio",
+            "semantic_dimension_binary_original_and_audio",
+            "semantic_dimension_binary_romanized_and_audio",
+            "semantic_dimension_binary_ipa_and_audio",
         ]
     }
 
@@ -178,6 +187,7 @@ if __name__ == "__main__":
                     task=task,
                     experiment_name=exp_name,
                     input_dir=args.input_dir,
+                    input_dir_constructed=args.input_dir_constructed,
                     output_dir=args.output_dir,
                     prompts_file=args.prompts_file
                 )
