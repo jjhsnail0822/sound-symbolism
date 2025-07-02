@@ -28,7 +28,7 @@ class QwenOmniSemanticDimensionVisualizer:
     def __init__(
             self,
             model_path:str,
-            data_path:str="data/processed/nat/semantic_dimension/semantic_dimension_binary_gt.json",
+            data_path:str=data_path,
             output_dir:str="results/experiments/understanding/attention_heatmap",
             exp_type:str="semantic_dimension",
             data_type:str="audio",
@@ -42,7 +42,6 @@ class QwenOmniSemanticDimensionVisualizer:
         self.exp_type = exp_type
         self.max_tokens = max_tokens
         self.temperature = temperature
-        # Create output directory if it doesn't exist
         os.makedirs(self.output_dir, exist_ok=True)
         
         self.model = Qwen2_5OmniForConditionalGeneration.from_pretrained(
@@ -88,27 +87,20 @@ class QwenOmniSemanticDimensionVisualizer:
             dimension1=dimension1,
             dimension2=dimension2,
         )
-        # print(f"[Prompt] {constructed_prompt}")
         return constructed_prompt, dimension1, dimension2, answer, word, dimension_name
     
     def get_attention_matrix(self, prompt:str, data:dict):
-        """Extract attention matrix from the model"""
-        # Create conversation format
         if self.data_type == "audio":
             audio_path = f'data/processed/nat/tts/{data["language"]}/{data["word"]}.wav'
-            # Check if audio file exists
             if not os.path.exists(audio_path):
                 raise FileNotFoundError(f"Audio file not found: {audio_path}")
             
-            # Split prompt to insert audio in the middle (similar to MCQ format)
             if "<AUDIO>" in prompt:
-                # If prompt already has AUDIO placeholder
                 question_parts = prompt.split("<AUDIO>")
                 if len(question_parts) == 2:
                     question_first_part = question_parts[0]
                     question_second_part = question_parts[1]
                 else:
-                    # If no AUDIO placeholder, insert audio after the word
                     word_placeholder = "{word}"
                     if word_placeholder in prompt:
                         parts = prompt.split(word_placeholder)
@@ -118,7 +110,6 @@ class QwenOmniSemanticDimensionVisualizer:
                         question_first_part = prompt
                         question_second_part = ""
             else:
-                # Insert audio after the word
                 word_placeholder = "{word}"
                 if word_placeholder in prompt:
                     parts = prompt.split(word_placeholder)
@@ -173,8 +164,6 @@ class QwenOmniSemanticDimensionVisualizer:
             use_audio_in_video=USE_AUDIO_IN_VIDEO
         )
         inputs = inputs.to(self.model.device).to(self.model.dtype)
-        
-        # Get attention matrices
         with torch.no_grad():
             thinker_model = self.model.thinker.model
             outputs = thinker_model(
@@ -197,17 +186,27 @@ class QwenOmniSemanticDimensionVisualizer:
         cleaned_tokens = [self._clean_token(t) for t in tokens]
         cleaned_target = [self._clean_token(t) for t in target_subtokens]
         matches = []
-        for i in range(len(cleaned_tokens) - len(cleaned_target) + 1):
-            if cleaned_tokens[i:i+len(cleaned_target)] == cleaned_target:
-                matches.append(list(range(i, i+len(cleaned_target))))
+        # Join target for robust matching
+        joined_target = ''.join(cleaned_target)
+        target_len = len(cleaned_target)
+        for i in range(len(cleaned_tokens) - target_len + 1):
+            # Join the window of tokens
+            window = cleaned_tokens[i:i+target_len]
+            joined_window = ''.join(window)
+            if joined_window == joined_target:
+                matches.append(list(range(i, i+target_len)))
+        # Fallback: try to match by joining all target_subtokens and sliding over tokens
+        if not matches and target_len > 1:
+            for i in range(len(cleaned_tokens)):
+                for j in range(i+1, len(cleaned_tokens)+1):
+                    window = cleaned_tokens[i:j]
+                    joined_window = ''.join(window)
+                    if joined_window == joined_target:
+                        matches.append(list(range(i, j)))
+                        break
         return matches
 
     def find_tag_spans(self, tokens, tag_string, max_window=5):
-        """
-        tokens: list of tokens
-        tag_string: e.g. 'WORD', 'SEMANTICDIMENSION', 'OPTIONS'
-        Returns: list of [start, end] (inclusive) index spans where the tag appears
-        """
         cleaned_tokens = [self._clean_token(t) for t in tokens]
         tag_string = tag_string.replace(" ", "").upper()
         matches = []
@@ -262,15 +261,7 @@ class QwenOmniSemanticDimensionVisualizer:
         return relevant_indices, word_span, dim1_indices, dim2_indices, word_indices
     
     def save_matrix(self, attention_matrix, dimension1, dimension2, answer, word_tokens, option_tokens, layer_type="self", lang="en", tokens=None, relevant_indices=None):
-        """Save matrix as pickle file
-        # Composition
-        - Matrix array
-        - dimension1, dimension2, answer
-        - corresponding word tokens with index
-        - corresponding option tokens with index
-        - tokens (for visualization)
-        - relevant_indices (추가)
-        """
+
         matrix_data = {
             "attention_matrix": attention_matrix,
             "dimension1": dimension1,
@@ -320,15 +311,6 @@ class QwenOmniSemanticDimensionVisualizer:
         return attention_matrix, dimension1, dimension2, answer, word_tokens, option_tokens
     
     def find_token_indices(self, tokens, target_tokens):
-        """Find indices of target tokens in the token list
-        
-        Args:
-            tokens: List of tokens from the model
-            target_tokens: List of target tokens to find (can be multi-token sequences)
-        
-        Returns:
-            List of indices where target tokens are found
-        """
         indices = []
         
         # Helper function to clean token (remove "Ġ" and check if it's a special token)
@@ -575,6 +557,7 @@ class QwenOmniSemanticDimensionVisualizer:
         return computed_matrix
     
     def inference_with_hooks(self, word, lang, constructed_prompt, dim1, dim2, answer, data, dimension_name):
+        # Get forward pass attention (existing functionality)
         attentions, tokens, inputs = self.get_attention_matrix(constructed_prompt, data)
         relevant_indices, word_span, dim1_indices, dim2_indices, word_indices = self.extract_relevant_token_indices(tokens, dim1, dim2, word=data['word'])
         if isinstance(attentions, tuple):
@@ -584,6 +567,483 @@ class QwenOmniSemanticDimensionVisualizer:
         attn_filtered = attention_matrix[:, :, relevant_indices][:, :, :, relevant_indices]
         self.save_matrix(attn_filtered, dim1, dim2, answer, data['word'], [dim1, dim2], "self", lang, tokens, relevant_indices)
         print(f"Saved filtered attention matrix for {data['word']} - {dim1}-{dim2} to pickle file")
+        
+        print(f"Extracting generation attention for {data['word']} - {dim1}-{dim2}...")
+        generation_attentions, generation_tokens, generation_inputs, final_input_ids, generated_text = self.get_generation_attention_matrix(
+            constructed_prompt, data, max_new_tokens=self.max_tokens
+        )
+        
+        # Save generation attention matrix (filtered)
+        self.save_generation_attention_matrix(
+            generation_attentions, dim1, dim2, answer, data['word'], [dim1, dim2], lang, generation_tokens, final_input_ids, generation_tokens
+        )
+        
+        # Analyze generation attention patterns
+        generation_analysis = self.extract_generation_attention_analysis(
+            generation_attentions, generation_tokens, answer, dim1, dim2, data['word']
+        )
+        
+        # Save generation attention analysis
+        self.save_generation_attention_analysis(
+            generation_analysis, dim1, dim2, answer, data['word'], [dim1, dim2], lang, generation_tokens, generated_text
+        )
+        print(f"Saved generation attention analysis for {data['word']} - {dim1}-{dim2}")
+
+    def get_generation_attention_matrix(self, prompt: str, data: dict, max_new_tokens: int = 32):
+        """Extract attention matrix during text generation (autoregressive decoding)"""
+        # Create conversation format (same as get_attention_matrix)
+        if self.data_type == "audio":
+            audio_path = f'data/processed/nat/tts/{data["language"]}/{data["word"]}.wav'
+            if not os.path.exists(audio_path):
+                raise FileNotFoundError(f"Audio file not found: {audio_path}")
+            
+            # Split prompt to insert audio in the middle
+            if "<AUDIO>" in prompt:
+                question_parts = prompt.split("<AUDIO>")
+                if len(question_parts) == 2:
+                    question_first_part = question_parts[0]
+                    question_second_part = question_parts[1]
+                else:
+                    word_placeholder = "{word}"
+                    if word_placeholder in prompt:
+                        parts = prompt.split(word_placeholder)
+                        question_first_part = parts[0] + data["word"]
+                        question_second_part = parts[1] if len(parts) > 1 else ""
+                    else:
+                        question_first_part = prompt
+                        question_second_part = ""
+            else:
+                word_placeholder = "{word}"
+                if word_placeholder in prompt:
+                    parts = prompt.split(word_placeholder)
+                    question_first_part = parts[0] + data["word"]
+                    question_second_part = parts[1] if len(parts) > 1 else ""
+                else:
+                    question_first_part = prompt
+                    question_second_part = ""
+            
+            conversation = [
+                {
+                    "role": "system",
+                    "content": [
+                        {"type": "text", "text": "You are Qwen, a virtual human developed by the Qwen Team, Alibaba Group, capable of perceiving auditory and visual inputs, as well as generating text and speech."}
+                    ],
+                },
+                {
+                    "role": "user",
+                    "content": [
+                        {"type": "text", "text": question_first_part},
+                        {"type": "audio", "audio": audio_path},
+                        {"type": "text", "text": question_second_part},
+                    ],
+                },
+            ]
+        else:
+            conversation = [
+                {
+                    "role": "system",
+                    "content": [
+                        {"type": "text", "text": "You are Qwen, a virtual human developed by the Qwen Team, Alibaba Group, capable of perceiving auditory and visual inputs, as well as generating text and speech."}
+                    ],
+                },
+                {
+                    "role": "user",
+                    "content": [
+                        {"type": "text", "text": prompt},
+                    ],
+                },
+            ]
+        
+        USE_AUDIO_IN_VIDEO = True
+        text = self.processor.apply_chat_template(conversation, add_generation_prompt=True, tokenize=False)
+        audios, images, videos = process_mm_info(conversation, use_audio_in_video=USE_AUDIO_IN_VIDEO)
+        inputs = self.processor(
+            text=text, 
+            audio=audios, 
+            images=images, 
+            videos=videos, 
+            return_tensors="pt", 
+            padding=True, 
+            use_audio_in_video=USE_AUDIO_IN_VIDEO
+        )
+        inputs = inputs.to(self.model.device).to(self.model.dtype)
+        
+        # Store attention matrices for each generation step
+        all_attention_matrices = []
+        all_tokens = []
+        current_input_ids = inputs['input_ids'].clone()
+        current_attention_mask = inputs['attention_mask'].clone()
+        
+        # Get initial tokens
+        initial_tokens = self.processor.tokenizer.convert_ids_to_tokens(current_input_ids[0])
+        all_tokens.append(initial_tokens.copy())
+        
+        with torch.no_grad():
+            # Use the thinker model for generation with attention tracking
+            # Qwen2.5-Omni thinker model handles the actual generation logic
+            
+            # Generate tokens autoregressively
+            for step in range(max_new_tokens):
+                # Forward pass with attention output using the thinker model
+                outputs = self.model.thinker(
+                    input_ids=current_input_ids,
+                    attention_mask=current_attention_mask,
+                    output_attentions=True,
+                    return_dict=True,
+                    use_cache=True
+                )
+                
+                # Store attention matrices for this step
+                attentions = outputs.attentions
+                all_attention_matrices.append(attentions)
+                
+                # Get logits for next token prediction
+                logits = outputs.logits[:, -1, :]  # Take last token's logits
+                
+                # Sample next token (greedy decoding)
+                next_token_id = torch.argmax(logits, dim=-1, keepdim=True)
+                
+                # Ensure all tensors are on the same device
+                next_token_id = next_token_id.to(current_input_ids.device)
+                
+                # Append to input_ids and attention_mask
+                current_input_ids = torch.cat([current_input_ids, next_token_id], dim=-1)
+                current_attention_mask = torch.cat([current_attention_mask, torch.ones_like(next_token_id, device=current_input_ids.device)], dim=-1)
+                
+                # Update tokens list
+                new_token = self.processor.tokenizer.convert_ids_to_tokens(next_token_id[0])
+                all_tokens.append(new_token)
+                # Check for end of generation
+                if next_token_id.item() == self.processor.tokenizer.eos_token_id:
+                    break
+        
+        # Convert all_tokens to a single list
+        final_tokens = []
+        for token_list in all_tokens:
+            final_tokens.extend(token_list)
+        
+        # Decode generated text
+        input_length = len(all_tokens[0])  # input 토큰 개수
+        generated_ids = current_input_ids[0][input_length:]
+        generated_text = self.processor.tokenizer.decode(generated_ids)
+        
+        return all_attention_matrices, final_tokens, inputs, current_input_ids, generated_text
+
+    def _find_token_indices_by_string(self, tokens, target_string):
+        cleaned_tokens = [self._clean_token(t) for t in tokens]
+        cleaned_target = self._clean_token(target_string)
+        matches = []
+        for i in range(len(cleaned_tokens)):
+            for j in range(i+1, len(cleaned_tokens)+1):
+                window = cleaned_tokens[i:j]
+                if ''.join(window) == cleaned_target:
+                    matches.append(list(range(i, j)))
+                    break
+        flat = []
+        for m in matches:
+            flat.extend(m)
+        return sorted(set(flat))
+
+    def extract_generation_attention_analysis(self, all_attention_matrices, tokens, answer, dimension1, dimension2, word):
+        """Analyze attention patterns during generation, focusing on output tokens"""
+        
+        # Find the indices of the answer tokens in the final token sequence
+        answer_subtokens = self.processor.tokenizer.tokenize(answer)
+        answer_indices = self.find_subtoken_sequence_indices(tokens, answer_subtokens)
+        # Flatten answer_indices
+        temp_answer_indices = []
+        for index in answer_indices:
+            for i in index:
+                temp_answer_indices.append(i)
+        answer_indices = temp_answer_indices
+        
+        # Find indices of dimension tokens using direct comparison (like in extract_relevant_token_indices)
+        dim1_subtokens = self.processor.tokenizer.tokenize(dimension1)
+        dim2_subtokens = self.processor.tokenizer.tokenize(dimension2)
+        
+        # Use direct token comparison for better matching
+        dim1_indices = self._find_token_indices_by_string(tokens, dimension1)
+        dim2_indices = self._find_token_indices_by_string(tokens, dimension2)
+                
+        # Find word indices using direct comparison
+        word_subtokens = self.processor.tokenizer.tokenize(word)
+        word_indices = []
+        for i in range(len(tokens) - len(word_subtokens) + 1):
+            if [self._clean_token(t) for t in tokens[i:i+len(word_subtokens)]] == [self._clean_token(t) for t in word_subtokens]:
+                word_indices.extend(list(range(i, i+len(word_subtokens))))
+        
+        # Analyze attention for each generation step
+        generation_attention_analysis = []
+        
+        for step, step_attentions in enumerate(all_attention_matrices):
+            # step_attentions is a tuple of (num_layers,) attention matrices
+            # Each attention matrix has shape [batch_size, num_heads, seq_len, seq_len]
+            
+            step_analysis = {
+                'step': step,
+                'generated_token': tokens[-(len(all_attention_matrices) - step)] if step < len(all_attention_matrices) else None,
+                'attention_to_answer': [],
+                'attention_to_dimensions': [],
+                'attention_to_word': [],
+                'layer_attention_patterns': []
+            }
+            
+            # Analyze each layer's attention
+            for layer_idx, layer_attention in enumerate(step_attentions):
+                # layer_attention shape: [batch_size, num_heads, seq_len, seq_len]
+                layer_attention = layer_attention[0]  # Remove batch dimension
+                
+                layer_analysis = {
+                    'layer': layer_idx,
+                    'head_attention_patterns': []
+                }
+                
+                # Analyze each attention head
+                for head_idx in range(layer_attention.shape[0]):
+                    head_attention = layer_attention[head_idx]  # [seq_len, seq_len]
+                    
+                    # Get attention from the last token (generated token) to all previous tokens
+                    if step > 0:  # Skip first step as no new token was generated yet
+                        last_token_attention = head_attention[-1, :]  # Attention from last token to all tokens
+
+                        # Calculate attention to different token groups
+                        attention_to_answer = sum(last_token_attention[idx] for idx in answer_indices if idx < len(last_token_attention))
+                        attention_to_dim1 = sum(last_token_attention[idx] for idx in dim1_indices if idx < len(last_token_attention))
+                        attention_to_dim2 = sum(last_token_attention[idx] for idx in dim2_indices if idx < len(last_token_attention))
+                        attention_to_word = sum(last_token_attention[idx] for idx in word_indices if idx < len(last_token_attention))
+                        breakpoint()
+                        head_analysis = {
+                            'head': head_idx,
+                            'attention_to_answer': attention_to_answer.item(),
+                            'attention_to_dim1': attention_to_dim1.item(),
+                            'attention_to_dim2': attention_to_dim2.item(),
+                            'attention_to_word': attention_to_word.item(),
+                            'full_attention_vector': last_token_attention.cpu().float().numpy()
+                        }
+                        layer_analysis['head_attention_patterns'].append(head_analysis)
+                
+                step_analysis['layer_attention_patterns'].append(layer_analysis)
+            
+            generation_attention_analysis.append(step_analysis)
+        
+        return generation_attention_analysis
+
+    def save_generation_attention_analysis(self, generation_analysis, dimension1, dimension2, answer, word_tokens, option_tokens, lang="en", tokens=None, generated_text=None):
+        """Save generation attention analysis as pickle file"""
+        analysis_data = {
+            "generation_analysis": generation_analysis,
+            "dimension1": dimension1,
+            "dimension2": dimension2,
+            "answer": answer,
+            "word_tokens": word_tokens,
+            "option_tokens": option_tokens,
+            "tokens": tokens,
+            "generated_text": generated_text,
+            "analysis_type": "generation_attention"
+        }
+        
+        output_dir = os.path.join(self.output_dir, self.exp_type, self.data_type, lang, "generation_attention")
+        os.makedirs(output_dir, exist_ok=True)
+        
+        safe_word = re.sub(r'[^\w\-_.]', '_', str(word_tokens))
+        safe_dim1 = re.sub(r'[^\w\-_.]', '_', str(dimension1))
+        safe_dim2 = re.sub(r'[^\w\-_.]', '_', str(dimension2))
+        
+        save_path = os.path.join(output_dir, f"{safe_word}_{safe_dim1}_{safe_dim2}_generation_analysis.pkl")
+        
+        with open(save_path, "wb") as f:
+            pkl.dump(analysis_data, f)
+        
+        print(f"Generation attention analysis saved to: {save_path}")
+
+    def save_generation_attention_matrix(self, all_attention_matrices, dimension1, dimension2, answer, word_tokens, option_tokens, lang="en", tokens=None, current_input_ids=None, all_tokens=None):
+        if current_input_ids is not None and all_tokens is not None:
+            input_length = len(all_tokens[0])
+            input_ids = current_input_ids[0][:input_length]
+            generated_ids = current_input_ids[0][input_length:]
+            
+            input_text = self.processor.tokenizer.decode(input_ids)
+            generated_text = self.processor.tokenizer.decode(generated_ids)
+            full_text = self.processor.tokenizer.decode(current_input_ids[0])
+        else:
+            input_text = "unknown"
+            generated_text = "unknown"
+            full_text = "unknown"
+        
+        filtered_attention_matrices = []
+        relevant_indices_list = []
+        
+        for step, step_attentions in enumerate(all_attention_matrices):
+            layer_attention = step_attentions[0]
+            current_seq_len = layer_attention.shape[-1]
+            relevant_indices, word_span, dim1_indices, dim2_indices, word_indices = self.extract_relevant_token_indices(
+                tokens[:current_seq_len], dimension1, dimension2, word=word_tokens
+            )
+            
+            filtered_step_attentions = []
+            for layer_idx, layer_attn in enumerate(step_attentions):
+                if len(relevant_indices) > 0:
+                    filtered_attn = layer_attn[:, :, relevant_indices][:, :, :, relevant_indices]
+                else:
+                    filtered_attn = layer_attn
+                
+                filtered_step_attentions.append(filtered_attn)
+            
+            filtered_attention_matrices.append(tuple(filtered_step_attentions))
+            relevant_indices_list.append(relevant_indices)
+        
+        matrix_data = {
+            "attention_matrices": filtered_attention_matrices,
+            "relevant_indices": relevant_indices_list,
+            "dimension1": dimension1,
+            "dimension2": dimension2,
+            "answer": answer,
+            "word_tokens": word_tokens,
+            "option_tokens": option_tokens,
+            "tokens": tokens,
+            "input_text": input_text,
+            "generated_text": generated_text,
+            "full_text": full_text,
+            "analysis_type": "generation_attention_matrix"
+        }
+        
+        output_dir = os.path.join(self.output_dir, self.exp_type, self.data_type, lang)
+        os.makedirs(output_dir, exist_ok=True)
+        
+        safe_word = re.sub(r'[^\w\-_.]', '_', str(word_tokens))
+        safe_dim1 = re.sub(r'[^\w\-_.]', '_', str(dimension1))
+        safe_dim2 = re.sub(r'[^\w\-_.]', '_', str(dimension2))
+        
+        save_path = os.path.join(output_dir, f"gen_{safe_word}_{safe_dim1}_{safe_dim2}.pkl")
+        
+        with open(save_path, "wb") as f:
+            pkl.dump(matrix_data, f)
+        
+        print(f"Generation attention matrix saved to: {save_path}")
+        return save_path
+
+    def analyze_generation_attention_summary(self, generation_analysis):
+        if not generation_analysis:
+            return None
+        
+        summary = {
+            'total_steps': len(generation_analysis),
+            'generated_tokens': [],
+            'average_attention_to_answer': 0.0,
+            'average_attention_to_dimensions': 0.0,
+            'average_attention_to_word': 0.0,
+            'layer_attention_summary': {},
+            'head_attention_summary': {}
+        }
+        
+        total_attention_to_answer = 0.0
+        total_attention_to_dimensions = 0.0
+        total_attention_to_word = 0.0
+        step_count = 0
+        
+        for step_data in generation_analysis:
+            if step_data['generated_token']:
+                summary['generated_tokens'].append(step_data['generated_token'])
+        
+        for step_data in generation_analysis:
+            if step_data['generated_token']:
+                step_count += 1
+                
+                for layer_data in step_data['layer_attention_patterns']:
+                    layer_idx = layer_data['layer']
+                    
+                    if layer_idx not in summary['layer_attention_summary']:
+                        summary['layer_attention_summary'][layer_idx] = {
+                            'total_attention_to_answer': 0.0,
+                            'total_attention_to_dimensions': 0.0,
+                            'total_attention_to_word': 0.0,
+                            'step_count': 0
+                        }
+                    
+                    for head_data in layer_data['head_attention_patterns']:
+                        head_idx = head_data['head']
+                        head_key = f"layer_{layer_idx}_head_{head_idx}"
+                        
+                        if head_key not in summary['head_attention_summary']:
+                            summary['head_attention_summary'][head_key] = {
+                                'total_attention_to_answer': 0.0,
+                                'total_attention_to_dimensions': 0.0,
+                                'total_attention_to_word': 0.0,
+                                'step_count': 0
+                            }
+                        
+                        summary['layer_attention_summary'][layer_idx]['total_attention_to_answer'] += head_data['attention_to_answer']
+                        summary['layer_attention_summary'][layer_idx]['total_attention_to_dimensions'] += head_data['attention_to_dim1'] + head_data['attention_to_dim2']
+                        summary['layer_attention_summary'][layer_idx]['total_attention_to_word'] += head_data['attention_to_word']
+                        summary['layer_attention_summary'][layer_idx]['step_count'] += 1
+                        
+                        summary['head_attention_summary'][head_key]['total_attention_to_answer'] += head_data['attention_to_answer']
+                        summary['head_attention_summary'][head_key]['total_attention_to_dimensions'] += head_data['attention_to_dim1'] + head_data['attention_to_dim2']
+                        summary['head_attention_summary'][head_key]['total_attention_to_word'] += head_data['attention_to_word']
+                        summary['head_attention_summary'][head_key]['step_count'] += 1
+                        
+                        total_attention_to_answer += head_data['attention_to_answer']
+                        total_attention_to_dimensions += head_data['attention_to_dim1'] + head_data['attention_to_dim2']
+                        total_attention_to_word += head_data['attention_to_word']
+        
+        # Calculate averages
+        if step_count > 0:
+            summary['average_attention_to_answer'] = total_attention_to_answer / step_count
+            summary['average_attention_to_dimensions'] = total_attention_to_dimensions / step_count
+            summary['average_attention_to_word'] = total_attention_to_word / step_count
+        
+        # Calculate layer averages
+        for layer_idx in summary['layer_attention_summary']:
+            layer_data = summary['layer_attention_summary'][layer_idx]
+            if layer_data['step_count'] > 0:
+                layer_data['average_attention_to_answer'] = layer_data['total_attention_to_answer'] / layer_data['step_count']
+                layer_data['average_attention_to_dimensions'] = layer_data['total_attention_to_dimensions'] / layer_data['step_count']
+                layer_data['average_attention_to_word'] = layer_data['total_attention_to_word'] / layer_data['step_count']
+        
+        # Calculate head averages
+        for head_key in summary['head_attention_summary']:
+            head_data = summary['head_attention_summary'][head_key]
+            if head_data['step_count'] > 0:
+                head_data['average_attention_to_answer'] = head_data['total_attention_to_answer'] / head_data['step_count']
+                head_data['average_attention_to_dimensions'] = head_data['total_attention_to_dimensions'] / head_data['step_count']
+                head_data['average_attention_to_word'] = head_data['total_attention_to_word'] / head_data['step_count']
+        
+        return summary
+
+    def print_generation_attention_summary(self, summary):
+        if not summary:
+            print("No generation attention data available")
+            return
+        
+        print(f"\n=== Generation Attention Summary ===")
+        print(f"Total generation steps: {summary['total_steps']}")
+        print(f"Generated tokens: {summary['generated_tokens']}")
+        print(f"\nAverage attention scores:")
+        print(f"  - To answer: {summary['average_attention_to_answer']:.4f}")
+        print(f"  - To dimensions: {summary['average_attention_to_dimensions']:.4f}")
+        print(f"  - To word: {summary['average_attention_to_word']:.4f}")
+        
+        print(f"\n=== Layer-wise Attention Summary ===")
+        for layer_idx in sorted(summary['layer_attention_summary'].keys()):
+            layer_data = summary['layer_attention_summary'][layer_idx]
+            print(f"Layer {layer_idx}:")
+            print(f"  - Avg attention to answer: {layer_data.get('average_attention_to_answer', 0):.4f}")
+            print(f"  - Avg attention to dimensions: {layer_data.get('average_attention_to_dimensions', 0):.4f}")
+            print(f"  - Avg attention to word: {layer_data.get('average_attention_to_word', 0):.4f}")
+        
+        print(f"\n=== Top Attention Heads ===")
+        # Sort heads by attention to answer
+        sorted_heads = sorted(
+            summary['head_attention_summary'].items(),
+            key=lambda x: x[1].get('average_attention_to_answer', 0),
+            reverse=True
+        )
+        
+        for i, (head_key, head_data) in enumerate(sorted_heads[:10]):  # Top 10 heads
+            print(f"{i+1}. {head_key}:")
+            print(f"   - Avg attention to answer: {head_data.get('average_attention_to_answer', 0):.4f}")
+            print(f"   - Avg attention to dimensions: {head_data.get('average_attention_to_dimensions', 0):.4f}")
+            print(f"   - Avg attention to word: {head_data.get('average_attention_to_word', 0):.4f}")
 
 if __name__ == "__main__":
     import argparse
@@ -610,6 +1070,7 @@ if __name__ == "__main__":
                        help="Languages to process")
     
     args = parser.parse_args()
+    max_samples:int = args.max_samples
     
     print(f"Initializing QwenOmniSemanticDimensionVisualizer...")
     print(f"Model: {args.model}")
@@ -628,21 +1089,7 @@ if __name__ == "__main__":
         max_tokens=args.max_tokens,
         temperature=args.temperature
     )
-    
-    # Load data
-    with open(args.data_path, "r", encoding="utf-8") as f:
-        data = json.load(f)
-    
-    print(f"Loaded {len(data)} samples from data file")
-    
-    # Get all unique dimension keys
-    all_dimension_keys = set()
-    for sample in data:
-        if "dimensions" in sample:
-            all_dimension_keys.update(sample["dimensions"].keys())
-    
-    print(f"Found {len(all_dimension_keys)} unique dimension keys: {sorted(all_dimension_keys)}")
-    
+
     # Process samples
     languages = ["en", "fr", "ko", "ja"]
     total_num_of_dimensions = 0
@@ -653,11 +1100,11 @@ if __name__ == "__main__":
     for lang in languages:
         print(f"\nProcessing language: {lang}")
         # Filter samples for this language
-        lang_data = data[lang]
+        lang_data = visualizer.data[lang]
         print(f"Found {len(lang_data)} samples for language {lang}")
         
-        if args.max_samples:
-            lang_data = lang_data[:args.max_samples]
+        if max_samples:
+            lang_data = lang_data[:max_samples]
             print(f"Limiting to {len(lang_data)} samples")
         
         for sample_idx, sample in enumerate(tqdm(lang_data, desc=f"Processing {lang}")):
@@ -675,6 +1122,24 @@ if __name__ == "__main__":
                 visualizer.inference_with_hooks(
                     word, lang, constructed_prompt, dim1, dim2, answer, sample, dimension_name
                 )
+                
+                # Print generation attention summary for the first few samples
+                if total_num_of_dimensions < 3:  # Only for first 3 samples to avoid spam
+                    # Load the saved generation analysis
+                    output_dir = os.path.join(visualizer.output_dir, visualizer.exp_type, visualizer.data_type, lang, "generation_attention")
+                    safe_word = re.sub(r'[^\w\-_.]', '_', str(sample['word']))
+                    safe_dim1 = re.sub(r'[^\w\-_.]', '_', str(dim1))
+                    safe_dim2 = re.sub(r'[^\w\-_.]', '_', str(dim2))
+                    analysis_path = os.path.join(output_dir, f"{safe_word}_{safe_dim1}_{safe_dim2}_generation_analysis.pkl")
+                    
+                    if os.path.exists(analysis_path):
+                        with open(analysis_path, "rb") as f:
+                            analysis_data = pkl.load(f)
+                        
+                        generation_analysis = analysis_data["generation_analysis"]
+                        summary = visualizer.analyze_generation_attention_summary(generation_analysis)
+                        print(f"\n=== Generation Attention Summary for {sample['word']} - {dim1}-{dim2} ===")
+                        visualizer.print_generation_attention_summary(summary)
                 
                 total_num_of_dimensions += 1
             total_num_of_words += 1
