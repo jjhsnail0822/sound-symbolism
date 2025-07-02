@@ -35,7 +35,6 @@ class QwenOmniSemanticDimensionVisualizer:
             max_tokens:int=32,
             temperature:float=0.0,
         ):
-        # print(f"Starting __init__ function")
         self.model_path = model_path
         self.data_path = data_path
         self.output_dir = output_dir
@@ -57,26 +56,19 @@ class QwenOmniSemanticDimensionVisualizer:
         self.processor = Qwen2_5OmniProcessor.from_pretrained(self.model_path)
         self.data = self.load_data()
         self.load_base_prompt()
-        # print(f"Ending __init__ function")
     
     def load_data(self):
-        # print(f"Starting load_data function")
         with open(self.data_path, "r", encoding="utf-8") as f:
             self.data = json.load(f)
-        # print(f"Ending load_data function")
         return self.data
     
     def load_base_prompt(self):
-        # print(f"Starting load_base_prompt function")
         self.prompts = prompts[self.exp_type][f"semantic_dimension_binary_{self.data_type}"]["user_prompt"]
-        # print(f"Ending load_base_prompt function")
         return self.prompts
     
-    def prmpt_dims_answrs(self, prompt, data, dimension_name=None):
-        # print(f"Starting prmpt_dims_answrs function")
+    def prmpt_dims_answrs(self, prompt:str, data, dimension_name:str=None):
         if self.data_type == "audio":
             audio_path = f"data/processed/nat/tts/{data['language']}/{data['word']}.wav"
-            # Check if audio file exists
             if not os.path.exists(audio_path):
                 raise FileNotFoundError(f"Audio file not found: {audio_path}")
             word = audio_path
@@ -87,24 +79,19 @@ class QwenOmniSemanticDimensionVisualizer:
             if data_type_key not in data:
                 raise KeyError(f"Data type '{data_type_key}' not found in data: {data.keys()}")
             word = data[data_type_key]
-            
-        # Extract dimension information
         dimension_info = data["dimensions"][dimension_name]
         dimension1 = dimension_name.split("-")[0]
         dimension2 = dimension_name.split("-")[1]
         answer = dimension_info["answer"]
-        
-        # Use the correct word value for prompt formatting
         constructed_prompt = prompt.format(
             word=word,
             dimension1=dimension1,
             dimension2=dimension2,
         )
-        # print(f"Ending prmpt_dims_answrs function")
+        # print(f"[Prompt] {constructed_prompt}")
         return constructed_prompt, dimension1, dimension2, answer, word, dimension_name
     
-    def get_attention_matrix(self, prompt, data):
-        # print(f"Starting get_attention_matrix function")
+    def get_attention_matrix(self, prompt:str, data:dict):
         """Extract attention matrix from the model"""
         # Create conversation format
         if self.data_type == "audio":
@@ -200,11 +187,81 @@ class QwenOmniSemanticDimensionVisualizer:
         attentions = outputs.attentions
         tokens = self.processor.tokenizer.convert_ids_to_tokens(inputs['input_ids'][0])
         
-        # print(f"Ending get_attention_matrix function")
         return attentions, tokens, inputs
     
-    def save_matrix(self, attention_matrix, dimension1, dimension2, answer, word_tokens, option_tokens, layer_type="self", lang="en", tokens=None):
-        # print(f"Starting save_matrix function")
+    def _clean_token(self, token):
+        # Remove leading/trailing special characters and punctuation (Ġ, Ċ, [, ], ,, ., :, ;, !, ?, \n, \r, \t)
+        return re.sub(r'^[ĠĊ\[\],.:;!?\n\r\t]+|[ĠĊ\[\],.:;!?\n\r\t]+$', '', token)
+
+    def find_subtoken_sequence_indices(self, tokens, target_subtokens):
+        cleaned_tokens = [self._clean_token(t) for t in tokens]
+        cleaned_target = [self._clean_token(t) for t in target_subtokens]
+        matches = []
+        for i in range(len(cleaned_tokens) - len(cleaned_target) + 1):
+            if cleaned_tokens[i:i+len(cleaned_target)] == cleaned_target:
+                matches.append(list(range(i, i+len(cleaned_target))))
+        return matches
+
+    def find_tag_spans(self, tokens, tag_string, max_window=5):
+        """
+        tokens: list of tokens
+        tag_string: e.g. 'WORD', 'SEMANTICDIMENSION', 'OPTIONS'
+        Returns: list of [start, end] (inclusive) index spans where the tag appears
+        """
+        cleaned_tokens = [self._clean_token(t) for t in tokens]
+        tag_string = tag_string.replace(" ", "").upper()
+        matches = []
+        for window in range(1, max_window+1):
+            for i in range(len(cleaned_tokens) - window + 1):
+                window_str = ''.join(cleaned_tokens[i:i+window]).replace(" ", "").upper()
+                if window_str == tag_string:
+                    matches.append(list(range(i, i+window)))
+        return matches
+
+    def extract_relevant_token_indices(self, tokens, dimension1, dimension2, word=None):
+        # [WORD] tag
+        word_tag_matches = self.find_tag_spans(tokens, 'WORD')
+        if len(word_tag_matches) < 2:
+            raise ValueError(f"[WORD] tag appears less than twice in tokens: {tokens}")
+        second_word_tag_span = word_tag_matches[1]
+        # [SEMANTIC DIMENSION] tag
+        semdim_tag_matches = self.find_tag_spans(tokens, 'SEMANTICDIMENSION')
+        if not semdim_tag_matches:
+            raise ValueError(f"[SEMANTIC DIMENSION] tag not found in tokens: {tokens}")
+        semdim_span = semdim_tag_matches[0]
+        # [OPTIONS] tag
+        options_tag_matches = self.find_tag_spans(tokens, 'OPTIONS')
+        options_span = options_tag_matches[0] if options_tag_matches else None
+        # 실제 word (예: 'a', 'banana' 등) subtoken 시퀀스 인덱스
+        word_indices = []
+        if word is not None:
+            word_subtokens = self.processor.tokenizer.tokenize(word)
+            word_matches = self.find_subtoken_sequence_indices(tokens, word_subtokens)
+            for match in word_matches:
+                word_indices.extend(match)
+        # word span: 두 번째 [WORD] 다음부터 [SEMANTIC DIMENSION] 전까지
+        word_span_start = second_word_tag_span[-1] + 1
+        word_span_end = semdim_span[0]
+        word_span = list(range(word_span_start, word_span_end))
+        # [SEMANTIC DIMENSION] 이후 {dimension1}, {dimension2} 인덱스 (subword 포함)
+        search_start = semdim_span[-1] + 1
+        search_end = options_span[0] if options_span else len(tokens)
+        dim1_indices = []
+        dim2_indices = []
+        dim1_subtokens = self.processor.tokenizer.tokenize(dimension1)
+        for i in range(search_start, search_end - len(dim1_subtokens) + 1):
+            if [self._clean_token(t) for t in tokens[i:i+len(dim1_subtokens)]] == [self._clean_token(t) for t in dim1_subtokens]:
+                dim1_indices.extend(list(range(i, i+len(dim1_subtokens))))
+        dim2_subtokens = self.processor.tokenizer.tokenize(dimension2)
+        for i in range(search_start, search_end - len(dim2_subtokens) + 1):
+            if [self._clean_token(t) for t in tokens[i:i+len(dim2_subtokens)]] == [self._clean_token(t) for t in dim2_subtokens]:
+                dim2_indices.extend(list(range(i, i+len(dim2_subtokens))))
+        dim1_indices = sorted(set(dim1_indices))
+        dim2_indices = sorted(set(dim2_indices))
+        relevant_indices = sorted(set(word_span + dim1_indices + dim2_indices + word_indices))
+        return relevant_indices, word_span, dim1_indices, dim2_indices, word_indices
+    
+    def save_matrix(self, attention_matrix, dimension1, dimension2, answer, word_tokens, option_tokens, layer_type="self", lang="en", tokens=None, relevant_indices=None):
         """Save matrix as pickle file
         # Composition
         - Matrix array
@@ -212,6 +269,7 @@ class QwenOmniSemanticDimensionVisualizer:
         - corresponding word tokens with index
         - corresponding option tokens with index
         - tokens (for visualization)
+        - relevant_indices (추가)
         """
         matrix_data = {
             "attention_matrix": attention_matrix,
@@ -220,24 +278,19 @@ class QwenOmniSemanticDimensionVisualizer:
             "answer": answer,
             "word_tokens": word_tokens,
             "option_tokens": option_tokens,
-            "tokens": tokens  # Add tokens for visualization
+            "tokens": tokens,
+            "relevant_indices": relevant_indices
         }
         output_dir = os.path.join(self.output_dir, self.exp_type, self.data_type, lang)
         os.makedirs(output_dir, exist_ok=True)
-        
-        # Create a safe filename
         safe_word = re.sub(r'[^\w\-_.]', '_', str(word_tokens))
         safe_dim1 = re.sub(r'[^\w\-_.]', '_', str(dimension1))
         safe_dim2 = re.sub(r'[^\w\-_.]', '_', str(dimension2))
-        
         save_path = os.path.join(output_dir, f"{safe_word}_{safe_dim1}_{safe_dim2}_{layer_type}.pkl")
         with open(save_path, "wb") as f:
             pkl.dump(matrix_data, f)
-        # print(f"Saved attention matrix to {save_path}")
-        # print(f"Ending save_matrix function")
     
     def read_matrix(self, layer_type="self", word_tokens=None, dimension1=None, dimension2=None, lang="en"):
-        # print(f"Starting read_matrix function")
         """Read matrix from pickle file
         # Composition
         - Matrix array
@@ -264,11 +317,9 @@ class QwenOmniSemanticDimensionVisualizer:
         answer = attention_matrix["answer"]
         word_tokens = attention_matrix["word_tokens"]
         option_tokens = attention_matrix["option_tokens"]
-        # print(f"Ending read_matrix function")
         return attention_matrix, dimension1, dimension2, answer, word_tokens, option_tokens
     
     def find_token_indices(self, tokens, target_tokens):
-        # print(f"Starting find_token_indices function")
         """Find indices of target tokens in the token list
         
         Args:
@@ -333,7 +384,6 @@ class QwenOmniSemanticDimensionVisualizer:
         # Remove duplicates and sort
         indices = sorted(list(set(indices)))
         
-        # print(f"Ending find_token_indices function")
         return indices
     
     def filter_relevant_indices(
@@ -348,8 +398,6 @@ class QwenOmniSemanticDimensionVisualizer:
         answer,
         layer_type="self"
     ):
-        # print(f"Starting filter_relevant_indices function")
-        
         # Must include the file index of word token, dim1, dim2
         save_row_index = []
         save_column_index = []
@@ -395,7 +443,6 @@ class QwenOmniSemanticDimensionVisualizer:
         if save_row_index and save_column_index:
             # Handle the case where attention_matrix is a tuple of attention tensors
             if isinstance(attention_matrix, tuple):
-                # print(f"Debug - attention_matrix is a tuple with {len(attention_matrix)} elements")
                 # For tuple of attention tensors, we need to process each layer
                 # For now, let's take the first layer as an example
                 attention_matrix = attention_matrix[0]  # Take first layer
@@ -461,7 +508,6 @@ class QwenOmniSemanticDimensionVisualizer:
             filtered_attention_matrix = attention_matrix
             valid_row_indices = save_row_index
             valid_col_indices = save_column_index
-        # print(f"Ending filter_relevant_indices function")
         return filtered_attention_matrix, valid_row_indices, valid_col_indices
            
     def matrix_computation(
@@ -529,18 +575,15 @@ class QwenOmniSemanticDimensionVisualizer:
         return computed_matrix
     
     def inference_with_hooks(self, word, lang, constructed_prompt, dim1, dim2, answer, data, dimension_name):
-        """Main inference function with attention extraction and matrix saving"""
-        # Get attention matrix
         attentions, tokens, inputs = self.get_attention_matrix(constructed_prompt, data)
-        
-        # Extract word and option tokens
-        word_tokens = data['word']
-        option_tokens = [dim1, dim2]
-        
-        # Save attention matrix
-        self.save_matrix(attentions, dim1, dim2, answer, word_tokens, option_tokens, "self", lang, tokens)
-        
-        print(f"Saved attention matrix for {word_tokens} - {dim1}-{dim2} to pickle file")
+        relevant_indices, word_span, dim1_indices, dim2_indices, word_indices = self.extract_relevant_token_indices(tokens, dim1, dim2, word=data['word'])
+        if isinstance(attentions, tuple):
+            attention_matrix = attentions[0]
+        else:
+            attention_matrix = attentions
+        attn_filtered = attention_matrix[:, :, relevant_indices][:, :, :, relevant_indices]
+        self.save_matrix(attn_filtered, dim1, dim2, answer, data['word'], [dim1, dim2], "self", lang, tokens, relevant_indices)
+        print(f"Saved filtered attention matrix for {data['word']} - {dim1}-{dim2} to pickle file")
 
 if __name__ == "__main__":
     import argparse
@@ -601,12 +644,14 @@ if __name__ == "__main__":
     print(f"Found {len(all_dimension_keys)} unique dimension keys: {sorted(all_dimension_keys)}")
     
     # Process samples
-    processed_count = 0
-    languages = args.languages[0].split(",")
+    languages = ["en", "fr", "ko", "ja"]
+    total_num_of_dimensions = 0
+    total_num_of_words = 0
+    total_num_of_words_per_language = {lang: 0 for lang in languages}
+    # languages = args.languages[0].split(",")
     
     for lang in languages:
         print(f"\nProcessing language: {lang}")
-        # breakpoint()
         # Filter samples for this language
         lang_data = data[lang]
         print(f"Found {len(lang_data)} samples for language {lang}")
@@ -616,29 +661,30 @@ if __name__ == "__main__":
             print(f"Limiting to {len(lang_data)} samples")
         
         for sample_idx, sample in enumerate(tqdm(lang_data, desc=f"Processing {lang}")):
-            try:
-                # Process each dimension for this sample
-                for dimension_name in sample.get("dimensions", {}):
-                    print(f"\nProcessing sample {sample_idx + 1}/{len(lang_data)} - {sample['word']} - {dimension_name}")
-                    
-                    # Construct prompt and get dimension info
-                    constructed_prompt, dim1, dim2, answer, word, dim_name = visualizer.prmpt_dims_answrs(
-                        visualizer.prompts, sample, dimension_name
-                    )
-                    
-                    # Run inference with hooks
-                    visualizer.inference_with_hooks(
-                        word, lang, constructed_prompt, dim1, dim2, answer, sample, dimension_name
-                    )
-                    
-                    processed_count += 1
-                    
-            except Exception as e:
-                print(f"Error processing sample {sample_idx} ({sample.get('word', 'unknown')}): {e}")
-                continue
+            
+            # Process each dimension for this sample
+            for dimension_name in sample.get("dimensions", {}):
+                # print(f"\nProcessing sample {sample_idx + 1}/{len(lang_data)} - {sample['word']} - {dimension_name}")
+                
+                # Construct prompt and get dimension info
+                constructed_prompt, dim1, dim2, answer, word, dim_name = visualizer.prmpt_dims_answrs(
+                    visualizer.prompts, sample, dimension_name
+                )
+                
+                # Run inference with hooks
+                visualizer.inference_with_hooks(
+                    word, lang, constructed_prompt, dim1, dim2, answer, sample, dimension_name
+                )
+                
+                total_num_of_dimensions += 1
+            total_num_of_words += 1
+            total_num_of_words_per_language[lang] += 1
+
     
     print(f"\nProcessing completed!")
-    print(f"Total samples processed: {processed_count}")
+    print(f"Total samples processed: {total_num_of_dimensions}")
+    print(f"Total number of words: {total_num_of_words}")
+    print(f"Total number of words per language: {total_num_of_words_per_language}")
     print(f"Results saved to: {args.output_dir}")
     
     # Clean up
