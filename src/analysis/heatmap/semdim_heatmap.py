@@ -1,5 +1,5 @@
 # Model : Qwen2.5-Omni-7B
-# python src/analysis/heatmap/semdim_heatmap.py --max-samples 5000 --languages en
+# python src/analysis/heatmap/semdim_heatmap.py --max-samples 2 --data-type original
 import json
 import re
 import os
@@ -8,6 +8,7 @@ import pickle as pkl
 from typing import Union
 import warnings
 import numpy as np
+import gc
 from transformers import Qwen2_5OmniForConditionalGeneration, Qwen2_5OmniProcessor
 import torch
 from tqdm import tqdm
@@ -72,40 +73,77 @@ class QwenOmniSemanticDimensionVisualizer:
         return self.data
     
     def prmpt_dims_answrs(self, prompt:str, data, dimension_name:str=None):
-        if self.data_type == "audio":
-            audio_path = f"data/processed/nat/tts/{data['language']}/{data['word']}.wav"
-            if not os.path.exists(audio_path):
-                raise FileNotFoundError(f"Audio file not found: {audio_path}")
-            word = audio_path
-        else:
+        if self.data_type != "audio":
             data_type_key = "word" if self.data_type == "original" \
                 else "romanization" if self.data_type == "romanized" \
                 else "ipa"
             if data_type_key not in data:
                 raise KeyError(f"Data type '{data_type_key}' not found in data: {data.keys()}")
-            word = data[data_type_key]
         dimension_info = data["dimensions"][dimension_name]
         dimension1 = dimension_name.split("-")[0]
         dimension2 = dimension_name.split("-")[1]
         answer = dimension_info["answer"]
-        constructed_prompt = prompt.format(
-            word=word,
-            dimension1=dimension1,
-            dimension2=dimension2,
-        )
+        
+        if self.data_type == "audio":
+            word = f"data/processed/nat/tts/{data['language']}/{data['word']}.wav"
+            # audio 타입일 때는 conversation 형태로 반환
+            if "{audio}" in prompt:
+                constructed_prompt = [
+                    {"type": "text", "text": prompt.split("{audio}")[0]},
+                    {"type": "audio", "audio": word},
+                    {"type": "text", "text": prompt.split("{audio}")[1].format(
+                        dimension1=dimension1,
+                        dimension2=dimension2,
+                    )},
+                ]
+            else:
+                # fallback: 일반 문자열로 처리
+                constructed_prompt = prompt.format(
+                    word=data["word"],
+                    dimension1=dimension1,
+                    dimension2=dimension2,
+                )
+        else:
+            word = data[data_type_key]
+            constructed_prompt = prompt.format(
+                word=word,
+                dimension1=dimension1,
+                dimension2=dimension2,
+            )
         return constructed_prompt, dimension1, dimension2, answer, word, dimension_name
     
-    def get_attention_matrix(self, prompt:str, data:dict):
+    def create_conversation(self, prompt, data):
+        """통합된 conversation 생성 함수"""
         if self.data_type == "audio":
             audio_path = f'data/processed/nat/tts/{data["language"]}/{data["word"]}.wav'
             if not os.path.exists(audio_path):
                 raise FileNotFoundError(f"Audio file not found: {audio_path}")
             
-            if "<AUDIO>" in prompt:
-                question_parts = prompt.split("<AUDIO>")
-                if len(question_parts) == 2:
-                    question_first_part = question_parts[0]
-                    question_second_part = question_parts[1]
+            # prompt가 리스트 형태인 경우 (prmpt_dims_answrs에서 생성된 경우)
+            if isinstance(prompt, list):
+                conversation = [
+                    SYSTEM_TEMPLATE,
+                    {
+                        "role": "user",
+                        "content": prompt
+                    },
+                ]
+            else:
+                # 기존 로직: 문자열 prompt를 파싱
+                if "<AUDIO>" in prompt:
+                    question_parts = prompt.split("<AUDIO>")
+                    if len(question_parts) == 2:
+                        question_first_part = question_parts[0]
+                        question_second_part = question_parts[1]
+                    else:
+                        word_placeholder = "{word}"
+                        if word_placeholder in prompt:
+                            parts = prompt.split(word_placeholder)
+                            question_first_part = parts[0] + data["word"]
+                            question_second_part = parts[1] if len(parts) > 1 else ""
+                        else:
+                            question_first_part = prompt
+                            question_second_part = ""
                 else:
                     word_placeholder = "{word}"
                     if word_placeholder in prompt:
@@ -115,28 +153,20 @@ class QwenOmniSemanticDimensionVisualizer:
                     else:
                         question_first_part = prompt
                         question_second_part = ""
-            else:
-                word_placeholder = "{word}"
-                if word_placeholder in prompt:
-                    parts = prompt.split(word_placeholder)
-                    question_first_part = parts[0] + data["word"]
-                    question_second_part = parts[1] if len(parts) > 1 else ""
-                else:
-                    question_first_part = prompt
-                    question_second_part = ""
-            
-            conversation = [
-                SYSTEM_TEMPLATE,
-                {
-                    "role": "user",
-                    "content": [
-                        {"type": "text", "text": question_first_part},
-                        {"type": "audio", "audio": audio_path},
-                        {"type": "text", "text": question_second_part},
-                    ],
-                },
-            ]
+                
+                conversation = [
+                    SYSTEM_TEMPLATE,
+                    {
+                        "role": "user",
+                        "content": [
+                            {"type": "text", "text": question_first_part},
+                            {"type": "audio", "audio": audio_path},
+                            {"type": "text", "text": question_second_part},
+                        ],
+                    },
+                ]
         else:
+            # non-audio 타입: 단순 텍스트
             conversation = [
                 SYSTEM_TEMPLATE,
                 {
@@ -147,9 +177,32 @@ class QwenOmniSemanticDimensionVisualizer:
                 },
             ]
         
+        return conversation
+    
+    def get_attention_matrix(self, prompt, data:dict):
+        # 통합된 conversation 생성 함수 사용
+        conversation = self.create_conversation(prompt, data)
+        
         USE_AUDIO_IN_VIDEO = True
         text = self.processor.apply_chat_template(conversation, add_generation_prompt=True, tokenize=False)
         audios, images, videos = process_mm_info(conversation, use_audio_in_video=USE_AUDIO_IN_VIDEO)
+        
+        # Audio가 제대로 로드되었는지 확인
+        if self.data_type == "audio" and (audios is None or len(audios) == 0):
+            print(f"Warning: No audio loaded for {data['word']}")
+            # Fallback: audio 없이 텍스트만으로 처리
+            conversation_text_only = [
+                SYSTEM_TEMPLATE,
+                {
+                    "role": "user",
+                    "content": [
+                        {"type": "text", "text": f"Given a spoken word '{data['word']}', which semantic feature best describes the word based on auditory impression?"}
+                    ],
+                },
+            ]
+            text = self.processor.apply_chat_template(conversation_text_only, add_generation_prompt=True, tokenize=False)
+            audios, images, videos = process_mm_info(conversation_text_only, use_audio_in_video=USE_AUDIO_IN_VIDEO)
+        
         inputs = self.processor(
             text=text, 
             audio=audios, 
@@ -201,11 +254,11 @@ class QwenOmniSemanticDimensionVisualizer:
 
     def find_tag_spans(self, tokens, tag_string, max_window=5):
         cleaned_tokens = [self._clean_token(t) for t in tokens]
-        tag_string = tag_string.replace(" ", "").upper()
+        tag_string = tag_string.replace(" ", "")
         matches = []
         for window in range(1, max_window+1):
             for i in range(len(cleaned_tokens) - window + 1):
-                window_str = ''.join(cleaned_tokens[i:i+window]).replace(" ", "").upper()
+                window_str = ''.join(cleaned_tokens[i:i+window]).replace(" ", "")
                 if window_str == tag_string:
                     matches.append(list(range(i, i+window)))
         return matches
@@ -261,7 +314,7 @@ class QwenOmniSemanticDimensionVisualizer:
             "tokens": tokens,
             "relevant_indices": relevant_indices
         }
-        output_dir = os.path.join(self.output_dir, self.exp_type, self.data_type, lang)
+        output_dir = os.path.join(self.output_dir, self.exp_type, self.data_type, lang, "self_attention")
         os.makedirs(output_dir, exist_ok=True)
         safe_word = re.sub(r'[^\w\-_.]', '_', str(word_tokens))
         safe_dim1 = re.sub(r'[^\w\-_.]', '_', str(dimension1))
@@ -493,10 +546,16 @@ class QwenOmniSemanticDimensionVisualizer:
             generation_attentions, dim1, dim2, answer, data['word'], [dim1, dim2], lang, generation_tokens, final_input_ids, generation_tokens
         )
         
-        input_word = data[self.data_type] if self.data_type != "original" else data["word"]
+        data_type_key = {"audio": "audio", "original": "word", "romanized": "romanization", "ipa": "ipa"}
+        
+        if self.data_type != "audio":
+            input_word = data[data_type_key[self.data_type]]
+        else:
+            input_word = data["word"]  # audio 타입일 때는 실제 단어 이름 사용
+
         # Analyze generation attention patterns
         generation_analysis = self.extract_generation_attention_analysis(
-            generation_attentions, generation_tokens, answer, dim1, dim2, data['word'], input_word
+            generation_attentions, generation_tokens, answer, lang, dim1, dim2, data['word'], input_word
         )
         
         # Save generation attention analysis
@@ -505,64 +564,30 @@ class QwenOmniSemanticDimensionVisualizer:
         )
         print(f"Saved generation attention analysis for {data['word']} - {dim1}-{dim2}")
 
-    def get_generation_attention_matrix(self, prompt: str, data: dict, max_new_tokens: int = 32):
+    def get_generation_attention_matrix(self, prompt, data: dict, max_new_tokens: int = 32):
         """Extract attention matrix during text generation (autoregressive decoding)"""
-        # Create conversation format (same as get_attention_matrix)
-        if self.data_type == "audio":
-            audio_path = f'data/processed/nat/tts/{data["language"]}/{data["word"]}.wav'
-            if not os.path.exists(audio_path):
-                raise FileNotFoundError(f"Audio file not found: {audio_path}")
-            
-            # Split prompt to insert audio in the middle
-            if "<AUDIO>" in prompt:
-                question_parts = prompt.split("<AUDIO>")
-                if len(question_parts) == 2:
-                    question_first_part = question_parts[0]
-                    question_second_part = question_parts[1]
-                else:
-                    word_placeholder = "{word}"
-                    if word_placeholder in prompt:
-                        parts = prompt.split(word_placeholder)
-                        question_first_part = parts[0] + data["word"]
-                        question_second_part = parts[1] if len(parts) > 1 else ""
-                    else:
-                        question_first_part = prompt
-                        question_second_part = ""
-            else:
-                word_placeholder = "{word}"
-                if word_placeholder in prompt:
-                    parts = prompt.split(word_placeholder)
-                    question_first_part = parts[0] + data["word"]
-                    question_second_part = parts[1] if len(parts) > 1 else ""
-                else:
-                    question_first_part = prompt
-                    question_second_part = ""
-            
-            conversation = [
-                SYSTEM_TEMPLATE,
-                {
-                    "role": "user",
-                    "content": [
-                        {"type": "text", "text": question_first_part},
-                        {"type": "audio", "audio": audio_path},
-                        {"type": "text", "text": question_second_part},
-                    ],
-                },
-            ]
-        else:
-            conversation = [
-                SYSTEM_TEMPLATE,
-                {
-                    "role": "user",
-                    "content": [
-                        {"type": "text", "text": prompt},
-                    ],
-                },
-            ]
+        # 통합된 conversation 생성 함수 사용
+        conversation = self.create_conversation(prompt, data)
         
         USE_AUDIO_IN_VIDEO = True
         text = self.processor.apply_chat_template(conversation, add_generation_prompt=True, tokenize=False)
         audios, images, videos = process_mm_info(conversation, use_audio_in_video=USE_AUDIO_IN_VIDEO)
+        
+        # Audio가 제대로 로드되었는지 확인
+        if self.data_type == "audio" and (audios is None or len(audios) == 0):
+            print(f"Warning: No audio loaded for {data['word']}")
+            conversation_text_only = [
+                SYSTEM_TEMPLATE,
+                {
+                    "role": "user",
+                    "content": [
+                        {"type": "text", "text": f"Given a spoken word '{data['word']}', which semantic feature best describes the word based on auditory impression?"}
+                    ],
+                },
+            ]
+            text = self.processor.apply_chat_template(conversation_text_only, add_generation_prompt=True, tokenize=False)
+            audios, images, videos = process_mm_info(conversation_text_only, use_audio_in_video=USE_AUDIO_IN_VIDEO)
+        
         inputs = self.processor(
             text=text, 
             audio=audios, 
@@ -585,12 +610,7 @@ class QwenOmniSemanticDimensionVisualizer:
         all_tokens.append(initial_tokens.copy())
         
         with torch.no_grad():
-            # Use the thinker model for generation with attention tracking
-            # Qwen2.5-Omni thinker model handles the actual generation logic
-            
-            # Generate tokens autoregressively
             for step in range(max_new_tokens):
-                # Forward pass with attention output using the thinker model
                 outputs = self.model.thinker(
                     input_ids=current_input_ids,
                     attention_mask=current_attention_mask,
@@ -598,28 +618,15 @@ class QwenOmniSemanticDimensionVisualizer:
                     return_dict=True,
                     use_cache=True
                 )
-                
-                # Store attention matrices for this step
                 attentions = outputs.attentions
                 all_attention_matrices.append(attentions)
-                
-                # Get logits for next token prediction
                 logits = outputs.logits[:, -1, :]  # Take last token's logits
-                
-                # Sample next token (greedy decoding)
                 next_token_id = torch.argmax(logits, dim=-1, keepdim=True)
-                
-                # Ensure all tensors are on the same device
                 next_token_id = next_token_id.to(current_input_ids.device)
-                
-                # Append to input_ids and attention_mask
                 current_input_ids = torch.cat([current_input_ids, next_token_id], dim=-1)
                 current_attention_mask = torch.cat([current_attention_mask, torch.ones_like(next_token_id, device=current_input_ids.device)], dim=-1)
-                
-                # Update tokens list
                 new_token = self.processor.tokenizer.convert_ids_to_tokens(next_token_id[0])
                 all_tokens.append(new_token)
-                # Check for end of generation
                 if next_token_id.item() == self.processor.tokenizer.eos_token_id:
                     break
         
@@ -665,11 +672,11 @@ class QwenOmniSemanticDimensionVisualizer:
                     break  # Only first match per start index
         return matches
 
-    def extract_generation_attention_analysis(self, all_attention_matrices, tokens, answer, dimension1, dimension2, word, input_word=None):
+    def extract_generation_attention_analysis(self, all_attention_matrices:list[tuple[torch.Tensor, ...]], tokens:list[str], answer:str, lang:str, dimension1:str, dimension2:str, word:str, input_word:str=None):
         """Analyze attention patterns during generation, focusing on output tokens"""
         # Find the indices of the answer tokens in the final token sequence
         answer_subtokens = self.processor.tokenizer.tokenize(answer)
-        tokenized_input_word = self.processor.tokenizer.tokenize(input_word)
+        input_word = input_word.replace(" ", "")
         answer_indices = self.find_subtoken_sequence_indices(tokens, answer_subtokens)
         # Flatten answer_indices
         temp_answer_indices = []
@@ -685,22 +692,116 @@ class QwenOmniSemanticDimensionVisualizer:
         # --- word_indices 처리 ---
         word_indices = []
         if self.data_type == "audio":
-            # <|AUDIO|> 토큰 인덱스 모두 찾기
+            # Audio token 범위 찾기: <|audio_bos|>부터 <|audio_eos|>까지
+            audio_bos_token = "<|audio_bos|>"
+            audio_eos_token = "<|audio_eos|>"
             audio_token = "<|AUDIO|>"
-            audio_indices = [i for i, t in enumerate(tokens) if self._clean_token(t) == self._clean_token(audio_token)]
-            for idx, audio_idx in enumerate(audio_indices):
-                name = f"{input_word}_{idx}"  # 0-based numbering
-                word_indices.append(audio_idx)
-        elif self.data_type == "ipa":
-            # robust subtoken matching
-            matches = self.robust_subtoken_match(tokens, input_word)
-            for match in matches:
-                word_indices.extend(match)
-        else:
+            
+            # <|audio_bos|>와 <|audio_eos|> 인덱스 찾기
+            audio_bos_indices = [i for i, t in enumerate(tokens) if self._clean_token(t) == self._clean_token(audio_bos_token)]
+            audio_eos_indices = [i for i, t in enumerate(tokens) if self._clean_token(t) == self._clean_token(audio_eos_token)]
+            
+            if audio_bos_indices and audio_eos_indices:
+                # 첫 번째 audio_bos와 첫 번째 audio_eos 사이의 <|AUDIO|> 토큰들 찾기
+                start_idx = audio_bos_indices[0] + 1  # audio_bos 다음부터
+                end_idx = audio_eos_indices[0]  # audio_eos 전까지
+                
+                audio_indices = []
+                for i in range(start_idx, end_idx):
+                    if self._clean_token(tokens[i]) == self._clean_token(audio_token):
+                        audio_indices.append(i)
+                
+                # 각 <|AUDIO|> 토큰을 f"{word}_{num}" 형태로 대체하고 인덱스 저장
+                for idx, audio_idx in enumerate(audio_indices):
+                    word_indices.append(audio_idx)
+                    # 토큰 리스트에서 해당 위치의 토큰을 대체
+                    if audio_idx < len(tokens):
+                        tokens[audio_idx] = f"{word}_{idx}"
+            else:
+                print(f"Warning: Could not find audio_bos or audio_eos tokens in {word}")
+                # Fallback: 기존 방식으로 <|AUDIO|> 토큰 찾기
+                audio_indices = [i for i, t in enumerate(tokens) if self._clean_token(t) == self._clean_token(audio_token)]
+                for idx, audio_idx in enumerate(audio_indices):
+                    word_indices.append(audio_idx)
+                    if audio_idx < len(tokens):
+                        tokens[audio_idx] = f"{word}_{idx}"
+        elif self.data_type == "original" and lang == "en":
             # input_word로 인덱스 찾기
             indices = self._find_token_indices_by_string(tokens, input_word)
             word_indices = indices
-
+        else:
+            # 1. input_word를 tokenize
+            tokenized_input_word_list = self.processor.tokenizer.tokenize(input_word)
+            tokenized_input_word_list = [self._clean_token(t) for t in tokenized_input_word_list]
+            # 2. tokenized_input_word_list를 하나의 string으로 결합
+            tokenized_word = "".join(tokenized_input_word_list)
+            # 3. tokens를 _clean_token으로 전처리
+            cleaned_tokens = [self._clean_token(t) for t in tokens]
+            word_indices = []
+            
+            # 4. [WORD] 태그가 두 번째로 나타나는 인덱스 찾기
+            word_tag_matches = self.find_tag_spans(cleaned_tokens, 'WORD')
+            if len(word_tag_matches) < 2:
+                print(f"Warning: [WORD] tag appears less than twice in tokens")
+                word_indices = []
+            else:
+                second_word_tag_span = word_tag_matches[1]  # 두 번째 [WORD] 태그
+                second_word_end_idx = second_word_tag_span[-1]  # 두 번째 [WORD] 태그의 끝 인덱스
+                
+                # 5. [SEMANTICDIMENSION] 태그가 나타나는 인덱스 찾기
+                semdim_tag_matches = self.find_tag_spans(cleaned_tokens, 'SEMANTICDIMENSION')
+                if not semdim_tag_matches:
+                    print(f"Warning: [SEMANTIC DIMENSION] tag not found in tokens")
+                    word_indices = []
+                else:
+                    semdim_span = semdim_tag_matches[0]
+                    semdim_start_idx = semdim_span[0]
+                    search_start = second_word_end_idx + 1
+                    search_end = semdim_start_idx
+                    search_tokens = cleaned_tokens[search_start:search_end]
+                    combined_string = "".join(search_tokens)
+                    if combined_string == tokenized_word:
+                        for i in range(search_start, search_end):
+                            if cleaned_tokens[i] != '':
+                                word_indices.append(i)
+                    else:
+                        search_range_length = search_end - search_start
+                        for remove_count in range(1, search_range_length):
+                            left_removed_tokens = search_tokens[remove_count:]
+                            left_combined = "".join(left_removed_tokens)
+                            if left_combined == tokenized_word:
+                                for i in range(search_start + remove_count, search_end):
+                                    if cleaned_tokens[i] != '':
+                                        word_indices.append(i)
+                                break
+                        if not word_indices:
+                            for remove_count in range(1, search_range_length):
+                                right_removed_tokens = search_tokens[:-remove_count]
+                                right_combined = "".join(right_removed_tokens)
+                                if right_combined == tokenized_word:
+                                    for i in range(search_start, search_end - remove_count):
+                                        if cleaned_tokens[i] != '':
+                                            word_indices.append(i)
+                                    break
+                        if not word_indices:
+                            for left_remove in range(1, search_range_length):
+                                for right_remove in range(1, search_range_length - left_remove):
+                                    middle_tokens = search_tokens[left_remove:-right_remove]
+                                    middle_combined = "".join(middle_tokens)
+                                    if middle_combined == tokenized_word:
+                                        for i in range(search_start + left_remove, search_end - right_remove):
+                                            if cleaned_tokens[i] != '':
+                                                word_indices.append(i)
+                                        break
+                                if word_indices:
+                                    break
+                    if not word_indices:
+                        print(f"Warning: Could not find word '{input_word}' (tokenized as {tokenized_input_word_list}) in tokens")
+                        print(f"Search range: {search_start} to {search_end}")
+                        print(f"Tokens in search range: {cleaned_tokens[search_start:search_end]}")
+                        print(f"Combined string: {combined_string}")
+                        print(f"Tokenized word: {tokenized_word}")
+                        print(f"Tokenized word list: {tokenized_input_word_list}")
         # Analyze attention for each generation step
         generation_attention_analysis = []
         for step, step_attentions in enumerate(all_attention_matrices):
@@ -713,13 +814,13 @@ class QwenOmniSemanticDimensionVisualizer:
                 'layer_attention_patterns': []
             }
             for layer_idx, layer_attention in enumerate(step_attentions):
-                layer_attention = layer_attention[0]  # Remove batch dimension
+                layer_attention = layer_attention[0]
                 layer_analysis = {
                     'layer': layer_idx,
                     'head_attention_patterns': []
                 }
                 for head_idx in range(layer_attention.shape[0]):
-                    head_attention = layer_attention[head_idx]  # [seq_len, seq_len]
+                    head_attention = layer_attention[head_idx]
                     if step > 0:
                         last_token_attention = head_attention[-1, :]
                         attention_to_answer = sum(last_token_attention[idx] for idx in answer_indices if idx < len(last_token_attention))
@@ -976,7 +1077,7 @@ if __name__ == "__main__":
         temperature=args.temperature
     )
 
-    languages = ["en", "fr", "ko", "ja"]
+    languages = ["en", "fr", "ja", "ko"]
     total_num_of_dimensions = 0
     total_num_of_words = 0
     total_num_of_words_per_language = {lang: 0 for lang in languages}
@@ -1024,6 +1125,8 @@ if __name__ == "__main__":
                 total_num_of_dimensions += 1
             total_num_of_words += 1
             total_num_of_words_per_language[lang] += 1
+            gc.collect()
+            torch.cuda.empty_cache()
     
     print(f"\nProcessing completed!")
     print(f"Total samples processed: {total_num_of_dimensions}")
