@@ -15,6 +15,7 @@ import matplotlib.pyplot as plt
 import matplotlib
 import matplotlib.font_manager as fm
 from tqdm import tqdm
+from semdim_heatmap import QwenOmniSemanticDimensionVisualizer as qwensemdim
 
 def set_font_for_language(lang):
     """Set appropriate font based on language with fallback system"""

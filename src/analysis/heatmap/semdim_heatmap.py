@@ -1,5 +1,5 @@
 # Model : Qwen2.5-Omni-7B
-# python src/analysis/heatmap/semdim_heatmap.py --max-samples 5000 --languages en
+# python src/analysis/heatmap/semdim_heatmap.py --max-samples 2 --data-type original
 import json
 import re
 import os
@@ -8,6 +8,7 @@ import pickle as pkl
 from typing import Union
 import warnings
 import numpy as np
+import gc
 from transformers import Qwen2_5OmniForConditionalGeneration, Qwen2_5OmniProcessor
 import torch
 from tqdm import tqdm
@@ -20,7 +21,14 @@ prompt_path = "data/prompts/prompts.json"
 problem_per_language = 10
 phoneme_mean_map_path = None # TODO
 phoneme_mean_map = None # TODO
-data_type = "audio" # Change into argparse later, with "audio", "original", "romanized", "ipa"
+SYSTEM_PROMPT = "You are Qwen, a virtual human developed by the Qwen Team, Alibaba Group, capable of perceiving auditory and visual inputs, as well as generating text and speech."
+SYSTEM_TEMPLATE = {
+    "role": "system",
+    "content": [
+        {"type": "text", "text": SYSTEM_PROMPT}
+    ],
+}
+
 with open(prompt_path, "r") as f:
     prompts = json.load(f)
 
@@ -51,55 +59,91 @@ class QwenOmniSemanticDimensionVisualizer:
             attn_implementation="eager",
         )
         self.model.disable_talker()
-        
+        self.load_base_prompt()
         self.processor = Qwen2_5OmniProcessor.from_pretrained(self.model_path)
         self.data = self.load_data()
-        self.load_base_prompt()
+    
+    def load_base_prompt(self):
+        self.prompts = prompts[self.exp_type][f"semantic_dimension_binary_{self.data_type}"]["user_prompt"]
+        return self.prompts
     
     def load_data(self):
         with open(self.data_path, "r", encoding="utf-8") as f:
             self.data = json.load(f)
         return self.data
     
-    def load_base_prompt(self):
-        self.prompts = prompts[self.exp_type][f"semantic_dimension_binary_{self.data_type}"]["user_prompt"]
-        return self.prompts
-    
     def prmpt_dims_answrs(self, prompt:str, data, dimension_name:str=None):
-        if self.data_type == "audio":
-            audio_path = f"data/processed/nat/tts/{data['language']}/{data['word']}.wav"
-            if not os.path.exists(audio_path):
-                raise FileNotFoundError(f"Audio file not found: {audio_path}")
-            word = audio_path
-        else:
+        if self.data_type != "audio":
             data_type_key = "word" if self.data_type == "original" \
                 else "romanization" if self.data_type == "romanized" \
                 else "ipa"
             if data_type_key not in data:
                 raise KeyError(f"Data type '{data_type_key}' not found in data: {data.keys()}")
-            word = data[data_type_key]
         dimension_info = data["dimensions"][dimension_name]
         dimension1 = dimension_name.split("-")[0]
         dimension2 = dimension_name.split("-")[1]
         answer = dimension_info["answer"]
-        constructed_prompt = prompt.format(
-            word=word,
-            dimension1=dimension1,
-            dimension2=dimension2,
-        )
+        
+        if self.data_type == "audio":
+            word = f"data/processed/nat/tts/{data['language']}/{data['word']}.wav"
+            # audio 타입일 때는 conversation 형태로 반환
+            if "{audio}" in prompt:
+                constructed_prompt = [
+                    {"type": "text", "text": prompt.split("{audio}")[0]},
+                    {"type": "audio", "audio": word},
+                    {"type": "text", "text": prompt.split("{audio}")[1].format(
+                        dimension1=dimension1,
+                        dimension2=dimension2,
+                    )},
+                ]
+            else:
+                # fallback: 일반 문자열로 처리
+                constructed_prompt = prompt.format(
+                    word=data["word"],
+                    dimension1=dimension1,
+                    dimension2=dimension2,
+                )
+        else:
+            word = data[data_type_key]
+            constructed_prompt = prompt.format(
+                word=word,
+                dimension1=dimension1,
+                dimension2=dimension2,
+            )
         return constructed_prompt, dimension1, dimension2, answer, word, dimension_name
     
-    def get_attention_matrix(self, prompt:str, data:dict):
+    def create_conversation(self, prompt, data):
+        """통합된 conversation 생성 함수"""
         if self.data_type == "audio":
             audio_path = f'data/processed/nat/tts/{data["language"]}/{data["word"]}.wav'
             if not os.path.exists(audio_path):
                 raise FileNotFoundError(f"Audio file not found: {audio_path}")
             
-            if "<AUDIO>" in prompt:
-                question_parts = prompt.split("<AUDIO>")
-                if len(question_parts) == 2:
-                    question_first_part = question_parts[0]
-                    question_second_part = question_parts[1]
+            # prompt가 리스트 형태인 경우 (prmpt_dims_answrs에서 생성된 경우)
+            if isinstance(prompt, list):
+                conversation = [
+                    SYSTEM_TEMPLATE,
+                    {
+                        "role": "user",
+                        "content": prompt
+                    },
+                ]
+            else:
+                # 기존 로직: 문자열 prompt를 파싱
+                if "<AUDIO>" in prompt:
+                    question_parts = prompt.split("<AUDIO>")
+                    if len(question_parts) == 2:
+                        question_first_part = question_parts[0]
+                        question_second_part = question_parts[1]
+                    else:
+                        word_placeholder = "{word}"
+                        if word_placeholder in prompt:
+                            parts = prompt.split(word_placeholder)
+                            question_first_part = parts[0] + data["word"]
+                            question_second_part = parts[1] if len(parts) > 1 else ""
+                        else:
+                            question_first_part = prompt
+                            question_second_part = ""
                 else:
                     word_placeholder = "{word}"
                     if word_placeholder in prompt:
@@ -109,40 +153,22 @@ class QwenOmniSemanticDimensionVisualizer:
                     else:
                         question_first_part = prompt
                         question_second_part = ""
-            else:
-                word_placeholder = "{word}"
-                if word_placeholder in prompt:
-                    parts = prompt.split(word_placeholder)
-                    question_first_part = parts[0] + data["word"]
-                    question_second_part = parts[1] if len(parts) > 1 else ""
-                else:
-                    question_first_part = prompt
-                    question_second_part = ""
-            
-            conversation = [
-                {
-                    "role": "system",
-                    "content": [
-                        {"type": "text", "text": "You are Qwen, a virtual human developed by the Qwen Team, Alibaba Group, capable of perceiving auditory and visual inputs, as well as generating text and speech."}
-                    ],
-                },
-                {
-                    "role": "user",
-                    "content": [
-                        {"type": "text", "text": question_first_part},
-                        {"type": "audio", "audio": audio_path},
-                        {"type": "text", "text": question_second_part},
-                    ],
-                },
-            ]
+                
+                conversation = [
+                    SYSTEM_TEMPLATE,
+                    {
+                        "role": "user",
+                        "content": [
+                            {"type": "text", "text": question_first_part},
+                            {"type": "audio", "audio": audio_path},
+                            {"type": "text", "text": question_second_part},
+                        ],
+                    },
+                ]
         else:
+            # non-audio 타입: 단순 텍스트
             conversation = [
-                {
-                    "role": "system",
-                    "content": [
-                        {"type": "text", "text": "You are Qwen, a virtual human developed by the Qwen Team, Alibaba Group, capable of perceiving auditory and visual inputs, as well as generating text and speech."}
-                    ],
-                },
+                SYSTEM_TEMPLATE,
                 {
                     "role": "user",
                     "content": [
@@ -151,9 +177,32 @@ class QwenOmniSemanticDimensionVisualizer:
                 },
             ]
         
+        return conversation
+    
+    def get_attention_matrix(self, prompt, data:dict):
+        # 통합된 conversation 생성 함수 사용
+        conversation = self.create_conversation(prompt, data)
+        
         USE_AUDIO_IN_VIDEO = True
         text = self.processor.apply_chat_template(conversation, add_generation_prompt=True, tokenize=False)
         audios, images, videos = process_mm_info(conversation, use_audio_in_video=USE_AUDIO_IN_VIDEO)
+        
+        # Audio가 제대로 로드되었는지 확인
+        if self.data_type == "audio" and (audios is None or len(audios) == 0):
+            print(f"Warning: No audio loaded for {data['word']}")
+            # Fallback: audio 없이 텍스트만으로 처리
+            conversation_text_only = [
+                SYSTEM_TEMPLATE,
+                {
+                    "role": "user",
+                    "content": [
+                        {"type": "text", "text": f"Given a spoken word '{data['word']}', which semantic feature best describes the word based on auditory impression?"}
+                    ],
+                },
+            ]
+            text = self.processor.apply_chat_template(conversation_text_only, add_generation_prompt=True, tokenize=False)
+            audios, images, videos = process_mm_info(conversation_text_only, use_audio_in_video=USE_AUDIO_IN_VIDEO)
+        
         inputs = self.processor(
             text=text, 
             audio=audios, 
@@ -186,16 +235,13 @@ class QwenOmniSemanticDimensionVisualizer:
         cleaned_tokens = [self._clean_token(t) for t in tokens]
         cleaned_target = [self._clean_token(t) for t in target_subtokens]
         matches = []
-        # Join target for robust matching
         joined_target = ''.join(cleaned_target)
         target_len = len(cleaned_target)
         for i in range(len(cleaned_tokens) - target_len + 1):
-            # Join the window of tokens
             window = cleaned_tokens[i:i+target_len]
             joined_window = ''.join(window)
             if joined_window == joined_target:
                 matches.append(list(range(i, i+target_len)))
-        # Fallback: try to match by joining all target_subtokens and sliding over tokens
         if not matches and target_len > 1:
             for i in range(len(cleaned_tokens)):
                 for j in range(i+1, len(cleaned_tokens)+1):
@@ -208,30 +254,26 @@ class QwenOmniSemanticDimensionVisualizer:
 
     def find_tag_spans(self, tokens, tag_string, max_window=5):
         cleaned_tokens = [self._clean_token(t) for t in tokens]
-        tag_string = tag_string.replace(" ", "").upper()
+        tag_string = tag_string.replace(" ", "")
         matches = []
         for window in range(1, max_window+1):
             for i in range(len(cleaned_tokens) - window + 1):
-                window_str = ''.join(cleaned_tokens[i:i+window]).replace(" ", "").upper()
+                window_str = ''.join(cleaned_tokens[i:i+window]).replace(" ", "")
                 if window_str == tag_string:
                     matches.append(list(range(i, i+window)))
         return matches
 
     def extract_relevant_token_indices(self, tokens, dimension1, dimension2, word=None):
-        # [WORD] tag
         word_tag_matches = self.find_tag_spans(tokens, 'WORD')
         if len(word_tag_matches) < 2:
             raise ValueError(f"[WORD] tag appears less than twice in tokens: {tokens}")
         second_word_tag_span = word_tag_matches[1]
-        # [SEMANTIC DIMENSION] tag
         semdim_tag_matches = self.find_tag_spans(tokens, 'SEMANTICDIMENSION')
         if not semdim_tag_matches:
             raise ValueError(f"[SEMANTIC DIMENSION] tag not found in tokens: {tokens}")
         semdim_span = semdim_tag_matches[0]
-        # [OPTIONS] tag
         options_tag_matches = self.find_tag_spans(tokens, 'OPTIONS')
         options_span = options_tag_matches[0] if options_tag_matches else None
-        # 실제 word (예: 'a', 'banana' 등) subtoken 시퀀스 인덱스
         word_indices = []
         if word is not None:
             word_subtokens = self.processor.tokenizer.tokenize(word)
@@ -272,7 +314,7 @@ class QwenOmniSemanticDimensionVisualizer:
             "tokens": tokens,
             "relevant_indices": relevant_indices
         }
-        output_dir = os.path.join(self.output_dir, self.exp_type, self.data_type, lang)
+        output_dir = os.path.join(self.output_dir, self.exp_type, self.data_type, lang, "self_attention")
         os.makedirs(output_dir, exist_ok=True)
         safe_word = re.sub(r'[^\w\-_.]', '_', str(word_tokens))
         safe_dim1 = re.sub(r'[^\w\-_.]', '_', str(dimension1))
@@ -282,17 +324,6 @@ class QwenOmniSemanticDimensionVisualizer:
             pkl.dump(matrix_data, f)
     
     def read_matrix(self, layer_type="self", word_tokens=None, dimension1=None, dimension2=None, lang="en"):
-        """Read matrix from pickle file
-        # Composition
-        - Matrix array
-        - dimension1, dimension2, answer
-        - corresponding word tokens with index
-        - corresponding option tokens with index
-        """
-        if not all([word_tokens, dimension1, dimension2]):
-            raise ValueError("word_tokens, dimension1, and dimension2 must be provided")
-        
-        # Create a safe filename
         safe_word = re.sub(r'[^\w\-_.]', '_', str(word_tokens))
         safe_dim1 = re.sub(r'[^\w\-_.]', '_', str(dimension1))
         safe_dim2 = re.sub(r'[^\w\-_.]', '_', str(dimension2))
@@ -313,11 +344,10 @@ class QwenOmniSemanticDimensionVisualizer:
     def find_token_indices(self, tokens, target_tokens):
         indices = []
         
-        # Helper function to clean token (remove "Ġ" and check if it's a special token)
         def clean_token(token):
             """Clean token by removing 'Ġ' and check if it's a special token"""
             if token.startswith("Ġ"):
-                token = token[1:]  # Remove "Ġ"
+                token = token[1:]
             return token
         
         def is_special_token(token):
@@ -326,65 +356,42 @@ class QwenOmniSemanticDimensionVisualizer:
         
         # Process each target
         for target in target_tokens:
-            # If target is a single token
             if isinstance(target, str):
-                # Clean the target token
                 clean_target = clean_token(target)
                 
-                # Find all occurrences of this target
                 for idx, token in enumerate(tokens):
                     clean_token_str = clean_token(token)
                     if clean_target == clean_token_str:
                         indices.append(idx)
             
-            # If target is a list of tokens (multi-token sequence)
             elif isinstance(target, list):
-                # Clean all target tokens
                 clean_targets = [clean_token(t) for t in target]
                 
-                # Find continuous sequence of target tokens
                 for i in range(len(tokens) - len(clean_targets) + 1):
                     match_found = True
                     sequence_indices = []
                     
-                    # Check if the sequence starting at position i matches our target
                     for j, clean_target in enumerate(clean_targets):
                         current_token = tokens[i + j]
                         clean_current = clean_token(current_token)
                         
-                        # If this token doesn't match, or if it's a special token in the middle, break
                         if clean_current != clean_target or (j > 0 and is_special_token(current_token)):
                             match_found = False
                             break
                         sequence_indices.append(i + j)
                     
-                    # If we found a complete match, add all indices
                     if match_found:
                         indices.extend(sequence_indices)
-                        break  # Only take the first occurrence
+                        break # Only take the first occurrence
         
-        # Remove duplicates and sort
         indices = sorted(list(set(indices)))
         
         return indices
     
-    def filter_relevant_indices(
-        self,
-        attention_matrix,
-        row_tokens,
-        column_tokens,
-        word_tokens,
-        option_tokens,
-        dimension1,
-        dimension2,
-        answer,
-        layer_type="self"
-    ):
-        # Must include the file index of word token, dim1, dim2
+    def filter_relevant_indices(self, attention_matrix, row_tokens, column_tokens, word_tokens, option_tokens, dimension1, dimension2, answer, layer_type="self"):
         save_row_index = []
         save_column_index = []
         
-        # Find word token indices
         word_indices = self.find_token_indices(row_tokens, [word_tokens])
         if self.data_type == "audio":
             word_indices = self.find_token_indices(row_tokens, ["<|AUDIO|>"])
@@ -392,7 +399,6 @@ class QwenOmniSemanticDimensionVisualizer:
         dim2_indices = self.find_token_indices(row_tokens, [dimension2])
         
         if layer_type == "self":
-            # Find the index of word token, dim1, dim2
             for idx, token in enumerate(row_tokens):
                 if idx in word_indices or idx in dim1_indices or idx in dim2_indices:
                     save_row_index.append(idx)
@@ -401,18 +407,7 @@ class QwenOmniSemanticDimensionVisualizer:
                 if idx in word_indices or idx in dim1_indices or idx in dim2_indices:
                     save_column_index.append(idx)
                     
-        elif layer_type == "cross":
-            # Find the index of word token, dim1, dim2
-            for idx, token in enumerate(row_tokens):
-                if idx in word_indices or idx in dim1_indices or idx in dim2_indices:
-                    save_row_index.append(idx)
-                    
-            for idx, token in enumerate(column_tokens):
-                if idx in option_tokens or idx in dim1_indices or idx in dim2_indices:
-                    save_column_index.append(idx)
-        
         elif layer_type == "output":
-            # Find the index of word token, dim1, dim2
             answer_indices = self.find_token_indices(row_tokens, [answer])
             for idx, token in enumerate(row_tokens):
                 if idx in answer_indices or idx in dim1_indices or idx in dim2_indices:
@@ -421,36 +416,24 @@ class QwenOmniSemanticDimensionVisualizer:
             for idx, token in enumerate(column_tokens):
                 if idx in option_tokens or idx in dim1_indices or idx in dim2_indices:
                     save_column_index.append(idx)
-        # Inside the attention matrix, remove the rows and columns that are not in the index
         if save_row_index and save_column_index:
-            # Handle the case where attention_matrix is a tuple of attention tensors
             if isinstance(attention_matrix, tuple):
-                # For tuple of attention tensors, we need to process each layer
-                # For now, let's take the first layer as an example
-                attention_matrix = attention_matrix[0]  # Take first layer
-            
-            # Convert to tensor if it's not already
+                attention_matrix = attention_matrix[0]
             if not hasattr(attention_matrix, 'index_select'):
                 attention_matrix = torch.tensor(attention_matrix)
             
-            # Handle different tensor dimensions
             tensor_shape = attention_matrix.shape
             
-            # Check if indices are within bounds
             if len(tensor_shape) == 4:  # [batch_size, layers, seq_len, seq_len]
                 max_seq_len = tensor_shape[-1]  # Last dimension is sequence length
-                
-                # Filter indices to be within bounds
                 valid_row_indices = [idx for idx in save_row_index if idx < max_seq_len]
                 valid_col_indices = [idx for idx in save_column_index if idx < max_seq_len]
                 
                 if valid_row_indices and valid_col_indices:
                     # For 4D tensor [batch_size, layers, seq_len, seq_len], filter the last two dimensions
-                    # Convert indices to tensors on the same device as attention_matrix
                     row_tensor = torch.tensor(valid_row_indices, device=attention_matrix.device)
                     col_tensor = torch.tensor(valid_col_indices, device=attention_matrix.device)
                     
-                    # Use advanced indexing to properly filter the attention matrix
                     # [batch_size, layers, seq_len, seq_len] -> [batch_size, layers, filtered_seq_len, filtered_seq_len]
                     filtered_attention_matrix = attention_matrix[:, :, row_tensor][:, :, :, col_tensor]
                 else:
@@ -462,22 +445,14 @@ class QwenOmniSemanticDimensionVisualizer:
                     
             elif len(tensor_shape) == 3:  # [layers, seq_len, seq_len]
                 max_seq_len = tensor_shape[-1]  # Last dimension is sequence length
-                # Filter indices to be within bounds
                 valid_row_indices = [idx for idx in save_row_index if idx < max_seq_len]
                 valid_col_indices = [idx for idx in save_column_index if idx < max_seq_len]
                 
                 if valid_row_indices and valid_col_indices:
-                    # For 3D tensor [layers, seq_len, seq_len], filter the last two dimensions
-                    # Convert indices to tensors on the same device as attention_matrix
                     row_tensor = torch.tensor(valid_row_indices, device=attention_matrix.device)
                     col_tensor = torch.tensor(valid_col_indices, device=attention_matrix.device)
-                    
-                    # Use advanced indexing to properly filter the attention matrix
-                    # [layers, seq_len, seq_len] -> [layers, filtered_seq_len, filtered_seq_len]
                     filtered_attention_matrix = attention_matrix[:, row_tensor][:, :, col_tensor]
                 else:
-                    # If no valid indices, return a small subset of the original matrix
-                    # print(f"Warning: No valid indices found, using first few tokens")
                     filtered_attention_matrix = attention_matrix[:, :min(3, tensor_shape[-2]), :min(3, tensor_shape[-1])]
                     valid_row_indices = list(range(min(3, tensor_shape[-2])))
                     valid_col_indices = list(range(min(3, tensor_shape[-1])))
@@ -492,14 +467,7 @@ class QwenOmniSemanticDimensionVisualizer:
             valid_col_indices = save_column_index
         return filtered_attention_matrix, valid_row_indices, valid_col_indices
            
-    def matrix_computation(
-        self,
-        filtered_attention_matrix,
-        purpose,
-        head:Union[int, str],
-        layer:Union[int, str],
-        phoneme_mean_map:dict
-    ):
+    def matrix_computation(self, filtered_attention_matrix, purpose, head:Union[int, str], layer:Union[int, str], phoneme_mean_map:dict):
         # Convert to tensor if it's not already
         if not hasattr(filtered_attention_matrix, 'mean'):
             filtered_attention_matrix = torch.tensor(filtered_attention_matrix)
@@ -578,9 +546,16 @@ class QwenOmniSemanticDimensionVisualizer:
             generation_attentions, dim1, dim2, answer, data['word'], [dim1, dim2], lang, generation_tokens, final_input_ids, generation_tokens
         )
         
+        data_type_key = {"audio": "audio", "original": "word", "romanized": "romanization", "ipa": "ipa"}
+        
+        if self.data_type != "audio":
+            input_word = data[data_type_key[self.data_type]]
+        else:
+            input_word = data["word"]  # audio 타입일 때는 실제 단어 이름 사용
+
         # Analyze generation attention patterns
         generation_analysis = self.extract_generation_attention_analysis(
-            generation_attentions, generation_tokens, answer, dim1, dim2, data['word']
+            generation_attentions, generation_tokens, answer, lang, dim1, dim2, data['word'], input_word
         )
         
         # Save generation attention analysis
@@ -589,74 +564,30 @@ class QwenOmniSemanticDimensionVisualizer:
         )
         print(f"Saved generation attention analysis for {data['word']} - {dim1}-{dim2}")
 
-    def get_generation_attention_matrix(self, prompt: str, data: dict, max_new_tokens: int = 32):
+    def get_generation_attention_matrix(self, prompt, data: dict, max_new_tokens: int = 32):
         """Extract attention matrix during text generation (autoregressive decoding)"""
-        # Create conversation format (same as get_attention_matrix)
-        if self.data_type == "audio":
-            audio_path = f'data/processed/nat/tts/{data["language"]}/{data["word"]}.wav'
-            if not os.path.exists(audio_path):
-                raise FileNotFoundError(f"Audio file not found: {audio_path}")
-            
-            # Split prompt to insert audio in the middle
-            if "<AUDIO>" in prompt:
-                question_parts = prompt.split("<AUDIO>")
-                if len(question_parts) == 2:
-                    question_first_part = question_parts[0]
-                    question_second_part = question_parts[1]
-                else:
-                    word_placeholder = "{word}"
-                    if word_placeholder in prompt:
-                        parts = prompt.split(word_placeholder)
-                        question_first_part = parts[0] + data["word"]
-                        question_second_part = parts[1] if len(parts) > 1 else ""
-                    else:
-                        question_first_part = prompt
-                        question_second_part = ""
-            else:
-                word_placeholder = "{word}"
-                if word_placeholder in prompt:
-                    parts = prompt.split(word_placeholder)
-                    question_first_part = parts[0] + data["word"]
-                    question_second_part = parts[1] if len(parts) > 1 else ""
-                else:
-                    question_first_part = prompt
-                    question_second_part = ""
-            
-            conversation = [
-                {
-                    "role": "system",
-                    "content": [
-                        {"type": "text", "text": "You are Qwen, a virtual human developed by the Qwen Team, Alibaba Group, capable of perceiving auditory and visual inputs, as well as generating text and speech."}
-                    ],
-                },
-                {
-                    "role": "user",
-                    "content": [
-                        {"type": "text", "text": question_first_part},
-                        {"type": "audio", "audio": audio_path},
-                        {"type": "text", "text": question_second_part},
-                    ],
-                },
-            ]
-        else:
-            conversation = [
-                {
-                    "role": "system",
-                    "content": [
-                        {"type": "text", "text": "You are Qwen, a virtual human developed by the Qwen Team, Alibaba Group, capable of perceiving auditory and visual inputs, as well as generating text and speech."}
-                    ],
-                },
-                {
-                    "role": "user",
-                    "content": [
-                        {"type": "text", "text": prompt},
-                    ],
-                },
-            ]
+        # 통합된 conversation 생성 함수 사용
+        conversation = self.create_conversation(prompt, data)
         
         USE_AUDIO_IN_VIDEO = True
         text = self.processor.apply_chat_template(conversation, add_generation_prompt=True, tokenize=False)
         audios, images, videos = process_mm_info(conversation, use_audio_in_video=USE_AUDIO_IN_VIDEO)
+        
+        # Audio가 제대로 로드되었는지 확인
+        if self.data_type == "audio" and (audios is None or len(audios) == 0):
+            print(f"Warning: No audio loaded for {data['word']}")
+            conversation_text_only = [
+                SYSTEM_TEMPLATE,
+                {
+                    "role": "user",
+                    "content": [
+                        {"type": "text", "text": f"Given a spoken word '{data['word']}', which semantic feature best describes the word based on auditory impression?"}
+                    ],
+                },
+            ]
+            text = self.processor.apply_chat_template(conversation_text_only, add_generation_prompt=True, tokenize=False)
+            audios, images, videos = process_mm_info(conversation_text_only, use_audio_in_video=USE_AUDIO_IN_VIDEO)
+        
         inputs = self.processor(
             text=text, 
             audio=audios, 
@@ -679,12 +610,7 @@ class QwenOmniSemanticDimensionVisualizer:
         all_tokens.append(initial_tokens.copy())
         
         with torch.no_grad():
-            # Use the thinker model for generation with attention tracking
-            # Qwen2.5-Omni thinker model handles the actual generation logic
-            
-            # Generate tokens autoregressively
             for step in range(max_new_tokens):
-                # Forward pass with attention output using the thinker model
                 outputs = self.model.thinker(
                     input_ids=current_input_ids,
                     attention_mask=current_attention_mask,
@@ -692,28 +618,15 @@ class QwenOmniSemanticDimensionVisualizer:
                     return_dict=True,
                     use_cache=True
                 )
-                
-                # Store attention matrices for this step
                 attentions = outputs.attentions
                 all_attention_matrices.append(attentions)
-                
-                # Get logits for next token prediction
                 logits = outputs.logits[:, -1, :]  # Take last token's logits
-                
-                # Sample next token (greedy decoding)
                 next_token_id = torch.argmax(logits, dim=-1, keepdim=True)
-                
-                # Ensure all tensors are on the same device
                 next_token_id = next_token_id.to(current_input_ids.device)
-                
-                # Append to input_ids and attention_mask
                 current_input_ids = torch.cat([current_input_ids, next_token_id], dim=-1)
                 current_attention_mask = torch.cat([current_attention_mask, torch.ones_like(next_token_id, device=current_input_ids.device)], dim=-1)
-                
-                # Update tokens list
                 new_token = self.processor.tokenizer.convert_ids_to_tokens(next_token_id[0])
                 all_tokens.append(new_token)
-                # Check for end of generation
                 if next_token_id.item() == self.processor.tokenizer.eos_token_id:
                     break
         
@@ -744,11 +657,26 @@ class QwenOmniSemanticDimensionVisualizer:
             flat.extend(m)
         return sorted(set(flat))
 
-    def extract_generation_attention_analysis(self, all_attention_matrices, tokens, answer, dimension1, dimension2, word):
+    def robust_subtoken_match(self, tokens, target_string):
+        """Clean and tokenize both tokens and target_string, then robustly find subtoken sequence matches."""
+        cleaned_tokens = [self._clean_token(t) for t in tokens]
+        tokenized_target = self.processor.tokenizer.tokenize(self._clean_token(target_string))
+        cleaned_target = [self._clean_token(t) for t in tokenized_target]
+        joined_target = ''.join(cleaned_target)
+        matches = []
+        for i in range(len(cleaned_tokens)):
+            for j in range(i+1, len(cleaned_tokens)+1):
+                window = cleaned_tokens[i:j]
+                if ''.join(window) == joined_target:
+                    matches.append(list(range(i, j)))
+                    break  # Only first match per start index
+        return matches
+
+    def extract_generation_attention_analysis(self, all_attention_matrices:list[tuple[torch.Tensor, ...]], tokens:list[str], answer:str, lang:str, dimension1:str, dimension2:str, word:str, input_word:str=None):
         """Analyze attention patterns during generation, focusing on output tokens"""
-        
         # Find the indices of the answer tokens in the final token sequence
         answer_subtokens = self.processor.tokenizer.tokenize(answer)
+        input_word = input_word.replace(" ", "")
         answer_indices = self.find_subtoken_sequence_indices(tokens, answer_subtokens)
         # Flatten answer_indices
         temp_answer_indices = []
@@ -756,29 +684,127 @@ class QwenOmniSemanticDimensionVisualizer:
             for i in index:
                 temp_answer_indices.append(i)
         answer_indices = temp_answer_indices
-        
-        # Find indices of dimension tokens using direct comparison (like in extract_relevant_token_indices)
-        dim1_subtokens = self.processor.tokenizer.tokenize(dimension1)
-        dim2_subtokens = self.processor.tokenizer.tokenize(dimension2)
-        
+
         # Use direct token comparison for better matching
         dim1_indices = self._find_token_indices_by_string(tokens, dimension1)
         dim2_indices = self._find_token_indices_by_string(tokens, dimension2)
-                
-        # Find word indices using direct comparison
-        word_subtokens = self.processor.tokenizer.tokenize(word)
+
+        # --- word_indices 처리 ---
         word_indices = []
-        for i in range(len(tokens) - len(word_subtokens) + 1):
-            if [self._clean_token(t) for t in tokens[i:i+len(word_subtokens)]] == [self._clean_token(t) for t in word_subtokens]:
-                word_indices.extend(list(range(i, i+len(word_subtokens))))
-        
+        if self.data_type == "audio":
+            # Audio token 범위 찾기: <|audio_bos|>부터 <|audio_eos|>까지
+            audio_bos_token = "<|audio_bos|>"
+            audio_eos_token = "<|audio_eos|>"
+            audio_token = "<|AUDIO|>"
+            
+            # <|audio_bos|>와 <|audio_eos|> 인덱스 찾기
+            audio_bos_indices = [i for i, t in enumerate(tokens) if self._clean_token(t) == self._clean_token(audio_bos_token)]
+            audio_eos_indices = [i for i, t in enumerate(tokens) if self._clean_token(t) == self._clean_token(audio_eos_token)]
+            
+            if audio_bos_indices and audio_eos_indices:
+                # 첫 번째 audio_bos와 첫 번째 audio_eos 사이의 <|AUDIO|> 토큰들 찾기
+                start_idx = audio_bos_indices[0] + 1  # audio_bos 다음부터
+                end_idx = audio_eos_indices[0]  # audio_eos 전까지
+                
+                audio_indices = []
+                for i in range(start_idx, end_idx):
+                    if self._clean_token(tokens[i]) == self._clean_token(audio_token):
+                        audio_indices.append(i)
+                
+                # 각 <|AUDIO|> 토큰을 f"{word}_{num}" 형태로 대체하고 인덱스 저장
+                for idx, audio_idx in enumerate(audio_indices):
+                    word_indices.append(audio_idx)
+                    # 토큰 리스트에서 해당 위치의 토큰을 대체
+                    if audio_idx < len(tokens):
+                        tokens[audio_idx] = f"{word}_{idx}"
+            else:
+                print(f"Warning: Could not find audio_bos or audio_eos tokens in {word}")
+                # Fallback: 기존 방식으로 <|AUDIO|> 토큰 찾기
+                audio_indices = [i for i, t in enumerate(tokens) if self._clean_token(t) == self._clean_token(audio_token)]
+                for idx, audio_idx in enumerate(audio_indices):
+                    word_indices.append(audio_idx)
+                    if audio_idx < len(tokens):
+                        tokens[audio_idx] = f"{word}_{idx}"
+        elif self.data_type == "original" and lang == "en":
+            # input_word로 인덱스 찾기
+            indices = self._find_token_indices_by_string(tokens, input_word)
+            word_indices = indices
+        else:
+            # 1. input_word를 tokenize
+            tokenized_input_word_list = self.processor.tokenizer.tokenize(input_word)
+            tokenized_input_word_list = [self._clean_token(t) for t in tokenized_input_word_list]
+            # 2. tokenized_input_word_list를 하나의 string으로 결합
+            tokenized_word = "".join(tokenized_input_word_list)
+            # 3. tokens를 _clean_token으로 전처리
+            cleaned_tokens = [self._clean_token(t) for t in tokens]
+            word_indices = []
+            
+            # 4. [WORD] 태그가 두 번째로 나타나는 인덱스 찾기
+            word_tag_matches = self.find_tag_spans(cleaned_tokens, 'WORD')
+            if len(word_tag_matches) < 2:
+                print(f"Warning: [WORD] tag appears less than twice in tokens")
+                word_indices = []
+            else:
+                second_word_tag_span = word_tag_matches[1]  # 두 번째 [WORD] 태그
+                second_word_end_idx = second_word_tag_span[-1]  # 두 번째 [WORD] 태그의 끝 인덱스
+                
+                # 5. [SEMANTICDIMENSION] 태그가 나타나는 인덱스 찾기
+                semdim_tag_matches = self.find_tag_spans(cleaned_tokens, 'SEMANTICDIMENSION')
+                if not semdim_tag_matches:
+                    print(f"Warning: [SEMANTIC DIMENSION] tag not found in tokens")
+                    word_indices = []
+                else:
+                    semdim_span = semdim_tag_matches[0]
+                    semdim_start_idx = semdim_span[0]
+                    search_start = second_word_end_idx + 1
+                    search_end = semdim_start_idx
+                    search_tokens = cleaned_tokens[search_start:search_end]
+                    combined_string = "".join(search_tokens)
+                    if combined_string == tokenized_word:
+                        for i in range(search_start, search_end):
+                            if cleaned_tokens[i] != '':
+                                word_indices.append(i)
+                    else:
+                        search_range_length = search_end - search_start
+                        for remove_count in range(1, search_range_length):
+                            left_removed_tokens = search_tokens[remove_count:]
+                            left_combined = "".join(left_removed_tokens)
+                            if left_combined == tokenized_word:
+                                for i in range(search_start + remove_count, search_end):
+                                    if cleaned_tokens[i] != '':
+                                        word_indices.append(i)
+                                break
+                        if not word_indices:
+                            for remove_count in range(1, search_range_length):
+                                right_removed_tokens = search_tokens[:-remove_count]
+                                right_combined = "".join(right_removed_tokens)
+                                if right_combined == tokenized_word:
+                                    for i in range(search_start, search_end - remove_count):
+                                        if cleaned_tokens[i] != '':
+                                            word_indices.append(i)
+                                    break
+                        if not word_indices:
+                            for left_remove in range(1, search_range_length):
+                                for right_remove in range(1, search_range_length - left_remove):
+                                    middle_tokens = search_tokens[left_remove:-right_remove]
+                                    middle_combined = "".join(middle_tokens)
+                                    if middle_combined == tokenized_word:
+                                        for i in range(search_start + left_remove, search_end - right_remove):
+                                            if cleaned_tokens[i] != '':
+                                                word_indices.append(i)
+                                        break
+                                if word_indices:
+                                    break
+                    if not word_indices:
+                        print(f"Warning: Could not find word '{input_word}' (tokenized as {tokenized_input_word_list}) in tokens")
+                        print(f"Search range: {search_start} to {search_end}")
+                        print(f"Tokens in search range: {cleaned_tokens[search_start:search_end]}")
+                        print(f"Combined string: {combined_string}")
+                        print(f"Tokenized word: {tokenized_word}")
+                        print(f"Tokenized word list: {tokenized_input_word_list}")
         # Analyze attention for each generation step
         generation_attention_analysis = []
-        
         for step, step_attentions in enumerate(all_attention_matrices):
-            # step_attentions is a tuple of (num_layers,) attention matrices
-            # Each attention matrix has shape [batch_size, num_heads, seq_len, seq_len]
-            
             step_analysis = {
                 'step': step,
                 'generated_token': tokens[-(len(all_attention_matrices) - step)] if step < len(all_attention_matrices) else None,
@@ -787,33 +813,27 @@ class QwenOmniSemanticDimensionVisualizer:
                 'attention_to_word': [],
                 'layer_attention_patterns': []
             }
-            
-            # Analyze each layer's attention
             for layer_idx, layer_attention in enumerate(step_attentions):
-                # layer_attention shape: [batch_size, num_heads, seq_len, seq_len]
-                layer_attention = layer_attention[0]  # Remove batch dimension
-                
+                layer_attention = layer_attention[0]
                 layer_analysis = {
                     'layer': layer_idx,
                     'head_attention_patterns': []
                 }
-                
-                # Analyze each attention head
                 for head_idx in range(layer_attention.shape[0]):
-                    head_attention = layer_attention[head_idx]  # [seq_len, seq_len]
-                    
-                    # Get attention from the last token (generated token) to all previous tokens
-                    if step > 0:  # Skip first step as no new token was generated yet
-                        last_token_attention = head_attention[-1, :]  # Attention from last token to all tokens
-
-                        # Calculate attention to different token groups
+                    head_attention = layer_attention[head_idx]
+                    if step > 0:
+                        last_token_attention = head_attention[-1, :]
                         attention_to_answer = sum(last_token_attention[idx] for idx in answer_indices if idx < len(last_token_attention))
                         attention_to_dim1 = sum(last_token_attention[idx] for idx in dim1_indices if idx < len(last_token_attention))
                         attention_to_dim2 = sum(last_token_attention[idx] for idx in dim2_indices if idx < len(last_token_attention))
                         attention_to_word = sum(last_token_attention[idx] for idx in word_indices if idx < len(last_token_attention))
-                        breakpoint()
+                        if isinstance(attention_to_word, int):
+                            breakpoint()
+                            
                         head_analysis = {
                             'head': head_idx,
+                            'word': word,
+                            'input_word': input_word,
                             'attention_to_answer': attention_to_answer.item(),
                             'attention_to_dim1': attention_to_dim1.item(),
                             'attention_to_dim2': attention_to_dim2.item(),
@@ -821,11 +841,8 @@ class QwenOmniSemanticDimensionVisualizer:
                             'full_attention_vector': last_token_attention.cpu().float().numpy()
                         }
                         layer_analysis['head_attention_patterns'].append(head_analysis)
-                
                 step_analysis['layer_attention_patterns'].append(layer_analysis)
-            
             generation_attention_analysis.append(step_analysis)
-        
         return generation_attention_analysis
 
     def save_generation_attention_analysis(self, generation_analysis, dimension1, dimension2, answer, word_tokens, option_tokens, lang="en", tokens=None, generated_text=None):
@@ -1030,56 +1047,26 @@ class QwenOmniSemanticDimensionVisualizer:
             print(f"  - Avg attention to answer: {layer_data.get('average_attention_to_answer', 0):.4f}")
             print(f"  - Avg attention to dimensions: {layer_data.get('average_attention_to_dimensions', 0):.4f}")
             print(f"  - Avg attention to word: {layer_data.get('average_attention_to_word', 0):.4f}")
-        
-        print(f"\n=== Top Attention Heads ===")
-        # Sort heads by attention to answer
-        sorted_heads = sorted(
-            summary['head_attention_summary'].items(),
-            key=lambda x: x[1].get('average_attention_to_answer', 0),
-            reverse=True
-        )
-        
-        for i, (head_key, head_data) in enumerate(sorted_heads[:10]):  # Top 10 heads
-            print(f"{i+1}. {head_key}:")
-            print(f"   - Avg attention to answer: {head_data.get('average_attention_to_answer', 0):.4f}")
-            print(f"   - Avg attention to dimensions: {head_data.get('average_attention_to_dimensions', 0):.4f}")
-            print(f"   - Avg attention to word: {head_data.get('average_attention_to_word', 0):.4f}")
 
 if __name__ == "__main__":
     import argparse
-    
     parser = argparse.ArgumentParser(description="Qwen2.5-Omni Semantic Dimension Attention Heatmap Visualization")
-    parser.add_argument('--model', type=str, default="Qwen/Qwen2.5-Omni-7B", 
-                       help="Model path (default: Qwen/Qwen2.5-Omni-7B)")
-    parser.add_argument('--data-path', type=str, 
-                       default="data/processed/nat/semantic_dimension/semantic_dimension_binary_gt.json",
+    parser.add_argument('--model', type=str, default="Qwen/Qwen2.5-Omni-7B", help="Model path (default: Qwen/Qwen2.5-Omni-7B)")
+    parser.add_argument('--data-path', type=str, default="data/processed/nat/semantic_dimension/semantic_dimension_binary_gt.json",
                        help="Path to semantic dimension data JSON file")
-    parser.add_argument('--output-dir', type=str, 
-                       default="results/experiments/understanding/attention_heatmap",
+    parser.add_argument('--output-dir', type=str, default="results/experiments/understanding/attention_heatmap",
                        help="Output directory for heatmaps and matrices")
-    parser.add_argument('--data-type', type=str, default="audio", 
-                       choices=["audio", "original", "romanized", "ipa"],
+    parser.add_argument('--data-type', type=str, default="audio", choices=["audio", "original", "romanized", "ipa"],
                        help="Data type to process")
-    parser.add_argument('--max-tokens', type=int, default=32, 
-                       help="Maximum tokens to generate")
-    parser.add_argument('--temperature', type=float, default=0.0, 
-                       help="Sampling temperature")
-    parser.add_argument('--max-samples', type=int, default=None, 
-                       help="Maximum number of samples to process (default: all)")
-    parser.add_argument('--languages', nargs='+', default=["en", "fr", "ko", "ja"], 
-                       help="Languages to process")
+    parser.add_argument('--max-tokens', type=int, default=32, help="Maximum tokens to generate")
+    parser.add_argument('--temperature', type=float, default=0.0, help="Sampling temperature")
+    parser.add_argument('--max-samples', type=int, default=None, help="Maximum number of samples to process (default: all)")
+    parser.add_argument('--languages', nargs='+', default=["en", "fr", "ko", "ja"], help="Languages to process")
     
     args = parser.parse_args()
     max_samples:int = args.max_samples
-    
-    print(f"Initializing QwenOmniSemanticDimensionVisualizer...")
-    print(f"Model: {args.model}")
-    print(f"Data path: {args.data_path}")
-    print(f"Output directory: {args.output_dir}")
     print(f"Data type: {args.data_type}")
-    print(f"Languages: {args.languages}")
-    
-    # Initialize visualizer
+
     visualizer = QwenOmniSemanticDimensionVisualizer(
         model_path=args.model,
         data_path=args.data_path,
@@ -1090,16 +1077,13 @@ if __name__ == "__main__":
         temperature=args.temperature
     )
 
-    # Process samples
-    languages = ["en", "fr", "ko", "ja"]
+    languages = ["en", "fr", "ja", "ko"]
     total_num_of_dimensions = 0
     total_num_of_words = 0
     total_num_of_words_per_language = {lang: 0 for lang in languages}
-    # languages = args.languages[0].split(",")
     
     for lang in languages:
         print(f"\nProcessing language: {lang}")
-        # Filter samples for this language
         lang_data = visualizer.data[lang]
         print(f"Found {len(lang_data)} samples for language {lang}")
         
@@ -1111,9 +1095,6 @@ if __name__ == "__main__":
             
             # Process each dimension for this sample
             for dimension_name in sample.get("dimensions", {}):
-                # print(f"\nProcessing sample {sample_idx + 1}/{len(lang_data)} - {sample['word']} - {dimension_name}")
-                
-                # Construct prompt and get dimension info
                 constructed_prompt, dim1, dim2, answer, word, dim_name = visualizer.prmpt_dims_answrs(
                     visualizer.prompts, sample, dimension_name
                 )
@@ -1144,7 +1125,8 @@ if __name__ == "__main__":
                 total_num_of_dimensions += 1
             total_num_of_words += 1
             total_num_of_words_per_language[lang] += 1
-
+            gc.collect()
+            torch.cuda.empty_cache()
     
     print(f"\nProcessing completed!")
     print(f"Total samples processed: {total_num_of_dimensions}")
