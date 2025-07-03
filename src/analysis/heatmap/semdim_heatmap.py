@@ -323,12 +323,12 @@ class QwenOmniSemanticDimensionVisualizer:
         with open(save_path, "wb") as f:
             pkl.dump(matrix_data, f)
     
-    def read_matrix(self, layer_type="self", word_tokens=None, dimension1=None, dimension2=None, lang="en"):
+    def read_matrix(self, layer_type="self", attention_type="self_attention", word_tokens=None, dimension1=None, dimension2=None, lang="en"):
         safe_word = re.sub(r'[^\w\-_.]', '_', str(word_tokens))
         safe_dim1 = re.sub(r'[^\w\-_.]', '_', str(dimension1))
         safe_dim2 = re.sub(r'[^\w\-_.]', '_', str(dimension2))
         
-        matrix_path = os.path.join(self.output_dir, self.exp_type, self.data_type, lang, f"{safe_word}_{safe_dim1}_{safe_dim2}_{layer_type}.pkl")
+        matrix_path = os.path.join(self.output_dir, self.exp_type, self.data_type, lang, attention_type, f"{safe_word}_{safe_dim1}_{safe_dim2}_{layer_type}.pkl")
         
         if not os.path.exists(matrix_path):
             raise FileNotFoundError(f"Matrix file not found: {matrix_path}")
@@ -466,63 +466,6 @@ class QwenOmniSemanticDimensionVisualizer:
             valid_row_indices = save_row_index
             valid_col_indices = save_column_index
         return filtered_attention_matrix, valid_row_indices, valid_col_indices
-           
-    def matrix_computation(self, filtered_attention_matrix, purpose, head:Union[int, str], layer:Union[int, str], phoneme_mean_map:dict):
-        # Convert to tensor if it's not already
-        if not hasattr(filtered_attention_matrix, 'mean'):
-            filtered_attention_matrix = torch.tensor(filtered_attention_matrix)
-        
-        # Check tensor dimensions and handle accordingly
-        tensor_shape = filtered_attention_matrix.shape
-        
-        if purpose == "flow":
-            computed_matrix = None
-            if phoneme_mean_map:
-                # Compute attention flow based on phoneme-meaning mapping
-                for phoneme, meaning in phoneme_mean_map.items():
-                    for meaning_idx, meaning_value in enumerate(meaning):
-                        for head_idx, head_value in enumerate(filtered_attention_matrix[meaning_idx]):
-                            for layer_idx, layer_value in enumerate(head_value):
-                                pass
-            else:
-                # Handle different tensor dimensions
-                if len(tensor_shape) == 4:  # [head, layer, seq_len, seq_len]
-                    if isinstance(head, str) and isinstance(layer, str):
-                        computed_matrix = torch.mean(filtered_attention_matrix, dim=(0, 1))
-                    elif isinstance(head, int) and isinstance(layer, int):
-                        computed_matrix = filtered_attention_matrix[head, layer]
-                    else:
-                        computed_matrix = torch.mean(filtered_attention_matrix, dim=0)
-                elif len(tensor_shape) == 3:  # [seq_len, seq_len, seq_len] or similar
-                    # For 3D tensor, just take the mean across the first dimension
-                    computed_matrix = torch.mean(filtered_attention_matrix, dim=0)
-                elif len(tensor_shape) == 2:  # [seq_len, seq_len]
-                    computed_matrix = filtered_attention_matrix
-                else:
-                    # For 1D or other dimensions, just use as is
-                    computed_matrix = filtered_attention_matrix
-                    
-        elif purpose == "heatmap":
-            if len(tensor_shape) == 4:  # [head, layer, seq_len, seq_len]
-                if isinstance(head, str) and isinstance(layer, str):
-                    computed_matrix = torch.mean(filtered_attention_matrix, dim=(0, 1))
-                elif isinstance(head, int) and isinstance(layer, int):
-                    computed_matrix = filtered_attention_matrix[head, layer]
-                elif isinstance(head, str) and isinstance(layer, int):
-                    computed_matrix = torch.mean(filtered_attention_matrix[:, layer], dim=0)
-                elif isinstance(head, int) and isinstance(layer, str):
-                    computed_matrix = torch.mean(filtered_attention_matrix[head], dim=0)
-                else:
-                    raise ValueError("head and layer must be either int or str")
-            elif len(tensor_shape) == 3:  # [seq_len, seq_len, seq_len] or similar
-                # For 3D tensor, just take the mean across the first dimension
-                computed_matrix = torch.mean(filtered_attention_matrix, dim=0)
-            elif len(tensor_shape) == 2:  # [seq_len, seq_len]
-                computed_matrix = filtered_attention_matrix
-            else:
-                # For 1D or other dimensions, just use as is
-                computed_matrix = filtered_attention_matrix
-        return computed_matrix
     
     def inference_with_hooks(self, word, lang, constructed_prompt, dim1, dim2, answer, data, dimension_name):
         # Get forward pass attention (existing functionality)
@@ -1078,6 +1021,7 @@ if __name__ == "__main__":
     )
 
     languages = ["en", "fr", "ja", "ko"]
+    # languages = ["fr", "ja", "ko"]
     total_num_of_dimensions = 0
     total_num_of_words = 0
     total_num_of_words_per_language = {lang: 0 for lang in languages}

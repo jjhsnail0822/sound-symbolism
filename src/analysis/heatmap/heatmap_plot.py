@@ -126,13 +126,6 @@ class SemanticDimensionHeatmapPlotter:
             for idx, token in enumerate(column_tokens):
                 if idx in word_indices or idx in dim1_indices or idx in dim2_indices:
                     save_column_index.append(idx)
-        elif layer_type == "cross":
-            for idx, token in enumerate(row_tokens):
-                if idx in word_indices or idx in dim1_indices or idx in dim2_indices:
-                    save_row_index.append(idx)
-            for idx, token in enumerate(column_tokens):
-                if idx in option_tokens or idx in dim1_indices or idx in dim2_indices:
-                    save_column_index.append(idx)
         elif layer_type == "output":
             answer_indices = self.find_token_indices(row_tokens, [answer])
             for idx, token in enumerate(row_tokens):
