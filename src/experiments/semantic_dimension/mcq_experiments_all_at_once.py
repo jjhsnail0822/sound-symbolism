@@ -128,7 +128,7 @@ for experiment in experiments:
             formatted_path = data_path.format(word_group=word_group)
             print(f"Running experiment for {formatted_path} using model {args.model}")
             if 'omni' in args.model.lower():
-                experiment = QwenOmniMCQExperiment(
+                experiment_processor = QwenOmniMCQExperiment(
                     model_path=args.model,
                     data_path=formatted_path,
                     output_dir=OUTPUT_DIR,
@@ -137,7 +137,7 @@ for experiment in experiments:
                     exp_name=experiment,
                 )
             elif 'gpt' in args.model.lower():
-                experiment = GPTMCQExperiment(
+                experiment_processor = GPTMCQExperiment(
                     model_name=args.model,
                     data_path=formatted_path,
                     output_dir=OUTPUT_DIR,
@@ -146,7 +146,7 @@ for experiment in experiments:
                     temperature=0.0,
                 )
             elif 'gemini' in args.model.lower():
-                experiment = GeminiMCQExperiment(
+                experiment_processor = GeminiMCQExperiment(
                     model_name=args.model,
                     data_path=formatted_path,
                     output_dir=OUTPUT_DIR,
@@ -156,7 +156,7 @@ for experiment in experiments:
                 )
             else:
                 raise ValueError("Unsupported model type. Only Qwen Omni, GPT, and Gemini models are supported in this script.")
-            results_dict, results_filename = experiment.run_mcq_experiment()
+            results_dict, results_filename = experiment_processor.run_mcq_experiment()
             with open(results_filename, 'w', encoding='utf-8') as f:
                 json.dump(results_dict, f, ensure_ascii=False, indent=4)
             print(f"Results saved to {results_filename}")
