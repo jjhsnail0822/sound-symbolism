@@ -477,26 +477,27 @@ class QwenOmniSemanticDimensionVisualizer:
         print(f"Saved filtered attention matrix for {data['word']} - {dim1}-{dim2} to pickle file")
         
         print(f"Extracting generation attention for {data['word']} - {dim1}-{dim2}...")
-        generation_attentions, generation_tokens, generation_inputs, final_input_ids, generated_text = self.get_generation_attention_matrix(
+        generation_attentions, generation_tokens, generation_inputs, final_input_ids, generated_text, input_length = self.get_generation_attention_matrix(
             constructed_prompt, data, max_new_tokens=self.max_tokens
+        )
+                
+        data_type_key = {"audio": "audio", "original": "word", "romanized": "romanization", "ipa": "ipa"}
+        
+        if self.data_type != "audio":
+            input_word = data[data_type_key[self.data_type]]
+        else:
+            input_word = data["word"]
+            
+        # Analyze generation attention patterns
+        generation_analysis = self.extract_generation_attention_analysis(
+            generation_attentions, generation_tokens, generated_text, answer, lang, dim1, dim2, data['word'], input_word, input_length
         )
         
         # Save generation attention matrix (filtered)
         self.save_generation_attention_matrix(
             generation_attentions, dim1, dim2, answer, data['word'], [dim1, dim2], lang, generation_tokens, final_input_ids, generation_tokens
         )
-        
-        data_type_key = {"audio": "audio", "original": "word", "romanized": "romanization", "ipa": "ipa"}
-        
-        if self.data_type != "audio":
-            input_word = data[data_type_key[self.data_type]]
-        else:
-            input_word = data["word"]  # audio 타입일 때는 실제 단어 이름 사용
 
-        # Analyze generation attention patterns
-        generation_analysis = self.extract_generation_attention_analysis(
-            generation_attentions, generation_tokens, answer, lang, dim1, dim2, data['word'], input_word
-        )
         
         # Save generation attention analysis
         self.save_generation_attention_analysis(
@@ -506,7 +507,7 @@ class QwenOmniSemanticDimensionVisualizer:
 
     def get_generation_attention_matrix(self, prompt, data: dict, max_new_tokens: int = 32):
         """Extract attention matrix during text generation (autoregressive decoding)"""
-        # 통합된 conversation 생성 함수 사용
+
         conversation = self.create_conversation(prompt, data)
         
         USE_AUDIO_IN_VIDEO = True
@@ -576,11 +577,11 @@ class QwenOmniSemanticDimensionVisualizer:
             final_tokens.extend(token_list)
         
         # Decode generated text
-        input_length = len(all_tokens[0])  # input 토큰 개수
+        input_length = len(all_tokens[0])
         generated_ids = current_input_ids[0][input_length:]
         generated_text = self.processor.tokenizer.decode(generated_ids)
-        
-        return all_attention_matrices, final_tokens, inputs, current_input_ids, generated_text
+        breakpoint()
+        return all_attention_matrices, final_tokens, inputs, current_input_ids, generated_text, input_length
 
     def _find_token_indices_by_string(self, tokens, target_string):
         cleaned_tokens = [self._clean_token(t) for t in tokens]
@@ -612,177 +613,149 @@ class QwenOmniSemanticDimensionVisualizer:
                     break  # Only first match per start index
         return matches
 
-    def extract_generation_attention_analysis(self, all_attention_matrices:list[tuple[torch.Tensor, ...]], tokens:list[str], answer:str, lang:str, dimension1:str, dimension2:str, word:str, input_word:str=None):
+    def extract_generation_attention_analysis(self, all_attention_matrices:list[tuple[torch.Tensor, ...]], tokens:list[str], generated_text:str, answer:str, lang:str, dimension1:str, dimension2:str, word:str, input_word:str=None, input_length:int=None):
         """Analyze attention patterns during generation, focusing on output tokens"""
-        # Find the indices of the answer tokens in the final token sequence
         answer_subtokens = self.processor.tokenizer.tokenize(answer)
         input_word = input_word.replace(" ", "")
         answer_indices = self.find_subtoken_sequence_indices(tokens, answer_subtokens)
-        # Flatten answer_indices
         temp_answer_indices = []
         for index in answer_indices:
             for i in index:
                 temp_answer_indices.append(i)
         answer_indices = temp_answer_indices
 
-        # Use direct token comparison for better matching
         dim1_indices = self._find_token_indices_by_string(tokens, dimension1)
         dim2_indices = self._find_token_indices_by_string(tokens, dimension2)
 
-        # --- word_indices 처리 ---
         word_indices = []
         if self.data_type == "audio":
-            # Audio token 범위 찾기: <|audio_bos|>부터 <|audio_eos|>까지
             audio_bos_token = "<|audio_bos|>"
             audio_eos_token = "<|audio_eos|>"
             audio_token = "<|AUDIO|>"
             
-            # <|audio_bos|>와 <|audio_eos|> 인덱스 찾기
             audio_bos_indices = [i for i, t in enumerate(tokens) if self._clean_token(t) == self._clean_token(audio_bos_token)]
             audio_eos_indices = [i for i, t in enumerate(tokens) if self._clean_token(t) == self._clean_token(audio_eos_token)]
             
             if audio_bos_indices and audio_eos_indices:
-                # 첫 번째 audio_bos와 첫 번째 audio_eos 사이의 <|AUDIO|> 토큰들 찾기
-                start_idx = audio_bos_indices[0] + 1  # audio_bos 다음부터
-                end_idx = audio_eos_indices[0]  # audio_eos 전까지
+                start_idx = audio_bos_indices[0] + 1
+                end_idx = audio_eos_indices[0]
                 
                 audio_indices = []
                 for i in range(start_idx, end_idx):
                     if self._clean_token(tokens[i]) == self._clean_token(audio_token):
                         audio_indices.append(i)
                 
-                # 각 <|AUDIO|> 토큰을 f"{word}_{num}" 형태로 대체하고 인덱스 저장
                 for idx, audio_idx in enumerate(audio_indices):
                     word_indices.append(audio_idx)
-                    # 토큰 리스트에서 해당 위치의 토큰을 대체
                     if audio_idx < len(tokens):
                         tokens[audio_idx] = f"{word}_{idx}"
             else:
                 print(f"Warning: Could not find audio_bos or audio_eos tokens in {word}")
-                # Fallback: 기존 방식으로 <|AUDIO|> 토큰 찾기
                 audio_indices = [i for i, t in enumerate(tokens) if self._clean_token(t) == self._clean_token(audio_token)]
                 for idx, audio_idx in enumerate(audio_indices):
                     word_indices.append(audio_idx)
                     if audio_idx < len(tokens):
                         tokens[audio_idx] = f"{word}_{idx}"
-        elif self.data_type == "original" and lang == "en":
-            # input_word로 인덱스 찾기
-            indices = self._find_token_indices_by_string(tokens, input_word)
-            word_indices = indices
+
         else:
-            # 1. input_word를 tokenize
             tokenized_input_word_list = self.processor.tokenizer.tokenize(input_word)
             tokenized_input_word_list = [self._clean_token(t) for t in tokenized_input_word_list]
-            # 2. tokenized_input_word_list를 하나의 string으로 결합
             tokenized_word = "".join(tokenized_input_word_list)
-            # 3. tokens를 _clean_token으로 전처리
             cleaned_tokens = [self._clean_token(t) for t in tokens]
             word_indices = []
-            
-            # 4. [WORD] 태그가 두 번째로 나타나는 인덱스 찾기
             word_tag_matches = self.find_tag_spans(cleaned_tokens, 'WORD')
-            if len(word_tag_matches) < 2:
-                print(f"Warning: [WORD] tag appears less than twice in tokens")
+            second_word_tag_span = word_tag_matches[1]
+            second_word_end_idx = second_word_tag_span[-1]
+            semdim_tag_matches = self.find_tag_spans(cleaned_tokens, 'OPTIONS')
+            
+            if not semdim_tag_matches:
+                print(f"Warning: [OPTIONS] tag not found in tokens")
                 word_indices = []
             else:
-                second_word_tag_span = word_tag_matches[1]  # 두 번째 [WORD] 태그
-                second_word_end_idx = second_word_tag_span[-1]  # 두 번째 [WORD] 태그의 끝 인덱스
-                
-                # 5. [SEMANTICDIMENSION] 태그가 나타나는 인덱스 찾기
-                semdim_tag_matches = self.find_tag_spans(cleaned_tokens, 'SEMANTICDIMENSION')
-                if not semdim_tag_matches:
-                    print(f"Warning: [SEMANTIC DIMENSION] tag not found in tokens")
-                    word_indices = []
+                semdim_span = semdim_tag_matches[0]
+                semdim_start_idx = semdim_span[0]
+                search_start = second_word_end_idx + 1
+                search_end = semdim_start_idx
+                search_tokens = cleaned_tokens[search_start:search_end]
+                combined_string = "".join(search_tokens)
+                if combined_string == tokenized_word:
+                    for i in range(search_start, search_end):
+                        if cleaned_tokens[i] != '':
+                            word_indices.append(i)
                 else:
-                    semdim_span = semdim_tag_matches[0]
-                    semdim_start_idx = semdim_span[0]
-                    search_start = second_word_end_idx + 1
-                    search_end = semdim_start_idx
-                    search_tokens = cleaned_tokens[search_start:search_end]
-                    combined_string = "".join(search_tokens)
-                    if combined_string == tokenized_word:
-                        for i in range(search_start, search_end):
-                            if cleaned_tokens[i] != '':
-                                word_indices.append(i)
-                    else:
-                        search_range_length = search_end - search_start
+                    search_range_length = search_end - search_start
+                    for remove_count in range(1, search_range_length):
+                        left_removed_tokens = search_tokens[remove_count:]
+                        left_combined = "".join(left_removed_tokens)
+                        if left_combined == tokenized_word:
+                            for i in range(search_start + remove_count, search_end):
+                                if cleaned_tokens[i] != '':
+                                    word_indices.append(i)
+                            break
+                    if not word_indices:
                         for remove_count in range(1, search_range_length):
-                            left_removed_tokens = search_tokens[remove_count:]
-                            left_combined = "".join(left_removed_tokens)
-                            if left_combined == tokenized_word:
-                                for i in range(search_start + remove_count, search_end):
+                            right_removed_tokens = search_tokens[:-remove_count]
+                            right_combined = "".join(right_removed_tokens)
+                            if right_combined == tokenized_word:
+                                for i in range(search_start, search_end - remove_count):
                                     if cleaned_tokens[i] != '':
                                         word_indices.append(i)
                                 break
-                        if not word_indices:
-                            for remove_count in range(1, search_range_length):
-                                right_removed_tokens = search_tokens[:-remove_count]
-                                right_combined = "".join(right_removed_tokens)
-                                if right_combined == tokenized_word:
-                                    for i in range(search_start, search_end - remove_count):
+                    if not word_indices:
+                        for left_remove in range(1, search_range_length):
+                            for right_remove in range(1, search_range_length - left_remove):
+                                middle_tokens = search_tokens[left_remove:-right_remove]
+                                middle_combined = "".join(middle_tokens)
+                                if middle_combined == tokenized_word:
+                                    for i in range(search_start + left_remove, search_end - right_remove):
                                         if cleaned_tokens[i] != '':
                                             word_indices.append(i)
                                     break
-                        if not word_indices:
-                            for left_remove in range(1, search_range_length):
-                                for right_remove in range(1, search_range_length - left_remove):
-                                    middle_tokens = search_tokens[left_remove:-right_remove]
-                                    middle_combined = "".join(middle_tokens)
-                                    if middle_combined == tokenized_word:
-                                        for i in range(search_start + left_remove, search_end - right_remove):
-                                            if cleaned_tokens[i] != '':
-                                                word_indices.append(i)
-                                        break
-                                if word_indices:
-                                    break
-                    if not word_indices:
-                        print(f"Warning: Could not find word '{input_word}' (tokenized as {tokenized_input_word_list}) in tokens")
-                        print(f"Search range: {search_start} to {search_end}")
-                        print(f"Tokens in search range: {cleaned_tokens[search_start:search_end]}")
-                        print(f"Combined string: {combined_string}")
-                        print(f"Tokenized word: {tokenized_word}")
-                        print(f"Tokenized word list: {tokenized_input_word_list}")
+                            if word_indices:
+                                break
+
         # Analyze attention for each generation step
         generation_attention_analysis = []
-        for step, step_attentions in enumerate(all_attention_matrices):
-            step_analysis = {
-                'step': step,
-                'generated_token': tokens[-(len(all_attention_matrices) - step)] if step < len(all_attention_matrices) else None,
-                'attention_to_answer': [],
-                'attention_to_dimensions': [],
-                'attention_to_word': [],
-                'layer_attention_patterns': []
+        output_attention_matrices = all_attention_matrices[2]
+        for layer_idx, layer_attention in enumerate(output_attention_matrices):
+            layer_attention = layer_attention[0]
+            layer_analysis = {
+                'layer': layer_idx,
+                'head_attention_patterns': []
             }
-            for layer_idx, layer_attention in enumerate(step_attentions):
-                layer_attention = layer_attention[0]
-                layer_analysis = {
-                    'layer': layer_idx,
-                    'head_attention_patterns': []
-                }
-                for head_idx in range(layer_attention.shape[0]):
-                    head_attention = layer_attention[head_idx]
-                    if step > 0:
-                        last_token_attention = head_attention[-1, :]
-                        attention_to_answer = sum(last_token_attention[idx] for idx in answer_indices if idx < len(last_token_attention))
-                        attention_to_dim1 = sum(last_token_attention[idx] for idx in dim1_indices if idx < len(last_token_attention))
-                        attention_to_dim2 = sum(last_token_attention[idx] for idx in dim2_indices if idx < len(last_token_attention))
-                        attention_to_word = sum(last_token_attention[idx] for idx in word_indices if idx < len(last_token_attention))
-                        if isinstance(attention_to_word, int):
-                            breakpoint()
-                            
-                        head_analysis = {
-                            'head': head_idx,
-                            'word': word,
-                            'input_word': input_word,
-                            'attention_to_answer': attention_to_answer.item(),
-                            'attention_to_dim1': attention_to_dim1.item(),
-                            'attention_to_dim2': attention_to_dim2.item(),
-                            'attention_to_word': attention_to_word.item(),
-                            'full_attention_vector': last_token_attention.cpu().float().numpy()
-                        }
-                        layer_analysis['head_attention_patterns'].append(head_analysis)
-                step_analysis['layer_attention_patterns'].append(layer_analysis)
-            generation_attention_analysis.append(step_analysis)
+            for head_idx in range(layer_attention.shape[0]):
+                head_attention = layer_attention[head_idx]
+                if input_length > 0:
+                    last_token_attention = head_attention[-1, :]
+                    attention_to_answer = sum(last_token_attention[idx] for idx in answer_indices if idx < len(last_token_attention))
+                    attention_to_dim1 = sum(last_token_attention[idx] for idx in dim1_indices if idx < len(last_token_attention))
+                    attention_to_dim2 = sum(last_token_attention[idx] for idx in dim2_indices if idx < len(last_token_attention))
+                    attention_to_word = sum(last_token_attention[idx] for idx in word_indices if idx < len(last_token_attention))
+                    
+                    breakpoint()
+                    
+                    head_analysis = {
+                        'head': head_idx,
+                        'word': word,
+                        'input_word': input_word,
+                        'word_indices': word_indices,
+                        'generated_text': generated_text,
+                        'dim1_indices': dim1_indices,
+                        'dim2_indices': dim2_indices,
+                        'attention_to_answer': attention_to_answer.item(),
+                        'attention_to_dim1': attention_to_dim1.item(),
+                        'attention_to_dim2': attention_to_dim2.item(),
+                        'attention_to_word': attention_to_word.item(),
+                        'full_attention_vector': last_token_attention.cpu().float().numpy()
+                    }
+                    layer_analysis['head_attention_patterns'].append(head_analysis)
+            step_analysis['layer_attention_patterns'].append(layer_analysis)
+        generation_attention_analysis.append(step_analysis)
+        print(f"dim1_indices: {dim1_indices}")
+        print(f"dim2_indices: {dim2_indices}")
+        print(f"word_indices: {word_indices}")
+        breakpoint()
+        
         return generation_attention_analysis
 
     def save_generation_attention_analysis(self, generation_analysis, dimension1, dimension2, answer, word_tokens, option_tokens, lang="en", tokens=None, generated_text=None):
