@@ -19,8 +19,6 @@ data_types = ["original", "romanized", "ipa", "audio"]
 data_path = "data/processed/nat/semantic_dimension/semantic_dimension_binary_gt.json"
 prompt_path = "data/prompts/prompts.json"
 problem_per_language = 10
-phoneme_mean_map_path = None # TODO
-phoneme_mean_map = None # TODO
 SYSTEM_PROMPT = "You are Qwen, a virtual human developed by the Qwen Team, Alibaba Group, capable of perceiving auditory and visual inputs, as well as generating text and speech."
 SYSTEM_TEMPLATE = {
     "role": "system",
@@ -314,7 +312,7 @@ class QwenOmniSemanticDimensionVisualizer:
             "tokens": tokens,
             "relevant_indices": relevant_indices
         }
-        output_dir = os.path.join(self.output_dir, self.exp_type, self.data_type, lang, "self_attention")
+        output_dir = os.path.join(self.output_dir, self.exp_type, self.data_type, lang, "self_attention", f"{dimension1}_{dimension2}")
         os.makedirs(output_dir, exist_ok=True)
         safe_word = re.sub(r'[^\w\-_.]', '_', str(word_tokens))
         safe_dim1 = re.sub(r'[^\w\-_.]', '_', str(dimension1))
@@ -323,12 +321,11 @@ class QwenOmniSemanticDimensionVisualizer:
         with open(save_path, "wb") as f:
             pkl.dump(matrix_data, f)
     
-    def read_matrix(self, layer_type="self", word_tokens=None, dimension1=None, dimension2=None, lang="en"):
+    def read_matrix(self, layer_type="self", attention_type="self_attention", word_tokens=None, dimension1=None, dimension2=None, lang="en"):
         safe_word = re.sub(r'[^\w\-_.]', '_', str(word_tokens))
         safe_dim1 = re.sub(r'[^\w\-_.]', '_', str(dimension1))
         safe_dim2 = re.sub(r'[^\w\-_.]', '_', str(dimension2))
-        
-        matrix_path = os.path.join(self.output_dir, self.exp_type, self.data_type, lang, f"{safe_word}_{safe_dim1}_{safe_dim2}_{layer_type}.pkl")
+        matrix_path = os.path.join(self.output_dir, self.exp_type, self.data_type, lang, attention_type, f"{safe_word}_{safe_dim1}_{safe_dim2}.pkl")
         
         if not os.path.exists(matrix_path):
             raise FileNotFoundError(f"Matrix file not found: {matrix_path}")
@@ -466,63 +463,6 @@ class QwenOmniSemanticDimensionVisualizer:
             valid_row_indices = save_row_index
             valid_col_indices = save_column_index
         return filtered_attention_matrix, valid_row_indices, valid_col_indices
-           
-    def matrix_computation(self, filtered_attention_matrix, purpose, head:Union[int, str], layer:Union[int, str], phoneme_mean_map:dict):
-        # Convert to tensor if it's not already
-        if not hasattr(filtered_attention_matrix, 'mean'):
-            filtered_attention_matrix = torch.tensor(filtered_attention_matrix)
-        
-        # Check tensor dimensions and handle accordingly
-        tensor_shape = filtered_attention_matrix.shape
-        
-        if purpose == "flow":
-            computed_matrix = None
-            if phoneme_mean_map:
-                # Compute attention flow based on phoneme-meaning mapping
-                for phoneme, meaning in phoneme_mean_map.items():
-                    for meaning_idx, meaning_value in enumerate(meaning):
-                        for head_idx, head_value in enumerate(filtered_attention_matrix[meaning_idx]):
-                            for layer_idx, layer_value in enumerate(head_value):
-                                pass
-            else:
-                # Handle different tensor dimensions
-                if len(tensor_shape) == 4:  # [head, layer, seq_len, seq_len]
-                    if isinstance(head, str) and isinstance(layer, str):
-                        computed_matrix = torch.mean(filtered_attention_matrix, dim=(0, 1))
-                    elif isinstance(head, int) and isinstance(layer, int):
-                        computed_matrix = filtered_attention_matrix[head, layer]
-                    else:
-                        computed_matrix = torch.mean(filtered_attention_matrix, dim=0)
-                elif len(tensor_shape) == 3:  # [seq_len, seq_len, seq_len] or similar
-                    # For 3D tensor, just take the mean across the first dimension
-                    computed_matrix = torch.mean(filtered_attention_matrix, dim=0)
-                elif len(tensor_shape) == 2:  # [seq_len, seq_len]
-                    computed_matrix = filtered_attention_matrix
-                else:
-                    # For 1D or other dimensions, just use as is
-                    computed_matrix = filtered_attention_matrix
-                    
-        elif purpose == "heatmap":
-            if len(tensor_shape) == 4:  # [head, layer, seq_len, seq_len]
-                if isinstance(head, str) and isinstance(layer, str):
-                    computed_matrix = torch.mean(filtered_attention_matrix, dim=(0, 1))
-                elif isinstance(head, int) and isinstance(layer, int):
-                    computed_matrix = filtered_attention_matrix[head, layer]
-                elif isinstance(head, str) and isinstance(layer, int):
-                    computed_matrix = torch.mean(filtered_attention_matrix[:, layer], dim=0)
-                elif isinstance(head, int) and isinstance(layer, str):
-                    computed_matrix = torch.mean(filtered_attention_matrix[head], dim=0)
-                else:
-                    raise ValueError("head and layer must be either int or str")
-            elif len(tensor_shape) == 3:  # [seq_len, seq_len, seq_len] or similar
-                # For 3D tensor, just take the mean across the first dimension
-                computed_matrix = torch.mean(filtered_attention_matrix, dim=0)
-            elif len(tensor_shape) == 2:  # [seq_len, seq_len]
-                computed_matrix = filtered_attention_matrix
-            else:
-                # For 1D or other dimensions, just use as is
-                computed_matrix = filtered_attention_matrix
-        return computed_matrix
     
     def inference_with_hooks(self, word, lang, constructed_prompt, dim1, dim2, answer, data, dimension_name):
         # Get forward pass attention (existing functionality)
@@ -924,129 +864,20 @@ class QwenOmniSemanticDimensionVisualizer:
             "analysis_type": "generation_attention_matrix"
         }
         
-        output_dir = os.path.join(self.output_dir, self.exp_type, self.data_type, lang)
+        output_dir = os.path.join(self.output_dir, self.exp_type, self.data_type, lang, "generation_attention", f"{dimension1}_{dimension2}")
         os.makedirs(output_dir, exist_ok=True)
         
         safe_word = re.sub(r'[^\w\-_.]', '_', str(word_tokens))
         safe_dim1 = re.sub(r'[^\w\-_.]', '_', str(dimension1))
         safe_dim2 = re.sub(r'[^\w\-_.]', '_', str(dimension2))
         
-        save_path = os.path.join(output_dir, f"gen_{safe_word}_{safe_dim1}_{safe_dim2}.pkl")
+        save_path = os.path.join(output_dir, f"{safe_word}_{safe_dim1}_{safe_dim2}.pkl")
         
         with open(save_path, "wb") as f:
             pkl.dump(matrix_data, f)
         
         print(f"Generation attention matrix saved to: {save_path}")
         return save_path
-
-    def analyze_generation_attention_summary(self, generation_analysis):
-        if not generation_analysis:
-            return None
-        
-        summary = {
-            'total_steps': len(generation_analysis),
-            'generated_tokens': [],
-            'average_attention_to_answer': 0.0,
-            'average_attention_to_dimensions': 0.0,
-            'average_attention_to_word': 0.0,
-            'layer_attention_summary': {},
-            'head_attention_summary': {}
-        }
-        
-        total_attention_to_answer = 0.0
-        total_attention_to_dimensions = 0.0
-        total_attention_to_word = 0.0
-        step_count = 0
-        
-        for step_data in generation_analysis:
-            if step_data['generated_token']:
-                summary['generated_tokens'].append(step_data['generated_token'])
-        
-        for step_data in generation_analysis:
-            if step_data['generated_token']:
-                step_count += 1
-                
-                for layer_data in step_data['layer_attention_patterns']:
-                    layer_idx = layer_data['layer']
-                    
-                    if layer_idx not in summary['layer_attention_summary']:
-                        summary['layer_attention_summary'][layer_idx] = {
-                            'total_attention_to_answer': 0.0,
-                            'total_attention_to_dimensions': 0.0,
-                            'total_attention_to_word': 0.0,
-                            'step_count': 0
-                        }
-                    
-                    for head_data in layer_data['head_attention_patterns']:
-                        head_idx = head_data['head']
-                        head_key = f"layer_{layer_idx}_head_{head_idx}"
-                        
-                        if head_key not in summary['head_attention_summary']:
-                            summary['head_attention_summary'][head_key] = {
-                                'total_attention_to_answer': 0.0,
-                                'total_attention_to_dimensions': 0.0,
-                                'total_attention_to_word': 0.0,
-                                'step_count': 0
-                            }
-                        
-                        summary['layer_attention_summary'][layer_idx]['total_attention_to_answer'] += head_data['attention_to_answer']
-                        summary['layer_attention_summary'][layer_idx]['total_attention_to_dimensions'] += head_data['attention_to_dim1'] + head_data['attention_to_dim2']
-                        summary['layer_attention_summary'][layer_idx]['total_attention_to_word'] += head_data['attention_to_word']
-                        summary['layer_attention_summary'][layer_idx]['step_count'] += 1
-                        
-                        summary['head_attention_summary'][head_key]['total_attention_to_answer'] += head_data['attention_to_answer']
-                        summary['head_attention_summary'][head_key]['total_attention_to_dimensions'] += head_data['attention_to_dim1'] + head_data['attention_to_dim2']
-                        summary['head_attention_summary'][head_key]['total_attention_to_word'] += head_data['attention_to_word']
-                        summary['head_attention_summary'][head_key]['step_count'] += 1
-                        
-                        total_attention_to_answer += head_data['attention_to_answer']
-                        total_attention_to_dimensions += head_data['attention_to_dim1'] + head_data['attention_to_dim2']
-                        total_attention_to_word += head_data['attention_to_word']
-        
-        # Calculate averages
-        if step_count > 0:
-            summary['average_attention_to_answer'] = total_attention_to_answer / step_count
-            summary['average_attention_to_dimensions'] = total_attention_to_dimensions / step_count
-            summary['average_attention_to_word'] = total_attention_to_word / step_count
-        
-        # Calculate layer averages
-        for layer_idx in summary['layer_attention_summary']:
-            layer_data = summary['layer_attention_summary'][layer_idx]
-            if layer_data['step_count'] > 0:
-                layer_data['average_attention_to_answer'] = layer_data['total_attention_to_answer'] / layer_data['step_count']
-                layer_data['average_attention_to_dimensions'] = layer_data['total_attention_to_dimensions'] / layer_data['step_count']
-                layer_data['average_attention_to_word'] = layer_data['total_attention_to_word'] / layer_data['step_count']
-        
-        # Calculate head averages
-        for head_key in summary['head_attention_summary']:
-            head_data = summary['head_attention_summary'][head_key]
-            if head_data['step_count'] > 0:
-                head_data['average_attention_to_answer'] = head_data['total_attention_to_answer'] / head_data['step_count']
-                head_data['average_attention_to_dimensions'] = head_data['total_attention_to_dimensions'] / head_data['step_count']
-                head_data['average_attention_to_word'] = head_data['total_attention_to_word'] / head_data['step_count']
-        
-        return summary
-
-    def print_generation_attention_summary(self, summary):
-        if not summary:
-            print("No generation attention data available")
-            return
-        
-        print(f"\n=== Generation Attention Summary ===")
-        print(f"Total generation steps: {summary['total_steps']}")
-        print(f"Generated tokens: {summary['generated_tokens']}")
-        print(f"\nAverage attention scores:")
-        print(f"  - To answer: {summary['average_attention_to_answer']:.4f}")
-        print(f"  - To dimensions: {summary['average_attention_to_dimensions']:.4f}")
-        print(f"  - To word: {summary['average_attention_to_word']:.4f}")
-        
-        print(f"\n=== Layer-wise Attention Summary ===")
-        for layer_idx in sorted(summary['layer_attention_summary'].keys()):
-            layer_data = summary['layer_attention_summary'][layer_idx]
-            print(f"Layer {layer_idx}:")
-            print(f"  - Avg attention to answer: {layer_data.get('average_attention_to_answer', 0):.4f}")
-            print(f"  - Avg attention to dimensions: {layer_data.get('average_attention_to_dimensions', 0):.4f}")
-            print(f"  - Avg attention to word: {layer_data.get('average_attention_to_word', 0):.4f}")
 
 if __name__ == "__main__":
     import argparse
@@ -1103,25 +934,7 @@ if __name__ == "__main__":
                 visualizer.inference_with_hooks(
                     word, lang, constructed_prompt, dim1, dim2, answer, sample, dimension_name
                 )
-                
-                # Print generation attention summary for the first few samples
-                if total_num_of_dimensions < 3:  # Only for first 3 samples to avoid spam
-                    # Load the saved generation analysis
-                    output_dir = os.path.join(visualizer.output_dir, visualizer.exp_type, visualizer.data_type, lang, "generation_attention")
-                    safe_word = re.sub(r'[^\w\-_.]', '_', str(sample['word']))
-                    safe_dim1 = re.sub(r'[^\w\-_.]', '_', str(dim1))
-                    safe_dim2 = re.sub(r'[^\w\-_.]', '_', str(dim2))
-                    analysis_path = os.path.join(output_dir, f"{safe_word}_{safe_dim1}_{safe_dim2}_generation_analysis.pkl")
-                    
-                    if os.path.exists(analysis_path):
-                        with open(analysis_path, "rb") as f:
-                            analysis_data = pkl.load(f)
-                        
-                        generation_analysis = analysis_data["generation_analysis"]
-                        summary = visualizer.analyze_generation_attention_summary(generation_analysis)
-                        print(f"\n=== Generation Attention Summary for {sample['word']} - {dim1}-{dim2} ===")
-                        visualizer.print_generation_attention_summary(summary)
-                
+
                 total_num_of_dimensions += 1
             total_num_of_words += 1
             total_num_of_words_per_language[lang] += 1
