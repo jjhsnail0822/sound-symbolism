@@ -10,15 +10,16 @@ output_plot_dir_relative_to_script = "results/plots/infinigram_counts"
 os.makedirs(output_plot_dir_relative_to_script, exist_ok=True)
 
 files_to_process = [
-    {"filename": "ko.json", "display_name": "Korean (ko.json)", "file_basename": "korean"},
-    {"filename": "ja.json", "display_name": "Japanese (ja.json)", "file_basename": "japanese"},
-    {"filename": "fr.json", "display_name": "French (fr.json)", "file_basename": "french"},
-    {"filename": "en.json", "display_name": "English (en.json)", "file_basename": "english"}
+    {"filename": "ko.json", "display_name": "Korean", "file_basename": "korean"},
+    {"filename": "ja.json", "display_name": "Japanese", "file_basename": "japanese"},
+    {"filename": "fr.json", "display_name": "French", "file_basename": "french"},
+    {"filename": "en.json", "display_name": "English", "file_basename": "english"}
 ]
 
 for file_spec in files_to_process:
     # 각 플롯에 대해 새 Figure와 Axes 생성
-    fig_ind, ax_ind = plt.subplots(figsize=(10, 7))
+    # 서브피규어에 적합하도록 figsize를 정사각형에 가깝게 조정
+    fig_ind, ax_ind = plt.subplots(figsize=(8, 6))
 
     current_data_file_path = os.path.join(base_data_path_relative_to_script, file_spec['filename'])
 
@@ -26,8 +27,8 @@ for file_spec in files_to_process:
         if not os.path.exists(current_data_file_path):
             error_msg = f"File not found:\n{current_data_file_path}"
             print(error_msg) # 콘솔에도 에러 메시지 출력
-            ax_ind.text(0.5, 0.5, error_msg, ha='center', va='center', color='red', fontsize=9)
-            ax_ind.set_title(f"{file_spec['display_name']} - File Not Found")
+            ax_ind.text(0.5, 0.5, error_msg, ha='center', va='center', color='red', fontsize=16)
+            ax_ind.set_title(f"{file_spec['display_name']} - File Not Found", fontsize=20)
             # 오류가 발생한 경우에도 빈 플롯이나 오류 메시지가 담긴 플롯을 저장합니다.
 
         else:
@@ -39,14 +40,15 @@ for file_spec in files_to_process:
             if not current_counts:
                 no_data_msg = "No data in file"
                 print(f"{file_spec['display_name']}: {no_data_msg}")
-                ax_ind.text(0.5, 0.5, no_data_msg, ha='center', va='center')
-                ax_ind.set_title(f"{file_spec['display_name']} - No Data")
+                ax_ind.text(0.5, 0.5, no_data_msg, ha='center', va='center', fontsize=18)
+                ax_ind.set_title(f"{file_spec['display_name']} - No Data", fontsize=20)
             else:
                 counts_zero = sum(1 for count in current_counts if count == 0)
                 counts_positive = [count for count in current_counts if count > 0]
 
+                # 논문 서브피규어용으로 제목을 간결하게 변경하는 것을 추천 (예: ax_ind.set_title(file_spec['display_name'], fontsize=20))
                 plot_title = f"{file_spec['display_name']}\n(Total: {len(current_counts)}, Zeros: {counts_zero}, Positive: {len(counts_positive)})"
-                ax_ind.set_title(plot_title)
+                ax_ind.set_title(plot_title, fontsize=20)
 
                 if counts_positive:
                     min_val = np.min(counts_positive)
@@ -61,27 +63,31 @@ for file_spec in files_to_process:
                     
                     ax_ind.hist(counts_positive, bins=bins, color='skyblue', edgecolor='black')
                     ax_ind.set_xscale('log')
-                    ax_ind.set_xlabel('Infinigram Count (log scale)')
+                    ax_ind.set_xlabel('Infini-gram Count (log scale)', fontsize=18)
                 else:
-                    ax_ind.text(0.5, 0.5, "No positive counts to display", ha='center', va='center')
-                    ax_ind.set_xlabel('Infinigram Count')
+                    ax_ind.text(0.5, 0.5, "No positive counts to display", ha='center', va='center', fontsize=18)
+                    ax_ind.set_xlabel('Infini-gram Count', fontsize=18)
 
-                ax_ind.set_ylabel('Frequency')
-                ax_ind.grid(True, which="both", ls="--", alpha=0.7)
+                ax_ind.set_ylabel('Frequency', fontsize=18)
+                ax_ind.tick_params(axis='both', which='major', labelsize=16)
+                # ax_ind.grid(True, which="both", ls="--", alpha=0.7)
+                ax_ind.grid(False)
 
     except Exception as e:
         error_detail = f"Error processing file:\n{current_data_file_path}\n{e}"
         print(error_detail) # 콘솔에도 에러 상세 정보 출력
-        ax_ind.text(0.5, 0.5, error_detail, ha='center', va='center', color='red', fontsize=9)
-        ax_ind.set_title(f"{file_spec['display_name']} - Processing Error")
+        ax_ind.text(0.5, 0.5, error_detail, ha='center', va='center', color='red', fontsize=16)
+        ax_ind.set_title(f"{file_spec['display_name']} - Processing Error", fontsize=20)
 
     # 개별 플롯 저장
     output_filename = f"{file_spec['file_basename']}_infinigram_distribution.png"
     output_filepath = os.path.join(output_plot_dir_relative_to_script, output_filename)
+    output_filepath_pdf = os.path.join(output_plot_dir_relative_to_script, f"{file_spec['file_basename']}_infinigram_distribution.pdf")
 
     fig_ind.tight_layout() # 개별 Figure에 대해 레이아웃 조정
-    fig_ind.savefig(output_filepath)
-    print(f"Saved plot: {output_filepath}")
+    fig_ind.savefig(output_filepath, dpi=300)
+    fig_ind.savefig(output_filepath_pdf)  # PDF로도 저장
+    print(f"Saved plot: {output_filepath} and {output_filepath_pdf}")
     
     plt.close(fig_ind) # Figure 객체 닫아서 메모리 해제
 
