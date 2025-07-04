@@ -3,8 +3,6 @@ import copy
 
 # Policy
 # 1. Unanimous agreement across all three models (GPT-4.1, Gemma-3, Qwen-3)
-# 2. GPT-4.1 answer with logit probability >= 0.95
-# 3. Highest probability feature among the three models' results
 
 # Binary Ground Truth Generation for Semantic Dimensions
 # Removes 'neither' option and focuses on binary features.
@@ -148,54 +146,54 @@ def determine_final_gt(combined_words_list, gpt4_data, gemma_data, qwen_data):
                     chosen_feature = ans_gpt4.lower()
                     policy_applied = "1"
                 
-                # Policy 2: GPT-4.1 logit probability >= 0.95
-                if chosen_feature is None:
-                    # gpt4_ans_str is ans_gpt4, already fetched.
-                    gpt4_logits = gpt4_res.get("logits", {}) # Default to empty dict if logits somehow missing (though checked above)
-                    confidence_met = False
-                    if isinstance(ans_gpt4, str): # Check if gpt4's answer is a string
-                        gpt4_ans_lower = ans_gpt4.lower()
-                        # Check feature names against the answer, ensuring logit values are numbers (float or int).
-                        logit1 = gpt4_logits.get("1")
-                        logit2 = gpt4_logits.get("2")
-                        logit3 = gpt4_logits.get("3")
+                # # Policy 2: GPT-4.1 logit probability >= 0.95
+                # if chosen_feature is None:
+                #     # gpt4_ans_str is ans_gpt4, already fetched.
+                #     gpt4_logits = gpt4_res.get("logits", {}) # Default to empty dict if logits somehow missing (though checked above)
+                #     confidence_met = False
+                #     if isinstance(ans_gpt4, str): # Check if gpt4's answer is a string
+                #         gpt4_ans_lower = ans_gpt4.lower()
+                #         # Check feature names against the answer, ensuring logit values are numbers (float or int).
+                #         logit1 = gpt4_logits.get("1")
+                #         logit2 = gpt4_logits.get("2")
+                #         logit3 = gpt4_logits.get("3")
 
-                        if gpt4_ans_lower == feature1_name.lower() and isinstance(logit1, (int, float)) and logit1 >= 0.95:
-                            confidence_met = True
-                        elif gpt4_ans_lower == feature2_name.lower() and isinstance(logit2, (int, float)) and logit2 >= 0.95:
-                            confidence_met = True
-                        elif gpt4_ans_lower == "neither" and isinstance(logit3, (int, float)) and logit3 >= 0.95:
-                            confidence_met = True
+                #         if gpt4_ans_lower == feature1_name.lower() and isinstance(logit1, (int, float)) and logit1 >= 0.95:
+                #             confidence_met = True
+                #         elif gpt4_ans_lower == feature2_name.lower() and isinstance(logit2, (int, float)) and logit2 >= 0.95:
+                #             confidence_met = True
+                #         elif gpt4_ans_lower == "neither" and isinstance(logit3, (int, float)) and logit3 >= 0.95:
+                #             confidence_met = True
 
-                    if confidence_met:
-                        chosen_feature = gpt4_ans_lower # gpt4_ans_lower is already defined and lowercased
-                        policy_applied = "2"
+                #     if confidence_met:
+                #         chosen_feature = gpt4_ans_lower # gpt4_ans_lower is already defined and lowercased
+                #         policy_applied = "2"
 
-                # Policy 3: Highest probability feature among the three models' results
-                if chosen_feature is None:
-                    candidates = []
+                # # Policy 3: Highest probability feature among the three models' results
+                # if chosen_feature is None:
+                #     candidates = []
                     
-                    for model_name, res_data in [("gpt-4.1", gpt4_res), ("gemma-3", gemma_res), ("qwen-3", qwen_res)]:
-                        # Ensure logits exist and are dicts (already checked, but good for safety here too).
-                        if isinstance(res_data, dict) and isinstance(res_data.get("logits"), dict):
-                            logits = res_data["logits"]
-                            # Ensure logit values are numbers (float or int) before using them, defaulting to 0.0 if not.
-                            prob1 = logits.get("1") if isinstance(logits.get("1"), (int, float)) else 0.0
-                            prob2 = logits.get("2") if isinstance(logits.get("2"), (int, float)) else 0.0
-                            prob3 = logits.get("3") if isinstance(logits.get("3"), (int, float)) else 0.0
+                #     for model_name, res_data in [("gpt-4.1", gpt4_res), ("gemma-3", gemma_res), ("qwen-3", qwen_res)]:
+                #         # Ensure logits exist and are dicts (already checked, but good for safety here too).
+                #         if isinstance(res_data, dict) and isinstance(res_data.get("logits"), dict):
+                #             logits = res_data["logits"]
+                #             # Ensure logit values are numbers (float or int) before using them, defaulting to 0.0 if not.
+                #             prob1 = logits.get("1") if isinstance(logits.get("1"), (int, float)) else 0.0
+                #             prob2 = logits.get("2") if isinstance(logits.get("2"), (int, float)) else 0.0
+                #             prob3 = logits.get("3") if isinstance(logits.get("3"), (int, float)) else 0.0
                             
-                            candidates.append({"feature": feature1_name, "prob": prob1, "model": model_name})
-                            candidates.append({"feature": feature2_name, "prob": prob2, "model": model_name})
-                            candidates.append({"feature": "neither", "prob": prob3, "model": model_name})
+                #             candidates.append({"feature": feature1_name, "prob": prob1, "model": model_name})
+                #             candidates.append({"feature": feature2_name, "prob": prob2, "model": model_name})
+                #             candidates.append({"feature": "neither", "prob": prob3, "model": model_name})
                     
-                    if not candidates: 
-                        # This case should ideally not be reached if models have data and logits.
-                        # print(f"Info: No candidates for policy 3 for word '{actual_word_key}', dim '{dim_key}' (lang: {lang_key}). Skipping this dimension.")
-                        continue 
+                #     if not candidates: 
+                #         # This case should ideally not be reached if models have data and logits.
+                #         # print(f"Info: No candidates for policy 3 for word '{actual_word_key}', dim '{dim_key}' (lang: {lang_key}). Skipping this dimension.")
+                #         continue 
                         
-                    best_candidate = max(candidates, key=lambda x: x["prob"])
-                    chosen_feature = best_candidate["feature"].lower() # Standardize to lowercase
-                    policy_applied = f"3: Highest probability ({best_candidate['prob']:.4f} from {best_candidate['model']})"
+                #     best_candidate = max(candidates, key=lambda x: x["prob"])
+                #     chosen_feature = best_candidate["feature"].lower() # Standardize to lowercase
+                #     policy_applied = f"3: Highest probability ({best_candidate['prob']:.4f} from {best_candidate['model']})"
                 
                 # Add the dimension to the result only if a feature was chosen and it is not 'neither'.
                 if chosen_feature is not None and policy_applied is not None and chosen_feature != 'neither':

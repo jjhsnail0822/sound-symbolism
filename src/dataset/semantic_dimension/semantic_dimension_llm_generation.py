@@ -10,6 +10,8 @@ import gc
 import torch
 from vllm.distributed import (destroy_distributed_environment, destroy_model_parallel)
 from openai import OpenAI
+from google import genai
+from google.genai import types
 from dotenv import load_dotenv
 from pathlib import Path
 import math
@@ -61,7 +63,7 @@ Please read a {language} mimetic word and its meaning, and decide which semantic
 {meaning}
 
 [SEMANTIC DIMENSION]
-{dimension1} vs {dimension2}
+{dimension1} vs. {dimension2}
 
 [OPTIONS]
 1: {dimension1}
@@ -99,10 +101,18 @@ class MCQExperiment:
         env_path = Path('.env.local')
         load_dotenv(dotenv_path=env_path)
 
-        # Get API key from environment variables
-        self.client = OpenAI(
-            api_key=os.getenv("OPENAI_API_KEY"),
-        )
+        if self.use_api:
+            if 'gemini' in self.model_path:
+                # Configure Google Generative AI
+                self.client = genai.Client(api_key=os.getenv("GOOGLE_API_KEY"))
+                if self.save_logits:
+                    print("Warning: save_logits is not supported for Gemini models. Disabling it.")
+                    self.save_logits = False
+            else:
+                # Get API key from environment variables
+                self.client = OpenAI(
+                    api_key=os.getenv("OPENAI_API_KEY"),
+                )
 
         self.word_data = {}
         for lang in langs:
@@ -170,7 +180,10 @@ class MCQExperiment:
             
             word_count = len(all_results[lang])  # Start from number of already processed words
             
+            processed_in_this_run = 0
             for word in tqdm(self.word_data[lang], desc=f"Processing {lang} data"):
+                # if processed_in_this_run >= 1:
+                #     break
                 # Skip if this word is already processed in this language
                 if word['word'] in processed_words:
                     continue
@@ -179,41 +192,68 @@ class MCQExperiment:
                 for dimension in dimensions:
                     if self.use_api:
                         # Use OpenAI API
-                        response = self.client.chat.completions.create(
-                            model=self.model_path,
-                            messages=[
-                                {
-                                    "role": "user",
-                                    "content": prompt.format(
-                                                word=word['word'],
-                                                meaning=word['meaning'],
-                                                language=languages[lang],
-                                                dimension1=dimension[0],
-                                                dimension2=dimension[1],
-                                            ),
-                                }
-                            ],
-                            temperature=self.temperature,
-                            logprobs=True if self.save_logits else False,
-                            top_logprobs=TOP_K,
-                        )
-                        model_answer = response.choices[0].message.content
+                        if 'gemini' in self.model_path:
+                            content = prompt.format(
+                                word=word['word'],
+                                meaning=word['meaning'] if isinstance(word['meaning'], str) else word['meaning'][0],
+                                language=languages[lang],
+                                dimension1=dimension[0],
+                                dimension2=dimension[1],
+                            )
+                            generation_config = types.GenerateContentConfig(
+                                thinking_config=types.ThinkingConfig(
+                                    thinking_budget=0
+                                ),
+                                maxOutputTokens=self.max_tokens,
+                                temperature=self.temperature,
+                            )
+                            try:
+                                response = self.client.models.generate_content(
+                                    model=self.model_path,
+                                    contents=content,
+                                    config=generation_config,
+                                )
+                                model_answer = response.text.strip()
+                            except Exception as e:
+                                print(f"An error occurred while calling the Gemini API: {e}")
+                                model_answer = "" # Set empty answer on error
+                            logits = None # Logits not supported by Gemini API
+                        else:
+                            response = self.client.chat.completions.create(
+                                model=self.model_path,
+                                messages=[
+                                    {
+                                        "role": "user",
+                                        "content": prompt.format(
+                                                    word=word['word'],
+                                                    meaning=word['meaning'] if isinstance(word['meaning'], str) else word['meaning'][0],
+                                                    language=languages[lang],
+                                                    dimension1=dimension[0],
+                                                    dimension2=dimension[1],
+                                                ),
+                                    }
+                                ],
+                                temperature=self.temperature,
+                                logprobs=True if self.save_logits else False,
+                                top_logprobs=TOP_K,
+                            )
+                            model_answer = response.choices[0].message.content
 
-                        if self.save_logits:
-                            probabilities_for_123 = {'1': 0.0, '2': 0.0, '3': 0.0}
+                            if self.save_logits:
+                                probabilities_for_123 = {'1': 0.0, '2': 0.0, '3': 0.0}
 
-                            first_token_raw_logprobs = response.choices[0].logprobs.content[0].top_logprobs
-                            # print(first_token_raw_logprobs)
+                                first_token_raw_logprobs = response.choices[0].logprobs.content[0].top_logprobs
+                                # print(first_token_raw_logprobs)
 
-                            # Iterate through the logprobs provided by OpenAI for the first token
-                            for token in first_token_raw_logprobs:
-                                decoded_token_str = token.token.strip()
-                                # If this decoded token is one of our targets ('1', '2', '3')
-                                if decoded_token_str in probabilities_for_123:
-                                    probabilities_for_123[decoded_token_str] = math.exp(token.logprob)
+                                # Iterate through the logprobs provided by OpenAI for the first token
+                                for token in first_token_raw_logprobs:
+                                    decoded_token_str = token.token.strip()
+                                    # If this decoded token is one of our targets ('1', '2', '3')
+                                    if decoded_token_str in probabilities_for_123:
+                                        probabilities_for_123[decoded_token_str] = math.exp(token.logprob)
 
-                            logits = probabilities_for_123  # Store the calculated probabilities
-                            # print(f"Calculated probabilities for 1,2,3: {logits}")
+                                logits = probabilities_for_123  # Store the calculated probabilities
+                                # print(f"Calculated probabilities for 1,2,3: {logits}")
                     else:
                         # Use VLLM model
                         # response = model.generate(query['question'], sampling_params=sampling_params)
@@ -222,7 +262,7 @@ class MCQExperiment:
                                 "role": "user",
                                 "content": prompt.format(
                                     word=word['word'],
-                                    meaning=word['meaning'],
+                                    meaning=word['meaning'] if isinstance(word['meaning'], str) else word['meaning'][0],
                                     language=languages[lang],
                                     dimension1=dimension[0],
                                     dimension2=dimension[1],
@@ -298,6 +338,7 @@ class MCQExperiment:
                 }
                 all_results[lang].append(word_result)
                 word_count += 1
+                processed_in_this_run += 1
                 
                 # Save intermediate results every 10 words instead of every word
                 if word_count % 10 == 0:

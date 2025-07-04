@@ -55,15 +55,36 @@ class GPTMCQExperiment:
         
         # Run experiment
         print(f"Running MCQ experiment on {len(mcq_data)} questions...")
-        all_results = []
+        
+        # Prepare file for saving results
+        model_name_for_file = self.model_name.replace('/', '_')
+        if not os.path.exists(self.output_dir):
+            os.makedirs(self.output_dir, exist_ok=True)
+        results_filename = f"{self.output_dir}/{self.data_path.split('/')[-1].replace('.json', '')}_{model_name_for_file}.json"
+        print(f"Results will be saved to: {results_filename}")
 
-        # Pick random 50 questions for testing
-        if len(mcq_data) > 50:
-            print("More than 50 questions found, selecting a random sample of 50.")
-            mcq_data = random.sample(mcq_data, 50)
+        # Load existing results if file exists
+        if os.path.exists(results_filename):
+            print("Found existing results file. Resuming experiment.")
+            with open(results_filename, 'r', encoding='utf-8') as f:
+                try:
+                    saved_data = json.load(f)
+                    all_results = saved_data.get('results', [])
+                    print(f"Loaded {len(all_results)} existing results.")
+                except json.JSONDecodeError:
+                    print("Warning: Could not decode JSON from results file. Starting from scratch.")
+                    all_results = []
+        else:
+            all_results = []
+
+        # # Pick random 50 questions for testing
+        # if len(mcq_data) > 50:
+        #     print("More than 50 questions found, selecting a random sample of 50.")
+        #     mcq_data = random.sample(mcq_data, 50)
 
         # Process each question
-        for query in tqdm(mcq_data):
+        start_index = len(all_results)
+        for query in tqdm(mcq_data[start_index:], initial=start_index, total=len(mcq_data)):
             # The user content will be a list for multimodal input
             user_content = []
 
@@ -128,6 +149,9 @@ class GPTMCQExperiment:
                     temperature=self.temperature,
                 )
                 model_answer = response.choices[0].message.content.strip()
+                # print(f"Prompt: {messages[0]['content'][0]}")
+                # print(f"Model Answer: {model_answer}")
+                # print(response)
             except Exception as e:
                 print(f"An error occurred while calling the OpenAI API: {e}")
                 model_answer = "" # Set empty answer on error
@@ -152,10 +176,10 @@ class GPTMCQExperiment:
                 is_correct = False
 
             # Print debug information
-            print(f"Query: {query['question']}")
-            print(f"Model Answer: {model_answer}")
-            print(f"Extracted Answer: {extracted_answer}")
-            print(f"Is Correct: {is_correct}")
+            # print(f"Query: {query['question']}")
+            # print(f"Model Answer: {model_answer}")
+            # print(f"Extracted Answer: {extracted_answer}")
+            # print(f"Is Correct: {is_correct}")
             
             # Store result
             result = {
@@ -165,19 +189,28 @@ class GPTMCQExperiment:
                 "is_correct": is_correct
             }
             all_results.append(result)
+
+            # --- Save results every 10 queries ---
+            if len(all_results) % 10 == 0:
+                correct_count = sum(1 for r in all_results if r["is_correct"])
+                total_count = len(all_results)
+                accuracy = correct_count / total_count if total_count > 0 else 0
+                
+                results_dict = {
+                    "model": self.model_name,
+                    "accuracy": accuracy,
+                    "correct_count": correct_count,
+                    "total_count": total_count,
+                    "results": all_results,
+                }
+
+                with open(results_filename, 'w', encoding='utf-8') as f:
+                    json.dump(results_dict, f, ensure_ascii=False, indent=4)
         
-        # Calculate accuracy
+        # --- Final save for any remaining results ---
         correct_count = sum(1 for r in all_results if r["is_correct"])
         total_count = len(all_results)
         accuracy = correct_count / total_count if total_count > 0 else 0
-        
-        print(f"Experiment completed. Accuracy: {accuracy:.2%} ({correct_count}/{total_count})")
-        
-        # Save results
-        model_name_for_file = self.model_name.replace('/', '_')
-        if not os.path.exists(self.output_dir):
-            os.makedirs(self.output_dir, exist_ok=True)
-        results_filename = f"{self.output_dir}/{self.data_path.split('/')[-1].replace('.json', '')}_{model_name_for_file}.json"
         
         results_dict = {
             "model": self.model_name,
@@ -186,11 +219,10 @@ class GPTMCQExperiment:
             "total_count": total_count,
             "results": all_results,
         }
-
-        # Save results to file
         with open(results_filename, 'w', encoding='utf-8') as f:
             json.dump(results_dict, f, ensure_ascii=False, indent=4)
-        
+
+        print(f"Experiment completed. Final Accuracy: {accuracy:.2%} ({correct_count}/{total_count})")
         print(f"Results saved to: {results_filename}")
         
         return results_dict, results_filename

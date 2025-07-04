@@ -3,6 +3,7 @@ from gpt_inference import GPTMCQExperiment
 from gemini_inference import GeminiMCQExperiment
 import argparse
 import json
+import os
 
 parser = argparse.ArgumentParser(description="Run MCQ experiment")
 parser.add_argument(
@@ -52,16 +53,17 @@ parser.add_argument(
 args = parser.parse_args()
 
 experiments = [
-    "semantic_dimension_binary_original",
-    "semantic_dimension_binary_romanized",
-    "semantic_dimension_binary_ipa",
+    # "semantic_dimension_binary_original",
+    # "semantic_dimension_binary_romanized",
+    # "semantic_dimension_binary_ipa",
     "semantic_dimension_binary_audio",
-    "semantic_dimension_binary_original_and_audio",
-    "semantic_dimension_binary_romanized_and_audio",
-    "semantic_dimension_binary_ipa_and_audio",
+    # "semantic_dimension_binary_original_and_audio",
+    # "semantic_dimension_binary_romanized_and_audio",
+    # "semantic_dimension_binary_ipa_and_audio",
 ]
 
-word_groups = ['common', 'rare',]
+# word_groups = ['common', 'rare',]
+word_groups = ['rare',]
 
 for experiment in experiments:
     # if experiment == "semantic_dimension_original":
@@ -170,6 +172,26 @@ for experiment in experiments:
             })
     # Save all brief results to a single file
     all_results_filename = f"{OUTPUT_DIR}/all_results_{args.model.replace('/', '_')}{'-thinking' if args.thinking else ''}.json"
+    
+    # Load existing results if the file exists, otherwise start with an empty list
+    if os.path.exists(all_results_filename):
+        print(f"Found existing results file: {all_results_filename}. Appending new results.")
+        with open(all_results_filename, 'r', encoding='utf-8') as f:
+            try:
+                existing_results = json.load(f)
+                # Ensure it's a list
+                if not isinstance(existing_results, list):
+                    print("Warning: Existing results file is not a list. Overwriting.")
+                    existing_results = []
+            except json.JSONDecodeError:
+                print("Warning: Could not decode JSON from existing results file. Overwriting.")
+                existing_results = []
+    else:
+        existing_results = []
+
+    # Append new results to existing ones
+    existing_results.extend(all_brief_results)
+
     with open(all_results_filename, 'w', encoding='utf-8') as f:
-        json.dump(all_brief_results, f, ensure_ascii=False, indent=4)
+        json.dump(existing_results, f, ensure_ascii=False, indent=4)
     print(f"All results saved to {all_results_filename}")
