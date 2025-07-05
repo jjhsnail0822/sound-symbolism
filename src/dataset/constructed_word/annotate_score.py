@@ -6,43 +6,65 @@ from pathlib import Path
 from phoneme_data import PhonemeData
 
 parser = ArgumentParser(description="Construct words based on phonetic features.")
-parser.add_argument('--data_dir', type=str, default='sound-symbolism/data/constructed_words')
-parser.add_argument('--csv_path', type=str, help='Path to `consturcted_words.csv` or `constructed_nonwords.csv` file.')
-
+parser.add_argument('--data_dir', type=str, default='/sound-symbolism/data/processed/art')
+parser.add_argument('--json_path', type=str, help='Path to `consturcted_words.json`')
+parser.add_argument('--threshold', type=float, default=0.171)
 class ScoreAnnotator:
-    def __init__(self, phoneme_data:PhonemeData, csv_path:str):
+    def __init__(self, phoneme_data:PhonemeData, json_path:str):
         self.phoneme_data = phoneme_data
-        self.csv_path = Path(csv_path)
+        self.json_path = Path(json_path)
 
-    def __call__(self):
-        df = pd.read_csv(self.csv_path)
-        for dimension in self.phoneme_data.feature_to_score.keys():
-            column_name = 'score_' + dimension.lower()
-            df[column_name] =  df['ipa'].apply(lambda x: self.get_score(x, dimension))
+    def annotate(self, threshold=0.171):
+        with open(self.json_path, 'r', encoding='utf-8') as f:
+            data = json.load(f)
+        
+        cnt = 0
+        for word in data['art']:
+            score_dict = {}
+            for dimension in self.phoneme_data.feature_to_score:
+                dim1, dim2 = dimension.lower().split('-')
+                score = self.get_score(word['ipa'], dimension)
+                if score > threshold:
+                    answer = dim2
+                    cnt += 1
+                elif score < -threshold:
+                    answer = dim1
+                    cnt +=1
+                else:
+                    answer='neither'
 
-        return df
+                score_dict[dimension.lower()] = {
+                    "answer": answer,
+                    "score": score
+                }
+            word.update({'dimensions': score_dict})
+        print(f"[INFO] Meaningful Dimension Data Count: {cnt}/{25*len(data['art'])}")
+
+        return data
 
     def get_score(self, ipa, dimension):
         score = 0
-        for char in ipa:
-            feature = self.phoneme_data.ipa_to_feature.get(char, None)
+        phonemes = ipa.split(' ')
+        for char in phonemes:
+            feature = self.phoneme_data.ipa_to_feature[char]
             if feature == 'back':
-                score -= self.phoneme_data.feature_to_score.get('front', 0)
+                score -= self.phoneme_data.feature_to_score[dimension]['front']
             else: 
-                score += self.phoneme_data.feature_to_score[dimension].get(feature, 0)
+                score += self.phoneme_data.feature_to_score[dimension][feature]
         
-        return score / len(ipa) if ipa else 0
+        return score / len(phonemes) if phonemes else 0
 
 def main(args):
     phoneme_data = PhonemeData(args.data_dir)
-    annotator = ScoreAnnotator(phoneme_data, args.csv_path)
-    result_df = annotator()
+    annotator = ScoreAnnotator(phoneme_data, args.json_path)
+    result = annotator.annotate(threshold=args.threshold)
 
-    fname = Path(args.csv_path).stem
-    ouput_dir = Path(args.data_dir) / 'outputs'
-    ouput_dir.mkdir(parents=True, exist_ok=True)
-    result_df.to_csv(ouput_dir / f'{fname}_annotated.csv', index=False)
-    
+    output_dir = Path(args.data_dir)
+    output_dir.mkdir(parents=True, exist_ok=True)
+
+    with open(output_dir / f'constructed_words.json','w', encoding='utf-8') as f:
+        json.dump(result, f, ensure_ascii=False, indent=4)
+
     
 if __name__ == "__main__":
     args = parser.parse_args()
