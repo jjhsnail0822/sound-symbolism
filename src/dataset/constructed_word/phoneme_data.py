@@ -3,7 +3,7 @@ from pathlib import Path
 
 class PhonemeData:
     def __init__(self, data_dir: str, auto_verify=True):
-        self.data_dir = Path(data_dir) / 'resources'
+        self.data_dir = Path(data_dir)
         
         self.feature_to_score = self._load_json('feature_to_score.json')
         self.ipa_to_alphabet  = self._load_json('ipa_to_alphabet.json')

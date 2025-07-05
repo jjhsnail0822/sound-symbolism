@@ -1,16 +1,18 @@
 import json
 import os
+from argparse import ArgumentParser
 from gtts import gTTS
 from pydub import AudioSegment
 from tqdm import tqdm
 
-# word type: `art`(artificial) or `nat`(natural)
-WORD_TYPE= 'art'
+parser = ArgumentParser()
+parser.add_argument("--word_type", type=str, choices=['art', 'nat'], default='nat')
+parser.add_argument("--base_dir", type=str, default='data/processed/')
+
 # List of languages to process
 # langs = ['en', 'fr', 'ja', 'ko']
 langs = ['ko']
 # Base path for the output audio files
-OUTPUT_BASE_PATH = f'/home/sunahan/workspace/sound-symbolism/data/processed/{WORD_TYPE}/tts'
 
 class TTSGenerator:
     """
@@ -25,10 +27,6 @@ class TTSGenerator:
         """
         self.language = language
         self.output_path = output_path
-
-        if self.output_path is None:
-            self.output_path = f"{OUTPUT_BASE_PATH}/{self.language}"
-
            
 
     def generate(self, text):
@@ -65,15 +63,19 @@ class TTSGenerator:
 
 # Main script execution
 if __name__ == "__main__":
-    if WORD_TYPE == 'nat':
+    args = parser.parse_args()
+    base_dir = f"{args.base_dir}/{args.word_type}"
+   
+
+    if args.word_type == 'nat':
         # Loop through each language
         for lang in langs:
             # Create the output directory for the language if it doesn't exist
-            lang_output_path = f"{OUTPUT_BASE_PATH}/{lang}"
+            lang_output_path = f"{base_dir}/tts/{lang}"
             os.makedirs(lang_output_path, exist_ok=True)
 
             # Load the corresponding JSON data file
-            json_path = f'data/processed/nat/{lang}.json'
+            json_path = f'{base_dir}/{lang}.json'
             if not os.path.exists(json_path):
                 print(f"Warning: JSON file not found at {json_path}. Skipping language {lang}.")
                 continue
@@ -90,14 +92,16 @@ if __name__ == "__main__":
                     tts.generate(item['word'])
                 else:
                     print(f"Warning: 'word' key not found in item: {item}")
-    elif WORD_TYPE=='art':
-        os.makedirs(OUTPUT_BASE_PATH, exist_ok=True)
-        json_path ='/home/sunahan/workspace/sound-symbolism/data/processed/art/constructed_words.json'
+    elif args.word_type=='art':
+        output_dir = f"{base_dir}/tts"
+        os.makedirs(output_dir, exist_ok=True)
+
+        json_path =f'{base_dir}/semantic_dimension/semantic_dimension_binary_gt.json'
         
         with open(json_path, 'r', encoding='utf-8') as f:
             data = json.load(f)
 
-        tts = TTSGenerator('en', output_path = OUTPUT_BASE_PATH)
+        tts = TTSGenerator('en', output_path = output_dir)
 
         for item in tqdm(data['art'], desc='Generating TTS for artificial nonwords'):
             if 'word' in item:

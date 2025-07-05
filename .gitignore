@@ -1,5 +1,6 @@
 .gitignore
 .env.local
+__pycache__
 old/dataset/4_codes/.env.local
 old/dataset/0_raw/nat/daijirin_4ed/
 old/dataset/0_raw/nat/digital_daijisen/
