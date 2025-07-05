@@ -43,19 +43,43 @@ class QwenOmniMCQExperiment:
             mcq_data = json.load(f)
         print(f"Loaded {len(mcq_data)} questions.")
         
+        # Prepare file for saving results
+        model_name = os.path.basename(self.model_path)
+        if not os.path.exists(self.output_dir):
+            os.makedirs(self.output_dir, exist_ok=True)
+        results_filename = f"{self.output_dir}/{self.data_path.split('/')[-1].replace('.json', '')}_{model_name}.json"
+        print(f"Results will be saved to: {results_filename}")
+
+        # Load existing results if file exists
+        if os.path.exists(results_filename):
+            print("Found existing results file. Resuming experiment.")
+            with open(results_filename, 'r', encoding='utf-8') as f:
+                try:
+                    saved_data = json.load(f)
+                    all_results = saved_data.get('results', [])
+                    print(f"Loaded {len(all_results)} existing results.")
+                except json.JSONDecodeError:
+                    print("Warning: Could not decode JSON from results file. Starting from scratch.")
+                    all_results = []
+        else:
+            all_results = []
+
         # Run experiment
         print(f"Running MCQ experiment on {len(mcq_data)} questions...")
-        all_results = []
         
         # Process each question
-        for query in tqdm(mcq_data):
+        start_index = len(all_results)
+        for query in tqdm(mcq_data[start_index:], initial=start_index, total=len(mcq_data)):
             word = query['meta_data']['word']
             language = query['meta_data']['language']
             if 'audio' in self.exp_name.lower(): # audio experiment
                 if '<AUDIO>' in query['question']: # word -> meaning
                     question_first_part = query['question'].split("<AUDIO>")[0]
                     question_second_part = query['question'].split("<AUDIO>")[1]
-                    audio_path = f'data/processed/nat/tts/{language}/{word}.wav'
+                    if language == 'art':
+                        audio_path = f'data/processed/art/tts/{word}.wav'
+                    else:
+                        audio_path = f'data/processed/nat/tts/{language}/{word}.wav'
                     conversation = [
                         {
                             "role": "system",
@@ -177,8 +201,25 @@ class QwenOmniMCQExperiment:
                 "is_correct": is_correct
             }
             all_results.append(result)
+
+            # --- Save results every 10 queries ---
+            if len(all_results) % 10 == 0:
+                correct_count = sum(1 for r in all_results if r["is_correct"])
+                total_count = len(all_results)
+                accuracy = correct_count / total_count if total_count > 0 else 0
+                
+                results_dict = {
+                    "model": self.model_path,
+                    "accuracy": accuracy,
+                    "correct_count": correct_count,
+                    "total_count": total_count,
+                    "results": all_results,
+                }
+
+                with open(results_filename, 'w', encoding='utf-8') as f:
+                    json.dump(results_dict, f, ensure_ascii=False, indent=4)
         
-        # Calculate accuracy
+        # --- Final save for any remaining results ---
         correct_count = sum(1 for r in all_results if r["is_correct"])
         total_count = len(all_results)
         accuracy = correct_count / total_count if total_count > 0 else 0
@@ -186,11 +227,6 @@ class QwenOmniMCQExperiment:
         print(f"Experiment completed. Accuracy: {accuracy:.2%} ({correct_count}/{total_count})")
         
         # Save results
-        model_name = os.path.basename(self.model_path)
-        if not os.path.exists(self.output_dir):
-            os.makedirs(self.output_dir, exist_ok=True)
-        results_filename = f"{self.output_dir}/{self.data_path.split('/')[-1].replace('.json', '')}_{model_name}.json"
-        
         results_dict = {
             "model": self.model_path,
             "accuracy": accuracy,

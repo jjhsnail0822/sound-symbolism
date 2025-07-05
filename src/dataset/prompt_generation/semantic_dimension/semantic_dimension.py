@@ -5,7 +5,7 @@ import os
 
 random.seed(42)
 
-WORD_GROUPS = ["common", "rare"]
+WORD_GROUPS = ["common", "rare", "constructed"]
 LANGUAGES = ["en", "fr", "ja", "ko"]
 
 def generate_datasets(word_group, task, experiment_name, input_dir, input_dir_constructed, output_dir, prompts_file):
@@ -60,7 +60,7 @@ def generate_datasets(word_group, task, experiment_name, input_dir, input_dir_co
     for lang in semantic_dimension_gt:
         for subject_word_info in semantic_dimension_gt[lang]:
             for dimension in subject_word_info.get('dimensions', []):
-                if subject_word_info.get('word_group') != WORD_GROUP:
+                if WORD_GROUP != 'constructed' and subject_word_info.get('word_group') != WORD_GROUP:
                     # Skip words that do not belong to the current word group
                     continue
                 word_text = subject_word_info.get('word')
