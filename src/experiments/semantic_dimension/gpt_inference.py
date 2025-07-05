@@ -94,7 +94,10 @@ class GPTMCQExperiment:
                     question_second_part = query['question'].split("<AUDIO>")[1]
                     word = query['meta_data']['word']
                     language = query['meta_data']['language']
-                    audio_path = f'data/processed/nat/tts/{language}/{word}.wav'
+                    if language == 'art':
+                        audio_path = f'data/processed/art/tts/{word}.wav'
+                    else:
+                        audio_path = f'data/processed/nat/tts/{language}/{word}.wav'
                     if not os.path.exists(audio_path):
                         raise FileNotFoundError(f"Audio file not found: {audio_path}")
                     

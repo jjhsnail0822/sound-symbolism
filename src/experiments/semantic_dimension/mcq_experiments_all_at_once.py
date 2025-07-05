@@ -10,7 +10,7 @@ parser.add_argument(
     "--model",
     "-m",
     type=str,
-    default="Qwen/Qwen3-8B",
+    default="Qwen/Qwen2.5-Omni-7B",
     help="Model name to run the experiment on",
 )
 parser.add_argument(
@@ -53,17 +53,16 @@ parser.add_argument(
 args = parser.parse_args()
 
 experiments = [
-    # "semantic_dimension_binary_original",
-    # "semantic_dimension_binary_romanized",
-    # "semantic_dimension_binary_ipa",
+    "semantic_dimension_binary_original",
+    "semantic_dimension_binary_romanized",
+    "semantic_dimension_binary_ipa",
     "semantic_dimension_binary_audio",
-    # "semantic_dimension_binary_original_and_audio",
-    # "semantic_dimension_binary_romanized_and_audio",
-    # "semantic_dimension_binary_ipa_and_audio",
+    "semantic_dimension_binary_original_and_audio",
+    "semantic_dimension_binary_romanized_and_audio",
+    "semantic_dimension_binary_ipa_and_audio",
 ]
 
-# word_groups = ['common', 'rare',]
-word_groups = ['rare',]
+word_groups = ['common', 'rare', 'constructed']
 
 for experiment in experiments:
     # if experiment == "semantic_dimension_original":
