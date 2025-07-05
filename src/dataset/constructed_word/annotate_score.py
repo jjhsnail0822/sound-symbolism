@@ -1,4 +1,3 @@
-import os
 import json
 import pandas as pd
 from argparse import ArgumentParser
@@ -6,9 +5,11 @@ from pathlib import Path
 from phoneme_data import PhonemeData
 
 parser = ArgumentParser(description="Construct words based on phonetic features.")
-parser.add_argument('--data_dir', type=str, default='/sound-symbolism/data/processed/art')
-parser.add_argument('--json_path', type=str, help='Path to `consturcted_words.json`')
+parser.add_argument('--data_dir', type=str, default='/sound-symbolism/data/processed/art/resources')
+parser.add_argument('--output_dir', type=str, default='/sound-symbolism/data/processed/art/semantic_dimension')
+parser.add_argument('--json_path', type=str, help='Path to `semantic_dimension_binary_gt.json`')
 parser.add_argument('--threshold', type=float, default=0.171)
+
 class ScoreAnnotator:
     def __init__(self, phoneme_data:PhonemeData, json_path:str):
         self.phoneme_data = phoneme_data
@@ -31,7 +32,7 @@ class ScoreAnnotator:
                     answer = dim1
                     cnt +=1
                 else:
-                    answer='neither'
+                    continue 
 
                 score_dict[dimension.lower()] = {
                     "answer": answer,
@@ -59,11 +60,12 @@ def main(args):
     annotator = ScoreAnnotator(phoneme_data, args.json_path)
     result = annotator.annotate(threshold=args.threshold)
 
-    output_dir = Path(args.data_dir)
-    output_dir.mkdir(parents=True, exist_ok=True)
+    
 
-    with open(output_dir / f'constructed_words.json','w', encoding='utf-8') as f:
+    
+    with open(args.json_path,'w', encoding='utf-8') as f:
         json.dump(result, f, ensure_ascii=False, indent=4)
+    print("[INFO] Saved to", args.json_path)
 
     
 if __name__ == "__main__":
