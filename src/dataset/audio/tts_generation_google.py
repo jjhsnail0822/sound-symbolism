@@ -10,7 +10,7 @@ WORD_TYPE= 'art'
 # langs = ['en', 'fr', 'ja', 'ko']
 langs = ['ko']
 # Base path for the output audio files
-OUTPUT_BASE_PATH = f'data/processed/{WORD_TYPE}/tts'
+OUTPUT_BASE_PATH = f'/home/sunahan/workspace/sound-symbolism/data/processed/{WORD_TYPE}/tts'
 
 class TTSGenerator:
     """
@@ -92,14 +92,14 @@ if __name__ == "__main__":
                     print(f"Warning: 'word' key not found in item: {item}")
     elif WORD_TYPE=='art':
         os.makedirs(OUTPUT_BASE_PATH, exist_ok=True)
-        json_path ='data/processed/art/art_nonword.json'
+        json_path ='/home/sunahan/workspace/sound-symbolism/data/processed/art/constructed_words.json'
         
         with open(json_path, 'r', encoding='utf-8') as f:
             data = json.load(f)
 
         tts = TTSGenerator('en', output_path = OUTPUT_BASE_PATH)
 
-        for item in tqdm(data, desc='Generating TTS for artificial nonwords'):
+        for item in tqdm(data['art'], desc='Generating TTS for artificial nonwords'):
             if 'word' in item:
                 tts.generate(item['word'])
             else:
