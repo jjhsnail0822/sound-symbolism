@@ -132,17 +132,17 @@ def main(args):
 
     results = add_metadata(words)
 
-    output_path =  Path(args.data_dir) / f'constructed_words.json'
-    with open(output_path, 'w', encoding='utf-8') as f:
+    with open(args.output_path, 'w', encoding='utf-8') as f:
         json.dump(results, f, ensure_ascii=False, indent=4)
 
-    print("[INFO] Saved to :", output_path)
+    print("[INFO] Saved to :", args.output_path)
 
 
 
 if __name__ == "__main__":    
     parser = argparse.ArgumentParser(description="Generate CVCV words based on phonemes.")
-    parser.add_argument('--data_dir', type=str, default='/sound-symbolism/data/processed/art')
+    parser.add_argument('--data_dir', type=str, default='/sound-symbolism/data/processed/art/resources')
+    parser.add_argument('--output_path', type=str, default='/sound-symbolism/data/processed/art/semantic_dimension/semantic_dimension_binary_gt.json')
     parser.add_argument('--ensure_nonword', action='store_true')
     args = parser.parse_args()
     main(args)
