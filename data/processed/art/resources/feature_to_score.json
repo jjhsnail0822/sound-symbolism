@@ -1,0 +1,194 @@
+{
+    "Abrupt-Continuous": {
+        "sonorants": 0.85,
+        "voiced_fricatives": -0.503,
+        "voiceless_fricatives": 0.0,
+        "voiceless_stops": -0.491,
+        "voiced_stops": 0.0,
+        "front": 0.0
+    },
+    "Beautiful-Ugly": {
+        "sonorants": -0.383,
+        "voiced_fricatives": 0.0,
+        "voiceless_fricatives": -0.3298,
+        "voiceless_stops": 0.0,
+        "voiced_stops": 0.3927,
+        "front": 0.0
+    },
+    "Big-Small": {
+        "sonorants": 0.5182,
+        "voiced_fricatives": -0.483,
+        "voiceless_fricatives": 0.3142,
+        "voiceless_stops": 0.0,
+        "voiced_stops": -0.3798,
+        "front": 0.7252
+    },
+    "Dangerous-Safe": {
+        "sonorants": 0.5558,
+        "voiced_fricatives": -0.4128,
+        "voiceless_fricatives": 0.0,
+        "voiceless_stops": -0.3755,
+        "voiced_stops": 0.0,
+        "front": 0.0
+    },
+    "Delicate-Rugged": {
+        "sonorants": -0.905,
+        "voiced_fricatives": 0.414,
+        "voiceless_fricatives": 0.0,
+        "voiceless_stops": 0.48,
+        "voiced_stops": 0.0,
+        "front": 0.0
+    },
+    "Exciting-Calming": {
+        "sonorants": 0.868,
+        "voiced_fricatives": -0.5988,
+        "voiceless_fricatives": 0.0,
+        "voiceless_stops": -0.4156,
+        "voiced_stops": 0.0,
+        "front": -0.3467
+    },
+    "Fast-Slow": {
+        "sonorants": 0.7293,
+        "voiced_fricatives": -0.5218,
+        "voiceless_fricatives": 0.0,
+        "voiceless_stops": -0.3911,
+        "voiced_stops": 0.0,
+        "front": -0.5065
+    },
+    "Good-Bad": {
+        "sonorants": 0.0,
+        "voiced_fricatives": 0.0,
+        "voiceless_fricatives": 0.0,
+        "voiceless_stops": 0.0,
+        "voiced_stops": 0.0,
+        "front": 0.0
+    },
+    "Happy-Sad": {
+        "sonorants": 0.0,
+        "voiced_fricatives": 0.0,
+        "voiceless_fricatives": 0.0,
+        "voiceless_stops": 0.0,
+        "voiced_stops": 0.0,
+        "front": -0.4123
+    },
+    "Hard-Soft": {
+        "sonorants": 0.889,
+        "voiced_fricatives": -0.524,
+        "voiceless_fricatives": 0.382,
+        "voiceless_stops": -0.589,
+        "voiced_stops": 0.0,
+        "front": 0.0
+    },
+    "Harsh-Mellow": {
+        "sonorants": 0.8982,
+        "voiced_fricatives": -0.5386,
+        "voiceless_fricatives": 0.0,
+        "voiceless_stops": -0.4848,
+        "voiced_stops": 0.0,
+        "front": 0.0
+    },
+    "Heavy-Light": {
+        "sonorants": 0.632,
+        "voiced_fricatives": -0.413,
+        "voiceless_fricatives": 0.401,
+        "voiceless_stops": 0.0,
+        "voiced_stops": -0.376,
+        "front": 0.3677
+    },
+    "Inhibited-Free": {
+        "sonorants": 0.5216,
+        "voiced_fricatives": 0.0,
+        "voiceless_fricatives": 0.0,
+        "voiceless_stops": -0.4105,
+        "voiced_stops": 0.0,
+        "front": 0.0
+    },
+    "Interesting-Uninteresting": {
+        "sonorants": 0.0,
+        "voiced_fricatives": -0.2894,
+        "voiceless_fricatives": 0.0,
+        "voiceless_stops": 0.0,
+        "voiced_stops": 0.2698,
+        "front": 0.0
+    },
+    "Masculine-Feminine": {
+        "sonorants": 0.728,
+        "voiced_fricatives": 0.0,
+        "voiceless_fricatives": 0.682,
+        "voiceless_stops": -0.676,
+        "voiced_stops": -0.443,
+        "front": 0.46593
+    },
+    "Ordinary-Unique": {
+        "sonorants": -0.346,
+        "voiced_fricatives": 0.492,
+        "voiceless_fricatives": 0.0,
+        "voiceless_stops": 0.0,
+        "voiced_stops": 0.0,
+        "front": 0.0
+    },
+    "Passive-Active": {
+        "sonorants": -0.6501,
+        "voiced_fricatives": 0.5193,
+        "voiceless_fricatives": 0.0,
+        "voiceless_stops": 0.0,
+        "voiced_stops": 0.0,
+        "front": 0.3048
+    },
+    "Pleasant-Unpleasant": {
+        "sonorants": 0.0,
+        "voiced_fricatives": 0.0,
+        "voiceless_fricatives": 0.0,
+        "voiceless_stops": 0.0,
+        "voiced_stops": 0.0,
+        "front": 0.0
+    },
+    "Realistic-Fantastical": {
+        "sonorants": 0.0,
+        "voiced_fricatives": 0.41327,
+        "voiceless_fricatives": 0.0,
+        "voiceless_stops": -0.34634,
+        "voiced_stops": 0.0,
+        "front": -0.2744
+    },
+    "Sharp-Round": {
+        "sonorants": 1.00169,
+        "voiced_fricatives": -0.81813,
+        "voiceless_fricatives": 0.0,
+        "voiceless_stops": -0.65012,
+        "voiced_stops": 0.45799,
+        "front": -0.5138
+    },
+    "Simple-Complex": {
+        "sonorants": -0.75118,
+        "voiced_fricatives": 0.79506,
+        "voiceless_fricatives": 0.0,
+        "voiceless_stops": 0.0,
+        "voiced_stops": 0.0,
+        "front": 0.0
+    },
+    "Solid-NonSolid": {
+        "sonorants": 0.741,
+        "voiced_fricatives": 0.0,
+        "voiceless_fricatives": 0.0,
+        "voiceless_stops": -0.411,
+        "voiced_stops": 0.0,
+        "front": 0.0
+    },
+    "Strong-Weak": {
+        "sonorants": 0.6359,
+        "voiced_fricatives": -0.4309,
+        "voiceless_fricatives": 0.0,
+        "voiceless_stops": -0.2294,
+        "voiced_stops": 0.0,
+        "front": 0.0
+    },
+    "Tense-Relaxed": {
+        "sonorants": 0.6631,
+        "voiced_fricatives": 0.0,
+        "voiceless_fricatives": 0.0,
+        "voiceless_stops": -0.4976,
+        "voiced_stops": 0.0,
+        "front": 0.0
+    }
+}
