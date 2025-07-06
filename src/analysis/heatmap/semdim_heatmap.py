@@ -719,10 +719,6 @@ class QwenOmniSemanticDimensionVisualizer:
         output_attention_matrices = all_attention_matrices[2]
         for layer_idx, layer_attention in enumerate(output_attention_matrices):
             layer_attention = layer_attention[0]
-            layer_analysis = {
-                'layer': layer_idx,
-                'head_attention_patterns': []
-            }
             for head_idx in range(layer_attention.shape[0]):
                 head_attention = layer_attention[head_idx]
                 if input_length > 0:
@@ -739,18 +735,20 @@ class QwenOmniSemanticDimensionVisualizer:
                         'word': word,
                         'input_word': input_word,
                         'word_indices': word_indices,
-                        'generated_text': generated_text,
                         'dim1_indices': dim1_indices,
                         'dim2_indices': dim2_indices,
+                        'generated_text': generated_text,
+                        'full_attention_matrix': head_attention.cpu().float().numpy(), # The intact attention matrix
+                        'filtered_attention_matrix': head_attention[:, :, relevant_indices][:, :, :, relevant_indices].cpu().float().numpy(), # The filtered attention matrix according to the layer number and related token indices
+                        'word_dim1': None, # The attention score of the word to the dimension1
+                        'word_dim2': None, # The attention score of the word to the dimension2
                         'attention_to_answer': attention_to_answer.item(),
                         'attention_to_dim1': attention_to_dim1.item(),
                         'attention_to_dim2': attention_to_dim2.item(),
                         'attention_to_word': attention_to_word.item(),
                         'full_attention_vector': last_token_attention.cpu().float().numpy()
                     }
-                    layer_analysis['head_attention_patterns'].append(head_analysis)
-            step_analysis['layer_attention_patterns'].append(layer_analysis)
-        generation_attention_analysis.append(step_analysis)
+                    generation_attention_analysis.append(head_analysis)
         print(f"dim1_indices: {dim1_indices}")
         print(f"dim2_indices: {dim2_indices}")
         print(f"word_indices: {word_indices}")
