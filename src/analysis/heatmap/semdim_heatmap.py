@@ -580,7 +580,6 @@ class QwenOmniSemanticDimensionVisualizer:
         input_length = len(all_tokens[0])
         generated_ids = current_input_ids[0][input_length:]
         generated_text = self.processor.tokenizer.decode(generated_ids)
-        breakpoint()
         return all_attention_matrices, final_tokens, inputs, current_input_ids, generated_text, input_length
 
     def _find_token_indices_by_string(self, tokens, target_string):
@@ -615,8 +614,98 @@ class QwenOmniSemanticDimensionVisualizer:
 
     def extract_generation_attention_analysis(self, all_attention_matrices:list[tuple[torch.Tensor, ...]], tokens:list[str], generated_text:str, answer:str, lang:str, dimension1:str, dimension2:str, word:str, input_word:str=None, input_length:int=None):
         """Analyze attention patterns during generation, focusing on output tokens"""
+        # Helper function to calculate attention scores between token groups
+        def calculate_attention_scores(attention_matrix, query_indices, key_indices, debug=False):
+            """Calculate attention scores between query and key token groups"""
+            if not query_indices or not key_indices:
+                if debug:
+                    print(f"    calculate_attention_scores: Empty indices - query: {query_indices}, key: {key_indices}")
+                return 0.0
+            
+            if debug:
+                print(f"    Attention matrix shape: {attention_matrix.shape}")
+                print(f"    Query indices: {query_indices}")
+                print(f"    Key indices: {key_indices}")
+            
+            total_score = 0.0
+            valid_pairs = 0
+            
+            # Check if attention matrix has the expected shape
+            if len(attention_matrix.shape) != 2:
+                if debug:
+                    print(f"    Warning: Unexpected attention matrix shape: {attention_matrix.shape}")
+                return 0.0
+            
+            for q_idx in query_indices:
+                if q_idx < attention_matrix.shape[0]:
+                    for k_idx in key_indices:
+                        if k_idx < attention_matrix.shape[1]:
+                            score = attention_matrix[q_idx, k_idx].item()
+                            total_score += score
+                            valid_pairs += 1
+                            if debug:
+                                print(f"    Score at [{q_idx}, {k_idx}]: {score:.6f}")
+                        else:
+                            if debug:
+                                print(f"    Key index {k_idx} out of bounds (shape: {attention_matrix.shape})")
+                else:
+                    if debug:
+                        print(f"    Query index {q_idx} out of bounds (shape: {attention_matrix.shape})")
+            
+            if debug:
+                print(f"    Total score: {total_score:.6f} from {valid_pairs} valid pairs")
+                # Also print some sample values from the attention matrix
+                if attention_matrix.shape[0] > 0 and attention_matrix.shape[1] > 0:
+                    print(f"    Sample attention values:")
+                    print(f"      [0, 0]: {attention_matrix[0, 0].item():.6f}")
+                    print(f"      [0, 1]: {attention_matrix[0, 1].item():.6f}")
+                    print(f"      [1, 0]: {attention_matrix[1, 0].item():.6f}")
+                    if len(query_indices) > 0 and len(key_indices) > 0:
+                        q_sample = query_indices[0]
+                        k_sample = key_indices[0]
+                        if q_sample < attention_matrix.shape[0] and k_sample < attention_matrix.shape[1]:
+                            print(f"      [{q_sample}, {k_sample}]: {attention_matrix[q_sample, k_sample].item():.6f}")
+            
+            return total_score
+        
+        # Helper function to calculate normalized attention distribution
+        def calculate_normalized_attention(attention_matrix, query_indices, key_indices, debug=False):
+            """Calculate normalized attention distribution for query tokens to key tokens"""
+            total_query_attention = 0.0
+            target_attention = 0.0
+            
+            for q_idx in query_indices:
+                if q_idx < attention_matrix.shape[0]:
+                    # Sum of all attention from this query token
+                    row_sum = attention_matrix[q_idx, :].sum().item()
+                    total_query_attention += row_sum
+                    # Sum of attention to target key tokens
+                    for k_idx in key_indices:
+                        if k_idx < attention_matrix.shape[1]:
+                            target_score = attention_matrix[q_idx, k_idx].item()
+                            target_attention += target_score
+            
+            if total_query_attention > 0:
+                normalized = target_attention / total_query_attention
+                return normalized
+        
+        # Helper function to aggregate scores across layers and heads
+        def aggregate_scores(scores_matrix, aggregation_type):
+            """Aggregate scores across layers and heads"""
+            if aggregation_type == "all":
+                return scores_matrix.mean().item()
+            elif aggregation_type == "layers":
+                return scores_matrix.mean(dim=0)  # Average across layers
+            elif aggregation_type == "heads":
+                return scores_matrix.mean(dim=1)  # Average across heads
+            elif aggregation_type == "individual":
+                return scores_matrix  # Keep individual layer/head scores
+            else:
+                raise ValueError(f"Unknown aggregation type: {aggregation_type}")
+        
+        # Get token indices
         answer_subtokens = self.processor.tokenizer.tokenize(answer)
-        input_word = input_word.replace(" ", "")
+        input_word = input_word.replace(" ", "") if input_word else ""
         answer_indices = self.find_subtoken_sequence_indices(tokens, answer_subtokens)
         temp_answer_indices = []
         for index in answer_indices:
@@ -656,7 +745,6 @@ class QwenOmniSemanticDimensionVisualizer:
                     word_indices.append(audio_idx)
                     if audio_idx < len(tokens):
                         tokens[audio_idx] = f"{word}_{idx}"
-
         else:
             tokenized_input_word_list = self.processor.tokenizer.tokenize(input_word)
             tokenized_input_word_list = [self._clean_token(t) for t in tokenized_input_word_list]
@@ -714,45 +802,254 @@ class QwenOmniSemanticDimensionVisualizer:
                             if word_indices:
                                 break
 
-        # Analyze attention for each generation step
-        generation_attention_analysis = []
-        output_attention_matrices = all_attention_matrices[2]
-        for layer_idx, layer_attention in enumerate(output_attention_matrices):
-            layer_attention = layer_attention[0]
-            for head_idx in range(layer_attention.shape[0]):
+        # Determine answer indices for encoder-decoder attention
+        # Check if generated text ends with special tokens
+        generated_tokens = self.processor.tokenizer.tokenize(generated_text)
+        if generated_tokens and any(token.startswith('<') and token.endswith('>') for token in generated_tokens[-3:]):
+            # Last 2-3 tokens might be special tokens, use tokens before them
+            answer_start_idx = len(tokens) - 5  # Adjust based on your tokenization
+            answer_end_idx = len(tokens) - 3
+        else:
+            # Use last 2 tokens as answer
+            answer_start_idx = len(tokens) - 2
+            answer_end_idx = len(tokens)
+        
+        answer_indices_generated = list(range(answer_start_idx, answer_end_idx))
+        
+        # Calculate the shift for encoder-decoder attention
+        # The shift is the difference between encoder-decoder sequence length and self-attention sequence length
+        if all_attention_matrices[0] and all_attention_matrices[2]:
+            self_attn_seq_len = all_attention_matrices[0][0][0].shape[-1]  # Self-attention sequence length
+            enc_dec_seq_len = all_attention_matrices[2][0][0].shape[-1]    # Encoder-decoder sequence length
+            sequence_shift = enc_dec_seq_len - self_attn_seq_len
+            
+            print(f"Self-attention seq len: {self_attn_seq_len}")
+            print(f"Encoder-decoder seq len: {enc_dec_seq_len}")
+            print(f"Sequence shift: {sequence_shift}")
+            
+            # Shift indices for encoder-decoder attention
+            word_indices_enc_dec = [idx + sequence_shift for idx in word_indices]
+            dim1_indices_enc_dec = [idx + sequence_shift for idx in dim1_indices]
+            dim2_indices_enc_dec = [idx + sequence_shift for idx in dim2_indices]
+            
+            print(f"Original word_indices: {word_indices}")
+            print(f"Shifted word_indices: {word_indices_enc_dec}")
+            print(f"Original dim1_indices: {dim1_indices}")
+            print(f"Shifted dim1_indices: {dim1_indices_enc_dec}")
+            print(f"Original dim2_indices: {dim2_indices}")
+            print(f"Shifted dim2_indices: {dim2_indices_enc_dec}")
+        else:
+            # Fallback if attention matrices are not available
+            word_indices_enc_dec = word_indices
+            dim1_indices_enc_dec = dim1_indices
+            dim2_indices_enc_dec = dim2_indices
+            sequence_shift = 0
+        
+        # print(f"dim1_indices: {dim1_indices}, dim2_indices: {dim2_indices}, word_indices: {word_indices}, answer_indices: {answer_indices}")
+        # print(f"Self attention layers: {len(all_attention_matrices[0])}, output attention layers: {len(all_attention_matrices[2])}")
+        
+        actual_num_heads = all_attention_matrices[0][0][0].shape[0]
+        print(f"Actual number of heads: {actual_num_heads}")
+        
+        # Initialize aggregation matrices
+        num_layers = len(all_attention_matrices[0])
+        num_heads = actual_num_heads
+        
+        print(f"Initializing matrices with shape: ({num_layers}, {num_heads})")
+        
+        # Self-attention analysis
+        self_attention_matrices = all_attention_matrices[0]
+        
+        # Initialize matrices for self-attention scores
+        word_dim1_raw_matrix = torch.zeros(num_layers, num_heads)
+        word_dim2_raw_matrix = torch.zeros(num_layers, num_heads)
+        word_dim1_norm_matrix = torch.zeros(num_layers, num_heads)
+        word_dim2_norm_matrix = torch.zeros(num_layers, num_heads)
+        
+        # Calculate self-attention scores
+        for layer_idx, layer_attention in enumerate(self_attention_matrices):
+            # print(f"Processing layer {layer_idx}, attention shape: {layer_attention.shape}")
+            layer_attention = layer_attention[0]  # Remove batch dimension
+            print(f"After removing batch dim, shape: {layer_attention.shape}")
+            
+            actual_heads_in_layer = layer_attention.shape[0]
+            print(f"Actual heads in layer {layer_idx}: {actual_heads_in_layer}")
+            
+            for head_idx in range(actual_heads_in_layer):
                 head_attention = layer_attention[head_idx]
-                if input_length > 0:
-                    last_token_attention = head_attention[-1, :]
-                    attention_to_answer = sum(last_token_attention[idx] for idx in answer_indices if idx < len(last_token_attention))
-                    attention_to_dim1 = sum(last_token_attention[idx] for idx in dim1_indices if idx < len(last_token_attention))
-                    attention_to_dim2 = sum(last_token_attention[idx] for idx in dim2_indices if idx < len(last_token_attention))
-                    attention_to_word = sum(last_token_attention[idx] for idx in word_indices if idx < len(last_token_attention))
-                    
-                    breakpoint()
-                    
-                    head_analysis = {
-                        'head': head_idx,
-                        'word': word,
-                        'input_word': input_word,
-                        'word_indices': word_indices,
-                        'dim1_indices': dim1_indices,
-                        'dim2_indices': dim2_indices,
-                        'generated_text': generated_text,
-                        'full_attention_matrix': head_attention.cpu().float().numpy(), # The intact attention matrix
-                        'filtered_attention_matrix': head_attention[:, :, relevant_indices][:, :, :, relevant_indices].cpu().float().numpy(), # The filtered attention matrix according to the layer number and related token indices
-                        'word_dim1': None, # The attention score of the word to the dimension1
-                        'word_dim2': None, # The attention score of the word to the dimension2
-                        'attention_to_answer': attention_to_answer.item(),
-                        'attention_to_dim1': attention_to_dim1.item(),
-                        'attention_to_dim2': attention_to_dim2.item(),
-                        'attention_to_word': attention_to_word.item(),
-                        'full_attention_vector': last_token_attention.cpu().float().numpy()
-                    }
-                    generation_attention_analysis.append(head_analysis)
-        print(f"dim1_indices: {dim1_indices}")
-        print(f"dim2_indices: {dim2_indices}")
-        print(f"word_indices: {word_indices}")
-        breakpoint()
+                
+                # Raw attention scores
+                debug_mode = (layer_idx == 0 and head_idx == 0)
+                word_dim1_raw = calculate_attention_scores(head_attention, word_indices, dim1_indices, debug=debug_mode)
+                word_dim2_raw = calculate_attention_scores(head_attention, word_indices, dim2_indices, debug=debug_mode)
+                
+                # Normalized attention scores
+                word_dim1_norm = calculate_normalized_attention(head_attention, word_indices, dim1_indices, debug=debug_mode)
+                word_dim2_norm = calculate_normalized_attention(head_attention, word_indices, dim2_indices, debug=debug_mode)
+                
+                if layer_idx == 0 and head_idx == 0:
+                    print(f"  Calculated scores - dim1_raw: {word_dim1_raw:.6f}, dim2_raw: {word_dim2_raw:.6f}")
+                    print(f"  Calculated scores - dim1_norm: {word_dim1_norm:.6f}, dim2_norm: {word_dim2_norm:.6f}")
+                
+                # Store in matrices
+                word_dim1_raw_matrix[layer_idx, head_idx] = word_dim1_raw
+                word_dim2_raw_matrix[layer_idx, head_idx] = word_dim2_raw
+                word_dim1_norm_matrix[layer_idx, head_idx] = word_dim1_norm
+                word_dim2_norm_matrix[layer_idx, head_idx] = word_dim2_norm
+        
+        # Encoder-decoder attention analysis
+        output_attention_matrices = all_attention_matrices[2]
+        
+        print(f"Processing encoder-decoder attention, layers: {len(output_attention_matrices)}")
+        
+        # Initialize matrices for encoder-decoder attention scores
+        word_answer_raw_matrix = torch.zeros(num_layers, num_heads)
+        word_answer_norm_matrix = torch.zeros(num_layers, num_heads)
+        
+        # Additional matrices for word-to-dimension attention in encoder-decoder
+        word_dim1_enc_dec_raw_matrix = torch.zeros(num_layers, num_heads)
+        word_dim2_enc_dec_raw_matrix = torch.zeros(num_layers, num_heads)
+        word_dim1_enc_dec_norm_matrix = torch.zeros(num_layers, num_heads)
+        word_dim2_enc_dec_norm_matrix = torch.zeros(num_layers, num_heads)
+        
+        # Calculate encoder-decoder attention scores
+        for layer_idx, layer_attention in enumerate(output_attention_matrices):
+            print(f"Processing encoder-decoder layer {layer_idx}, attention shape: {layer_attention.shape}")
+            layer_attention = layer_attention[0]  # Remove batch dimension
+            print(f"After removing batch dim, shape: {layer_attention.shape}")
+            
+            actual_heads_in_layer = layer_attention.shape[0]
+            print(f"Actual heads in encoder-decoder layer {layer_idx}: {actual_heads_in_layer}")
+            
+            for head_idx in range(actual_heads_in_layer):
+                head_attention = layer_attention[head_idx]
+                
+                # Raw attention scores - use shifted indices for encoder-decoder attention
+                debug_mode = (layer_idx == 0 and head_idx == 0)
+                word_answer_raw = calculate_attention_scores(head_attention, word_indices_enc_dec, answer_indices_generated, debug=debug_mode)
+                
+                # Normalized attention scores - use shifted indices for encoder-decoder attention
+                word_answer_norm = calculate_normalized_attention(head_attention, word_indices_enc_dec, answer_indices_generated, debug=debug_mode)
+                
+                # Additional word-to-dimension attention in encoder-decoder
+                word_dim1_enc_dec_raw = calculate_attention_scores(head_attention, word_indices_enc_dec, dim1_indices_enc_dec, debug=debug_mode)
+                word_dim2_enc_dec_raw = calculate_attention_scores(head_attention, word_indices_enc_dec, dim2_indices_enc_dec, debug=debug_mode)
+                
+                word_dim1_enc_dec_norm = calculate_normalized_attention(head_attention, word_indices_enc_dec, dim1_indices_enc_dec, debug=debug_mode)
+                word_dim2_enc_dec_norm = calculate_normalized_attention(head_attention, word_indices_enc_dec, dim2_indices_enc_dec, debug=debug_mode)
+                
+                word_answer_raw_matrix[layer_idx, head_idx] = word_answer_raw
+                word_answer_norm_matrix[layer_idx, head_idx] = word_answer_norm
+                word_dim1_enc_dec_raw_matrix[layer_idx, head_idx] = word_dim1_enc_dec_raw
+                word_dim2_enc_dec_raw_matrix[layer_idx, head_idx] = word_dim2_enc_dec_raw
+                word_dim1_enc_dec_norm_matrix[layer_idx, head_idx] = word_dim1_enc_dec_norm
+                word_dim2_enc_dec_norm_matrix[layer_idx, head_idx] = word_dim2_enc_dec_norm
+        
+        # Aggregate scores for different levels
+        aggregation_levels = ["all", "layers", "heads", "individual"]
+        
+        # Self-attention aggregations
+        word_dim1_raw_agg = {level: aggregate_scores(word_dim1_raw_matrix, level) for level in aggregation_levels}
+        word_dim2_raw_agg = {level: aggregate_scores(word_dim2_raw_matrix, level) for level in aggregation_levels}
+        word_dim1_norm_agg = {level: aggregate_scores(word_dim1_norm_matrix, level) for level in aggregation_levels}
+        word_dim2_norm_agg = {level: aggregate_scores(word_dim2_norm_matrix, level) for level in aggregation_levels}
+        
+        # Encoder-decoder attention aggregations
+        word_answer_raw_agg = {level: aggregate_scores(word_answer_raw_matrix, level) for level in aggregation_levels}
+        word_answer_norm_agg = {level: aggregate_scores(word_answer_norm_matrix, level) for level in aggregation_levels}
+        
+        # Additional encoder-decoder word-to-dimension aggregations
+        word_dim1_enc_dec_raw_agg = {level: aggregate_scores(word_dim1_enc_dec_raw_matrix, level) for level in aggregation_levels}
+        word_dim2_enc_dec_raw_agg = {level: aggregate_scores(word_dim2_enc_dec_raw_matrix, level) for level in aggregation_levels}
+        word_dim1_enc_dec_norm_agg = {level: aggregate_scores(word_dim1_enc_dec_norm_matrix, level) for level in aggregation_levels}
+        word_dim2_enc_dec_norm_agg = {level: aggregate_scores(word_dim2_enc_dec_norm_matrix, level) for level in aggregation_levels}
+        
+        # Create comprehensive analysis dictionary
+        generation_attention_analysis = {
+            'word': word,
+            'input_word': input_word,
+            'word_indices': word_indices,
+            'dim1_indices': dim1_indices,
+            'dim2_indices': dim2_indices,
+            'answer_indices': answer_indices,
+            'answer_indices_generated': answer_indices_generated,
+            'generated_text': generated_text,
+            'tokens': tokens,
+            
+            # Self-attention raw scores
+            'word_dim1_raw_all': word_dim1_raw_agg['all'],
+            'word_dim1_raw_layers': word_dim1_raw_agg['layers'],
+            'word_dim1_raw_heads': word_dim1_raw_agg['heads'],
+            'word_dim1_raw_individual': word_dim1_raw_agg['individual'],
+            
+            'word_dim2_raw_all': word_dim2_raw_agg['all'],
+            'word_dim2_raw_layers': word_dim2_raw_agg['layers'],
+            'word_dim2_raw_heads': word_dim2_raw_agg['heads'],
+            'word_dim2_raw_individual': word_dim2_raw_agg['individual'],
+            
+            # Self-attention normalized scores
+            'word_dim1_norm_all': word_dim1_norm_agg['all'],
+            'word_dim1_norm_layers': word_dim1_norm_agg['layers'],
+            'word_dim1_norm_heads': word_dim1_norm_agg['heads'],
+            'word_dim1_norm_individual': word_dim1_norm_agg['individual'],
+            
+            'word_dim2_norm_all': word_dim2_norm_agg['all'],
+            'word_dim2_norm_layers': word_dim2_norm_agg['layers'],
+            'word_dim2_norm_heads': word_dim2_norm_agg['heads'],
+            'word_dim2_norm_individual': word_dim2_norm_agg['individual'],
+            
+            # Encoder-decoder attention raw scores
+            'word_answer_raw_all': word_answer_raw_agg['all'],
+            'word_answer_raw_layers': word_answer_raw_agg['layers'],
+            'word_answer_raw_heads': word_answer_raw_agg['heads'],
+            'word_answer_raw_individual': word_answer_raw_agg['individual'],
+            
+            # Encoder-decoder attention normalized scores
+            'word_answer_norm_all': word_answer_norm_agg['all'],
+            'word_answer_norm_layers': word_answer_norm_agg['layers'],
+            'word_answer_norm_heads': word_answer_norm_agg['heads'],
+            'word_answer_norm_individual': word_answer_norm_agg['individual'],
+            
+            # Additional encoder-decoder word-to-dimension raw scores
+            'word_dim1_enc_dec_raw_all': word_dim1_enc_dec_raw_agg['all'],
+            'word_dim1_enc_dec_raw_layers': word_dim1_enc_dec_raw_agg['layers'],
+            'word_dim1_enc_dec_raw_heads': word_dim1_enc_dec_raw_agg['heads'],
+            'word_dim1_enc_dec_raw_individual': word_dim1_enc_dec_raw_agg['individual'],
+            
+            'word_dim2_enc_dec_raw_all': word_dim2_enc_dec_raw_agg['all'],
+            'word_dim2_enc_dec_raw_layers': word_dim2_enc_dec_raw_agg['layers'],
+            'word_dim2_enc_dec_raw_heads': word_dim2_enc_dec_raw_agg['heads'],
+            'word_dim2_enc_dec_raw_individual': word_dim2_enc_dec_raw_agg['individual'],
+            
+            # Additional encoder-decoder word-to-dimension normalized scores
+            'word_dim1_enc_dec_norm_all': word_dim1_enc_dec_norm_agg['all'],
+            'word_dim1_enc_dec_norm_layers': word_dim1_enc_dec_norm_agg['layers'],
+            'word_dim1_enc_dec_norm_heads': word_dim1_enc_dec_norm_agg['heads'],
+            'word_dim1_enc_dec_norm_individual': word_dim1_enc_dec_norm_agg['individual'],
+            
+            'word_dim2_enc_dec_norm_all': word_dim2_enc_dec_norm_agg['all'],
+            'word_dim2_enc_dec_norm_layers': word_dim2_enc_dec_norm_agg['layers'],
+            'word_dim2_enc_dec_norm_heads': word_dim2_enc_dec_norm_agg['heads'],
+            'word_dim2_enc_dec_norm_individual': word_dim2_enc_dec_norm_agg['individual'],
+            
+            # Raw matrices for detailed analysis
+            'word_dim1_raw_matrix': word_dim1_raw_matrix.cpu().numpy(),
+            'word_dim2_raw_matrix': word_dim2_raw_matrix.cpu().numpy(),
+            'word_dim1_norm_matrix': word_dim1_norm_matrix.cpu().numpy(),
+            'word_dim2_norm_matrix': word_dim2_norm_matrix.cpu().numpy(),
+            'word_answer_raw_matrix': word_answer_raw_matrix.cpu().numpy(),
+            'word_answer_norm_matrix': word_answer_norm_matrix.cpu().numpy(),
+            'word_dim1_enc_dec_raw_matrix': word_dim1_enc_dec_raw_matrix.cpu().numpy(),
+            'word_dim2_enc_dec_raw_matrix': word_dim2_enc_dec_raw_matrix.cpu().numpy(),
+            'word_dim1_enc_dec_norm_matrix': word_dim1_enc_dec_norm_matrix.cpu().numpy(),
+            'word_dim2_enc_dec_norm_matrix': word_dim2_enc_dec_norm_matrix.cpu().numpy(),
+        }
+        
+        print(f"Analysis completed for {word} - {dimension1}-{dimension2}")
+        print(f"Self-attention scores - dim1: {word_dim1_raw_agg['all']:.4f}, dim2: {word_dim2_raw_agg['all']:.4f}")
+        print(f"Encoder-decoder scores - answer: {word_answer_raw_agg['all']:.4f}")
+        print(f"Encoder-decoder word-to-dim scores - dim1: {word_dim1_enc_dec_raw_agg['all']:.4f}, dim2: {word_dim2_enc_dec_raw_agg['all']:.4f}")
+        print(f"Sequence shift applied: {sequence_shift}")
         
         return generation_attention_analysis
 
