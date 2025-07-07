@@ -59,6 +59,7 @@ class QwenOmniSemanticDimensionVisualizer:
         self.load_base_prompt()
         self.processor = Qwen2_5OmniProcessor.from_pretrained(self.model_path)
         self.data = self.load_data()
+        self.model_name = "qwen-7B" if "7B" in self.model_path else "qwen-4B"
     
     def load_base_prompt(self):
         self.prompts = prompts[self.exp_type][f"semantic_dimension_binary_{self.data_type}"]["user_prompt"]
