@@ -325,7 +325,8 @@ class QwenOmniSemanticDimensionVisualizer:
         generation_attentions, generation_tokens, _, final_input_ids, generated_text, input_length = self.get_generation_attention_matrix(
             constructed_prompt, data, max_new_tokens=self.max_tokens
         )
-                
+        print(f"Generation attentions length: {len(generation_attentions)}")
+        breakpoint()    
         data_type_key = {"audio": "audio", "original": "word", "romanized": "romanization", "ipa": "ipa"}
         
         if self.data_type != "audio":
@@ -452,9 +453,19 @@ class QwenOmniSemanticDimensionVisualizer:
         
         return True, "Appears complete"
 
-    def _find_target_tokens_in_step(self, step_tokens, word, dimension1, dimension2, answer):
+    def _find_target_tokens_in_step(self, step_tokens, word, dimension1, dimension2, response):
         """Find target token indices for a specific generation step"""
-        target_indices = {"word": [], "dim1": [], "dim2": [], "answer": []}
+        target_indices = {"word": [], "dim1": [], "dim2": [], "response": []}
+        
+        def remove_indices(indices: list[list[int]], threshold: int):
+            """Remove sublists that contain any value below or equal to threshold"""
+            # Create a new list with only valid sublists
+            filtered_indices = []
+            for sublist in indices:
+                # Check if all values in the sublist are above threshold
+                if all(i > threshold for i in sublist):
+                    filtered_indices.append(sublist)
+            return filtered_indices
         
         if self.data_type == "audio":
             audio_token = "<|AUDIO|>"
@@ -465,51 +476,32 @@ class QwenOmniSemanticDimensionVisualizer:
             # For non-audio, find the actual word tokens
             word_subtokens = self.processor.tokenizer.tokenize(word)
             word_matches = self.find_subtoken_sequence_indices(step_tokens, word_subtokens)
-            print(word_matches)
-            for items in word_matches:
-                for i in items:
-                    if i <= 60:
-                        word_matches.remove(items)
-                        break
+            word_matches = remove_indices(word_matches, 60)
             for match in word_matches:
                 target_indices['word'].extend(match)
-        
+                
         # Find dimension indices
         dim1_subtokens = self.processor.tokenizer.tokenize(dimension1)
         dim1_matches = self.find_subtoken_sequence_indices(step_tokens, dim1_subtokens)
-        for items in dim1_matches:
-            for i in items:
-                if i <= 77:
-                    dim1_matches.remove(items)
-                    break
+        dim1_matches = remove_indices(dim1_matches, 77)
         for match in dim1_matches:
             target_indices['dim1'].extend(match)
         
         dim2_subtokens = self.processor.tokenizer.tokenize(dimension2)
         dim2_matches = self.find_subtoken_sequence_indices(step_tokens, dim2_subtokens)
-        for items in dim2_matches:
-            for i in items:
-                if i <= 77:
-                    dim2_matches.remove(items)
-                    break
+        dim2_matches = remove_indices(dim2_matches, 77)
         for match in dim2_matches:
             target_indices['dim2'].extend(match)
         
-        # Find answer indices (in the generated part)
-        answer_subtokens = self.processor.tokenizer.tokenize(answer)
-        answer_matches = self.find_subtoken_sequence_indices(step_tokens, answer_subtokens)
-        for items in answer_matches:
-            for i in items:
-                if i <= 100:
-                    answer_matches.remove(items)
-                    break
-        for match in answer_matches:
-            target_indices['answer'].extend(match)
+        response_subtokens = self.processor.tokenizer.tokenize(response)
+        response_matches = self.find_subtoken_sequence_indices(step_tokens, response_subtokens)
+        response_matches = remove_indices(response_matches, 100)
+        for match in response_matches:
+            target_indices['response'].extend(match)
         
         # Remove duplicates and sort
         for key in target_indices:
             target_indices[key] = sorted(set(target_indices[key]))
-        breakpoint()
         return target_indices
 
     def _calculate_step_attention_scores(self, attention_matrix, query_indices, key_indices, step_idx, head_idx):
@@ -566,10 +558,11 @@ class QwenOmniSemanticDimensionVisualizer:
         print(f"Generated text: {generated_text}")
         print(f"Expected answer: {answer}")
         print(f"Input word: {input_word}")
-        
+        response = "1." if answer == dimension1 else "2."
         # Filter out incomplete generation steps
         valid_steps = []
         step_tokens_list = []
+        breakpoint()
         
         for step_idx, step_attentions in enumerate(all_attention_matrices):
             if step_idx == 0:
@@ -602,18 +595,18 @@ class QwenOmniSemanticDimensionVisualizer:
         
         for step_idx, (step_attentions, step_tokens) in enumerate(zip(valid_steps, step_tokens_list)):
             print(f"\n--- Analyzing Step {step_idx} ---")
-            print(f"Step tokens: {step_tokens}")
+            # print(f"Step tokens: {step_tokens}")
             
             # Find target tokens for this step
             target_indices = self._find_target_tokens_in_step(
-                step_tokens, word, dimension1, dimension2, answer
+                step_tokens, word, dimension1, dimension2, response
             )
             
             print(f"Target indices found:")
             print(f"  Word: {target_indices['word']} -> {[step_tokens[i] for i in target_indices['word'] if i < len(step_tokens)]}")
             print(f"  Dim1: {target_indices['dim1']} -> {[step_tokens[i] for i in target_indices['dim1'] if i < len(step_tokens)]}")
             print(f"  Dim2: {target_indices['dim2']} -> {[step_tokens[i] for i in target_indices['dim2'] if i < len(step_tokens)]}")
-            print(f"  Answer: {target_indices['answer']} -> {[step_tokens[i] for i in target_indices['answer'] if i < len(step_tokens)]}")
+            print(f"  Response: {target_indices['response']} -> {[step_tokens[i] for i in target_indices['response'] if i < len(step_tokens)]}")
             
             # Analyze attention patterns for this step
             step_analysis = self._analyze_single_step_attention(
@@ -633,13 +626,11 @@ class QwenOmniSemanticDimensionVisualizer:
         return final_analysis
 
     def _analyze_single_step_attention(self, step_attentions, step_tokens, target_indices, step_idx):
-        """Analyze attention patterns for a single generation step"""
-        
         # Get attention matrices
         self_attention_matrices = step_attentions[0] if len(step_attentions) > 0 else []
         output_attention_matrices = step_attentions[2] if len(step_attentions) > 2 else []
         breakpoint()
-        num_layers = len(self_attention_matrices) if self_attention_matrices else 0
+        num_layers = self_attention_matrices.size(dim=1) if self_attention_matrices else 0
         num_heads = self_attention_matrices[0][0].shape[0] if self_attention_matrices and len(self_attention_matrices) > 0 else 0
         
         # Initialize matrices
@@ -650,7 +641,7 @@ class QwenOmniSemanticDimensionVisualizer:
         
         # Self-attention analysis
         for layer_idx, layer_attention in enumerate(self_attention_matrices):
-            layer_attention = layer_attention[0]  # Remove batch dimension
+            layer_attention = layer_attention[0] # Remove batch dimension
             
             for head_idx in range(layer_attention.shape[0]):
                 head_attention = layer_attention[head_idx]
