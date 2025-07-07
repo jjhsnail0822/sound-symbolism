@@ -37,3 +37,23 @@ results/experiments/understanding/attention_heatmap/semantic_dimension/*/en/*.pk
 *.pdf
 *.pkl
 *.wav
+
+# Large files and archives
+*.tar
+*.tar.gz
+*.tar.bz2
+*.zip
+*.rar
+*.7z
+
+# Large model files and data
+data/processed/nat/semantic_dimension/old/
+data/processed/nat/tts.tar
+
+# Large JSON files (over 10MB)
+data/processed/nat/semantic_dimension/*.json
+data/prompts/understanding/non_en_pair_matching/ipa/*.json
+data/prompts/semantic_dimension/*.json
+
+# Large pickle files
+results/experiments/understanding/attention_heatmap/semantic_dimension/*/*.pkl
