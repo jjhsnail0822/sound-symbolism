@@ -1,7 +1,7 @@
 import os
 import json
 import matplotlib.pyplot as plt
-input_types = ['audio', 'ipa', 'original', 'original_and_audio', 'romanized']
+input_types = ['audio', 'ipa', 'original', 'original_and_audio', 'ipa_and_audio']
 src_dir = "./results/expeirments/semantic_dimension/binary"
 file_name = "all_results_Qwen_Qwen2.5-Omni-7B.json"
 output_dir = "./results/plots/experiments/semantic_dimension/binary"

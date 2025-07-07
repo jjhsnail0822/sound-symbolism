@@ -230,7 +230,7 @@ class QwenOmniSemanticDimensionVisualizer:
                     matches.append(list(range(i, i+window)))
         return matches
 
-    def extract_relevant_token_indices(self, tokens, dimension1, dimension2, word=None):
+    def extract_relevant_token_indices(self, tokens, dimension1, dimension2, input_word, word=None):
         # tokens[:current_seq_len], dimension1, dimension2, word
         word_tag_matches = self.find_tag_spans(tokens, 'WORD')
         second_word_tag_span = word_tag_matches[1]
@@ -240,7 +240,7 @@ class QwenOmniSemanticDimensionVisualizer:
         options_span = options_tag_matches[0] if options_tag_matches else None
         word_indices = []
         if word is not None:
-            word_subtokens = self.processor.tokenizer.tokenize(word)
+            word_subtokens = self.processor.tokenizer.tokenize(input_word)
             word_matches = self.find_subtoken_sequence_indices(tokens, word_subtokens)
             for match in word_matches:
                 word_indices.extend(match)
@@ -314,7 +314,16 @@ class QwenOmniSemanticDimensionVisualizer:
     
     def inference_with_hooks(self, word, lang, constructed_prompt, dim1, dim2, answer, data, dimension_name):
         attentions, tokens, _ = self.get_attention_matrix(constructed_prompt, data)
-        relevant_indices = self.extract_relevant_token_indices(tokens, dim1, dim2, word=data['word'])
+        if self.data_type == "audio":
+            input_word = "<|AUDIO|>"
+        elif self.data_type == "original":
+            input_word = data['word']
+        elif self.data_type == "ipa":
+            input_word = data["ipa"]
+        elif self.data_type == "romanized":
+            input_word = data["romanization"]
+
+        relevant_indices = self.extract_relevant_token_indices(tokens, dim1, dim2, input_word, word=data['word'])
         if isinstance(attentions, tuple):
             attention_matrix = attentions[0]
         else:
@@ -324,7 +333,7 @@ class QwenOmniSemanticDimensionVisualizer:
         print(f"Saved filtered attention matrix for {data['word']} - {dim1}-{dim2} to pickle file")
         
         print(f"Extracting generation attention for {data['word']} - {dim1}-{dim2}...")
-        generation_attentions, generation_tokens, _, final_input_ids, generated_text, input_length = self.get_generation_attention_matrix(
+        generation_attentions, generation_tokens, _, final_input_ids, response, input_length = self.get_generation_attention_matrix(
             constructed_prompt, data, max_new_tokens=self.max_tokens
         )
         print(f"Generation attentions length: {len(generation_attentions)}")
@@ -336,15 +345,15 @@ class QwenOmniSemanticDimensionVisualizer:
             input_word = data["word"]
             
         generation_analysis = self.extract_generation_attention_analysis(
-            generation_attentions, generation_tokens, generated_text, answer, lang, dim1, dim2, data['word'], input_word, input_length
+            generation_attentions, generation_tokens, response, answer, lang, dim1, dim2, data['word'], input_word, input_length
         )
         
         self.save_generation_attention_matrix(
-            generation_attentions, dim1, dim2, answer, data['word'], [dim1, dim2], lang, generation_tokens, final_input_ids, generation_tokens
+            generation_attentions, dim1, dim2, answer, data['word'], input_word, [dim1, dim2], lang, generation_tokens, final_input_ids, generation_tokens
         )
 
         self.save_generation_attention_analysis(
-            generation_analysis, dim1, dim2, answer, data['word'], [dim1, dim2], lang, generation_tokens, generated_text
+            generation_analysis, dim1, dim2, answer, data['word'], [dim1, dim2], lang, generation_tokens, response
         )
         print(f"Saved generation attention analysis for {data['word']} - {dim1}-{dim2}")
 
@@ -388,6 +397,8 @@ class QwenOmniSemanticDimensionVisualizer:
         current_input_ids = inputs['input_ids'].clone()
         current_attention_mask = inputs['attention_mask'].clone()
         initial_tokens = self.processor.tokenizer.convert_ids_to_tokens(current_input_ids[0])
+        one_token_id = self.processor.tokenizer.convert_tokens_to_ids("1")
+        two_token_id = self.processor.tokenizer.convert_tokens_to_ids("2")
         all_tokens.append(initial_tokens.copy())
         
         with torch.no_grad():
@@ -411,7 +422,7 @@ class QwenOmniSemanticDimensionVisualizer:
                 current_attention_mask = torch.cat([current_attention_mask, torch.ones_like(next_token_id, device=current_input_ids.device)], dim=-1)
                 new_token = self.processor.tokenizer.convert_ids_to_tokens(next_token_id[0])
                 all_tokens.append(new_token)
-                if next_token_id.item() == self.processor.tokenizer.eos_token_id:
+                if next_token_id.item() in [one_token_id, two_token_id]:
                     break
         
         # Convert all_tokens to a single list
@@ -421,9 +432,10 @@ class QwenOmniSemanticDimensionVisualizer:
         
         # Decode generated text
         input_length = len(all_tokens[0])
-        generated_ids = current_input_ids[0][input_length:]
-        generated_text = self.processor.tokenizer.decode(generated_ids)
-        return all_attention_matrices, final_tokens, inputs, current_input_ids, generated_text, input_length
+        response_ids = current_input_ids[0][input_length:]
+        response = self.processor.tokenizer.decode(response_ids)
+        breakpoint()
+        return all_attention_matrices, final_tokens, inputs, current_input_ids, response, input_length
 
     def _analyze_generation_step_completeness(self, step_tokens, step_idx, dimension1, dimension2):
         """Analyze if a generation step is complete (has proper ending)"""
@@ -431,21 +443,10 @@ class QwenOmniSemanticDimensionVisualizer:
             return False, "Empty tokens"
         
         # Check for EOS token or proper sentence ending
-        last_tokens = step_tokens[-3:] if len(step_tokens) >= 3 else step_tokens
+        last_tokens = step_tokens[-1:] if len(step_tokens) >= 1 else step_tokens
         
         # Check for EOS token
-        eos_found = any(token in ['<|endoftext|>', '<|im_end|>', '</s>', '<eos>'] for token in last_tokens)
-        
-        # Check for incomplete patterns
-        incomplete_patterns = [
-            len(step_tokens) < 2,  # Too short
-            step_tokens[-1] in ['1', '2']  # Just a number
-        ]
-        
-        is_incomplete = any(incomplete_patterns)
-        
-        if is_incomplete:
-            return False, f"Incomplete pattern: {step_tokens[-1] if step_tokens else 'empty'}"
+        eos_found = any(token in ['1', '2'] for token in last_tokens)
         
         if eos_found:
             return True, "Complete with EOS"
@@ -556,10 +557,10 @@ class QwenOmniSemanticDimensionVisualizer:
         else:
             raise ValueError(f"Unknown aggregation type: {aggregation_type}")
 
-    def extract_generation_attention_analysis(self, all_attention_matrices:list[tuple[torch.Tensor, ...]], tokens:list[str], generated_text:str, answer:str, lang:str, dimension1:str, dimension2:str, word:str, input_word:str=None, input_length:int=None):
+    def extract_generation_attention_analysis(self, all_attention_matrices:list[tuple[torch.Tensor, ...]], tokens:list[str], response:str, answer:str, lang:str, dimension1:str, dimension2:str, word:str, input_word:str=None, input_length:int=None):
         """Analyze attention patterns during generation, focusing on output tokens"""
         print(f"\n=== Generation Attention Analysis for {word} - {dimension1}-{dimension2} ===")
-        print(f"Generated text: {generated_text}")
+        print(f"Generated text: {response}")
         print(f"Expected answer: {answer}")
         print(f"Input word: {input_word}")
         response = "1." if answer == dimension1 else "2."
@@ -576,6 +577,7 @@ class QwenOmniSemanticDimensionVisualizer:
                 step_tokens = tokens[:input_length + step_idx] if input_length else tokens[:len(tokens)//2 + step_idx]
             
             # Analyze completeness
+            breakpoint()
             is_complete, reason = self._analyze_generation_step_completeness(step_tokens, step_idx, dimension1, dimension2)
             
             print(f"Step {step_idx}: {'✓' if is_complete else '✗'} - {reason}")
@@ -600,6 +602,7 @@ class QwenOmniSemanticDimensionVisualizer:
             print(f"\n--- Analyzing Step {step_idx} ---")
             # print(f"Step tokens: {step_tokens}")
             
+            breakpoint()
             # Find target tokens for this step
             target_indices = self._find_target_tokens_in_step(
                 step_tokens, word, dimension1, dimension2, response
@@ -619,7 +622,7 @@ class QwenOmniSemanticDimensionVisualizer:
             step_analyses.append(step_analysis)
         
         # Aggregate results across all steps
-        final_analysis = self._aggregate_step_analyses(step_analyses, word, input_word, dimension1, dimension2, answer, generated_text, tokens)
+        final_analysis = self._aggregate_step_analyses(step_analyses, word, input_word, dimension1, dimension2, answer, response, tokens)
         
         print(f"\n=== Analysis Summary ===")
         print(f"Self-attention scores - dim1: {final_analysis['word_dim1_raw_all']:.4f}, dim2: {final_analysis['word_dim2_raw_all']:.4f}")
@@ -712,7 +715,7 @@ class QwenOmniSemanticDimensionVisualizer:
             'word_answer_norm_matrix': word_answer_norm_matrix,
         }
 
-    def _aggregate_step_analyses(self, step_analyses, word, input_word, dimension1, dimension2, answer, generated_text, tokens):
+    def _aggregate_step_analyses(self, step_analyses, word, input_word, dimension1, dimension2, answer, response, tokens):
         """Aggregate analyses from all steps into final results"""
         
         if not step_analyses:
@@ -762,7 +765,7 @@ class QwenOmniSemanticDimensionVisualizer:
         final_analysis = {
             'word': word,
             'input_word': input_word,
-            'generated_text': generated_text,
+            'response': response,
             'tokens': tokens,
             'num_steps_analyzed': num_steps,
             
@@ -813,7 +816,7 @@ class QwenOmniSemanticDimensionVisualizer:
         
         return final_analysis
 
-    def save_generation_attention_analysis(self, generation_analysis, dimension1, dimension2, answer, word_tokens, option_tokens, lang="en", tokens=None, generated_text=None):
+    def save_generation_attention_analysis(self, generation_analysis, dimension1, dimension2, answer, word_tokens, option_tokens, lang="en", tokens=None, response=None):
         """Save generation attention analysis as pickle file"""
         analysis_data = {
             "generation_analysis": generation_analysis,
@@ -823,7 +826,7 @@ class QwenOmniSemanticDimensionVisualizer:
             "word_tokens": word_tokens,
             "option_tokens": option_tokens,
             "tokens": tokens,
-            "generated_text": generated_text,
+            "response": response,
             "analysis_type": "generation_attention"
         }
         
@@ -841,18 +844,18 @@ class QwenOmniSemanticDimensionVisualizer:
         
         print(f"Generation attention analysis saved to: {save_path}")
 
-    def save_generation_attention_matrix(self, all_attention_matrices, dimension1, dimension2, answer, word_tokens, option_tokens, lang="en", tokens=None, current_input_ids=None, all_tokens=None):
+    def save_generation_attention_matrix(self, all_attention_matrices, dimension1, dimension2, answer, word_tokens, input_word, option_tokens, lang="en", tokens=None, current_input_ids=None, all_tokens=None):
         if current_input_ids is not None and all_tokens is not None:
-            input_length = len(all_tokens[0])
+            input_length = len(all_tokens)
             input_ids = current_input_ids[0][:input_length]
-            generated_ids = current_input_ids[0][input_length:]
+            response_ids = current_input_ids[0][input_length:-1]
             
             input_text = self.processor.tokenizer.decode(input_ids)
-            generated_text = self.processor.tokenizer.decode(generated_ids)
+            response = self.processor.tokenizer.decode(response_ids)
             full_text = self.processor.tokenizer.decode(current_input_ids[0])
         else:
             input_text = "unknown"
-            generated_text = "unknown"
+            response = "unknown"
             full_text = "unknown"
         
         filtered_attention_matrices = []
@@ -862,7 +865,8 @@ class QwenOmniSemanticDimensionVisualizer:
             layer_attention = step_attentions[0]
             current_seq_len = layer_attention.shape[-1]
             tmp_tokens = tokens[:current_seq_len]
-            relevant_indices = self.extract_relevant_token_indices(tmp_tokens, dimension1, dimension2, word=word_tokens)
+            breakpoint()
+            relevant_indices = self.extract_relevant_token_indices(tmp_tokens, dimension1, dimension2, input_word, word=word_tokens)
             
             filtered_step_attentions = []
             for layer_idx, layer_attn in enumerate(step_attentions):
@@ -871,6 +875,7 @@ class QwenOmniSemanticDimensionVisualizer:
                 else:
                     filtered_attn = layer_attn
                 
+                breakpoint()
                 filtered_step_attentions.append(filtered_attn)
             
             filtered_attention_matrices.append(tuple(filtered_step_attentions))
@@ -886,7 +891,7 @@ class QwenOmniSemanticDimensionVisualizer:
             "option_tokens": option_tokens,
             "tokens": tokens,
             "input_text": input_text,
-            "generated_text": generated_text,
+            "response": response,
             "full_text": full_text,
             "analysis_type": "generation_attention_matrix"
         }
@@ -935,7 +940,8 @@ if __name__ == "__main__":
         temperature=args.temperature
     )
 
-    languages = ["en", "fr", "ja", "ko"]
+    # languages = ["en", "fr", "ja", "ko"]
+    languages = ["ja", "ko"]
     total_num_of_dimensions = 0
     total_num_of_words = 0
     total_num_of_words_per_language = {lang: 0 for lang in languages}
@@ -950,14 +956,11 @@ if __name__ == "__main__":
             print(f"Limiting to {len(lang_data)} samples")
         
         for sample_idx, sample in enumerate(tqdm(lang_data, desc=f"Processing {lang}")):
-            
-            # Process each dimension for this sample
             for dimension_name in sample.get("dimensions", {}):
                 constructed_prompt, dim1, dim2, answer, word, dim_name = visualizer.prmpt_dims_answrs(
                     visualizer.prompts, sample, dimension_name
                 )
                 
-                # Run inference with hooks
                 visualizer.inference_with_hooks(
                     word, lang, constructed_prompt, dim1, dim2, answer, sample, dimension_name
                 )
