@@ -26,7 +26,7 @@ results/experiments/word_meaning_matching/**/[^a]*.json
 results/experiments/word_meaning_matching_without_auditory_impression/**/[^a]*.json
 results/experiments/semantic_dimension/**/[^a]*.json
 data/prompts/word_meaning_matching_without_auditory_impression/
-data/processed/nat/tts/
+data/processed/nat/tts/**/*.wav
 src/analysis/heatmap/plots/
 slurm-*.out
 results/experiments/understanding/attention_heatmap/semantic_dimension/*/en/*.pkl

@@ -230,6 +230,7 @@ class QwenOmniSemanticDimensionVisualizer:
         return matches
 
     def extract_relevant_token_indices(self, tokens, dimension1, dimension2, word=None):
+        # tokens[:current_seq_len], dimension1, dimension2, word
         word_tag_matches = self.find_tag_spans(tokens, 'WORD')
         second_word_tag_span = word_tag_matches[1]
         semdim_tag_matches = self.find_tag_spans(tokens, 'SEMANTICDIMENSION')
@@ -326,7 +327,6 @@ class QwenOmniSemanticDimensionVisualizer:
             constructed_prompt, data, max_new_tokens=self.max_tokens
         )
         print(f"Generation attentions length: {len(generation_attentions)}")
-        breakpoint()    
         data_type_key = {"audio": "audio", "original": "word", "romanized": "romanization", "ipa": "ipa"}
         
         if self.data_type != "audio":
@@ -399,6 +399,9 @@ class QwenOmniSemanticDimensionVisualizer:
                     use_cache=True
                 )
                 attentions = outputs.attentions
+                print(f"Step {step}: attentions type: {type(attentions)}, length: {len(attentions) if hasattr(attentions, '__len__') else 'N/A'}")
+                if hasattr(attentions, '__len__') and len(attentions) > 0:
+                    print(f"Step {step}: attentions[0] shape: {attentions[0].shape}")
                 all_attention_matrices.append(attentions)
                 logits = outputs.logits[:, -1, :]
                 next_token_id = torch.argmax(logits, dim=-1, keepdim=True)
@@ -562,7 +565,6 @@ class QwenOmniSemanticDimensionVisualizer:
         # Filter out incomplete generation steps
         valid_steps = []
         step_tokens_list = []
-        breakpoint()
         
         for step_idx, step_attentions in enumerate(all_attention_matrices):
             if step_idx == 0:
@@ -614,7 +616,6 @@ class QwenOmniSemanticDimensionVisualizer:
             )
             
             step_analyses.append(step_analysis)
-            breakpoint()
         
         # Aggregate results across all steps
         final_analysis = self._aggregate_step_analyses(step_analyses, word, input_word, dimension1, dimension2, answer, generated_text, tokens)
@@ -627,11 +628,15 @@ class QwenOmniSemanticDimensionVisualizer:
 
     def _analyze_single_step_attention(self, step_attentions, step_tokens, target_indices, step_idx):
         # Get attention matrices
-        self_attention_matrices = step_attentions[0] if len(step_attentions) > 0 else []
-        output_attention_matrices = step_attentions[2] if len(step_attentions) > 2 else []
-        breakpoint()
-        num_layers = self_attention_matrices.size(dim=1) if self_attention_matrices else 0
-        num_heads = self_attention_matrices[0][0].shape[0] if self_attention_matrices and len(self_attention_matrices) > 0 else 0
+        # step_attentions is a tuple of tensors, each tensor is [batch, heads, seq, seq]
+        # len(step_attentions) = number of layers (28)
+        # step_attentions[0].shape = [batch, heads, seq, seq] = [1, 28, 104, 104]
+        
+        num_layers = len(step_attentions)  # 28 layers
+        num_heads = step_attentions[0].shape[1] if step_attentions else 0  # 28 heads
+        
+        print(f"Debug - num_layers: {num_layers}, num_heads: {num_heads}")
+        print(f"Debug - step_attentions[0].shape: {step_attentions[0].shape if step_attentions else 'None'}")
         
         # Initialize matrices
         word_dim1_raw_matrix = torch.zeros(num_layers, num_heads)
@@ -640,10 +645,14 @@ class QwenOmniSemanticDimensionVisualizer:
         word_dim2_norm_matrix = torch.zeros(num_layers, num_heads)
         
         # Self-attention analysis
-        for layer_idx, layer_attention in enumerate(self_attention_matrices):
-            layer_attention = layer_attention[0] # Remove batch dimension
+        for layer_idx in range(num_layers):
+            # layer_attention shape: [batch, heads, seq, seq]
+            layer_attention = step_attentions[layer_idx]
+            # Remove batch dimension: [heads, seq, seq]
+            layer_attention = layer_attention[0]
             
-            for head_idx in range(layer_attention.shape[0]):
+            for head_idx in range(num_heads):
+                # head_attention shape: [seq, seq]
                 head_attention = layer_attention[head_idx]
                 
                 # Calculate attention scores
@@ -671,17 +680,20 @@ class QwenOmniSemanticDimensionVisualizer:
         word_answer_raw_matrix = torch.zeros(num_layers, num_heads)
         word_answer_norm_matrix = torch.zeros(num_layers, num_heads)
         
-        for layer_idx, layer_attention in enumerate(output_attention_matrices):
-            layer_attention = layer_attention[0]  # Remove batch dimension
+        # Note: For now, we'll use the same attention matrices for encoder-decoder
+        # In the future, we might need to access different attention types
+        for layer_idx in range(num_layers):
+            layer_attention = step_attentions[layer_idx]
+            layer_attention = layer_attention[0]
             
-            for head_idx in range(layer_attention.shape[0]):
+            for head_idx in range(num_heads):
                 head_attention = layer_attention[head_idx]
                 
                 word_answer_raw, _ = self._calculate_step_attention_scores(
-                    head_attention, target_indices['word'], target_indices['answer'], step_idx, head_idx
+                    head_attention, target_indices['word'], target_indices['response'], step_idx, head_idx
                 )
                 word_answer_norm = self._calculate_step_normalized_attention(
-                    head_attention, target_indices['word'], target_indices['answer']
+                    head_attention, target_indices['word'], target_indices['response']
                 )
                 
                 word_answer_raw_matrix[layer_idx, head_idx] = word_answer_raw
@@ -848,9 +860,8 @@ class QwenOmniSemanticDimensionVisualizer:
         for step, step_attentions in enumerate(all_attention_matrices):
             layer_attention = step_attentions[0]
             current_seq_len = layer_attention.shape[-1]
-            relevant_indices, word_span, dim1_indices, dim2_indices, word_indices = self.extract_relevant_token_indices(
-                tokens[:current_seq_len], dimension1, dimension2, word=word_tokens
-            )
+            tmp_tokens = tokens[:current_seq_len]
+            relevant_indices = self.extract_relevant_token_indices(tmp_tokens, dimension1, dimension2, word=word_tokens)
             
             filtered_step_attentions = []
             for layer_idx, layer_attn in enumerate(step_attentions):
