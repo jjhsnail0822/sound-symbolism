@@ -1,0 +1,1102 @@
+[
+    {
+        "question": "Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\n<AUDIO>\n\n[SEMANTIC DIMENSION]\nsharp vs. round\n\n[OPTIONS]\n1: sharp\n2: round\nAnswer with the number only. (1-2)",
+        "answer": 2,
+        "meta_data": {
+            "language": "art",
+            "word": "nay-nee",
+            "dimension": "sharp-round",
+            "answer": 2
+        },
+        "audio": "tts/art/nay-nee.wav"
+    },
+    {
+        "question": "Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\n<AUDIO>\n\n[SEMANTIC DIMENSION]\nbeautiful vs. ugly\n\n[OPTIONS]\n1: beautiful\n2: ugly\nAnswer with the number only. (1-2)",
+        "answer": 1,
+        "meta_data": {
+            "language": "art",
+            "word": "shay-lay",
+            "dimension": "beautiful-ugly",
+            "answer": 1
+        },
+        "audio": "tts/art/shay-lay.wav"
+    },
+    {
+        "question": "Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\n<AUDIO>\n\n[SEMANTIC DIMENSION]\nfast vs. slow\n\n[OPTIONS]\n1: fast\n2: slow\nAnswer with the number only. (1-2)",
+        "answer": 2,
+        "meta_data": {
+            "language": "art",
+            "word": "bo-fo",
+            "dimension": "fast-slow",
+            "answer": 2
+        },
+        "audio": "tts/art/bo-fo.wav"
+    },
+    {
+        "question": "Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\n<AUDIO>\n\n[SEMANTIC DIMENSION]\nfast vs. slow\n\n[OPTIONS]\n1: fast\n2: slow\nAnswer with the number only. (1-2)",
+        "answer": 2,
+        "meta_data": {
+            "language": "ko",
+            "word": "보각보각",
+            "dimension": "fast-slow",
+            "answer": 2
+        },
+        "audio": "tts/ko/보각보각.wav"
+    },
+    {
+        "question": "Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\n<AUDIO>\n\n[SEMANTIC DIMENSION]\nsharp vs. round\n\n[OPTIONS]\n1: sharp\n2: round\nAnswer with the number only. (1-2)",
+        "answer": 1,
+        "meta_data": {
+            "language": "ko",
+            "word": "잘싸닥",
+            "dimension": "sharp-round",
+            "answer": 1
+        },
+        "audio": "tts/ko/잘싸닥.wav"
+    },
+    {
+        "question": "Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\n<AUDIO>\n\n[SEMANTIC DIMENSION]\nsharp vs. round\n\n[OPTIONS]\n1: sharp\n2: round\nAnswer with the number only. (1-2)",
+        "answer": 1,
+        "meta_data": {
+            "language": "ko",
+            "word": "옴칫",
+            "dimension": "sharp-round",
+            "answer": 1
+        },
+        "audio": "tts/ko/옴칫.wav"
+    },
+    {
+        "question": "Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\n<AUDIO>\n\n[SEMANTIC DIMENSION]\nbig vs. small\n\n[OPTIONS]\n1: big\n2: small\nAnswer with the number only. (1-2)",
+        "answer": 2,
+        "meta_data": {
+            "language": "ko",
+            "word": "때그락때그락",
+            "dimension": "big-small",
+            "answer": 2
+        },
+        "audio": "tts/ko/때그락때그락.wav"
+    },
+    {
+        "question": "Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\n<AUDIO>\n\n[SEMANTIC DIMENSION]\nfast vs. slow\n\n[OPTIONS]\n1: fast\n2: slow\nAnswer with the number only. (1-2)",
+        "answer": 2,
+        "meta_data": {
+            "language": "ko",
+            "word": "떨거덕떨거덕",
+            "dimension": "fast-slow",
+            "answer": 2
+        },
+        "audio": "tts/ko/떨거덕떨거덕.wav"
+    },
+    {
+        "question": "Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\n<AUDIO>\n\n[SEMANTIC DIMENSION]\nstrong vs. weak\n\n[OPTIONS]\n1: strong\n2: weak\nAnswer with the number only. (1-2)",
+        "answer": 1,
+        "meta_data": {
+            "language": "art",
+            "word": "vee-zah",
+            "dimension": "strong-weak",
+            "answer": 1
+        },
+        "audio": "tts/art/vee-zah.wav"
+    },
+    {
+        "question": "Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\n<AUDIO>\n\n[SEMANTIC DIMENSION]\nsharp vs. round\n\n[OPTIONS]\n1: sharp\n2: round\nAnswer with the number only. (1-2)",
+        "answer": 1,
+        "meta_data": {
+            "language": "art",
+            "word": "sho-zay",
+            "dimension": "sharp-round",
+            "answer": 1
+        },
+        "audio": "tts/art/sho-zay.wav"
+    },
+    {
+        "question": "Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\n<AUDIO>\n\n[SEMANTIC DIMENSION]\nbeautiful vs. ugly\n\n[OPTIONS]\n1: beautiful\n2: ugly\nAnswer with the number only. (1-2)",
+        "answer": 1,
+        "meta_data": {
+            "language": "art",
+            "word": "lee-mah",
+            "dimension": "beautiful-ugly",
+            "answer": 1
+        },
+        "audio": "tts/art/lee-mah.wav"
+    },
+    {
+        "question": "Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\n<AUDIO>\n\n[SEMANTIC DIMENSION]\nbig vs. small\n\n[OPTIONS]\n1: big\n2: small\nAnswer with the number only. (1-2)",
+        "answer": 2,
+        "meta_data": {
+            "language": "ko",
+            "word": "깰깰",
+            "dimension": "big-small",
+            "answer": 2
+        },
+        "audio": "tts/ko/깰깰.wav"
+    },
+    {
+        "question": "Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\n<AUDIO>\n\n[SEMANTIC DIMENSION]\nfast vs. slow\n\n[OPTIONS]\n1: fast\n2: slow\nAnswer with the number only. (1-2)",
+        "answer": 2,
+        "meta_data": {
+            "language": "art",
+            "word": "so-lah",
+            "dimension": "fast-slow",
+            "answer": 2
+        },
+        "audio": "tts/art/so-lah.wav"
+    },
+    {
+        "question": "Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\n<AUDIO>\n\n[SEMANTIC DIMENSION]\nfast vs. slow\n\n[OPTIONS]\n1: fast\n2: slow\nAnswer with the number only. (1-2)",
+        "answer": 1,
+        "meta_data": {
+            "language": "fr",
+            "word": "dzing boum boum",
+            "dimension": "fast-slow",
+            "answer": 1
+        },
+        "audio": "tts/fr/dzing boum boum.wav"
+    },
+    {
+        "question": "Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\n<AUDIO>\n\n[SEMANTIC DIMENSION]\nbeautiful vs. ugly\n\n[OPTIONS]\n1: beautiful\n2: ugly\nAnswer with the number only. (1-2)",
+        "answer": 2,
+        "meta_data": {
+            "language": "ko",
+            "word": "왜틀비틀",
+            "dimension": "beautiful-ugly",
+            "answer": 2
+        },
+        "audio": "tts/ko/왜틀비틀.wav"
+    },
+    {
+        "question": "Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\n<AUDIO>\n\n[SEMANTIC DIMENSION]\nstrong vs. weak\n\n[OPTIONS]\n1: strong\n2: weak\nAnswer with the number only. (1-2)",
+        "answer": 2,
+        "meta_data": {
+            "language": "art",
+            "word": "lay-nah",
+            "dimension": "strong-weak",
+            "answer": 2
+        },
+        "audio": "tts/art/lay-nah.wav"
+    },
+    {
+        "question": "Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\n<AUDIO>\n\n[SEMANTIC DIMENSION]\nbig vs. small\n\n[OPTIONS]\n1: big\n2: small\nAnswer with the number only. (1-2)",
+        "answer": 2,
+        "meta_data": {
+            "language": "art",
+            "word": "shay-shee",
+            "dimension": "big-small",
+            "answer": 2
+        },
+        "audio": "tts/art/shay-shee.wav"
+    },
+    {
+        "question": "Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\n<AUDIO>\n\n[SEMANTIC DIMENSION]\nstrong vs. weak\n\n[OPTIONS]\n1: strong\n2: weak\nAnswer with the number only. (1-2)",
+        "answer": 2,
+        "meta_data": {
+            "language": "ko",
+            "word": "까막까막",
+            "dimension": "strong-weak",
+            "answer": 2
+        },
+        "audio": "tts/ko/까막까막.wav"
+    },
+    {
+        "question": "Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\n<AUDIO>\n\n[SEMANTIC DIMENSION]\nsharp vs. round\n\n[OPTIONS]\n1: sharp\n2: round\nAnswer with the number only. (1-2)",
+        "answer": 2,
+        "meta_data": {
+            "language": "art",
+            "word": "no-nee",
+            "dimension": "sharp-round",
+            "answer": 2
+        },
+        "audio": "tts/art/no-nee.wav"
+    },
+    {
+        "question": "Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\n<AUDIO>\n\n[SEMANTIC DIMENSION]\nstrong vs. weak\n\n[OPTIONS]\n1: strong\n2: weak\nAnswer with the number only. (1-2)",
+        "answer": 1,
+        "meta_data": {
+            "language": "art",
+            "word": "zay-vah",
+            "dimension": "strong-weak",
+            "answer": 1
+        },
+        "audio": "tts/art/zay-vah.wav"
+    },
+    {
+        "question": "Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\n<AUDIO>\n\n[SEMANTIC DIMENSION]\nfast vs. slow\n\n[OPTIONS]\n1: fast\n2: slow\nAnswer with the number only. (1-2)",
+        "answer": 1,
+        "meta_data": {
+            "language": "ko",
+            "word": "득득",
+            "dimension": "fast-slow",
+            "answer": 1
+        },
+        "audio": "tts/ko/득득.wav"
+    },
+    {
+        "question": "Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\n<AUDIO>\n\n[SEMANTIC DIMENSION]\nsharp vs. round\n\n[OPTIONS]\n1: sharp\n2: round\nAnswer with the number only. (1-2)",
+        "answer": 2,
+        "meta_data": {
+            "language": "art",
+            "word": "no-fah",
+            "dimension": "sharp-round",
+            "answer": 2
+        },
+        "audio": "tts/art/no-fah.wav"
+    },
+    {
+        "question": "Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\n<AUDIO>\n\n[SEMANTIC DIMENSION]\nbig vs. small\n\n[OPTIONS]\n1: big\n2: small\nAnswer with the number only. (1-2)",
+        "answer": 2,
+        "meta_data": {
+            "language": "art",
+            "word": "shay-fee",
+            "dimension": "big-small",
+            "answer": 2
+        },
+        "audio": "tts/art/shay-fee.wav"
+    },
+    {
+        "question": "Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\n<AUDIO>\n\n[SEMANTIC DIMENSION]\nstrong vs. weak\n\n[OPTIONS]\n1: strong\n2: weak\nAnswer with the number only. (1-2)",
+        "answer": 1,
+        "meta_data": {
+            "language": "art",
+            "word": "vahthey",
+            "dimension": "strong-weak",
+            "answer": 1
+        },
+        "audio": "tts/art/vahthey.wav"
+    },
+    {
+        "question": "Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\n<AUDIO>\n\n[SEMANTIC DIMENSION]\nbig vs. small\n\n[OPTIONS]\n1: big\n2: small\nAnswer with the number only. (1-2)",
+        "answer": 2,
+        "meta_data": {
+            "language": "ko",
+            "word": "오졸오졸",
+            "dimension": "big-small",
+            "answer": 2
+        },
+        "audio": "tts/ko/오졸오졸.wav"
+    },
+    {
+        "question": "Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\n<AUDIO>\n\n[SEMANTIC DIMENSION]\nstrong vs. weak\n\n[OPTIONS]\n1: strong\n2: weak\nAnswer with the number only. (1-2)",
+        "answer": 2,
+        "meta_data": {
+            "language": "ko",
+            "word": "눅실눅실",
+            "dimension": "strong-weak",
+            "answer": 2
+        },
+        "audio": "tts/ko/눅실눅실.wav"
+    },
+    {
+        "question": "Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\n<AUDIO>\n\n[SEMANTIC DIMENSION]\nbeautiful vs. ugly\n\n[OPTIONS]\n1: beautiful\n2: ugly\nAnswer with the number only. (1-2)",
+        "answer": 2,
+        "meta_data": {
+            "language": "ko",
+            "word": "게정게정",
+            "dimension": "beautiful-ugly",
+            "answer": 2
+        },
+        "audio": "tts/ko/게정게정.wav"
+    },
+    {
+        "question": "Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\n<AUDIO>\n\n[SEMANTIC DIMENSION]\nstrong vs. weak\n\n[OPTIONS]\n1: strong\n2: weak\nAnswer with the number only. (1-2)",
+        "answer": 1,
+        "meta_data": {
+            "language": "art",
+            "word": "zo-they",
+            "dimension": "strong-weak",
+            "answer": 1
+        },
+        "audio": "tts/art/zo-they.wav"
+    },
+    {
+        "question": "Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\n<AUDIO>\n\n[SEMANTIC DIMENSION]\nstrong vs. weak\n\n[OPTIONS]\n1: strong\n2: weak\nAnswer with the number only. (1-2)",
+        "answer": 2,
+        "meta_data": {
+            "language": "art",
+            "word": "no-nay",
+            "dimension": "strong-weak",
+            "answer": 2
+        },
+        "audio": "tts/art/no-nay.wav"
+    },
+    {
+        "question": "Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\n<AUDIO>\n\n[SEMANTIC DIMENSION]\nbig vs. small\n\n[OPTIONS]\n1: big\n2: small\nAnswer with the number only. (1-2)",
+        "answer": 1,
+        "meta_data": {
+            "language": "ko",
+            "word": "쭈르륵쭈르륵",
+            "dimension": "big-small",
+            "answer": 1
+        },
+        "audio": "tts/ko/쭈르륵쭈르륵.wav"
+    },
+    {
+        "question": "Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\n<AUDIO>\n\n[SEMANTIC DIMENSION]\nsharp vs. round\n\n[OPTIONS]\n1: sharp\n2: round\nAnswer with the number only. (1-2)",
+        "answer": 2,
+        "meta_data": {
+            "language": "art",
+            "word": "ghee-dah",
+            "dimension": "sharp-round",
+            "answer": 2
+        },
+        "audio": "tts/art/ghee-dah.wav"
+    },
+    {
+        "question": "Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\n<AUDIO>\n\n[SEMANTIC DIMENSION]\nfast vs. slow\n\n[OPTIONS]\n1: fast\n2: slow\nAnswer with the number only. (1-2)",
+        "answer": 2,
+        "meta_data": {
+            "language": "art",
+            "word": "lee-sah",
+            "dimension": "fast-slow",
+            "answer": 2
+        },
+        "audio": "tts/art/lee-sah.wav"
+    },
+    {
+        "question": "Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\n<AUDIO>\n\n[SEMANTIC DIMENSION]\nstrong vs. weak\n\n[OPTIONS]\n1: strong\n2: weak\nAnswer with the number only. (1-2)",
+        "answer": 1,
+        "meta_data": {
+            "language": "ja",
+            "word": "ごそり",
+            "dimension": "strong-weak",
+            "answer": 1
+        },
+        "audio": "tts/ja/ごそり.wav"
+    },
+    {
+        "question": "Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\n<AUDIO>\n\n[SEMANTIC DIMENSION]\nsharp vs. round\n\n[OPTIONS]\n1: sharp\n2: round\nAnswer with the number only. (1-2)",
+        "answer": 2,
+        "meta_data": {
+            "language": "ko",
+            "word": "쌍긋",
+            "dimension": "sharp-round",
+            "answer": 2
+        },
+        "audio": "tts/ko/쌍긋.wav"
+    },
+    {
+        "question": "Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\n<AUDIO>\n\n[SEMANTIC DIMENSION]\nbeautiful vs. ugly\n\n[OPTIONS]\n1: beautiful\n2: ugly\nAnswer with the number only. (1-2)",
+        "answer": 2,
+        "meta_data": {
+            "language": "ko",
+            "word": "우당퉁탕",
+            "dimension": "beautiful-ugly",
+            "answer": 2
+        },
+        "audio": "tts/ko/우당퉁탕.wav"
+    },
+    {
+        "question": "Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\n<AUDIO>\n\n[SEMANTIC DIMENSION]\nfast vs. slow\n\n[OPTIONS]\n1: fast\n2: slow\nAnswer with the number only. (1-2)",
+        "answer": 1,
+        "meta_data": {
+            "language": "art",
+            "word": "pothey",
+            "dimension": "fast-slow",
+            "answer": 1
+        },
+        "audio": "tts/art/pothey.wav"
+    },
+    {
+        "question": "Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\n<AUDIO>\n\n[SEMANTIC DIMENSION]\nsharp vs. round\n\n[OPTIONS]\n1: sharp\n2: round\nAnswer with the number only. (1-2)",
+        "answer": 2,
+        "meta_data": {
+            "language": "art",
+            "word": "bay-doe",
+            "dimension": "sharp-round",
+            "answer": 2
+        },
+        "audio": "tts/art/bay-doe.wav"
+    },
+    {
+        "question": "Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\n<AUDIO>\n\n[SEMANTIC DIMENSION]\nbeautiful vs. ugly\n\n[OPTIONS]\n1: beautiful\n2: ugly\nAnswer with the number only. (1-2)",
+        "answer": 1,
+        "meta_data": {
+            "language": "art",
+            "word": "nee-nee",
+            "dimension": "beautiful-ugly",
+            "answer": 1
+        },
+        "audio": "tts/art/nee-nee.wav"
+    },
+    {
+        "question": "Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\n<AUDIO>\n\n[SEMANTIC DIMENSION]\nbig vs. small\n\n[OPTIONS]\n1: big\n2: small\nAnswer with the number only. (1-2)",
+        "answer": 1,
+        "meta_data": {
+            "language": "ko",
+            "word": "절버덩",
+            "dimension": "big-small",
+            "answer": 1
+        },
+        "audio": "tts/ko/절버덩.wav"
+    },
+    {
+        "question": "Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\n<AUDIO>\n\n[SEMANTIC DIMENSION]\nbeautiful vs. ugly\n\n[OPTIONS]\n1: beautiful\n2: ugly\nAnswer with the number only. (1-2)",
+        "answer": 1,
+        "meta_data": {
+            "language": "art",
+            "word": "mo-fay",
+            "dimension": "beautiful-ugly",
+            "answer": 1
+        },
+        "audio": "tts/art/mo-fay.wav"
+    },
+    {
+        "question": "Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\n<AUDIO>\n\n[SEMANTIC DIMENSION]\nfast vs. slow\n\n[OPTIONS]\n1: fast\n2: slow\nAnswer with the number only. (1-2)",
+        "answer": 2,
+        "meta_data": {
+            "language": "ko",
+            "word": "굼지럭굼지럭",
+            "dimension": "fast-slow",
+            "answer": 2
+        },
+        "audio": "tts/ko/굼지럭굼지럭.wav"
+    },
+    {
+        "question": "Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\n<AUDIO>\n\n[SEMANTIC DIMENSION]\nstrong vs. weak\n\n[OPTIONS]\n1: strong\n2: weak\nAnswer with the number only. (1-2)",
+        "answer": 1,
+        "meta_data": {
+            "language": "ko",
+            "word": "빼꼭",
+            "dimension": "strong-weak",
+            "answer": 1
+        },
+        "audio": "tts/ko/빼꼭.wav"
+    },
+    {
+        "question": "Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\n<AUDIO>\n\n[SEMANTIC DIMENSION]\nbeautiful vs. ugly\n\n[OPTIONS]\n1: beautiful\n2: ugly\nAnswer with the number only. (1-2)",
+        "answer": 2,
+        "meta_data": {
+            "language": "ko",
+            "word": "두둘두둘",
+            "dimension": "beautiful-ugly",
+            "answer": 2
+        },
+        "audio": "tts/ko/두둘두둘.wav"
+    },
+    {
+        "question": "Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\n<AUDIO>\n\n[SEMANTIC DIMENSION]\nbeautiful vs. ugly\n\n[OPTIONS]\n1: beautiful\n2: ugly\nAnswer with the number only. (1-2)",
+        "answer": 2,
+        "meta_data": {
+            "language": "art",
+            "word": "bah-gay",
+            "dimension": "beautiful-ugly",
+            "answer": 2
+        },
+        "audio": "tts/art/bah-gay.wav"
+    },
+    {
+        "question": "Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\n<AUDIO>\n\n[SEMANTIC DIMENSION]\nstrong vs. weak\n\n[OPTIONS]\n1: strong\n2: weak\nAnswer with the number only. (1-2)",
+        "answer": 2,
+        "meta_data": {
+            "language": "art",
+            "word": "mo-lo",
+            "dimension": "strong-weak",
+            "answer": 2
+        },
+        "audio": "tts/art/mo-lo.wav"
+    },
+    {
+        "question": "Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\n<AUDIO>\n\n[SEMANTIC DIMENSION]\nstrong vs. weak\n\n[OPTIONS]\n1: strong\n2: weak\nAnswer with the number only. (1-2)",
+        "answer": 1,
+        "meta_data": {
+            "language": "ko",
+            "word": "훌근번쩍",
+            "dimension": "strong-weak",
+            "answer": 1
+        },
+        "audio": "tts/ko/훌근번쩍.wav"
+    },
+    {
+        "question": "Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\n<AUDIO>\n\n[SEMANTIC DIMENSION]\nbeautiful vs. ugly\n\n[OPTIONS]\n1: beautiful\n2: ugly\nAnswer with the number only. (1-2)",
+        "answer": 2,
+        "meta_data": {
+            "language": "ko",
+            "word": "까드락까드락",
+            "dimension": "beautiful-ugly",
+            "answer": 2
+        },
+        "audio": "tts/ko/까드락까드락.wav"
+    },
+    {
+        "question": "Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\n<AUDIO>\n\n[SEMANTIC DIMENSION]\nfast vs. slow\n\n[OPTIONS]\n1: fast\n2: slow\nAnswer with the number only. (1-2)",
+        "answer": 1,
+        "meta_data": {
+            "language": "ko",
+            "word": "깨드득",
+            "dimension": "fast-slow",
+            "answer": 1
+        },
+        "audio": "tts/ko/깨드득.wav"
+    },
+    {
+        "question": "Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\n<AUDIO>\n\n[SEMANTIC DIMENSION]\nsharp vs. round\n\n[OPTIONS]\n1: sharp\n2: round\nAnswer with the number only. (1-2)",
+        "answer": 2,
+        "meta_data": {
+            "language": "ko",
+            "word": "움푹움푹",
+            "dimension": "sharp-round",
+            "answer": 2
+        },
+        "audio": "tts/ko/움푹움푹.wav"
+    },
+    {
+        "question": "Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\n<AUDIO>\n\n[SEMANTIC DIMENSION]\nsharp vs. round\n\n[OPTIONS]\n1: sharp\n2: round\nAnswer with the number only. (1-2)",
+        "answer": 2,
+        "meta_data": {
+            "language": "ko",
+            "word": "삥글삥글",
+            "dimension": "sharp-round",
+            "answer": 2
+        },
+        "audio": "tts/ko/삥글삥글.wav"
+    },
+    {
+        "question": "Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\n<AUDIO>\n\n[SEMANTIC DIMENSION]\nbeautiful vs. ugly\n\n[OPTIONS]\n1: beautiful\n2: ugly\nAnswer with the number only. (1-2)",
+        "answer": 1,
+        "meta_data": {
+            "language": "art",
+            "word": "sah-mo",
+            "dimension": "beautiful-ugly",
+            "answer": 1
+        },
+        "audio": "tts/art/sah-mo.wav"
+    },
+    {
+        "question": "Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\n<AUDIO>\n\n[SEMANTIC DIMENSION]\nstrong vs. weak\n\n[OPTIONS]\n1: strong\n2: weak\nAnswer with the number only. (1-2)",
+        "answer": 2,
+        "meta_data": {
+            "language": "art",
+            "word": "nee-lo",
+            "dimension": "strong-weak",
+            "answer": 2
+        },
+        "audio": "tts/art/nee-lo.wav"
+    },
+    {
+        "question": "Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\n<AUDIO>\n\n[SEMANTIC DIMENSION]\nbig vs. small\n\n[OPTIONS]\n1: big\n2: small\nAnswer with the number only. (1-2)",
+        "answer": 1,
+        "meta_data": {
+            "language": "art",
+            "word": "tah-pah",
+            "dimension": "big-small",
+            "answer": 1
+        },
+        "audio": "tts/art/tah-pah.wav"
+    },
+    {
+        "question": "Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\n<AUDIO>\n\n[SEMANTIC DIMENSION]\nbig vs. small\n\n[OPTIONS]\n1: big\n2: small\nAnswer with the number only. (1-2)",
+        "answer": 1,
+        "meta_data": {
+            "language": "ko",
+            "word": "북실북실",
+            "dimension": "big-small",
+            "answer": 1
+        },
+        "audio": "tts/ko/북실북실.wav"
+    },
+    {
+        "question": "Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\n<AUDIO>\n\n[SEMANTIC DIMENSION]\nbig vs. small\n\n[OPTIONS]\n1: big\n2: small\nAnswer with the number only. (1-2)",
+        "answer": 2,
+        "meta_data": {
+            "language": "art",
+            "word": "kee-day",
+            "dimension": "big-small",
+            "answer": 2
+        },
+        "audio": "tts/art/kee-day.wav"
+    },
+    {
+        "question": "Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\n<AUDIO>\n\n[SEMANTIC DIMENSION]\nbig vs. small\n\n[OPTIONS]\n1: big\n2: small\nAnswer with the number only. (1-2)",
+        "answer": 2,
+        "meta_data": {
+            "language": "ko",
+            "word": "얄랑얄랑",
+            "dimension": "big-small",
+            "answer": 2
+        },
+        "audio": "tts/ko/얄랑얄랑.wav"
+    },
+    {
+        "question": "Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\n<AUDIO>\n\n[SEMANTIC DIMENSION]\nstrong vs. weak\n\n[OPTIONS]\n1: strong\n2: weak\nAnswer with the number only. (1-2)",
+        "answer": 2,
+        "meta_data": {
+            "language": "art",
+            "word": "nee-lay",
+            "dimension": "strong-weak",
+            "answer": 2
+        },
+        "audio": "tts/art/nee-lay.wav"
+    },
+    {
+        "question": "Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\n<AUDIO>\n\n[SEMANTIC DIMENSION]\nsharp vs. round\n\n[OPTIONS]\n1: sharp\n2: round\nAnswer with the number only. (1-2)",
+        "answer": 1,
+        "meta_data": {
+            "language": "ko",
+            "word": "철꺼덕",
+            "dimension": "sharp-round",
+            "answer": 1
+        },
+        "audio": "tts/ko/철꺼덕.wav"
+    },
+    {
+        "question": "Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\n<AUDIO>\n\n[SEMANTIC DIMENSION]\nbig vs. small\n\n[OPTIONS]\n1: big\n2: small\nAnswer with the number only. (1-2)",
+        "answer": 1,
+        "meta_data": {
+            "language": "art",
+            "word": "sho-fah",
+            "dimension": "big-small",
+            "answer": 1
+        },
+        "audio": "tts/art/sho-fah.wav"
+    },
+    {
+        "question": "Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\n<AUDIO>\n\n[SEMANTIC DIMENSION]\nstrong vs. weak\n\n[OPTIONS]\n1: strong\n2: weak\nAnswer with the number only. (1-2)",
+        "answer": 1,
+        "meta_data": {
+            "language": "ko",
+            "word": "처덕처덕",
+            "dimension": "strong-weak",
+            "answer": 1
+        },
+        "audio": "tts/ko/처덕처덕.wav"
+    },
+    {
+        "question": "Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\n<AUDIO>\n\n[SEMANTIC DIMENSION]\nsharp vs. round\n\n[OPTIONS]\n1: sharp\n2: round\nAnswer with the number only. (1-2)",
+        "answer": 1,
+        "meta_data": {
+            "language": "ko",
+            "word": "갉작갉작",
+            "dimension": "sharp-round",
+            "answer": 1
+        },
+        "audio": "tts/ko/갉작갉작.wav"
+    },
+    {
+        "question": "Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\n<AUDIO>\n\n[SEMANTIC DIMENSION]\nstrong vs. weak\n\n[OPTIONS]\n1: strong\n2: weak\nAnswer with the number only. (1-2)",
+        "answer": 1,
+        "meta_data": {
+            "language": "fr",
+            "word": "boum tchac",
+            "dimension": "strong-weak",
+            "answer": 1
+        },
+        "audio": "tts/fr/boum tchac.wav"
+    },
+    {
+        "question": "Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\n<AUDIO>\n\n[SEMANTIC DIMENSION]\nstrong vs. weak\n\n[OPTIONS]\n1: strong\n2: weak\nAnswer with the number only. (1-2)",
+        "answer": 1,
+        "meta_data": {
+            "language": "ko",
+            "word": "뿍뿍",
+            "dimension": "strong-weak",
+            "answer": 1
+        },
+        "audio": "tts/ko/뿍뿍.wav"
+    },
+    {
+        "question": "Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\n<AUDIO>\n\n[SEMANTIC DIMENSION]\nfast vs. slow\n\n[OPTIONS]\n1: fast\n2: slow\nAnswer with the number only. (1-2)",
+        "answer": 1,
+        "meta_data": {
+            "language": "art",
+            "word": "vah-pee",
+            "dimension": "fast-slow",
+            "answer": 1
+        },
+        "audio": "tts/art/vah-pee.wav"
+    },
+    {
+        "question": "Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\n<AUDIO>\n\n[SEMANTIC DIMENSION]\nbig vs. small\n\n[OPTIONS]\n1: big\n2: small\nAnswer with the number only. (1-2)",
+        "answer": 2,
+        "meta_data": {
+            "language": "ko",
+            "word": "얄찍얄찍",
+            "dimension": "big-small",
+            "answer": 2
+        },
+        "audio": "tts/ko/얄찍얄찍.wav"
+    },
+    {
+        "question": "Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\n<AUDIO>\n\n[SEMANTIC DIMENSION]\nbeautiful vs. ugly\n\n[OPTIONS]\n1: beautiful\n2: ugly\nAnswer with the number only. (1-2)",
+        "answer": 2,
+        "meta_data": {
+            "language": "ko",
+            "word": "얄긋얄긋",
+            "dimension": "beautiful-ugly",
+            "answer": 2
+        },
+        "audio": "tts/ko/얄긋얄긋.wav"
+    },
+    {
+        "question": "Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\n<AUDIO>\n\n[SEMANTIC DIMENSION]\nfast vs. slow\n\n[OPTIONS]\n1: fast\n2: slow\nAnswer with the number only. (1-2)",
+        "answer": 1,
+        "meta_data": {
+            "language": "art",
+            "word": "ghee-bee",
+            "dimension": "fast-slow",
+            "answer": 1
+        },
+        "audio": "tts/art/ghee-bee.wav"
+    },
+    {
+        "question": "Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\n<AUDIO>\n\n[SEMANTIC DIMENSION]\nsharp vs. round\n\n[OPTIONS]\n1: sharp\n2: round\nAnswer with the number only. (1-2)",
+        "answer": 2,
+        "meta_data": {
+            "language": "art",
+            "word": "gah-dah",
+            "dimension": "sharp-round",
+            "answer": 2
+        },
+        "audio": "tts/art/gah-dah.wav"
+    },
+    {
+        "question": "Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\n<AUDIO>\n\n[SEMANTIC DIMENSION]\nbeautiful vs. ugly\n\n[OPTIONS]\n1: beautiful\n2: ugly\nAnswer with the number only. (1-2)",
+        "answer": 2,
+        "meta_data": {
+            "language": "art",
+            "word": "dah-bah",
+            "dimension": "beautiful-ugly",
+            "answer": 2
+        },
+        "audio": "tts/art/dah-bah.wav"
+    },
+    {
+        "question": "Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\n<AUDIO>\n\n[SEMANTIC DIMENSION]\nsharp vs. round\n\n[OPTIONS]\n1: sharp\n2: round\nAnswer with the number only. (1-2)",
+        "answer": 1,
+        "meta_data": {
+            "language": "art",
+            "word": "bee-pay",
+            "dimension": "sharp-round",
+            "answer": 1
+        },
+        "audio": "tts/art/bee-pay.wav"
+    },
+    {
+        "question": "Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\n<AUDIO>\n\n[SEMANTIC DIMENSION]\nsharp vs. round\n\n[OPTIONS]\n1: sharp\n2: round\nAnswer with the number only. (1-2)",
+        "answer": 1,
+        "meta_data": {
+            "language": "art",
+            "word": "zahthey",
+            "dimension": "sharp-round",
+            "answer": 1
+        },
+        "audio": "tts/art/zahthey.wav"
+    },
+    {
+        "question": "Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\n<AUDIO>\n\n[SEMANTIC DIMENSION]\nbig vs. small\n\n[OPTIONS]\n1: big\n2: small\nAnswer with the number only. (1-2)",
+        "answer": 1,
+        "meta_data": {
+            "language": "ko",
+            "word": "떼그럭",
+            "dimension": "big-small",
+            "answer": 1
+        },
+        "audio": "tts/ko/떼그럭.wav"
+    },
+    {
+        "question": "Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\n<AUDIO>\n\n[SEMANTIC DIMENSION]\nfast vs. slow\n\n[OPTIONS]\n1: fast\n2: slow\nAnswer with the number only. (1-2)",
+        "answer": 1,
+        "meta_data": {
+            "language": "ko",
+            "word": "번적번적",
+            "dimension": "fast-slow",
+            "answer": 1
+        },
+        "audio": "tts/ko/번적번적.wav"
+    },
+    {
+        "question": "Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\n<AUDIO>\n\n[SEMANTIC DIMENSION]\nbeautiful vs. ugly\n\n[OPTIONS]\n1: beautiful\n2: ugly\nAnswer with the number only. (1-2)",
+        "answer": 1,
+        "meta_data": {
+            "language": "art",
+            "word": "nee-lah",
+            "dimension": "beautiful-ugly",
+            "answer": 1
+        },
+        "audio": "tts/art/nee-lah.wav"
+    },
+    {
+        "question": "Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\n<AUDIO>\n\n[SEMANTIC DIMENSION]\nsharp vs. round\n\n[OPTIONS]\n1: sharp\n2: round\nAnswer with the number only. (1-2)",
+        "answer": 1,
+        "meta_data": {
+            "language": "art",
+            "word": "kee-gay",
+            "dimension": "sharp-round",
+            "answer": 1
+        },
+        "audio": "tts/art/kee-gay.wav"
+    },
+    {
+        "question": "Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\n<AUDIO>\n\n[SEMANTIC DIMENSION]\nfast vs. slow\n\n[OPTIONS]\n1: fast\n2: slow\nAnswer with the number only. (1-2)",
+        "answer": 2,
+        "meta_data": {
+            "language": "ko",
+            "word": "흘기죽흘기죽",
+            "dimension": "fast-slow",
+            "answer": 2
+        },
+        "audio": "tts/ko/흘기죽흘기죽.wav"
+    },
+    {
+        "question": "Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\n<AUDIO>\n\n[SEMANTIC DIMENSION]\nbig vs. small\n\n[OPTIONS]\n1: big\n2: small\nAnswer with the number only. (1-2)",
+        "answer": 2,
+        "meta_data": {
+            "language": "art",
+            "word": "see-fay",
+            "dimension": "big-small",
+            "answer": 2
+        },
+        "audio": "tts/art/see-fay.wav"
+    },
+    {
+        "question": "Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\n<AUDIO>\n\n[SEMANTIC DIMENSION]\nstrong vs. weak\n\n[OPTIONS]\n1: strong\n2: weak\nAnswer with the number only. (1-2)",
+        "answer": 1,
+        "meta_data": {
+            "language": "ko",
+            "word": "다르랑",
+            "dimension": "strong-weak",
+            "answer": 1
+        },
+        "audio": "tts/ko/다르랑.wav"
+    },
+    {
+        "question": "Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\n<AUDIO>\n\n[SEMANTIC DIMENSION]\nbeautiful vs. ugly\n\n[OPTIONS]\n1: beautiful\n2: ugly\nAnswer with the number only. (1-2)",
+        "answer": 1,
+        "meta_data": {
+            "language": "art",
+            "word": "may-say",
+            "dimension": "beautiful-ugly",
+            "answer": 1
+        },
+        "audio": "tts/art/may-say.wav"
+    },
+    {
+        "question": "Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\n<AUDIO>\n\n[SEMANTIC DIMENSION]\nfast vs. slow\n\n[OPTIONS]\n1: fast\n2: slow\nAnswer with the number only. (1-2)",
+        "answer": 1,
+        "meta_data": {
+            "language": "ko",
+            "word": "빼까닥빼까닥",
+            "dimension": "fast-slow",
+            "answer": 1
+        },
+        "audio": "tts/ko/빼까닥빼까닥.wav"
+    },
+    {
+        "question": "Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\n<AUDIO>\n\n[SEMANTIC DIMENSION]\nbeautiful vs. ugly\n\n[OPTIONS]\n1: beautiful\n2: ugly\nAnswer with the number only. (1-2)",
+        "answer": 2,
+        "meta_data": {
+            "language": "ko",
+            "word": "푸수수",
+            "dimension": "beautiful-ugly",
+            "answer": 2
+        },
+        "audio": "tts/ko/푸수수.wav"
+    },
+    {
+        "question": "Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\n<AUDIO>\n\n[SEMANTIC DIMENSION]\nfast vs. slow\n\n[OPTIONS]\n1: fast\n2: slow\nAnswer with the number only. (1-2)",
+        "answer": 1,
+        "meta_data": {
+            "language": "fr",
+            "word": "tagadac",
+            "dimension": "fast-slow",
+            "answer": 1
+        },
+        "audio": "tts/fr/tagadac.wav"
+    },
+    {
+        "question": "Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\n<AUDIO>\n\n[SEMANTIC DIMENSION]\nbig vs. small\n\n[OPTIONS]\n1: big\n2: small\nAnswer with the number only. (1-2)",
+        "answer": 1,
+        "meta_data": {
+            "language": "art",
+            "word": "no-po",
+            "dimension": "big-small",
+            "answer": 1
+        },
+        "audio": "tts/art/no-po.wav"
+    },
+    {
+        "question": "Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\n<AUDIO>\n\n[SEMANTIC DIMENSION]\nsharp vs. round\n\n[OPTIONS]\n1: sharp\n2: round\nAnswer with the number only. (1-2)",
+        "answer": 2,
+        "meta_data": {
+            "language": "ko",
+            "word": "노긋노긋",
+            "dimension": "sharp-round",
+            "answer": 2
+        },
+        "audio": "tts/ko/노긋노긋.wav"
+    },
+    {
+        "question": "Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\n<AUDIO>\n\n[SEMANTIC DIMENSION]\nfast vs. slow\n\n[OPTIONS]\n1: fast\n2: slow\nAnswer with the number only. (1-2)",
+        "answer": 1,
+        "meta_data": {
+            "language": "art",
+            "word": "tee-they",
+            "dimension": "fast-slow",
+            "answer": 1
+        },
+        "audio": "tts/art/tee-they.wav"
+    },
+    {
+        "question": "Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\n<AUDIO>\n\n[SEMANTIC DIMENSION]\nbeautiful vs. ugly\n\n[OPTIONS]\n1: beautiful\n2: ugly\nAnswer with the number only. (1-2)",
+        "answer": 1,
+        "meta_data": {
+            "language": "art",
+            "word": "nay-mah",
+            "dimension": "beautiful-ugly",
+            "answer": 1
+        },
+        "audio": "tts/art/nay-mah.wav"
+    },
+    {
+        "question": "Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\n<AUDIO>\n\n[SEMANTIC DIMENSION]\nstrong vs. weak\n\n[OPTIONS]\n1: strong\n2: weak\nAnswer with the number only. (1-2)",
+        "answer": 1,
+        "meta_data": {
+            "language": "art",
+            "word": "vay-vah",
+            "dimension": "strong-weak",
+            "answer": 1
+        },
+        "audio": "tts/art/vay-vah.wav"
+    },
+    {
+        "question": "Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\n<AUDIO>\n\n[SEMANTIC DIMENSION]\nbig vs. small\n\n[OPTIONS]\n1: big\n2: small\nAnswer with the number only. (1-2)",
+        "answer": 1,
+        "meta_data": {
+            "language": "art",
+            "word": "ko-kah",
+            "dimension": "big-small",
+            "answer": 1
+        },
+        "audio": "tts/art/ko-kah.wav"
+    },
+    {
+        "question": "Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\n<AUDIO>\n\n[SEMANTIC DIMENSION]\nfast vs. slow\n\n[OPTIONS]\n1: fast\n2: slow\nAnswer with the number only. (1-2)",
+        "answer": 2,
+        "meta_data": {
+            "language": "art",
+            "word": "lo-say",
+            "dimension": "fast-slow",
+            "answer": 2
+        },
+        "audio": "tts/art/lo-say.wav"
+    },
+    {
+        "question": "Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\n<AUDIO>\n\n[SEMANTIC DIMENSION]\nsharp vs. round\n\n[OPTIONS]\n1: sharp\n2: round\nAnswer with the number only. (1-2)",
+        "answer": 1,
+        "meta_data": {
+            "language": "ko",
+            "word": "와각와각",
+            "dimension": "sharp-round",
+            "answer": 1
+        },
+        "audio": "tts/ko/와각와각.wav"
+    },
+    {
+        "question": "Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\n<AUDIO>\n\n[SEMANTIC DIMENSION]\nsharp vs. round\n\n[OPTIONS]\n1: sharp\n2: round\nAnswer with the number only. (1-2)",
+        "answer": 2,
+        "meta_data": {
+            "language": "ko",
+            "word": "울렁출렁",
+            "dimension": "sharp-round",
+            "answer": 2
+        },
+        "audio": "tts/ko/울렁출렁.wav"
+    },
+    {
+        "question": "Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\n<AUDIO>\n\n[SEMANTIC DIMENSION]\nbig vs. small\n\n[OPTIONS]\n1: big\n2: small\nAnswer with the number only. (1-2)",
+        "answer": 2,
+        "meta_data": {
+            "language": "ko",
+            "word": "쑬쑬",
+            "dimension": "big-small",
+            "answer": 2
+        },
+        "audio": "tts/ko/쑬쑬.wav"
+    },
+    {
+        "question": "Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\n<AUDIO>\n\n[SEMANTIC DIMENSION]\nbeautiful vs. ugly\n\n[OPTIONS]\n1: beautiful\n2: ugly\nAnswer with the number only. (1-2)",
+        "answer": 1,
+        "meta_data": {
+            "language": "ko",
+            "word": "썽글썽글",
+            "dimension": "beautiful-ugly",
+            "answer": 1
+        },
+        "audio": "tts/ko/썽글썽글.wav"
+    },
+    {
+        "question": "Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\n<AUDIO>\n\n[SEMANTIC DIMENSION]\nbig vs. small\n\n[OPTIONS]\n1: big\n2: small\nAnswer with the number only. (1-2)",
+        "answer": 2,
+        "meta_data": {
+            "language": "art",
+            "word": "dee-lay",
+            "dimension": "big-small",
+            "answer": 2
+        },
+        "audio": "tts/art/dee-lay.wav"
+    },
+    {
+        "question": "Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\n<AUDIO>\n\n[SEMANTIC DIMENSION]\nbeautiful vs. ugly\n\n[OPTIONS]\n1: beautiful\n2: ugly\nAnswer with the number only. (1-2)",
+        "answer": 2,
+        "meta_data": {
+            "language": "ko",
+            "word": "오그랑오그랑",
+            "dimension": "beautiful-ugly",
+            "answer": 2
+        },
+        "audio": "tts/ko/오그랑오그랑.wav"
+    },
+    {
+        "question": "Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\n<AUDIO>\n\n[SEMANTIC DIMENSION]\nbeautiful vs. ugly\n\n[OPTIONS]\n1: beautiful\n2: ugly\nAnswer with the number only. (1-2)",
+        "answer": 1,
+        "meta_data": {
+            "language": "ko",
+            "word": "매끌매끌",
+            "dimension": "beautiful-ugly",
+            "answer": 1
+        },
+        "audio": "tts/ko/매끌매끌.wav"
+    },
+    {
+        "question": "Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\n<AUDIO>\n\n[SEMANTIC DIMENSION]\nbig vs. small\n\n[OPTIONS]\n1: big\n2: small\nAnswer with the number only. (1-2)",
+        "answer": 2,
+        "meta_data": {
+            "language": "art",
+            "word": "nay-they",
+            "dimension": "big-small",
+            "answer": 2
+        },
+        "audio": "tts/art/nay-they.wav"
+    },
+    {
+        "question": "Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\n<AUDIO>\n\n[SEMANTIC DIMENSION]\nstrong vs. weak\n\n[OPTIONS]\n1: strong\n2: weak\nAnswer with the number only. (1-2)",
+        "answer": 1,
+        "meta_data": {
+            "language": "ko",
+            "word": "철거덕",
+            "dimension": "strong-weak",
+            "answer": 1
+        },
+        "audio": "tts/ko/철거덕.wav"
+    },
+    {
+        "question": "Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\n<AUDIO>\n\n[SEMANTIC DIMENSION]\nfast vs. slow\n\n[OPTIONS]\n1: fast\n2: slow\nAnswer with the number only. (1-2)",
+        "answer": 1,
+        "meta_data": {
+            "language": "art",
+            "word": "shee-kee",
+            "dimension": "fast-slow",
+            "answer": 1
+        },
+        "audio": "tts/art/shee-kee.wav"
+    },
+    {
+        "question": "Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\n<AUDIO>\n\n[SEMANTIC DIMENSION]\nfast vs. slow\n\n[OPTIONS]\n1: fast\n2: slow\nAnswer with the number only. (1-2)",
+        "answer": 2,
+        "meta_data": {
+            "language": "art",
+            "word": "lah-nay",
+            "dimension": "fast-slow",
+            "answer": 2
+        },
+        "audio": "tts/art/lah-nay.wav"
+    }
+]

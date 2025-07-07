@@ -4,6 +4,7 @@ import pandas as pd
 
 # JSON file path
 JSON_FILE_PATH = 'data/processed/nat/semantic_dimension/semantic_dimension_binary_gt.json'
+ART_JSON_FILE_PATH = 'data/processed/art/semantic_dimension/semantic_dimension_binary_gt.json'
 
 # Define the poles for each dimension. The first element is labeled '1', the second is '2'.
 DIMENSION_POLES = {
@@ -34,46 +35,54 @@ DIMENSION_POLES = {
     "dangerous-safe": ["dangerous", "safe"]
 }
 
-def analyze_dimension_distribution(file_path):
+def analyze_dimension_distribution(nat_file_path, art_file_path):
     """
-    Analyzes the distribution of answers for each dimension from a JSON file.
+    Analyzes the distribution of answers for each dimension from JSON files.
     """
-    with open(file_path, 'r', encoding='utf-8') as f:
-        data = json.load(f)
-
     # Initialize a dictionary to store data by word_group
     stats = {
         'common': defaultdict(lambda: {'1': 0, '2': 0, 'total': 0}),
         'rare': defaultdict(lambda: {'1': 0, '2': 0, 'total': 0}),
+        'constructed': defaultdict(lambda: {'1': 0, '2': 0, 'total': 0}),
         'total': defaultdict(lambda: {'1': 0, '2': 0, 'total': 0})
     }
 
-    # Iterate over all languages and words
-    for lang in data:
-        for item in data[lang]:
-            if 'dimensions' not in item or not item['dimensions']:
-                continue
+    def process_file(file_path, is_art_file=False):
+        with open(file_path, 'r', encoding='utf-8') as f:
+            data = json.load(f)
+        
+        # Iterate over all languages and words
+        for lang in data:
+            for item in data[lang]:
+                if 'dimensions' not in item or not item['dimensions']:
+                    continue
 
-            # If word_group is missing, treat it as 'common'
-            word_group = item.get('word_group', 'common') 
+                # If word_group is missing, treat it as 'common'
+                if is_art_file:
+                    word_group = 'constructed'
+                else:
+                    word_group = item.get('word_group', 'common')
 
-            for dim_name, dim_data in item['dimensions'].items():
-                if dim_name in DIMENSION_POLES:
-                    poles = DIMENSION_POLES[dim_name]
-                    answer = dim_data.get('answer')
+                for dim_name, dim_data in item['dimensions'].items():
+                    if dim_name in DIMENSION_POLES:
+                        poles = DIMENSION_POLES[dim_name]
+                        answer = dim_data.get('answer')
 
-                    if answer == poles[0]:
-                        label = '1'
-                    elif answer == poles[1]:
-                        label = '2'
-                    else:
-                        continue
+                        if answer == poles[0]:
+                            label = '1'
+                        elif answer == poles[1]:
+                            label = '2'
+                        else:
+                            continue
 
-                    # Update word_group and total statistics
-                    stats[word_group][dim_name][label] += 1
-                    stats[word_group][dim_name]['total'] += 1
-                    stats['total'][dim_name][label] += 1
-                    stats['total'][dim_name]['total'] += 1
+                        # Update word_group and total statistics
+                        stats[word_group][dim_name][label] += 1
+                        stats[word_group][dim_name]['total'] += 1
+                        stats['total'][dim_name][label] += 1
+                        stats['total'][dim_name]['total'] += 1
+
+    process_file(nat_file_path, is_art_file=False)
+    process_file(art_file_path, is_art_file=True)
     
     return stats
 
@@ -82,7 +91,7 @@ def create_distribution_table(stats):
     Creates a pandas DataFrame from the analyzed statistics.
     """
     table_data = []
-    for group in ['common', 'rare', 'total']:
+    for group in ['common', 'rare', 'constructed', 'total']:
         for dim_name, poles in DIMENSION_POLES.items():
             # Use .get() to use a default value (0) if data is missing
             dim_stats = stats[group].get(dim_name, {'1': 0, '2': 0, 'total': 0})
@@ -115,13 +124,13 @@ def create_comparison_table(df):
     pivot_df = pivot_df.swaplevel(0, 1, axis=1)
     
     # Sort the columns to group by Word Group (Common, Rare, Total)
-    pivot_df = pivot_df.reindex(columns=['Common', 'Rare', 'Total'], level=0)
+    pivot_df = pivot_df.reindex(columns=['Common', 'Rare', 'Constructed', 'Total'], level=0)
     
     return pivot_df
 
 if __name__ == '__main__':
     # Analyze data
-    statistics = analyze_dimension_distribution(JSON_FILE_PATH)
+    statistics = analyze_dimension_distribution(JSON_FILE_PATH, ART_JSON_FILE_PATH)
     
     # Create DataFrame
     distribution_df = create_distribution_table(statistics)
