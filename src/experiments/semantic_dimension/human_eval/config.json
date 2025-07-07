@@ -1,0 +1,21 @@
+{
+    "input_files": [
+        {
+            "path": "data/prompts/semantic_dimension/semantic_dimension_binary_audio-rare.json",
+            "ratio": 0.5
+        },
+        {
+            "path": "data/prompts/semantic_dimension/semantic_dimension_binary_audio-constructed.json",
+            "ratio": 0.5
+        }
+    ],
+    "output_file": "data/human_eval/label_studio_survey.json",
+    "total_questions": 100,
+    "sampling_config": {
+        "beautiful-ugly": 20,
+        "fast-slow": 20,
+        "sharp-round": 20,
+        "strong-weak": 20,
+        "big-small": 20
+    }
+}

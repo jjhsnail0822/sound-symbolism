@@ -174,7 +174,11 @@ class GeminiMCQExperiment:
                     break  # Exit the loop on success
                 except Exception as e:
                     print(f"An error occurred with API key index {self.current_key_index}: {e}")
-                    if self.current_key_index < len(self.api_keys) - 1:
+                    if '500' in str(e):
+                        print("Server error detected. Ignore this prompt.")
+                        model_answer = "0"  # Default value that will be marked as incorrect
+                        break  # Exit the loop on server error
+                    elif self.current_key_index < len(self.api_keys) - 1:
                         self._switch_to_next_key()
                         # Continue to the next attempt in the for loop with the new key
                     else:
