@@ -848,7 +848,7 @@ class QwenOmniSemanticDimensionVisualizer:
         if current_input_ids is not None and all_tokens is not None:
             input_length = len(all_tokens)
             input_ids = current_input_ids[0][:input_length]
-            response_ids = current_input_ids[0][input_length:-1]
+            response_ids = current_input_ids[0][input_length:]
             
             input_text = self.processor.tokenizer.decode(input_ids)
             response = self.processor.tokenizer.decode(response_ids)

@@ -5,6 +5,8 @@ import matplotlib.pyplot as plt
 from matplotlib import ticker
 from matplotlib.font_manager import FontProperties
 
+# python src/analysis/plotting/rq1_plot.py --json_path ./results/statistics/semdim_stat.json --metric f1 --sem_dims "sem_dim_01,sem_dim_05,sem_dim_12"
+
 def load_stat_json(json_path):
     with open(json_path, 'r', encoding='utf-8') as f:
         data = json.load(f)
@@ -98,24 +100,21 @@ def plot_horizontal_bar(avg_dict, group, metric='f1', title=None, save_path=None
         ax.set_title(title, fontsize=15, pad=15)
     plt.tight_layout()
     if save_path:
-        plt.savefig(save_path, dpi=300, bbox_inches='tight')
+        file_name = f"{metric}_{group[0]}_{group[1]}_{len(sem_dims)}_dims.png"
+        plt.savefig(os.path.join(save_path, file_name), dpi=300, bbox_inches='tight')
     plt.close()
 
 def main(json_path, metric='f1', sem_dims=None):
     data = load_stat_json(json_path)
-    # 1. 모델별 평균
     avg_by_model = compute_avg_by_condition(data, ['model'], metric)
     for model_name in set(g[0] for (g, sd) in avg_by_model.keys()):
         plot_horizontal_bar(avg_by_model, (model_name,), metric, title=f"Model: {model_name}", sem_dims=sem_dims)
-    # 2. 단어 종류별 평균
     avg_by_wordtype = compute_avg_by_condition(data, ['word_type'], metric)
     for word_type in set(g[0] for (g, sd) in avg_by_wordtype.keys()):
         plot_horizontal_bar(avg_by_wordtype, (word_type,), metric, title=f"Word Type: {word_type}", sem_dims=sem_dims)
-    # 3. input type별 평균
     avg_by_inputtype = compute_avg_by_condition(data, ['input_type'], metric)
     for input_type in set(g[0] for (g, sd) in avg_by_inputtype.keys()):
         plot_horizontal_bar(avg_by_inputtype, (input_type,), metric, title=f"Input Type: {input_type}", sem_dims=sem_dims)
-    # 4. 모델+input type별 평균
     avg_by_model_input = compute_avg_by_condition(data, ['model', 'input_type'], metric)
     model_input_groups = set(g for (g, sd) in avg_by_model_input.keys())
     for group in model_input_groups:
@@ -127,6 +126,7 @@ if __name__ == "__main__":
     parser.add_argument('--json_path', type=str, default='./results/statistics/semdim_stat.json')
     parser.add_argument('--metric', type=str, default='f1', help='f1 or accuracy')
     parser.add_argument('--sem_dims', type=str, default=None, help='Comma-separated list of semantic dimensions to plot (default: all)')
+    parser.add_argument('--save_path', type=str, default="./results/plots/rq1", help='Path to save the plots')
     args = parser.parse_args()
     sem_dims = None
     if args.sem_dims:
