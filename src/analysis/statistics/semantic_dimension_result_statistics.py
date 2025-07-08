@@ -57,7 +57,7 @@ def calculate_statistics_for_file(input_file_path: str):
         all_y_pred.extend(y_pred)
 
         precision, recall, f1, _ = precision_recall_fscore_support(
-            y_true, y_pred, average='binary', pos_label=1, zero_division=0
+            y_true, y_pred, average='macro', labels=[1, 2], zero_division=0
         )
         accuracy = accuracy_score(y_true, y_pred)
 
@@ -65,7 +65,7 @@ def calculate_statistics_for_file(input_file_path: str):
             "accuracy": accuracy,
             "precision": precision,
             "recall": recall,
-            "f1_score": f1,
+            "macro_f1_score": f1,
             "count": len(y_true)
         }
 

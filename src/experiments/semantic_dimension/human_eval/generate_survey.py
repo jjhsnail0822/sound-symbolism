@@ -108,7 +108,7 @@ def main():
             if 'language' in meta and 'word' in meta:
                 language = meta['language']
                 word = meta['word']
-                question['audio'] = f"tts/{language}/{word}.wav"
+                question['audio'] = f"/data/local-files/?d=tts/{language}/{word}.wav"
 
     # 5. Shuffle and save final results
     random.shuffle(all_final_questions)
