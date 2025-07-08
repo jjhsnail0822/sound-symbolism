@@ -283,6 +283,10 @@ def plot_wordtype_performance(data, metric='f1', save_path=None, filter_construc
                         if sem_dim not in constructed_dims:
                             continue
                     
+                    # delicate-rugged 확인용 breakpoint
+                    if sem_dim == "delicate-rugged" and word_type in ["common", "rare"]:
+                        breakpoint()
+                    
                     semdim_scores[sem_dim][word_type].append(extract_metric(entry, metric))
                     semdim_words[sem_dim][word_type].append(extract_num_words(entry))
     
@@ -371,6 +375,10 @@ def plot_ranking_change(data, metric='f1', save_path=None, filter_constructed=Fa
                     if filter_constructed:
                         if sem_dim not in constructed_dims:
                             continue
+                    
+                    # delicate-rugged 확인용 breakpoint
+                    if sem_dim == "delicate-rugged" and word_type in ["common", "rare"]:
+                        breakpoint()
                     
                     semdim_scores[sem_dim][word_type].append(extract_metric(entry, metric))
                     semdim_words[sem_dim][word_type].append(extract_num_words(entry))
