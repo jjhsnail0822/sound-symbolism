@@ -4,8 +4,18 @@ import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib import ticker
 from matplotlib.font_manager import FontProperties
+import pandas as pd
 
-# python src/analysis/plotting/rq1_plot.py --json_path ./results/statistics/semdim_stat.json --metric f1 --sem_dims "sem_dim_01,sem_dim_05,sem_dim_12"
+# python src/analysis/plotting/rq1_plot.py --json_path ./results/statistics/semdim_stat.json --metric f1 --filter_constructed
+
+constructed_dims = {
+    "beautiful-ugly", "delicate-rugged", "tense-relaxed", "simple-complex", 
+    "happy-sad", "sharp-round", "fast-slow", "masculine-feminine", 
+    "strong-weak", "exciting-calming", "harsh-mellow", "ordinary-unique", 
+    "dangerous-safe", "realistic-fantastical", "abrupt-continuous", 
+    "passive-active", "big-small", "heavy-light", "hard-soft", 
+    "solid-nonsolid", "inhibited-free"
+}
 
 def find_category(sem_dim):
     categories = {
@@ -36,7 +46,7 @@ def weighted_avg(values, weights):
 def extract_metric(entry, metric='f1'):
     # entry: {"accuracy": 0.7, "precision": 0.7, "recall": 0.7, "f1_score": 0.7, "count": 2800}
     if metric.lower() == 'f1':
-        return entry["f1_score"]
+        return entry["macro_f1_score"]
     elif metric.lower() == 'accuracy' or metric.lower() == 'acc':
         return entry["accuracy"]
     elif metric.lower() == 'precision':
@@ -49,19 +59,10 @@ def extract_metric(entry, metric='f1'):
 def extract_num_words(entry):
     return entry["count"]
 
-def compute_avg_by_condition(data, group_keys, metric='f1', filter_constructed=False):
+def compute_avg_by_condition(data, group_keys, metric='f1', filter_constructed=False, constructed_dims=constructed_dims):
     from collections import defaultdict
     semdim_scores = defaultdict(list)
     semdim_words = defaultdict(list)
-    
-    constructed_dims = {
-        "beautiful-ugly", "delicate-rugged", "tense-relaxed", "simple-complex", 
-        "happy-sad", "sharp-round", "fast-slow", "masculine-feminine", 
-        "strong-weak", "exciting-calming", "harsh-mellow", "ordinary-unique", 
-        "dangerous-safe", "realistic-fantastical", "abrupt-continuous", 
-        "passive-active", "big-small", "heavy-light", "hard-soft", 
-        "solid-nonsolid", "inhibited-free"
-    }
     
     for model_name, model_data in data.items():
         for word_type, word_data in model_data.items():
@@ -168,19 +169,10 @@ def plot_horizontal_bar(avg_dict, group, metric='f1', title=None, save_path=None
     print(f"Plot saved to {os.path.join(full_save_path, file_name)}")
     plt.close()
 
-def compute_avg_by_category(data, metric='f1', filter_constructed=False):
+def compute_avg_by_category(data, metric='f1', filter_constructed=False, constructed_dims=constructed_dims):
     from collections import defaultdict
     category_scores = defaultdict(list)
     category_words = defaultdict(list)
-    
-    constructed_dims = {
-        "beautiful-ugly", "delicate-rugged", "tense-relaxed", "simple-complex", 
-        "happy-sad", "sharp-round", "fast-slow", "masculine-feminine", 
-        "strong-weak", "exciting-calming", "harsh-mellow", "ordinary-unique", 
-        "dangerous-safe", "realistic-fantastical", "abrupt-continuous", 
-        "passive-active", "big-small", "heavy-light", "hard-soft", 
-        "solid-nonsolid", "inhibited-free"
-    }
     
     for model_name, model_data in data.items():
         for word_type, word_data in model_data.items():
@@ -257,18 +249,9 @@ def plot_category_performance(category_avgs, metric='f1', title=None, save_path=
     print(f"Category performance plot saved to {os.path.join(save_path, file_name)}")
     plt.close()
 
-def plot_wordtype_performance(data, metric='f1', save_path=None, filter_constructed=False):
+def plot_wordtype_performance(data, metric='f1', save_path=None, filter_constructed=False, constructed_dims=constructed_dims):
     from collections import defaultdict
-    
-    constructed_dims = {
-        "beautiful-ugly", "delicate-rugged", "tense-relaxed", "simple-complex", 
-        "happy-sad", "sharp-round", "fast-slow", "masculine-feminine", 
-        "strong-weak", "exciting-calming", "harsh-mellow", "ordinary-unique", 
-        "dangerous-safe", "realistic-fantastical", "abrupt-continuous", 
-        "passive-active", "big-small", "heavy-light", "hard-soft", 
-        "solid-nonsolid", "inhibited-free"
-    }
-    
+
     semdim_scores = defaultdict(lambda: defaultdict(list))
     semdim_words = defaultdict(lambda: defaultdict(list))
     
@@ -350,17 +333,8 @@ def plot_wordtype_performance(data, metric='f1', save_path=None, filter_construc
     print(f"Word type performance plot saved to {os.path.join(save_path, file_name)}")
     plt.close()
 
-def plot_ranking_change(data, metric='f1', save_path=None, filter_constructed=False):
+def plot_ranking_change(data, metric='f1', save_path=None, filter_constructed=False, constructed_dims=constructed_dims):
     from collections import defaultdict
-    
-    constructed_dims = {
-        "beautiful-ugly", "delicate-rugged", "tense-relaxed", "simple-complex", 
-        "happy-sad", "sharp-round", "fast-slow", "masculine-feminine", 
-        "strong-weak", "exciting-calming", "harsh-mellow", "ordinary-unique", 
-        "dangerous-safe", "realistic-fantastical", "abrupt-continuous", 
-        "passive-active", "big-small", "heavy-light", "hard-soft", 
-        "solid-nonsolid", "inhibited-free"
-    }
     
     semdim_scores = defaultdict(lambda: defaultdict(list))
     semdim_words = defaultdict(lambda: defaultdict(list))
@@ -447,17 +421,8 @@ def plot_ranking_change(data, metric='f1', save_path=None, filter_constructed=Fa
     print(f"Ranking change plot saved to {os.path.join(save_path, file_name)}")
     plt.close()
 
-def plot_inputtype_performance(data, metric='f1', save_path=None, filter_constructed=False):
+def plot_inputtype_performance(data, metric='f1', save_path=None, filter_constructed=False, constructed_dims=constructed_dims):
     from collections import defaultdict
-    
-    constructed_dims = {
-        "beautiful-ugly", "delicate-rugged", "tense-relaxed", "simple-complex", 
-        "happy-sad", "sharp-round", "fast-slow", "masculine-feminine", 
-        "strong-weak", "exciting-calming", "harsh-mellow", "ordinary-unique", 
-        "dangerous-safe", "realistic-fantastical", "abrupt-continuous", 
-        "passive-active", "big-small", "heavy-light", "hard-soft", 
-        "solid-nonsolid", "inhibited-free"
-    }
     
     semdim_scores = defaultdict(lambda: defaultdict(list))
     semdim_words = defaultdict(lambda: defaultdict(list))
@@ -479,7 +444,8 @@ def plot_inputtype_performance(data, metric='f1', save_path=None, filter_constru
     semdim_avgs = {}
     for sem_dim in semdim_scores:
         semdim_avgs[sem_dim] = {}
-        for input_type in ['original', 'original_and_audio', 'audio', 'ipa_and_audio', 'ipa']:
+        # for input_type in ['original', 'original_and_audio', 'audio', 'ipa_and_audio', 'ipa']:
+        for input_type in ['original', 'original_and_audio', 'ipa', 'ipa_and_audio', 'audio']:
             if input_type in semdim_scores[sem_dim]:
                 scores = semdim_scores[sem_dim][input_type]
                 weights = semdim_words[sem_dim][input_type]
@@ -491,9 +457,31 @@ def plot_inputtype_performance(data, metric='f1', save_path=None, filter_constru
     if not semdim_avgs:
         return
     
-    input_types = ['original', 'original_and_audio', 'audio', 'ipa_and_audio', 'ipa']
+    input_types = ['original', 'original_and_audio', 'ipa', 'ipa_and_audio', 'audio']
     sem_dims = list(semdim_avgs.keys())
     
+    # CSV 데이터 생성
+    csv_data = []
+    for sem_dim in sem_dims:
+        row = {'semantic_dimension': sem_dim}
+        for input_type in input_types:
+            row[input_type] = semdim_avgs[sem_dim].get(input_type, 0.0)
+        csv_data.append(row)
+    
+    # DataFrame 생성 및 CSV 저장
+    df = pd.DataFrame(csv_data)
+    os.makedirs(save_path, exist_ok=True)
+    suffix = "_filter" if filter_constructed else ""
+    csv_file_name = f"inputtype_performance_{metric}{suffix}.csv"
+    csv_path = os.path.join(save_path, csv_file_name)
+    df.to_csv(csv_path, index=False)
+    print(f"Input type performance CSV saved to {csv_path}")
+    
+    # 표 형태로 출력
+    print(f"\n=== Input Type Performance ({metric.upper()}) ===")
+    print(df.to_string(index=False, float_format='%.3f'))
+    
+    # 기존 플롯 코드
     fig, ax = plt.subplots(figsize=(14, 8))
     
     colors = {
@@ -529,8 +517,6 @@ def plot_inputtype_performance(data, metric='f1', save_path=None, filter_constru
     
     plt.tight_layout()
     
-    os.makedirs(save_path, exist_ok=True)
-    suffix = "_filter" if filter_constructed else ""
     file_name = f"inputtype_performance_{metric}{suffix}.png"
     plt.savefig(os.path.join(save_path, file_name), dpi=300, bbox_inches='tight')
     print(f"Input type performance plot saved to {os.path.join(save_path, file_name)}")
@@ -538,15 +524,6 @@ def plot_inputtype_performance(data, metric='f1', save_path=None, filter_constru
 
 def plot_inputtype_ranking_change(data, metric='f1', save_path=None, filter_constructed=False):
     from collections import defaultdict
-    
-    constructed_dims = {
-        "beautiful-ugly", "delicate-rugged", "tense-relaxed", "simple-complex", 
-        "happy-sad", "sharp-round", "fast-slow", "masculine-feminine", 
-        "strong-weak", "exciting-calming", "harsh-mellow", "ordinary-unique", 
-        "dangerous-safe", "realistic-fantastical", "abrupt-continuous", 
-        "passive-active", "big-small", "heavy-light", "hard-soft", 
-        "solid-nonsolid", "inhibited-free"
-    }
     
     semdim_scores = defaultdict(lambda: defaultdict(list))
     semdim_words = defaultdict(lambda: defaultdict(list))
@@ -568,7 +545,7 @@ def plot_inputtype_ranking_change(data, metric='f1', save_path=None, filter_cons
     semdim_avgs = {}
     for sem_dim in semdim_scores:
         semdim_avgs[sem_dim] = {}
-        for input_type in ['original', 'original_and_audio', 'audio', 'ipa_and_audio', 'ipa']:
+        for input_type in ['original', 'original_and_audio', 'ipa', 'ipa_and_audio', 'audio']:
             if input_type in semdim_scores[sem_dim]:
                 scores = semdim_scores[sem_dim][input_type]
                 weights = semdim_words[sem_dim][input_type]
@@ -580,7 +557,7 @@ def plot_inputtype_ranking_change(data, metric='f1', save_path=None, filter_cons
     if not semdim_avgs:
         return
     
-    input_types = ['original', 'original_and_audio', 'audio', 'ipa_and_audio', 'ipa']
+    input_types = ['original', 'original_and_audio', 'ipa', 'ipa_and_audio', 'audio']
     sem_dims = list(semdim_avgs.keys())
     
     # 각 input type별로 등수 계산
@@ -590,6 +567,28 @@ def plot_inputtype_ranking_change(data, metric='f1', save_path=None, filter_cons
         scores.sort(key=lambda x: x[1], reverse=True)  # 성능 높은 순으로 정렬
         rankings[input_type] = {sem_dim: rank + 1 for rank, (sem_dim, _) in enumerate(scores)}
     
+    # CSV 데이터 생성
+    csv_data = []
+    for sem_dim in sem_dims:
+        row = {'semantic_dimension': sem_dim}
+        for input_type in input_types:
+            row[input_type] = rankings[input_type][sem_dim]
+        csv_data.append(row)
+    
+    # DataFrame 생성 및 CSV 저장
+    df = pd.DataFrame(csv_data)
+    os.makedirs(save_path, exist_ok=True)
+    suffix = "_filter" if filter_constructed else ""
+    csv_file_name = f"inputtype_ranking_change_{metric}{suffix}.csv"
+    csv_path = os.path.join(save_path, csv_file_name)
+    df.to_csv(csv_path, index=False)
+    print(f"Input type ranking change CSV saved to {csv_path}")
+    
+    # 표 형태로 출력
+    print(f"\n=== Input Type Ranking Change ({metric.upper()}) ===")
+    print(df.to_string(index=False))
+    
+    # 기존 플롯 코드
     fig, ax = plt.subplots(figsize=(14, 8))
     
     colors = {
@@ -607,14 +606,13 @@ def plot_inputtype_ranking_change(data, metric='f1', save_path=None, filter_cons
         color = colors.get(category, 'gray')
         line = ax.plot(input_types, values, marker='o', linewidth=2, markersize=6, color=color, label=sem_dim, alpha=0.8)
         
-        # original 지점에서 Y축에 semantic dimension 이름 표시
         original_rank = rankings['original'][sem_dim]
         ax.text(-0.1, original_rank, sem_dim, ha='right', va='center', fontsize=9, 
                 color=color, alpha=0.8, transform=ax.get_yaxis_transform())
     
     ax.set_xlabel('Input Types', fontsize=13)
     ax.set_ylabel('Ranking', fontsize=13)
-    ax.invert_yaxis()  # 1등이 위쪽에 오도록 Y축 뒤집기
+    ax.invert_yaxis()
     ax.yaxis.set_major_locator(ticker.MaxNLocator(integer=True))
     
     ax.grid(True, alpha=0.3)
@@ -622,11 +620,240 @@ def plot_inputtype_ranking_change(data, metric='f1', save_path=None, filter_cons
     
     plt.tight_layout()
     
-    os.makedirs(save_path, exist_ok=True)
-    suffix = "_filter" if filter_constructed else ""
     file_name = f"inputtype_ranking_change_{metric}{suffix}.png"
     plt.savefig(os.path.join(save_path, file_name), dpi=300, bbox_inches='tight')
     print(f"Input type ranking change plot saved to {os.path.join(save_path, file_name)}")
+    plt.close()
+
+def plot_inputtype_wordtype_scatter(data, metric='f1', save_path=None, filter_constructed=False, constructed_dims=constructed_dims):
+    from collections import defaultdict
+
+    input_type_scores = defaultdict(lambda: defaultdict(list))
+    input_type_words = defaultdict(lambda: defaultdict(list))
+    
+    for model_name, model_data in data.items():
+        for word_type, word_data in model_data.items():
+            for input_type, input_data in word_data.items():
+                if "romanized" in input_type:
+                    continue
+                dimensions = input_data.get('dimensions', {})
+                for sem_dim, entry in dimensions.items():
+                    if filter_constructed:
+                        if sem_dim not in constructed_dims:
+                            continue
+                    
+                    input_type_scores[input_type][word_type].append(extract_metric(entry, metric))
+                    input_type_words[input_type][word_type].append(extract_num_words(entry))
+    
+    input_type_avgs = {}
+    for input_type in ['original', 'original_and_audio', 'ipa', 'ipa_and_audio', 'audio']:
+        input_type_avgs[input_type] = {}
+        for word_type in ['constructed', 'rare', 'common']:
+            if word_type in input_type_scores[input_type]:
+                scores = input_type_scores[input_type][word_type]
+                weights = input_type_words[input_type][word_type]
+                avg = weighted_avg(scores, weights)
+                input_type_avgs[input_type][word_type] = avg
+            else:
+                input_type_avgs[input_type][word_type] = 0.0
+    
+    if not input_type_avgs:
+        return
+    
+    input_types = ['original', 'original_and_audio', 'ipa', 'ipa_and_audio', 'audio']
+    word_types = ['constructed', 'rare', 'common']
+    
+    fig, ax = plt.subplots(figsize=(12, 8))
+    
+    colors = ['#ffd43b', '#20c997', '#f06595']
+    markers = ['s', '^', 'o']
+    
+    for i, word_type in enumerate(word_types):
+        x_coords = []
+        y_coords = []
+        for j, input_type in enumerate(input_types):
+            if input_type in input_type_avgs and word_type in input_type_avgs[input_type]:
+                x_coords.append(j)
+                y_coords.append(input_type_avgs[input_type][word_type])
+        
+        ax.scatter(x_coords, y_coords, c=colors[i], marker=markers[i], s=100, 
+                  label=word_type, alpha=0.8, edgecolors='black', linewidth=1)
+    
+    ax.set_xlabel('Input Types', fontsize=13)
+    ax.set_ylabel(f'{metric} score', fontsize=13)
+    ax.set_xticks(range(len(input_types)))
+    ax.set_xticklabels(input_types, ha='right')
+    ax.set_ylim(0, 1)
+    ax.yaxis.set_major_locator(ticker.MultipleLocator(0.1))
+    
+    ax.axhline(y=0.5, color='gray', linestyle='--', alpha=0.7, linewidth=1.5)
+    ax.axhline(y=0.35, color='gray', linestyle=':', alpha=0.5, linewidth=1.0)
+    ax.axhline(y=0.65, color='gray', linestyle=':', alpha=0.5, linewidth=1.0)
+    
+    ax.grid(True, alpha=0.3)
+    ax.legend(fontsize=12)
+    
+    plt.tight_layout()
+    
+    os.makedirs(save_path, exist_ok=True)
+    suffix = "_filter" if filter_constructed else ""
+    file_name = f"inputtype_wordtype_scatter_{metric}{suffix}.png"
+    plt.savefig(os.path.join(save_path, file_name), dpi=300, bbox_inches='tight')
+    print(f"Input type vs word type scatter plot saved to {os.path.join(save_path, file_name)}")
+    plt.close()
+
+def plot_inputtype_wordtype_modeltype_scatter(data, metric='f1', save_path=None, filter_constructed=False, constructed_dims=constructed_dims):
+    from collections import defaultdict
+    
+    def normalize_model_name(model_name):
+        if 'gpt' in model_name.lower():
+            return 'GPT'
+        return model_name
+    
+    model_input_word_scores = defaultdict(lambda: defaultdict(lambda: defaultdict(list)))
+    model_input_word_words = defaultdict(lambda: defaultdict(lambda: defaultdict(list)))
+    
+    for model_name, model_data in data.items():
+        normalized_model = normalize_model_name(model_name)
+        for word_type, word_data in model_data.items():
+            for input_type, input_data in word_data.items():
+                if "romanized" in input_type:
+                    continue
+                dimensions = input_data.get('dimensions', {})
+                for sem_dim, entry in dimensions.items():
+                    if filter_constructed:
+                        if sem_dim not in constructed_dims:
+                            continue
+                    
+                    model_input_word_scores[normalized_model][input_type][word_type].append(extract_metric(entry, metric))
+                    model_input_word_words[normalized_model][input_type][word_type].append(extract_num_words(entry))
+    
+    model_input_word_avgs = {}
+    for model_name in model_input_word_scores:
+        model_input_word_avgs[model_name] = {}
+        for input_type in ['original', 'original_and_audio', 'ipa', 'ipa_and_audio', 'audio']:
+            model_input_word_avgs[model_name][input_type] = {}
+            for word_type in ['constructed', 'rare', 'common']:
+                if input_type in model_input_word_scores[model_name] and word_type in model_input_word_scores[model_name][input_type]:
+                    scores = model_input_word_scores[model_name][input_type][word_type]
+                    weights = model_input_word_words[model_name][input_type][word_type]
+                    if scores:
+                        avg = weighted_avg(scores, weights)
+                        model_input_word_avgs[model_name][input_type][word_type] = avg
+    
+    if not model_input_word_avgs:
+        return
+    
+    input_types = ['original', 'original_and_audio', 'ipa', 'ipa_and_audio', 'audio']
+    word_types = ['constructed', 'rare', 'common']
+    models = list(model_input_word_avgs.keys())
+    
+    fig, ax = plt.subplots(figsize=(6, 8))
+    
+    colors = ['#ffd43b', '#20c997', '#f06595']
+    markers = ['s', '^', 'o', '*', 'D']
+    
+    for i, word_type in enumerate(word_types):
+        for j, model_name in enumerate(models):
+            x_coords = []
+            y_coords = []
+            for k, input_type in enumerate(input_types):
+                if (model_name in model_input_word_avgs and 
+                    input_type in model_input_word_avgs[model_name] and 
+                    word_type in model_input_word_avgs[model_name][input_type]):
+                    x_coords.append(k)
+                    y_coords.append(model_input_word_avgs[model_name][input_type][word_type])
+            
+            if x_coords:
+                label = f"{model_name}-{word_type}" if j == 0 else None
+                ax.scatter(x_coords, y_coords, c=colors[i], marker=markers[j], s=30, 
+                          label=label, alpha=0.8, edgecolors='black', linewidth=0.5)
+    
+    ax.set_xlabel('Input Types', fontsize=13)
+    ax.set_ylabel(f'{metric} score', fontsize=13)
+    ax.set_xticks(range(len(input_types)))
+    ax.set_xticklabels(input_types, ha='right')
+    ax.set_ylim(0, 1)
+    ax.yaxis.set_major_locator(ticker.MultipleLocator(0.1))
+    
+    ax.axhline(y=0.5, color='gray', linestyle='--', alpha=0.7, linewidth=1.5)
+    ax.axhline(y=0.35, color='gray', linestyle=':', alpha=0.5, linewidth=1.0)
+    ax.axhline(y=0.65, color='gray', linestyle=':', alpha=0.5, linewidth=1.0)
+    
+    ax.grid(True, alpha=0.3)
+    
+    legend_elements = []
+    for i, word_type in enumerate(word_types):
+        legend_elements.append(plt.Line2D([0], [0], marker='o', color='w', markerfacecolor=colors[i], 
+                                        markersize=8, label=word_type))
+    for j, model_name in enumerate(models):
+        legend_elements.append(plt.Line2D([0], [0], marker=markers[j], color='w', markerfacecolor='gray', 
+                                        markersize=8, label=model_name))
+    
+    ax.legend(handles=legend_elements, fontsize=10, loc='upper right')
+    
+    plt.tight_layout()
+    
+    os.makedirs(save_path, exist_ok=True)
+    suffix = "_filter" if filter_constructed else ""
+    file_name = f"inputtype_wordtype_modeltype_scatter_{metric}{suffix}.png"
+    plt.savefig(os.path.join(save_path, file_name), dpi=300, bbox_inches='tight')
+    print(f"Input type vs word type vs model type scatter plot saved to {os.path.join(save_path, file_name)}")
+    plt.close()
+
+def plot_inputtype_per_wordtype_all_models(data, metric='f1', save_path=None, filter_constructed=False, constructed_dims=constructed_dims):
+    from collections import defaultdict
+    input_types = ['original', 'original_and_audio', 'ipa', 'ipa_and_audio', 'audio']
+    word_types = ['common', 'rare', 'constructed']
+    inputtype_wordtype_scores = defaultdict(lambda: defaultdict(list))
+    inputtype_wordtype_words = defaultdict(lambda: defaultdict(list))
+    for model_name, model_data in data.items():
+        for word_type, word_data in model_data.items():
+            if word_type not in word_types:
+                continue
+            for input_type, input_data in word_data.items():
+                if "romanized" in input_type:
+                    continue
+                dimensions = input_data.get('dimensions', {})
+                for sem_dim, entry in dimensions.items():
+                    if filter_constructed:
+                        if sem_dim not in constructed_dims:
+                            continue
+                    inputtype_wordtype_scores[word_type][input_type].append(extract_metric(entry, metric))
+                    inputtype_wordtype_words[word_type][input_type].append(extract_num_words(entry))
+    fig, axes = plt.subplots(1, 3, figsize=(15, 5), sharey=True)
+    colors = ['#ffd43b', '#20c997', '#f06595']
+    for idx, word_type in enumerate(word_types):
+        avgs = []
+        for input_type in input_types:
+            scores = inputtype_wordtype_scores[word_type][input_type]
+            weights = inputtype_wordtype_words[word_type][input_type]
+            if scores:
+                avg = weighted_avg(scores, weights)
+                avgs.append(avg)
+            else:
+                avgs.append(None)
+        ax = axes[idx]
+        x = [i for i, v in enumerate(avgs) if v is not None]
+        y = [v for v in avgs if v is not None]
+        ax.scatter(x, y, color=colors[idx], s=60, edgecolors='black', linewidth=1)
+        ax.set_title(word_type)
+        ax.set_xticks(range(len(input_types)))
+        ax.set_xticklabels(input_types, rotation=30, ha='right')
+        ax.set_ylim(0, 1)
+        ax.yaxis.set_major_locator(ticker.MultipleLocator(0.1))
+        ax.axhline(y=0.5, color='gray', linestyle='--', alpha=0.7, linewidth=1.5)
+        ax.axhline(y=0.35, color='gray', linestyle=':', alpha=0.5, linewidth=1.0)
+        ax.axhline(y=0.65, color='gray', linestyle=':', alpha=0.5, linewidth=1.0)
+        ax.grid(True, alpha=0.3)
+        if idx == 0:
+            ax.set_ylabel(f'{metric} score')
+    plt.tight_layout()
+    os.makedirs(save_path, exist_ok=True)
+    suffix = "_filter" if filter_constructed else ""
+    file_name = f"inputtype_per_wordtype_all_models_{metric}{suffix}.png"
+    plt.savefig(os.path.join(save_path, file_name), dpi=300, bbox_inches='tight')
+    print(f"Input type per word type (all models) plot saved to {os.path.join(save_path, file_name)}")
     plt.close()
 
 def main(json_path, metric='f1', sem_dims=None, save_path=None, filter_constructed=False):
@@ -645,13 +872,16 @@ def main(json_path, metric='f1', sem_dims=None, save_path=None, filter_construct
     for group in model_input_groups:
         plot_horizontal_bar(avg_by_model_input, group, metric, title=f"Model: {group[0]}, Input Type: {group[1]}", sem_dims=sem_dims, save_path=save_path, filter_constructed=filter_constructed)
     
-    category_avgs = compute_avg_by_category(data, metric, filter_constructed)
-    plot_category_performance(category_avgs, metric, title=f"Category-wise {metric} Performance", save_path=save_path, filter_constructed=filter_constructed)
+    # category_avgs = compute_avg_by_category(data, metric, filter_constructed)
+    # plot_category_performance(category_avgs, metric, title=f"Category-wise {metric} Performance", save_path=save_path, filter_constructed=filter_constructed)
     
     plot_wordtype_performance(data, metric, save_path=save_path, filter_constructed=filter_constructed)
     plot_ranking_change(data, metric, save_path=save_path, filter_constructed=filter_constructed)
     plot_inputtype_performance(data, metric, save_path=save_path, filter_constructed=filter_constructed)
     plot_inputtype_ranking_change(data, metric, save_path=save_path, filter_constructed=filter_constructed)
+    plot_inputtype_wordtype_scatter(data, metric, save_path=save_path, filter_constructed=filter_constructed)
+    plot_inputtype_wordtype_modeltype_scatter(data, metric, save_path=save_path, filter_constructed=filter_constructed)
+    plot_inputtype_per_wordtype_all_models(data, metric, save_path=save_path, filter_constructed=filter_constructed)
 
 if __name__ == "__main__":
     import argparse
