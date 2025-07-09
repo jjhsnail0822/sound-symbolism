@@ -62,6 +62,8 @@ def main():
     lang = 'art' # 'en', 'fr', 'ja', 'art
     frame_duration_ms = 40
     root = Path('/home/sunahan/workspace/sound-symbolism')
+
+    
     data_dir  = root / 'data' / 'processed'
     if lang == 'art':
         textgrid_dir = data_dir / 'art' / 'textgrids'
@@ -78,7 +80,7 @@ def main():
     oov = []
     textgrid_files = textgrid_dir.glob("*.TextGrid")
     for textgrid_path in textgrid_files:
-        word = unicodedata.normalize('NFKC', str(textgrid_path.name))
+        word = unicodedata.normalize('NFKC', str(textgrid_path.stem))
         data = parse_textgrid(textgrid_path=textgrid_path)
         phones = textgrid_to_array(xmax = data['xmax'], 
                                    phones_interval=data['phones'],
@@ -91,7 +93,8 @@ def main():
             'word':  word,
             'sampling_rate': 16000,
             'frame_duration_ms': frame_duration_ms,
-            'phones': phones
+            'phones': phones,
+            'mfa_raw': data
         }
         results.append(result_dict)
     
