@@ -54,11 +54,11 @@ args = parser.parse_args()
 
 experiments = [
     "semantic_dimension_binary_original",
-    "semantic_dimension_binary_romanized",
+    # "semantic_dimension_binary_romanized",
     "semantic_dimension_binary_ipa",
     "semantic_dimension_binary_audio",
     "semantic_dimension_binary_original_and_audio",
-    "semantic_dimension_binary_romanized_and_audio",
+    # "semantic_dimension_binary_romanized_and_audio",
     "semantic_dimension_binary_ipa_and_audio",
 ]
 

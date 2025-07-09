@@ -1,5 +1,6 @@
 # Model : Qwen2.5-Omni-7B
 # python src/analysis/heatmap/semdim_heatmap.py --max-samples 2 --data-type original
+# python src/analysis/heatmap/semdim_heatmap.py --max-samples 2 --data-type original
 import json
 import re
 import os
@@ -8,10 +9,12 @@ import pickle as pkl
 from typing import Union
 import numpy as np
 import gc
+import gc
 from transformers import Qwen2_5OmniForConditionalGeneration, Qwen2_5OmniProcessor
 import torch
 from tqdm import tqdm
 from qwen_omni_utils import process_mm_info
+
 
 language = ["en", "fr", "ko", "ja"]
 data_types = ["original", "romanized", "ipa", "audio"]
@@ -26,8 +29,17 @@ SYSTEM_TEMPLATE = {
     ],
 }
 
+SYSTEM_PROMPT = "You are Qwen, a virtual human developed by the Qwen Team, Alibaba Group, capable of perceiving auditory and visual inputs, as well as generating text and speech."
+SYSTEM_TEMPLATE = {
+    "role": "system",
+    "content": [
+        {"type": "text", "text": SYSTEM_PROMPT}
+    ],
+}
+
 with open(prompt_path, "r") as f:
     prompts = json.load(f)
+
 
 class QwenOmniSemanticDimensionVisualizer:
     def __init__(
@@ -56,6 +68,7 @@ class QwenOmniSemanticDimensionVisualizer:
             attn_implementation="eager",
         )
         self.model.disable_talker()
+        self.load_base_prompt()
         self.load_base_prompt()
         self.processor = Qwen2_5OmniProcessor.from_pretrained(self.model_path)
         self.data = self.load_data()
@@ -151,7 +164,9 @@ class QwenOmniSemanticDimensionVisualizer:
                     },
                 ]
         else:
+            # non-audio 타입: 단순 텍스트
             conversation = [
+                SYSTEM_TEMPLATE,
                 SYSTEM_TEMPLATE,
                 {
                     "role": "user",
@@ -916,11 +931,19 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Qwen2.5-Omni Semantic Dimension Attention Heatmap Visualization")
     parser.add_argument('--model', type=str, default="Qwen/Qwen2.5-Omni-7B", help="Model path (default: Qwen/Qwen2.5-Omni-7B)")
     parser.add_argument('--data-path', type=str, default="data/processed/nat/semantic_dimension/semantic_dimension_binary_gt.json",
+    parser.add_argument('--model', type=str, default="Qwen/Qwen2.5-Omni-7B", help="Model path (default: Qwen/Qwen2.5-Omni-7B)")
+    parser.add_argument('--data-path', type=str, default="data/processed/nat/semantic_dimension/semantic_dimension_binary_gt.json",
                        help="Path to semantic dimension data JSON file")
+    parser.add_argument('--output-dir', type=str, default="results/experiments/understanding/attention_heatmap",
     parser.add_argument('--output-dir', type=str, default="results/experiments/understanding/attention_heatmap",
                        help="Output directory for heatmaps and matrices")
     parser.add_argument('--data-type', type=str, default="audio", choices=["audio", "original", "romanized", "ipa"],
+    parser.add_argument('--data-type', type=str, default="audio", choices=["audio", "original", "romanized", "ipa"],
                        help="Data type to process")
+    parser.add_argument('--max-tokens', type=int, default=32, help="Maximum tokens to generate")
+    parser.add_argument('--temperature', type=float, default=0.0, help="Sampling temperature")
+    parser.add_argument('--max-samples', type=int, default=None, help="Maximum number of samples to process (default: all)")
+    parser.add_argument('--languages', nargs='+', default=["en", "fr", "ko", "ja"], help="Languages to process")
     parser.add_argument('--max-tokens', type=int, default=32, help="Maximum tokens to generate")
     parser.add_argument('--temperature', type=float, default=0.0, help="Sampling temperature")
     parser.add_argument('--max-samples', type=int, default=None, help="Maximum number of samples to process (default: all)")
@@ -928,7 +951,9 @@ if __name__ == "__main__":
     
     args = parser.parse_args()
     max_samples:int = args.max_samples
+    max_samples:int = args.max_samples
     print(f"Data type: {args.data_type}")
+
 
     visualizer = QwenOmniSemanticDimensionVisualizer(
         model_path=args.model,
@@ -950,7 +975,12 @@ if __name__ == "__main__":
         print(f"\nProcessing language: {lang}")
         lang_data = visualizer.data[lang]
         print(f"Found {len(lang_data)} samples for language {lang}")
+        lang_data = visualizer.data[lang]
+        print(f"Found {len(lang_data)} samples for language {lang}")
         
+        if max_samples:
+            lang_data = lang_data[:max_samples]
+            print(f"Limiting to {len(lang_data)} samples")
         if max_samples:
             lang_data = lang_data[:max_samples]
             print(f"Limiting to {len(lang_data)} samples")
@@ -972,6 +1002,9 @@ if __name__ == "__main__":
             torch.cuda.empty_cache()
     
     print(f"\nProcessing completed!")
+    print(f"Total samples processed: {total_num_of_dimensions}")
+    print(f"Total number of words: {total_num_of_words}")
+    print(f"Total number of words per language: {total_num_of_words_per_language}")
     print(f"Total samples processed: {total_num_of_dimensions}")
     print(f"Total number of words: {total_num_of_words}")
     print(f"Total number of words per language: {total_num_of_words_per_language}")

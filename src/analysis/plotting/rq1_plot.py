@@ -447,6 +447,188 @@ def plot_ranking_change(data, metric='f1', save_path=None, filter_constructed=Fa
     print(f"Ranking change plot saved to {os.path.join(save_path, file_name)}")
     plt.close()
 
+def plot_inputtype_performance(data, metric='f1', save_path=None, filter_constructed=False):
+    from collections import defaultdict
+    
+    constructed_dims = {
+        "beautiful-ugly", "delicate-rugged", "tense-relaxed", "simple-complex", 
+        "happy-sad", "sharp-round", "fast-slow", "masculine-feminine", 
+        "strong-weak", "exciting-calming", "harsh-mellow", "ordinary-unique", 
+        "dangerous-safe", "realistic-fantastical", "abrupt-continuous", 
+        "passive-active", "big-small", "heavy-light", "hard-soft", 
+        "solid-nonsolid", "inhibited-free"
+    }
+    
+    semdim_scores = defaultdict(lambda: defaultdict(list))
+    semdim_words = defaultdict(lambda: defaultdict(list))
+    
+    for model_name, model_data in data.items():
+        for word_type, word_data in model_data.items():
+            for input_type, input_data in word_data.items():
+                if "romanized" in input_type:
+                    continue
+                dimensions = input_data.get('dimensions', {})
+                for sem_dim, entry in dimensions.items():
+                    if filter_constructed:
+                        if sem_dim not in constructed_dims:
+                            continue
+                    
+                    semdim_scores[sem_dim][input_type].append(extract_metric(entry, metric))
+                    semdim_words[sem_dim][input_type].append(extract_num_words(entry))
+    
+    semdim_avgs = {}
+    for sem_dim in semdim_scores:
+        semdim_avgs[sem_dim] = {}
+        for input_type in ['original', 'original_and_audio', 'audio', 'ipa_and_audio', 'ipa']:
+            if input_type in semdim_scores[sem_dim]:
+                scores = semdim_scores[sem_dim][input_type]
+                weights = semdim_words[sem_dim][input_type]
+                avg = weighted_avg(scores, weights)
+                semdim_avgs[sem_dim][input_type] = avg
+            else:
+                semdim_avgs[sem_dim][input_type] = 0.0
+    
+    if not semdim_avgs:
+        return
+    
+    input_types = ['original', 'original_and_audio', 'audio', 'ipa_and_audio', 'ipa']
+    sem_dims = list(semdim_avgs.keys())
+    
+    fig, ax = plt.subplots(figsize=(14, 8))
+    
+    colors = {
+        "valence": "#FF6B6B",
+        "potency": "#4ECDC4",
+        "activity": "#45B7D1",
+        "other factors": "#96CEB4",
+        "stimulus dimensions": "#FF8C42",
+        "other dimensions": "#DDA0DD"
+    }
+    
+    for sem_dim in sem_dims:
+        values = [semdim_avgs[sem_dim].get(it, 0.0) for it in input_types]
+        category = find_category(sem_dim)
+        color = colors.get(category, 'gray')
+        line = ax.plot(input_types, values, marker='o', linewidth=2, markersize=6, color=color, label=sem_dim, alpha=0.8)
+        
+        original_value = semdim_avgs[sem_dim].get('original', 0.0)
+        ax.text(-0.1, original_value, sem_dim, ha='right', va='center', fontsize=9, 
+                color=color, alpha=0.8, transform=ax.get_yaxis_transform())
+    
+    ax.set_xlabel('Input Types', fontsize=13)
+    ax.set_ylabel(f'{metric} score', fontsize=13)
+    ax.set_ylim(0, 1)
+    ax.yaxis.set_major_locator(ticker.MultipleLocator(0.1))
+    
+    ax.axhline(y=0.5, color='gray', linestyle='--', alpha=0.7, linewidth=1.5)
+    ax.axhline(y=0.35, color='gray', linestyle=':', alpha=0.5, linewidth=1.0)
+    ax.axhline(y=0.65, color='gray', linestyle=':', alpha=0.5, linewidth=1.0)
+    
+    ax.grid(True, alpha=0.3)
+    ax.legend(bbox_to_anchor=(1.05, 1), loc='upper left', fontsize=10)
+    
+    plt.tight_layout()
+    
+    os.makedirs(save_path, exist_ok=True)
+    suffix = "_filter" if filter_constructed else ""
+    file_name = f"inputtype_performance_{metric}{suffix}.png"
+    plt.savefig(os.path.join(save_path, file_name), dpi=300, bbox_inches='tight')
+    print(f"Input type performance plot saved to {os.path.join(save_path, file_name)}")
+    plt.close()
+
+def plot_inputtype_ranking_change(data, metric='f1', save_path=None, filter_constructed=False):
+    from collections import defaultdict
+    
+    constructed_dims = {
+        "beautiful-ugly", "delicate-rugged", "tense-relaxed", "simple-complex", 
+        "happy-sad", "sharp-round", "fast-slow", "masculine-feminine", 
+        "strong-weak", "exciting-calming", "harsh-mellow", "ordinary-unique", 
+        "dangerous-safe", "realistic-fantastical", "abrupt-continuous", 
+        "passive-active", "big-small", "heavy-light", "hard-soft", 
+        "solid-nonsolid", "inhibited-free"
+    }
+    
+    semdim_scores = defaultdict(lambda: defaultdict(list))
+    semdim_words = defaultdict(lambda: defaultdict(list))
+    
+    for model_name, model_data in data.items():
+        for word_type, word_data in model_data.items():
+            for input_type, input_data in word_data.items():
+                if "romanized" in input_type:
+                    continue
+                dimensions = input_data.get('dimensions', {})
+                for sem_dim, entry in dimensions.items():
+                    if filter_constructed:
+                        if sem_dim not in constructed_dims:
+                            continue
+                    
+                    semdim_scores[sem_dim][input_type].append(extract_metric(entry, metric))
+                    semdim_words[sem_dim][input_type].append(extract_num_words(entry))
+    
+    semdim_avgs = {}
+    for sem_dim in semdim_scores:
+        semdim_avgs[sem_dim] = {}
+        for input_type in ['original', 'original_and_audio', 'audio', 'ipa_and_audio', 'ipa']:
+            if input_type in semdim_scores[sem_dim]:
+                scores = semdim_scores[sem_dim][input_type]
+                weights = semdim_words[sem_dim][input_type]
+                avg = weighted_avg(scores, weights)
+                semdim_avgs[sem_dim][input_type] = avg
+            else:
+                semdim_avgs[sem_dim][input_type] = 0.0
+    
+    if not semdim_avgs:
+        return
+    
+    input_types = ['original', 'original_and_audio', 'audio', 'ipa_and_audio', 'ipa']
+    sem_dims = list(semdim_avgs.keys())
+    
+    # 각 input type별로 등수 계산
+    rankings = {}
+    for input_type in input_types:
+        scores = [(sem_dim, semdim_avgs[sem_dim].get(input_type, 0.0)) for sem_dim in sem_dims]
+        scores.sort(key=lambda x: x[1], reverse=True)  # 성능 높은 순으로 정렬
+        rankings[input_type] = {sem_dim: rank + 1 for rank, (sem_dim, _) in enumerate(scores)}
+    
+    fig, ax = plt.subplots(figsize=(14, 8))
+    
+    colors = {
+        "valence": "#FF6B6B",
+        "potency": "#4ECDC4",
+        "activity": "#45B7D1",
+        "other factors": "#96CEB4",
+        "stimulus dimensions": "#FF8C42",
+        "other dimensions": "#DDA0DD"
+    }
+    
+    for sem_dim in sem_dims:
+        values = [rankings[it][sem_dim] for it in input_types]
+        category = find_category(sem_dim)
+        color = colors.get(category, 'gray')
+        line = ax.plot(input_types, values, marker='o', linewidth=2, markersize=6, color=color, label=sem_dim, alpha=0.8)
+        
+        # original 지점에서 Y축에 semantic dimension 이름 표시
+        original_rank = rankings['original'][sem_dim]
+        ax.text(-0.1, original_rank, sem_dim, ha='right', va='center', fontsize=9, 
+                color=color, alpha=0.8, transform=ax.get_yaxis_transform())
+    
+    ax.set_xlabel('Input Types', fontsize=13)
+    ax.set_ylabel('Ranking', fontsize=13)
+    ax.invert_yaxis()  # 1등이 위쪽에 오도록 Y축 뒤집기
+    ax.yaxis.set_major_locator(ticker.MaxNLocator(integer=True))
+    
+    ax.grid(True, alpha=0.3)
+    ax.legend(bbox_to_anchor=(1.05, 1), loc='upper left', fontsize=10)
+    
+    plt.tight_layout()
+    
+    os.makedirs(save_path, exist_ok=True)
+    suffix = "_filter" if filter_constructed else ""
+    file_name = f"inputtype_ranking_change_{metric}{suffix}.png"
+    plt.savefig(os.path.join(save_path, file_name), dpi=300, bbox_inches='tight')
+    print(f"Input type ranking change plot saved to {os.path.join(save_path, file_name)}")
+    plt.close()
+
 def main(json_path, metric='f1', sem_dims=None, save_path=None, filter_constructed=False):
     data = load_stat_json(json_path)
     avg_by_model = compute_avg_by_condition(data, ['model'], metric, filter_constructed)
@@ -468,6 +650,8 @@ def main(json_path, metric='f1', sem_dims=None, save_path=None, filter_construct
     
     plot_wordtype_performance(data, metric, save_path=save_path, filter_constructed=filter_constructed)
     plot_ranking_change(data, metric, save_path=save_path, filter_constructed=filter_constructed)
+    plot_inputtype_performance(data, metric, save_path=save_path, filter_constructed=filter_constructed)
+    plot_inputtype_ranking_change(data, metric, save_path=save_path, filter_constructed=filter_constructed)
 
 if __name__ == "__main__":
     import argparse
