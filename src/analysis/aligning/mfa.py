@@ -151,7 +151,7 @@ def create_lab_files(corpus_dir):
 
 
 
-def create_custom_dict(words_path, dict_path):
+def create_custom_dict(words_path, dict_path, lang):
     ipa_to_arpa = {
     "l": "L",
     "m": "M",
@@ -173,15 +173,25 @@ def create_custom_dict(words_path, dict_path):
     "ɑ": "AA0",
     "ow": "OW0"
     }    
-   
+
     with open(words_path, 'r', encoding='utf-8') as f:
         data = json.load(f)
-    word_ipa_pairs = [( item['word'], item['ipa']) for item in data['art']]
+        if lang == 'art':
+            data = data['art']
+
+    word_ipa_pairs = [( item['word'], item['ipa']) for item in data]
     
     for word, ipa in word_ipa_pairs:
-        arpa = [ipa_to_arpa[symbol] for symbol in ipa.split(' ')]
-        with open(dict_path,'a', encoding='utf-8' ) as f:
-            f.write(f"{word}\t{' '.join(arpa)}\n")
+        if lang == 'art':
+            arpa = [ipa_to_arpa[symbol] for symbol in ipa.split(' ')]
+            with open(dict_path,'a', encoding='utf-8' ) as f:
+                f.write(f"{word}\t{' '.join(arpa)}\n")
+        else:
+            #TODO: manually mapping pronunciation dictionary
+            with open(dict_path, 'a', encoding='utf-8') as f:
+                f.write(f'{word}\t{ipa}\n')
+
+
     print(f"[INFO] Pronounciation dictionary saved: {dict_path}")
 
             
@@ -198,20 +208,20 @@ def main():
         corpus_dir = data_dir / 'art' / 'tts'
         output_dir = data_dir / 'art' / 'textgrids' 
     else:
-        dict_path = None
+        dict_path = data_dir / 'nat' / 'resources' / 'MFA_pronunciation_dict.txt'
         words_path = data_dir / 'nat' / f'{lang}.json'
         corpus_dir = data_dir / 'nat' / 'tts' / lang
         output_dir = data_dir / 'nat' / 'textgrids' / lang
 
 
     Path(output_dir).mkdir(parents=True, exist_ok=True)
+    Path(dict_path.parent).mkdir(parents=True, exist_ok=True)
 
     # 1. Create Corpus - (.wav, .lab) pairs
     create_lab_files(corpus_dir=corpus_dir)
 
     # 2. Create Dictionary
-    if lang == 'art':
-        create_custom_dict(words_path, dict_path)
+    create_custom_dict(words_path, dict_path, lang=lang)
     
     mfa = MFAWrapRunner(lang, dict_path=dict_path)
     mfa.run(
