@@ -1,6 +1,5 @@
 # Model : Qwen2.5-Omni-7B
 # python src/analysis/heatmap/semdim_heatmap.py --max-samples 2 --data-type original
-# python src/analysis/heatmap/semdim_heatmap.py --max-samples 2 --data-type original
 import json
 import re
 import os
@@ -166,7 +165,6 @@ class QwenOmniSemanticDimensionVisualizer:
         else:
             # non-audio 타입: 단순 텍스트
             conversation = [
-                SYSTEM_TEMPLATE,
                 SYSTEM_TEMPLATE,
                 {
                     "role": "user",
@@ -930,27 +928,18 @@ if __name__ == "__main__":
     import argparse
     parser = argparse.ArgumentParser(description="Qwen2.5-Omni Semantic Dimension Attention Heatmap Visualization")
     parser.add_argument('--model', type=str, default="Qwen/Qwen2.5-Omni-7B", help="Model path (default: Qwen/Qwen2.5-Omni-7B)")
-    parser.add_argument('--data-path', type=str, default="data/processed/nat/semantic_dimension/semantic_dimension_binary_gt.json",
-    parser.add_argument('--model', type=str, default="Qwen/Qwen2.5-Omni-7B", help="Model path (default: Qwen/Qwen2.5-Omni-7B)")
-    parser.add_argument('--data-path', type=str, default="data/processed/nat/semantic_dimension/semantic_dimension_binary_gt.json",
+    parser.add_argument('--data-path', type=str, default="data/processed/nat/semantic_dimension/old/semantic_dimension_binary_gt.json",
                        help="Path to semantic dimension data JSON file")
     parser.add_argument('--output-dir', type=str, default="results/experiments/understanding/attention_heatmap",
-    parser.add_argument('--output-dir', type=str, default="results/experiments/understanding/attention_heatmap",
                        help="Output directory for heatmaps and matrices")
-    parser.add_argument('--data-type', type=str, default="audio", choices=["audio", "original", "romanized", "ipa"],
     parser.add_argument('--data-type', type=str, default="audio", choices=["audio", "original", "romanized", "ipa"],
                        help="Data type to process")
     parser.add_argument('--max-tokens', type=int, default=32, help="Maximum tokens to generate")
     parser.add_argument('--temperature', type=float, default=0.0, help="Sampling temperature")
     parser.add_argument('--max-samples', type=int, default=None, help="Maximum number of samples to process (default: all)")
     parser.add_argument('--languages', nargs='+', default=["en", "fr", "ko", "ja"], help="Languages to process")
-    parser.add_argument('--max-tokens', type=int, default=32, help="Maximum tokens to generate")
-    parser.add_argument('--temperature', type=float, default=0.0, help="Sampling temperature")
-    parser.add_argument('--max-samples', type=int, default=None, help="Maximum number of samples to process (default: all)")
-    parser.add_argument('--languages', nargs='+', default=["en", "fr", "ko", "ja"], help="Languages to process")
     
     args = parser.parse_args()
-    max_samples:int = args.max_samples
     max_samples:int = args.max_samples
     print(f"Data type: {args.data_type}")
 
