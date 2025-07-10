@@ -37,3 +37,5 @@ results/experiments/understanding/attention_heatmap/semantic_dimension/*/en/*.pk
 *.pdf
 *.pkl
 *.wav
+.git_backup/
+processed/nat/tts/**/*.wav
