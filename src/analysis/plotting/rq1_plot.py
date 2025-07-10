@@ -1509,15 +1509,24 @@ def plot_wordtype_semantic_dimension_bars(data, metric='macro_f1_score', save_pa
                 else:
                     step_normalized = 0.5  # If all scores are the same
                 
-                # Create color gradient: red (low) to green (high)
-                if step_normalized < 0.5:
-                    # Red to white gradient
-                    red_intensity = 1.0 - (step_normalized * 2)
-                    colors.append((1.0, 1.0 - red_intensity * 0.5, 1.0 - red_intensity * 0.5))
+                # Create color gradient: red (low) to white (0.5) to green (high)
+                if score < 0.5:
+                    # Red to white gradient: 0.0 -> #f03e3e, 0.5 -> white
+                    intensity = (0.5 - score) / 0.5  # 0.5에서 멀어질수록 1에 가까워짐
+                    red_component = 1.0 - (1.0 - 0.941) * intensity
+                    green_component = 1.0 - (1.0 - 0.243) * intensity
+                    blue_component = 1.0 - (1.0 - 0.243) * intensity
+                    colors.append((red_component, green_component, blue_component))
+                elif score > 0.5:
+                    # White to green gradient: 0.5 -> white, 1.0 -> #5c940d
+                    intensity = (score - 0.5) / 0.5  # 0.5에서 멀어질수록 1에 가까워짐
+                    red_component = 1.0 - (1.0 - 0.361) * intensity
+                    green_component = 1.0 - (1.0 - 0.580) * intensity
+                    blue_component = 1.0 - (1.0 - 0.051) * intensity
+                    colors.append((red_component, green_component, blue_component))
                 else:
-                    # White to green gradient
-                    green_intensity = (step_normalized - 0.5) * 2
-                    colors.append((1.0 - green_intensity * 0.5, 1.0, 1.0 - green_intensity * 0.5))
+                    # Exactly 0.5: white
+                    colors.append((1.0, 1.0, 1.0))
                 
                 # Create labels with bold for top/bottom 3 (based on variance order)
                 if sem_dim in top3 or sem_dim in bottom3:
@@ -1629,7 +1638,7 @@ def plot_semantic_dimension_variance_by_wordtype(data, metric='macro_f1_score', 
     variances = [item[1] for item in sorted_sem_dims]
     
     # Create the plot
-    fig, ax = plt.subplots(figsize=(12, max(8, len(sem_dims_ordered) * 0.4)))
+    fig, ax = plt.subplots(figsize=(12, max(12, len(sem_dims_ordered) * 0.6)))
     
     word_types = ['common', 'rare', 'constructed']
     colors = ['#ffd43b', '#20c997', '#f06595']  # Yellow, Teal, Pink
@@ -1652,14 +1661,14 @@ def plot_semantic_dimension_variance_by_wordtype(data, metric='macro_f1_score', 
     
     # Add variance values as text on the right side
     for i, (sem_dim, variance) in enumerate(zip(sem_dims_ordered, variances)):
-        ax.text(1.02, i + width, f'{variance:.3f}', ha='left', va='center', 
+        ax.text(1.005, i + width, f'{variance:.3f}', ha='left', va='center', 
                 fontsize=10, transform=ax.get_xaxis_transform())
     
     # Customize the plot
     ax.set_yticks(x_positions + width)
     ax.set_yticklabels(sem_dims_ordered, fontsize=11, va='center')
     ax.set_xlabel(get_metric_label(metric), fontsize=13)
-    ax.set_xlim(0, 1.1)  # Extra space for variance text
+    ax.set_xlim(0, 1.08)  # Extra space for variance text
     ax.xaxis.set_major_locator(ticker.MultipleLocator(0.1))
     
     # Add vertical line at 0.5
