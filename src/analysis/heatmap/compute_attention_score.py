@@ -9,6 +9,8 @@ import gc
 import torch
 from tqdm import tqdm
 from semdim_heatmap import QwenOmniSemanticDimensionVisualizer as qwensemdim
+import matplotlib.pyplot as plt
+import seaborn as sns
 
 # python src/analysis/heatmap/compute_attention_score.py --data-type ipa --lang en --attention-type generation_attention
 # python src/analysis/heatmap/compute_attention_score.py --data-type ipa --lang en --attention-type self_attention
@@ -137,7 +139,6 @@ class AttentionScoreCalculator:
             
             with open(file_path, "rb") as f:
                 data = pkl.load(f)
-            breakpoint()
             if attention_type == "generation_attention":
                 return data["generation_analysis"], dimension1, dimension2, data.get("answer"), word_tokens, [dimension1, dimension2]
             else:
@@ -225,175 +226,313 @@ class AttentionScoreCalculator:
         }
     
     def aggregate_scores_across_files(self, data_type: str, lang: str, attention_type: str = "generation_attention"):
-        """Aggregate attention scores across all available files"""
+        """Aggregate attention scores across all available files for all (ipa, semantic dimension) pairs"""
         base_dir = os.path.join(self.output_dir, "semantic_dimension", data_type, lang)
-        
         if attention_type == "generation_attention":
             analysis_dir = os.path.join(base_dir, "generation_attention")
         else:
             analysis_dir = os.path.join(base_dir, "self_attention")
-        
         if not os.path.exists(analysis_dir):
             print(f"Directory not found: {analysis_dir}")
             return None
-        
-        # Collect all IPA scores
-        all_ipa_dim1_scores = {}
-        all_ipa_dim2_scores = {}
+        all_ipa_semdim_scores = {}  # (ipa, semdim): [score, ...]
         file_count = 0
-        
-        # Process each file in the directory
         for filename in os.listdir(analysis_dir):
-            if filename.endswith('.pkl'):
-                try:
-                    file_path = os.path.join(analysis_dir, filename)
-                    with open(file_path, "rb") as f:
-                        data = pkl.load(f)
-                    
-                    # Check if this is a dictionary (new format) or list (old format)
-                    if not isinstance(data, dict):
-                        print(f"Skipping old format file: {filename}")
-                        continue
-                    
-                    # Check if this is generation attention analysis file
-                    if attention_type == "generation_attention" and "generation_analysis" in data:
-                        try:
-                            generation_analysis = data["generation_analysis"]
-                            dimension1 = data["dimension1"]
-                            dimension2 = data["dimension2"]
-                            word_tokens = data["word_tokens"]
-                            option_tokens = data["option_tokens"]
-                            response = data["response"]
-                            answer = data["answer"]
-                            
-                            # Get the aggregated attention scores (already averaged across all heads and layers)
-                            word_dim1_raw_all = generation_analysis.get('word_dim1_raw_all', None)
-                            word_dim2_raw_all = generation_analysis.get('word_dim2_raw_all', None)
-                            
-                            if word_dim1_raw_all is not None and word_dim2_raw_all is not None:
-                                # These are already averaged across all heads and layers
-                                avg_dim1_score = float(word_dim1_raw_all)
-                                avg_dim2_score = float(word_dim2_raw_all)
-                                
-                                # Extract IPA tokens from the word tokens
-                                ipa_tokens = self.extract_ipa_tokens_from_word(generation_analysis.get('tokens', []), word_tokens)
-                                
-                                if ipa_tokens:
-                                    # Distribute scores across IPA tokens
-                                    for ipa in ipa_tokens:
-                                        if ipa not in all_ipa_dim1_scores:
-                                            all_ipa_dim1_scores[ipa] = []
-                                        all_ipa_dim1_scores[ipa].append(avg_dim1_score)
-                                        
-                                        if ipa not in all_ipa_dim2_scores:
-                                            all_ipa_dim2_scores[ipa] = []
-                                        all_ipa_dim2_scores[ipa].append(avg_dim2_score)
-                                    
-                                    file_count += 1
-                                    
-                                    # Print detailed statistics for this file
-                                    print(f"File: {filename}")
-                                    print(f"  Word: {generation_analysis.get('word', 'N/A')}")
-                                    print(f"  Input word: {generation_analysis.get('input_word', 'N/A')}")
-                                    print(f"  Response: {response}")
-                                    print(f"  Answer: {answer}")
-                                    print(f"  IPA tokens: {ipa_tokens}")
-                                    print(f"  Dimension1 ({dimension1}) score: {avg_dim1_score:.6f}")
-                                    print(f"  Dimension2 ({dimension2}) score: {avg_dim2_score:.6f}")
-                                    print(f"  Score difference (dim1 - dim2): {avg_dim1_score - avg_dim2_score:.6f}")
-                                    print(f"  Score ratio (dim1/dim2): {avg_dim1_score/avg_dim2_score:.3f}" if avg_dim2_score != 0 else "  Score ratio: undefined")
-                                    print()
-                            else:
-                                # Fallback to step analysis if raw_all values are not available
-                                step_analyses = generation_analysis.get('step_analyses', [])
-                                if step_analyses and len(step_analyses) > 0:
-                                    step_analysis = step_analyses[0]
-                                    
-                                    word_dim1_raw_matrix = step_analysis.get('word_dim1_raw_matrix', None)
-                                    word_dim2_raw_matrix = step_analysis.get('word_dim2_raw_matrix', None)
-                                    tokens = step_analysis.get('step_tokens', [])
-                                    
-                                    if word_dim1_raw_matrix is not None and word_dim2_raw_matrix is not None:
-                                        # Average across layers and heads to get a single attention matrix
-                                        avg_dim1_score = np.mean(word_dim1_raw_matrix)
-                                        avg_dim2_score = np.mean(word_dim2_raw_matrix)
-                                        
-                                        # Extract IPA tokens from the word tokens
-                                        ipa_tokens = self.extract_ipa_tokens_from_word(tokens, word_tokens)
-                                        
-                                        if ipa_tokens:
-                                            # Distribute scores across IPA tokens
-                                            for ipa in ipa_tokens:
-                                                if ipa not in all_ipa_dim1_scores:
-                                                    all_ipa_dim1_scores[ipa] = []
-                                                all_ipa_dim1_scores[ipa].append(avg_dim1_score)
-                                                
-                                                if ipa not in all_ipa_dim2_scores:
-                                                    all_ipa_dim2_scores[ipa] = []
-                                                all_ipa_dim2_scores[ipa].append(avg_dim2_score)
-                                            
-                                            file_count += 1
-                        except Exception as e:
-                            print(f"Error processing generation analysis file {filename}: {e}")
-                            continue
-                    
-                    # Check if this is self attention matrix file
-                    elif attention_type == "self_attention" and "attention_matrix" in data:
-                        try:
-                            attention_matrix = data["attention_matrix"]
-                            tokens = data.get("tokens", [])
-                            dimension1 = data["dimension1"]
-                            dimension2 = data["dimension2"]
-                            relevant_indices = data.get("relevant_indices", None)
-                            
-                            # Extract IPA attention scores from the attention matrix
-                            ipa_scores = self.extract_ipa_attention_scores(
-                                attention_matrix, tokens, relevant_indices, dimension1, dimension2
-                            )
-                            
-                            if ipa_scores:
-                                # Aggregate scores
-                                for ipa, scores in ipa_scores['dim1_scores'].items():
-                                    if ipa not in all_ipa_dim1_scores:
-                                        all_ipa_dim1_scores[ipa] = []
-                                    all_ipa_dim1_scores[ipa].extend(scores)
-                                
-                                for ipa, scores in ipa_scores['dim2_scores'].items():
-                                    if ipa not in all_ipa_dim2_scores:
-                                        all_ipa_dim2_scores[ipa] = []
-                                    all_ipa_dim2_scores[ipa].extend(scores)
-                                
-                                file_count += 1
-                        except Exception as e:
-                            print(f"Error processing self attention file {filename}: {e}")
-                            continue
-                    else:
-                        print(f"Skipping unrecognized file format: {filename}")
-                        continue
-                
-                except Exception as e:
-                    print(f"Error processing file {filename}: {e}")
+            if not filename.endswith('.pkl'):
+                continue
+            try:
+                file_path = os.path.join(analysis_dir, filename)
+                with open(file_path, "rb") as f:
+                    data = pkl.load(f)
+                # Only process new format files
+                if not isinstance(data, dict):
+                    print(f"Skipping old format file: {filename}")
                     continue
-        
+                if attention_type == "generation_attention" and "generation_analysis" in data:
+                    try:
+                        generation_analysis = data["generation_analysis"]
+                        dimension1 = data["dimension1"]
+                        dimension2 = data["dimension2"]
+                        input_word = data.get("input_word", "") or generation_analysis.get("input_word", "")
+                        word_dim1_raw_all = generation_analysis.get('word_dim1_raw_all', None)
+                        word_dim2_raw_all = generation_analysis.get('word_dim2_raw_all', None)
+                        if word_dim1_raw_all is not None and word_dim2_raw_all is not None:
+                            avg_dim1_score = float(word_dim1_raw_all)
+                            avg_dim2_score = float(word_dim2_raw_all)
+                            if input_word:
+                                ipa_symbols = []
+                                for ipa_part in input_word.split():
+                                    clean_ipa = self._clean_token(ipa_part)
+                                    if clean_ipa and clean_ipa in self.ipa_symbols:
+                                        ipa_symbols.append(clean_ipa)
+                                if ipa_symbols:
+                                    for ipa in ipa_symbols:
+                                        for semdim, score in zip([dimension1, dimension2], [avg_dim1_score, avg_dim2_score]):
+                                            key = (ipa, semdim)
+                                            if key not in all_ipa_semdim_scores:
+                                                all_ipa_semdim_scores[key] = []
+                                            all_ipa_semdim_scores[key].append(score)
+                                    file_count += 1
+                        else:
+                            # Fallback to step analysis if raw_all values are not available
+                            step_analyses = generation_analysis.get('step_analyses', [])
+                            if step_analyses and len(step_analyses) > 0:
+                                step_analysis = step_analyses[0]
+                                word_dim1_raw_matrix = step_analysis.get('word_dim1_raw_matrix', None)
+                                word_dim2_raw_matrix = step_analysis.get('word_dim2_raw_matrix', None)
+                                if word_dim1_raw_matrix is not None and word_dim2_raw_matrix is not None:
+                                    avg_dim1_score = np.mean(word_dim1_raw_matrix)
+                                    avg_dim2_score = np.mean(word_dim2_raw_matrix)
+                                    if not input_word:
+                                        input_word = generation_analysis.get("input_word", "")
+                                    if input_word:
+                                        ipa_symbols = []
+                                        for ipa_part in input_word.split():
+                                            clean_ipa = self._clean_token(ipa_part)
+                                            if clean_ipa and clean_ipa in self.ipa_symbols:
+                                                ipa_symbols.append(clean_ipa)
+                                        if ipa_symbols:
+                                            for ipa in ipa_symbols:
+                                                for semdim, score in zip([dimension1, dimension2], [avg_dim1_score, avg_dim2_score]):
+                                                    key = (ipa, semdim)
+                                                    if key not in all_ipa_semdim_scores:
+                                                        all_ipa_semdim_scores[key] = []
+                                                    all_ipa_semdim_scores[key].append(score)
+                                            file_count += 1
+                    except Exception as e:
+                        print(f"Error processing generation analysis file {filename}: {e}")
+                        continue
+                elif attention_type == "self_attention" and "attention_matrix" in data:
+                    try:
+                        attention_matrix = data["attention_matrix"]
+                        tokens = data.get("tokens", [])
+                        dimension1 = data["dimension1"]
+                        dimension2 = data["dimension2"]
+                        relevant_indices = data.get("relevant_indices", None)
+                        input_word = data.get("input_word", "")
+                        if not input_word and "word_tokens" in data:
+                            input_word = data["word_tokens"]
+                        ipa_scores = self.extract_ipa_attention_scores(
+                            attention_matrix, tokens, relevant_indices, dimension1, dimension2
+                        )
+                        if ipa_scores:
+                            for semdim, ipa_dict in zip([dimension1, dimension2], [ipa_scores['dim1_scores'], ipa_scores['dim2_scores']]):
+                                for ipa, scores in ipa_dict.items():
+                                    key = (ipa, semdim)
+                                    if key not in all_ipa_semdim_scores:
+                                        all_ipa_semdim_scores[key] = []
+                                    all_ipa_semdim_scores[key].extend(scores)
+                            file_count += 1
+                    except Exception as e:
+                        print(f"Error processing self attention file {filename}: {e}")
+                        continue
+                else:
+                    print(f"Skipping unrecognized file format: {filename}")
+                    continue
+            except Exception as e:
+                print(f"Error processing file {filename}: {e}")
+                continue
         print(f"Processed {file_count} files")
-        
-        # Calculate final averages
-        final_ipa_dim1_scores = {}
-        final_ipa_dim2_scores = {}
-        
-        for ipa, scores in all_ipa_dim1_scores.items():
-            if scores:  # Only include if there are valid scores
-                final_ipa_dim1_scores[ipa] = np.mean(scores)
-        
-        for ipa, scores in all_ipa_dim2_scores.items():
-            if scores:  # Only include if there are valid scores
-                final_ipa_dim2_scores[ipa] = np.mean(scores)
-        
+        # Aggregate statistics for each (ipa, semdim)
+        stats = {}
+        for (ipa, semdim), scores in all_ipa_semdim_scores.items():
+            arr = np.array(scores)
+            stats.setdefault(semdim, {})[ipa] = {
+                'mean': float(np.mean(arr)),
+                'std': float(np.std(arr)),
+                'min': float(np.min(arr)),
+                'max': float(np.max(arr)),
+                'median': float(np.median(arr)),
+                'count': int(len(arr)),
+                'q25': float(np.percentile(arr, 25)),
+                'q75': float(np.percentile(arr, 75)),
+            }
+        # Print summary statistics for each semantic dimension
+        for semdim in sorted(stats.keys()):
+            print(f"\n=== Semantic Dimension: {semdim} ===")
+            ipa_means = [(ipa, v['mean']) for ipa, v in stats[semdim].items()]
+            ipa_means.sort(key=lambda x: x[1], reverse=True)
+            for ipa, mean in ipa_means:
+                print(f"{ipa}: {mean:.4f}")
+
+        # ---- 추가: 전체 표 형태로 출력 ----
+        try:
+            import pandas as pd
+            all_semdims = sorted(stats.keys())
+            all_ipas = sorted(set(ipa for semdim in stats for ipa in stats[semdim]))
+            data = []
+            for ipa in all_ipas:
+                row = []
+                for semdim in all_semdims:
+                    if ipa in stats[semdim]:
+                        row.append(stats[semdim][ipa]['mean'])
+                    else:
+                        row.append(float('nan'))
+                data.append(row)
+            df = pd.DataFrame(data, index=all_ipas, columns=all_semdims)
+            print("\n=== IPA × Semantic Dimension Mean Attention Score Table ===")
+            with pd.option_context('display.max_rows', 100, 'display.max_columns', 100, 'display.width', 200):
+                print(df.round(4))
+        except ImportError:
+            print("[WARN] pandas가 설치되어 있지 않아 표 형태로 출력하지 않습니다.")
         return {
-            'dim1_scores': final_ipa_dim1_scores,
-            'dim2_scores': final_ipa_dim2_scores,
+            'ipa_semdim_stats': stats,
             'file_count': file_count
         }
+    
+    def aggregate_scores_across_files_v2(self, data_type: str, lang: str, attention_type: str = "self_attention"):
+        """Aggregate attention scores for each (ipa, semantic dimension, layer, head) and compute statistics."""
+        import numpy as np
+        import json
+        base_dir = os.path.join(self.output_dir, "semantic_dimension", data_type, lang)
+        if attention_type == "generation_attention":
+            analysis_dir = os.path.join(base_dir, "generation_attention")
+        else:
+            analysis_dir = os.path.join(base_dir, "self_attention")
+        if not os.path.exists(analysis_dir):
+            print(f"Directory not found: {analysis_dir}")
+            return None
+        all_scores = {}  # (ipa, semdim, layer, head): [score, ...]
+        file_count = 0
+        for filename in os.listdir(analysis_dir):
+            if not filename.endswith('.pkl'):
+                continue
+            file_path = os.path.join(analysis_dir, filename)
+            try:
+                with open(file_path, "rb") as f:
+                    data = pkl.load(f)
+                
+                # Try to get tokens, target_indices, attention_matrix
+                tokens = data.get('tokens')
+                target_indices = data.get('target_indices')
+                attn = data.get('attention_matrix')
+                input_word = data.get('input_word', "")
+                
+                # Try to get input_word from different possible locations
+                if not input_word:
+                    if "generation_analysis" in data:
+                        input_word = data["generation_analysis"].get("input_word", "")
+                    elif "word_tokens" in data:
+                        input_word = data["word_tokens"]
+                
+                if tokens is None or target_indices is None or attn is None:
+                    print(f"Skipping file (missing keys): {filename}")
+                    continue
+                
+                word_indices = target_indices.get('word', [])
+                dim1_indices = target_indices.get('dim1', [])
+                dim2_indices = target_indices.get('dim2', [])
+                
+                if not word_indices or (not dim1_indices and not dim2_indices):
+                    print(f"Skipping file (missing indices): {filename}")
+                    continue
+                
+                # Extract individual IPA symbols from input_word (space-separated)
+                ipa_symbols = []
+                if input_word:
+                    for ipa_part in input_word.split():
+                        clean_ipa = self._clean_token(ipa_part)
+                        if clean_ipa and clean_ipa in self.ipa_symbols:
+                            ipa_symbols.append(clean_ipa)
+                
+                if not ipa_symbols:
+                    print(f"Skipping file (no valid IPA symbols found): {filename}")
+                    continue
+                
+                # attn: [layer, head, seq, seq]
+                n_layer, n_head, seq_len, _ = attn.shape
+                
+                # Get semantic dimension names from file or data
+                # Try to parse from filename: ..._{dimension1}_{dimension2}_...
+                import re
+                m = re.search(r'_([^_]+)_([^_]+)_(self|generation)_?analysis?\\.pkl$', filename)
+                if m:
+                    semdim1, semdim2 = m.group(1), m.group(2)
+                else:
+                    semdim1 = data.get('dimension1', 'dim1')
+                    semdim2 = data.get('dimension2', 'dim2')
+                
+                # For each layer, head, word_idx, dim_idx, extract score
+                # Map word_indices to individual IPA symbols
+                for layer in range(n_layer):
+                    for head in range(n_head):
+                        # For each IPA symbol, calculate attention scores
+                        for ipa_idx, ipa in enumerate(ipa_symbols):
+                            # Find corresponding word index (if available)
+                            word_idx = word_indices[ipa_idx] if ipa_idx < len(word_indices) else None
+                            
+                            # Calculate attention from semantic dimensions to this IPA symbol
+                            for d_idx in dim1_indices:
+                                if d_idx < seq_len and word_idx is not None and word_idx < seq_len:
+                                    score = float(attn[layer, head, d_idx, word_idx])
+                                    key = (ipa, semdim1, layer, head)
+                                    all_scores.setdefault(key, []).append(score)
+                            
+                            for d_idx in dim2_indices:
+                                if d_idx < seq_len and word_idx is not None and word_idx < seq_len:
+                                    score = float(attn[layer, head, d_idx, word_idx])
+                                    key = (ipa, semdim2, layer, head)
+                                    all_scores.setdefault(key, []).append(score)
+                
+                file_count += 1
+                print(f"Processed {filename}: {len(ipa_symbols)} IPA symbols")
+                
+            except Exception as e:
+                print(f"Error processing file {filename}: {e}")
+                continue
+        
+        # Aggregate statistics
+        stats = {}
+        for (ipa, semdim, layer, head), scores in all_scores.items():
+            arr = np.array(scores)
+            stats.setdefault(ipa, {}).setdefault(semdim, {}).setdefault('layerwise', {})[(layer, head)] = {
+                'mean': float(np.mean(arr)),
+                'std': float(np.std(arr)),
+                'min': float(np.min(arr)),
+                'max': float(np.max(arr)),
+                'median': float(np.median(arr)),
+                'count': int(len(arr)),
+                'q25': float(np.percentile(arr, 25)),
+                'q75': float(np.percentile(arr, 75)),
+            }
+        
+        # Also compute all-wise (across all layers/heads)
+        for ipa in stats:
+            for semdim in stats[ipa]:
+                all_means = [v['mean'] for v in stats[ipa][semdim]['layerwise'].values()]
+                if all_means:
+                    arr = np.array(all_means)
+                    stats[ipa][semdim]['all'] = {
+                        'mean': float(np.mean(arr)),
+                        'std': float(np.std(arr)),
+                        'min': float(np.min(arr)),
+                        'max': float(np.max(arr)),
+                        'median': float(np.median(arr)),
+                        'count': int(len(arr)),
+                        'q25': float(np.percentile(arr, 25)),
+                        'q75': float(np.percentile(arr, 75)),
+                    }
+        
+        # Save as JSON
+        output_path = os.path.join(self.output_dir, "semantic_dimension", data_type, lang, attention_type)
+        os.makedirs(output_path, exist_ok=True)
+        output_file = os.path.join(output_path, f"ipa_semdim_attention_stats_{data_type}_{lang}_{attention_type}.json")
+        with open(output_file, 'w') as f:
+            json.dump(stats, f, indent=2)
+        print(f"Saved stats to {output_file}")
+        
+        # Print sorted IPA scores for each semantic dimension
+        for semdim in sorted({k[1] for k in all_scores.keys()}):
+            print(f"\n=== Semantic Dimension: {semdim} ===")
+            ipa_means = []
+            for ipa in stats:
+                if semdim in stats[ipa] and 'all' in stats[ipa][semdim]:
+                    ipa_means.append((ipa, stats[ipa][semdim]['all']['mean']))
+            ipa_means.sort(key=lambda x: x[1], reverse=True)
+            for ipa, mean in ipa_means:
+                print(f"{ipa}: {mean:.4f}")
+        
+        return stats
     
     def create_phoneme_semdim_matrix(self, aggregated_scores):
         """Create a matrix of phoneme-semantic dimension attention scores"""
@@ -423,6 +562,43 @@ class AttentionScoreCalculator:
         
         return matrix, ipa_list, semdim_list
     
+    def plot_ipa_semdim_heatmap(self, ipa_semdim_stats, save_path=None, lang=None, data_type=None, attention_type=None):
+        """
+        Plot and save a heatmap: columns=semantic dimensions, rows=IPA symbols, values=mean attention scores.
+        """
+        # Collect all unique IPA symbols and semantic dimensions
+        semdim_list = sorted(list(ipa_semdim_stats.keys()))
+        ipa_set = set()
+        for semdim in ipa_semdim_stats:
+            ipa_set.update(ipa_semdim_stats[semdim].keys())
+        ipa_list = sorted(list(ipa_set))
+        # Create matrix
+        matrix = []
+        for ipa in ipa_list:
+            row = []
+            for semdim in semdim_list:
+                if ipa in ipa_semdim_stats[semdim]:
+                    row.append(ipa_semdim_stats[semdim][ipa]['mean'])
+                else:
+                    row.append(float('nan'))
+            matrix.append(row)
+        matrix = np.array(matrix)
+        # Plot heatmap
+        fig, ax = plt.subplots(figsize=(max(12, len(semdim_list)*0.3), max(10, len(ipa_list)*0.3)))
+        sns.heatmap(matrix, ax=ax, cmap='YlGnBu', cbar=True, xticklabels=semdim_list, yticklabels=ipa_list, linewidths=0.2, linecolor='gray', square=False)
+        ax.set_xlabel('Semantic Dimension', fontsize=14)
+        ax.set_ylabel('IPA Symbol', fontsize=14)
+        ax.set_title(f'IPA-Semantic Dimension Attention Heatmap ({lang}, {data_type}, {attention_type})', fontsize=16, pad=15)
+        plt.tight_layout()
+        if save_path is None:
+            save_path = 'results/plots/attention/'
+        os.makedirs(save_path, exist_ok=True)
+        file_name = f"ipa_semdim_attention_heatmap_{lang}_{data_type}_{attention_type}.png"
+        file_path = os.path.join(save_path, file_name)
+        plt.savefig(file_path, dpi=300, bbox_inches='tight')
+        print(f"IPA-Semantic Dimension heatmap saved to {file_path}")
+        plt.close()
+    
     def run(self, data_type: str, lang: str, attention_type: str = "generation_attention"):
         """Main execution function"""
         print(f"Processing {data_type} data for language {lang} with {attention_type}")
@@ -447,46 +623,97 @@ class AttentionScoreCalculator:
             'semantic_dimensions': semdim_list,
             'dim1_scores': aggregated_scores['dim1_scores'],
             'dim2_scores': aggregated_scores['dim2_scores'],
+            'detailed_stats': aggregated_scores.get('detailed_stats', {}),
             'file_count': aggregated_scores['file_count'],
             'data_type': data_type,
             'language': lang,
-            'attention_type': attention_type
+            'attention_type': attention_type,
+            'summary': {
+                'total_ipa_symbols': len(ipa_list),
+                'total_semantic_dimensions': len(semdim_list),
+                'matrix_shape': matrix.shape,
+                'processing_info': {
+                    'data_type': data_type,
+                    'language': lang,
+                    'attention_type': attention_type,
+                    'files_processed': aggregated_scores['file_count']
+                }
+            }
         }
         
         with open(output_file, 'w') as f:
             json.dump(results, f, indent=2)
         
+        print(f"\n=== RESULTS SUMMARY ===")
         print(f"Results saved to {output_file}")
         print(f"Matrix shape: {matrix.shape}")
         print(f"Number of IPA symbols: {len(ipa_list)}")
         print(f"Number of semantic dimensions: {len(semdim_list)}")
+        print(f"Files processed: {aggregated_scores['file_count']}")
+        
+        # Print top 10 IPA symbols by attention score for each dimension
+        if aggregated_scores['dim1_scores']:
+            print(f"\nTop 10 IPA symbols by Dimension 1 attention score:")
+            sorted_dim1 = sorted(aggregated_scores['dim1_scores'].items(), key=lambda x: x[1], reverse=True)[:10]
+            for i, (ipa, score) in enumerate(sorted_dim1, 1):
+                print(f"  {i:2d}. {ipa}: {score:.6f}")
+        
+        if aggregated_scores['dim2_scores']:
+            print(f"\nTop 10 IPA symbols by Dimension 2 attention score:")
+            sorted_dim2 = sorted(aggregated_scores['dim2_scores'].items(), key=lambda x: x[1], reverse=True)[:10]
+            for i, (ipa, score) in enumerate(sorted_dim2, 1):
+                print(f"  {i:2d}. {ipa}: {score:.6f}")
+        
+        # Save heatmap
+        self.plot_ipa_semdim_heatmap(
+            aggregated_scores['ipa_semdim_stats'],
+            save_path='results/plots/attention/',
+            lang=lang,
+            data_type=data_type,
+            attention_type=attention_type
+        )
         
         return results
 
 if __name__ == "__main__":
+    import argparse
     parser = argparse.ArgumentParser(description="Compute IPA-Semantic Dimension Attention Scores")
     parser.add_argument('--data-type', type=str, default="ipa", choices=["audio", "original", "romanized", "ipa"],
                        help="Data type to process")
-    parser.add_argument('--lang', type=str, default="en", choices=["en", "fr", "ja", "ko"],
-                       help="Language to process")
+    parser.add_argument('--lang', type=str, default=None,
+                       help="Language(s) to process, comma-separated (default: all ['en','fr','ja','ko'])")
     parser.add_argument('--attention-type', type=str, default="generation_attention", 
                        choices=["generation_attention", "self_attention"],
                        help="Type of attention to analyze")
     parser.add_argument('--model-path', type=str, default="Qwen/Qwen2.5-Omni-7B",
                        help="Model path")
-    
     args = parser.parse_args()
-    
+
+    all_langs = ['en', 'fr', 'ja', 'ko']
+    if args.lang:
+        langs = [l.strip() for l in args.lang.split(',') if l.strip() in all_langs]
+        if not langs:
+            print(f"No valid languages specified in --lang. Using all: {all_langs}")
+            langs = all_langs
+    else:
+        langs = all_langs
+
     asc = AttentionScoreCalculator(
         model_path=args.model_path,
         data_path=data_path,
         data_type=args.data_type,
-        lang=args.lang,
+        lang=langs[0],  # dummy, will be overridden per language
         layer_type="generation",
         head="all",
         layer="all",
         compute_type="heatmap"
     )
-    
-    results = asc.run(args.data_type, args.lang, args.attention_type)
+
+    for lang in langs:
+        print(f"\n=== Processing language: {lang} ===")
+        try:
+            results = asc.run(args.data_type, lang, args.attention_type)
+        except Exception as e:
+            print(f"[ERROR] Failed to process language {lang}: {e}")
+            continue
     

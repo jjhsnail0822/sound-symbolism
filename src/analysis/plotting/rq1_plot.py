@@ -76,7 +76,7 @@ def extract_data_by_condition(data, condition_keys, metric='macro_f1_score', fil
                 dimensions = input_data.get('dimensions', {})
                 for sem_dim, entry in dimensions.items():
                     if filter_constructed and sem_dim not in constructed_dims:
-                        continue
+                            continue
                     
                     condition_dict = {
                         'model': model_name,
@@ -94,8 +94,8 @@ def compute_averages_from_scores(condition_scores, condition_words):
     for condition, semdim_scores in condition_scores.items():
         for sem_dim, scores in semdim_scores.items():
             weights = condition_words[condition][sem_dim]
-            avg = weighted_avg(scores, weights)
-            total_words = np.sum(weights)
+        avg = weighted_avg(scores, weights)
+        total_words = np.sum(weights)
             avg_dict[(condition, sem_dim)] = (avg, total_words)
     return avg_dict
 
@@ -193,7 +193,7 @@ def plot_horizontal_bar(avg_dict, group, metric='macro_f1_score', title=None, sa
         return
     sorted_items = sorted(semdim_avgs.items(), key=lambda x: x[1], reverse=False)
     sem_dims_plot, avgs = zip(*sorted_items)
-
+    
     colors = []
     for v in avgs:
         if v >= 0.5:
@@ -445,7 +445,7 @@ def plot_inputtype_performance(data, metric='macro_f1_score', save_path=None, fi
 
 def plot_inputtype_wordtype_scatter(data, metric='macro_f1_score', save_path=None, filter_constructed=False, constructed_dims=constructed_dims):
     from collections import defaultdict
-
+    
     input_type_scores = defaultdict(lambda: defaultdict(list))
     input_type_words = defaultdict(lambda: defaultdict(list))
     
@@ -538,7 +538,7 @@ def plot_inputtype_wordtype_modeltype_scatter(data, metric='macro_f1_score', sav
                 dimensions = input_data.get('dimensions', {})
                 for sem_dim, entry in dimensions.items():
                     if filter_constructed and sem_dim not in constructed_dims:
-                        continue
+                            continue
                     
                     model_input_word_scores[normalized_model][input_type][word_type].append(extract_metric(entry, metric))
                     model_input_word_words[normalized_model][input_type][word_type].append(extract_num_words(entry))
@@ -553,7 +553,7 @@ def plot_inputtype_wordtype_modeltype_scatter(data, metric='macro_f1_score', sav
                     scores = model_input_word_scores[model_name][input_type][word_type]
                     weights = model_input_word_words[model_name][input_type][word_type]
                     if scores:
-                        avg = weighted_avg(scores, weights)
+                avg = weighted_avg(scores, weights)
                         model_input_word_avgs[model_name][input_type][word_type] = avg
     
     if not model_input_word_avgs:
@@ -584,8 +584,8 @@ def plot_inputtype_wordtype_modeltype_scatter(data, metric='macro_f1_score', sav
             y_coords = []
             for input_type in input_types:
                 if (model_name in model_input_word_avgs and 
-                    input_type in model_input_word_avgs[model_name] and 
-                    word_type in model_input_word_avgs[model_name][input_type]):
+                    input_type in model_input_word_avgs[input_type] and 
+                    word_type in model_input_word_avgs[input_type][model_name]):
                     x_coords.append(x_positions[input_type][word_type])
                     y_coords.append(model_input_word_avgs[model_name][input_type][word_type])
             
@@ -646,7 +646,7 @@ def plot_inputtype_wordtype_modeltype_semdim_scatter(data, metric='macro_f1_scor
                 dimensions = input_data.get('dimensions', {})
                 for sem_dim, entry in dimensions.items():
                     if filter_constructed and sem_dim not in constructed_dims:
-                        continue
+                            continue
                     
                     semdim_model_input_word_scores[sem_dim][normalized_model][input_type][word_type].append(extract_metric(entry, metric))
                     semdim_model_input_word_words[sem_dim][normalized_model][input_type][word_type].append(extract_num_words(entry))
@@ -657,7 +657,7 @@ def plot_inputtype_wordtype_modeltype_semdim_scatter(data, metric='macro_f1_scor
         semdim_model_input_word_avgs[sem_dim] = {}
         for model_name in semdim_model_input_word_scores[sem_dim]:
             semdim_model_input_word_avgs[sem_dim][model_name] = {}
-            for input_type in ['original', 'original_and_audio', 'ipa', 'ipa_and_audio', 'audio']:
+        for input_type in ['original', 'original_and_audio', 'ipa', 'ipa_and_audio', 'audio']:
                 semdim_model_input_word_avgs[sem_dim][model_name][input_type] = {}
                 for word_type in ['constructed', 'rare', 'common']:
                     if (input_type in semdim_model_input_word_scores[sem_dim][model_name] and 
@@ -665,7 +665,7 @@ def plot_inputtype_wordtype_modeltype_semdim_scatter(data, metric='macro_f1_scor
                         scores = semdim_model_input_word_scores[sem_dim][model_name][input_type][word_type]
                         weights = semdim_model_input_word_words[sem_dim][model_name][input_type][word_type]
                         if scores:
-                            avg = weighted_avg(scores, weights)
+                avg = weighted_avg(scores, weights)
                             semdim_model_input_word_avgs[sem_dim][model_name][input_type][word_type] = avg
     
     # Create plot for each semantic dimension
@@ -822,7 +822,7 @@ def plot_inputtype_wordtype_modeltype_all_semdim_scatter(data, metric='macro_f1_
         for j, model_name in enumerate(models):
             x_coords = []
             y_coords = []
-            for input_type in input_types:
+    for input_type in input_types:
                 for sem_dim in sem_dims:
                     if (sem_dim in semdim_model_input_word_avgs and
                         model_name in semdim_model_input_word_avgs[sem_dim] and
@@ -947,7 +947,7 @@ def plot_inputtype_modeltype_wordtype_all_semdim_scatter(data, metric='macro_f1_
             x_coords = []
             y_coords = []
             for input_type in input_types:
-                for sem_dim in sem_dims:
+    for sem_dim in sem_dims:
                     if (sem_dim in semdim_model_input_word_avgs and
                         model_name in semdim_model_input_word_avgs[sem_dim] and
                         input_type in semdim_model_input_word_avgs[sem_dim][model_name] and 
@@ -1035,7 +1035,7 @@ def plot_inputtype_per_wordtype_all_models(data, metric='macro_f1_score', save_p
         ax.axhline(y=0.5, color='gray', linestyle='--', alpha=0.7, linewidth=1.5)
         ax.axhline(y=0.35, color='gray', linestyle=':', alpha=0.5, linewidth=1.0)
         ax.axhline(y=0.65, color='gray', linestyle=':', alpha=0.5, linewidth=1.0)
-        ax.grid(True, alpha=0.3)
+    ax.grid(True, alpha=0.3)
         if idx == 0:
             ax.set_ylabel(get_metric_label(metric))
     plt.tight_layout()
@@ -1365,16 +1365,27 @@ def plot_grouped_horizontal_bar(
 
     sem_dims_plot, avgs = zip(*selected)
     
+    # Use #5c940d (green) and #e03131 (red) as base colors, keep interpolation logic
+    from matplotlib.colors import to_rgb
+
+    green_rgb = to_rgb("#5c940d")
+    red_rgb = to_rgb("#e03131")
+    white_rgb = (1, 1, 1)
+
     colors = []
     for v in avgs:
         if v > 0.5:
-            green = min(1.0, (v - 0.5) * 2)
-            colors.append((1-green, 1, 1-green))  # 진한 초록
+            # Interpolate between white and green, as before
+            alpha = min(1.0, (v - 0.5) * 2)
+            color = tuple((1 - alpha) * w + alpha * g for w, g in zip(white_rgb, green_rgb))
+            colors.append(color)
         elif v < 0.5:
-            red = min(1.0, (0.5 - v) * 2)
-            colors.append((1, 1-red, 1-red))  # 진한 빨강
+            # Interpolate between white and red, as before
+            alpha = min(1.0, (0.5 - v) * 2)
+            color = tuple((1 - alpha) * w + alpha * r for w, r in zip(white_rgb, red_rgb))
+            colors.append(color)
         else:
-            colors.append((1, 1, 1))  # 하얀색
+            colors.append(white_rgb)
 
     fig, ax = plt.subplots(figsize=(8, max(6, len(sem_dims_plot)*0.4)))
     bars = ax.barh(range(len(avgs)), avgs, color=colors, edgecolor='black')
@@ -1695,6 +1706,171 @@ def plot_semantic_dimension_variance_by_wordtype(data, metric='macro_f1_score', 
     print(f"Semantic dimension variance by word type plot saved to {os.path.join(save_path, file_name)}")
     plt.close()
 
+def plot_inputtype_semdim_scatter(data, metric='macro_f1_score', save_path=None, filter_constructed=False, constructed_dims=constructed_dims, line=False):
+    """
+    Plot scatter plot: X-axis = input types, Y-axis = metric score, one line per semantic dimension (color-coded).
+    If line=True, connect points with lines. If line=False (default), only plot scatter points.
+    Model type과 word type은 구분 없이 평균을 내고, semantic dimension별로 색상 구분.
+    """
+    from collections import defaultdict
+    import matplotlib.pyplot as plt
+    import numpy as np
+    import os
+
+    input_types = ['original', 'original_and_audio', 'ipa', 'ipa_and_audio', 'audio']
+    # Collect scores: sem_dim -> input_type -> [scores]
+    semdim_inputtype_scores = defaultdict(lambda: defaultdict(list))
+    semdim_inputtype_words = defaultdict(lambda: defaultdict(list))
+
+    for model_name, model_data in data.items():
+        for word_type, word_data in model_data.items():
+            for input_type, input_data in word_data.items():
+                if "romanized" in input_type:
+                    continue
+                dimensions = input_data.get('dimensions', {})
+                for sem_dim, entry in dimensions.items():
+                    if filter_constructed and sem_dim not in constructed_dims:
+                        continue
+                    semdim_inputtype_scores[sem_dim][input_type].append(extract_metric(entry, metric))
+                    semdim_inputtype_words[sem_dim][input_type].append(extract_num_words(entry))
+
+    # Calculate averages for each semantic dimension and input type
+    semdim_inputtype_avgs = {}
+    for sem_dim in semdim_inputtype_scores:
+        semdim_inputtype_avgs[sem_dim] = []
+        for input_type in input_types:
+            scores = semdim_inputtype_scores[sem_dim][input_type]
+            weights = semdim_inputtype_words[sem_dim][input_type]
+            if scores:
+                avg = weighted_avg(scores, weights)
+            else:
+                avg = np.nan
+            semdim_inputtype_avgs[sem_dim].append(avg)
+
+    # Plot
+    fig, ax = plt.subplots(figsize=(9, 8))
+    colors = plt.cm.get_cmap('tab20', len(semdim_inputtype_avgs))
+    for idx, (sem_dim, avgs) in enumerate(semdim_inputtype_avgs.items()):
+        if line:
+            ax.plot(input_types, avgs, marker='o', label=sem_dim, color=colors(idx))
+        else:
+            ax.scatter(input_types, avgs, label=sem_dim, color=colors(idx), s=30, alpha=0.8)
+
+    ax.set_xlabel('Input Types', fontsize=13)
+    ax.set_ylabel(get_metric_label(metric), fontsize=13)
+    ax.set_ylim(0, 1)
+    ax.yaxis.set_major_locator(ticker.MultipleLocator(0.1))
+    ax.axhline(y=0.5, color='gray', linestyle='--', alpha=0.7, linewidth=1.5)
+    ax.grid(True, alpha=0.3)
+    ax.legend(fontsize=9, bbox_to_anchor=(1.05, 1), loc='upper left')
+    plt.tight_layout()
+    os.makedirs(save_path, exist_ok=True)
+    suffix = "_filter" if filter_constructed else ""
+    file_name = f"inputtype_semdim_scatter_{metric}{suffix}.png"
+    plt.savefig(os.path.join(save_path, file_name), dpi=300, bbox_inches='tight')
+    print(f"Input type vs semantic dimension scatter plot saved to {os.path.join(save_path, file_name)}")
+    plt.close()
+
+def plot_inputtype_wordtype_semdim_scatter(
+    data, metric='macro_f1_score', save_path=None, filter_constructed=False, constructed_dims=constructed_dims, line=False
+):
+    """
+    Plot scatter: X-axis = input type (text only), Y-axis = metric score.
+    Word type별 색상, model type별 마커, semantic dimension별 점 모두 표시.
+    X축: input type만 표기, rotation=0, 마지막에 여백.
+    input_type별로 3개의 word_type이 가까이 군집되고, input_type 그룹들끼리는 떨어져 보이도록 X좌표를 배치.
+    """
+    from collections import defaultdict
+    import matplotlib.pyplot as plt
+    import numpy as np
+    import os
+
+    def normalize_model_name(model_name):
+        if 'gpt' in model_name.lower():
+            return 'GPT'
+        return model_name
+
+    input_types = ['original', 'original_and_audio', 'ipa', 'ipa_and_audio', 'audio']
+    word_types = ['common', 'rare', 'constructed']
+    models = sorted(set(normalize_model_name(m) for m in data.keys()))
+    sem_dims = set()
+    for model_data in data.values():
+        for word_data in model_data.values():
+            for input_data in word_data.values():
+                sem_dims.update(input_data.get('dimensions', {}).keys())
+    sem_dims = sorted(list(sem_dims))
+
+    # X축 배치: input_type별로 3개씩 가까이, 그룹 간 간격은 넓게
+    group_gap = 2.0  # input_type 그룹 간 간격
+    inner_gap = 0.3  # word_type 그룹 내 간격
+    x_map = {}
+    x_labels = []
+    x_tick_pos = []
+    for i, input_type in enumerate(input_types):
+        base = i * group_gap
+        for j, word_type in enumerate(word_types):
+            x = base + (j - 1) * inner_gap  # -0.3, 0, 0.3
+            x_map[(input_type, word_type)] = x
+        x_labels.append(input_type)
+        x_tick_pos.append(base)
+
+    word_type_colors = {'common': '#ffd43b', 'rare': '#20c997', 'constructed': '#f06595'}
+    model_markers = ['o', 's', '^', 'D', '*', 'v', '<', '>', 'p', 'h']
+    model_marker_map = {m: model_markers[i % len(model_markers)] for i, m in enumerate(models)}
+
+    x_coords = []
+    y_coords = []
+    colors = []
+    markers = []
+
+    for model_name, model_data in data.items():
+        normalized_model = normalize_model_name(model_name)
+        marker = model_marker_map[normalized_model]
+        for word_type, word_data in model_data.items():
+            if word_type not in word_types:
+                continue
+            color = word_type_colors[word_type]
+            for input_type, input_data in word_data.items():
+                if input_type not in input_types or "romanized" in input_type:
+                    continue
+                dimensions = input_data.get('dimensions', {})
+                for sem_dim, entry in dimensions.items():
+                    if filter_constructed and sem_dim not in constructed_dims:
+                        continue
+                    score = extract_metric(entry, metric)
+                    x = x_map[(input_type, word_type)]
+                    x_coords.append(x)
+                    y_coords.append(score)
+                    colors.append(color)
+                    markers.append(marker)
+
+    fig, ax = plt.subplots(figsize=(max(10, len(x_labels)*1.2), 10))
+    for m in set(markers):
+        idxs = [i for i, mk in enumerate(markers) if mk == m]
+        ax.scatter([x_coords[i] for i in idxs], [y_coords[i] for i in idxs],
+                   s=30, alpha=0.3, c=[colors[i] for i in idxs], marker=m, edgecolors='black', linewidth=0.5, label=None)
+
+    ax.set_xlabel('Input Type', fontsize=13)
+    ax.set_ylabel(get_metric_label(metric), fontsize=13)
+    ax.set_xticks(x_tick_pos)
+    ax.set_xticklabels(x_labels, rotation=0, ha='center', fontsize=11)
+    ax.set_ylim(0, 1)
+    ax.yaxis.set_major_locator(ticker.MultipleLocator(0.1))
+    ax.set_xlim(-group_gap, x_tick_pos[-1] + group_gap)
+    ax.axhline(y=0.5, color='gray', linestyle='--', alpha=0.7, linewidth=1.5)
+    ax.grid(True, alpha=0.3, axis='y')
+    from matplotlib.lines import Line2D
+    legend_elements = [Line2D([0], [0], marker='o', color='w', markerfacecolor=word_type_colors[wt], markersize=8, label=wt) for wt in word_types]
+    legend_elements += [Line2D([0], [0], marker=model_marker_map[m], color='w', markerfacecolor='gray', markersize=8, label=m) for m in models]
+    ax.legend(handles=legend_elements, fontsize=10, loc='upper right')
+    plt.tight_layout()
+    os.makedirs(save_path, exist_ok=True)
+    suffix = "_filter" if filter_constructed else ""
+    file_name = f"inputtype_wordtype_semdim_scatter_{metric}{suffix}.png"
+    plt.savefig(os.path.join(save_path, file_name), dpi=300, bbox_inches='tight')
+    print(f"Input type/word type/semantic dimension scatter plot saved to {os.path.join(save_path, file_name)}")
+    plt.close()
+
 def main(json_path, metric='macro_f1_score', sem_dims=None, save_path=None, filter_constructed=False):
     data = load_stat_json(json_path)
     all_dims = set()
@@ -1736,7 +1912,7 @@ def main(json_path, metric='macro_f1_score', sem_dims=None, save_path=None, filt
         plot_grouped_horizontal_bar(
             avg_by_model_input, group, metric, 
             title=f"Model: {group[0]}, Input Type: {group[1]}",
-            save_path=save_path, top_n=3, bottom_n=3, sem_dims=sem_dims, filter_constructed=filter_constructed
+            save_path=save_path, top_n=7, bottom_n=7, sem_dims=sem_dims, filter_constructed=filter_constructed
         )
     
     plot_wordtype_performance(data, metric, save_path=save_path, filter_constructed=filter_constructed)
@@ -1754,6 +1930,7 @@ def main(json_path, metric='macro_f1_score', sem_dims=None, save_path=None, filt
     plot_inference_results_by_semantic_input_model_word(data, metric, save_path=save_path, filter_constructed=filter_constructed)
     plot_wordtype_semantic_dimension_bars(data, metric, save_path=save_path, filter_constructed=filter_constructed)
     plot_semantic_dimension_variance_by_wordtype(data, metric, save_path=save_path, filter_constructed=filter_constructed)
+    plot_inputtype_wordtype_semdim_scatter(data, metric, save_path=save_path, filter_constructed=filter_constructed)
 
 if __name__ == "__main__":
     import argparse

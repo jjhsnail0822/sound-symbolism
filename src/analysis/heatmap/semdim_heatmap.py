@@ -904,6 +904,7 @@ class QwenOmniSemanticDimensionVisualizer:
             "option_tokens": option_tokens,
             "tokens": tokens,
             "response": response,
+            "input_word": generation_analysis.get('input_word', ''),
             "analysis_type": "generation_attention"
         }
         
