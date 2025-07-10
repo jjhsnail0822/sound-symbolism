@@ -30,6 +30,11 @@ parser.add_argument(
     action="store_true",
     help="Enable thinking mode for Qwen3",
 )
+parser.add_argument(
+    "--retry-failed-answers",
+    action="store_true",
+    help="Retry failed answers in the experiment",
+)
 # parser.add_argument(
 #     "--experiment",
 #     "-e",
@@ -133,9 +138,10 @@ for experiment in experiments:
                     model_path=args.model,
                     data_path=formatted_path,
                     output_dir=OUTPUT_DIR,
-                    max_tokens=32,
+                    max_tokens=1024,
                     temperature=0.0,
                     exp_name=experiment,
+                    retry_failed_answers=args.retry_failed_answers,
                 )
             elif 'gpt' in args.model.lower():
                 experiment_processor = GPTMCQExperiment(
@@ -143,8 +149,9 @@ for experiment in experiments:
                     data_path=formatted_path,
                     output_dir=OUTPUT_DIR,
                     exp_name=experiment,
-                    max_tokens=32,
+                    max_tokens=1024,
                     temperature=0.0,
+                    retry_failed_answers=args.retry_failed_answers,
                 )
             elif 'gemini' in args.model.lower():
                 experiment_processor = GeminiMCQExperiment(
@@ -152,8 +159,9 @@ for experiment in experiments:
                     data_path=formatted_path,
                     output_dir=OUTPUT_DIR,
                     exp_name=experiment,
-                    max_tokens=32,
+                    max_tokens=1024,
                     temperature=0.0,
+                    retry_failed_answers=args.retry_failed_answers,
                 )
             else:
                 raise ValueError("Unsupported model type. Only Qwen Omni, GPT, and Gemini models are supported in this script.")
