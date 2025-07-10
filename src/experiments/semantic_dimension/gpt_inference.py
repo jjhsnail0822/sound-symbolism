@@ -31,8 +31,9 @@ class GPTMCQExperiment:
             data_path: str,
             output_dir: str,
             exp_name: str,
-            max_tokens: int = 32,
+            max_tokens: int,
             temperature: float = 0.0,
+            retry_failed_answers: bool = False,
     ):
         self.model_name = model_name
         self.data_path = data_path
@@ -40,6 +41,7 @@ class GPTMCQExperiment:
         self.max_tokens = max_tokens
         self.temperature = temperature
         self.exp_name = exp_name
+        self.retry_failed_answers = retry_failed_answers
 
         # Initialize OpenAI client
         # Assumes OPENAI_API_KEY is set in the environment variables.
@@ -64,18 +66,22 @@ class GPTMCQExperiment:
         print(f"Results will be saved to: {results_filename}")
 
         # Load existing results if file exists
+        existing_results = {}
         if os.path.exists(results_filename):
             print("Found existing results file. Resuming experiment.")
             with open(results_filename, 'r', encoding='utf-8') as f:
                 try:
                     saved_data = json.load(f)
-                    all_results = saved_data.get('results', [])
-                    print(f"Loaded {len(all_results)} existing results.")
+                    # Create a dictionary for quick lookup
+                    for res in saved_data.get('results', []):
+                        # Assuming meta_data is unique for each question
+                        key = json.dumps(res['meta_data'], sort_keys=True)
+                        existing_results[key] = res
+                    print(f"Loaded {len(existing_results)} existing results.")
                 except json.JSONDecodeError:
                     print("Warning: Could not decode JSON from results file. Starting from scratch.")
-                    all_results = []
-        else:
-            all_results = []
+        
+        all_results = []
 
         # # Pick random 50 questions for testing
         # if len(mcq_data) > 50:
@@ -83,8 +89,17 @@ class GPTMCQExperiment:
         #     mcq_data = random.sample(mcq_data, 50)
 
         # Process each question
-        start_index = len(all_results)
-        for query in tqdm(mcq_data[start_index:], initial=start_index, total=len(mcq_data)):
+        for query in tqdm(mcq_data):
+            query_key = json.dumps(query['meta_data'], sort_keys=True)
+
+            # --- Logic to skip or retry ---
+            if query_key in existing_results:
+                existing_result = existing_results[query_key]
+                # If not retrying, or if retrying but this one was not a failure, skip
+                if not self.retry_failed_answers or existing_result.get("model_answer") != "0":
+                    all_results.append(existing_result)
+                    continue
+
             # The user content will be a list for multimodal input
             user_content = []
 
@@ -239,6 +254,7 @@ if __name__ == "__main__":
     parser.add_argument("--max-tokens", type=int, default=32, help="Maximum tokens to generate")
     parser.add_argument("--temperature", type=float, default=0.0, help="Sampling temperature")
     parser.add_argument("--exp-name", type=str, required=True, help="Name of the experiment")
+    parser.add_argument("--retry-failed", action='store_true', help="Retry questions where the model previously answered '0'")
     
     args = parser.parse_args()
 
@@ -249,6 +265,7 @@ if __name__ == "__main__":
         max_tokens=args.max_tokens,
         temperature=args.temperature,
         exp_name=args.exp_name,
+        retry_failed_answers=args.retry_failed,
     )
     
     results, results_filename = experiment.run_mcq_experiment()
