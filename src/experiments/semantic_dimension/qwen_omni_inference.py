@@ -1,4 +1,5 @@
 import json
+from pdb import set_trace
 import argparse
 from transformers import Qwen2_5OmniForConditionalGeneration, Qwen2_5OmniProcessor
 from qwen_omni_utils import process_mm_info
@@ -6,6 +7,10 @@ from tqdm import tqdm
 import os
 import re
 import torch
+
+
+qwen_token_1 = 16
+qwen_token_2 = 17
 
 class QwenOmniMCQExperiment:
     def __init__(
@@ -32,10 +37,11 @@ class QwenOmniMCQExperiment:
             self.model_path,
             torch_dtype="auto",
             device_map="auto",
-            attn_implementation="flash_attention_2",
+            # attn_implementation="flash_attention_2",
         )
         self.model.disable_talker()
-        
+        self.thinker_lm_head = self.model.thinker_model.lm_head
+
         self.processor = Qwen2_5OmniProcessor.from_pretrained(self.model_path)
 
     def run_mcq_experiment(self):
@@ -44,7 +50,8 @@ class QwenOmniMCQExperiment:
         with open(self.data_path, 'r', encoding='utf-8') as f:
             mcq_data = json.load(f)
         print(f"Loaded {len(mcq_data)} questions.")
-        
+        mcq_data = mcq_data[:100]
+
         # Prepare file for saving results
         model_name = os.path.basename(self.model_path)
         if not os.path.exists(self.output_dir):
@@ -67,23 +74,17 @@ class QwenOmniMCQExperiment:
                     print(f"Loaded {len(existing_results)} existing results.")
                 except json.JSONDecodeError:
                     print("Warning: Could not decode JSON from results file. Starting from scratch.")
-        
+
         all_results = []
-        
+
         # Run experiment
         print(f"Running MCQ experiment on {len(mcq_data)} questions...")
-        
+
         # Process each question
         for query in tqdm(mcq_data):
             query_key = json.dumps(query['meta_data'], sort_keys=True)
 
             # --- Logic to skip or retry ---
-            if query_key in existing_results:
-                existing_result = existing_results[query_key]
-                # If not retrying, or if retrying but this one was not a failure, skip
-                if not self.retry_failed_answers or existing_result.get("model_answer") != "0":
-                    all_results.append(existing_result)
-                    continue
 
             word = query['meta_data']['word']
             language = query['meta_data']['language']
@@ -160,12 +161,12 @@ class QwenOmniMCQExperiment:
             text = self.processor.apply_chat_template(conversation, add_generation_prompt=True, tokenize=False)
             audios, images, videos = process_mm_info(conversation, use_audio_in_video=USE_AUDIO_IN_VIDEO)
             inputs = self.processor(
-                text=text, 
-                audio=audios, 
-                images=images, 
-                videos=videos, 
-                return_tensors="pt", 
-                padding=True, 
+                text=text,
+                audio=audios,
+                images=images,
+                videos=videos,
+                return_tensors="pt",
+                padding=True,
                 use_audio_in_video=USE_AUDIO_IN_VIDEO
             )
             inputs = inputs.to(self.model.device).to(self.model.dtype)
@@ -173,13 +174,23 @@ class QwenOmniMCQExperiment:
             # Generate response
             with torch.no_grad():
                 text_ids = self.model.generate(
-                    **inputs, 
+                    **inputs,
                     use_audio_in_video=USE_AUDIO_IN_VIDEO,
                     max_new_tokens=self.max_tokens,
                 )
+            input_length = inputs["input_ids"].shape[-1]
+            # print(f'input : {inputs["input_ids"]}')
+            # print(f'output : {text_ids}')
+            pure_out = text_ids[0, input_length:]
+
+
 
             # Decode response
             full_text = self.processor.batch_decode(text_ids, skip_special_tokens=True, clean_up_tokenization_spaces=False)[0]
+            if pure_out.shape[-1] == 3:
+                text = self.processor.batch_decode(pure_out)
+                print(text)
+
             # print('Full text:', full_text)
             # Extract only the assistant's response
             if "assistant\n" in full_text:
@@ -193,12 +204,12 @@ class QwenOmniMCQExperiment:
                 extracted_answer = answer_match.group(0)
             else:
                 extracted_answer = None
-            
+
             # Handle cases where the model output is empty or None
             if extracted_answer is None:
                 print(f"Warning: Model output is empty for query: {query['question'][:50]}...")
                 extracted_answer = "0"
-            
+
             # Check correctness
             try:
                 is_correct = int(extracted_answer) == query['meta_data']['answer']
@@ -207,7 +218,7 @@ class QwenOmniMCQExperiment:
                 is_correct = False
 
             # print(f"Model answer: {extracted_answer}, Correct answer: {query['answer']}, Is correct: {is_correct}")
-            
+
             # Store result
             result = {
                 "meta_data": query['meta_data'],
@@ -222,7 +233,7 @@ class QwenOmniMCQExperiment:
                 correct_count = sum(1 for r in all_results if r["is_correct"])
                 total_count = len(all_results)
                 accuracy = correct_count / total_count if total_count > 0 else 0
-                
+
                 results_dict = {
                     "model": self.model_path,
                     "accuracy": accuracy,
@@ -233,14 +244,14 @@ class QwenOmniMCQExperiment:
 
                 with open(results_filename, 'w', encoding='utf-8') as f:
                     json.dump(results_dict, f, ensure_ascii=False, indent=4)
-        
+
         # --- Final save for any remaining results ---
         correct_count = sum(1 for r in all_results if r["is_correct"])
         total_count = len(all_results)
         accuracy = correct_count / total_count if total_count > 0 else 0
-        
+
         print(f"Experiment completed. Accuracy: {accuracy:.2%} ({correct_count}/{total_count})")
-        
+
         # Save results
         results_dict = {
             "model": self.model_path,
@@ -253,7 +264,7 @@ class QwenOmniMCQExperiment:
         # Save results to file
         with open(results_filename, 'w', encoding='utf-8') as f:
             json.dump(results_dict, f, ensure_ascii=False, indent=4)
-        
+
         print(f"Results saved to: {results_filename}")
 
         # Clean up
@@ -262,7 +273,7 @@ class QwenOmniMCQExperiment:
         if torch.cuda.is_available():
             torch.cuda.empty_cache()
             torch.cuda.synchronize()
-        
+
         return results_dict, results_filename
 
 if __name__ == "__main__":
@@ -274,7 +285,7 @@ if __name__ == "__main__":
     parser.add_argument("--temperature", type=float, default=0.0, help="Sampling temperature")
     parser.add_argument("--exp-name", type=str, required=True, help="Name of the experiment")
     parser.add_argument("--retry-failed", action='store_true', help="Retry questions where the model previously answered '0'")
-    
+
     args = parser.parse_args()
 
     experiment = QwenOmniMCQExperiment(
@@ -286,5 +297,5 @@ if __name__ == "__main__":
         exp_name=args.exp_name,
         retry_failed_answers=args.retry_failed,
     )
-    
+
     results, results_filename = experiment.run_mcq_experiment()
