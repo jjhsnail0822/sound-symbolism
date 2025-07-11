@@ -66,7 +66,9 @@ def calculate_statistics_for_file(input_file_path: str):
             "precision": precision,
             "recall": recall,
             "macro_f1_score": f1,
-            "count": len(y_true)
+            "count": len(y_true),
+            "y_true": y_true, # Temporarily store raw values
+            "y_pred": y_pred  # Temporarily store raw values
         }
 
     overall_accuracy = accuracy_score(all_y_true, all_y_pred) if all_y_true else 0
@@ -79,9 +81,11 @@ def calculate_statistics_for_file(input_file_path: str):
 def aggregate_statistics(root_dir: str, output_file: str):
     """
     Aggregates statistics from all relevant JSON files into a single file.
+    Also creates a 'natural' word group by combining 'common' and 'rare'.
     """
     aggregated_results = defaultdict(lambda: defaultdict(dict))
-    
+    raw_data_for_natural = defaultdict(lambda: defaultdict(lambda: defaultdict(lambda: {"y_true": [], "y_pred": []})))
+
     # Regex to parse the filename
     # semantic_dimension_binary_{input_type}-{word_type}_{model_name}.json
     pattern = re.compile(r"semantic_dimension_binary_(?P<input_type>.+?)-(?P<word_type>.+?)_(?P<model_name>.+)\.json")
@@ -106,6 +110,56 @@ def aggregate_statistics(root_dir: str, output_file: str):
                 
                 if stats:
                     aggregated_results[model_name][word_type][input_type] = stats
+
+    # Combine 'common' and 'rare' to create 'natural' word group
+    for model_name, word_types in aggregated_results.items():
+        for input_type, stats_data in word_types.get("common", {}).items():
+            if input_type in word_types.get("rare", {}):
+                common_stats = stats_data
+                rare_stats = word_types["rare"][input_type]
+                
+                natural_stats = {"dimensions": {}}
+                all_y_true_natural = []
+                all_y_pred_natural = []
+
+                all_dims = set(common_stats["dimensions"].keys()) | set(rare_stats["dimensions"].keys())
+
+                for dim in all_dims:
+                    y_true = common_stats["dimensions"].get(dim, {}).get("y_true", []) + rare_stats["dimensions"].get(dim, {}).get("y_true", [])
+                    y_pred = common_stats["dimensions"].get(dim, {}).get("y_pred", []) + rare_stats["dimensions"].get(dim, {}).get("y_pred", [])
+                    
+                    if not y_true:
+                        continue
+
+                    all_y_true_natural.extend(y_true)
+                    all_y_pred_natural.extend(y_pred)
+
+                    precision, recall, f1, _ = precision_recall_fscore_support(
+                        y_true, y_pred, average='macro', labels=[1, 2], zero_division=0
+                    )
+                    accuracy = accuracy_score(y_true, y_pred)
+
+                    natural_stats["dimensions"][dim] = {
+                        "accuracy": accuracy,
+                        "precision": precision,
+                        "recall": recall,
+                        "macro_f1_score": f1,
+                        "count": len(y_true)
+                    }
+                
+                if all_y_true_natural:
+                    natural_stats["overall_accuracy"] = accuracy_score(all_y_true_natural, all_y_pred_natural)
+                    aggregated_results[model_name]["natural"][input_type] = natural_stats
+
+    # Clean up y_true/y_pred from the final output
+    for model_name in aggregated_results:
+        for word_type in aggregated_results[model_name]:
+            for input_type in aggregated_results[model_name][word_type]:
+                if "dimensions" in aggregated_results[model_name][word_type][input_type]:
+                    for dim in aggregated_results[model_name][word_type][input_type]["dimensions"]:
+                        aggregated_results[model_name][word_type][input_type]["dimensions"][dim].pop("y_true", None)
+                        aggregated_results[model_name][word_type][input_type]["dimensions"][dim].pop("y_pred", None)
+
 
     # Ensure the output directory exists
     os.makedirs(os.path.dirname(output_file), exist_ok=True)

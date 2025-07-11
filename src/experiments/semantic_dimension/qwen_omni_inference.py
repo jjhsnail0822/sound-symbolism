@@ -270,7 +270,7 @@ if __name__ == "__main__":
     parser.add_argument("--model", '-m', type=str, default="Qwen/Qwen2.5-Omni-7B", help="Path to the Qwen Omni model")
     parser.add_argument("--data", '-d', type=str, required=True, help="Path to the MCQ data JSON file")
     parser.add_argument("--output", '-o', type=str, default="results/experiments/semantic_dimension", help="Directory to save results")
-    parser.add_argument("--max-tokens", type=int, default=32, help="Maximum tokens to generate")
+    parser.add_argument("--max-tokens", type=int, default=1024, help="Maximum tokens to generate")
     parser.add_argument("--temperature", type=float, default=0.0, help="Sampling temperature")
     parser.add_argument("--exp-name", type=str, required=True, help="Name of the experiment")
     parser.add_argument("--retry-failed", action='store_true', help="Retry questions where the model previously answered '0'")
