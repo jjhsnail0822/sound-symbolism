@@ -94,8 +94,8 @@ def compute_averages_from_scores(condition_scores, condition_words):
     for condition, semdim_scores in condition_scores.items():
         for sem_dim, scores in semdim_scores.items():
             weights = condition_words[condition][sem_dim]
-        avg = weighted_avg(scores, weights)
-        total_words = np.sum(weights)
+            avg = weighted_avg(scores, weights)
+            total_words = np.sum(weights)
             avg_dict[(condition, sem_dim)] = (avg, total_words)
     return avg_dict
 
@@ -553,7 +553,7 @@ def plot_inputtype_wordtype_modeltype_scatter(data, metric='macro_f1_score', sav
                     scores = model_input_word_scores[model_name][input_type][word_type]
                     weights = model_input_word_words[model_name][input_type][word_type]
                     if scores:
-                avg = weighted_avg(scores, weights)
+                        avg = weighted_avg(scores, weights)
                         model_input_word_avgs[model_name][input_type][word_type] = avg
     
     if not model_input_word_avgs:
@@ -584,8 +584,8 @@ def plot_inputtype_wordtype_modeltype_scatter(data, metric='macro_f1_score', sav
             y_coords = []
             for input_type in input_types:
                 if (model_name in model_input_word_avgs and 
-                    input_type in model_input_word_avgs[input_type] and 
-                    word_type in model_input_word_avgs[input_type][model_name]):
+                    input_type in model_input_word_avgs[model_name] and 
+                    word_type in model_input_word_avgs[model_name][input_type]):
                     x_coords.append(x_positions[input_type][word_type])
                     y_coords.append(model_input_word_avgs[model_name][input_type][word_type])
             
@@ -657,7 +657,7 @@ def plot_inputtype_wordtype_modeltype_semdim_scatter(data, metric='macro_f1_scor
         semdim_model_input_word_avgs[sem_dim] = {}
         for model_name in semdim_model_input_word_scores[sem_dim]:
             semdim_model_input_word_avgs[sem_dim][model_name] = {}
-        for input_type in ['original', 'original_and_audio', 'ipa', 'ipa_and_audio', 'audio']:
+            for input_type in ['original', 'original_and_audio', 'ipa', 'ipa_and_audio', 'audio']:
                 semdim_model_input_word_avgs[sem_dim][model_name][input_type] = {}
                 for word_type in ['constructed', 'rare', 'common']:
                     if (input_type in semdim_model_input_word_scores[sem_dim][model_name] and 
@@ -665,7 +665,7 @@ def plot_inputtype_wordtype_modeltype_semdim_scatter(data, metric='macro_f1_scor
                         scores = semdim_model_input_word_scores[sem_dim][model_name][input_type][word_type]
                         weights = semdim_model_input_word_words[sem_dim][model_name][input_type][word_type]
                         if scores:
-                avg = weighted_avg(scores, weights)
+                            avg = weighted_avg(scores, weights)
                             semdim_model_input_word_avgs[sem_dim][model_name][input_type][word_type] = avg
     
     # Create plot for each semantic dimension
@@ -822,7 +822,7 @@ def plot_inputtype_wordtype_modeltype_all_semdim_scatter(data, metric='macro_f1_
         for j, model_name in enumerate(models):
             x_coords = []
             y_coords = []
-    for input_type in input_types:
+            for input_type in input_types:
                 for sem_dim in sem_dims:
                     if (sem_dim in semdim_model_input_word_avgs and
                         model_name in semdim_model_input_word_avgs[sem_dim] and
@@ -947,7 +947,7 @@ def plot_inputtype_modeltype_wordtype_all_semdim_scatter(data, metric='macro_f1_
             x_coords = []
             y_coords = []
             for input_type in input_types:
-    for sem_dim in sem_dims:
+                for sem_dim in sem_dims:
                     if (sem_dim in semdim_model_input_word_avgs and
                         model_name in semdim_model_input_word_avgs[sem_dim] and
                         input_type in semdim_model_input_word_avgs[sem_dim][model_name] and 
@@ -1035,9 +1035,8 @@ def plot_inputtype_per_wordtype_all_models(data, metric='macro_f1_score', save_p
         ax.axhline(y=0.5, color='gray', linestyle='--', alpha=0.7, linewidth=1.5)
         ax.axhline(y=0.35, color='gray', linestyle=':', alpha=0.5, linewidth=1.0)
         ax.axhline(y=0.65, color='gray', linestyle=':', alpha=0.5, linewidth=1.0)
-    ax.grid(True, alpha=0.3)
-        if idx == 0:
-            ax.set_ylabel(get_metric_label(metric))
+        ax.grid(True, alpha=0.3)
+        ax.set_ylabel(get_metric_label(metric))
     plt.tight_layout()
     os.makedirs(save_path, exist_ok=True)
     suffix = "_filter" if filter_constructed else ""
@@ -1411,6 +1410,7 @@ def plot_grouped_horizontal_bar(
 def plot_wordtype_semantic_dimension_bars(data, metric='macro_f1_score', save_path=None, filter_constructed=False, constructed_dims=constructed_dims):
     """Plot horizontal bar charts for each word type showing semantic dimension performance"""
     from collections import defaultdict
+    import numpy as np
     
     # Extract data by word type and semantic dimension
     wordtype_semdim_scores = defaultdict(lambda: defaultdict(list))
@@ -1446,36 +1446,26 @@ def plot_wordtype_semantic_dimension_bars(data, metric='macro_f1_score', save_pa
     
     word_types = ['common', 'rare', 'constructed']
     
-    # Calculate variance (max-min difference) for each semantic dimension across word types
-    semdim_variance = {}
-    
-    # Get all semantic dimensions that appear in at least one word type
+    # 1. 각 semantic dimension별로 constructed, common, rare의 평균을 내서 정렬
     all_sem_dims = set()
     for word_type_data in wordtype_semdim_avgs.values():
         all_sem_dims.update(word_type_data.keys())
     
+    semdim_avg = {}
     for sem_dim in all_sem_dims:
-        scores = []
+        vals = []
         for word_type in word_types:
-            if sem_dim in wordtype_semdim_avgs[word_type]:
-                scores.append(wordtype_semdim_avgs[word_type][sem_dim])
-            else:
-                scores.append(0.0)  # Default value for missing data
-        
-        if len(scores) >= 2:  # Need at least 2 scores to calculate variance
-            variance = max(scores) - min(scores)
-            semdim_variance[sem_dim] = variance
-    
-    if not semdim_variance:
-        return
-    
-    # Sort semantic dimensions by variance (ascending order: small to large difference)
-    sorted_sem_dims = sorted(semdim_variance.items(), key=lambda x: x[1])
+            vals.append(wordtype_semdim_avgs.get(word_type, {}).get(sem_dim, 0.0))
+        semdim_avg[sem_dim] = np.mean(vals)
+    sorted_sem_dims = sorted(semdim_avg.items(), key=lambda x: x[1], reverse=True)
     reference_sem_dims = [item[0] for item in sorted_sem_dims]
     
-    # Get top 3 and bottom 3 from variance order for bold text
-    top3 = set(reference_sem_dims[:3])  # Smallest variance
-    bottom3 = set(reference_sem_dims[-3:])  # Largest variance
+    # Get top 3 semantic dimensions for bold formatting
+    top3_sem_dims = set(reference_sem_dims[:3])
+    
+    red_rgb = (1.0, 0.42, 0.42)   # #ff6b6b
+    green_rgb = (0.58, 0.85, 0.18) # #94d82d
+    white_rgb = (1.0, 1.0, 1.0)
     
     # Create subplots
     fig, axes = plt.subplots(1, 3, figsize=(18, 8), sharey=True)
@@ -1487,67 +1477,28 @@ def plot_wordtype_semantic_dimension_bars(data, metric='macro_f1_score', save_pa
         ax = axes[idx]
         semdim_data = wordtype_semdim_avgs[word_type]
         
-        # Use reference order from variance (smallest to largest)
         scores = []
         colors = []
         y_labels = []
         
-        # Get min and max values for this word type to determine color scale
-        if semdim_data:
-            min_score = min(semdim_data.values())
-            max_score = max(semdim_data.values())
-            score_range = max_score - min_score
-            num_dims = len(reference_sem_dims)
-            step_size = score_range / num_dims if score_range > 0 else 1.0
-        else:
-            min_score = 0.0
-            max_score = 1.0
-            step_size = 1.0
-        
-        for i, sem_dim in enumerate(reference_sem_dims):
-            if sem_dim in semdim_data:
-                score = semdim_data[sem_dim]
-                scores.append(score)
-                
-                # Create colors based on position in the range (1/num_dims steps)
-                if score_range > 0:
-                    # Normalize score to 0-1 range within this word type's min-max
-                    normalized_score = (score - min_score) / score_range
-                    # Convert to step-based index (0 to num_dims-1)
-                    step_index = int(normalized_score * (num_dims - 1))
-                    # Convert step index back to 0-1 range
-                    step_normalized = step_index / (num_dims - 1)
-                else:
-                    step_normalized = 0.5  # If all scores are the same
-                
-                # Create color gradient: red (low) to white (0.5) to green (high)
-                if score < 0.5:
-                    # Red to white gradient: 0.0 -> #f03e3e, 0.5 -> white
-                    intensity = (0.5 - score) / 0.5  # 0.5에서 멀어질수록 1에 가까워짐
-                    red_component = 1.0 - (1.0 - 0.941) * intensity
-                    green_component = 1.0 - (1.0 - 0.243) * intensity
-                    blue_component = 1.0 - (1.0 - 0.243) * intensity
-                    colors.append((red_component, green_component, blue_component))
-                elif score > 0.5:
-                    # White to green gradient: 0.5 -> white, 1.0 -> #5c940d
-                    intensity = (score - 0.5) / 0.5  # 0.5에서 멀어질수록 1에 가까워짐
-                    red_component = 1.0 - (1.0 - 0.361) * intensity
-                    green_component = 1.0 - (1.0 - 0.580) * intensity
-                    blue_component = 1.0 - (1.0 - 0.051) * intensity
-                    colors.append((red_component, green_component, blue_component))
-                else:
-                    # Exactly 0.5: white
-                    colors.append((1.0, 1.0, 1.0))
-                
-                # Create labels with bold for top/bottom 3 (based on variance order)
-                if sem_dim in top3 or sem_dim in bottom3:
-                    y_labels.append(f"$\\bf{{{sem_dim}}}$")
-                else:
-                    y_labels.append(sem_dim)
+        for sem_dim in reference_sem_dims:
+            score = semdim_data.get(sem_dim, 0.0)
+            scores.append(score)
+            # 색상 interpolation
+            if score < 0.5:
+                alpha = min(1.0, (0.5 - score) * 2)
+                color = tuple((1 - alpha) * w + alpha * r for w, r in zip(white_rgb, red_rgb))
+            elif score > 0.5:
+                alpha = min(1.0, (score - 0.5) * 2)
+                color = tuple((1 - alpha) * w + alpha * g for w, g in zip(white_rgb, green_rgb))
             else:
-                # If semantic dimension doesn't exist for this word type, add placeholder
-                scores.append(0.0)
-                colors.append((0.9, 0.9, 0.9))  # Light gray for missing data
+                color = white_rgb
+            colors.append(color)
+            
+            # Add bold formatting for top 3 semantic dimensions
+            if sem_dim in top3_sem_dims:
+                y_labels.append(f"$\\bf{{{sem_dim}}}$")
+            else:
                 y_labels.append(sem_dim)
         
         # Create horizontal bar plot
@@ -1569,7 +1520,7 @@ def plot_wordtype_semantic_dimension_bars(data, metric='macro_f1_score', save_pa
         # Add grid
         ax.grid(True, alpha=0.3)
         
-        # Invert y-axis for ascending order (smallest variance at top)
+        # Invert y-axis for descending order (highest average at top)
         ax.invert_yaxis()
     
     plt.tight_layout()
@@ -1845,10 +1796,21 @@ def plot_inputtype_wordtype_semdim_scatter(
                     markers.append(marker)
 
     fig, ax = plt.subplots(figsize=(max(10, len(x_labels)*1.2), 10))
+    
+    # Add background shading for specific input types (original, ipa, audio)
+    highlight_input_types = ['original', 'ipa', 'audio']
+    for i, input_type in enumerate(input_types):
+        if input_type in highlight_input_types:
+            base = i * group_gap
+            # Add light gray background rectangle for the entire input type group
+            rect = plt.Rectangle((base - group_gap/2, 0), group_gap, 1, 
+                               facecolor='lightgray', alpha=0.3, edgecolor='none', zorder=0)
+            ax.add_patch(rect)
+    
     for m in set(markers):
         idxs = [i for i, mk in enumerate(markers) if mk == m]
         ax.scatter([x_coords[i] for i in idxs], [y_coords[i] for i in idxs],
-                   s=30, alpha=0.3, c=[colors[i] for i in idxs], marker=m, edgecolors='black', linewidth=0.5, label=None)
+                   s=30, alpha=0.3, c=[colors[i] for i in idxs], marker=m, edgecolors='black', linewidth=0.5, label=None, zorder=10)
 
     ax.set_xlabel('Input Type', fontsize=13)
     ax.set_ylabel(get_metric_label(metric), fontsize=13)

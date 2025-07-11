@@ -323,6 +323,35 @@ class AttentionScoreCalculator:
                                         all_ipa_semdim_scores[key] = []
                                     all_ipa_semdim_scores[key].extend(scores)
                             file_count += 1
+                            
+                            # Generate word-level attention heatmap
+                            try:
+                                # Get target indices from the data
+                                target_indices = data.get('target_indices', {})
+                                word_indices = target_indices.get('word', [])
+                                dim1_indices = target_indices.get('dim1', [])
+                                dim2_indices = target_indices.get('dim2', [])
+                                
+                                if word_indices and (dim1_indices or dim2_indices):
+                                    # Generate heatmap for first layer and head
+                                    self.plot_single_word_attention_heatmap(
+                                        attention_matrix=attention_matrix,
+                                        tokens=tokens,
+                                        word_indices=word_indices,
+                                        dim1_indices=dim1_indices,
+                                        dim2_indices=dim2_indices,
+                                        dimension1=dimension1,
+                                        dimension2=dimension2,
+                                        word_tokens=data.get('word_tokens', 'unknown'),
+                                        save_path='results/plots/attention/',
+                                        lang=lang,
+                                        data_type=data_type,
+                                        attention_type=attention_type,
+                                        layer_idx=0,
+                                        head_idx=0
+                                    )
+                            except Exception as e:
+                                print(f"Warning: Could not generate word attention heatmap for {filename}: {e}")
                     except Exception as e:
                         print(f"Error processing self attention file {filename}: {e}")
                         continue
@@ -347,13 +376,13 @@ class AttentionScoreCalculator:
                 'q25': float(np.percentile(arr, 25)),
                 'q75': float(np.percentile(arr, 75)),
             }
-        # Print summary statistics for each semantic dimension
-        for semdim in sorted(stats.keys()):
-            print(f"\n=== Semantic Dimension: {semdim} ===")
-            ipa_means = [(ipa, v['mean']) for ipa, v in stats[semdim].items()]
-            ipa_means.sort(key=lambda x: x[1], reverse=True)
-            for ipa, mean in ipa_means:
-                print(f"{ipa}: {mean:.4f}")
+        # # Print summary statistics for each semantic dimension
+        # for semdim in sorted(stats.keys()):
+        #     print(f"\n=== Semantic Dimension: {semdim} ===")
+        #     ipa_means = [(ipa, v['mean']) for ipa, v in stats[semdim].items()]
+        #     ipa_means.sort(key=lambda x: x[1], reverse=True)
+        #     for ipa, mean in ipa_means:
+        #         print(f"{ipa}: {mean:.4f}")
 
         # ---- 추가: 전체 표 형태로 출력 ----
         try:
@@ -370,11 +399,70 @@ class AttentionScoreCalculator:
                         row.append(float('nan'))
                 data.append(row)
             df = pd.DataFrame(data, index=all_ipas, columns=all_semdims)
-            print("\n=== IPA × Semantic Dimension Mean Attention Score Table ===")
-            with pd.option_context('display.max_rows', 100, 'display.max_columns', 100, 'display.width', 200):
-                print(df.round(4))
+            # print("\n=== IPA × Semantic Dimension Mean Attention Score Table ===")
+            # with pd.option_context('display.max_rows', 100, 'display.max_columns', 100, 'display.width', 200):
+            #     print(df.round(4))
         except ImportError:
             print("[WARN] pandas가 설치되어 있지 않아 표 형태로 출력하지 않습니다.")
+        # ---- 추가: semantic dimension별 상위 5개 IPA를 column별로 나란히 출력 (dim1-dim2 쌍 순서, 8개마다 줄 띄움) ----
+        try:
+            from termcolor import colored
+        except ImportError:
+            def colored(text, color=None, attrs=None):
+                return text
+        
+        # 대립쌍 정의 (dim1, dim2)
+        dim_pairs = [
+            ("good", "bad"), ("beautiful", "ugly"), ("pleasant", "unpleasant"), ("strong", "weak"),
+            ("big", "small"), ("rugged", "delicate"), ("active", "passive"), ("fast", "slow"),
+            ("sharp", "round"), ("realistic", "fantastical"), ("structured", "disorganized"), ("orginary", "unique"),
+            ("interesting", "uninteresting"), ("simple", "complex"), ("abrupt", "continuous"), ("exciting", "calming"),
+            ("hard", "soft"), ("happy", "sad"), ("harsh", "mellow"), ("heavy", "light"),
+            ("inhibited", "free"), ("masculine", "feminine"), ("solid", "nonsolid"), ("tense", "relaxed"),
+            ("dangerous", "safe")
+        ]
+        
+        # 실제 stats에 존재하는 dimension만 사용 (dim_pairs 순서)
+        all_semdims = []
+        for d1, d2 in dim_pairs:
+            if d1 in stats:
+                all_semdims.append(d1)
+            if d2 in stats:
+                all_semdims.append(d2)
+        
+        topk = 5
+        top_ipa_per_semdim = []
+        for semdim in all_semdims:
+            ipa_means = [(ipa, v['mean']) for ipa, v in stats[semdim].items()]
+            ipa_means.sort(key=lambda x: x[1], reverse=True)
+            top_ipa_per_semdim.append(ipa_means[:topk])
+        
+        # 헤더 출력 (8개씩)
+        print("\n=== Top 5 IPA per Semantic Dimension (columns: semantic dimension, rows: (IPA, score)) ===")
+        for block_start in range(0, len(all_semdims), 8):
+            block_dims = all_semdims[block_start:block_start+8]
+            block_top_ipa = top_ipa_per_semdim[block_start:block_start+8]
+            header = "".join(f"{semdim:^18}" for semdim in block_dims)
+            print(header)
+            print("=" * (len(block_dims) * 18))
+            for row in range(topk):
+                row_str = ""
+                for col, semdim in enumerate(block_dims):
+                    ipa_score_list = block_top_ipa[col]
+                    if row < len(ipa_score_list):
+                        ipa, score = ipa_score_list[row]
+                        if row == 0:
+                            ipa_str = colored(f"{ipa:>7}", 'blue', attrs=['bold'])
+                            score_str = colored(f"{score:<10.4f}", 'blue', attrs=['bold'])
+                        else:
+                            ipa_str = f"{ipa:>3}"
+                            score_str = f"{score:6.4f}"
+                        cell = f"{ipa_str}:{score_str}"
+                    else:
+                        cell = " " * 12
+                    row_str += f"{cell:^18}"
+                print(row_str)
+            print()  # 8개 dimension마다 한 줄 띄움
         return {
             'ipa_semdim_stats': stats,
             'file_count': file_count
@@ -519,46 +607,51 @@ class AttentionScoreCalculator:
         output_file = os.path.join(output_path, f"ipa_semdim_attention_stats_{data_type}_{lang}_{attention_type}.json")
         with open(output_file, 'w') as f:
             json.dump(stats, f, indent=2)
-        print(f"Saved stats to {output_file}")
+        # print(f"Saved stats to {output_file}")
         
         # Print sorted IPA scores for each semantic dimension
         for semdim in sorted({k[1] for k in all_scores.keys()}):
-            print(f"\n=== Semantic Dimension: {semdim} ===")
+            # print(f"\n=== Semantic Dimension: {semdim} ===")
             ipa_means = []
             for ipa in stats:
                 if semdim in stats[ipa] and 'all' in stats[ipa][semdim]:
                     ipa_means.append((ipa, stats[ipa][semdim]['all']['mean']))
             ipa_means.sort(key=lambda x: x[1], reverse=True)
-            for ipa, mean in ipa_means:
-                print(f"{ipa}: {mean:.4f}")
+            # for ipa, mean in ipa_means:
+            #     print(f"{ipa}: {mean:.4f}")
         
         return stats
     
     def create_phoneme_semdim_matrix(self, aggregated_scores):
         """Create a matrix of phoneme-semantic dimension attention scores"""
         if not aggregated_scores:
-            return None
+            return None, [], []
+        
+        # Get all unique IPA symbols and semantic dimensions from ipa_semdim_stats
+        ipa_semdim_stats = aggregated_scores.get('ipa_semdim_stats', {})
+        if not ipa_semdim_stats:
+            return None, [], []
         
         # Get all unique IPA symbols and semantic dimensions
         all_ipa_symbols = set()
-        all_ipa_symbols.update(aggregated_scores['dim1_scores'].keys())
-        all_ipa_symbols.update(aggregated_scores['dim2_scores'].keys())
+        all_semantic_dimensions = set()
+        
+        for semdim in ipa_semdim_stats:
+            all_semantic_dimensions.add(semdim)
+            for ipa in ipa_semdim_stats[semdim]:
+                all_ipa_symbols.add(ipa)
         
         # Create matrix: rows = IPA symbols, columns = semantic dimensions
         ipa_list = sorted(list(all_ipa_symbols))
-        semdim_list = self.semantic_dimension_map
+        semdim_list = sorted(list(all_semantic_dimensions))
         
         matrix = np.zeros((len(ipa_list), len(semdim_list)))
         
         # Fill the matrix with scores
         for i, ipa in enumerate(ipa_list):
             for j, semdim in enumerate(semdim_list):
-                # For now, we'll use the average scores across all dimensions
-                # In the future, we can map specific dimensions to their scores
-                if ipa in aggregated_scores['dim1_scores']:
-                    matrix[i, j] = aggregated_scores['dim1_scores'][ipa]
-                elif ipa in aggregated_scores['dim2_scores']:
-                    matrix[i, j] = aggregated_scores['dim2_scores'][ipa]
+                if semdim in ipa_semdim_stats and ipa in ipa_semdim_stats[semdim]:
+                    matrix[i, j] = ipa_semdim_stats[semdim][ipa]['mean']
         
         return matrix, ipa_list, semdim_list
     
@@ -599,6 +692,115 @@ class AttentionScoreCalculator:
         print(f"IPA-Semantic Dimension heatmap saved to {file_path}")
         plt.close()
     
+    def plot_single_word_attention_heatmap(self, attention_matrix, tokens, word_indices, dim1_indices, dim2_indices, 
+                                         dimension1, dimension2, word_tokens, save_path=None, lang=None, 
+                                         data_type=None, attention_type=None, layer_idx=0, head_idx=0):
+        """
+        Plot attention heatmap for a single word showing attention from word tokens to semantic dimensions.
+        X-axis: tokens from min(word_indices) to max(dim2_indices)
+        Y-axis: attention heads (if multiple heads) or layers (if multiple layers)
+        """
+        if attention_matrix is None:
+            print("No attention matrix provided")
+            return
+        
+        # Convert to tensor if needed
+        if not isinstance(attention_matrix, torch.Tensor):
+            attention_matrix = torch.tensor(attention_matrix)
+        
+        # Get the attention matrix for specified layer and head
+        if len(attention_matrix.shape) == 4:  # [layer, head, seq, seq]
+            attn = attention_matrix[layer_idx, head_idx]
+        elif len(attention_matrix.shape) == 3:  # [layer, seq, seq]
+            attn = attention_matrix[layer_idx]
+        else:  # [seq, seq]
+            attn = attention_matrix
+        
+        # Define the region to plot
+        min_word_idx = min(word_indices) if word_indices else 0
+        max_dim_idx = max(dim1_indices + dim2_indices) if (dim1_indices or dim2_indices) else attn.shape[0]
+        
+        # Extract the relevant region
+        start_idx = max(0, min_word_idx - 2)  # Include some context
+        end_idx = min(attn.shape[0], max_dim_idx + 3)  # Include some context
+        
+        region_attn = attn[start_idx:end_idx, start_idx:end_idx].numpy()
+        region_tokens = tokens[start_idx:end_idx] if tokens else [f"token_{i}" for i in range(start_idx, end_idx)]
+        
+        # Create the plot
+        fig, ax = plt.subplots(figsize=(12, 10))
+        
+        # Create heatmap
+        im = ax.imshow(region_attn, cmap='YlOrRd', aspect='auto')
+        
+        # Set ticks and labels
+        ax.set_xticks(range(len(region_tokens)))
+        ax.set_yticks(range(len(region_tokens)))
+        ax.set_xticklabels(region_tokens, rotation=45, ha='right', fontsize=8)
+        ax.set_yticklabels(region_tokens, fontsize=8)
+        
+        # Highlight word and dimension regions
+        word_region = [i - start_idx for i in word_indices if start_idx <= i < end_idx]
+        dim1_region = [i - start_idx for i in dim1_indices if start_idx <= i < end_idx]
+        dim2_region = [i - start_idx for i in dim2_indices if start_idx <= i < end_idx]
+        
+        # Add rectangles to highlight regions
+        for idx in word_region:
+            if 0 <= idx < len(region_tokens):
+                rect = plt.Rectangle((idx-0.5, -0.5), 1, len(region_tokens), 
+                                   linewidth=2, edgecolor='blue', facecolor='none', alpha=0.7)
+                ax.add_patch(rect)
+        
+        for idx in dim1_region:
+            if 0 <= idx < len(region_tokens):
+                rect = plt.Rectangle((idx-0.5, -0.5), 1, len(region_tokens), 
+                                   linewidth=2, edgecolor='red', facecolor='none', alpha=0.7)
+                ax.add_patch(rect)
+        
+        for idx in dim2_region:
+            if 0 <= idx < len(region_tokens):
+                rect = plt.Rectangle((idx-0.5, -0.5), 1, len(region_tokens), 
+                                   linewidth=2, edgecolor='green', facecolor='none', alpha=0.7)
+                ax.add_patch(rect)
+        
+        # Add colorbar
+        cbar = plt.colorbar(im, ax=ax)
+        cbar.set_label('Attention Score', fontsize=12)
+        
+        # Set title and labels
+        title = f'Word Attention Heatmap: {word_tokens}\n{dimension1} vs {dimension2}'
+        if len(attention_matrix.shape) >= 3:
+            title += f' (Layer {layer_idx}, Head {head_idx})'
+        ax.set_title(title, fontsize=14, pad=20)
+        ax.set_xlabel('Query Tokens', fontsize=12)
+        ax.set_ylabel('Key Tokens', fontsize=12)
+        
+        # Add legend
+        from matplotlib.patches import Patch
+        legend_elements = [
+            Patch(facecolor='none', edgecolor='blue', label='Word Tokens'),
+            Patch(facecolor='none', edgecolor='red', label=f'{dimension1}'),
+            Patch(facecolor='none', edgecolor='green', label=f'{dimension2}')
+        ]
+        ax.legend(handles=legend_elements, loc='upper right')
+        
+        plt.tight_layout()
+        
+        # Save the plot
+        if save_path is None:
+            save_path = 'results/plots/attention/'
+        os.makedirs(save_path, exist_ok=True)
+        
+        # Clean word_tokens for filename
+        clean_word = re.sub(r'[^\w\-]', '_', word_tokens)
+        file_name = f"word_attention_heatmap_{clean_word}_{dimension1}_{dimension2}_{lang}_{data_type}_{attention_type}_L{layer_idx}H{head_idx}.png"
+        file_path = os.path.join(save_path, file_name)
+        plt.savefig(file_path, dpi=300, bbox_inches='tight')
+        print(f"Word attention heatmap saved to {file_path}")
+        plt.close()
+        
+        return file_path
+    
     def run(self, data_type: str, lang: str, attention_type: str = "generation_attention"):
         """Main execution function"""
         print(f"Processing {data_type} data for language {lang} with {attention_type}")
@@ -621,8 +823,6 @@ class AttentionScoreCalculator:
             'matrix': matrix.tolist(),
             'ipa_symbols': ipa_list,
             'semantic_dimensions': semdim_list,
-            'dim1_scores': aggregated_scores['dim1_scores'],
-            'dim2_scores': aggregated_scores['dim2_scores'],
             'detailed_stats': aggregated_scores.get('detailed_stats', {}),
             'file_count': aggregated_scores['file_count'],
             'data_type': data_type,
@@ -651,19 +851,6 @@ class AttentionScoreCalculator:
         print(f"Number of semantic dimensions: {len(semdim_list)}")
         print(f"Files processed: {aggregated_scores['file_count']}")
         
-        # Print top 10 IPA symbols by attention score for each dimension
-        if aggregated_scores['dim1_scores']:
-            print(f"\nTop 10 IPA symbols by Dimension 1 attention score:")
-            sorted_dim1 = sorted(aggregated_scores['dim1_scores'].items(), key=lambda x: x[1], reverse=True)[:10]
-            for i, (ipa, score) in enumerate(sorted_dim1, 1):
-                print(f"  {i:2d}. {ipa}: {score:.6f}")
-        
-        if aggregated_scores['dim2_scores']:
-            print(f"\nTop 10 IPA symbols by Dimension 2 attention score:")
-            sorted_dim2 = sorted(aggregated_scores['dim2_scores'].items(), key=lambda x: x[1], reverse=True)[:10]
-            for i, (ipa, score) in enumerate(sorted_dim2, 1):
-                print(f"  {i:2d}. {ipa}: {score:.6f}")
-        
         # Save heatmap
         self.plot_ipa_semdim_heatmap(
             aggregated_scores['ipa_semdim_stats'],
@@ -673,6 +860,107 @@ class AttentionScoreCalculator:
             attention_type=attention_type
         )
         
+        # ---- Save ipa_semdim_stats as DataFrame (csv) and sorted heatmap (png) ----
+        try:
+            import pandas as pd
+            import numpy as np
+            from scipy.optimize import linear_sum_assignment
+            stats = aggregated_scores['ipa_semdim_stats']
+            # 1. DataFrame 생성
+            all_semdims = sorted(stats.keys())
+            all_ipas = sorted(set(ipa for semdim in stats for ipa in stats[semdim]))
+            data = []
+            for semdim in all_semdims:
+                row = []
+                for ipa in all_ipas:
+                    if ipa in stats[semdim]:
+                        row.append(stats[semdim][ipa]['mean'])
+                    else:
+                        row.append(np.nan)
+                data.append(row)
+            df = pd.DataFrame(data, index=all_semdims, columns=all_ipas)
+            # 2. CSV 저장
+            save_dir = 'results/plots/attention/'
+            os.makedirs(save_dir, exist_ok=True)
+            csv_path = os.path.join(save_dir, f"ipa_semdim_table_{lang}_{data_type}_{attention_type}.csv")
+            df.to_csv(csv_path)
+            print(f"IPA-Semantic Dimension table saved to {csv_path}")
+            # 3. 정렬: Hungarian algorithm으로 대각선 최대화
+            matrix = df.values
+            # nan은 작은 값으로 대체
+            nan_mask = np.isnan(matrix)
+            matrix_filled = np.where(nan_mask, np.nanmin(matrix) - 1, matrix)
+            # Hungarian: maximize diagonal sum -> minimize -matrix
+            row_ind, col_ind = linear_sum_assignment(-matrix_filled)
+            sorted_df = df.iloc[row_ind, col_ind]
+            # 4. Heatmap 저장
+            import matplotlib.pyplot as plt
+            import seaborn as sns
+            from termcolor import colored
+            fig, ax = plt.subplots(figsize=(max(12, len(col_ind)*0.3), max(10, len(row_ind)*0.3)))
+            sns.heatmap(sorted_df.values, ax=ax, cmap='YlGnBu', cbar=True, xticklabels=sorted_df.columns, yticklabels=sorted_df.index, linewidths=0.2, linecolor='gray', square=False)
+            ax.set_xlabel('IPA Symbol', fontsize=14)
+            ax.set_ylabel('Semantic Dimension', fontsize=14)
+            ax.set_title(f'Sorted IPA-Semantic Dimension Attention Heatmap ({lang}, {data_type}, {attention_type})', fontsize=16, pad=15)
+            plt.tight_layout()
+            png_path = os.path.join(save_dir, f"ipa_semdim_heatmap_sorted_{lang}_{data_type}_{attention_type}.png")
+            plt.savefig(png_path, dpi=300, bbox_inches='tight')
+            print(f"Sorted IPA-Semantic Dimension heatmap saved to {png_path}")
+            plt.close()
+        except Exception as e:
+            print(f"[WARN] Could not save csv/png heatmap: {e}")
+        
+        # ---- Top 5 IPA per Semantic Dimension (dim1-dim2 쌍 순서, 8개마다 줄 띄움) ----
+        # 대립쌍 정의 (dim1, dim2)
+        dim_pairs = [
+            ("good", "bad"), ("beautiful", "ugly"), ("pleasant", "unpleasant"), ("strong", "weak"),
+            ("big", "small"), ("rugged", "delicate"), ("active", "passive"), ("fast", "slow"),
+            ("sharp", "round"), ("realistic", "fantastical"), ("structured", "disorganized"), ("orginary", "unique"),
+            ("interesting", "uninteresting"), ("simple", "complex"), ("abrupt", "continuous"), ("exciting", "calming"),
+            ("hard", "soft"), ("happy", "sad"), ("harsh", "mellow"), ("heavy", "light"),
+            ("inhibited", "free"), ("masculine", "feminine"), ("solid", "nonsolid"), ("tense", "relaxed"),
+            ("dangerous", "safe")
+        ]
+        # 실제 stats에 존재하는 dimension만 사용
+        stats = aggregated_scores['ipa_semdim_stats']
+        all_semdims = []
+        for d1, d2 in dim_pairs:
+            if d1 in stats:
+                all_semdims.append(d1)
+            if d2 in stats:
+                all_semdims.append(d2)
+        topk = 5
+        top_ipa_per_semdim = []
+        for semdim in all_semdims:
+            ipa_means = [(ipa, v['mean']) for ipa, v in stats[semdim].items()]
+            ipa_means.sort(key=lambda x: x[1], reverse=True)
+            top_ipa_per_semdim.append(ipa_means[:topk])
+        print("\n=== Top 5 IPA per Semantic Dimension (columns: semantic dimension, rows: (IPA, score)) ===")
+        for block_start in range(0, len(all_semdims), 8):
+            block_dims = all_semdims[block_start:block_start+8]
+            block_top_ipa = top_ipa_per_semdim[block_start:block_start+8]
+            header = "".join(f"{semdim:^18}" for semdim in block_dims)
+            print(header)
+            print("=" * (len(block_dims) * 18))
+            for row in range(topk):
+                row_str = ""
+                for col, semdim in enumerate(block_dims):
+                    ipa_score_list = block_top_ipa[col]
+                    if row < len(ipa_score_list):
+                        ipa, score = ipa_score_list[row]
+                        if row == 0:
+                            ipa_str = colored(f"{ipa:>7}", 'blue', attrs=['bold'])
+                            score_str = colored(f"{score:<10.4f}", 'blue', attrs=['bold'])
+                        else:
+                            ipa_str = f"{ipa:>7}"
+                            score_str = f"{score:<10.4f}"
+                        cell = f"{ipa_str}:{score_str}"
+                    else:
+                        cell = " " * 12
+                    row_str += f"{cell:^18}"
+                print(row_str)
+            print()  # 8개 dimension마다 한 줄 띄움
+
         return results
 
 if __name__ == "__main__":
@@ -711,9 +999,6 @@ if __name__ == "__main__":
 
     for lang in langs:
         print(f"\n=== Processing language: {lang} ===")
-        try:
-            results = asc.run(args.data_type, lang, args.attention_type)
-        except Exception as e:
-            print(f"[ERROR] Failed to process language {lang}: {e}")
-            continue
+        results = asc.run(args.data_type, lang, args.attention_type)
+
     
