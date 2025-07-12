@@ -13,6 +13,7 @@ qwen_token_1 = 16
 qwen_token_2 = 17
 global_hidden_states = {}
 local_hidden_states = {}
+global_logit_lens = {}
 hooks = []
 
 
@@ -211,15 +212,14 @@ class QwenOmniMCQExperiment:
 
             # save only for the ideal output
             if pure_out.shape[-1] == 3:
-                text = self.processor.batch_decode(pure_out)
-                print(text)
-
-                # for debug
-                self._logit_lens_for_layer(local_hidden_states)
+                logit_lens_for_all = self._logit_lens_for_all_layers(local_hidden_states)
+                dimension = query["meta_data"]["dimension"]
+                key = self._get_example_key(language, word, dimension)
+                import pdb; pdb.set_trace()
+                global_logit_lens[key] = logit_lens_for_all
 
                 global_hidden_states[query_idx] = local_hidden_states.copy()
 
-                print("======" * 20)
             local_hidden_states.clear()
 
             # print('Full text:', full_text)
@@ -300,6 +300,10 @@ class QwenOmniMCQExperiment:
         with open(results_filename, 'w', encoding='utf-8') as f:
             json.dump(results_dict, f, ensure_ascii=False, indent=4)
 
+        logit_lens_path = "./logit_lens.json"
+        with open(logit_lens_path, 'w', encoding='utf-8') as f:
+            json.dump(global_logit_lens, f, ensure_ascii=False, indent=4)
+
         print(f"Results saved to: {results_filename}")
 
         # Clean up
@@ -311,10 +315,16 @@ class QwenOmniMCQExperiment:
 
         return results_dict, results_filename
 
-    def _logit_lens_for_layer(self, local_hidden_states):
+    def _logit_lens_for_all_layers(self, local_hidden_states):
+        logit_lens_for_all_layers = {}
         for layer_id, hidden_state in local_hidden_states.items():
             print(f"Processing layer: {layer_id}")
-            self._run_logit_lens(hidden_state)
+            logit_lens = self._run_logit_lens(hidden_state)
+            logit_lens_for_all_layers[layer_id] = logit_lens
+
+        print("======" * 20)
+
+        return logit_lens_for_all_layers
 
     def _run_logit_lens(self, hidden_state):
         hidden_state = torch.tensor(hidden_state, dtype=torch.bfloat16).to(self.model.device)
@@ -351,6 +361,13 @@ class QwenOmniMCQExperiment:
         print("=========================================")
 
         return output
+
+    def _get_example_key(self, language, word, dimension):
+        """
+        Generate a unique key for the example based on language, word, and dimension.
+        This will be used to store logit lens data.
+        """
+        return f"{language}_{word}_{dimension}"
 
 
 if __name__ == "__main__":
