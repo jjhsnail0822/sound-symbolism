@@ -158,6 +158,7 @@ class QwenOmniMCQExperiment:
                 logit_lens_for_all_layers["is_correct"] = is_correct # subtle
 
                 global_logit_lens[example_key] = logit_lens_for_all_layers
+                local_hidden_states.clear()
 
         # save out
         self.save_output(all_results, results_file_path)
