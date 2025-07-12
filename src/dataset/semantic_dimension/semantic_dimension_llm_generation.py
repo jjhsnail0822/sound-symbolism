@@ -103,8 +103,12 @@ class MCQExperiment:
 
         if self.use_api:
             if 'gemini' in self.model_path:
-                # Configure Google Generative AI
-                self.client = genai.Client(api_key=os.getenv("GOOGLE_API_KEY"))
+                google_api_keys = os.getenv("GOOGLE_API_KEYS")
+                if not google_api_keys:
+                    raise ValueError("GOOGLE_API_KEYS not found in .env.local file. Please provide a comma-separated list of keys.")
+                self.api_keys = [key.strip() for key in google_api_keys.split(',')]
+                self.current_key_index = 0
+                self._initialize_client() # Initialize client with the first key
                 if self.save_logits:
                     print("Warning: save_logits is not supported for Gemini models. Disabling it.")
                     self.save_logits = False
@@ -120,6 +124,23 @@ class MCQExperiment:
                 self.word_data[lang] = json.load(f)
 
         pass
+
+    def _initialize_client(self):
+        """Initializes the Gemini client with the current API key."""
+        if 'gemini' not in self.model_path:
+            return
+        if self.current_key_index >= len(self.api_keys):
+            raise Exception("All API keys have been exhausted.")
+        
+        current_key = self.api_keys[self.current_key_index]
+        print(f"Initializing Gemini client for model {self.model_path} with API key index {self.current_key_index}")
+        self.client = genai.Client(api_key=current_key)
+
+    def _switch_to_next_key(self):
+        """Switches to the next API key and re-initializes the client."""
+        self.current_key_index += 1
+        print(f"Switching to next API key (index: {self.current_key_index})")
+        self._initialize_client()
 
     def _cleanup(self):
         destroy_model_parallel()
@@ -207,16 +228,27 @@ class MCQExperiment:
                                 maxOutputTokens=self.max_tokens,
                                 temperature=self.temperature,
                             )
-                            try:
-                                response = self.client.models.generate_content(
-                                    model=self.model_path,
-                                    contents=content,
-                                    config=generation_config,
-                                )
-                                model_answer = response.text.strip()
-                            except Exception as e:
-                                print(f"An error occurred while calling the Gemini API: {e}")
-                                model_answer = "" # Set empty answer on error
+                            
+                            model_answer = None
+                            # Retry logic for API keys
+                            for attempt in range(len(self.api_keys)):
+                                try:
+                                    response = self.client.models.generate_content(
+                                        model=self.model_path,
+                                        contents=content,
+                                        config=generation_config,
+                                    )
+                                    model_answer = response.text.strip()
+                                    break # Success
+                                except Exception as e:
+                                    print(f"An error occurred with API key index {self.current_key_index}: {e}")
+                                    if self.current_key_index < len(self.api_keys) - 1:
+                                        self._switch_to_next_key()
+                                    else:
+                                        print("All API keys have failed. Stopping for this word.")
+                                        model_answer = "" # Set empty answer on all keys failed
+                                        raise e
+
                             logits = None # Logits not supported by Gemini API
                         else:
                             response = self.client.chat.completions.create(
