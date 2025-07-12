@@ -98,7 +98,7 @@ class QwenOmniMCQExperiment:
                 existing_result = existing_results[query_key]
                 if existing_result.get("model_answer") != "0":
                     all_results.append(existing_result)
-                    continue
+                    # continue
 
             # input
             inputs = self.get_input_tensors(query)
