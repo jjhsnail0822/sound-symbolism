@@ -12,8 +12,8 @@ from semdim_heatmap import QwenOmniSemanticDimensionVisualizer as qwensemdim
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-# python src/analysis/heatmap/compute_attention_score.py --data-type ipa --lang en --attention-type generation_attention
-# python src/analysis/heatmap/compute_attention_score.py --data-type ipa --lang en --attention-type self_attention
+# python src/analysis/heatmap/compute_attention_score.py --data-type ipa --attention-type generation_attention
+# python src/analysis/heatmap/compute_attention_score.py --data-type ipa --attention-type self_attention
 # ipa_to_feature_map = json.load(open("./data/constructed_words/ipa_to_feature.json"))
 # feature_to_score_map = json.load(open("./data/constructed_words/feature_to_score.json"))
 data_path = "data/processed/nat/semantic_dimension/semantic_dimension_binary_gt.json"
@@ -66,14 +66,14 @@ class AttentionScoreCalculator:
             "dangerous", "safe"
         ]
         
-        # IPA symbols list (common IPA symbols)
         self.ipa_symbols = [
             'a', 'ɑ', 'æ', 'ɐ', 'ə', 'ɚ', 'ɝ', 'ɛ', 'ɜ', 'e', 'ɪ', 'i', 'ɨ', 'ɯ', 'o', 'ɔ', 'ʊ', 'u', 'ʌ', 'ʉ',
             'b', 'β', 'c', 'ç', 'd', 'ð', 'f', 'ɡ', 'ɣ', 'h', 'ɦ', 'j', 'k', 'l', 'ɭ', 'ʟ', 'm', 'ɱ', 'n', 'ŋ',
             'ɲ', 'p', 'ɸ', 'q', 'r', 'ɾ', 'ɹ', 'ʁ', 's', 'ʃ', 't', 'θ', 'v', 'w', 'x', 'χ', 'z', 'ʒ', 'ʔ', 'ʕ',
             'ʡ', 'ʢ', 'ʘ', 'ǀ', 'ǃ', 'ǂ', 'ǁ', 'ɓ', 'ɗ', 'ʄ', 'ɠ', 'ʛ', 'ɦ', 'ʍ', 'ɥ', 'ʜ', 'ʢ', 'ʎ', 'ʟ',
             'ɺ', 'ɻ', 'ɽ', 'ʀ', 'ʂ', 'ʈ', 'ʋ', 'ʐ', 'ʑ', 'ʝ', 'ʞ', 'ʟ', 'ʠ', 'ʡ', 'ʢ', 'ʣ', 'ʤ', 'ʥ', 'ʦ',
-            'ʧ', 'ʨ', 'ʩ', 'ʪ', 'ʫ', 'ʬ', 'ʭ', 'ʮ', 'ʯ'
+            'ʧ', 'ʨ', 'ʩ', 'ʪ', 'ʫ', 'ʬ', 'ʭ', 'ʮ', 'ʯ',
+            'ɴ', 'ɕ', 'd͡ʑ', 't͡ɕ', 'ʑ', 'ɰ', 'ã', 'õ', 'ɯ̃', 'ĩ', 'ẽ', 'ɯː', 'aː', 'oː', 'iː', 'eː'
         ]
     
     def _clean_token(self, token):
@@ -365,17 +365,22 @@ class AttentionScoreCalculator:
         # Aggregate statistics for each (ipa, semdim)
         stats = {}
         for (ipa, semdim), scores in all_ipa_semdim_scores.items():
-            arr = np.array(scores)
-            stats.setdefault(semdim, {})[ipa] = {
-                'mean': float(np.mean(arr)),
-                'std': float(np.std(arr)),
-                'min': float(np.min(arr)),
-                'max': float(np.max(arr)),
-                'median': float(np.median(arr)),
-                'count': int(len(arr)),
-                'q25': float(np.percentile(arr, 25)),
-                'q75': float(np.percentile(arr, 75)),
-            }
+            # Filter out 0.0 scores that might be due to missing data
+            filtered_scores = [score for score in scores if score > 0.0]
+            
+            # Only include if we have valid scores
+            if filtered_scores:
+                arr = np.array(filtered_scores)
+                stats.setdefault(semdim, {})[ipa] = {
+                    'mean': float(np.mean(arr)),
+                    'std': float(np.std(arr)),
+                    'min': float(np.min(arr)),
+                    'max': float(np.max(arr)),
+                    'median': float(np.median(arr)),
+                    'count': int(len(arr)),
+                    'q25': float(np.percentile(arr, 25)),
+                    'q75': float(np.percentile(arr, 75)),
+                }
         # # Print summary statistics for each semantic dimension
         # for semdim in sorted(stats.keys()):
         #     print(f"\n=== Semantic Dimension: {semdim} ===")
@@ -809,7 +814,7 @@ class AttentionScoreCalculator:
         aggregated_scores = self.aggregate_scores_across_files(data_type, lang, attention_type)
         
         if not aggregated_scores:
-            print("No scores found")
+            print(f"[WARN] No scores found for lang={lang}, data_type={data_type}, attention_type={attention_type}")
             return None
         
         # Create phoneme-semantic dimension matrix
@@ -820,7 +825,7 @@ class AttentionScoreCalculator:
         os.makedirs(output_path, exist_ok=True)
         output_file = os.path.join(output_path, f"ipa_semdim_attention_scores_{data_type}_{lang}_{attention_type}.json")
         results = {
-            'matrix': matrix.tolist(),
+            'matrix': matrix.tolist() if matrix is not None else [],
             'ipa_symbols': ipa_list,
             'semantic_dimensions': semdim_list,
             'detailed_stats': aggregated_scores.get('detailed_stats', {}),
@@ -831,7 +836,7 @@ class AttentionScoreCalculator:
             'summary': {
                 'total_ipa_symbols': len(ipa_list),
                 'total_semantic_dimensions': len(semdim_list),
-                'matrix_shape': matrix.shape,
+                'matrix_shape': matrix.shape if matrix is not None else (0, 0),
                 'processing_info': {
                     'data_type': data_type,
                     'language': lang,
@@ -844,23 +849,26 @@ class AttentionScoreCalculator:
         with open(output_file, 'w') as f:
             json.dump(results, f, indent=2)
         
-        print(f"\n=== RESULTS SUMMARY ===")
+        print(f"\n=== RESULTS SUMMARY for lang={lang} ===")
         print(f"Results saved to {output_file}")
-        print(f"Matrix shape: {matrix.shape}")
+        print(f"Matrix shape: {matrix.shape if matrix is not None else (0, 0)}")
         print(f"Number of IPA symbols: {len(ipa_list)}")
         print(f"Number of semantic dimensions: {len(semdim_list)}")
         print(f"Files processed: {aggregated_scores['file_count']}")
         
         # Save heatmap
-        self.plot_ipa_semdim_heatmap(
-            aggregated_scores['ipa_semdim_stats'],
-            save_path='results/plots/attention/',
-            lang=lang,
-            data_type=data_type,
-            attention_type=attention_type
-        )
+        if aggregated_scores.get('ipa_semdim_stats'):
+            self.plot_ipa_semdim_heatmap(
+                aggregated_scores['ipa_semdim_stats'],
+                save_path='results/plots/attention/',
+                lang=lang,
+                data_type=data_type,
+                attention_type=attention_type
+            )
+        else:
+            print(f"[WARN] ipa_semdim_stats is empty for lang={lang}, data_type={data_type}, attention_type={attention_type}. No heatmap will be saved.")
         
-        # ---- Save ipa_semdim_stats as DataFrame (csv) and sorted heatmap (png) ----
+        # ---- Save ipa_semdim_stats as DataFrame (csv) and sorted heatmap (png/json) ----
         try:
             import pandas as pd
             import numpy as np
@@ -879,7 +887,6 @@ class AttentionScoreCalculator:
                         row.append(np.nan)
                 data.append(row)
             df = pd.DataFrame(data, index=all_semdims, columns=all_ipas)
-            # 2. CSV 저장
             save_dir = 'results/plots/attention/'
             os.makedirs(save_dir, exist_ok=True)
             csv_path = os.path.join(save_dir, f"ipa_semdim_table_{lang}_{data_type}_{attention_type}.csv")
@@ -893,7 +900,11 @@ class AttentionScoreCalculator:
             # Hungarian: maximize diagonal sum -> minimize -matrix
             row_ind, col_ind = linear_sum_assignment(-matrix_filled)
             sorted_df = df.iloc[row_ind, col_ind]
-            # 4. Heatmap 저장
+            sorted_semdims = [df.index[i] for i in row_ind]
+            sorted_ipas = [df.columns[j] for j in col_ind]
+            sorted_csv_path = os.path.join(save_dir, f"ipa_semdim_table_sorted_{lang}_{data_type}_{attention_type}.csv")
+            sorted_df.to_csv(sorted_csv_path)
+            print(f"Sorted IPA-Semantic Dimension table saved to {sorted_csv_path}")
             import matplotlib.pyplot as plt
             import seaborn as sns
             from termcolor import colored
@@ -907,8 +918,11 @@ class AttentionScoreCalculator:
             plt.savefig(png_path, dpi=300, bbox_inches='tight')
             print(f"Sorted IPA-Semantic Dimension heatmap saved to {png_path}")
             plt.close()
+            results['sorted_matrix'] = sorted_df.values.tolist()
+            results['sorted_ipa_symbols'] = list(sorted_ipas)
+            results['sorted_semantic_dimensions'] = list(sorted_semdims)
         except Exception as e:
-            print(f"[WARN] Could not save csv/png heatmap: {e}")
+            print(f"[WARN] Could not save sorted csv/png/json heatmap: {e}")
         
         # ---- Top 5 IPA per Semantic Dimension (dim1-dim2 쌍 순서, 8개마다 줄 띄움) ----
         # 대립쌍 정의 (dim1, dim2)

@@ -1,5 +1,6 @@
 # Model : Qwen2.5-Omni-7B
 # python src/analysis/heatmap/semdim_heatmap.py --max-samples 2 --data-type ipa
+# python src/analysis/heatmap/semdim_heatmap.py --max-samples 2 --data-type audio
 import json
 import re
 import os
@@ -96,6 +97,7 @@ class QwenOmniSemanticDimensionVisualizer:
         
         if self.data_type == "audio":
             word = f"data/processed/nat/tts/{data['language']}/{data['word']}.wav"
+            print(f"[DEBUG] Audio path: {word}, Exists: {os.path.exists(word)}")
             if "{audio}" in prompt:
                 constructed_prompt = [
                     {"type": "text", "text": prompt.split("{audio}")[0]},
@@ -119,6 +121,8 @@ class QwenOmniSemanticDimensionVisualizer:
     def create_conversation(self, prompt, data):
         if self.data_type == "audio":
             audio_path = f'data/processed/nat/tts/{data["language"]}/{data["word"]}.wav'
+            print(f"[DEBUG] create_conversation audio_path: {audio_path}, Exists: {os.path.exists(audio_path)}")
+            print(f"[DEBUG] conversation: {prompt}")
             if isinstance(prompt, list):
                 conversation = [
                     SYSTEM_TEMPLATE,
@@ -176,15 +180,83 @@ class QwenOmniSemanticDimensionVisualizer:
         
         return conversation
     
+    def trim_silence_from_audio(self, audio_data, threshold=0.01):
+        """Remove silence from the beginning of audio"""
+        if audio_data is None or len(audio_data) == 0:
+            return audio_data
+            
+        # Find the first non-silent sample
+        non_zero_indices = np.nonzero(np.abs(audio_data) > threshold)[0]
+        
+        if len(non_zero_indices) == 0:
+            print(f"[WARNING] Audio is completely silent!")
+            return audio_data
+            
+        start_idx = non_zero_indices[0]
+        trimmed_audio = audio_data[start_idx:]
+        
+        print(f"[DEBUG] Audio trimmed: {len(audio_data)} -> {len(trimmed_audio)} samples")
+        print(f"[DEBUG] Trimmed audio first 10 values: {trimmed_audio[:10]}")
+        
+        return trimmed_audio
+
     def get_attention_matrix(self, prompt, data:dict):
         conversation = self.create_conversation(prompt, data)
         
         USE_AUDIO_IN_VIDEO = True
         text = self.processor.apply_chat_template(conversation, add_generation_prompt=True, tokenize=False)
+        
+        # Debug: Check audio file directly before process_mm_info
+        if self.data_type == "audio":
+            audio_path = f'data/processed/nat/tts/{data["language"]}/{data["word"]}.wav'
+            print(f"[DEBUG] Checking audio file directly: {audio_path}")
+            
+            # Check file size
+            import os
+            file_size = os.path.getsize(audio_path)
+            print(f"[DEBUG] Audio file size: {file_size} bytes")
+            
+            # Try to load with librosa directly
+            try:
+                import librosa
+                audio_data, sr = librosa.load(audio_path, sr=16000)
+                print(f"[DEBUG] Direct librosa load - shape: {audio_data.shape}, sample_rate: {sr}")
+                print(f"[DEBUG] Direct librosa load - first 10 values: {audio_data[:10]}")
+                print(f"[DEBUG] Direct librosa load - min: {audio_data.min()}, max: {audio_data.max()}, mean: {audio_data.mean()}")
+                
+                # Check for non-zero audio content
+                non_zero_indices = np.nonzero(np.abs(audio_data) > 0.01)[0]  # Threshold for silence
+                if len(non_zero_indices) > 0:
+                    start_idx = non_zero_indices[0]
+                    end_idx = non_zero_indices[-1] + 1
+                    print(f"[DEBUG] Non-zero audio content from index {start_idx} to {end_idx}")
+                    print(f"[DEBUG] Non-zero audio length: {end_idx - start_idx} samples ({((end_idx - start_idx) / sr):.3f}s)")
+                    print(f"[DEBUG] Non-zero audio values: {audio_data[start_idx:start_idx+10]}")
+                else:
+                    print(f"[DEBUG] WARNING: No significant audio content found!")
+                    
+            except Exception as e:
+                print(f"[DEBUG] Direct librosa load failed: {e}")
+            
+            # Debug: Check conversation structure that will be passed to process_audio_info
+            print(f"[DEBUG] Conversation structure for process_audio_info:")
+            for i, msg in enumerate(conversation):
+                print(f"[DEBUG] Message {i}: {msg}")
+                if isinstance(msg.get('content'), list):
+                    for j, ele in enumerate(msg['content']):
+                        print(f"[DEBUG]   Element {j}: {ele}")
+                        if ele.get('type') == 'audio':
+                            print(f"[DEBUG]     Audio path: {ele.get('audio')}")
+                            print(f"[DEBUG]     Audio start: {ele.get('audio_start', 0.0)}")
+                            print(f"[DEBUG]     Audio end: {ele.get('audio_end', None)}")
+        
         audios, images, videos = process_mm_info(conversation, use_audio_in_video=USE_AUDIO_IN_VIDEO)
         
         if self.data_type == "audio" and (audios is None or len(audios) == 0):
-            # print(f"Warning: No audio loaded for {data['word']}")
+            print(f"[DEBUG] process_mm_info audios: {audios}, images: {images}, videos: {videos}")
+            if self.data_type == "audio":
+                if not audios or len(audios) == 0:
+                    print(f"[WARNING] No audio loaded for {data['word']}")
             conversation_text_only = [
                 SYSTEM_TEMPLATE,
                 {
@@ -197,9 +269,24 @@ class QwenOmniSemanticDimensionVisualizer:
             text = self.processor.apply_chat_template(conversation_text_only, add_generation_prompt=True, tokenize=False)
             audios, images, videos = process_mm_info(conversation_text_only, use_audio_in_video=USE_AUDIO_IN_VIDEO)
         
+        # Debug: Check what process_mm_info returned
+        if self.data_type == "audio" and audios is not None:
+            print(f"[DEBUG] process_mm_info returned audios: {len(audios)} items")
+            for i, audio in enumerate(audios):
+                print(f"[DEBUG] Audio {i} - shape: {audio.shape}, dtype: {audio.dtype}")
+                print(f"[DEBUG] Audio {i} - first 10 values: {audio[:10]}")
+                print(f"[DEBUG] Audio {i} - min: {audio.min()}, max: {audio.max()}, mean: {audio.mean()}")
+                
+                # Apply silence trimming
+                trimmed_audio = self.trim_silence_from_audio(audio)
+                audios[i] = trimmed_audio
+        
         inputs = self.processor(text=text, audio=audios, images=images, videos=videos, return_tensors="pt", padding=True, use_audio_in_video=USE_AUDIO_IN_VIDEO)
+        print(f"[DEBUG] processor inputs: {inputs.keys()}")
         inputs = inputs.to(self.model.device).to(self.model.dtype)
         with torch.no_grad():
+            print(f"[DEBUG] Model input_ids: {inputs['input_ids']}")
+            print(f"[DEBUG] Model audio: {audios}")
             thinker_model = self.model.thinker.model
             outputs = thinker_model(input_ids=inputs['input_ids'], attention_mask=inputs['attention_mask'], output_attentions=True, return_dict=True)
         
@@ -369,6 +456,7 @@ class QwenOmniSemanticDimensionVisualizer:
             generation_analysis, dim1, dim2, answer, data['word'], [dim1, dim2], lang, generation_tokens, response
         )
         print(f"Saved generation attention analysis for {data['word']} - {dim1}-{dim2}")
+        # breakpoint()
 
     def get_generation_attention_matrix(self, prompt, data: dict, max_new_tokens: int = 32):
         """Extract attention matrix during text generation (autoregressive decoding)"""
@@ -393,6 +481,12 @@ class QwenOmniSemanticDimensionVisualizer:
             ]
             text = self.processor.apply_chat_template(conversation_text_only, add_generation_prompt=True, tokenize=False)
             audios, images, videos = process_mm_info(conversation_text_only, use_audio_in_video=USE_AUDIO_IN_VIDEO)
+        
+        # Apply silence trimming for generation as well
+        if self.data_type == "audio" and audios is not None:
+            for i, audio in enumerate(audios):
+                trimmed_audio = self.trim_silence_from_audio(audio)
+                audios[i] = trimmed_audio
         
         inputs = self.processor(
             text=text, 
