@@ -1,8 +1,10 @@
 import argparse
 import json
 import os
+import random
 import re
 
+import numpy as np
 import torch
 from qwen_omni_utils import process_mm_info
 from tqdm import tqdm
@@ -322,6 +324,19 @@ class QwenOmniMCQExperiment:
 
 
 if __name__ == "__main__":
+    # reproducibility
+    seed = 42
+
+    random.seed(seed)
+    np.random.seed(seed)
+    torch.manual_seed(seed)
+    torch.cuda.manual_seed(seed)
+    torch.cuda.manual_seed_all(seed)
+
+    torch.backends.cudnn.deterministic = True
+    torch.backends.cudnn.benchmark = False
+
+    # args
     parser = argparse.ArgumentParser(description="Run MCQ experiment with Qwen Omni")
     parser.add_argument("--model", '-m', type=str, default="Qwen/Qwen2.5-Omni-7B", help="Path to the Qwen Omni model")
     parser.add_argument("--input_type", "-i", type=str, choices=["original", "ipa", "audio", "original_and_audio", "ipa_and_audio"])
