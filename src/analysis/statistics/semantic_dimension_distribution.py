@@ -84,6 +84,15 @@ def analyze_dimension_distribution(nat_file_path, art_file_path):
     process_file(nat_file_path, is_art_file=False)
     process_file(art_file_path, is_art_file=True)
     
+    # Create a 'natural' group by combining 'common' and 'rare'
+    stats['natural'] = defaultdict(lambda: {'1': 0, '2': 0, 'total': 0})
+    for dim_name in DIMENSION_POLES:
+        for group in ['common', 'rare']:
+            if dim_name in stats[group]:
+                stats['natural'][dim_name]['1'] += stats[group][dim_name]['1']
+                stats['natural'][dim_name]['2'] += stats[group][dim_name]['2']
+                stats['natural'][dim_name]['total'] += stats[group][dim_name]['total']
+
     return stats
 
 def create_distribution_table(stats):
@@ -91,7 +100,7 @@ def create_distribution_table(stats):
     Creates a pandas DataFrame from the analyzed statistics.
     """
     table_data = []
-    for group in ['common', 'rare', 'constructed', 'total']:
+    for group in ['natural', 'constructed', 'total']:
         for dim_name, poles in DIMENSION_POLES.items():
             # Use .get() to use a default value (0) if data is missing
             dim_stats = stats[group].get(dim_name, {'1': 0, '2': 0, 'total': 0})
@@ -123,8 +132,8 @@ def create_comparison_table(df):
     # Swap the column levels to bring Word Group to the top
     pivot_df = pivot_df.swaplevel(0, 1, axis=1)
     
-    # Sort the columns to group by Word Group (Common, Rare, Total)
-    pivot_df = pivot_df.reindex(columns=['Common', 'Rare', 'Constructed', 'Total'], level=0)
+    # Sort the columns to group by Word Group (Natural, Constructed, Total)
+    pivot_df = pivot_df.reindex(columns=['Natural', 'Constructed', 'Total'], level=0)
     
     return pivot_df
 
