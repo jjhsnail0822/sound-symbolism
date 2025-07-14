@@ -14,5 +14,13 @@
         "total_count": 39220,
         "data_path": "data/prompts/semantic_dimension/semantic_dimension_binary_ipa-rare.json",
         "thinking": false
+    },
+    {
+        "model": "Qwen/Qwen2.5-Omni-3B",
+        "accuracy": 0.5514060630235341,
+        "correct_count": 11059,
+        "total_count": 20056,
+        "data_path": "data/prompts/semantic_dimension/semantic_dimension_binary_ipa-constructed.json",
+        "thinking": false
     }
 ]

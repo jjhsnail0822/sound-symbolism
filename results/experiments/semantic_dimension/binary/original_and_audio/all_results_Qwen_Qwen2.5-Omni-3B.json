@@ -1,24 +1,24 @@
 [
     {
-        "model": "Qwen/Qwen2.5-Omni-7B",
-        "accuracy": 0.7216892084098373,
-        "correct_count": 27907,
+        "model": "Qwen/Qwen2.5-Omni-3B",
+        "accuracy": 0.5768186402544674,
+        "correct_count": 22305,
         "total_count": 38669,
         "data_path": "data/prompts/semantic_dimension/semantic_dimension_binary_original_and_audio-common.json",
         "thinking": false
     },
     {
-        "model": "Qwen/Qwen2.5-Omni-7B",
-        "accuracy": 0.640413054563998,
-        "correct_count": 25117,
+        "model": "Qwen/Qwen2.5-Omni-3B",
+        "accuracy": 0.5272055073941866,
+        "correct_count": 20677,
         "total_count": 39220,
         "data_path": "data/prompts/semantic_dimension/semantic_dimension_binary_original_and_audio-rare.json",
         "thinking": false
     },
     {
-        "model": "Qwen/Qwen2.5-Omni-7B",
-        "accuracy": 0.6154766653370563,
-        "correct_count": 12344,
+        "model": "Qwen/Qwen2.5-Omni-3B",
+        "accuracy": 0.5695053849222178,
+        "correct_count": 11422,
         "total_count": 20056,
         "data_path": "data/prompts/semantic_dimension/semantic_dimension_binary_original_and_audio-constructed.json",
         "thinking": false

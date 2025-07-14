@@ -1,24 +1,24 @@
 [
     {
-        "model": "Qwen/Qwen2.5-Omni-7B",
-        "accuracy": 0.7336109027903489,
-        "correct_count": 28368,
+        "model": "gemini-2.5-flash",
+        "accuracy": 0.8173989500633583,
+        "correct_count": 31608,
         "total_count": 38669,
         "data_path": "data/prompts/semantic_dimension/semantic_dimension_binary_original-common.json",
         "thinking": false
     },
     {
-        "model": "Qwen/Qwen2.5-Omni-7B",
-        "accuracy": 0.6263895971443141,
-        "correct_count": 24567,
+        "model": "gemini-2.5-flash",
+        "accuracy": 0.7771035186129526,
+        "correct_count": 30478,
         "total_count": 39220,
         "data_path": "data/prompts/semantic_dimension/semantic_dimension_binary_original-rare.json",
         "thinking": false
     },
     {
-        "model": "Qwen/Qwen2.5-Omni-7B",
-        "accuracy": 0.5900977263661747,
-        "correct_count": 11835,
+        "model": "gemini-2.5-flash",
+        "accuracy": 0.6199641005185481,
+        "correct_count": 12434,
         "total_count": 20056,
         "data_path": "data/prompts/semantic_dimension/semantic_dimension_binary_original-constructed.json",
         "thinking": false
