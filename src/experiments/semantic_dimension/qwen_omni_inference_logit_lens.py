@@ -95,6 +95,7 @@ class QwenOmniMCQExperiment:
         all_results = []
         for query_idx, query in enumerate(tqdm(mcq_data)):
             # validate
+            local_hidden_states.clear()
             query_key = json.dumps(query['meta_data'], sort_keys=True)
             if query_key in existing_results:
                 existing_result = existing_results[query_key]
@@ -160,7 +161,6 @@ class QwenOmniMCQExperiment:
                 logit_lens_for_all_layers["is_correct"] = is_correct # subtle
 
                 global_logit_lens[example_key] = logit_lens_for_all_layers
-                local_hidden_states.clear()
 
         # save out
         self.save_output(all_results, results_file_path)
