@@ -1,3 +1,5 @@
+# python src/analysis/plotting/rq1_plot.py --json_path ./results/statistics/semdim_stat.json --metric macro_f1_score --filter_constructed
+
 import json
 import os
 import numpy as np
@@ -5,8 +7,8 @@ import matplotlib.pyplot as plt
 from matplotlib import ticker
 from matplotlib.font_manager import FontProperties
 import pandas as pd
+from matplotlib.colors import to_rgb
 
-# python src/analysis/plotting/rq1_plot.py --json_path ./results/statistics/semdim_stat.json --metric macro_f1_score --filter_constructed
 
 constructed_dims = {
     "beautiful-ugly", "delicate-rugged", "tense-relaxed", "simple-complex", 
@@ -1833,7 +1835,217 @@ def plot_inputtype_wordtype_semdim_scatter(
     print(f"Input type/word type/semantic dimension scatter plot saved to {os.path.join(save_path, file_name)}")
     plt.close()
 
-def main(json_path, metric='macro_f1_score', sem_dims=None, save_path=None, filter_constructed=False):
+def plot_semantic_dimensions_by_input_type(
+    data, input_type='ipa', metric='macro_f1_score', save_path=None, 
+    filter_constructed=False, constructed_dims=constructed_dims
+):
+    from collections import defaultdict
+    import numpy as np
+    import matplotlib.pyplot as plt
+    from matplotlib.colors import to_rgb
+
+    word_types = ['constructed', 'rare', 'common']
+    wordtype_semdim_scores = {wt: defaultdict(list) for wt in word_types}
+    wordtype_semdim_words = {wt: defaultdict(list) for wt in word_types}
+
+    for model_name, model_data in data.items():
+        for word_type, word_data in model_data.items():
+            if word_type not in word_types:
+                continue
+            for input_type_name, input_data in word_data.items():
+                if input_type_name != input_type or "romanized" in input_type_name:
+                    continue
+                dimensions = input_data.get('dimensions', {})
+                for sem_dim, entry in dimensions.items():
+                    if filter_constructed and sem_dim not in constructed_dims:
+                        continue
+                    wordtype_semdim_scores[word_type][sem_dim].append(extract_metric(entry, metric))
+                    wordtype_semdim_words[word_type][sem_dim].append(extract_num_words(entry))
+
+    common_rare_scores = defaultdict(list)
+    common_rare_words = defaultdict(list)
+    for sem_dim in set(list(wordtype_semdim_scores['common'].keys()) + list(wordtype_semdim_scores['rare'].keys())):
+        c_scores = wordtype_semdim_scores['common'].get(sem_dim, [])
+        c_words = wordtype_semdim_words['common'].get(sem_dim, [])
+        r_scores = wordtype_semdim_scores['rare'].get(sem_dim, [])
+        r_words = wordtype_semdim_words['rare'].get(sem_dim, [])
+        all_scores = c_scores + r_scores
+        all_words = c_words + r_words
+        if all_scores:
+            common_rare_scores[sem_dim] = all_scores
+            common_rare_words[sem_dim] = all_words
+
+    def get_avgs(scores_dict, words_dict):
+        avgs = {}
+        for sem_dim in scores_dict:
+            scores = scores_dict[sem_dim]
+            weights = words_dict[sem_dim]
+            if scores:
+                avg = weighted_avg(scores, weights)
+                avgs[sem_dim] = avg
+        return avgs
+
+    avgs_dict = {
+        'constructed': get_avgs(wordtype_semdim_scores['constructed'], wordtype_semdim_words['constructed']),
+        'natural': get_avgs(common_rare_scores, common_rare_words)
+    }
+
+    green_rgb = to_rgb("#5c940d")
+    red_rgb = to_rgb("#e03131")
+    white_rgb = (1, 1, 1)
+
+    natural_avgs = avgs_dict['natural']
+    constructed_avgs = avgs_dict['constructed']
+    if not natural_avgs:
+        print(f"[WARN] No data found for natural (common+rare) with input type: {input_type}")
+        return
+    sorted_sem_dims = sorted(natural_avgs.keys(), key=lambda x: natural_avgs[x], reverse=False)
+    n = len(sorted_sem_dims)
+
+    fig = plt.figure(figsize=(14, max(8, n*0.4)))
+    gs = fig.add_gridspec(1, 3, width_ratios=[1, 0.20, 1], wspace=0.25)
+    ax_nat = fig.add_subplot(gs[0, 0])
+    ax_y = fig.add_subplot(gs[0, 1])
+    ax_con = fig.add_subplot(gs[0, 2])
+
+    nat_scores = [natural_avgs.get(sem_dim, 0.0) for sem_dim in sorted_sem_dims]
+    nat_colors = []
+    for v in nat_scores:
+        if v > 0.5:
+            alpha = min(1.0, (v - 0.5) * 2)
+            color = tuple((1 - alpha) * w + alpha * g for w, g in zip(white_rgb, green_rgb))
+            nat_colors.append(color)
+        elif v < 0.5:
+            alpha = min(1.0, (0.5 - v) * 2)
+            color = tuple((1 - alpha) * w + alpha * r for w, r in zip(white_rgb, red_rgb))
+            nat_colors.append(color)
+        else:
+            nat_colors.append(white_rgb)
+    bars_nat = ax_nat.barh(range(n), nat_scores, color=nat_colors, edgecolor='black', align='center')
+    ax_nat.set_yticks([])
+    ax_nat.set_xlim(0, 1)
+    ax_nat.xaxis.set_major_locator(plt.MultipleLocator(0.1))
+    ax_nat.axvline(x=0.5, color='gray', linestyle='--', alpha=0.7, linewidth=1.5)
+    ax_nat.grid(True, alpha=0.3, axis='x')
+    ax_nat.set_title('natural', fontsize=15, pad=15)
+    # ax_nat.invert_yaxis()
+    ax_nat.invert_xaxis()
+    for i, (bar, avg) in enumerate(zip(bars_nat, nat_scores)):
+        width = bar.get_width()
+        ax_nat.text(width+0.01, bar.get_y() + bar.get_height()/2, f'{avg:.3f}', ha='right', va='center', fontsize=10)
+
+    con_scores = [constructed_avgs.get(sem_dim, 0.0) for sem_dim in sorted_sem_dims]
+    con_colors = []
+    for v in con_scores:
+        if v > 0.5:
+            alpha = min(1.0, (v - 0.5) * 2)
+            color = tuple((1 - alpha) * w + alpha * g for w, g in zip(white_rgb, green_rgb))
+            con_colors.append(color)
+        elif v < 0.5:
+            alpha = min(1.0, (0.5 - v) * 2)
+            color = tuple((1 - alpha) * w + alpha * r for w, r in zip(white_rgb, red_rgb))
+            con_colors.append(color)
+        else:
+            con_colors.append(white_rgb)
+    bars_con = ax_con.barh(range(n), con_scores, color=con_colors, edgecolor='black', align='center')
+    ax_con.set_yticks([])
+    ax_con.set_xlim(0, 1)
+    ax_con.xaxis.set_major_locator(plt.MultipleLocator(0.1))
+    ax_con.axvline(x=0.5, color='gray', linestyle='--', alpha=0.7, linewidth=1.5)
+    ax_con.grid(True, alpha=0.3, axis='x')
+    ax_con.set_title('constructed', fontsize=15, pad=15)
+    # ax_con.invert_yaxis()
+    for i, (bar, avg) in enumerate(zip(bars_con, con_scores)):
+        width = bar.get_width()
+        ax_con.text(width + 0.01, bar.get_y() + bar.get_height()/2, f'{avg:.3f}', ha='left', va='center', fontsize=10)
+
+    ax_y.set_ylim(ax_nat.get_ylim())
+    ax_y.set_xlim(0, 1)
+    ax_y.set_xticks([])
+    ax_y.set_yticks(range(n))
+    ax_y.set_yticklabels([])
+    for i, label in enumerate(sorted_sem_dims):
+        ax_y.text(0.6, i, label, fontsize=12, va='center', ha='center', transform=ax_y.transData)
+    ax_y.tick_params(left=False, right=False, labelleft=False, labelright=False)
+    for spine in ['top', 'bottom', 'left', 'right']:
+        ax_y.spines[spine].set_visible(False)
+    ax_y.text(0.6, n + 0.5, 'Semantic Dimension', fontsize=15, ha='center', va='bottom', transform=ax_y.transData)
+
+    plt.tight_layout()
+    os.makedirs(save_path, exist_ok=True)
+    suffix = "_filter" if filter_constructed else ""
+    file_name = f"semantic_dimensions_by_{input_type}_{metric}{suffix}_middlelabel.png"
+    plt.savefig(os.path.join(save_path, file_name), dpi=300, bbox_inches='tight')
+    print(f"[plot1] Semantic dimensions by {input_type} input (natural vs constructed, middle label) plot saved to {os.path.join(save_path, file_name)}")
+    plt.close()
+
+    if not constructed_avgs:
+        print(f"[WARN] No data found for constructed with input type: {input_type}")
+        return
+    sorted_sem_dims_nat = sorted(natural_avgs.keys(), key=lambda x: natural_avgs[x], reverse=False)
+    n_nat = len(sorted_sem_dims_nat)
+    sorted_sem_dims_con = sorted(constructed_avgs.keys(), key=lambda x: constructed_avgs[x], reverse=False)
+    n_con = len(sorted_sem_dims_con)
+    fig2, (ax_nat2, ax_con2) = plt.subplots(1, 2, figsize=(14, max(8, max(n_nat, n_con)*0.4)), width_ratios=[1, 1], gridspec_kw={'wspace':0.45})
+
+    # natural subplot
+    nat_scores2 = [natural_avgs.get(sem_dim, 0.0) for sem_dim in sorted_sem_dims_nat]
+    nat_colors2 = []
+    for v in nat_scores2:
+        if v > 0.5:
+            alpha = min(1.0, (v - 0.5) * 2)
+            color = tuple((1 - alpha) * w + alpha * g for w, g in zip(white_rgb, green_rgb))
+            nat_colors2.append(color)
+        elif v < 0.5:
+            alpha = min(1.0, (0.5 - v) * 2)
+            color = tuple((1 - alpha) * w + alpha * r for w, r in zip(white_rgb, red_rgb))
+            nat_colors2.append(color)
+        else:
+            nat_colors2.append(white_rgb)
+    bars_nat2 = ax_nat2.barh(range(n_nat), nat_scores2, color=nat_colors2, edgecolor='black', align='center')
+    ax_nat2.set_yticks(range(n_nat))
+    ax_nat2.set_yticklabels(sorted_sem_dims_nat, fontsize=12, va='center')
+    ax_nat2.set_xlim(0, 1)
+    ax_nat2.xaxis.set_major_locator(plt.MultipleLocator(0.1))
+    ax_nat2.axvline(x=0.5, color='gray', linestyle='--', alpha=0.7, linewidth=1.5)
+    ax_nat2.grid(True, alpha=0.3, axis='x')
+    ax_nat2.set_title('natural', fontsize=15, pad=15)
+    for i, (bar, avg) in enumerate(zip(bars_nat2, nat_scores2)):
+        width = bar.get_width()
+        ax_nat2.text(width + 0.01, bar.get_y() + bar.get_height()/2, f'{avg:.3f}', ha='left', va='center', fontsize=10)
+
+    con_scores2 = [constructed_avgs.get(sem_dim, 0.0) for sem_dim in sorted_sem_dims_con]
+    con_colors2 = []
+    for v in con_scores2:
+        if v > 0.5:
+            alpha = min(1.0, (v - 0.5) * 2)
+            color = tuple((1 - alpha) * w + alpha * g for w, g in zip(white_rgb, green_rgb))
+            con_colors2.append(color)
+        elif v < 0.5:
+            alpha = min(1.0, (0.5 - v) * 2)
+            color = tuple((1 - alpha) * w + alpha * r for w, r in zip(white_rgb, red_rgb))
+            con_colors2.append(color)
+        else:
+            con_colors2.append(white_rgb)
+    bars_con2 = ax_con2.barh(range(n_con), con_scores2, color=con_colors2, edgecolor='black', align='center')
+    ax_con2.set_yticks(range(n_con))
+    ax_con2.set_yticklabels(sorted_sem_dims_con, fontsize=12, va='center')
+    ax_con2.set_xlim(0, 1)
+    ax_con2.xaxis.set_major_locator(plt.MultipleLocator(0.1))
+    ax_con2.axvline(x=0.5, color='gray', linestyle='--', alpha=0.7, linewidth=1.5)
+    ax_con2.grid(True, alpha=0.3, axis='x')
+    ax_con2.set_title('constructed', fontsize=15, pad=15)
+    for i, (bar, avg) in enumerate(zip(bars_con2, con_scores2)):
+        width = bar.get_width()
+        ax_con2.text(width + 0.01, bar.get_y() + bar.get_height()/2, f'{avg:.3f}', ha='left', va='center', fontsize=10)
+
+    plt.tight_layout()
+    file_name2 = f"semantic_dimensions_by_{input_type}_{metric}{suffix}_nat_con_separate.png"
+    plt.savefig(os.path.join(save_path, file_name2), dpi=300, bbox_inches='tight')
+    print(f"[plot2] Semantic dimensions by {input_type} input (separately sorted by natural/constructed, with each subplot y-axis label) plot saved to {os.path.join(save_path, file_name2)}")
+    plt.close()
+
+def main(json_path, metric='macro_f1_score', sem_dims=None, save_path=None, filter_constructed=False, input_type='ipa'):
     data = load_stat_json(json_path)
     all_dims = set()
     for model_data in data.values():
@@ -1842,57 +2054,44 @@ def main(json_path, metric='macro_f1_score', sem_dims=None, save_path=None, filt
                 dims = input_data.get('dimensions', {})
                 all_dims.update(dims.keys())
     
-    # Fix the filtering logic: when filter_constructed is True, we should only include constructed dimensions
-    # When filter_constructed is False, we should include all dimensions
     if filter_constructed:
-        # Only include constructed dimensions
         avg_by_model = compute_avg_by_condition(data, ['model'], metric, filter_constructed=True)
         avg_by_wordtype = compute_avg_by_condition(data, ['word_type'], metric, filter_constructed=True)
         avg_by_inputtype = compute_avg_by_condition(data, ['input_type'], metric, filter_constructed=True)
         avg_by_model_input = compute_avg_by_condition(data, ['model', 'input_type'], metric, filter_constructed=True)
         category_avgs = compute_avg_by_category(data, metric, filter_constructed=True)
     else:
-        # Include all dimensions
         avg_by_model = compute_avg_by_condition(data, ['model'], metric, filter_constructed=False)
         avg_by_wordtype = compute_avg_by_condition(data, ['word_type'], metric, filter_constructed=False)
         avg_by_inputtype = compute_avg_by_condition(data, ['input_type'], metric, filter_constructed=False)
         avg_by_model_input = compute_avg_by_condition(data, ['model', 'input_type'], metric, filter_constructed=False)
         category_avgs = compute_avg_by_category(data, metric, filter_constructed=False)
     
-    # Generate basic plots
-    # for model_name in set(g[0] for (g, sd) in avg_by_model.keys()):
-    #     plot_horizontal_bar(avg_by_model, (model_name,), metric, title=f"Model: {model_name}", sem_dims=sem_dims, save_path=save_path, filter_constructed=filter_constructed)
-    
-    # for word_type in set(g[0] for (g, sd) in avg_by_wordtype.keys()):
-    #     plot_horizontal_bar(avg_by_wordtype, (word_type,), metric, title=f"Word Type: {word_type}", sem_dims=sem_dims, save_path=save_path, filter_constructed=filter_constructed)
-    
-    # for input_type in set(g[0] for (g, sd) in avg_by_inputtype.keys()):
-    #     plot_horizontal_bar(avg_by_inputtype, (input_type,), metric, title=f"Input Type: {input_type}", sem_dims=sem_dims, save_path=save_path, filter_constructed=filter_constructed)
-    
     model_input_groups = set(g for (g, sd) in avg_by_model_input.keys())
-    for group in model_input_groups:
-        plot_grouped_horizontal_bar(
-            avg_by_model_input, group, metric, 
-            title=f"Model: {group[0]}, Input Type: {group[1]}",
-            save_path=save_path, top_n=7, bottom_n=7, sem_dims=sem_dims, filter_constructed=filter_constructed
-        )
+    # for group in model_input_groups:
+    #     plot_grouped_horizontal_bar(
+    #         avg_by_model_input, group, metric, 
+    #         title=f"Model: {group[0]}, Input Type: {group[1]}",
+    #         save_path=save_path, top_n=7, bottom_n=7, sem_dims=sem_dims, filter_constructed=filter_constructed
+    #     )
     
-    plot_wordtype_performance(data, metric, save_path=save_path, filter_constructed=filter_constructed)
-    plot_inputtype_performance(data, metric, save_path=save_path, filter_constructed=filter_constructed)
-    plot_inputtype_wordtype_scatter(data, metric, save_path=save_path, filter_constructed=filter_constructed)
-    plot_inputtype_wordtype_modeltype_scatter(data, metric, save_path=save_path, filter_constructed=filter_constructed)
-    plot_inputtype_wordtype_modeltype_semdim_scatter(data, metric, save_path=save_path, filter_constructed=filter_constructed)
-    plot_inputtype_wordtype_modeltype_all_semdim_scatter(data, metric, save_path=save_path, filter_constructed=filter_constructed)
-    plot_inputtype_modeltype_wordtype_all_semdim_scatter(data, metric, save_path=save_path, filter_constructed=filter_constructed)
-    plot_inputtype_per_wordtype_all_models(data, metric, save_path=save_path, filter_constructed=filter_constructed)
+    # plot_wordtype_performance(data, metric, save_path=save_path, filter_constructed=filter_constructed)
+    # plot_inputtype_performance(data, metric, save_path=save_path, filter_constructed=filter_constructed)
+    # plot_inputtype_wordtype_scatter(data, metric, save_path=save_path, filter_constructed=filter_constructed)
+    # plot_inputtype_wordtype_modeltype_scatter(data, metric, save_path=save_path, filter_constructed=filter_constructed)
+    # plot_inputtype_wordtype_modeltype_semdim_scatter(data, metric, save_path=save_path, filter_constructed=filter_constructed)
+    # plot_inputtype_wordtype_modeltype_all_semdim_scatter(data, metric, save_path=save_path, filter_constructed=filter_constructed)
+    # plot_inputtype_modeltype_wordtype_all_semdim_scatter(data, metric, save_path=save_path, filter_constructed=filter_constructed)
+    # plot_inputtype_per_wordtype_all_models(data, metric, save_path=save_path, filter_constructed=filter_constructed)
     
-    # Generate new requested plots
-    plot_high_performance_semantic_dimensions(data, metric, save_path=save_path, filter_constructed=filter_constructed)
-    plot_inference_results_by_input_model_word(data, metric, save_path=save_path, filter_constructed=filter_constructed)
-    plot_inference_results_by_semantic_input_model_word(data, metric, save_path=save_path, filter_constructed=filter_constructed)
-    plot_wordtype_semantic_dimension_bars(data, metric, save_path=save_path, filter_constructed=filter_constructed)
-    plot_semantic_dimension_variance_by_wordtype(data, metric, save_path=save_path, filter_constructed=filter_constructed)
-    plot_inputtype_wordtype_semdim_scatter(data, metric, save_path=save_path, filter_constructed=filter_constructed)
+    # # Generate new requested plots
+    # plot_high_performance_semantic_dimensions(data, metric, save_path=save_path, filter_constructed=filter_constructed)
+    # plot_inference_results_by_input_model_word(data, metric, save_path=save_path, filter_constructed=filter_constructed)
+    # plot_inference_results_by_semantic_input_model_word(data, metric, save_path=save_path, filter_constructed=filter_constructed)
+    # plot_wordtype_semantic_dimension_bars(data, metric, save_path=save_path, filter_constructed=filter_constructed)
+    # plot_semantic_dimension_variance_by_wordtype(data, metric, save_path=save_path, filter_constructed=filter_constructed)
+    # plot_inputtype_wordtype_semdim_scatter(data, metric, save_path=save_path, filter_constructed=filter_constructed)
+    plot_semantic_dimensions_by_input_type(data, input_type=input_type, metric=metric, save_path=save_path, filter_constructed=filter_constructed)
 
 if __name__ == "__main__":
     import argparse
@@ -1902,10 +2101,11 @@ if __name__ == "__main__":
     parser.add_argument('--sem_dims', type=str, default=None, help='Comma-separated list of semantic dimensions to plot (default: all)')
     parser.add_argument('--save_path', type=str, default="./results/plots/rq1", help='Path to save the plots')
     parser.add_argument('--filter_constructed', action='store_true', help='Filter out constructed word semantic dimensions')
+    parser.add_argument('--input_type', type=str, default='ipa', help='Input type to plot semantic dimensions for (default: ipa)')
     args = parser.parse_args()
     sem_dims = None
     save_path = args.save_path
     os.makedirs(save_path, exist_ok=True)
     if args.sem_dims:
         sem_dims = [s.strip() for s in args.sem_dims.split(',') if s.strip()]
-    main(args.json_path, metric=args.metric, sem_dims=sem_dims, save_path=save_path, filter_constructed=args.filter_constructed)
+    main(args.json_path, metric=args.metric, sem_dims=sem_dims, save_path=save_path, filter_constructed=args.filter_constructed, input_type=args.input_type)
