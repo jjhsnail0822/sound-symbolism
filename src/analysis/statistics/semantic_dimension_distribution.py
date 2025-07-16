@@ -151,3 +151,6 @@ if __name__ == '__main__':
     with pd.option_context('display.max_rows', None, 'display.max_columns', None, 'display.width', 1000):
         print("\n--- Semantic Dimension Distribution Comparison ---")
         print(comparison_table)
+        # print total for each word group
+        print("\n--- Total Counts by Word Group ---")
+        print(comparison_table.sum())

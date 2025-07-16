@@ -1,17 +1,17 @@
 [
     {
         "model": "gemini-2.5-flash",
-        "accuracy": 0.6624945046419612,
-        "correct_count": 25618,
-        "total_count": 38669,
+        "accuracy": 0.6632320374015748,
+        "correct_count": 21563,
+        "total_count": 32512,
         "data_path": "data/prompts/semantic_dimension/semantic_dimension_binary_audio-common.json",
         "thinking": false
     },
     {
         "model": "gemini-2.5-flash",
-        "accuracy": 0.7075981642019378,
-        "correct_count": 27752,
-        "total_count": 39220,
+        "accuracy": 0.7090545154833392,
+        "correct_count": 24088,
+        "total_count": 33972,
         "data_path": "data/prompts/semantic_dimension/semantic_dimension_binary_audio-rare.json",
         "thinking": false
     },

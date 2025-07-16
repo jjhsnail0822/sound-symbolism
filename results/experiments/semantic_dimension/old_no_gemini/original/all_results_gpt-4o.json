@@ -1,0 +1,26 @@
+[
+    {
+        "model": "gpt-4o",
+        "accuracy": 0.7669968191574646,
+        "correct_count": 29659,
+        "total_count": 38669,
+        "data_path": "data/prompts/semantic_dimension/semantic_dimension_binary_original-common.json",
+        "thinking": false
+    },
+    {
+        "model": "gpt-4o",
+        "accuracy": 0.6926568077511474,
+        "correct_count": 27166,
+        "total_count": 39220,
+        "data_path": "data/prompts/semantic_dimension/semantic_dimension_binary_original-rare.json",
+        "thinking": false
+    },
+    {
+        "model": "gpt-4o",
+        "accuracy": 0.6252991623454328,
+        "correct_count": 12541,
+        "total_count": 20056,
+        "data_path": "data/prompts/semantic_dimension/semantic_dimension_binary_original-constructed.json",
+        "thinking": false
+    }
+]

@@ -1,17 +1,17 @@
 [
     {
         "model": "Qwen/Qwen2.5-Omni-3B",
-        "accuracy": 0.6119113501771445,
-        "correct_count": 23662,
-        "total_count": 38669,
+        "accuracy": 0.6050381397637795,
+        "correct_count": 19671,
+        "total_count": 32512,
         "data_path": "data/prompts/semantic_dimension/semantic_dimension_binary_original-common.json",
         "thinking": false
     },
     {
         "model": "Qwen/Qwen2.5-Omni-3B",
-        "accuracy": 0.5627995920448751,
-        "correct_count": 22073,
-        "total_count": 39220,
+        "accuracy": 0.5551925114800423,
+        "correct_count": 18861,
+        "total_count": 33972,
         "data_path": "data/prompts/semantic_dimension/semantic_dimension_binary_original-rare.json",
         "thinking": false
     },

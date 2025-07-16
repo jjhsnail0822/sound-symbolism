@@ -2,7 +2,7 @@ import json
 import copy
 
 # Policy
-# 1. Unanimous agreement across all three models (GPT-4.1, Gemma-3, Qwen-3)
+# 1. Unanimous agreement across all four models (GPT-4.1, Gemma-3, Qwen-3, Gemini-2.5-flash)
 
 # Binary Ground Truth Generation for Semantic Dimensions
 # Removes 'neither' option and focuses on binary features.
@@ -26,7 +26,7 @@ def find_word_in_list(word_list, word_key):
             return item
     return None
 
-def determine_final_gt(combined_words_list, gpt4_data, gemma_data, qwen_data):
+def determine_final_gt(combined_words_list, gpt4_data, gemma_data, qwen_data, gemini_data):
     # Initialize the final ground truth structure based on combined_words_list.
     # The structure will be a dictionary keyed by language,
     # with values being lists of word objects.
@@ -63,23 +63,25 @@ def determine_final_gt(combined_words_list, gpt4_data, gemma_data, qwen_data):
         gpt4_lang_list_original = gpt4_data.get(lang_key, [])
         gemma_lang_list = gemma_data.get(lang_key, [])
         qwen_lang_list = qwen_data.get(lang_key, [])
+        gemini_lang_list = gemini_data.get(lang_key, [])
         
         # Iterate through word objects in the final_gt's language list.
         # Each word_obj_in_final_gt originated from an item in combined_words_list.
         for word_obj_in_final_gt in lang_list_in_final_gt:
             actual_word_key = word_obj_in_final_gt["word"] # The word string
 
-            # Find the corresponding word object in the gpt4, Gemma, and Qwen lists
+            # Find the corresponding word object in the gpt4, Gemma, Qwen, and Gemini lists
             # for the current language (lang_key).
             # find_word_in_list operates on a list of words assumed to be for a single language.
             gpt4_word_obj_original = find_word_in_list(gpt4_lang_list_original, actual_word_key)
             gemma_word_obj = find_word_in_list(gemma_lang_list, actual_word_key)
             qwen_word_obj = find_word_in_list(qwen_lang_list, actual_word_key)
+            gemini_word_obj = find_word_in_list(gemini_lang_list, actual_word_key)
 
-            # If the word is not found consistently in all three model outputs,
+            # If the word is not found consistently in all four model outputs,
             # its 'dimensions' will remain empty as initialized.
             # The word itself (from combined_words_list) will still be present in the final output.
-            if not (gpt4_word_obj_original and gemma_word_obj and qwen_word_obj):
+            if not (gpt4_word_obj_original and gemma_word_obj and qwen_word_obj and gemini_word_obj):
                 # print(f"Info: Word '{actual_word_key}' (lang: {lang_key}) not found consistently across all model outputs. Dimensions will be empty.")
                 continue # Move to the next word in final_gt for this language
 
@@ -88,7 +90,7 @@ def determine_final_gt(combined_words_list, gpt4_data, gemma_data, qwen_data):
             if not all(isinstance(word_obj, dict) and 
                        "dimensions" in word_obj and 
                        isinstance(word_obj["dimensions"], dict)
-                       for word_obj in [gpt4_word_obj_original, gemma_word_obj, qwen_word_obj]):
+                       for word_obj in [gpt4_word_obj_original, gemma_word_obj, qwen_word_obj, gemini_word_obj]):
                 # print(f"Warning: 'dimensions' key missing, not a dict, or word data malformed for '{actual_word_key}' (lang: {lang_key}) in model outputs. Dimensions will be empty.")
                 continue # Dimensions for this word remain empty; move to the next word.
 
@@ -97,6 +99,7 @@ def determine_final_gt(combined_words_list, gpt4_data, gemma_data, qwen_data):
             dimensions_gpt4 = gpt4_word_obj_original["dimensions"]
             dimensions_gemma = gemma_word_obj["dimensions"]
             dimensions_qwen = qwen_word_obj["dimensions"]
+            dimensions_gemini = gemini_word_obj["dimensions"]
 
             # Iterate through dimension keys from GPT-4's perspective (as per original logic).
             # This determines which dimensions are considered for policy application.
@@ -105,8 +108,8 @@ def determine_final_gt(combined_words_list, gpt4_data, gemma_data, qwen_data):
                     # print(f"Info: Skipping dimension key '{dim_key}' for word '{actual_word_key}' (lang: {lang_key}) as it does not seem to be a 'feature1-feature2' pair.")
                     continue
 
-                # Check if this dimension key is present in all three models' data for the current word.
-                if dim_key not in dimensions_gemma or dim_key not in dimensions_qwen:
+                # Check if this dimension key is present in all four models' data for the current word.
+                if dim_key not in dimensions_gemma or dim_key not in dimensions_qwen or dim_key not in dimensions_gemini:
                     # print(f"Info: Dimension '{dim_key}' for word '{actual_word_key}' (lang: {lang_key}) not present consistently in all models. Skipping this dimension.")
                     continue
                 
@@ -119,32 +122,28 @@ def determine_final_gt(combined_words_list, gpt4_data, gemma_data, qwen_data):
                 gpt4_res = dimensions_gpt4[dim_key]
                 gemma_res = dimensions_gemma[dim_key]
                 qwen_res = dimensions_qwen[dim_key]
+                gemini_res = dimensions_gemini[dim_key] # This is just a string, e.g., "active"
 
                 # Validate the structure of results (logits, answer) from each model for the current dimension.
                 if not all(
-                    isinstance(res, dict) and
-                    "logits" in res and isinstance(res.get("logits"), dict) and
-                    # Ensure specific logit keys "1", "2", "3" exist.
-                    all(k in res["logits"] for k in ["1", "2", "3"]) and 
-                    "answer" in res
+                    isinstance(res, dict) and "answer" in res
                     for res in [gpt4_res, gemma_res, qwen_res]
-                ):
-                    # print(f"Warning: Logits/answer structure malformed for word '{actual_word_key}', dimension '{dim_key}' (lang: {lang_key}). Skipping this dimension.")
+                ) or not isinstance(gemini_res, str):
+                    # print(f"Warning: Answer structure malformed for word '{actual_word_key}', dimension '{dim_key}' (lang: {lang_key}). Skipping this dimension.")
                     continue
 
                 chosen_feature = None
-                policy_applied = None
 
                 # Policy 1: Unanimous agreement
                 ans_gpt4 = gpt4_res.get("answer")
                 ans_gemma = gemma_res.get("answer")
                 ans_qwen = qwen_res.get("answer")
+                ans_gemini = gemini_res # Already a string
 
                 # Ensure all answers are strings before comparing them (case-insensitively).
-                if isinstance(ans_gpt4, str) and isinstance(ans_gemma, str) and isinstance(ans_qwen, str) and \
-                   ans_gpt4.lower() == ans_gemma.lower() == ans_qwen.lower():
+                if isinstance(ans_gpt4, str) and isinstance(ans_gemma, str) and isinstance(ans_qwen, str) and isinstance(ans_gemini, str) and \
+                   ans_gpt4.lower() == ans_gemma.lower() == ans_qwen.lower() == ans_gemini.lower():
                     chosen_feature = ans_gpt4.lower()
-                    policy_applied = "1"
                 
                 # # Policy 2: GPT-4.1 logit probability >= 0.95
                 # if chosen_feature is None:
@@ -196,10 +195,9 @@ def determine_final_gt(combined_words_list, gpt4_data, gemma_data, qwen_data):
                 #     policy_applied = f"3: Highest probability ({best_candidate['prob']:.4f} from {best_candidate['model']})"
                 
                 # Add the dimension to the result only if a feature was chosen and it is not 'neither'.
-                if chosen_feature is not None and policy_applied is not None and chosen_feature != 'neither':
+                if chosen_feature is not None and chosen_feature != 'neither':
                     new_dimensions_for_current_word[dim_key] = {
                         "answer": chosen_feature, # Already lowercased
-                        "policy": policy_applied
                     }
                 else:
                     # print(f"Info: No policy applied or answer was 'neither' for word '{actual_word_key}', dimension '{dim_key}' (lang: {lang_key}). Dimension will not be included.")
@@ -217,6 +215,7 @@ if __name__ == '__main__':
     gpt4_file = "data/processed/nat/semantic_dimension/semantic_dimension_gt_gpt-4.1_logits.json" 
     gemma_file = "data/processed/nat/semantic_dimension/semantic_dimension_gt_gemma-3-27b-it_logits.json"
     qwen_file = "data/processed/nat/semantic_dimension/semantic_dimension_gt_Qwen3-32B_logits.json"
+    gemini_file = "data/processed/nat/semantic_dimension/semantic_dimension_gt_gemini-2.5-flash.json"
     output_file = "data/processed/nat/semantic_dimension/semantic_dimension_binary_gt.json"
 
     try:
@@ -242,6 +241,8 @@ if __name__ == '__main__':
         gemma_data = load_json(gemma_file)
         print(f"Loading Qwen-3 results from {qwen_file}...")
         qwen_data = load_json(qwen_file)
+        print(f"Loading Gemini-2.5-flash results from {gemini_file}...")
+        gemini_data = load_json(gemini_file)
     except FileNotFoundError as e:
         print(f"Error: Input file not found. {e}")
         exit(1)
@@ -254,7 +255,7 @@ if __name__ == '__main__':
 
     print("Determining final ground truth based on combined_words list...")
     # Pass the combined_words list as the first argument
-    final_results = determine_final_gt(combined_words, gpt4_data, gemma_data, qwen_data)
+    final_results = determine_final_gt(combined_words, gpt4_data, gemma_data, qwen_data, gemini_data)
 
     try:
         save_json(final_results, output_file)

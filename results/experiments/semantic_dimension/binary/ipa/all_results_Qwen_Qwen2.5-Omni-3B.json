@@ -1,17 +1,17 @@
 [
     {
         "model": "Qwen/Qwen2.5-Omni-3B",
-        "accuracy": 0.4263104812640616,
-        "correct_count": 16485,
-        "total_count": 38669,
+        "accuracy": 0.4083415354330709,
+        "correct_count": 13276,
+        "total_count": 32512,
         "data_path": "data/prompts/semantic_dimension/semantic_dimension_binary_ipa-common.json",
         "thinking": false
     },
     {
         "model": "Qwen/Qwen2.5-Omni-3B",
-        "accuracy": 0.5112442631310555,
-        "correct_count": 20051,
-        "total_count": 39220,
+        "accuracy": 0.49761568350406216,
+        "correct_count": 16905,
+        "total_count": 33972,
         "data_path": "data/prompts/semantic_dimension/semantic_dimension_binary_ipa-rare.json",
         "thinking": false
     },
