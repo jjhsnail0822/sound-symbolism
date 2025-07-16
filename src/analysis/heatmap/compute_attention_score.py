@@ -13,6 +13,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 # python src/analysis/heatmap/compute_attention_score.py --data-type ipa --attention-type generation_attention
+# python src/analysis/heatmap/compute_attention_score.py --data-type audio --attention-type generation_attention
 # python src/analysis/heatmap/compute_attention_score.py --data-type ipa --attention-type self_attention
 # ipa_to_feature_map = json.load(open("./data/constructed_words/ipa_to_feature.json"))
 # feature_to_score_map = json.load(open("./data/constructed_words/feature_to_score.json"))
@@ -168,6 +169,16 @@ class AttentionScoreCalculator:
                 dim1_indices.append(i)
             elif clean_token == dimension2:
                 dim2_indices.append(i)
+            # Try partial match for cases where tokenization might split the word
+            elif dimension1 in clean_token:
+                dim1_indices.append(i)
+            elif dimension2 in clean_token:
+                dim2_indices.append(i)
+        
+        # Debug print to see what dimensions were found (only for interesting-uninteresting pairs)
+        if dimension1 == "interesting" or dimension2 == "interesting" or dimension1 == "uninteresting" or dimension2 == "uninteresting":
+            print(f"Found {len(dim1_indices)} tokens for '{dimension1}': {[tokens[i] for i in dim1_indices]}")
+            print(f"Found {len(dim2_indices)} tokens for '{dimension2}': {[tokens[i] for i in dim2_indices]}")
         
         # Initialize results
         ipa_dim1_scores = {}
@@ -190,19 +201,29 @@ class AttentionScoreCalculator:
             # Calculate attention to dimension1
             for dim_idx in dim1_indices:
                 if dim_idx < attention_matrix.shape[0] and i < attention_matrix.shape[1]:
-                    # Check causal attention constraint
-                    if i <= dim_idx:  # IPA token can attend to dimension token
-                        score = attention_matrix[i, dim_idx].item()
-                        dim1_score += score
+                    # Remove causal constraint - allow attention in both directions
+                    score = attention_matrix[i, dim_idx].item()
+                    dim1_score += score
+                    valid_dim1_pairs += 1
+                    
+                    # Also consider reverse direction (dimension to IPA)
+                    if i < attention_matrix.shape[0] and dim_idx < attention_matrix.shape[1]:
+                        reverse_score = attention_matrix[dim_idx, i].item()
+                        dim1_score += reverse_score
                         valid_dim1_pairs += 1
             
-            # Calculate attention to dimension2
+            # Calculate attention to dimension2 (bidirectional)
             for dim_idx in dim2_indices:
                 if dim_idx < attention_matrix.shape[0] and i < attention_matrix.shape[1]:
-                    # Check causal attention constraint
-                    if i <= dim_idx:  # IPA token can attend to dimension token
-                        score = attention_matrix[i, dim_idx].item()
-                        dim2_score += score
+                    # Remove causal constraint - allow attention in both directions
+                    score = attention_matrix[i, dim_idx].item()
+                    dim2_score += score
+                    valid_dim2_pairs += 1
+                    
+                    # Also consider reverse direction (dimension to IPA)
+                    if i < attention_matrix.shape[0] and dim_idx < attention_matrix.shape[1]:
+                        reverse_score = attention_matrix[dim_idx, i].item()
+                        dim2_score += reverse_score
                         valid_dim2_pairs += 1
             
             # Average the scores
@@ -219,7 +240,6 @@ class AttentionScoreCalculator:
                 ipa_dim2_scores[clean_token].append(avg_dim2_score)
         
         # If answer is provided, only return scores for the matching dimension
-        breakpoint()
         if answer is not None:
             if answer == dimension1:
                 return {
@@ -280,7 +300,6 @@ class AttentionScoreCalculator:
                         generation_analysis = data["generation_analysis"]
                         dimension1 = data["dimension1"]
                         dimension2 = data["dimension2"]
-                        # breakpoint()
                         answer = data.get("answer", "")  # Get the answer from the data
                         input_word = data.get("input_word", "") or generation_analysis.get("input_word", "")
                         word_dim1_raw_all = generation_analysis.get('word_dim1_raw_all', None)
@@ -358,7 +377,6 @@ class AttentionScoreCalculator:
                         dimension1 = data["dimension1"]
                         dimension2 = data["dimension2"]
                         answer = data.get("answer", "")  # Get the answer from the data
-                        # breakpoint()
                         relevant_indices = data.get("relevant_indices", None)
                         input_word = data.get("input_word", "")
                         if not input_word and "word_tokens" in data:
@@ -366,6 +384,10 @@ class AttentionScoreCalculator:
                         
                         # Only process if we have a valid answer
                         if answer in [dimension1, dimension2]:
+                            # Debug info for interesting-uninteresting pairs
+                            if dimension1 == "interesting" or dimension2 == "interesting" or dimension1 == "uninteresting" or dimension2 == "uninteresting":
+                                print(f"Processing file {filename}: {dimension1} vs {dimension2}, answer: {answer}")
+                            
                             ipa_scores = self.extract_ipa_attention_scores(
                                 attention_matrix, tokens, relevant_indices, dimension1, dimension2, answer
                             )
@@ -377,12 +399,16 @@ class AttentionScoreCalculator:
                                     target_scores = ipa_scores['dim2_scores']
                                 else:
                                     target_scores = {}
-                                breakpoint()
                                 for ipa, scores in target_scores.items():
                                     key = (ipa, answer)
                                     if key not in all_ipa_semdim_scores:
                                         all_ipa_semdim_scores[key] = []
                                     all_ipa_semdim_scores[key].extend(scores)
+                                    
+                                    # Debug info for interesting-uninteresting pairs
+                                    if answer in ["interesting", "uninteresting"]:
+                                        print(f"  Added scores for {ipa} -> {answer}: {scores}")
+                                
                                 file_count += 1
                                 
                                 # Generate word-level attention heatmap every 50 files
@@ -783,6 +809,17 @@ class AttentionScoreCalculator:
                 ordered_semdim_list.append(d1)
             if d2 in ipa_semdim_stats:
                 ordered_semdim_list.append(d2)
+        
+        # Debug: Check if interesting and uninteresting are in the stats
+        if "interesting" in ipa_semdim_stats:
+            print(f"Found 'interesting' in stats with {len(ipa_semdim_stats['interesting'])} IPA symbols")
+        else:
+            print("'interesting' NOT found in stats")
+        
+        if "uninteresting" in ipa_semdim_stats:
+            print(f"Found 'uninteresting' in stats with {len(ipa_semdim_stats['uninteresting'])} IPA symbols")
+        else:
+            print("'uninteresting' NOT found in stats")
         
         # Collect all unique IPA symbols and sort them by phonetic features
         ipa_set = set()

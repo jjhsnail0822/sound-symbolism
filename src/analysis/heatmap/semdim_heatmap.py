@@ -1,6 +1,6 @@
 # Model : Qwen2.5-Omni-7B
-# python src/analysis/heatmap/semdim_heatmap.py --max-samples 2 --data-type ipa
-# python src/analysis/heatmap/semdim_heatmap.py --max-samples 2 --data-type audio
+# python src/analysis/heatmap/semdim_heatmap.py --max-samples 30 --data-type ipa
+# python src/analysis/heatmap/semdim_heatmap.py --max-samples 10 --data-type audio
 import json
 import re
 import os
@@ -51,6 +51,7 @@ class QwenOmniSemanticDimensionVisualizer:
             data_type:str="audio",
             max_tokens:int=32,
             temperature:float=0.0,
+            flip:bool=False,
         ):
         self.model_path = model_path
         self.data_path = data_path
@@ -59,6 +60,7 @@ class QwenOmniSemanticDimensionVisualizer:
         self.exp_type = exp_type
         self.max_tokens = max_tokens
         self.temperature = temperature
+        self.flip = flip
         os.makedirs(self.output_dir, exist_ok=True)
         
         # Try to use flash_attention_2, but fallback to eager if not supported
@@ -69,7 +71,6 @@ class QwenOmniSemanticDimensionVisualizer:
             # attn_implementation="flash_attention_2",
             attn_implementation="eager",
         )
-        print("[INFO] Successfully loaded model with flash_attention_2")
         self.model.disable_talker()
         self.load_base_prompt()
         self.load_base_prompt()
@@ -94,25 +95,27 @@ class QwenOmniSemanticDimensionVisualizer:
             if data_type_key not in data:
                 raise KeyError(f"Data type '{data_type_key}' not found in data: {data.keys()}")
         dimension_info = data["dimensions"][dimension_name]
-        dimension1 = dimension_name.split("-")[0]
-        dimension2 = dimension_name.split("-")[1]
+        dim1 = dimension_name.split("-")[0]
+        dim2 = dimension_name.split("-")[1]
         answer = dimension_info["answer"]
-
+        # Flip if needed
+        if self.flip:
+            dim1, dim2 = dim2, dim1
         if self.data_type == "audio":
             word = f"data/processed/nat/tts/{data['language']}/{data['word']}.wav"
-            print(f"[DEBUG] Audio path: {word}, Exists: {os.path.exists(word)}")
+            # print(f"[DEBUG] Audio path: {word}, Exists: {os.path.exists(word)}")
             # For audio type, we need to format the prompt with dimension info first
             if "{audio}" in prompt:
                 prompt_parts = prompt.split("{audio}")
                 text_before = prompt_parts[0].format(
                     word=data['word'],
-                    dimension1=dimension1,
-                    dimension2=dimension2
+                    dimension1=dim1,
+                    dimension2=dim2
                 )
                 text_after = prompt_parts[1].format(
                     word=data['word'],
-                    dimension1=dimension1,
-                    dimension2=dimension2
+                    dimension1=dim1,
+                    dimension2=dim2
                 )
                 constructed_prompt = [
                     # {"type": "text", "text": prompt.split("{audio}")[0]},
@@ -127,16 +130,16 @@ class QwenOmniSemanticDimensionVisualizer:
             word = data[data_type_key]
             constructed_prompt = prompt.format(
                 word=word,
-                dimension1=dimension1,
-                dimension2=dimension2,
+                dimension1=dim1,
+                dimension2=dim2,
             )
-        return constructed_prompt, dimension1, dimension2, answer, word, dimension_name
+        return constructed_prompt, dim1, dim2, answer, word, dimension_name
     
     def create_conversation(self, prompt, data):
         if self.data_type == "audio":
             audio_path = f'data/processed/nat/tts/{data["language"]}/{data["word"]}.wav'
-            print(f"[DEBUG] create_conversation audio_path: {audio_path}, Exists: {os.path.exists(audio_path)}")
-            print(f"[DEBUG] conversation: {prompt}")
+            # print(f"[DEBUG] create_conversation audio_path: {audio_path}, Exists: {os.path.exists(audio_path)}")
+            # print(f"[DEBUG] conversation: {prompt}")
             if isinstance(prompt, list):
                 conversation = [
                     SYSTEM_TEMPLATE,
@@ -146,7 +149,7 @@ class QwenOmniSemanticDimensionVisualizer:
                     },
                 ]
             else:
-                breakpoint() # EDIT LATER
+                # breakpoint() # EDIT LATER
                 word_placeholder = "{word}"
                 if "<AUDIO>" in prompt:
                     question_parts = prompt.split("<AUDIO>")
@@ -192,7 +195,7 @@ class QwenOmniSemanticDimensionVisualizer:
                     ],
                 },
             ]
-        breakpoint()
+        # breakpoint()
         return conversation
     
     def trim_silence_from_audio(self, audio_data, threshold=0.01):
@@ -210,8 +213,8 @@ class QwenOmniSemanticDimensionVisualizer:
         start_idx = non_zero_indices[0]
         trimmed_audio = audio_data[start_idx:]
         
-        print(f"[DEBUG] Audio trimmed: {len(audio_data)} -> {len(trimmed_audio)} samples")
-        print(f"[DEBUG] Trimmed audio first 10 values: {trimmed_audio[:10]}")
+        # print(f"[DEBUG] Audio trimmed: {len(audio_data)} -> {len(trimmed_audio)} samples")
+        # print(f"[DEBUG] Trimmed audio first 10 values: {trimmed_audio[:10]}")
         
         return trimmed_audio
 
@@ -224,51 +227,52 @@ class QwenOmniSemanticDimensionVisualizer:
         # Debug: Check audio file directly before process_mm_info
         if self.data_type == "audio":
             audio_path = f'data/processed/nat/tts/{data["language"]}/{data["word"]}.wav'
-            print(f"[DEBUG] Checking audio file directly: {audio_path}")
+            # print(f"[DEBUG] Checking audio file directly: {audio_path}")
             
             # Check file size
             import os
             file_size = os.path.getsize(audio_path)
-            print(f"[DEBUG] Audio file size: {file_size} bytes")
+            # print(f"[DEBUG] Audio file size: {file_size} bytes")
             
             # Try to load with librosa directly
             try:
                 import librosa
                 audio_data, sr = librosa.load(audio_path, sr=16000)
-                print(f"[DEBUG] Direct librosa load - shape: {audio_data.shape}, sample_rate: {sr}")
-                print(f"[DEBUG] Direct librosa load - first 10 values: {audio_data[:10]}")
-                print(f"[DEBUG] Direct librosa load - min: {audio_data.min()}, max: {audio_data.max()}, mean: {audio_data.mean()}")
+                # print(f"[DEBUG] Direct librosa load - shape: {audio_data.shape}, sample_rate: {sr}")
+                # print(f"[DEBUG] Direct librosa load - first 10 values: {audio_data[:10]}")
+                # print(f"[DEBUG] Direct librosa load - min: {audio_data.min()}, max: {audio_data.max()}, mean: {audio_data.mean()}")
                 
                 # Check for non-zero audio content
                 non_zero_indices = np.nonzero(np.abs(audio_data) > 0.01)[0]  # Threshold for silence
                 if len(non_zero_indices) > 0:
                     start_idx = non_zero_indices[0]
                     end_idx = non_zero_indices[-1] + 1
-                    print(f"[DEBUG] Non-zero audio content from index {start_idx} to {end_idx}")
-                    print(f"[DEBUG] Non-zero audio length: {end_idx - start_idx} samples ({((end_idx - start_idx) / sr):.3f}s)")
-                    print(f"[DEBUG] Non-zero audio values: {audio_data[start_idx:start_idx+10]}")
+                    # print(f"[DEBUG] Non-zero audio content from index {start_idx} to {end_idx}")
+                    # print(f"[DEBUG] Non-zero audio length: {end_idx - start_idx} samples ({((end_idx - start_idx) / sr):.3f}s)")
+                    # print(f"[DEBUG] Non-zero audio values: {audio_data[start_idx:start_idx+10]}")
                 else:
-                    print(f"[DEBUG] WARNING: No significant audio content found!")
+                    # print(f"[DEBUG] WARNING: No significant audio content found!")
+                    pass
                     
             except Exception as e:
                 print(f"[DEBUG] Direct librosa load failed: {e}")
             
             # Debug: Check conversation structure that will be passed to process_audio_info
-            print(f"[DEBUG] Conversation structure for process_audio_info:")
-            for i, msg in enumerate(conversation):
-                print(f"[DEBUG] Message {i}: {msg}")
-                if isinstance(msg.get('content'), list):
-                    for j, ele in enumerate(msg['content']):
-                        print(f"[DEBUG]   Element {j}: {ele}")
-                        if ele.get('type') == 'audio':
-                            print(f"[DEBUG]     Audio path: {ele.get('audio')}")
-                            print(f"[DEBUG]     Audio start: {ele.get('audio_start', 0.0)}")
-                            print(f"[DEBUG]     Audio end: {ele.get('audio_end', None)}")
+            # print(f"[DEBUG] Conversation structure for process_audio_info:")
+            # for i, msg in enumerate(conversation):
+            #     print(f"[DEBUG] Message {i}: {msg}")
+            #     if isinstance(msg.get('content'), list):
+            #         for j, ele in enumerate(msg['content']):
+            #             print(f"[DEBUG]   Element {j}: {ele}")
+            #             if ele.get('type') == 'audio':
+            #                 print(f"[DEBUG]     Audio path: {ele.get('audio')}")
+            #                 print(f"[DEBUG]     Audio start: {ele.get('audio_start', 0.0)}")
+            #                 print(f"[DEBUG]     Audio end: {ele.get('audio_end', None)}")
         
         audios, images, videos = process_mm_info(conversation, use_audio_in_video=USE_AUDIO_IN_VIDEO)
         
         if self.data_type == "audio" and (audios is None or len(audios) == 0):
-            print(f"[DEBUG] process_mm_info audios: {audios}, images: {images}, videos: {videos}")
+            # print(f"[DEBUG] process_mm_info audios: {audios}, images: {images}, videos: {videos}")
             if self.data_type == "audio":
                 if not audios or len(audios) == 0:
                     print(f"[WARNING] No audio loaded for {data['word']}")
@@ -289,22 +293,22 @@ class QwenOmniSemanticDimensionVisualizer:
         
         # Debug: Check what process_mm_info returned
         if self.data_type == "audio" and audios is not None:
-            print(f"[DEBUG] process_mm_info returned audios: {len(audios)} items")
+            # print(f"[DEBUG] process_mm_info returned audios: {len(audios)} items")
             for i, audio in enumerate(audios):
-                print(f"[DEBUG] Audio {i} - shape: {audio.shape}, dtype: {audio.dtype}")
-                print(f"[DEBUG] Audio {i} - first 10 values: {audio[:10]}")
-                print(f"[DEBUG] Audio {i} - min: {audio.min()}, max: {audio.max()}, mean: {audio.mean()}")
+                # print(f"[DEBUG] Audio {i} - shape: {audio.shape}, dtype: {audio.dtype}")
+                # print(f"[DEBUG] Audio {i} - first 10 values: {audio[:10]}")
+                # print(f"[DEBUG] Audio {i} - min: {audio.min()}, max: {audio.max()}, mean: {audio.mean()}")
                 
                 # Apply silence trimming
                 trimmed_audio = self.trim_silence_from_audio(audio)
                 audios[i] = trimmed_audio
         
         inputs = self.processor(text=text, audio=audios, images=images, videos=videos, return_tensors="pt", padding=True, use_audio_in_video=USE_AUDIO_IN_VIDEO)
-        print(f"[DEBUG] processor inputs: {inputs.keys()}")
+        # print(f"[DEBUG] processor inputs: {inputs.keys()}")
         inputs = inputs.to(self.model.device).to(self.model.dtype)
         with torch.no_grad():
-            print(f"[DEBUG] Model input_ids: {inputs['input_ids']}")
-            print(f"[DEBUG] Model audio: {audios}")
+            # print(f"[DEBUG] Model input_ids: {inputs['input_ids']}")
+            # print(f"[DEBUG] Model audio: {audios}")
             thinker_model = self.model.thinker.model
             outputs = thinker_model(input_ids=inputs['input_ids'], attention_mask=inputs['attention_mask'], output_attentions=True, return_dict=True)
         
@@ -383,11 +387,13 @@ class QwenOmniSemanticDimensionVisualizer:
         return relevant_indices
     
     def save_matrix(self, attention_matrix, dimension1, dimension2, answer, word_tokens, option_tokens, layer_type="self", lang="en", tokens=None, relevant_indices=None):
-        matrix_data = {"attention_matrix": attention_matrix, "dimension1": dimension1, "dimension2": dimension2, "answer": answer, "word_tokens": word_tokens, "option_tokens": option_tokens, "tokens": tokens, "relevant_indices": relevant_indices}
-        output_dir = os.path.join(self.output_dir, self.exp_type, self.data_type, lang, "self_attention", f"{dimension1}_{dimension2}")
+        # Flip if needed
+        dim1, dim2 = dimension1, dimension2
+        matrix_data = {"attention_matrix": attention_matrix, "dimension1": dim1, "dimension2": dim2, "answer": answer, "word_tokens": word_tokens, "option_tokens": option_tokens, "tokens": tokens, "relevant_indices": relevant_indices}
+        output_dir = os.path.join(self.output_dir, self.exp_type, self.data_type, lang, "self_attention", f"{dim1}_{dim2}")
         os.makedirs(output_dir, exist_ok=True)
         safe_word = re.sub(r'[^\w\-_.]', '_', str(word_tokens))
-        save_path = os.path.join(output_dir, f"{safe_word}_{dimension1}_{dimension2}_{layer_type}.pkl")
+        save_path = os.path.join(output_dir, f"{safe_word}_{dim1}_{dim2}_{layer_type}.pkl")
         with open(save_path, "wb") as f:
             pkl.dump(matrix_data, f)
 
@@ -484,7 +490,7 @@ class QwenOmniSemanticDimensionVisualizer:
         USE_AUDIO_IN_VIDEO = True
         text = self.processor.apply_chat_template(conversation, add_generation_prompt=True, tokenize=False)
         audios, images, videos = process_mm_info(conversation, use_audio_in_video=USE_AUDIO_IN_VIDEO)
-        breakpoint()
+        # breakpoint()
         if self.data_type == "audio" and (audios is None or len(audios) == 0):
             print(f"[WARNING] No audio loaded for {data['word']}")
             # Instead of falling back to text-only, raise an error to ensure audio is properly loaded
@@ -518,21 +524,21 @@ class QwenOmniSemanticDimensionVisualizer:
             use_audio_in_video=USE_AUDIO_IN_VIDEO
         )
         inputs = inputs.to(self.model.device).to(self.model.dtype)
-        print("\n[DEBUG] === Model Input Debugging ===")
-        print("[DEBUG] Prompt text (first 500 chars):", text[:500])
-        if self.data_type == "audio":
-            print("[DEBUG] Audio: type:", type(audios), "len:", len(audios) if audios is not None else None)
-            if audios and len(audios) > 0:
-                print("[DEBUG] Audio[0] shape:", audios[0].shape, "dtype:", audios[0].dtype)
-        print("[DEBUG] inputs keys:", list(inputs.keys()))
-        print("[DEBUG] input_ids shape:", inputs['input_ids'].shape)
-        print("[DEBUG] attention_mask shape:", inputs['attention_mask'].shape)
-        if 'input_features' in inputs:
-            print("[DEBUG] input_features shape:", inputs['input_features'].shape)
-        if 'feature_attention_mask' in inputs:
-            print("[DEBUG] feature_attention_mask shape:", inputs['feature_attention_mask'].shape)
-        print("[DEBUG] input_ids (first 20):", inputs['input_ids'][0][:20])
-        print("[DEBUG] === End Model Input Debugging ===\n")
+        # print("\n[DEBUG] === Model Input Debugging ===")
+        # print("[DEBUG] Prompt text (first 500 chars):", text[:500])
+        # if self.data_type == "audio":
+        #     print("[DEBUG] Audio: type:", type(audios), "len:", len(audios) if audios is not None else None)
+        #     if audios and len(audios) > 0:
+        #         print("[DEBUG] Audio[0] shape:", audios[0].shape, "dtype:", audios[0].dtype)
+        # print("[DEBUG] inputs keys:", list(inputs.keys()))
+        # print("[DEBUG] input_ids shape:", inputs['input_ids'].shape)
+        # print("[DEBUG] attention_mask shape:", inputs['attention_mask'].shape)
+        # if 'input_features' in inputs:
+        #     print("[DEBUG] input_features shape:", inputs['input_features'].shape)
+        # if 'feature_attention_mask' in inputs:
+        #     print("[DEBUG] feature_attention_mask shape:", inputs['feature_attention_mask'].shape)
+        # print("[DEBUG] input_ids (first 20):", inputs['input_ids'][0][:20])
+        # print("[DEBUG] === End Model Input Debugging ===\n")
         
         all_attention_matrices = []
         all_tokens = []
@@ -551,10 +557,10 @@ class QwenOmniSemanticDimensionVisualizer:
                 
                 # For generation, we need to pass the input_features (processed audio) to the model
                 if self.data_type == "audio" and 'input_features' in inputs:
-                    print("[DEBUG] Passing to model: input_ids shape:", current_input_ids.shape)
-                    print("[DEBUG] Passing to model: attention_mask shape:", current_attention_mask.shape)
-                    print("[DEBUG] Passing to model: input_features shape:", inputs['input_features'].shape)
-                    print("[DEBUG] Passing to model: feature_attention_mask shape:", inputs['feature_attention_mask'].shape)
+                    # print("[DEBUG] Passing to model: input_ids shape:", current_input_ids.shape)
+                    # print("[DEBUG] Passing to model: attention_mask shape:", current_attention_mask.shape)
+                    # print("[DEBUG] Passing to model: input_features shape:", inputs['input_features'].shape)
+                    # print("[DEBUG] Passing to model: feature_attention_mask shape:", inputs['feature_attention_mask'].shape)
                     outputs = self.model.thinker(
                         input_ids=current_input_ids,
                         attention_mask=current_attention_mask,
@@ -603,8 +609,8 @@ class QwenOmniSemanticDimensionVisualizer:
         input_length = len(all_tokens[0])
         response_ids = current_input_ids[0][input_length:]
         response = self.processor.tokenizer.decode(response_ids)
-        print(f"[Debug] Response: {response}")
-        breakpoint()
+        # print(f"[Debug] Response: {response}")
+        # breakpoint()
         
         # Check the last token
         last_token_id = current_input_ids[0][-1].item()
@@ -1013,11 +1019,12 @@ class QwenOmniSemanticDimensionVisualizer:
         return final_analysis
 
     def save_generation_attention_analysis(self, generation_analysis, dimension1, dimension2, answer, word_tokens, option_tokens, lang="en", tokens=None, response=None):
-        """Save generation attention analysis as pickle file"""
+        # dim1, dim2 = (dimension2, dimension1) if self.flip else (dimension1, dimension2)
+        dim1, dim2 = dimension1, dimension2
         analysis_data = {
             "generation_analysis": generation_analysis,
-            "dimension1": dimension1,
-            "dimension2": dimension2,
+            "dimension1": dim1,
+            "dimension2": dim2,
             "answer": answer,
             "word_tokens": word_tokens,
             "option_tokens": option_tokens,
@@ -1026,27 +1033,22 @@ class QwenOmniSemanticDimensionVisualizer:
             "input_word": generation_analysis.get('input_word', ''),
             "analysis_type": "generation_attention"
         }
-        
         output_dir = os.path.join(self.output_dir, self.exp_type, self.data_type, lang, "generation_attention")
         os.makedirs(output_dir, exist_ok=True)
-        
         safe_word = re.sub(r'[^\w\-_.]', '_', str(word_tokens))
-        safe_dim1 = re.sub(r'[^\w\-_.]', '_', str(dimension1))
-        safe_dim2 = re.sub(r'[^\w\-_.]', '_', str(dimension2))
-        
+        safe_dim1 = re.sub(r'[^\w\-_.]', '_', str(dim1))
+        safe_dim2 = re.sub(r'[^\w\-_.]', '_', str(dim2))
         save_path = os.path.join(output_dir, f"{safe_word}_{safe_dim1}_{safe_dim2}_generation_analysis.pkl")
-        
         with open(save_path, "wb") as f:
             pkl.dump(analysis_data, f)
-        
         print(f"Generation attention analysis saved to: {save_path}")
 
     def save_generation_attention_matrix(self, all_attention_matrices, dimension1, dimension2, answer, word_tokens, input_word, option_tokens, lang="en", tokens=None, current_input_ids=None, all_tokens=None):
+        dim1, dim2 = (dimension2, dimension1) if self.flip else (dimension1, dimension2)
         if current_input_ids is not None and all_tokens is not None:
             input_length = len(all_tokens)
             input_ids = current_input_ids[0][:input_length]
             response_ids = current_input_ids[0][input_length:]
-            
             input_text = self.processor.tokenizer.decode(input_ids)
             response = self.processor.tokenizer.decode(response_ids)
             full_text = self.processor.tokenizer.decode(current_input_ids[0])
@@ -1054,35 +1056,27 @@ class QwenOmniSemanticDimensionVisualizer:
             input_text = "unknown"
             response = "unknown"
             full_text = "unknown"
-        
         filtered_attention_matrices = []
         relevant_indices_list = []
-        
         for step, step_attentions in enumerate(all_attention_matrices):
             layer_attention = step_attentions[0]
             current_seq_len = layer_attention.shape[-1]
             tmp_tokens = tokens[:current_seq_len]
-            # breakpoint()
-            relevant_indices = self.extract_relevant_token_indices(tmp_tokens, dimension1, dimension2, input_word, word=word_tokens)
-            
+            relevant_indices = self.extract_relevant_token_indices(tmp_tokens, dim1, dim2, input_word, word=word_tokens)
             filtered_step_attentions = []
             for layer_idx, layer_attn in enumerate(step_attentions):
                 if len(relevant_indices) > 0:
                     filtered_attn = layer_attn[:, :, relevant_indices][:, :, :, relevant_indices]
                 else:
                     filtered_attn = layer_attn
-                
-                # breakpoint()
                 filtered_step_attentions.append(filtered_attn)
-            
             filtered_attention_matrices.append(tuple(filtered_step_attentions))
             relevant_indices_list.append(relevant_indices)
-        
         matrix_data = {
             "attention_matrices": filtered_attention_matrices,
             "relevant_indices": relevant_indices_list,
-            "dimension1": dimension1,
-            "dimension2": dimension2,
+            "dimension1": dim1,
+            "dimension2": dim2,
             "answer": answer,
             "word_tokens": word_tokens,
             "option_tokens": option_tokens,
@@ -1092,19 +1086,14 @@ class QwenOmniSemanticDimensionVisualizer:
             "full_text": full_text,
             "analysis_type": "generation_attention_matrix"
         }
-        
-        output_dir = os.path.join(self.output_dir, self.exp_type, self.data_type, lang, "generation_attention", f"{dimension1}_{dimension2}")
+        output_dir = os.path.join(self.output_dir, self.exp_type, self.data_type, lang, "generation_attention", f"{dim1}_{dim2}")
         os.makedirs(output_dir, exist_ok=True)
-        
         safe_word = re.sub(r'[^\w\-_.]', '_', str(word_tokens))
-        safe_dim1 = re.sub(r'[^\w\-_.]', '_', str(dimension1))
-        safe_dim2 = re.sub(r'[^\w\-_.]', '_', str(dimension2))
-        
+        safe_dim1 = re.sub(r'[^\w\-_.]', '_', str(dim1))
+        safe_dim2 = re.sub(r'[^\w\-_.]', '_', str(dim2))
         save_path = os.path.join(output_dir, f"{safe_word}_{safe_dim1}_{safe_dim2}.pkl")
-        
         with open(save_path, "wb") as f:
             pkl.dump(matrix_data, f)
-        
         print(f"Generation attention matrix saved to: {save_path}")
         return save_path
 
@@ -1122,7 +1111,7 @@ if __name__ == "__main__":
     parser.add_argument('--temperature', type=float, default=0.0, help="Sampling temperature")
     parser.add_argument('--max-samples', type=int, default=None, help="Maximum number of samples to process (default: all)")
     parser.add_argument('--languages', nargs='+', default=["en", "fr", "ko", "ja"], help="Languages to process")
-    
+    parser.add_argument('--flip', action='store_true', help="Flip dim1 and dim2 in prompts and outputs")
     args = parser.parse_args()
     max_samples:int = args.max_samples
     print(f"Data type: {args.data_type}")
@@ -1135,14 +1124,16 @@ if __name__ == "__main__":
         exp_type="semantic_dimension",
         data_type=args.data_type,
         max_tokens=args.max_tokens,
-        temperature=args.temperature
+        temperature=args.temperature,
+        flip=args.flip
     )
 
     # languages = ["en", "fr", "ja", "ko"]
-    languages = ["ja", "ko"]
+    languages = ["ko"]
     total_num_of_dimensions = 0
     total_num_of_words = 0
     total_num_of_words_per_language = {lang: 0 for lang in languages}
+    start_index = 0
     
     for lang in languages:
         print(f"\nProcessing language: {lang}")
@@ -1150,7 +1141,7 @@ if __name__ == "__main__":
         print(f"Found {len(lang_data)} samples for language {lang}")
         
         if max_samples:
-            lang_data = lang_data[:max_samples]
+            lang_data = lang_data[start_index:max_samples]
             print(f"Limiting to {len(lang_data)} samples")
 
         
