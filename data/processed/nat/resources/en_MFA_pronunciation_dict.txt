@@ -1,0 +1,834 @@
+a	AH0
+achoo	AE0 CH UW0
+atishoo	T IH0 SH UW0
+atichoo	AE0 T IH0 K UW0
+ahem	AH0 HH EH0 M
+ai	AA0 Y
+aie	EY0 Y IY0
+alew	EY0 Y L UW0
+arf	AA0 R F
+argh	AA0 R G
+aw	AO0
+bada-bing	B AA0 D AH0 B IH0 NG
+bam	B AE0 M
+bangarang	B AE0 NG G AA0 R AE0 NG
+baw	B AO0
+baw-waw	B AO0 W AO0
+beep	B IY0 P
+bewh	B IH0 W
+biff	B IH0 F
+bing	B IH0 NG
+bingo	B IH0 NG G OW0 W
+birl	B ER0 L
+bish	B IH0 SH
+blad	B L AE0 D
+blah	B L AA0
+blash	B L AE0 SH
+blat	B L AE0 T
+blea	B L IY0
+blear	B L ER0
+bleep	B L IY0 P
+bling	B AH0 L IH0 NG
+blip	B L IH0 P
+blizzard	B L IH0 Z ER0 D
+blodge	B L AA0 JH
+bloop	B L UW0 P
+blotch	B L AA0 CH
+blout	B L AA0 W T
+bluff	B L AH0 F
+blumbering	B L AH0 M B ER0 IH0 NG
+blunge	B L AH0 N JH
+blurt	B L ER0 T
+bluther	B L AH0 TH ER0
+bob	B AA0 B
+boffo	B AO0 F OW0 W
+boing	B OW0 W IH0 NG
+boink	B OW0 Y NG K
+bom	B AA0 M
+bong	B AA0 NG
+bonk	B AA0 NG K
+boom	B UW0 M
+bop	B AA0 P
+bosh	B AA0 SH
+bow-wow	B AA0 W W AA0 W
+brash	B R AE0 SH
+brattle	B R AE0 T AH0 L
+brr-brr	B R B R
+brrr	B R
+brum	B R AH0 M
+bruzz	B R AH0 T S
+buff	B AH0 F
+bum	B AH0 M
+bumble	B AH0 M B AH0 L
+bump	B AH0 M P
+bunch	B AH0 N CH
+bung	B AH0 NG
+bungle	B AH0 NG G AH0 L
+burp	B ER0 P
+burr	B ER0
+buzz	B AH0 Z
+buzzle	B AH0 Z AH0 L
+byss	B IH0 S
+cangle	K AE0 NG G AH0 L
+cank	K AE0 NG K
+caw	K AO0
+cawk	K AO0 K
+chack	CH AE0 K
+chack-chack	CH AE0 K CH AE0 K
+chang	CH AE0 NG
+channer	CH AE0 N ER0
+chatter	CH AE0 T ER0
+cheep	CH IY0 P
+cheet	CH IY0 T
+che-ho	CH EY0 Y HH OW0 W
+chick	CH IH0 K
+chicker	CH IH0 K ER0
+chink	CH IH0 NG K
+chirl	CH IH0 ER0 L
+chit	CH IH0 T
+chock	CH AA0 K
+choo-choo	CH UW0 CH UW0
+chuck	CH AH0 K
+chuckle	CH AH0 K AH0 L
+chud	CH UW0 D
+chuff	SH AH0 F
+chug	CH AH0 G
+chug-a-lug	CH AH0 G AH0 L AH0 G
+chunk	CH AH0 NG K
+chunter	CH AH0 N T ER0
+churr	CH ER0
+chutter	CH AH0 T ER0
+chymer	CH AA0 Y M ER0
+clam	K L AE0 M
+clamp	K L AE0 M P
+clash	K L AE0 SH
+click	K L IH0 K
+clippety-clop	K L IH0 P T IY0 K L AA0 P
+clobber	K L AA0 B ER0
+clondre	K L AH0 N D R
+clonk	K L AA0 NG K
+cloop	K L UW0 P
+clop	K L AA0 P
+cluck	K L AH0 K
+clucker	K L AH0 K ER0
+clunk	K L AH0 NG K
+conck	K AH0 NG K
+coo	K UW0
+cooee	K UW0 IY0
+crank	K R AE0 NG K
+crash	K R AE0 SH
+craw	K R AO0
+crawk	K R AO0 K
+creak	K R IY0 K
+crick	K R IH0 K
+crimp	K R IH0 M P
+cronk	K R AA0 NG K
+croo	K R UW0
+crood	K R UW0 D
+croud	K R AA0 W D
+crook	K R UH0 K
+crool	K R UW0 L
+croop	K R UW0 P
+crout	K R AA0 W T
+crunkle	K R AH0 NG K AH0 L
+curkle	K ER0 K AH0 L
+curl	K ER0 L
+curling	K ER0 L IH0 NG
+curmur	K ER0 M ER0
+curr	K AH0 ER0
+dadder	D AE0 D ER0
+dah	D AA0
+daud	D AO0 D
+der	D ER0
+diddle	D IH0 D AH0 L
+ding	D IH0 NG
+ding-a-ling	D IH0 NG AH0 L IH0 NG
+ding-dong	D IH0 NG D AO0 NG
+dink	D IH0 NG K
+dit	D IH0 T
+dod	D AA0 D
+dong	D AO0 NG
+doof	D UW0 F
+drant	D R AE0 N T
+draunt	D R AO0 N T
+dub	D AH0 B
+dub-a-dub	D AH0 B AH0 D AH0 B
+duff	D AH0 F
+duh	D AH0
+eek	IY0 K
+er	ER0
+ew	IH0 W
+faffle	F AE0 F AH0 L
+fap fap fap	F AE0 P F AE0 P F AE0 P
+fillip	F IH0 L AH0 P
+filly-folly	F IH0 L IY0 F AA0 L IY0
+fissle	F IH0 S AH0 L
+fix-fax	F IH0 K S F AE0 K S
+fizz	F IH0 Z
+flab	F L AE0 B
+flabby	F L AE0 B IY0
+flack	F L AE0 K
+flaff	F L AE0 F
+flank	F L AE0 NG K
+flap	F L AE0 P
+flash	F L AE0 SH
+flasker	F L AE0 S K ER0
+flatter	F L AE0 T ER0
+fleg	F L EH0 G
+flerk	F L ER0 K
+flibbertigibbet	F L AA0 Y B ER0 T IY0 JH IH0 B AH0 T
+flick	F L IH0 K
+flicker	F L IH0 K ER0
+flim-flam	F L IH0 M F L AE0 M
+flimmer	F L IH0 M ER0
+flip	F L IH0 P
+flipper-de-flapper	F L IH0 P ER0 D IY0 F L AE0 P ER0
+flirt	F L ER0 T
+flish	F L IH0 SH
+flisk	F L IH0 S K
+flitch	F L IH0 CH
+flizz	F L IH0 Z
+flobber	F L AA0 B ER0
+flod	F L AA0 D
+flog	F L AA0 G
+flouse	F L AA0 W S
+floush	F L AA0 W SH
+flummer	F L AH0 M ER0
+flump	F L AH0 M P
+flunge	F L AH0 N JH
+flurr	F L R ER0
+flurry	F L ER0 IY0
+flush	F L AH0 SH
+fnarr-fnarr	F N AE0 R F N AE0 R
+frab	F R AE0 B
+frap	F R AE0 P
+fratch	F R AA0 CH
+fribble	F R IH0 B AH0 L
+fridge	F R IH0 JH
+frill	F R IH0 L
+fruz	F R AH0 Z
+fubb	F AH0 B
+fubbs	F AH0 B S
+fubble	F AH0 B AH0 L
+fuff	F AH0 F
+fuffle	F AH0 F AH0 L
+fum	F AH0 M
+funk	F AH0 NG K
+fuss	F AH0 S
+fustle	F AH0 S AH0 L
+fute	F Y UW0 T
+fuzz	F AH0 Z
+gab	G AE0 B
+gabber	G AE0 B ER0
+gabble	G AE0 B AH0 L
+gag	G AE0 G
+gaggle	G AE0 G AH0 L
+gah	G AA0
+gallop	G AE0 L AH0 P
+gamp	G AE0 M P
+garre	G AE0 R
+gawf	G AO0 F
+gawl	G AO0 L
+geremumble	JH EH0 R EH0 M AH0 M B AH0 L
+gibber	G IH0 B ER0
+gig	G IH0 G
+giggle	G IH0 G AH0 L
+glash	G L AE0 SH
+globbe	G L AA0 B
+gloffer	G L F ER0
+glop	G L AA0 P
+glotter	G L AA0 T ER0
+glub	G L AH0 B
+gluck	G L AH0 K
+glug	G L AH0 G
+glut-glut	G L AH0 T G L AH0 T
+glutter	G L AH0 T ER0
+gnacche	N AE0 K
+gnar	N AA0 ER0
+gnip	N IH0 P
+gobble	G AA0 B AH0 L
+goggle	G AA0 G AH0 L
+golf	G AA0 L F
+gollar	G AA0 L ER0
+golly	G AA0 L IY0
+goo	G UW0
+goo-goo	G UW0 G UW0
+gothele	G AH0 TH AH0 L
+granch	G R AE0 N CH
+grash	G R AE0 SH
+grassil	G R AE0 S IH0 L
+graunch	G R AO0 N CH
+grent	G R EH0 N T
+grinch	G R IH0 N CH
+grint	G R IH0 N T
+grolling	G R OW0 W L IH0 NG
+grouze	G R UW0 Z
+growl	G R AA0 W L
+grump	G R AH0 M P
+grumph	G R AH0 M F
+gubble	G AH0 B AH0 L
+guddle	G AH0 D AH0 L
+guff	G AH0 F
+guffaw	G AH0 F AO0
+guggle	G UW0 G AH0 L
+guit-guit	G T G T
+gulch	G AH0 L CH
+gulp	G AH0 L P
+gurk	G ER0 K
+gurl	G ER0 L
+gurr	G ER0
+hallali	HH AE0 L AA0 L IY0
+harr	HH AE0 R
+harrumph	HH AE0 R AH0 M F
+hau-hau	HH AA0 W HH AA0 W
+haunk-haunk	HH AO0 NG K HH AO0 NG K
+haw	HH AO0
+haw-haw	HH AO0 HH AO0
+heck	HH EH0 K
+hee-haw	HH IY0 HH AO0
+hish	HH IH0 SH
+hiss	HH IH0 S
+hist	HH IH0 S T
+hiz	HH IH0 Z
+hod	HH AA0 D
+honk	HH AA0 NG K
+honky-tonk	HH AO0 NG K IY0 T AO0 NG K
+hooshtah	HH UW0 SH T AH0
+hoss	HH AA0 S
+hough	HH AH0 F
+hub a dub	HH AH0 B AH0 D AH0 B
+huh-uh	HH AH0 AH0
+hurr	HH ER0
+hush	HH AH0 SH
+huss	HH AH0 S
+hustling	HH AH0 S AH0 L IH0 NG
+huzz	HH AH0 Z
+iddy-umpty	IH0 D D IY0 AH0 M P T IY0
+ish	IH0 SH
+jabber	JH AE0 B ER0
+javer	JH EY0 Y V ER0
+jabble	JH AE0 B AH0 L
+jam	JH AE0 M
+jar	JH AA0 R
+jarg	JH AA0 R G
+jasch	JH AE0 SH
+jaup	JH AO0 P
+jing	JH IH0 NG
+jingle	JH IH0 NG G AH0 L
+jink	JH IH0 NG K
+jirble	JH ER0 B AH0 L
+job	JH AA0 B
+jobble	JH AA0 B AH0 L
+jopper	JH AA0 P ER0
+jot	JH AA0 T
+jower	JH OW0 W ER0
+jub	JH AH0 B
+juck	JH AH0 K
+juke	JH UW0 K
+jur	JH ER0
+jut	JH AH0 T
+kaak	K AA0 K
+keak	K IY0 K
+keck	K EH0 K
+kewt	K UW0 T
+ki-yi	K IY0 Y IY0
+knal	N AE0 L
+knap	N AE0 P
+knickety-knock	N IH0 K AH0 T IY0 N AA0 K
+knoll	N OW0 W L
+kyoodle	K Y UW0 D AH0 L
+lab	L AE0 B
+la-di-da	L AA0 D IY0 D AA0
+laldy	L AO0 L D IY0
+lall	L AO0 L
+lamp	L AE0 M P
+lash	L AE0 SH
+lill	L IH0 L
+lob	L AA0 B
+log	L AO0 G
+logger	L AA0 G ER0
+lop	L AA0 P
+losh	L AA0 SH
+lounder	L AA0 W N D ER0
+loune	L AA0 W N
+lout	L AA0 W T
+lull	L AH0 L
+lulla	L AH0 L AH0
+lulliloo	L AH0 L AH0 L UW0
+lunch	L AH0 N CH
+maa	M AE0 AA0
+maule	M AO0 L
+meep	M IY0 P
+mew	M Y UW0
+mewt	M UW0 T
+mewl	M UW0 L
+miaow	M IY0 AA0 OW0 W
+miff	M IH0 F
+mim	M IH0 M
+mimp	M IH0 M P
+mm	M
+moo	M UW0
+mop	M AA0 P
+mph	EH0 M P IY0 EY0 Y CH
+mphm	M F M
+muff	M AH0 F
+muffle	M AH0 F AH0 L
+mum	M AH0 M
+mump	M AH0 M P
+murr	M ER0
+mustle	M AH0 S AH0 L
+mwah	M W AA0
+nicker	N IH0 K ER0
+niminy-piminy	N AA0 Y M AA0 Y N IY0 P AA0 Y M AA0 Y N IY0
+nipper	N IH0 P ER0
+nuh-uh	N AH0 AH0
+num	N AH0 M
+nummy	N AH0 M IY0
+nyaff	N AA0 Y AE0 F
+nyah	N AA0 Y AA0
+oink	OW0 Y NG K
+oompah	UW0 M P AH0
+oomph	UW0 M F
+ooyah	UW0 AH0
+ou	UW0
+ouch	AA0 W CH
+ouff	OW0 W F
+paff	P AE0 F
+pah	P AE0
+pamp	P AE0 M P
+pang	P AE0 NG
+pash	P AE0 SH
+pat	P AE0 T
+pech	P EH0 K
+peeoy	P IY0 OW0 Y
+petter	P EH0 T ER0
+pew	P Y UW0
+pewewe	P UW0 UW0
+phah	F AA0
+pheal	F IY0 L
+phew	F Y UW0
+phit	F IH0 T
+pho	F OW0 W
+phoo	F UW0
+phwoar	F W AO0 R
+piff	P IH0 F
+piffle	P IH0 F AH0 L
+ping	P IH0 NG
+pinge	P IH0 N JH
+ping-pong	P IH0 NG P AO0 NG
+pink	P IH0 NG K
+pip	P IH0 P
+pip-pip	P IH0 P P IH0 P
+pip-pop	P IH0 P P AA0 P
+pirrie	P IH0 R IY0
+pish	P AH0 SH
+pist	P AH0 S T
+pit	P IH0 T
+pit-a-pat	P IH0 T AH0 P AE0 T
+plap	P L AE0 P
+plapper	P L AE0 P ER0
+plash	P L AE0 SH
+platch	P L AE0 CH
+pleep	P L IY0 P
+plink	P L IH0 NG K
+plip	P L IH0 P
+plish	P L IH0 SH
+plonk	P L AA0 NG K
+plop	P L AA0 P
+plout	P L AA0 W T
+pluff	P L AH0 F
+plump	P L AH0 M P
+plung	P L AH0 NG
+plunk	P L AH0 NG K
+plup	P L AH0 P
+pob	P AA0 B
+pobblebonk	P AA0 B L IH0 B AA0 NG K
+pock	P AA0 K
+pocketa-pocketa	P AA0 K EY0 Y T AH0 P AA0 K EY0 Y T AH0
+podge	P AA0 JH
+poh	P OW0 W
+pong	P AO0 NG
+poof	P UW0 F
+pooh	P UW0
+poop	P UW0 P
+poot	P UW0 T
+pop	P AA0 P
+popple	P AA0 P AH0 L
+potrack	P AA0 T R AE0 K
+pow	P AA0 W
+pring	P R IH0 NG
+proo	P R UW0
+prut	P R AH0 T
+pshaw	SH AO0
+psht	SH T
+psst	P S T
+ptish	T IH0 SH
+ptui	T UW0 IY0
+pudge	P AH0 JH
+puff	P AH0 F
+puff-puff	P AH0 F P AH0 F
+punk	P AH0 NG K
+pup	P AH0 P
+purl	P ER0 L
+purr	P ER0
+purre	P
+push	P UH0 SH
+put-put	P UH0 T P UH0 T
+putter	P AH0 T ER0
+py hy	P AA0 Y HH AA0 Y
+quack	K W AE0 K
+quafer	K W EY0 Y F ER0
+qualm	K W AA0 M
+quank	K W AE0 NG K
+quawk	K W AO0 K
+queck	K W EY0 Y K
+queef	K W IY0 F
+quelch	K W EY0 Y L CH
+quirk	K W ER0 K
+quiz	K W IH0 Z
+quop	K W AA0 P
+raish	R SH
+ralph	R AE0 L F
+ramp	R AE0 M P
+randan	R AE0 N D AH0 N
+ran-tan	R AE0 N T AE0 N
+rap	R AE0 P
+rash	R AE0 SH
+rasteling	R AE0 S T IH0 L IH0 NG
+ratamacue	R AE0 T AH0 M AH0 K UW0
+rat-a-tat	R AE0 T AH0 T AE0 T
+tattartattar	T AE0 T AA0 R T AH0 T ER0
+rattan	R AE0 T AE0 N
+rat-tat	R AE0 T T AE0 T
+tat-tat	T AE0 T T AE0 T
+ribbit	R IH0 B IH0 T
+rickle	R IH0 K AH0 L
+riff	R IH0 F
+riff-raff	R IH0 F R AE0 F
+rifty-tufty	R IH0 F T IY0 T AH0 F T IY0
+roocoocoo	R UW0 K UW0 K UW0
+rooty-toot	R UW0 T IY0 T UW0 T
+rounce	R AA0 W N S
+rous	R AA0 W UW0 S
+row	R OW0 W
+row dow dow	R OW0 W D AA0 W D AA0 W
+rub-a-dub	R AH0 B AH0 D AH0 B
+rub-a-dub-dub	R AH0 B AH0 D AH0 B D AH0 B
+ruff	R AH0 F
+ruffle	R AH0 F AH0 L
+ruff-raff	R AH0 F R AE0 F
+rufty-tufty	R AH0 F T IY0 T AH0 F T IY0
+rum-ti-too	R AH0 M T IY0 T UW0
+rum-ti-tum	R AH0 M T IY0 T AH0 M
+rum-tum	R AH0 M T AH0 M
+rustle	R AH0 S AH0 L
+scape	S K EY0 Y P
+scat	S K AE0 T
+scraich	S K R IH0 K
+scraigh	S K R EY0 Y
+scranch	S K R AE0 N CH
+scraugh	S K R AO0
+screed	S K R IY0 D
+scride	S K R AA0 Y D
+scritch	S K R IH0 CH
+scroop	S K R UW0 P
+shale	SH EY0 Y L
+shallal	SH AE0 L AH0 L
+shinder	SH IH0 N D ER0
+shoy-hoy	SH OW0 Y HH OW0 Y
+shoyhoy	SH OW0 W HH OW0 Y
+simper	S IH0 M P ER0
+sing-sing	S IH0 NG S IH0 NG
+sis-boom-bah	S IH0 S B UW0 M B AA0
+sistle	S IH0 S AH0 L
+sizz	S IH0 Z
+sizzle	S IH0 Z AH0 L
+ska	S K AA0
+skelloch	S K EH0 L AH0 K
+skelp	S K EH0 L P
+skronk	S K R AA0 NG K
+slatter	S L AE0 T ER0
+slodge	S L AA0 JH
+sloff	S L AO0 F
+slosh	S L AA0 SH
+sluffer	S L AH0 F ER0
+slump	S L AH0 M P
+slumper	S L AH0 M P ER0
+smash	S M AE0 SH
+snaffle	S N AE0 F AH0 L
+snash	S N AE0 SH
+snavel	S N EY0 Y V AH0 L
+sneck	S N EH0 K
+sneer	S N IH0 R
+snick	S N IH0 K
+snicker	S N IH0 K ER0
+snicker-snack	S N IH0 K ER0 S N AE0 K
+snick-snack	S N IH0 K S N AE0 K
+snick-up	S N IH0 K AH0 P
+sniff	S N IH0 F
+sniffle	S N IH0 F AH0 L
+snift	S N IH0 F T
+snifter	S N IH0 F T ER0
+snigger	S N IH0 G G ER0
+sniggle	S N IH0 G AH0 L
+snirt	S N ER0 T
+snoach	S N OW0 W CH
+snob	S N AA0 B
+snock	S N AA0 K
+snop	S N AA0 P
+snore	S N AO0 R
+snort	S N AO0 R T
+snush	S N AH0 SH
+snuttering	S N AH0 T ER0 IH0 NG
+sob	S AA0 B
+sock	S AA0 K
+sosh	S AO0 SH
+soss	S AO0 S
+souse	S AA0 W S
+spank	S P AE0 NG K
+spat	S P AE0 T
+splack	S P L AE0 K
+splatter	S P L AA0 T ER0
+splodge	S P L JH
+splosh	S P L AO0 SH
+sploshy	S P L AA0 SH IY0
+splotch	S P L AH0 CH
+splunge	S P L AH0 N JH
+splurge	S P L ER0 JH
+splurt	S P L ER0 T
+splutter	S P L AH0 T ER0
+spooge	S P UW0 JH
+sposh	S P AA0 SH
+spraich	S P R IH0 K
+sprinkle	S P R IH0 NG K AH0 L
+spuffle	S P AH0 F AH0 L
+squab	S K W AE0 B
+squable	S K W AH0 B AH0 L
+squail	S K W EY0 Y L
+squall	S K W AO0 L
+squark	S K W AA0 R K
+squatter	S K W AA0 T ER0
+squawk	S K W AO0 K
+squeak	S K W IY0 K
+squeal	S K W IY0 L
+squeck	S K W K
+squee	S K IY0
+squelch	S K W EH0 L CH
+squidge	S K W IH0 JH
+squiggle	S K W IH0 G AH0 L
+squirk	S K W ER0 K
+squirm	S K W ER0 M
+squish	S K W IH0 SH
+squish-squash	S K W IH0 SH S K W AA0 SH
+squit	S K W AH0 T
+squizzle	S K W IH0 Z AH0 L
+squodgy	S K W AA0 JH IY0
+sqush	S K W SH
+stramash	S T R AH0 M AE0 SH
+strum	S T R AH0 M
+suffet	S AH0 F EH0 T
+sugh	S AH0
+sum	S AH0 M
+sumph	S AH0 M F
+sussing	S AH0 S IH0 NG
+suther	S AH0 DH ER0
+swack	S W AO0 K
+swap	S W AA0 P
+swash	S W AA0 SH
+swatter	S W AA0 T ER0
+switter	S W IH0 T ER0
+sweet	S W IY0 T
+swilk	S W IH0 L K
+swish	S W IH0 SH
+swoosh	S W UW0 SH
+tack	T AE0 K
+ta-da	T AA0 D AA0
+tam-tam	T AE0 M T AE0 M
+tang	T AE0 NG
+tank	T AE0 NG K
+tantara	T AE0 N T AA0 R AH0
+tantivy	T AE0 N T AH0 V IY0
+tarara	T AE0 R AA0 R AH0
+taratantara	T AA0 R AA0 T AH0 N T AA0 R AH0
+tat	T AE0 T
+tcha	CH AH0
+teedle	T IY0 D AH0 L
+tee-hee	T IY0 HH IY0
+tewit	CH UW0 W IH0 T
+thrip	TH R IH0 P
+throb	TH R AH0 B
+thrum	TH R AH0 M
+thrump	TH R AH0 M P
+thuck	TH AH0 K
+thung	TH AH0 NG
+thunge	TH AH0 N JH
+thunk	TH AH0 NG K
+thutter	TH AH0 T ER0
+thwack	TH W AE0 K
+tick	T IH0 K
+tick-tack	T IH0 K T AE0 K
+tick-tick	T IH0 K T IH0 K
+tick-tock	T IH0 K T AA0 K
+tiffle	T IH0 F AH0 L
+tifle	T AA0 Y F AH0 L
+ting	T IH0 NG
+ting-tang	T IH0 NG T AE0 NG
+tink	T IH0 NG K
+tirra-lirra	T R AH0 L R AH0
+tit	T IH0 T
+titter	T IH0 T ER0
+tittup	T IH0 T AH0 P
+tock	T AA0 K
+tong	T AO0 NG
+tonk	T AO0 NG K
+toodle	T UW0 D AH0 L
+tottle	T AA0 T AH0 L
+towl	T OW0 W L
+trongle	T R AO0 NG G AH0 L
+tuff	T AH0 F
+tuffle	T AH0 F AH0 L
+tuh	T AH0
+tum	T AH0 M
+tump-tump	T AH0 M P T AH0 M P
+tur-turring	T ER0 T ER0 IH0 NG
+tu-whit	T UW0 W IH0 T
+tu-whoo	T UW0 W HH UW0
+twang	T W AA0 NG
+twank	T W AA0 NG K
+twee	T W IY0
+tweedle	T W IY0 D AH0 L
+tweek	T W IY0 K
+tweet	T W IY0 T
+twingle	T W IH0 NG G AH0 L
+twink	T W IH0 NG K
+twinkle	T W IH0 NG K AH0 L
+twirl	T W ER0 L
+twitter	T W IH0 T ER0
+twizzle	T W IH0 Z AH0 L
+ugh	AH0 G
+uh	AH0
+uh-huh	AH0 HH AH0
+uh-uh	AH0 AH0
+ululu	Y UW0 L AH0 L UW0
+um	AH0 M
+umph	AH0 M F
+voom	V UW0 M
+vroom	V R UW0 M
+waff	W AA0 F
+wahey	W AE0 HH IY0
+wah-wah	W AA0 W AA0
+wap	W AA0 P
+waul	W AO0 L
+wawl	W AA0 L
+waw	W AO0
+way	W EY0 Y
+wee	W IY0
+week	W IY0 K
+weet	W IY0 T
+weet-weet	W IY0 T W IY0 T
+wee-wee	W IY0 W IY0
+wehee	W AH0 HH IY0
+whack	W AE0 K
+wham	W AE0 M
+whang	W AE0 NG
+wharl	W AA0 R L
+wheech	W IY0 CH
+wheep	W IY0 P
+wheeple	W IY0 P AH0 L
+wheetle	W IY0 T AH0 L
+wherret	W EH0 R AH0 T
+whew	W UW0
+whewl	W L
+whick	W IH0 K
+whicker	W IH0 K ER0
+whimp	W IH0 M P
+whimper	W IH0 M P ER0
+whing	W IH0 NG
+whinny	W IH0 N IY0
+whrinny	W R IH0 N IY0
+whish	W IH0 SH
+whisp	W IH0 S P
+whiss	W IH0 S
+whist	W IH0 S T
+whit	W IH0 T
+whitter	W IH0 T ER0
+whizz	W IH0 Z
+whomp	AA0 M P
+whoofle	W HH UW0 F AH0 L
+whoom	W HH UW0 M
+whoompf	W HH UW0 M P F
+whoosh	W UW0 SH
+whorr	AO0 R
+whowse	HH AA0 W S
+whuff	HH W AH0 F
+whump	W AH0 M P
+whunk	W AH0 NG K
+whurl	W ER0 L
+whush	W AH0 SH
+whute	W UW0 T
+whutter	W AH0 T ER0
+widdly	W IH0 D D L IY0
+wift	W IH0 F T
+wimick	W IH0 M IH0 K
+wlite	W L AA0 Y T
+woof	W UW0 F
+woomph	W UW0 M F
+wough	W UH0 F
+woul	W UW0 L
+wow	W AA0 W
+wowl	W AA0 W L
+wrag	R AE0 G
+wratling	R AE0 T AH0 L IH0 NG
+wrawl	R AO0 L
+wrele	R IY0 L
+wrough	R AA0 W
+wuff	W AH0 F
+wumph	W AH0 M F
+yackety	Y AE0 K AH0 T IY0
+yada-yada	Y AA0 D AH0 Y AA0 D AH0
+yaff	Y AE0 F
+yaffle	Y AE0 F AH0 L
+yah	Y AA0
+yahoo	Y AA0 HH UW0
+yamph	Y AE0 M F
+yap	Y AE0 P
+yarr	Y AA0 R
+yatter	Y AE0 T ER0
+yaw-haw	Y AO0 HH AO0
+yawp	Y AO0 P
+yech	Y EH0 K
+yeep	Y IY0 P
+yeow	Y IY0 AA0 W
+yeuch	Y UW0 CH
+yikker	Y IH0 K ER0
+yip	Y IH0 P
+yo	Y OW0 W
+yoax	Y OW0 W K S
+yock	Y AA0 K
+yoff	Y AO0 F
+yoi	Y OW0 Y
+yoick	Y OW0 Y K
+yoicks	Y OW0 Y K S
+yolp	Y OW0 W L P
+youf	Y UW0 F
+yow	Y AA0 W
+yowf	Y AA0 W F
+yuck	Y AH0 K
+yum	Y AH0 M
+zap	Z AE0 P
+zhoosh	Z UW0 SH
+zing	Z IH0 NG
+zingo	Z IH0 NG G OW0 W
+zip	Z IH0 P
+zizz	Z IH0 Z
+zonk	Z AA0 NG K
+zoom	Z UW0 M
+zoon	Z UW0 N
+dub	D AH0 B
+hub	HH AH0 B
+hy	HH AA0 Y
+fap	F AE0 P
+py	P AA0 Y
+dow	D AA0 W
+row	R OW0 W
+a	AH0
