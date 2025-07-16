@@ -1,8 +1,12 @@
 {
     "input_files": [
         {
+            "path": "data/prompts/semantic_dimension/semantic_dimension_binary_audio-common.json",
+            "ratio": 0.24583954
+        },
+        {
             "path": "data/prompts/semantic_dimension/semantic_dimension_binary_audio-rare.json",
-            "ratio": 0.5
+            "ratio": 0.25416046
         },
         {
             "path": "data/prompts/semantic_dimension/semantic_dimension_binary_audio-constructed.json",
@@ -10,12 +14,26 @@
         }
     ],
     "output_file": "data/human_eval/label_studio_survey.json",
-    "total_questions": 100,
+    "total_questions": 190,
     "sampling_config": {
-        "beautiful-ugly": 20,
-        "fast-slow": 20,
-        "sharp-round": 20,
-        "strong-weak": 20,
-        "big-small": 20
+        "beautiful-ugly" : 10,
+        "strong-weak" : 10,
+        "big-small" : 10,
+        "fast-slow" : 10,
+        "sharp-round" : 10,
+        "realistic-fantastical" : 10,
+        "ordinary-unique" : 10,
+        "simple-complex" : 10,
+        "abrupt-continuous" : 10,
+        "exciting-calming" : 10,
+        "hard-soft" : 10,
+        "happy-sad" : 10,
+        "harsh-mellow" : 10,
+        "heavy-light" : 10,
+        "inhibited-free" : 10,
+        "masculine-feminine" : 10,
+        "solid-nonsolid" : 10,
+        "tense-relaxed" : 10,
+        "dangerous-safe" : 10
     }
 }

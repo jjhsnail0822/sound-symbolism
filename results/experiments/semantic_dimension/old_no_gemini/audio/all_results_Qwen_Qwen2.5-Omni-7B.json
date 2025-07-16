@@ -1,0 +1,26 @@
+[
+    {
+        "model": "Qwen/Qwen2.5-Omni-7B",
+        "accuracy": 0.6538053738136492,
+        "correct_count": 25282,
+        "total_count": 38669,
+        "data_path": "data/prompts/semantic_dimension/semantic_dimension_binary_audio-common.json",
+        "thinking": false
+    },
+    {
+        "model": "Qwen/Qwen2.5-Omni-7B",
+        "accuracy": 0.5813615502294748,
+        "correct_count": 22801,
+        "total_count": 39220,
+        "data_path": "data/prompts/semantic_dimension/semantic_dimension_binary_audio-rare.json",
+        "thinking": false
+    },
+    {
+        "model": "Qwen/Qwen2.5-Omni-7B",
+        "accuracy": 0.5863083366573594,
+        "correct_count": 11759,
+        "total_count": 20056,
+        "data_path": "data/prompts/semantic_dimension/semantic_dimension_binary_audio-constructed.json",
+        "thinking": false
+    }
+]

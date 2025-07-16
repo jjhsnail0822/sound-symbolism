@@ -1,17 +1,17 @@
 [
     {
         "model": "gpt-4o-audio-preview",
-        "accuracy": 0.5468721715068918,
-        "correct_count": 21147,
-        "total_count": 38669,
+        "accuracy": 0.5492741141732284,
+        "correct_count": 17858,
+        "total_count": 32512,
         "data_path": "data/prompts/semantic_dimension/semantic_dimension_binary_ipa_and_audio-common.json",
         "thinking": false
     },
     {
         "model": "gpt-4o-audio-preview",
-        "accuracy": 0.4933707292197858,
-        "correct_count": 19350,
-        "total_count": 39220,
+        "accuracy": 0.49623219121629575,
+        "correct_count": 16858,
+        "total_count": 33972,
         "data_path": "data/prompts/semantic_dimension/semantic_dimension_binary_ipa_and_audio-rare.json",
         "thinking": false
     },
