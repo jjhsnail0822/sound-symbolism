@@ -2045,6 +2045,82 @@ def plot_semantic_dimensions_by_input_type(
     print(f"[plot2] Semantic dimensions by {input_type} input (separately sorted by natural/constructed, with each subplot y-axis label) plot saved to {os.path.join(save_path, file_name2)}")
     plt.close()
 
+def plot_lang_modeltype_inputype(data, metric='macro_f1_score', save_path=None, input_type='ipa', model_name='Qwen2.5-Omni-7B'):
+    import matplotlib.pyplot as plt
+    import numpy as np
+    import os
+    from collections import defaultdict
+
+    lang_wordtype_scores = defaultdict(lambda: defaultdict(list))
+    lang_wordtype_words = defaultdict(lambda: defaultdict(list))
+    for model, model_data in data.items():
+        if model != model_name:
+            continue
+        for word_type, word_data in model_data.items():
+            for input_type_name, input_data in word_data.items():
+                if input_type_name != input_type:
+                    continue
+                lang = input_data.get('language', None)
+                if lang is None:
+                    dims = input_data.get('dimensions', {})
+                    for dim_entry in dims.values():
+                        lang = dim_entry.get('language', None)
+                        if lang is not None:
+                            break
+                if lang is None:
+                    lang = word_type if word_type in ['en', 'fr', 'ko', 'ja'] else 'unknown'
+                dims = input_data.get('dimensions', {})
+                for sem_dim, entry in dims.items():
+                    lang_wordtype_scores[lang][word_type].append(entry.get(metric, 0.0))
+                    lang_wordtype_words[lang][word_type].append(entry.get('count', 1))
+
+    languages = sorted(lang_wordtype_scores.keys())
+    word_types = sorted(set(wt for d in lang_wordtype_scores.values() for wt in d.keys()))
+    avg_scores = np.zeros((len(languages), len(word_types)))
+    for i, lang in enumerate(languages):
+        for j, wt in enumerate(word_types):
+            scores = np.array(lang_wordtype_scores[lang][wt])
+            weights = np.array(lang_wordtype_words[lang][wt])
+            if len(scores) > 0 and weights.sum() > 0:
+                avg_scores[i, j] = np.sum(scores * weights) / np.sum(weights)
+            else:
+                avg_scores[i, j] = np.nan
+
+    fig, ax = plt.subplots(figsize=(2.5*len(languages), 6))
+    x_labels = []
+    x_ticks = []
+    bar_width = 0.18
+    group_gap = 0.25
+    colors = ['#ffd43b', '#20c997', '#f06595', '#845ef7', '#fd7e14']
+    xpos = 0
+    for i, lang in enumerate(languages):
+        for j, wt in enumerate(word_types):
+            score = avg_scores[i, j]
+            if not np.isnan(score):
+                ax.bar(xpos, score, width=bar_width, color=colors[j % len(colors)], edgecolor='black', label=wt if i == 0 else "")
+            x_labels.append(f"{lang}\n{wt}")
+            x_ticks.append(xpos)
+            xpos += 1
+        xpos += group_gap
+    ax.set_xticks(x_ticks)
+    ax.set_xticklabels(x_labels, rotation=0, fontsize=12)
+    ax.set_ylabel(get_metric_label(metric), fontsize=13)
+    ax.set_ylim(0, 1)
+    ax.yaxis.set_major_locator(plt.MultipleLocator(0.1))
+    ax.axhline(y=0.5, color='gray', linestyle='--', alpha=0.7, linewidth=1.5)
+    ax.grid(True, alpha=0.3, axis='y')
+    handles, labels = ax.get_legend_handles_labels()
+    by_label = dict(zip(labels, handles))
+    ax.legend(by_label.values(), by_label.keys(), fontsize=12, loc='upper right')
+    ax.set_title(f"{model_name} ({input_type.upper()}) Performance by Language and Word Type", fontsize=15, pad=15)
+    plt.tight_layout()
+    if save_path is not None:
+        os.makedirs(save_path, exist_ok=True)
+        file_name = f"lang_wordtype_{model_name.replace('/', '_')}_{input_type}_{metric}.png"
+        plt.savefig(os.path.join(save_path, file_name), dpi=300, bbox_inches='tight')
+        print(f"Plot saved to {os.path.join(save_path, file_name)}")
+    plt.close()
+
 def main(json_path, metric='macro_f1_score', sem_dims=None, save_path=None, filter_constructed=False, input_type='ipa'):
     data = load_stat_json(json_path)
     all_dims = set()
@@ -2068,12 +2144,12 @@ def main(json_path, metric='macro_f1_score', sem_dims=None, save_path=None, filt
         category_avgs = compute_avg_by_category(data, metric, filter_constructed=False)
     
     model_input_groups = set(g for (g, sd) in avg_by_model_input.keys())
-    # for group in model_input_groups:
-    #     plot_grouped_horizontal_bar(
-    #         avg_by_model_input, group, metric, 
-    #         title=f"Model: {group[0]}, Input Type: {group[1]}",
-    #         save_path=save_path, top_n=7, bottom_n=7, sem_dims=sem_dims, filter_constructed=filter_constructed
-    #     )
+    for group in model_input_groups:
+        plot_grouped_horizontal_bar(
+            avg_by_model_input, group, metric, 
+            title=f"Model: {group[0]}, Input Type: {group[1]}",
+            save_path=save_path, top_n=25, bottom_n=25, sem_dims=sem_dims, filter_constructed=filter_constructed
+        )
     
     # plot_wordtype_performance(data, metric, save_path=save_path, filter_constructed=filter_constructed)
     # plot_inputtype_performance(data, metric, save_path=save_path, filter_constructed=filter_constructed)
@@ -2092,6 +2168,7 @@ def main(json_path, metric='macro_f1_score', sem_dims=None, save_path=None, filt
     # plot_semantic_dimension_variance_by_wordtype(data, metric, save_path=save_path, filter_constructed=filter_constructed)
     # plot_inputtype_wordtype_semdim_scatter(data, metric, save_path=save_path, filter_constructed=filter_constructed)
     plot_semantic_dimensions_by_input_type(data, input_type=input_type, metric=metric, save_path=save_path, filter_constructed=filter_constructed)
+    plot_lang_modeltype_inputype(data, metric=metric, save_path=save_path, input_type=input_type)
 
 if __name__ == "__main__":
     import argparse

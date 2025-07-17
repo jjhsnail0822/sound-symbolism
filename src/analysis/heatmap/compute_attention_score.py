@@ -12,7 +12,8 @@ from semdim_heatmap import QwenOmniSemanticDimensionVisualizer as qwensemdim
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-# python src/analysis/heatmap/compute_attention_score.py --data-type ipa --attention-type generation_attention
+# python src/analysis/heatmap/compute_attention_score.py --data-type ipa --attention-type generation_attention --start-layer 26 --constructed
+# python src/analysis/heatmap/compute_attention_score.py --data-type audio --attention-type generation_attention
 # python src/analysis/heatmap/compute_attention_score.py --data-type ipa --attention-type self_attention
 # ipa_to_feature_map = json.load(open("./data/constructed_words/ipa_to_feature.json"))
 # feature_to_score_map = json.load(open("./data/constructed_words/feature_to_score.json"))
@@ -45,17 +46,27 @@ class AttentionScoreCalculator:
         head: Union[int, str],
         layer: Union[int, str],
         compute_type: str,
+        constructed: bool = False,
     ):
         self.model_path = model_path
-        self.data_path = data_path
         self.data_type = data_type
         self.lang = lang
         self.layer_type = layer_type
         self.head = head
         self.layer = layer
         self.compute_type = compute_type
-        self.output_dir = "results/experiments/understanding/attention_heatmap"
-        
+        self.constructed = constructed
+        # 경로 분기
+        if constructed:
+            self.data_path = "data/processed/art/semantic_dimension/semantic_dimension_binary_gt.json"
+            self.output_dir = "results/experiments/understanding/attention_heatmap/con"
+        else:
+            self.data_path = "data/processed/nat/semantic_dimension/semantic_dimension_binary_gt.json"
+            self.output_dir = "results/experiments/understanding/attention_heatmap/nat"
+        # Load alignment data for audio processing
+        self.alignment_data = None
+        if self.data_type == "audio":
+            self.alignment_data = self.load_alignment_data()
         # Semantic dimensions list
         self.semantic_dimension_map = [
             "good", "bad", "beautiful", "ugly", "pleasant", "unpleasant", "strong", "weak", "big", "small", 
@@ -75,6 +86,18 @@ class AttentionScoreCalculator:
             'ʧ', 'ʨ', 'ʩ', 'ʪ', 'ʫ', 'ʬ', 'ʭ', 'ʮ', 'ʯ',
             'ɴ', 'ɕ', 'd͡ʑ', 't͡ɕ', 'ʑ', 'ɰ', 'ã', 'õ', 'ɯ̃', 'ĩ', 'ẽ', 'ɯː', 'aː', 'oː', 'iː', 'eː'
         ]
+    
+    def load_alignment_data(self):
+        """Load alignment data from JSON file for audio processing"""
+        alignment_file = f"data/processed/nat/alignment/{self.lang}.json"
+        try:
+            with open(alignment_file, 'r', encoding='utf-8') as f:
+                alignment_data = json.load(f)
+            print(f"Loaded alignment data for {self.lang}: {len(alignment_data)} words")
+            return alignment_data
+        except Exception as e:
+            print(f"Error loading alignment data from {alignment_file}: {e}")
+            return None
     
     def _clean_token(self, token):
         """Clean token by removing special characters, same as in semdim_heatmap.py"""
@@ -107,6 +130,113 @@ class AttentionScoreCalculator:
                 ipa_tokens.append(clean_token)
         
         return ipa_tokens
+    
+    def convert_audio_tokens_to_ipa(self, word_tokens, audio_token_count):
+        """Convert audio tokens to IPA using alignment data"""
+        if self.alignment_data is None:
+            print("No alignment data available for audio processing")
+            return []
+        
+        # Find the word in alignment data
+        word_entry = None
+        for entry in self.alignment_data:
+            if entry.get("word") == word_tokens:
+                word_entry = entry
+                break
+        
+        if word_entry is None:
+            print(f"Word '{word_tokens}' not found in alignment data")
+            return []
+        
+        phones = word_entry.get("phones", [])
+        
+        # Remove null values and get valid phones
+        valid_phones = [phone for phone in phones if phone is not None]
+        
+        # Check if the number of valid phones matches the audio token count
+        if len(valid_phones) != audio_token_count:
+            print(f"Warning: Phone count ({len(valid_phones)}) doesn't match audio token count ({audio_token_count}) for word '{word_tokens}'")
+            # Use the minimum of the two to avoid index errors
+            min_count = min(len(valid_phones), audio_token_count)
+            valid_phones = valid_phones[:min_count]
+        
+        # Convert phones to IPA based on language
+        phone_to_ipa = self.get_phone_to_ipa_mapping()
+        
+        ipa_tokens = []
+        for phone in valid_phones:
+            if phone in phone_to_ipa:
+                ipa_tokens.append(phone_to_ipa[phone])
+            else:
+                # If phone not in mapping, use the original
+                ipa_tokens.append(phone)
+        
+        return ipa_tokens
+    
+    def get_phone_to_ipa_mapping(self):
+        """Get phone to IPA mapping based on language"""
+        if self.lang == "en":
+            # CMU phone set for English
+            return {
+                # Vowels
+                'AA0': 'ɑ', 'AA1': 'ɑ', 'AA2': 'ɑ',
+                'AE0': 'æ', 'AE1': 'æ', 'AE2': 'æ',
+                'AH0': 'ə', 'AH1': 'ʌ', 'AH2': 'ʌ',
+                'AO0': 'ɔ', 'AO1': 'ɔ', 'AO2': 'ɔ',
+                'AW0': 'aʊ', 'AW1': 'aʊ', 'AW2': 'aʊ',
+                'AY0': 'aɪ', 'AY1': 'aɪ', 'AY2': 'aɪ',
+                'EH0': 'ɛ', 'EH1': 'ɛ', 'EH2': 'ɛ',
+                'ER0': 'ɝ', 'ER1': 'ɝ', 'ER2': 'ɝ',
+                'EY0': 'eɪ', 'EY1': 'eɪ', 'EY2': 'eɪ',
+                'IH0': 'ɪ', 'IH1': 'ɪ', 'IH2': 'ɪ',
+                'IY0': 'i', 'IY1': 'i', 'IY2': 'i',
+                'OW0': 'oʊ', 'OW1': 'oʊ', 'OW2': 'oʊ',
+                'OY0': 'ɔɪ', 'OY1': 'ɔɪ', 'OY2': 'ɔɪ',
+                'UH0': 'ʊ', 'UH1': 'ʊ', 'UH2': 'ʊ',
+                'UW0': 'u', 'UW1': 'u', 'UW2': 'u',
+                
+                # Consonants
+                'B': 'b', 'CH': 'tʃ', 'D': 'd', 'DH': 'ð', 'F': 'f', 'G': 'ɡ',
+                'HH': 'h', 'JH': 'dʒ', 'K': 'k', 'L': 'l', 'M': 'm', 'N': 'n',
+                'NG': 'ŋ', 'P': 'p', 'R': 'r', 'S': 's', 'SH': 'ʃ', 'T': 't',
+                'TH': 'θ', 'V': 'v', 'W': 'w', 'Y': 'j', 'Z': 'z', 'ZH': 'ʒ'
+            }
+        elif self.lang == "fr":
+            # French phone set (simplified)
+            return {
+                # Vowels
+                'a': 'a', 'e': 'e', 'ɛ': 'ɛ', 'i': 'i', 'o': 'o', 'ɔ': 'ɔ', 'u': 'u', 'y': 'y',
+                'ɑ': 'ɑ', 'ə': 'ə', 'œ': 'œ', 'ø': 'ø', 'ɥ': 'ɥ',
+                
+                # Consonants
+                'b': 'b', 'd': 'd', 'f': 'f', 'g': 'ɡ', 'k': 'k', 'l': 'l', 'm': 'm', 'n': 'n',
+                'p': 'p', 'r': 'ʁ', 's': 's', 't': 't', 'v': 'v', 'z': 'z',
+                'ʃ': 'ʃ', 'ʒ': 'ʒ', 'ɲ': 'ɲ', 'ŋ': 'ŋ'
+            }
+        elif self.lang == "ja":
+            # Japanese phone set (simplified)
+            return {
+                # Vowels
+                'a': 'a', 'i': 'i', 'u': 'ɯ', 'e': 'e', 'o': 'o',
+                
+                # Consonants
+                'k': 'k', 's': 's', 't': 't', 'n': 'n', 'h': 'h', 'm': 'm', 'y': 'j', 'r': 'ɾ', 'w': 'w',
+                'g': 'ɡ', 'z': 'z', 'd': 'd', 'b': 'b', 'p': 'p',
+                'ʃ': 'ʃ', 'tʃ': 'tɕ', 'dʒ': 'dʑ', 'ɲ': 'ɲ', 'ŋ': 'ŋ'
+            }
+        elif self.lang == "ko":
+            # Korean phone set (simplified)
+            return {
+                # Vowels
+                'a': 'a', 'e': 'e', 'i': 'i', 'o': 'o', 'u': 'u', 'ɯ': 'ɯ', 'ʌ': 'ʌ',
+                
+                # Consonants
+                'k': 'k', 'n': 'n', 't': 't', 'r': 'ɾ', 'm': 'm', 'p': 'p', 's': 's', 'h': 'h',
+                'ɡ': 'ɡ', 'd': 'd', 'b': 'b', 'tʃ': 'tɕ', 'dʒ': 'dʑ', 'ŋ': 'ŋ'
+            }
+        else:
+            # Default mapping (identity mapping)
+            return {}
     
     def load_matrix(self, layer_type: str, data_type: str, attention_type: str, word_tokens: str, dimension1: str, dimension2: str, lang: str):
         """Load attention matrix from pickle file"""
@@ -168,6 +298,16 @@ class AttentionScoreCalculator:
                 dim1_indices.append(i)
             elif clean_token == dimension2:
                 dim2_indices.append(i)
+            # Try partial match for cases where tokenization might split the word
+            elif dimension1 in clean_token:
+                dim1_indices.append(i)
+            elif dimension2 in clean_token:
+                dim2_indices.append(i)
+        
+        # Debug print to see what dimensions were found (only for interesting-uninteresting pairs)
+        if dimension1 == "interesting" or dimension2 == "interesting" or dimension1 == "uninteresting" or dimension2 == "uninteresting":
+            print(f"Found {len(dim1_indices)} tokens for '{dimension1}': {[tokens[i] for i in dim1_indices]}")
+            print(f"Found {len(dim2_indices)} tokens for '{dimension2}': {[tokens[i] for i in dim2_indices]}")
         
         # Initialize results
         ipa_dim1_scores = {}
@@ -190,19 +330,29 @@ class AttentionScoreCalculator:
             # Calculate attention to dimension1
             for dim_idx in dim1_indices:
                 if dim_idx < attention_matrix.shape[0] and i < attention_matrix.shape[1]:
-                    # Check causal attention constraint
-                    if i <= dim_idx:  # IPA token can attend to dimension token
-                        score = attention_matrix[i, dim_idx].item()
-                        dim1_score += score
+                    # Remove causal constraint - allow attention in both directions
+                    score = attention_matrix[i, dim_idx].item()
+                    dim1_score += score
+                    valid_dim1_pairs += 1
+                    
+                    # Also consider reverse direction (dimension to IPA)
+                    if i < attention_matrix.shape[0] and dim_idx < attention_matrix.shape[1]:
+                        reverse_score = attention_matrix[dim_idx, i].item()
+                        dim1_score += reverse_score
                         valid_dim1_pairs += 1
             
-            # Calculate attention to dimension2
+            # Calculate attention to dimension2 (bidirectional)
             for dim_idx in dim2_indices:
                 if dim_idx < attention_matrix.shape[0] and i < attention_matrix.shape[1]:
-                    # Check causal attention constraint
-                    if i <= dim_idx:  # IPA token can attend to dimension token
-                        score = attention_matrix[i, dim_idx].item()
-                        dim2_score += score
+                    # Remove causal constraint - allow attention in both directions
+                    score = attention_matrix[i, dim_idx].item()
+                    dim2_score += score
+                    valid_dim2_pairs += 1
+                    
+                    # Also consider reverse direction (dimension to IPA)
+                    if i < attention_matrix.shape[0] and dim_idx < attention_matrix.shape[1]:
+                        reverse_score = attention_matrix[dim_idx, i].item()
+                        dim2_score += reverse_score
                         valid_dim2_pairs += 1
             
             # Average the scores
@@ -219,7 +369,6 @@ class AttentionScoreCalculator:
                 ipa_dim2_scores[clean_token].append(avg_dim2_score)
         
         # If answer is provided, only return scores for the matching dimension
-        breakpoint()
         if answer is not None:
             if answer == dimension1:
                 return {
@@ -280,7 +429,6 @@ class AttentionScoreCalculator:
                         generation_analysis = data["generation_analysis"]
                         dimension1 = data["dimension1"]
                         dimension2 = data["dimension2"]
-                        # breakpoint()
                         answer = data.get("answer", "")  # Get the answer from the data
                         input_word = data.get("input_word", "") or generation_analysis.get("input_word", "")
                         word_dim1_raw_all = generation_analysis.get('word_dim1_raw_all', None)
@@ -301,10 +449,27 @@ class AttentionScoreCalculator:
                             avg_target_score = float(target_score)
                             if input_word:
                                 ipa_symbols = []
-                                for ipa_part in input_word.split():
-                                    clean_ipa = self._clean_token(ipa_part)
-                                    if clean_ipa and clean_ipa in self.ipa_symbols:
-                                        ipa_symbols.append(clean_ipa)
+                                
+                                if self.data_type == "audio":
+                                    # For audio data, convert audio tokens to IPA using alignment data
+                                    # Get audio token count from the data
+                                    audio_token_count = data.get("audio_token_count", None)
+                                    if audio_token_count is None:
+                                        # Try to get from generation analysis
+                                        audio_token_count = generation_analysis.get("audio_token_count", None)
+                                    
+                                    if audio_token_count is not None:
+                                        ipa_symbols = self.convert_audio_tokens_to_ipa(input_word, audio_token_count)
+                                        print(f"Converted audio tokens for '{input_word}': {len(ipa_symbols)} IPA symbols")
+                                    else:
+                                        print(f"Warning: No audio token count found for '{input_word}'")
+                                else:
+                                    # For non-audio data, use existing logic
+                                    for ipa_part in input_word.split():
+                                        clean_ipa = self._clean_token(ipa_part)
+                                        if clean_ipa and clean_ipa in self.ipa_symbols:
+                                            ipa_symbols.append(clean_ipa)
+                                
                                 if ipa_symbols:
                                     for ipa in ipa_symbols:
                                         key = (ipa, target_dimension)
@@ -337,10 +502,22 @@ class AttentionScoreCalculator:
                                         input_word = generation_analysis.get("input_word", "")
                                     if input_word:
                                         ipa_symbols = []
-                                        for ipa_part in input_word.split():
-                                            clean_ipa = self._clean_token(ipa_part)
-                                            if clean_ipa and clean_ipa in self.ipa_symbols:
-                                                ipa_symbols.append(clean_ipa)
+                                        
+                                        if self.data_type == "audio":
+                                            # For audio data, convert audio tokens to IPA using alignment data
+                                            audio_token_count = generation_analysis.get("audio_token_count", None)
+                                            if audio_token_count is not None:
+                                                ipa_symbols = self.convert_audio_tokens_to_ipa(input_word, audio_token_count)
+                                                print(f"Converted audio tokens (fallback) for '{input_word}': {len(ipa_symbols)} IPA symbols")
+                                            else:
+                                                print(f"Warning: No audio token count found (fallback) for '{input_word}'")
+                                        else:
+                                            # For non-audio data, use existing logic
+                                            for ipa_part in input_word.split():
+                                                clean_ipa = self._clean_token(ipa_part)
+                                                if clean_ipa and clean_ipa in self.ipa_symbols:
+                                                    ipa_symbols.append(clean_ipa)
+                                        
                                         if ipa_symbols:
                                             for ipa in ipa_symbols:
                                                 key = (ipa, target_dimension)
@@ -358,7 +535,6 @@ class AttentionScoreCalculator:
                         dimension1 = data["dimension1"]
                         dimension2 = data["dimension2"]
                         answer = data.get("answer", "")  # Get the answer from the data
-                        # breakpoint()
                         relevant_indices = data.get("relevant_indices", None)
                         input_word = data.get("input_word", "")
                         if not input_word and "word_tokens" in data:
@@ -366,6 +542,24 @@ class AttentionScoreCalculator:
                         
                         # Only process if we have a valid answer
                         if answer in [dimension1, dimension2]:
+                            # Debug info for interesting-uninteresting pairs
+                            if dimension1 == "interesting" or dimension2 == "interesting" or dimension1 == "uninteresting" or dimension2 == "uninteresting":
+                                print(f"Processing file {filename}: {dimension1} vs {dimension2}, answer: {answer}")
+                            
+                            # For audio data, we need to handle audio tokens differently
+                            if self.data_type == "audio":
+                                # Get audio token count from the data
+                                audio_token_count = data.get("audio_token_count", None)
+                                if audio_token_count is not None:
+                                    # Convert audio tokens to IPA for processing
+                                    ipa_tokens = self.convert_audio_tokens_to_ipa(input_word, audio_token_count)
+                                    if ipa_tokens:
+                                        # Create a modified tokens list with IPA symbols
+                                        modified_tokens = tokens.copy()
+                                        # Replace audio tokens with IPA tokens (this is a simplified approach)
+                                        # In practice, you might need more sophisticated mapping
+                                        print(f"Audio processing: {len(ipa_tokens)} IPA tokens for '{input_word}'")
+                            
                             ipa_scores = self.extract_ipa_attention_scores(
                                 attention_matrix, tokens, relevant_indices, dimension1, dimension2, answer
                             )
@@ -377,12 +571,16 @@ class AttentionScoreCalculator:
                                     target_scores = ipa_scores['dim2_scores']
                                 else:
                                     target_scores = {}
-                                breakpoint()
                                 for ipa, scores in target_scores.items():
                                     key = (ipa, answer)
                                     if key not in all_ipa_semdim_scores:
                                         all_ipa_semdim_scores[key] = []
                                     all_ipa_semdim_scores[key].extend(scores)
+                                    
+                                    # Debug info for interesting-uninteresting pairs
+                                    if answer in ["interesting", "uninteresting"]:
+                                        print(f"  Added scores for {ipa} -> {answer}: {scores}")
+                                
                                 file_count += 1
                                 
                                 # Generate word-level attention heatmap every 50 files
@@ -537,7 +735,7 @@ class AttentionScoreCalculator:
             'file_count': file_count
         }
     
-    def aggregate_scores_across_files_v2(self, data_type: str, lang: str, attention_type: str = "self_attention"):
+    def aggregate_scores_across_files_v2(self, data_type: str, lang: str, attention_type: str = "self_attention", start_layer: int = 20):
         """Aggregate attention scores for each (ipa, semantic dimension, layer, head) and compute statistics."""
         import numpy as np
         import json
@@ -611,7 +809,8 @@ class AttentionScoreCalculator:
                 
                 # For each layer, head, word_idx, dim_idx, extract score
                 # Map word_indices to individual IPA symbols
-                for layer in range(n_layer):
+                # for layer in range(start_layer, n_layer):
+                for layer in range(start_layer, start_layer + 1):
                     for head in range(n_head):
                         # For each IPA symbol, calculate attention scores
                         for ipa_idx, ipa in enumerate(ipa_symbols):
@@ -784,6 +983,17 @@ class AttentionScoreCalculator:
             if d2 in ipa_semdim_stats:
                 ordered_semdim_list.append(d2)
         
+        # Debug: Check if interesting and uninteresting are in the stats
+        if "interesting" in ipa_semdim_stats:
+            print(f"Found 'interesting' in stats with {len(ipa_semdim_stats['interesting'])} IPA symbols")
+        else:
+            print("'interesting' NOT found in stats")
+        
+        if "uninteresting" in ipa_semdim_stats:
+            print(f"Found 'uninteresting' in stats with {len(ipa_semdim_stats['uninteresting'])} IPA symbols")
+        else:
+            print("'uninteresting' NOT found in stats")
+        
         # Collect all unique IPA symbols and sort them by phonetic features
         ipa_set = set()
         for semdim in ipa_semdim_stats:
@@ -874,8 +1084,7 @@ class AttentionScoreCalculator:
         ax.set_ylabel('Semantic Dimension', fontsize=14)
         ax.set_title(f'IPA-Semantic Dimension Attention Heatmap ({lang}, {data_type}, {attention_type})', fontsize=16, pad=15)
         
-        # Rotate x-axis labels for better readability
-        plt.setp(ax.get_xticklabels(), rotation=45, ha='right')
+        plt.setp(ax.get_xticklabels(), ha='right')
         
         plt.tight_layout()
         if save_path is None:
@@ -931,7 +1140,7 @@ class AttentionScoreCalculator:
         # Set ticks and labels
         ax.set_xticks(range(len(region_tokens)))
         ax.set_yticks(range(len(region_tokens)))
-        ax.set_xticklabels(region_tokens, rotation=45, ha='right', fontsize=8)
+        ax.set_xticklabels(region_tokens, ha='right', fontsize=8)
         ax.set_yticklabels(region_tokens, fontsize=8)
         
         # Highlight word and dimension regions
@@ -1057,7 +1266,7 @@ class AttentionScoreCalculator:
                 print(row_str)
             print()  # 8개 dimension마다 한 줄 띄움
 
-    def run(self, data_type: str, lang: str, attention_type: str = "generation_attention", langs: list = None):
+    def run(self, data_type: str, lang: str, attention_type: str = "generation_attention", langs: list = None, start_layer: int = 20):
         """Main execution function (now supports all-language aggregation)"""
         print(f"Processing {data_type} data for language {lang} with {attention_type}")
         # Aggregate scores across all files (per language)
@@ -1208,36 +1417,42 @@ if __name__ == "__main__":
     parser.add_argument('--data-type', type=str, default="ipa", choices=["audio", "original", "romanized", "ipa"],
                        help="Data type to process")
     parser.add_argument('--lang', type=str, default=None,
-                       help="Language(s) to process, comma-separated (default: all ['en','fr','ja','ko'])")
+                       help="Language(s) to process, comma-separated (default: all ['en','fr','ja','ko','art'])")
     parser.add_argument('--attention-type', type=str, default="generation_attention", 
                        choices=["generation_attention", "self_attention"],
                        help="Type of attention to analyze")
     parser.add_argument('--model-path', type=str, default="Qwen/Qwen2.5-Omni-7B",
                        help="Model path")
+    parser.add_argument('--constructed', action='store_true', help='Use constructed words as dataset')
+    parser.add_argument('--start-layer', type=int, default=20, help='Start layer index for attention score calculation (default: 20)')
     args = parser.parse_args()
 
-    all_langs = ['en', 'fr', 'ja', 'ko']
+    all_langs = ['en', 'fr', 'ja', 'ko', 'art']
     if args.lang:
         langs = [l.strip() for l in args.lang.split(',') if l.strip() in all_langs]
         if not langs:
             print(f"No valid languages specified in --lang. Using all: {all_langs}")
             langs = all_langs
     else:
-        langs = all_langs
+        if args.constructed:
+            langs = ['art']
+        else:
+            langs = ['en', 'fr', 'ja', 'ko']
 
     asc = AttentionScoreCalculator(
         model_path=args.model_path,
-        data_path=data_path,
+        data_path=None,  # will be set internally
         data_type=args.data_type,
         lang=langs[0],  # dummy, will be overridden per language
         layer_type="generation",
         head="all",
         layer="all",
-        compute_type="heatmap"
+        compute_type="heatmap",
+        constructed=args.constructed
     )
 
     for lang in langs:
         print(f"\n=== Processing language: {lang} ===")
-        asc.run(args.data_type, lang, args.attention_type, langs=langs)
+        asc.run(args.data_type, lang, args.attention_type, langs=langs, start_layer=args.start_layer)
 
     
