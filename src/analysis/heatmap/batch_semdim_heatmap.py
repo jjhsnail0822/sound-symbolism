@@ -1,6 +1,6 @@
 # Model : Qwen2.5-Omni-7B
 # python src/analysis/heatmap/batch_semdim_heatmap.py --max-samples 30 --data-type ipa
-# python src/analysis/heatmap/batch_semdim_heatmap.py --max-samples 2 --data-type ipa --constructed
+# python src/analysis/heatmap/batch_semdim_heatmap.py --max-samples 30 --data-type audio --constructed
 import json
 import re
 import os
@@ -73,7 +73,6 @@ class QwenOmniSemanticDimensionVisualizer:
             attn_implementation="eager",
         )
         self.model.disable_talker()
-        self.load_base_prompt()
         self.load_base_prompt()
         self.processor = Qwen2_5OmniProcessor.from_pretrained(self.model_path)
         self.data = self.load_data()
