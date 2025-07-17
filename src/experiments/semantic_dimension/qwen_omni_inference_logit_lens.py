@@ -74,7 +74,7 @@ class QwenOmniMCQExperiment:
         with open(self.data_path, 'r', encoding='utf-8') as f:
             mcq_data = json.load(f)
         print(f"Loaded {len(mcq_data)} questions.")
-        mcq_data = mcq_data[:100]
+        # mcq_data = mcq_data[:100]
 
         # output_path
         model_name = os.path.basename(self.model_path)
