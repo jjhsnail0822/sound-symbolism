@@ -286,23 +286,28 @@ class QwenOmniMCQExperiment:
         logits = self.thinker_lm_head(normalized)
         prob = torch.nn.functional.softmax(logits, dim=-1)
 
+        # choice
+        choice_logits = logits[qwen_token_1: qwen_token_2 + 1].tolist()
+        choice_prob = prob[qwen_token_1: qwen_token_2 + 1].tolist()
+
         # top
         top_prob = torch.topk(prob, 1, dim=-1).values[0].tolist()
         top_token_idx = torch.topk(logits, 1, dim=-1).indices[0].tolist()
         top_word = self.processor.tokenizer.decode(top_token_idx)
+        top_logit = logits[top_token_idx].tolist()
 
-        # choice
-        choice_prob = prob[qwen_token_1: qwen_token_2 + 1].tolist()
 
         output = {
+            "choice": {
+                "logit": choice_logits,
+                "prob": choice_prob,
+            },
             "top": {
+                "logit": top_logit,
                 "prob": top_prob,
                 "token_idx": top_token_idx,
                 "word": top_word,
             },
-            "choice": {
-                "prob": choice_prob,
-            }
         }
 
         print(f"top prob      : {top_prob}")
