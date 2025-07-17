@@ -1,6 +1,6 @@
 # Model : Qwen2.5-Omni-7B
-# python src/analysis/heatmap/semdim_heatmap.py --max-samples 30 --data-type ipa
-# python src/analysis/heatmap/semdim_heatmap.py --max-samples 2 --data-type ipa --constructed
+# python src/analysis/heatmap/batch_semdim_heatmap.py --max-samples 30 --data-type ipa
+# python src/analysis/heatmap/batch_semdim_heatmap.py --max-samples 2 --data-type ipa --constructed
 import json
 import re
 import os
@@ -20,7 +20,6 @@ language = ["en", "fr", "ko", "ja"]
 data_types = ["original", "romanized", "ipa", "audio"]
 data_path = "data/processed/nat/semantic_dimension/semantic_dimension_binary_gt.json"
 prompt_path = "data/prompts/prompts.json"
-problem_per_language = 10
 SYSTEM_PROMPT = "You are Qwen, a virtual human developed by the Qwen Team, Alibaba Group, capable of perceiving auditory and visual inputs, as well as generating text and speech."
 SYSTEM_TEMPLATE = {
     "role": "system",
@@ -488,6 +487,114 @@ class QwenOmniSemanticDimensionVisualizer:
         )
         print(f"Saved generation attention analysis for {data['word']} - {dim1}-{dim2}")
         # breakpoint()
+
+    def inference_with_hooks_batch(self, words, langs, constructed_prompts, dim1s, dim2s, answers, datas, dimension_names, batch_size=16):
+        """
+        Batch inference for multiple samples. Only the model inference part is batched.
+        The analysis and saving are done sequentially after batch inference.
+        """
+        num_samples = len(words)
+        results = []
+        for batch_start in range(0, num_samples, batch_size):
+            batch_end = min(batch_start + batch_size, num_samples)
+            batch_prompts = constructed_prompts[batch_start:batch_end]
+            batch_datas = datas[batch_start:batch_end]
+            batch_words = words[batch_start:batch_end]
+            batch_langs = langs[batch_start:batch_end]
+            batch_dim1s = dim1s[batch_start:batch_end]
+            batch_dim2s = dim2s[batch_start:batch_end]
+            batch_answers = answers[batch_start:batch_end]
+            batch_dimension_names = dimension_names[batch_start:batch_end]
+
+            # Prepare batch inputs
+            conversations = [self.create_conversation(prompt, data) for prompt, data in zip(batch_prompts, batch_datas)]
+            USE_AUDIO_IN_VIDEO = True
+            def ensure_str(x):
+                if isinstance(x, list):
+                    return ''.join(map(str, x))
+                return str(x)
+            texts = [
+                ensure_str(self.processor.apply_chat_template(conv, add_generation_prompt=True, tokenize=False))
+                for conv in conversations
+            ]
+            audios = []
+            images = []
+            videos = []
+            for conv, data in zip(conversations, batch_datas):
+                a, i, v = process_mm_info(conv, use_audio_in_video=USE_AUDIO_IN_VIDEO)
+                audios.append(a[0] if a and len(a) > 0 else None)
+                images.append(i[0] if i and len(i) > 0 else None)
+                videos.append(v[0] if v and len(v) > 0 else None)
+            # Pad audios/images/videos to None if missing
+            # (Assume all are present or None, for batch processing)
+            # If audio type, trim silence
+            if self.data_type == "audio":
+                for idx, audio in enumerate(audios):
+                    if audio is not None:
+                        audios[idx] = self.trim_silence_from_audio(audio)
+            # Prepare processor batch input
+            inputs = self.processor(
+                text=texts,
+                audio=audios if self.data_type == "audio" else None,
+                images=images if any(images) else None,
+                videos=videos if any(videos) else None,
+                return_tensors="pt",
+                padding=True,
+                use_audio_in_video=USE_AUDIO_IN_VIDEO
+            )
+            inputs = inputs.to(self.model.device).to(self.model.dtype)
+            with torch.no_grad():
+                thinker_model = self.model.thinker.model
+                outputs = thinker_model(input_ids=inputs['input_ids'], attention_mask=inputs['attention_mask'], output_attentions=True, return_dict=True)
+            attentions = outputs.attentions
+            # tokens: list of list
+            tokens_batch = [self.processor.tokenizer.convert_ids_to_tokens(input_ids) for input_ids in inputs['input_ids']]
+            # For each sample in batch, do analysis and save
+            for i in range(batch_end - batch_start):
+                tokens = tokens_batch[i]
+                data = batch_datas[i]
+                word = batch_words[i]
+                lang = batch_langs[i]
+                dim1 = batch_dim1s[i]
+                dim2 = batch_dim2s[i]
+                answer = batch_answers[i]
+                dimension_name = batch_dimension_names[i]
+                if self.data_type == "audio":
+                    input_word = "<|AUDIO|>"
+                elif self.data_type == "original":
+                    input_word = data['word']
+                elif self.data_type == "ipa":
+                    input_word = data["ipa"]
+                elif self.data_type == "romanized":
+                    input_word = data["romanization"]
+                relevant_indices = self.extract_relevant_token_indices(tokens, dim1, dim2, input_word, word=data['word'])
+                # Extract per-sample attention: [layer][i] shape [num_heads, seq, seq]
+                sample_attentions = [layer_attn[i] for layer_attn in attentions]  # list of [num_heads, seq, seq]
+                # Filter relevant indices for each layer
+                attn_filtered = torch.stack([
+                    attn[:, relevant_indices][:, :, relevant_indices] for attn in sample_attentions
+                ])  # [layer, num_heads, rel, rel]
+                self.save_matrix(attn_filtered, dim1, dim2, answer, data['word'], [dim1, dim2], "self", lang, tokens, relevant_indices)
+                # 이후 generation attention 등은 기존대로 for loop로 처리 (batch화 X)
+                generation_attentions, generation_tokens, _, final_input_ids, response, input_length = self.get_generation_attention_matrix(
+                    batch_prompts[i], data, max_new_tokens=self.max_tokens
+                )
+                data_type_key = {"audio": "audio", "original": "word", "romanized": "romanization", "ipa": "ipa"}
+                if self.data_type != "audio":
+                    input_word = data[data_type_key[self.data_type]]
+                else:
+                    input_word = data["word"]
+                generation_analysis = self.extract_generation_attention_analysis(
+                    generation_attentions, generation_tokens, response, answer, lang, dim1, dim2, data['word'], input_word, input_length
+                )
+                self.save_generation_attention_matrix(
+                    generation_attentions, dim1, dim2, answer, data['word'], input_word, [dim1, dim2], lang, generation_tokens, final_input_ids, generation_tokens
+                )
+                self.save_generation_attention_analysis(
+                    generation_analysis, dim1, dim2, answer, data['word'], [dim1, dim2], lang, generation_tokens, response
+                )
+                results.append((data['word'], dim1, dim2))
+        return results
 
     def get_generation_attention_matrix(self, prompt, data: dict, max_new_tokens: int = 32):
         """Extract attention matrix during text generation (autoregressive decoding)"""
@@ -1145,13 +1252,14 @@ if __name__ == "__main__":
     if args.constructed:
         languages = ["art"]
     else:
-        # languages = ["en", "fr", "ja", "ko"]
-        languages = ["ko"]
+        languages = ["en", "fr", "ja", "ko"]
+        # languages = ["ko"]
     total_num_of_dimensions = 0
     total_num_of_words = 0
     total_num_of_words_per_language = {lang: 0 for lang in languages}
     start_index = 0
 
+    batch_size = 64
     for lang in languages:
         print(f"\nProcessing language: {lang}")
         lang_data = visualizer.data[lang]
@@ -1161,22 +1269,41 @@ if __name__ == "__main__":
             lang_data = lang_data[start_index:max_samples]
             print(f"Limiting to {len(lang_data)} samples")
 
-        
-        for sample_idx, sample in enumerate(tqdm(lang_data, desc=f"Processing {lang}")):
+        # Prepare batch lists
+        words, langs, constructed_prompts, dim1s, dim2s, answers, datas, dimension_names = [], [], [], [], [], [], [], []
+        for sample_idx, sample in enumerate(lang_data):
             for dimension_name in sample.get("dimensions", {}):
                 constructed_prompt, dim1, dim2, answer, word, dim_name = visualizer.prmpt_dims_answrs(
                     visualizer.prompts, sample, dimension_name
                 )
-                
-                visualizer.inference_with_hooks(
-                    word, lang, constructed_prompt, dim1, dim2, answer, sample, dimension_name
-                )
-
-                total_num_of_dimensions += 1
-            total_num_of_words += 1
-            total_num_of_words_per_language[lang] += 1
-            gc.collect()
-            torch.cuda.empty_cache()
+                words.append(word)
+                langs.append(lang)
+                constructed_prompts.append(constructed_prompt)
+                dim1s.append(dim1)
+                dim2s.append(dim2)
+                answers.append(answer)
+                datas.append(sample)
+                dimension_names.append(dimension_name)
+        # Batch inference
+        num_samples = len(words)
+        for batch_start in range(0, num_samples, batch_size):
+            batch_end = min(batch_start + batch_size, num_samples)
+            visualizer.inference_with_hooks_batch(
+                words[batch_start:batch_end],
+                langs[batch_start:batch_end],
+                constructed_prompts[batch_start:batch_end],
+                dim1s[batch_start:batch_end],
+                dim2s[batch_start:batch_end],
+                answers[batch_start:batch_end],
+                datas[batch_start:batch_end],
+                dimension_names[batch_start:batch_end],
+                batch_size=batch_size
+            )
+            total_num_of_dimensions += (batch_end - batch_start)
+        total_num_of_words += len(lang_data)
+        total_num_of_words_per_language[lang] += len(lang_data)
+        gc.collect()
+        torch.cuda.empty_cache()
     
     print(f"\nProcessing completed!")
     print(f"Total samples processed: {total_num_of_dimensions}")
