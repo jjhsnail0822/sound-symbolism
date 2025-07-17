@@ -29,6 +29,9 @@ def load_and_group_data(input_files_config):
 
 def main():
     """Main function to read config and generate survey JSON for Label Studio."""
+
+    random.seed(0)  # For reproducibility
+
     # 1. Load config file
     try:
         # Set config.json path relative to script location
