@@ -6,7 +6,7 @@
 #SBATCH --time=48:00:00
 #SBATCH --job-name=help
 #SBATCH --qos=base_qos
-#SBATCH -o /home/gv_nlp/projects/sound-symbolism/out
+#SBATCH -o /home/gv_nlp/projects/sound-symbolism/out/logit_lens_audio_%j.out
 
 source ~/.zshrc
 cd /home/gv_nlp/projects/sound-symbolism
