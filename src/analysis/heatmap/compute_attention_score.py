@@ -809,8 +809,8 @@ class AttentionScoreCalculator:
                 
                 # For each layer, head, word_idx, dim_idx, extract score
                 # Map word_indices to individual IPA symbols
-                # for layer in range(start_layer, n_layer):
-                for layer in range(start_layer, start_layer + 1):
+                for layer in range(start_layer, n_layer):
+                # for layer in range(start_layer, start_layer+1):
                     for head in range(n_head):
                         # For each IPA symbol, calculate attention scores
                         for ipa_idx, ipa in enumerate(ipa_symbols):
@@ -1425,6 +1425,7 @@ if __name__ == "__main__":
                        help="Model path")
     parser.add_argument('--constructed', action='store_true', help='Use constructed words as dataset')
     parser.add_argument('--start-layer', type=int, default=20, help='Start layer index for attention score calculation (default: 20)')
+    parser.add_argument('--end-layer', type=int, default=28, help='End layer index for attention score calculation (default: 28)')
     args = parser.parse_args()
 
     all_langs = ['en', 'fr', 'ja', 'ko', 'art']
