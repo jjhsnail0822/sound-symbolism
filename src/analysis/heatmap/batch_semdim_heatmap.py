@@ -78,11 +78,11 @@ class QwenOmniSemanticDimensionVisualizer:
         if self.data_type != "audio":
             data_type_key = "word" if self.data_type == "original" else "ipa"
         dimension_info = data["dimensions"][dimension_name]
-        self.dim1, self.dim2 = dimension_name.split("-")[0], dimension_name.split("-")[1]
+        dim1, dim2 = dimension_name.split("-")[0], dimension_name.split("-")[1]
         answer = dimension_info["answer"]
         # Flip if needed
         if self.flip:
-            self.dim1, self.dim2 = self.dim2, self.dim1
+            dim1, dim2 = dim2, dim1
         if self.data_type == "audio":
             if self.constructed:
                 word = f"data/processed/art/tts/{data['word']}.wav"
@@ -276,7 +276,7 @@ class QwenOmniSemanticDimensionVisualizer:
         breakpoint()
         return relevant_indices
     
-    def save_matrix(self, attention_matrix, dimension1:str, dimension2:str, answer:str, word_tokens:list[str], option_tokens:list[str], layer_type:str="self", lang:str="en", tokens:list[str]=None, relevant_indices:list[int]=None):
+    def save_matrix(self, attention_matrix, dimension1:str, dimension2:str, answer:str, word_tokens:list[str], option_tokens:list[str], layer_type:str="self", lang:str="en", tokens:list[str]=None, relevant_indices:list[int]=None, flip:bool=False):
         dim1, dim2 = dimension1, dimension2
         matrix_data = {"attention_matrix": attention_matrix, "dimension1": dim1, "dimension2": dim2, "answer": answer, "word_tokens": word_tokens, "option_tokens": option_tokens, "tokens": tokens, "relevant_indices": relevant_indices}
         output_dir = os.path.join(self.output_dir, self.exp_type, self.data_type, lang, "self_attention", f"{dim1}_{dim2}")
@@ -403,7 +403,7 @@ class QwenOmniSemanticDimensionVisualizer:
                 attn_filtered = torch.stack([
                     attn[:, relevant_indices][:, :, relevant_indices] for attn in sample_attentions
                 ])  # [layer, num_heads, rel, rel]
-                self.save_matrix(attn_filtered, dim1, dim2, answer, data['word'], [dim1, dim2], "self", lang, tokens, relevant_indices)
+                self.save_matrix(attn_filtered, dim1, dim2, answer, data['word'], [dim1, dim2], "self", lang, tokens, relevant_indices, self.flip)
                 generation_attentions, generation_tokens, _, final_input_ids, response, input_length = self.get_generation_attention_matrix(
                     batch_prompts[i], data, max_new_tokens=self.max_tokens
                 )
@@ -549,8 +549,8 @@ class QwenOmniSemanticDimensionVisualizer:
             target_indices['dim1'].extend(match)
         
         dim2_subtokens = self.processor.tokenizer.tokenize(dim2)
-        dim2_matches = self.find_subtoken_sequence_indices(step_tokens, dim2_subtokens)
         dim1_max_index = max(target_indices['dim1'])
+        dim2_matches = self.find_subtoken_sequence_indices(step_tokens, dim2_subtokens)
         dim2_matches = remove_indices(dim2_matches, dim1_max_index)
         for match in dim2_matches:
             target_indices['dim2'].extend(match)
@@ -796,7 +796,7 @@ class QwenOmniSemanticDimensionVisualizer:
             pkl.dump(analysis_data, f)
         print(f"Generation attention analysis saved to: {save_path}")
 
-    def save_generation_attention_matrix(self, all_attention_matrices, dim1:str, dim2:str, answer:str, word_tokens:str, input_word:str, option_tokens:str, lang="en", tokens=None, current_input_ids=None, all_tokens=None):
+    def save_generation_attention_matrix(self, all_attention_matrices, dim1:str, dim2:str, answer:str, word_tokens:str, input_word:str, option_tokens:str, lang="en", tokens=None, current_input_ids=None, all_tokens=None, flip:bool=False):
         if current_input_ids is not None and all_tokens is not None:
             input_length = len(all_tokens)
             input_ids = current_input_ids[0][:input_length]
@@ -838,7 +838,7 @@ class QwenOmniSemanticDimensionVisualizer:
             "full_text": full_text,
             "analysis_type": "generation_attention_matrix"
         }
-        output_dir = os.path.join(self.output_dir, self.exp_type, self.data_type, lang, "generation_attention", f"{self.dim1}_{self.dim2}")
+        output_dir = os.path.join(self.output_dir, self.exp_type, self.data_type, lang, "generation_attention", f"{dim1}_{dim2}")
         os.makedirs(output_dir, exist_ok=True)
         safe_word = re.sub(r'[^\w\-_.]', '_', str(word_tokens))
         safe_dim1 = re.sub(r'[^\w\-_.]', '_', str(dim1))
