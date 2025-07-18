@@ -12,28 +12,12 @@ from semdim_heatmap import QwenOmniSemanticDimensionVisualizer as qwensemdim
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-# python src/analysis/heatmap/compute_attention_score.py --data-type ipa --attention-type generation_attention --start-layer 26 --constructed
+# python src/analysis/heatmap/compute_attention_score.py --data-type ipa --attention-type generation_attention --start-layer 27 --end-layer 27 --constructed
 # python src/analysis/heatmap/compute_attention_score.py --data-type audio --attention-type generation_attention
 # python src/analysis/heatmap/compute_attention_score.py --data-type ipa --attention-type self_attention
 # ipa_to_feature_map = json.load(open("./data/constructed_words/ipa_to_feature.json"))
 # feature_to_score_map = json.load(open("./data/constructed_words/feature_to_score.json"))
 data_path = "data/processed/nat/semantic_dimension/semantic_dimension_binary_gt.json"
-
-'''
-1. Input : combination of data type, language, attention type, computation type, layers and heads
-data_type : audio, word, romanization, ipa
-attention_type : self_attention, generation
-computation_type : flow, heatmap
-    - flow : 
-    - heatmap : compute the attention score of a 
-layers : 0-27, or all
-heads : 0-27, or all
-
-# Output
-1. Matrix : Phonemes at X axis (around 50) and Semantic dimensions (50) at Y axis.
-Score refers to the attention score it got with the pair of phonemes and semantic dimensions.
-2. list[float] : Attention score of each phoneme.
-'''
 
 class AttentionScoreCalculator:
     def __init__(
@@ -56,18 +40,18 @@ class AttentionScoreCalculator:
         self.layer = layer
         self.compute_type = compute_type
         self.constructed = constructed
-        # 경로 분기
+
         if constructed:
             self.data_path = "data/processed/art/semantic_dimension/semantic_dimension_binary_gt.json"
             self.output_dir = "results/experiments/understanding/attention_heatmap/con"
         else:
             self.data_path = "data/processed/nat/semantic_dimension/semantic_dimension_binary_gt.json"
             self.output_dir = "results/experiments/understanding/attention_heatmap/nat"
-        # Load alignment data for audio processing
+
         self.alignment_data = None
         if self.data_type == "audio":
             self.alignment_data = self.load_alignment_data()
-        # Semantic dimensions list
+
         self.semantic_dimension_map = [
             "good", "bad", "beautiful", "ugly", "pleasant", "unpleasant", "strong", "weak", "big", "small", 
             "rugged", "delicate", "active", "passive", "fast", "slow", "sharp", "round", "realistic", "fantastical", 
@@ -99,45 +83,35 @@ class AttentionScoreCalculator:
             print(f"Error loading alignment data from {alignment_file}: {e}")
             return None
     
-    def _clean_token(self, token):
-        """Clean token by removing special characters, same as in semdim_heatmap.py"""
+    def _clean_token(self, token:str):
         return re.sub(r'^[ĠĊ\[\],.:;!?\n\r\t]+|[ĠĊ\[\],.:;!?\n\r\t]+$', '', token)
     
-    def extract_ipa_tokens_from_word(self, tokens, word_tokens):
-        """Extract IPA tokens from the word tokens in the sequence"""
+    def extract_ipa_tokens_from_word(self, tokens:list[str], word_tokens:str):
         ipa_tokens = []
-        
-        # Find the word tokens in the sequence
         word_subtokens = []
         if isinstance(word_tokens, str):
-            # If word_tokens is a string, tokenize it
             from transformers import Qwen2_5OmniProcessor
             processor = Qwen2_5OmniProcessor.from_pretrained("Qwen/Qwen2.5-Omni-7B")
             word_subtokens = processor.tokenizer.tokenize(word_tokens)
         else:
             word_subtokens = word_tokens
         
-        # Find the word in the tokens sequence
         for i, token in enumerate(tokens):
             clean_token = self._clean_token(token)
             
-            # Skip if token is empty, whitespace only, or not a valid IPA symbol
             if not clean_token or clean_token.strip() == '':
                 continue
             
-            # Check if this is an IPA symbol
             if clean_token in self.ipa_symbols:
                 ipa_tokens.append(clean_token)
         
         return ipa_tokens
     
-    def convert_audio_tokens_to_ipa(self, word_tokens, audio_token_count):
-        """Convert audio tokens to IPA using alignment data"""
+    def convert_audio_tokens_to_ipa(self, word_tokens:str, audio_token_count:int):
         if self.alignment_data is None:
             print("No alignment data available for audio processing")
             return []
         
-        # Find the word in alignment data
         word_entry = None
         for entry in self.alignment_data:
             if entry.get("word") == word_tokens:
@@ -149,18 +123,13 @@ class AttentionScoreCalculator:
             return []
         
         phones = word_entry.get("phones", [])
-        
-        # Remove null values and get valid phones
         valid_phones = [phone for phone in phones if phone is not None]
         
-        # Check if the number of valid phones matches the audio token count
         if len(valid_phones) != audio_token_count:
             print(f"Warning: Phone count ({len(valid_phones)}) doesn't match audio token count ({audio_token_count}) for word '{word_tokens}'")
-            # Use the minimum of the two to avoid index errors
             min_count = min(len(valid_phones), audio_token_count)
             valid_phones = valid_phones[:min_count]
         
-        # Convert phones to IPA based on language
         phone_to_ipa = self.get_phone_to_ipa_mapping()
         
         ipa_tokens = []
@@ -168,7 +137,6 @@ class AttentionScoreCalculator:
             if phone in phone_to_ipa:
                 ipa_tokens.append(phone_to_ipa[phone])
             else:
-                # If phone not in mapping, use the original
                 ipa_tokens.append(phone)
         
         return ipa_tokens
@@ -202,7 +170,6 @@ class AttentionScoreCalculator:
                 'TH': 'θ', 'V': 'v', 'W': 'w', 'Y': 'j', 'Z': 'z', 'ZH': 'ʒ'
             }
         elif self.lang == "fr":
-            # French phone set (simplified)
             return {
                 # Vowels
                 'a': 'a', 'e': 'e', 'ɛ': 'ɛ', 'i': 'i', 'o': 'o', 'ɔ': 'ɔ', 'u': 'u', 'y': 'y',
@@ -214,7 +181,6 @@ class AttentionScoreCalculator:
                 'ʃ': 'ʃ', 'ʒ': 'ʒ', 'ɲ': 'ɲ', 'ŋ': 'ŋ'
             }
         elif self.lang == "ja":
-            # Japanese phone set (simplified)
             return {
                 # Vowels
                 'a': 'a', 'i': 'i', 'u': 'ɯ', 'e': 'e', 'o': 'o',
@@ -225,7 +191,6 @@ class AttentionScoreCalculator:
                 'ʃ': 'ʃ', 'tʃ': 'tɕ', 'dʒ': 'dʑ', 'ɲ': 'ɲ', 'ŋ': 'ŋ'
             }
         elif self.lang == "ko":
-            # Korean phone set (simplified)
             return {
                 # Vowels
                 'a': 'a', 'e': 'e', 'i': 'i', 'o': 'o', 'u': 'u', 'ɯ': 'ɯ', 'ʌ': 'ʌ',
@@ -234,9 +199,10 @@ class AttentionScoreCalculator:
                 'k': 'k', 'n': 'n', 't': 't', 'r': 'ɾ', 'm': 'm', 'p': 'p', 's': 's', 'h': 'h',
                 'ɡ': 'ɡ', 'd': 'd', 'b': 'b', 'tʃ': 'tɕ', 'dʒ': 'dʑ', 'ŋ': 'ŋ'
             }
+        elif self.lang == "con":
+            pass
         else:
-            # Default mapping (identity mapping)
-            return {}
+            raise 
     
     def load_matrix(self, layer_type: str, data_type: str, attention_type: str, word_tokens: str, dimension1: str, dimension2: str, lang: str):
         """Load attention matrix from pickle file"""
@@ -735,7 +701,7 @@ class AttentionScoreCalculator:
             'file_count': file_count
         }
     
-    def aggregate_scores_across_files_v2(self, data_type: str, lang: str, attention_type: str = "self_attention", start_layer: int = 20):
+    def aggregate_scores_across_files_v2(self, data_type: str, lang: str, attention_type: str = "self_attention", start_layer:int=0, end_layer:int=27):
         """Aggregate attention scores for each (ipa, semantic dimension, layer, head) and compute statistics."""
         import numpy as np
         import json
@@ -755,12 +721,12 @@ class AttentionScoreCalculator:
             file_path = os.path.join(analysis_dir, filename)
             try:
                 with open(file_path, "rb") as f:
-                    data = pkl.load(f)
+                    data = pkl.load(f)["generation_analysis"]
                 
                 # Try to get tokens, target_indices, attention_matrix
                 tokens = data.get('tokens')
-                target_indices = data.get('target_indices')
-                attn = data.get('attention_matrix')
+                target_indices = data["step_analyses"][0].get('target_indices')
+                attn = data["step_analyses"][0].get('attention_matrix')
                 input_word = data.get('input_word', "")
                 
                 # Try to get input_word from different possible locations
@@ -769,7 +735,7 @@ class AttentionScoreCalculator:
                         input_word = data["generation_analysis"].get("input_word", "")
                     elif "word_tokens" in data:
                         input_word = data["word_tokens"]
-                
+                breakpoint()
                 if tokens is None or target_indices is None or attn is None:
                     print(f"Skipping file (missing keys): {filename}")
                     continue
@@ -800,7 +766,7 @@ class AttentionScoreCalculator:
                 # Get semantic dimension names from file or data
                 # Try to parse from filename: ..._{dimension1}_{dimension2}_...
                 import re
-                m = re.search(r'_([^_]+)_([^_]+)_(self|generation)_?analysis?\\.pkl$', filename)
+                m = re.search(r'_([^_]+)_([^_]+)_(self|generation)_?analysis?\.pkl$', filename)
                 if m:
                     semdim1, semdim2 = m.group(1), m.group(2)
                 else:
@@ -809,8 +775,7 @@ class AttentionScoreCalculator:
                 
                 # For each layer, head, word_idx, dim_idx, extract score
                 # Map word_indices to individual IPA symbols
-                for layer in range(start_layer, n_layer):
-                # for layer in range(start_layer, start_layer+1):
+                for layer in range(start_layer, end_layer+1):
                     for head in range(n_head):
                         # For each IPA symbol, calculate attention scores
                         for ipa_idx, ipa in enumerate(ipa_symbols):
@@ -1213,7 +1178,6 @@ class AttentionScoreCalculator:
             def colored(text, color=None, attrs=None):
                 return text
         
-        # 대립쌍 정의 (dim1, dim2)
         dim_pairs = [
             ("good", "bad"), ("beautiful", "ugly"), ("pleasant", "unpleasant"), ("strong", "weak"),
             ("big", "small"), ("rugged", "delicate"), ("active", "passive"), ("fast", "slow"),
@@ -1224,7 +1188,6 @@ class AttentionScoreCalculator:
             ("dangerous", "safe")
         ]
         
-        # 실제 stats에 존재하는 dimension만 사용 (dim_pairs 순서)
         all_semdims = []
         for d1, d2 in dim_pairs:
             if d1 in stats:
@@ -1266,150 +1229,173 @@ class AttentionScoreCalculator:
                 print(row_str)
             print()  # 8개 dimension마다 한 줄 띄움
 
-    def run(self, data_type: str, lang: str, attention_type: str = "generation_attention", langs: list = None, start_layer: int = 20):
-        """Main execution function (now supports all-language aggregation)"""
-        print(f"Processing {data_type} data for language {lang} with {attention_type}")
-        # Aggregate scores across all files (per language)
-        aggregated_scores = self.aggregate_scores_across_files(data_type, lang, attention_type)
-        if not aggregated_scores:
-            print(f"[WARN] No scores found for lang={lang}, data_type={data_type}, attention_type={attention_type}")
+    def plot_ipa_semdim_heatmap_with_layers(
+        self, stats, save_path, lang, data_type, attention_type, start_layer, end_layer, condition_desc=""
+    ):
+        if not stats or not any(stats.values()):
+            print(f"[WARN] No data to plot for lang={lang}, condition={condition_desc}")
+            return
+        semdim_list = sorted(stats.keys())
+        ipa_list = sorted({ipa for semdim in stats for ipa in stats[semdim]})
+        if not semdim_list or not ipa_list:
+            print(f"[WARN] No semantic dimensions or IPA symbols to plot for lang={lang}, condition={condition_desc}")
+            return
+        matrix = np.zeros((len(semdim_list), len(ipa_list)))
+        for i, semdim in enumerate(semdim_list):
+            for j, ipa in enumerate(ipa_list):
+                matrix[i, j] = stats[semdim].get(ipa, 0.0)
+        import matplotlib.pyplot as plt
+        import seaborn as sns
+        fig, ax = plt.subplots(figsize=(max(12, len(ipa_list)*0.3), max(10, len(semdim_list)*0.3)))
+        im = sns.heatmap(matrix, ax=ax, cmap='YlGnBu', cbar=True, 
+                        xticklabels=ipa_list, yticklabels=semdim_list, 
+                        linewidths=0.2, linecolor='gray', square=False)
+        title = f"IPA-Semantic Dimension Attention Heatmap (L{start_layer}-{end_layer})\n{condition_desc}"
+        ax.set_title(title, fontsize=16, pad=15)
+        ax.set_xlabel('IPA Symbol', fontsize=14)
+        ax.set_ylabel('Semantic Dimension', fontsize=14)
+        plt.tight_layout()
+        if save_path is None:
+            save_path = 'results/plots/attention/'
+        import os
+        os.makedirs(save_path, exist_ok=True)
+        file_name = f"ipa_semdim_attention_heatmap_{lang}_{data_type}_{attention_type}_L{start_layer}_L{end_layer}.png"
+        file_path = os.path.join(save_path, file_name)
+        plt.savefig(file_path, dpi=300, bbox_inches='tight')
+        print(f"IPA-Semantic Dimension heatmap saved to {file_path}")
+        plt.close()
+
+    def aggregate_scores_with_response_condition(
+        self, data_type, lang, attention_type="generation_attention", start_layer=20, end_layer=27
+    ):
+        base_dir = os.path.join(self.output_dir, "semantic_dimension", data_type, lang)
+        analysis_dir = os.path.join(base_dir, "generation_attention")
+        if not os.path.exists(analysis_dir):
+            print(f"Directory not found: {analysis_dir}")
             return None
-        # Create phoneme-semantic dimension matrix
-        matrix, ipa_list, semdim_list = self.create_phoneme_semdim_matrix(aggregated_scores)
-        # Save results (per language)
-        output_path = os.path.join(self.output_dir, "semantic_dimension", data_type, lang, attention_type)
-        os.makedirs(output_path, exist_ok=True)
-        output_file = os.path.join(output_path, f"ipa_semdim_attention_scores_{data_type}_{lang}_{attention_type}.json")
-        results = {
-            'matrix': matrix.tolist() if matrix is not None else [],
-            'ipa_symbols': ipa_list,
-            'semantic_dimensions': semdim_list,
-            'detailed_stats': aggregated_scores.get('detailed_stats', {}),
-            'file_count': aggregated_scores['file_count'],
-            'data_type': data_type,
-            'language': lang,
-            'attention_type': attention_type,
-            'summary': {
-                'total_ipa_symbols': len(ipa_list),
-                'total_semantic_dimensions': len(semdim_list),
-                'matrix_shape': matrix.shape if matrix is not None else (0, 0),
-                'processing_info': {
-                    'data_type': data_type,
-                    'language': lang,
-                    'attention_type': attention_type,
-                    'files_processed': aggregated_scores['file_count']
-                }
-            }
-        }
-        with open(output_file, 'w') as f:
-            json.dump(results, f, indent=2)
-        print(f"\n=== RESULTS SUMMARY for lang={lang} ===")
-        print(f"Results saved to {output_file}")
-        print(f"Matrix shape: {matrix.shape if matrix is not None else (0, 0)}")
-        print(f"Number of IPA symbols: {len(ipa_list)}")
-        print(f"Number of semantic dimensions: {len(semdim_list)}")
-        print(f"Files processed: {aggregated_scores['file_count']}")
-        # Save heatmap (per language)
-        if aggregated_scores.get('ipa_semdim_stats'):
-            self.plot_ipa_semdim_heatmap(
-                aggregated_scores['ipa_semdim_stats'],
-                save_path='results/plots/attention/',
-                lang=lang,
-                data_type=data_type,
-                attention_type=attention_type
-            )
-        else:
-            print(f"[WARN] ipa_semdim_stats is empty for lang={lang}, data_type={data_type}, attention_type={attention_type}. No heatmap will be saved.")
-        # Save csv/png (per language)
-        # ---- All-language (multi) aggregation ----
-        if langs is not None and len(langs) > 1:
-            print(f"\n=== Aggregating across all languages: {langs} ===")
-            aggregated_multi = self.aggregate_scores_across_files_multi(data_type, langs, attention_type)
-            matrix_multi, ipa_list_multi, semdim_list_multi = self.create_phoneme_semdim_matrix({'ipa_semdim_stats': aggregated_multi['ipa_semdim_stats']})
-            output_path_multi = os.path.join(self.output_dir, "semantic_dimension", data_type, "all", attention_type)
-            os.makedirs(output_path_multi, exist_ok=True)
-            output_file_multi = os.path.join(output_path_multi, f"ipa_semdim_attention_scores_{data_type}_all_{attention_type}.json")
-            results_multi = {
-                'matrix': matrix_multi.tolist() if matrix_multi is not None else [],
-                'ipa_symbols': ipa_list_multi,
-                'semantic_dimensions': semdim_list_multi,
-                'file_count': aggregated_multi['file_count'],
-                'data_type': data_type,
-                'language': 'all',
-                'attention_type': attention_type,
-                'summary': {
-                    'total_ipa_symbols': len(ipa_list_multi),
-                    'total_semantic_dimensions': len(semdim_list_multi),
-                    'matrix_shape': matrix_multi.shape if matrix_multi is not None else (0, 0),
-                    'processing_info': {
-                        'data_type': data_type,
-                        'language': 'all',
-                        'attention_type': attention_type,
-                        'files_processed': aggregated_multi['file_count']
-                    }
-                }
-            }
-            with open(output_file_multi, 'w') as f:
-                json.dump(results_multi, f, indent=2)
-            print(f"\n=== RESULTS SUMMARY for ALL LANGUAGES ===")
-            print(f"Results saved to {output_file_multi}")
-            print(f"Matrix shape: {matrix_multi.shape if matrix_multi is not None else (0, 0)}")
-            print(f"Number of IPA symbols: {len(ipa_list_multi)}")
-            print(f"Number of semantic dimensions: {len(semdim_list_multi)}")
-            print(f"Files processed: {aggregated_multi['file_count']}")
-            
-            # Print all-language statistics
-            if aggregated_multi.get('ipa_semdim_stats'):
-                self.print_top_ipa_statistics(aggregated_multi['ipa_semdim_stats'], "ALL LANGUAGES - ")
-            
-            # Save heatmap/csv/png for all languages
-            if aggregated_multi.get('ipa_semdim_stats'):
-                self.plot_ipa_semdim_heatmap(
-                    aggregated_multi['ipa_semdim_stats'],
-                    save_path='results/plots/attention/',
-                    lang='all',
-                    data_type=data_type,
-                    attention_type=attention_type
-                )
-            # Save csv (dim_pairs 순서)
+        all_scores = {}  # (ipa, semdim): [score, ...]
+        for filename in os.listdir(analysis_dir):
+            if not filename.endswith('.pkl'):
+                continue
+            file_path = os.path.join(analysis_dir, filename)
             try:
-                import pandas as pd
-                import numpy as np
-                stats = aggregated_multi['ipa_semdim_stats']
-                dim_pairs = [
-                    ("good", "bad"), ("beautiful", "ugly"), ("pleasant", "unpleasant"), ("strong", "weak"),
-                    ("big", "small"), ("rugged", "delicate"), ("active", "passive"), ("fast", "slow"),
-                    ("sharp", "round"), ("realistic", "fantastical"), ("structured", "disorganized"), ("ordinary", "unique"),
-                    ("interesting", "uninteresting"), ("simple", "complex"), ("abrupt", "continuous"), ("exciting", "calming"),
-                    ("hard", "soft"), ("happy", "sad"), ("harsh", "mellow"), ("heavy", "light"),
-                    ("inhibited", "free"), ("masculine", "feminine"), ("solid", "nonsolid"), ("tense", "relaxed"),
-                    ("dangerous", "safe")
-                ]
-                ordered_semdims = []
-                for d1, d2 in dim_pairs:
-                    if d1 in stats:
-                        ordered_semdims.append(d1)
-                    if d2 in stats:
-                        ordered_semdims.append(d2)
-                all_ipas = sorted(set(ipa for semdim in stats for ipa in stats[semdim]))
-                data = []
-                for semdim in ordered_semdims:
-                    row = []
-                    for ipa in all_ipas:
-                        if ipa in stats[semdim]:
-                            row.append(stats[semdim][ipa]['mean'])
+                with open(file_path, "rb") as f:
+                    data = pkl.load(f)
+                gen_analysis = data.get("generation_analysis", {})
+                answer = gen_analysis.get("answer", None)
+                dim1 = gen_analysis.get("dimension1", None)
+                dim2 = gen_analysis.get("dimension2", None)
+                response = gen_analysis.get("response", None)
+                input_word = gen_analysis.get("input_word", "")
+                if not (answer and dim1 and dim2 and response):
+                    continue
+                resp_num = None
+                if '1' in response:
+                    resp_num = "1"
+                elif '2' in response:
+                    resp_num = "2"
+                if not (
+                    (resp_num == "1" and answer == dim1) or
+                    (resp_num == "2" and answer == dim2)
+                ):
+                    continue
+                ipa_symbols = [self._clean_token(ipa) for ipa in str(input_word).split() if self._clean_token(ipa) in self.ipa_symbols]
+                if not ipa_symbols:
+                    continue
+                for step in gen_analysis.get("step_analyses", []):
+                    target_indices = step.get("target_indices", {})
+                    word_indices = target_indices.get("word", [])
+                    dim1_indices = target_indices.get("dim1", [])
+                    dim2_indices = target_indices.get("dim2", [])
+                    attn = step.get("attentions", None) or step.get("step_attentions", None)
+                    if attn is None:
+                        continue
+                    if isinstance(attn, np.ndarray):
+                        attn = torch.tensor(attn)
+                    n_layer, n_head, seq_len, _ = attn.shape
+                    for ipa_idx, ipa in enumerate(ipa_symbols):
+                        if ipa_idx >= len(word_indices):
+                            continue
+                        word_idx = word_indices[ipa_idx]
+                        if answer == dim1:
+                            correct_indices = dim1_indices
+                            wrong_indices = dim2_indices
+                            semdim = dim1
                         else:
-                            row.append(np.nan)
-                    data.append(row)
-                df = pd.DataFrame(data, index=ordered_semdims, columns=all_ipas)
-                save_dir = 'results/plots/attention/'
-                os.makedirs(save_dir, exist_ok=True)
-                csv_path = os.path.join(save_dir, f"ipa_semdim_table_all_{data_type}_{attention_type}.csv")
-                df.to_csv(csv_path)
-                print(f"IPA-Semantic Dimension table (ALL) saved to {csv_path}")
+                            correct_indices = dim2_indices
+                            wrong_indices = dim1_indices
+                            semdim = dim2
+                        for layer in range(start_layer, min(end_layer+1, n_layer)):
+                            for head in range(n_head):
+                                correct_score = sum(attn[layer, head, d_idx, word_idx].item() for d_idx in correct_indices if d_idx < seq_len and word_idx < seq_len)
+                                wrong_score = sum(attn[layer, head, d_idx, word_idx].item() for d_idx in wrong_indices if d_idx < seq_len and word_idx < seq_len)
+                                denom = correct_score + wrong_score
+                                score = correct_score / denom if denom > 0 else 0.0
+                                key = (ipa, semdim, layer, head)
+                                all_scores.setdefault(key, []).append(score)
             except Exception as e:
-                print(f"[WARN] Could not save all-language csv: {e}")
-        return results
+                print(f"Error processing file {filename}: {e}")
+                continue
+        stats = {}
+        for (ipa, semdim), scores in all_scores.items():
+            arr = np.array(scores)
+            stats.setdefault(semdim, {})[ipa] = float(np.mean(arr)) if len(arr) > 0 else 0.0
+        return stats
+
+    def aggregate_scores_multi_lang(
+        self, data_type, langs, attention_type="generation_attention", start_layer=20, end_layer=27, response_condition=True
+    ):
+        import numpy as np
+        all_stats = {}
+        for lang in langs:
+            stats = self.aggregate_scores_with_response_condition(
+                data_type, lang, attention_type, start_layer, end_layer
+            ) if response_condition else self.aggregate_scores_across_files_v2(
+                data_type, lang, attention_type, start_layer, end_layer
+            )
+            if stats:
+                all_stats[lang] = stats
+        merged = {}
+        for lang, stats in all_stats.items():
+            for ipa in stats:
+                for semdim in stats[ipa]:
+                    merged.setdefault(ipa, {}).setdefault(semdim, []).append(stats[ipa][semdim]['all']['mean'])
+        stats_all = {}
+        for ipa in merged:
+            for semdim in merged[ipa]:
+                mean = float(np.mean(merged[ipa][semdim]))
+                stats_all.setdefault(ipa, {})[semdim] = {'all': {'mean': mean}}
+        all_stats['all'] = stats_all
+        return all_stats
+
+    def plot_multi_lang_heatmaps(self, all_stats, data_type, attention_type, start_layer, end_layer, condition_desc):
+        for lang, stats in all_stats.items():
+            print(f"[PLOT] Plotting for lang={lang}, stats keys={list(stats.keys())[:5]}")
+            self.plot_ipa_semdim_heatmap_with_layers(
+                stats, save_path='results/plots/attention/', lang=lang,
+                data_type=data_type, attention_type=attention_type,
+                start_layer=start_layer, end_layer=end_layer,
+                condition_desc=condition_desc + (f' (all languages)' if lang == 'all' else '')
+            )
+
+    def run(self, data_type: str, lang: str, attention_type: str = "generation_attention", langs: list = None, start_layer: int = 0, end_layer: int = 27):
+        print(f"Processing {data_type} data for language {lang} with {attention_type}")
+        if langs is None:
+            langs = [lang]
+        all_stats = self.aggregate_scores_multi_lang(
+            data_type, langs, attention_type, start_layer, end_layer, response_condition=True
+        )
+        self.plot_multi_lang_heatmaps(
+            all_stats, data_type, attention_type, start_layer, end_layer,
+            condition_desc="Response-Answer Match, Correct/(Correct+Wrong)"
+        )
+        all_stats_std = self.aggregate_scores_multi_lang(
+            data_type, langs, attention_type, start_layer, end_layer, response_condition=False
+        )
+        self.plot_multi_lang_heatmaps(
+            all_stats_std, data_type, attention_type, start_layer, end_layer,
+            condition_desc="Standard Mean Attention"
+        )
 
 if __name__ == "__main__":
     import argparse
@@ -1425,7 +1411,7 @@ if __name__ == "__main__":
                        help="Model path")
     parser.add_argument('--constructed', action='store_true', help='Use constructed words as dataset')
     parser.add_argument('--start-layer', type=int, default=20, help='Start layer index for attention score calculation (default: 20)')
-    parser.add_argument('--end-layer', type=int, default=28, help='End layer index for attention score calculation (default: 28)')
+    parser.add_argument('--end-layer', type=int, default=27, help='End layer index for attention score calculation (default: 27)')
     args = parser.parse_args()
 
     all_langs = ['en', 'fr', 'ja', 'ko', 'art']
@@ -1454,6 +1440,9 @@ if __name__ == "__main__":
 
     for lang in langs:
         print(f"\n=== Processing language: {lang} ===")
-        asc.run(args.data_type, lang, args.attention_type, langs=langs, start_layer=args.start_layer)
+        asc.run(
+            args.data_type, lang, args.attention_type, langs=langs,
+            start_layer=args.start_layer, end_layer=args.end_layer,
+        )
 
     
