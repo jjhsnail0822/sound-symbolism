@@ -144,7 +144,7 @@ class QwenOmniMCQExperiment:
 
             # save only for the ideal output
             if pure_out.shape[-1] == 3:
-                example_key = self._get_example_key(query)
+                example_key = self._get_example_key(item)
                 # not used at the moment
                 # global_hidden_states[query_idx] = local_hidden_states.copy()
                 logit_lens_for_all_layers = self._logit_lens_for_all_layers(local_hidden_states)
@@ -338,9 +338,9 @@ class QwenOmniMCQExperiment:
         return output
 
     def _get_example_key(self, query):
-        word = query['meta_data']['word']
-        language = query['meta_data']['language']
-        dimension = query["meta_data"]["dimension"]
+        word = query['word']
+        language = query['language']
+        dimension = query["dimension"]
 
         return f"{language}_{word}_{dimension}"
 
