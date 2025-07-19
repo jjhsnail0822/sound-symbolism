@@ -239,7 +239,7 @@ class QwenOmniMCQExperiment:
                     {"type": "text",
                      "text": "You are Qwen, a virtual human developed by the Qwen Team, Alibaba Group, capable of perceiving auditory and visual inputs, as well as generating text and speech."}
             ],
-        },
+        }
         conversation.append(system_content)
 
         # first user content
