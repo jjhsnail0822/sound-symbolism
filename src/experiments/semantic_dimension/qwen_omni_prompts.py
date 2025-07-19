@@ -359,7 +359,7 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     word_group = args.word_group
-    input_data_path = f"data/{word_group}.json"
+    input_data_path = f"{word_group}.json"
     output_dir = f"results/experiments/semantic_dimension/perturb/{args.input_type}"
 
     experiment = QwenOmniMCQExperiment(
