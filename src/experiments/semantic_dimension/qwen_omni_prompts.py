@@ -95,9 +95,9 @@ class QwenOmniMCQExperiment:
         # Run experiment
         print(f"Running MCQ experiment on {len(mcq_data)} questions...")
         all_results = []
-        for query_idx, query in enumerate(tqdm(mcq_data)):
+        for query_idx, item in enumerate(tqdm(mcq_data)):
             # input
-            inputs = self.get_input_tensors(query)
+            inputs = self.get_input_tensors(item)
 
             # inference (generate)
             text_ids = self.model.generate(
@@ -119,14 +119,11 @@ class QwenOmniMCQExperiment:
                 extracted_answer = answer_match.group(0)
             else:
                 extracted_answer = None
-            if extracted_answer is None:
-                print(f"Warning: Model output is empty for query: {query['question'][:50]}...")
-                extracted_answer = "0"
 
             # get correctness
             try:
-                is_correct = int(extracted_answer) == query['meta_data']['answer']
-            except ValueError:
+                is_correct = self._get_is_correct(item, extracted_answer)
+            except:
                 print(f"Warning: Model output '{extracted_answer}' is not a valid integer. Marking as incorrect.")
                 is_correct = False
 
@@ -203,7 +200,20 @@ class QwenOmniMCQExperiment:
                 except json.JSONDecodeError:
                     print("Warning: Could not decode JSON from results file. Starting from scratch.")
         return existing_results
+    
+    def _get_is_correct(self, item, extracted_answer):
+        answer = item["answer"]
+        dim1, dim2 = item["dimension"].split("-")
+        
+        if self.dim == 1:  # binary
+            expected = {"1": dim1, "2": dim2}
+        elif self.dim == 2:  # ternary
+            expected = {"2": dim1, "1": dim2}
+        else:
+            raise ValueError(f"Invalid dimension: {self.dim}")
 
+        return expected.get(extracted_answer) == answer
+        
     def save_logit_lens(self, logit_lens_path):
         with open(logit_lens_path, 'w', encoding='utf-8') as f:
             json.dump(global_logit_lens, f, ensure_ascii=False, indent=4)
