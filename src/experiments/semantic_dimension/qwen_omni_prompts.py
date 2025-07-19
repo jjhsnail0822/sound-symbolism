@@ -86,23 +86,55 @@ class QwenOmniMCQExperiment:
         print(f"Results will be saved to: {results_file_path}")
 
         # logit lens path
-        logit_lens_dir = "./results/logit_lens"
+        logit_lens_dir = "./results/logit_lens/"
         os.makedirs(logit_lens_dir, exist_ok=True)
-        logit_lens_path = os.path.join(logit_lens_dir, f"{self.input_type}_{self.word_group}.json")
-
-        # check existing results
-        existing_results = self.collect_already_done(results_file_path)
+        logit_lens_path = os.path.join(logit_lens_dir, f"prompts.json")
 
         # Run experiment
         print(f"Running MCQ experiment on {len(mcq_data)} questions...")
-        all_results = []
         
-        mcq_data = mcq_data[:self.num_examples]
-        for query_idx, item in enumerate(tqdm(mcq_data)):
+        
+        
+        
+        prompts = [
+  "What is the capital of South Korea?",
+  "Which country has Berlin as its capital?",
+  "Name the capital city of France.",
+  "If it’s raining and you forget your umbrella, what might happen?",
+  "You put ice cream in the sun. What happens next?",
+  "Barack Obama is a [MASK].",
+  "Amazon is a [MASK].",
+  "Translate the following English sentence into Korean: \"Good morning.\"",
+  "Summarize the following paragraph in one sentence.",
+  "Classify the sentiment of this sentence: \"I absolutely loved the movie!\"",
+  "Label the following review as Positive, Neutral, or Negative: \"The food was bland and overpriced.\"",
+  "Identify whether the text below is spam or not spam: \"Congratulations! You've won a free iPhone. Click here!\"",
+  "Who wrote the novel '1984'?",
+  "What is the boiling point of water in Celsius?",
+  "If a glass falls off a table, what usually happens?",
+  "Why do people wear coats in the winter?",
+  "Elon Musk is a [MASK].",
+  "Google is a [MASK].",
+  "Write a short poem about the ocean.",
+  "Explain photosynthesis to a 5-year-old.",
+  "Determine the topic of this sentence: \"The president gave a speech about economic growth.\"",
+  "Classify this news headline as Politics, Sports, or Entertainment: \"The Lakers win the NBA Finals.\"",
+  "If there are 5 apples and you eat 2, how many apples are left?",
+  "Tom has 3 pencils. Jerry gives him 4 more. How many pencils does Tom have in total?",
+  "Translate this sentence to French: \"I love learning new things.\"",
+  "Translate this sentence into Japanese: \"Where is the nearest train station?\"",
+  "Summarize this sentence: \"The company reported a 10% increase in revenue due to strong international sales.\"",
+  "Summarize the following paragraph in 1-2 sentences.",
+  "Write a Python function to check if a number is even.",
+  "Generate a SQL query to select all customers from the 'users' table who are older than 30.",
+  "You are a travel agent. Recommend a 5-day itinerary in Italy.",
+  "Pretend you are a barista. Explain different types of coffee drinks to a customer."
+]
+        for prompt_idx, prompt in enumerate(tqdm(prompts)):
             local_hidden_states.clear()
             
             # input
-            inputs = self.get_input_tensors(item)
+            inputs = self.get_input_tensors(prompt)
 
             # inference (generate)
             text_ids = self.model.generate(
@@ -125,18 +157,11 @@ class QwenOmniMCQExperiment:
             else:
                 extracted_answer = None
 
-            # get correctness
-            try:
-                is_correct = self._get_is_correct(item, extracted_answer)
-            except:
-                print(f"Warning: Model output '{extracted_answer}' is not a valid integer. Marking as incorrect.")
-                is_correct = False
-
             result = {
-                "meta_data": item,
+                "prompt": prompt,
+                "task": task,
                 "model_answer": extracted_answer,
                 "full_response": model_answer,
-                "is_correct": is_correct
             }
             all_results.append(result)
 
@@ -144,18 +169,8 @@ class QwenOmniMCQExperiment:
                 self.save_output(all_results, results_file_path)
 
             # interpretability
-            input_length = inputs["input_ids"].shape[-1]
-            pure_out = text_ids[0, input_length:]
-
-            # save only for the ideal output
-            if pure_out.shape[-1] == 3:
-                example_key = self._get_example_key(item)
-                # not used at the moment
-                # global_hidden_states[query_idx] = local_hidden_states.copy()
-                logit_lens_for_all_layers = self._logit_lens_for_all_layers(local_hidden_states)
-                logit_lens_for_all_layers["is_correct"] = is_correct  # subtle
-
-                global_logit_lens[example_key] = logit_lens_for_all_layers
+            logit_lens_for_all_layers = self._logit_lens_for_all_layers(local_hidden_states)
+            global_logit_lens[prompt_idx] = logit_lens_for_all_layers
 
         # save out
         self.save_output(all_results, results_file_path)
@@ -174,8 +189,8 @@ class QwenOmniMCQExperiment:
             torch.cuda.empty_cache()
             torch.cuda.synchronize()
 
-    def get_input_tensors(self, query):
-        conversation = self._get_conversation(query)
+    def get_input_tensors(self, prompt):
+        conversation = self._get_conversation_2(prompt)
 
         text = self.processor.apply_chat_template(conversation, add_generation_prompt=True, tokenize=False)
         audios, images, videos = process_mm_info(conversation, use_audio_in_video=True)
@@ -287,7 +302,34 @@ class QwenOmniMCQExperiment:
         user_content["content"].append({"type": "text", "text": user_content_second_text})
 
         conversation.append(user_content)
-        print(conversation)
+
+        return conversation
+
+    def _get_conversation_2(self, prompt):
+        conversation = []
+
+        # system content
+        system_content = {
+            "role": "system",
+            "content": [
+                    {"type": "text",
+                     "text": "You are Qwen, a virtual human developed by the Qwen Team, Alibaba Group, capable of perceiving auditory and visual inputs, as well as generating text and speech."}
+            ],
+        }
+        conversation.append(system_content)
+
+        # first user content
+        user_content = {
+            "role": "user",
+            "content": [],
+        }
+
+        user_content["content"].append({
+            "type": "text",
+            "text": prompt
+        })
+
+        conversation.append(user_content)
 
         return conversation
 
