@@ -1,6 +1,6 @@
 # Model : Qwen2.5-Omni-7B
 # python src/analysis/heatmap/batch_semdim_heatmap.py --max-samples 30 --data-type ipa
-# python src/analysis/heatmap/batch_semdim_heatmap.py --max-samples 3000 --data-type audio --constructed --flip
+# python src/analysis/heatmap/batch_semdim_heatmap.py --max-samples 1 --data-type audio --constructed --batch-size 1
 import json
 import re
 import os
@@ -73,6 +73,35 @@ class QwenOmniSemanticDimensionVisualizer:
         with open(self.data_path, "r", encoding="utf-8") as f:
             self.data = json.load(f)
         return self.data
+    
+    def get_phone_to_ipa_mapping(self, token:str):
+        ipa_map = {
+                'AA0': 'ɑ', 'AA1': 'ɑ', 'AA2': 'ɑ',
+                'AE0': 'æ', 'AE1': 'æ', 'AE2': 'æ',
+                'AH0': 'ə', 'AH1': 'ʌ', 'AH2': 'ʌ',
+                'AO0': 'ɔ', 'AO1': 'ɔ', 'AO2': 'ɔ',
+                'AW0': 'aʊ', 'AW1': 'aʊ', 'AW2': 'aʊ',
+                'AY0': 'aɪ', 'AY1': 'aɪ', 'AY2': 'aɪ',
+                'EH0': 'ɛ', 'EH1': 'ɛ', 'EH2': 'ɛ',
+                'ER0': 'ɝ', 'ER1': 'ɝ', 'ER2': 'ɝ',
+                'EY0': 'eɪ', 'EY1': 'eɪ', 'EY2': 'eɪ',
+                'IH0': 'ɪ', 'IH1': 'ɪ', 'IH2': 'ɪ',
+                'IY0': 'i', 'IY1': 'i', 'IY2': 'i',
+                'OW0': 'oʊ', 'OW1': 'oʊ', 'OW2': 'oʊ',
+                'OY0': 'ɔɪ', 'OY1': 'ɔɪ', 'OY2': 'ɔɪ',
+                'UH0': 'ʊ', 'UH1': 'ʊ', 'UH2': 'ʊ',
+                'UW0': 'u', 'UW1': 'u', 'UW2': 'u',
+                'B': 'b', 'CH': 'tʃ', 'D': 'd', 'DH': 'ð', 'F': 'f', 'G': 'ɡ',
+                'HH': 'h', 'JH': 'dʒ', 'K': 'k', 'L': 'l', 'M': 'm', 'N': 'n',
+                'NG': 'ŋ', 'P': 'p', 'R': 'r', 'S': 's', 'SH': 'ʃ', 'T': 't',
+                'TH': 'θ', 'V': 'v', 'W': 'w', 'Y': 'j', 'Z': 'z', 'ZH': 'ʒ'
+        }
+        if token in ipa_map.keys():
+            return ipa_map[token]
+        elif token == None:
+            return ""
+        else:
+            return token
     
     def prmpt_dims_answrs(self, prompt:str, data:dict, dimension_name:str=None):
         if self.data_type != "audio":
@@ -158,17 +187,6 @@ class QwenOmniSemanticDimensionVisualizer:
                 {"role": "user","content": [{"type": "text", "text": prompt}]},
             ]
         return conversation
-    
-    def trim_silence_from_audio(self, audio_data:np.ndarray, threshold:float=0.01):
-        if audio_data is None or len(audio_data) == 0:
-            return audio_data
-        non_zero_indices = np.nonzero(np.abs(audio_data) > threshold)[0]
-        if len(non_zero_indices) == 0:
-            print(f"[WARNING] Audio is completely silent!")
-            return audio_data
-        start_idx = non_zero_indices[0]
-        trimmed_audio = audio_data[start_idx:]
-        return trimmed_audio
 
     def get_attention_matrix(self, prompt:str, data:dict):
         conversation = self.create_conversation(prompt, data)
@@ -183,11 +201,6 @@ class QwenOmniSemanticDimensionVisualizer:
                 audio_path = f'data/processed/nat/tts/{data["language"]}/{data["word"]}.wav'
             
         audios, images, videos = process_mm_info(conversation, use_audio_in_video=USE_AUDIO_IN_VIDEO)
-        
-        if self.data_type == "audio" and audios is not None:
-            for i, audio in enumerate(audios):
-                trimmed_audio = self.trim_silence_from_audio(audio)
-                audios[i] = trimmed_audio
         
         inputs = self.processor(text=text, audio=audios, images=images, videos=videos, return_tensors="pt", padding=True, use_audio_in_video=USE_AUDIO_IN_VIDEO)
         inputs = inputs.to(self.model.device).to(self.model.dtype)
@@ -245,7 +258,6 @@ class QwenOmniSemanticDimensionVisualizer:
         semdim_span = semdim_tag_matches[0]
         options_span = options_tag_matches[0] if options_tag_matches else None
         answer_span = answer_tag_matches[0]
-        
         word_indices = []
         if word is not None:
             word_subtokens = self.processor.tokenizer.tokenize(input_word)
@@ -266,14 +278,33 @@ class QwenOmniSemanticDimensionVisualizer:
         for i in range(search_start, search_end - len(dim1_subtokens) + 1):
             if [self._clean_token(t) for t in tokens[i:i+len(dim1_subtokens)]] == [self._clean_token(t) for t in dim1_subtokens]:
                 dim1_indices.extend(list(range(i, i+len(dim1_subtokens))))
-                
+        if len(dim1_indices) == 0:
+            cleaned_tokens = [self._clean_token(t) for t in tokens]
+            tmp_str = []
+            tmp_indices = []
+            for i in range(search_start, len(tokens)-12):
+                if cleaned_tokens[i] == "":
+                    continue
+                if tmp_str:
+                    cand = ''.join(tmp_str)
+                    cand = cand+cleaned_tokens[i]
+                else:
+                    cand = cleaned_tokens[i]
+                if cand in dimension1:
+                    tmp_str.append(cleaned_tokens[i])
+                    tmp_indices.append(i)
+                    if cand == dimension1:
+                        dim1_indices = tmp_indices
+                        break
+                else:
+                    tmp_str = []
+                    tmp_indices = []
         dim2_subtokens = self.processor.tokenizer.tokenize(dimension2)
         for i in range(search_start, search_end - len(dim2_subtokens) + 1):
             if [self._clean_token(t) for t in tokens[i:i+len(dim2_subtokens)]] == [self._clean_token(t) for t in dim2_subtokens]:
                 dim2_indices.extend(list(range(i, i+len(dim2_subtokens))))
         dim1_indices, dim2_indices = sorted(set(dim1_indices)), sorted(set(dim2_indices))
         relevant_indices = sorted(set(word_span + dim1_indices + dim2_indices + word_indices))
-        breakpoint()
         return relevant_indices
     
     def save_matrix(self, attention_matrix, dimension1:str, dimension2:str, answer:str, word_tokens:list[str], option_tokens:list[str], layer_type:str="self", lang:str="en", tokens:list[str]=None, relevant_indices:list[int]=None, flip:bool=False):
@@ -325,7 +356,7 @@ class QwenOmniSemanticDimensionVisualizer:
         indices = sorted(list(set(indices)))
         return indices
 
-    def inference_with_hooks_batch(self, words:list[str], langs:list[str], constructed_prompts:list[str], dim1s:list[str], dim2s:list[str], answers:list[str], datas:list[dict], dimension_names:list[str], batch_size:int=64):
+    def inference_with_hooks_batch(self, words:list[str], langs:list[str], constructed_prompts:list[str], dim1s:list[str], dim2s:list[str], answers:list[str], datas:list[dict], dimension_names:list[str], batch_size:int=64, audio_align_data:list[dict]=None, align_key:dict=None):
         num_samples = len(words)
         results = []
         for batch_start in range(0, num_samples, batch_size):
@@ -358,10 +389,6 @@ class QwenOmniSemanticDimensionVisualizer:
                 audios.append(a[0] if a and len(a) > 0 else None)
                 images.append(i[0] if i and len(i) > 0 else None)
                 videos.append(v[0] if v and len(v) > 0 else None)
-            if self.data_type == "audio":
-                for idx, audio in enumerate(audios):
-                    if audio is not None:
-                        audios[idx] = self.trim_silence_from_audio(audio)
 
             inputs = self.processor(
                 text=texts,
@@ -384,6 +411,9 @@ class QwenOmniSemanticDimensionVisualizer:
                 tokens = tokens_batch[i]
                 data = batch_datas[i]
                 word = batch_words[i]
+                if self.data_type == "audio":
+                    audio_to_phones = audio_align_data[align_key[data['word']]]["phones"]
+                    self.phones_to_ipa = [self.get_phone_to_ipa_mapping(phone) for phone in audio_to_phones]
                 lang = batch_langs[i]
                 dim1 = batch_dim1s[i]
                 dim2 = batch_dim2s[i]
@@ -398,6 +428,17 @@ class QwenOmniSemanticDimensionVisualizer:
                 elif self.data_type == "romanized":
                     input_word = data["romanization"]
                 relevant_indices = self.extract_relevant_token_indices(tokens, dim1, dim2, input_word, word=data['word'])
+                if self.data_type == "audio":
+                    prev_idx = relevant_indices[0]-1
+                    for j, idx in enumerate(relevant_indices):
+                        if idx == prev_idx+1:
+                            prev_idx = idx
+                            continue
+                        else:
+                            flag_idx = j-2
+                            break
+                    for j in range(relevant_indices[0], relevant_indices[flag_idx]):
+                        tokens[j+1] = self.phones_to_ipa[j-relevant_indices[0]]
                 # Extract per-sample attention: [layer][i] shape [num_heads, seq, seq]
                 sample_attentions = [layer_attn[i] for layer_attn in attentions]  # list of [num_heads, seq, seq]
                 attn_filtered = torch.stack([
@@ -433,11 +474,6 @@ class QwenOmniSemanticDimensionVisualizer:
         if self.data_type == "audio" and (audios is None or len(audios) == 0):
             print(f"[WARNING] No audio loaded for {data['word']}")
             raise ValueError(f"Audio file not found or could not be loaded for {data['word']}. Expected path: data/processed/nat/tts/{data['language']}/{data['word']}.wav")
-        
-        if self.data_type == "audio" and audios is not None:
-            for i, audio in enumerate(audios):
-                trimmed_audio = self.trim_silence_from_audio(audio)
-                audios[i] = trimmed_audio
 
         inputs = self.processor(
             text=text, 
@@ -631,6 +667,9 @@ class QwenOmniSemanticDimensionVisualizer:
         
         for step_idx, (step_attentions, step_tokens) in enumerate(zip(valid_steps, step_tokens_list)):
             target_indices = self._find_target_tokens_in_step(step_tokens, input_word, dim1, dim2)
+            if self.data_type == "audio":
+                for i, idx in enumerate(target_indices["word"]):
+                    step_tokens[idx+step_idx] = self.phones_to_ipa[i]
             step_analysis = self._analyze_single_step_attention(step_attentions, step_tokens, target_indices, step_idx)
             step_analyses.append(step_analysis)
         
@@ -891,8 +930,8 @@ if __name__ == "__main__":
     if args.constructed:
         languages = ["art"]
     else:
-        languages = ["en", "fr", "ja", "ko"]
-        # languages = ["ko"]
+        # languages = ["en", "fr", "ja", "ko"]
+        languages = ["en"]
     total_num_of_dimensions = 0
     total_num_of_words = 0
     total_num_of_words_per_language = {lang: 0 for lang in languages}
@@ -902,11 +941,24 @@ if __name__ == "__main__":
     for lang in languages:
         print(f"\nProcessing language: {lang}")
         lang_data = visualizer.data[lang]
-        print(f"Found {len(lang_data)} samples for language {lang}")
-        
+        print(f"Found {len(lang_data)} samples for language {lang}")        
         if max_samples:
             lang_data = lang_data[start_index:max_samples]
             print(f"Limiting to {len(lang_data)} samples")
+        
+        if args.data_type == "audio":
+            if args.constructed:
+                alignment_file_dir = f"data/processed/art/alignment/constructed_words.json"
+            else:
+                alignment_file_dir = f"data/processed/nat/alignment/{lang}.json"
+            with open(alignment_file_dir, "r") as f:
+                audio_align_data:list[dict] = json.load(f)
+            align_key = {}
+            for i, data in enumerate(audio_align_data):
+                align_key[data["word"]] = i
+        else:
+            audio_align_data = None
+            align_key = None
 
         # Prepare batch lists
         words, langs, constructed_prompts, dim1s, dim2s, answers, datas, dimension_names = [], [], [], [], [], [], [], []
@@ -936,7 +988,9 @@ if __name__ == "__main__":
                 answers[batch_start:batch_end],
                 datas[batch_start:batch_end],
                 dimension_names[batch_start:batch_end],
-                batch_size=batch_size
+                batch_size=batch_size,
+                audio_align_data=audio_align_data,
+                align_key=align_key
             )
             total_num_of_dimensions += (batch_end - batch_start)
         total_num_of_words += len(lang_data)
