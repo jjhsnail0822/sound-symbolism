@@ -95,15 +95,6 @@ class QwenOmniMCQExperiment:
         print(f"Running MCQ experiment on {len(mcq_data)} questions...")
         all_results = []
         for query_idx, query in enumerate(tqdm(mcq_data)):
-            # validate
-            local_hidden_states.clear()
-            query_key = json.dumps(query['meta_data'], sort_keys=True)
-            if query_key in existing_results:
-                existing_result = existing_results[query_key]
-                if existing_result.get("model_answer") != "0":
-                    all_results.append(existing_result)
-                    # continue
-
             # input
             inputs = self.get_input_tensors(query)
 
@@ -276,7 +267,7 @@ class QwenOmniMCQExperiment:
 
         # second user content
         dim = dim1 if self.dim == 1 else dim2
-        user_content_second_text = f"\n\n[SEMANTIC DIMENSION]\n{dim1} \n\n[OPTIONS]\n1: close \n2: far \nAnswer with the number only. (1-2)"
+        user_content_second_text = f"\n\n[SEMANTIC DIMENSION]\n{dim} \n\n[OPTIONS]\n1: close \n2: far \nAnswer with the number only. (1-2)"
         user_content["content"].append({"type": "text", "text": user_content_second_text})
 
         conversation.append(user_content)
@@ -367,7 +358,7 @@ if __name__ == "__main__":
 
     word_group = args.word_group
     input_data_path = f"data/{word_group}.json"
-    output_dir = "results/experiments/semantic_dimension"
+    output_dir = f"results/experiments/semantic_dimension/perturb/{args.input_type}"
 
     experiment = QwenOmniMCQExperiment(
         model_path=args.model,
