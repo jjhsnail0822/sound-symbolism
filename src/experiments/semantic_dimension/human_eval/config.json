@@ -14,6 +14,7 @@
         }
     ],
     "output_file": "data/human_eval/label_studio_survey.json",
+    "output_file_csv": "data/human_eval/label_studio_survey.csv",
     "total_questions": 190,
     "sampling_config": {
         "beautiful-ugly" : 10,
