@@ -181,6 +181,14 @@ class QwenOmniMCQExperiment:
             hook.remove()
 
         self.save_logit_lens(logit_lens_path)
+        
+        results = {
+            "hidden_states": global_hidden_states,
+            "mlp_states": global_mlp_states,
+            "attn_states": global_attn_states,
+        }
+        with open(logit_lens_path, 'w', encoding='utf-8') as f:
+            json.dump(results, f, ensure_ascii=False, indent=4)
 
         # Clean up
         del self.model
