@@ -95,6 +95,8 @@ class QwenOmniMCQExperiment:
         # Run experiment
         print(f"Running MCQ experiment on {len(mcq_data)} questions...")
         all_results = []
+        
+        mcq_data = mcq_data[:self.num_examples]
         for query_idx, item in enumerate(tqdm(mcq_data)):
             # input
             inputs = self.get_input_tensors(item)
