@@ -50,6 +50,7 @@ class QwenOmniMCQExperiment:
         self.input_type = input_type
         self.word_group = word_group
         self.dim = dim
+        self.num_examples = num_examples
 
         # Load Qwen Omni model
         print(f"Loading Qwen Omni model from {self.model_path}")
