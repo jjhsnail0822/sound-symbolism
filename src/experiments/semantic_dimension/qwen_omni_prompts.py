@@ -140,6 +140,7 @@ class QwenOmniMCQExperiment:
             # logit_lens_for_all_layers["model_answer"] = extracted_answer
             logit_lens_for_all_layers["prompt"] = prompt
             logit_lens_for_all_layers["full_response"] = model_answer
+            import pdb; pdb.set_trace()
             
             print(f"prompt: {prompt}")
             print(f"full response: {full_text}")
