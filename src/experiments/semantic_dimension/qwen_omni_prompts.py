@@ -154,19 +154,14 @@ class QwenOmniMCQExperiment:
             else:
                 extracted_answer = None
 
-            result = {
-                "prompt": prompt,
-                "model_answer": extracted_answer,
-                "full_response": model_answer,
-            }
 
             # interpretability
             gen_token_idx = text_ids[0, -1]
             logit_lens_for_all_layers = self._logit_lens_for_all_layers(local_hidden_states, gen_token_idx)
+            logit_lens_for_all_layers["model_answer"] = extracted_answer
+            logit_lens_for_all_layers["full_response"] = model_answer
+            print(model_answer)
             global_logit_lens[prompt_idx] = logit_lens_for_all_layers
-
-        # save out
-        print(f"Results saved to: {results_file_path}")
 
         # interpretability
         for hook in hooks:
