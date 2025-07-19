@@ -158,8 +158,10 @@ class QwenOmniMCQExperiment:
             # interpretability
             gen_token_idx = text_ids[0, -1]
             logit_lens_for_all_layers = self._logit_lens_for_all_layers(local_hidden_states, gen_token_idx)
-            logit_lens_for_all_layers["model_answer"] = extracted_answer
+            # logit_lens_for_all_layers["model_answer"] = extracted_answer
+            logit_lens_for_all_layers["prompt"] = prompt
             logit_lens_for_all_layers["full_response"] = model_answer
+            
             print(f"prompt: {prompt}")
             print(f"full response: {full_text}")
             print(f"model answer: {model_answer}")
