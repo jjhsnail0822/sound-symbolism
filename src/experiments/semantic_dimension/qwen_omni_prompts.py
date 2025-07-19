@@ -272,6 +272,7 @@ class QwenOmniMCQExperiment:
         user_content["content"].append({"type": "text", "text": user_content_second_text})
 
         conversation.append(user_content)
+        print(conversation)
 
         return conversation
 
