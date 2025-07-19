@@ -128,7 +128,7 @@ class QwenOmniMCQExperiment:
                 is_correct = False
 
             result = {
-                "meta_data": query['meta_data'],
+                "meta_data": item,
                 "model_answer": extracted_answer,
                 "full_response": model_answer,
                 "is_correct": is_correct
@@ -210,9 +210,9 @@ class QwenOmniMCQExperiment:
         elif self.dim == 2:  # ternary
             expected = {"2": dim1, "1": dim2}
         else:
-            raise ValueError(f"Invalid dimension: {self.dim}")
+            return False  # or raise an error if needed
 
-        return expected.get(extracted_answer) == answer
+return expected.get(extracted_answer) == answer
         
     def save_logit_lens(self, logit_lens_path):
         with open(logit_lens_path, 'w', encoding='utf-8') as f:
