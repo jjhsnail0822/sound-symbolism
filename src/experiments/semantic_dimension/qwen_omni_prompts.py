@@ -94,39 +94,18 @@ class QwenOmniMCQExperiment:
         
         
         prompts = [
-  "What is the capital of South Korea?",
-  "Which country has Berlin as its capital?",
-  "Name the capital city of France.",
-  "If it’s raining and you forget your umbrella, what might happen?",
-  "You put ice cream in the sun. What happens next?",
-  "Barack Obama is a [MASK].",
-  "Amazon is a [MASK].",
-  "Translate the following English sentence into Korean: \"Good morning.\"",
-  "Summarize the following paragraph in one sentence.",
-  "Classify the sentiment of this sentence: \"I absolutely loved the movie!\"",
-  "Label the following review as Positive, Neutral, or Negative: \"The food was bland and overpriced.\"",
-  "Identify whether the text below is spam or not spam: \"Congratulations! You've won a free iPhone. Click here!\"",
-  "Who wrote the novel '1984'?",
-  "What is the boiling point of water in Celsius?",
-  "If a glass falls off a table, what usually happens?",
-  "Why do people wear coats in the winter?",
-  "Elon Musk is a [MASK].",
-  "Google is a [MASK].",
-  "Write a short poem about the ocean.",
-  "Explain photosynthesis to a 5-year-old.",
-  "Determine the topic of this sentence: \"The president gave a speech about economic growth.\"",
-  "Classify this news headline as Politics, Sports, or Entertainment: \"The Lakers win the NBA Finals.\"",
-  "If there are 5 apples and you eat 2, how many apples are left?",
-  "Tom has 3 pencils. Jerry gives him 4 more. How many pencils does Tom have in total?",
-  "Translate this sentence to French: \"I love learning new things.\"",
-  "Translate this sentence into Japanese: \"Where is the nearest train station?\"",
-  "Summarize this sentence: \"The company reported a 10% increase in revenue due to strong international sales.\"",
-  "Summarize the following paragraph in 1-2 sentences.",
-  "Write a Python function to check if a number is even.",
-  "Generate a SQL query to select all customers from the 'users' table who are older than 30.",
-  "You are a travel agent. Recommend a 5-day itinerary in Italy.",
-  "Pretend you are a barista. Explain different types of coffee drinks to a customer."
+  "Classify the review: 1. Helpful 2. Not Helpful — \"This review gave me all the info I needed.\" Output should be: 1. or 2.",
+  "Is this message urgent? 1. Yes 2. No — \"Server down. Immediate action required.\" Output should be: 1. or 2.",
+  "Label the emotion: 1. Happy 2. Sad — \"I just got promoted today!\" Output should be: 1. or 2.",
+  "Classify the content: 1. News 2. Advertisement — \"Buy one, get one free — limited time only!\" Output should be: 1. or 2.",
+  "Is the sentence polite? 1. Yes 2. No — \"Move your stuff, it's in the way.\" Output should be: 1. or 2.",
+  "Label this feedback: 1. Constructive 2. Unhelpful — \"You suck at this. Do better.\" Output should be: 1. or 2.",
+  "Is the tone positive? 1. Yes 2. No — \"I had a wonderful time at the concert.\" Output should be: 1. or 2.",
+  "Classify this question: 1. Factual 2. Opinion-based — \"Is chocolate better than vanilla?\" Output should be: 1. or 2.",
+  "Label the message: 1. Customer Inquiry 2. Complaint — \"I still haven’t received my order.\" Output should be: 1. or 2.",
+  "Identify the intent: 1. Request 2. Statement — \"Can you resend the report by 5 PM?\" Output should be: 1. or 2."
 ]
+
         for prompt_idx, prompt in enumerate(tqdm(prompts)):
             local_hidden_states.clear()
             
@@ -153,9 +132,7 @@ class QwenOmniMCQExperiment:
                 extracted_answer = answer_match.group(0)
             else:
                 extracted_answer = None
-
             
-
 
             # interpretability
             gen_token_idx = inputs["input_ids"].shape[-1]
@@ -374,6 +351,7 @@ class QwenOmniMCQExperiment:
         print(f"top word      : {top_word}")
         print("")
         print(f"choice prob   : {choice_prob}")
+        print(f"gen token idx : {gen_token_idx}")
 
         print("=========================================")
 
