@@ -30,7 +30,7 @@ def save_hidden_for_each_layer(layer_id, dict_store):
     def inner(module, input, output):
         # only save the first token (in the ideal case, the token is the very first one!)
         if layer_id not in dict_store:
-            hidden = output[0][0, -1].detach().float().cpu().numpy()
+            hidden = output[0][0, -1].detach().float().cpu().numpy().tolist()
             dict_store[layer_id] = hidden
 
     return inner
