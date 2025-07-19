@@ -159,7 +159,6 @@ class QwenOmniMCQExperiment:
 
             result = {
                 "prompt": prompt,
-                "task": task,
                 "model_answer": extracted_answer,
                 "full_response": model_answer,
             }
