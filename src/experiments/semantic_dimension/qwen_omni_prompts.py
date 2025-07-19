@@ -11,9 +11,6 @@ from tqdm import tqdm
 from transformers import Qwen2_5OmniForConditionalGeneration, Qwen2_5OmniProcessor
 
 # interpretability
-qwen_token_1 = 16
-qwen_token_2 = 17
-
 local_hidden_states = {}
 global_hidden_states = {}
 
@@ -164,7 +161,8 @@ class QwenOmniMCQExperiment:
             }
 
             # interpretability
-            logit_lens_for_all_layers = self._logit_lens_for_all_layers(local_hidden_states)
+            gen_token_idx = text_ids[0, -1]
+            logit_lens_for_all_layers = self._logit_lens_for_all_layers(local_hidden_states, gen_token_idx)
             global_logit_lens[prompt_idx] = logit_lens_for_all_layers
 
         # save out
@@ -327,18 +325,18 @@ class QwenOmniMCQExperiment:
 
         return conversation
 
-    def _logit_lens_for_all_layers(self, local_hidden_states):
+    def _logit_lens_for_all_layers(self, local_hidden_states, gen_token_idx):
         logit_lens_for_all_layers = {}
         for layer_id, hidden_state in local_hidden_states.items():
             print(f"Processing layer: {layer_id}")
-            logit_lens = self._logit_lens(hidden_state)
+            logit_lens = self._logit_lens(hidden_state, gen_token_idx)
             logit_lens_for_all_layers[layer_id] = logit_lens
 
         print("======" * 20)
 
         return logit_lens_for_all_layers
 
-    def _logit_lens(self, hidden_state):
+    def _logit_lens(self, hidden_state, gen_token_idx):
         hidden_state = torch.tensor(hidden_state, dtype=torch.bfloat16).to(self.model.device)
 
         normalized = self.thinker_norm(hidden_state)
@@ -346,8 +344,8 @@ class QwenOmniMCQExperiment:
         prob = torch.nn.functional.softmax(logits, dim=-1)
 
         # choice
-        choice_logits = logits[qwen_token_1: qwen_token_2 + 1].tolist()
-        choice_prob = prob[qwen_token_1: qwen_token_2 + 1].tolist()
+        choice_logits = logits[gen_token_idx:gen_token_idx+1].tolist()
+        choice_prob = prob[gen_token_idx:gen_token_idx+1].tolist()
 
         # top
         top_prob = torch.topk(prob, 1, dim=-1).values[0].tolist()
