@@ -99,6 +99,8 @@ class QwenOmniMCQExperiment:
         
         mcq_data = mcq_data[:self.num_examples]
         for query_idx, item in enumerate(tqdm(mcq_data)):
+            local_hidden_states.clear()
+            
             # input
             inputs = self.get_input_tensors(item)
 
