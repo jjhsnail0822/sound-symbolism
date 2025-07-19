@@ -212,7 +212,7 @@ class QwenOmniMCQExperiment:
         else:
             return False  # or raise an error if needed
 
-return expected.get(extracted_answer) == answer
+        return expected.get(extracted_answer) == answer
         
     def save_logit_lens(self, logit_lens_path):
         with open(logit_lens_path, 'w', encoding='utf-8') as f:
