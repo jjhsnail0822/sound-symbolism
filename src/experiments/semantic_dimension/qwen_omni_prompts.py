@@ -264,7 +264,7 @@ class QwenOmniMCQExperiment:
                 audio_path = f'data/processed/art/tts/{word}.wav'
             else:
                 audio_path = f'data/processed/nat/tts/{language}/{word}.wav'
-            user_content["content"].append({"type": "audio", "text": audio_path})
+            user_content["content"].append({"type": "audio", "audio": audio_path})
 
         # second user content
         dim = dim1 if self.dim == 1 else dim2
