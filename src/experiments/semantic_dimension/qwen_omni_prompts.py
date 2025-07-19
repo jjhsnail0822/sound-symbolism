@@ -41,6 +41,7 @@ class QwenOmniMCQExperiment:
             input_type: str,
             word_group: str,
             dim: int,
+            num_examples: int,
     ):
         self.model_path = model_path
         self.data_path = data_path
@@ -353,6 +354,7 @@ if __name__ == "__main__":
     parser.add_argument("--word_group", "-w", type=str, choices=["common", "rare", "constructed"])
     parser.add_argument("--max-tokens", type=int, default=32, help="Maximum tokens to generate")
     parser.add_argument("--dim",'-d', default=1, help="Dimension to run the experiment on")
+    parser.add_argument("--num_examples", "-n", type=int, default=100, help="Number of examples to run")
 
     args = parser.parse_args()
 
@@ -368,6 +370,7 @@ if __name__ == "__main__":
         input_type=args.input_type,
         word_group=word_group,
         dim=args.dim,
+        num_examples=args.num_examples,
     )
 
     experiment.run_mcq_experiment()
