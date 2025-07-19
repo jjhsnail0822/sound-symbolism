@@ -162,17 +162,12 @@ class QwenOmniMCQExperiment:
                 "model_answer": extracted_answer,
                 "full_response": model_answer,
             }
-            all_results.append(result)
-
-            if len(all_results) % 10 == 0:
-                self.save_output(all_results, results_file_path)
 
             # interpretability
             logit_lens_for_all_layers = self._logit_lens_for_all_layers(local_hidden_states)
             global_logit_lens[prompt_idx] = logit_lens_for_all_layers
 
         # save out
-        self.save_output(all_results, results_file_path)
         print(f"Results saved to: {results_file_path}")
 
         # interpretability
