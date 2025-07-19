@@ -135,7 +135,7 @@ class QwenOmniMCQExperiment:
             
 
             # interpretability
-            gen_token_idx = inputs["input_ids"].shape[-1]
+            gen_token_idx = text_ids[0, inputs["input_ids"].shape[-1]]
             logit_lens_for_all_layers = self._logit_lens_for_all_layers(local_hidden_states, gen_token_idx)
             # logit_lens_for_all_layers["model_answer"] = extracted_answer
             logit_lens_for_all_layers["prompt"] = prompt
