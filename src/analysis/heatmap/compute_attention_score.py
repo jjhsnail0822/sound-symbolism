@@ -682,7 +682,7 @@ class AttentionScoreCalculator:
                         'q25': float(np.percentile(arr, 25)),
                         'q75': float(np.percentile(arr, 75)),
                     }
-        breakpoint()
+        # breakpoint()
         return stats
     
     def aggregate_scores_across_files_multi(self, data_type: str, langs: list, attention_type: str = "generation_attention"):
@@ -1064,15 +1064,33 @@ class AttentionScoreCalculator:
         if not stats or not any(stats.values()):
             print(f"[WARN] No data to plot for lang={lang}, condition={condition_desc}")
             return
-        semdim_list = sorted(stats.keys())
-        ipa_list = sorted({ipa for semdim in stats for ipa in stats[semdim]})
-        if not semdim_list or not ipa_list:
-            print(f"[WARN] No semantic dimensions or IPA symbols to plot for lang={lang}, condition={condition_desc}")
-            return
-        matrix = np.zeros((len(semdim_list), len(ipa_list)))
-        for i, semdim in enumerate(semdim_list):
-            for j, ipa in enumerate(ipa_list):
-                matrix[i, j] = stats[semdim].get(ipa, 0.0)
+        
+        # Handle different stats structures
+        if isinstance(next(iter(stats.values())), dict) and 'all' in next(iter(next(iter(stats.values())).values())):
+            # Structure: stats[ipa][semdim]['all']['mean']
+            ipa_list = sorted(stats.keys())
+            semdim_list = sorted({semdim for ipa in stats for semdim in stats[ipa]})
+            if not semdim_list or not ipa_list:
+                print(f"[WARN] No semantic dimensions or IPA symbols to plot for lang={lang}, condition={condition_desc}")
+                return
+            matrix = np.zeros((len(semdim_list), len(ipa_list)))
+            for i, semdim in enumerate(semdim_list):
+                for j, ipa in enumerate(ipa_list):
+                    if ipa in stats and semdim in stats[ipa] and 'all' in stats[ipa][semdim]:
+                        matrix[i, j] = stats[ipa][semdim]['all']['mean']
+                    else:
+                        matrix[i, j] = 0.0
+        else:
+            # Structure: stats[semdim][ipa] = float
+            semdim_list = sorted(stats.keys())
+            ipa_list = sorted({ipa for semdim in stats for ipa in stats[semdim]})
+            if not semdim_list or not ipa_list:
+                print(f"[WARN] No semantic dimensions or IPA symbols to plot for lang={lang}, condition={condition_desc}")
+                return
+            matrix = np.zeros((len(semdim_list), len(ipa_list)))
+            for i, semdim in enumerate(semdim_list):
+                for j, ipa in enumerate(ipa_list):
+                    matrix[i, j] = stats[semdim].get(ipa, 0.0)
         import matplotlib.pyplot as plt
         import seaborn as sns
         fig, ax = plt.subplots(figsize=(max(12, len(ipa_list)*0.3), max(10, len(semdim_list)*0.3)))
@@ -1098,25 +1116,33 @@ class AttentionScoreCalculator:
         self, data_type, lang, attention_type="generation_attention", start_layer=20, end_layer=27
     ):
         base_dir = os.path.join(self.output_dir, "semantic_dimension", data_type, lang)
-        analysis_dir = os.path.join(base_dir, "generation_attention")
+        if attention_type == "generation_attention":
+            analysis_dir = os.path.join(base_dir, "generation_attention")
+        else:
+            analysis_dir = os.path.join(base_dir, "self_attention")
         if not os.path.exists(analysis_dir):
             print(f"Directory not found: {analysis_dir}")
             return None
-        all_scores = {}  # (ipa, semdim): [score, ...]
-        for filename in os.listdir(analysis_dir):
-            if not filename.endswith('.pkl'):
+        all_scores = {}  # (ipa, semdim, layer, head): [score, ...]
+        num_of_files = 0
+        for foldername in os.listdir(analysis_dir):
+            if foldername.endswith('.pkl') or foldername.endswith(".json"):
                 continue
-            file_path = os.path.join(analysis_dir, filename)
-            try:
-                with open(file_path, "rb") as f:
-                    data = pkl.load(f)
-                gen_analysis = data.get("generation_analysis", {})
+            semdim_dir = os.path.join(analysis_dir, foldername)
+            for filename in os.listdir(semdim_dir):
+                num_of_files += 1
+                print(f"Processing {num_of_files:>7,}th file : {filename}")
+                data = pkl.load(open(os.path.join(semdim_dir, filename), 'rb'))
+                word, dim1, dim2 = filename.rsplit("_", 2)
+                if dim2.endswith(".pkl"):
+                    dim2 = dim2[:-4]
+                alt_data = pkl.load(open(os.path.join(analysis_dir, f"{word}_{dim1}_{dim2}_generation_analysis.pkl"), 'rb'))
+                
+                # Check response condition
+                gen_analysis = alt_data.get("generation_analysis", {})
                 answer = gen_analysis.get("answer", None)
-                dim1 = gen_analysis.get("dimension1", None)
-                dim2 = gen_analysis.get("dimension2", None)
                 response = gen_analysis.get("response", None)
-                input_word = gen_analysis.get("input_word", "")
-                if not (answer and dim1 and dim2 and response):
+                if not (answer and response):
                     continue
                 resp_num = None
                 if '1' in response:
@@ -1128,53 +1154,142 @@ class AttentionScoreCalculator:
                     (resp_num == "2" and answer == dim2)
                 ):
                     continue
-                # Extract IPA symbols from tokens (works for both audio and IPA data types)
-                tokens = gen_analysis.get("tokens", [])
-                if tokens:
-                    ipa_symbols = self.extract_ipa_from_tokens(tokens)
+                
+                target_indices = gen_analysis['step_analyses'][0]['target_indices']
+                wlen = len(target_indices['word'])
+                d1len = len(target_indices['dim1'])
+                d2len = len(target_indices['dim2'])
+                input_word = gen_analysis['input_word']
+                input_word_list = input_word.split()
+                attention_matrices = data['attention_matrices']
+                
+                # Handle different attention matrix formats
+                if isinstance(attention_matrices[0], (list, tuple)):
+                    attn_layers = attention_matrices[0]
+                    n_layer = len(attn_layers)
+                    n_head = len(attn_layers[0]) if attn_layers else 0
                 else:
-                    # Fallback to input_word parsing if tokens not available
-                    ipa_symbols = [self._clean_token(ipa) for ipa in str(input_word).split() if self._clean_token(ipa) in self.ipa_symbols]
-                if not ipa_symbols:
-                    continue
-                for step in gen_analysis.get("step_analyses", []):
-                    target_indices = step.get("target_indices", {})
-                    word_indices = target_indices.get("word", [])
-                    dim1_indices = target_indices.get("dim1", [])
-                    dim2_indices = target_indices.get("dim2", [])
-                    attn = step.get("attentions", None) or step.get("step_attentions", None)
-                    if attn is None:
+                    attn_layers = attention_matrices[0]
+                    if attn_layers.ndim == 4:
+                        attn_layers = attn_layers[0]
+                    n_layer = attn_layers.shape[0] if attn_layers.ndim >= 3 else 1
+                    n_head = attn_layers.shape[1] if attn_layers.ndim >= 3 else 1
+                
+                word_range = range(0, wlen)
+                dim1_range = range(wlen, wlen+d1len)
+                dim2_range = range(wlen+d1len, wlen+d1len+d2len)
+                
+                # Determine which dimension is correct based on answer
+                if answer == dim1:
+                    correct_dim = dim1
+                    correct_range = dim1_range
+                    wrong_dim = dim2
+                    wrong_range = dim2_range
+                else:
+                    correct_dim = dim2
+                    correct_range = dim2_range
+                    wrong_dim = dim1
+                    wrong_range = dim1_range
+                
+                for ipa_idx, ipa in enumerate(input_word_list):
+                    if ipa_idx >= wlen:
                         continue
-                    if isinstance(attn, np.ndarray):
-                        attn = torch.tensor(attn)
-                    n_layer, n_head, seq_len, _ = attn.shape
-                    for ipa_idx, ipa in enumerate(ipa_symbols):
-                        if ipa_idx >= len(word_indices):
-                            continue
-                        word_idx = word_indices[ipa_idx]
-                        if answer == dim1:
-                            correct_indices = dim1_indices
-                            wrong_indices = dim2_indices
-                            semdim = dim1
+                    for layer in range(start_layer, min(end_layer+1, n_layer)):
+                        if isinstance(attn_layers, (list, tuple)):
+                            attn = attn_layers[layer]
                         else:
-                            correct_indices = dim2_indices
-                            wrong_indices = dim1_indices
-                            semdim = dim2
-                        for layer in range(start_layer, min(end_layer+1, n_layer)):
-                            for head in range(n_head):
-                                correct_score = sum(attn[layer, head, d_idx, word_idx].item() for d_idx in correct_indices if d_idx < seq_len and word_idx < seq_len)
-                                wrong_score = sum(attn[layer, head, d_idx, word_idx].item() for d_idx in wrong_indices if d_idx < seq_len and word_idx < seq_len)
+                            attn = attn_layers[layer]
+                        
+                        if attn.ndim == 4:
+                            for head in range(attn.shape[1]):
+                                if len(correct_range) == 0:
+                                    continue
+                                valid_correct_scores = []
+                                valid_wrong_scores = []
+                                for d_idx in correct_range:
+                                    if d_idx < attn.shape[2] and ipa_idx < attn.shape[3]:
+                                        valid_correct_scores.append(attn[0, head, d_idx, ipa_idx].item())
+                                for d_idx in wrong_range:
+                                    if d_idx < attn.shape[2] and ipa_idx < attn.shape[3]:
+                                        valid_wrong_scores.append(attn[0, head, d_idx, ipa_idx].item())
+                                
+                                correct_score = float(np.mean(valid_correct_scores)) if valid_correct_scores else 0.0
+                                wrong_score = float(np.mean(valid_wrong_scores)) if valid_wrong_scores else 0.0
                                 denom = correct_score + wrong_score
                                 score = correct_score / denom if denom > 0 else 0.0
-                                key = (ipa, semdim, layer, head)
+                                key = (ipa, correct_dim, layer, head)
                                 all_scores.setdefault(key, []).append(score)
-            except Exception as e:
-                print(f"Error processing file {filename}: {e}")
-                continue
+                                
+                        elif attn.ndim == 3:
+                            for head in range(n_head):
+                                if len(correct_range) == 0:
+                                    continue
+                                valid_correct_scores = []
+                                valid_wrong_scores = []
+                                for d_idx in correct_range:
+                                    if d_idx < attn.shape[1] and ipa_idx < attn.shape[2]:
+                                        valid_correct_scores.append(attn[head, d_idx, ipa_idx].item())
+                                for d_idx in wrong_range:
+                                    if d_idx < attn.shape[1] and ipa_idx < attn.shape[2]:
+                                        valid_wrong_scores.append(attn[head, d_idx, ipa_idx].item())
+                                
+                                correct_score = float(np.mean(valid_correct_scores)) if valid_correct_scores else 0.0
+                                wrong_score = float(np.mean(valid_wrong_scores)) if valid_wrong_scores else 0.0
+                                denom = correct_score + wrong_score
+                                score = correct_score / denom if denom > 0 else 0.0
+                                key = (ipa, correct_dim, layer, head)
+                                all_scores.setdefault(key, []).append(score)
+                                
+                        elif attn.ndim == 2:
+                            if len(correct_range) == 0:
+                                continue
+                            valid_correct_scores = []
+                            valid_wrong_scores = []
+                            for d_idx in correct_range:
+                                if d_idx < attn.shape[0] and ipa_idx < attn.shape[1]:
+                                    valid_correct_scores.append(attn[d_idx, ipa_idx].item())
+                            for d_idx in wrong_range:
+                                if d_idx < attn.shape[0] and ipa_idx < attn.shape[1]:
+                                    valid_wrong_scores.append(attn[d_idx, ipa_idx].item())
+                            
+                            correct_score = float(np.mean(valid_correct_scores)) if valid_correct_scores else 0.0
+                            wrong_score = float(np.mean(valid_wrong_scores)) if valid_wrong_scores else 0.0
+                            denom = correct_score + wrong_score
+                            score = correct_score / denom if denom > 0 else 0.0
+                            key = (ipa, correct_dim, layer, 0)
+                            all_scores.setdefault(key, []).append(score)
+                        else:
+                            print(f"[WARN] Unexpected attn shape: {attn.shape}")
+                            continue
+        
         stats = {}
-        for (ipa, semdim), scores in all_scores.items():
+        for (ipa, semdim, layer, head), scores in all_scores.items():
             arr = np.array(scores)
-            stats.setdefault(semdim, {})[ipa] = float(np.mean(arr)) if len(arr) > 0 else 0.0
+            stats.setdefault(ipa, {}).setdefault(semdim, {}).setdefault('layerwise', {})[(layer, head)] = {
+                'mean': float(np.mean(arr)),
+                'std': float(np.std(arr)),
+                'min': float(np.min(arr)),
+                'max': float(np.max(arr)),
+                'median': float(np.median(arr)),
+                'count': int(len(arr)),
+                'q25': float(np.percentile(arr, 25)),
+                'q75': float(np.percentile(arr, 75)),
+            }
+        for ipa in stats:
+            for semdim in stats[ipa]:
+                all_means = [v['mean'] for v in stats[ipa][semdim]['layerwise'].values()]
+                if all_means:
+                    arr = np.array(all_means)
+                    stats[ipa][semdim]['all'] = {
+                        'mean': float(np.mean(arr)),
+                        'std': float(np.std(arr)),
+                        'min': float(np.min(arr)),
+                        'max': float(np.max(arr)),
+                        'median': float(np.median(arr)),
+                        'count': int(len(arr)),
+                        'q25': float(np.percentile(arr, 25)),
+                        'q75': float(np.percentile(arr, 75)),
+                    }
         return stats
 
     def aggregate_scores_multi_lang(
@@ -1192,9 +1307,16 @@ class AttentionScoreCalculator:
                 all_stats[lang] = stats
         merged = {}
         for lang, stats in all_stats.items():
-            for ipa in stats:
-                for semdim in stats[ipa]:
-                    merged.setdefault(ipa, {}).setdefault(semdim, []).append(stats[ipa][semdim]['all']['mean'])
+            if response_condition:
+                # Structure: stats[semdim][ipa] = float
+                for semdim in stats:
+                    for ipa in stats[semdim]:
+                        merged.setdefault(ipa, {}).setdefault(semdim, []).append(stats[semdim][ipa])
+            else:
+                # Structure: stats[ipa][semdim]['all']['mean']
+                for ipa in stats:
+                    for semdim in stats[ipa]:
+                        merged.setdefault(ipa, {}).setdefault(semdim, []).append(stats[ipa][semdim]['all']['mean'])
         stats_all = {}
         for ipa in merged:
             for semdim in merged[ipa]:
