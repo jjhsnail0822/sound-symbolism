@@ -365,7 +365,8 @@ if __name__ == "__main__":
 
     args = parser.parse_args()
 
-    input_data_path = f"data/prompts/semantic_dimension/semantic_dimension_binary_{args.input_type}-{args.word_group}.json"
+    word_group = args.word_group
+    input_data_path = f"data/{word_group}.json"
     output_dir = "results/experiments/semantic_dimension"
 
     experiment = QwenOmniMCQExperiment(
@@ -374,7 +375,7 @@ if __name__ == "__main__":
         output_dir=output_dir,
         max_tokens=args.max_tokens,
         input_type=args.input_type,
-        word_group=args.word_group,
+        word_group=word_group,
         dim=args.dim,
     )
 
