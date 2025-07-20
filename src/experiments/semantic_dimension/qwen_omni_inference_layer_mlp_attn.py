@@ -88,7 +88,7 @@ class QwenOmniMCQExperiment:
         with open(self.data_path, 'r', encoding='utf-8') as f:
             mcq_data = json.load(f)
         print(f"Loaded {len(mcq_data)} questions.")
-        mcq_data = mcq_data[:1000]
+        mcq_data = mcq_data[:100]
 
         # mlp attn hidden states path
         mlp_attn_hidden_states_dir = "./results/mlp_attn_hidden_states"
