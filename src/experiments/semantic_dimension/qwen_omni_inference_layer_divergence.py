@@ -97,7 +97,7 @@ class QwenOmniMCQExperiment:
         # distance results path
         results_dir = "./results/layer_divergence"
         os.makedirs(results_dir, exist_ok=True)
-        results_path = os.path.join(results_dir, f"distances_{self.word_group}.json")
+        results_path = os.path.join(results_dir, f"distances_{self.word_group}_{model_name}.json")
 
         # Run experiment
         print(f"Running MCQ experiment on {num_questions} questions...")
@@ -358,7 +358,7 @@ if __name__ == "__main__":
         # Save combined results
         results_dir = "./results/layer_divergence"
         os.makedirs(results_dir, exist_ok=True)
-        results_path = os.path.join(results_dir, f"distances_natural.json")
+        results_path = os.path.join(results_dir, f"distances_natural_{args.model.split('/')[-1]}.json")
         with open(results_path, 'w', encoding='utf-8') as f:
             json.dump(combined_results, f, ensure_ascii=False, indent=4)
         print(f"Combined distance results for 'natural' saved to: {results_path}")

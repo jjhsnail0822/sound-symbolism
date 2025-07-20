@@ -57,7 +57,9 @@ def plot_average_cosine_distances(json_file_path):
         ax.plot(df_avg.index, df_avg[column], marker='o', linestyle='-', label=column)
 
     # Set plot titles and labels
-    ax.set_title('Average Cosine Distance between Input Types per Layer', fontsize=16)
+    word_group = json_file_path.split('/')[-1].split('_')[1]
+    model_name = json_file_path.split('/')[-1].split('_')[2].replace('.json', '')
+    ax.set_title(f'Average Cosine Distance between Input Types per Layer ({word_group}, {model_name})', fontsize=16)
     ax.set_xlabel('Layer Number', fontsize=12)
     ax.set_ylabel('Average Cosine Distance', fontsize=12)
 
@@ -68,9 +70,9 @@ def plot_average_cosine_distances(json_file_path):
 
     # Adjust layout and display the plot
     plt.tight_layout(rect=[0, 0, 0.85, 1])
-    plt.savefig('results/plots/layer_divergence/average_cosine_distances_per_layer.png', dpi=300)
+    plt.savefig(f'results/plots/layer_divergence/distances_{word_group}_{model_name}.png', dpi=300)
 
 if __name__ == '__main__':
     # The path to your JSON file
-    json_path = 'results/layer_divergence/distances_constructed.json'
+    json_path = 'results/layer_divergence/distances_constructed_Qwen2.5-Omni-7B.json'
     plot_average_cosine_distances(json_path)
