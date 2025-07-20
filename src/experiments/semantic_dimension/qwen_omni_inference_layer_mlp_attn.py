@@ -99,9 +99,9 @@ class QwenOmniMCQExperiment:
         print(f"Running MCQ experiment on {len(mcq_data)} questions...")
         for query_idx, query in enumerate(tqdm(mcq_data)):
             # validate
-            local_hidden_states = {}
-            local_mlp_states = {}
-            local_attn_states = {}
+            local_hidden_states.clear()
+            local_mlp_states.clear()
+            local_attn_states.clear()
             
             # input
             inputs = self.get_input_tensors(query)
