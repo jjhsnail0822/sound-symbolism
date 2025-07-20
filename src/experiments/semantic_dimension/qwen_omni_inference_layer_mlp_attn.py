@@ -97,7 +97,6 @@ class QwenOmniMCQExperiment:
 
         # Run experiment
         print(f"Running MCQ experiment on {len(mcq_data)} questions...")
-        all_results = []
         for query_idx, query in enumerate(tqdm(mcq_data)):
             # validate
             local_hidden_states = {}
@@ -137,17 +136,6 @@ class QwenOmniMCQExperiment:
             except ValueError:
                 print(f"Warning: Model output '{extracted_answer}' is not a valid integer. Marking as incorrect.")
                 is_correct = False
-
-            result = {
-                "meta_data": query['meta_data'],
-                "model_answer": extracted_answer,
-                "full_response": model_answer,
-                "is_correct": is_correct
-            }
-            all_results.append(result)
-
-            if len(all_results) % 10 == 0:
-                self.save_output(all_results, results_file_path)
 
             # interpretability
             input_length = inputs["input_ids"].shape[-1]
@@ -197,35 +185,6 @@ class QwenOmniMCQExperiment:
         )
         inputs = inputs.to(self.model.device).to(self.model.dtype)
         return inputs
-
-    def collect_already_done(self, results_file_path):
-        existing_results = {}
-        if os.path.exists(results_file_path):
-            print("Found existing results file. Resuming experiment.")
-            with open(results_file_path, 'r', encoding='utf-8') as f:
-                try:
-                    saved_data = json.load(f)
-                    for res in saved_data.get('results', []):
-                        example_key = json.dumps(res['meta_data'], sort_keys=True)
-                        existing_results[example_key] = res
-                    print(f"Loaded {len(existing_results)} existing results.")
-                except json.JSONDecodeError:
-                    print("Warning: Could not decode JSON from results file. Starting from scratch.")
-        return existing_results
-
-    def save_output(self, all_results, results_filename):
-        correct_count = sum(1 for r in all_results if r["is_correct"])
-        total_count = len(all_results)
-        accuracy = correct_count / total_count if total_count > 0 else 0
-        results_dict = {
-            "model": self.model_path,
-            "accuracy": accuracy,
-            "correct_count": correct_count,
-            "total_count": total_count,
-            "results": all_results,
-        }
-        with open(results_filename, 'w', encoding='utf-8') as f:
-            json.dump(results_dict, f, ensure_ascii=False, indent=4)
 
     def _get_conversation(self, query):
         word = query['meta_data']['word']
