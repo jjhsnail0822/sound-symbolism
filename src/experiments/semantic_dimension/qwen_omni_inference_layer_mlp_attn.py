@@ -10,28 +10,36 @@ from qwen_omni_utils import process_mm_info
 from tqdm import tqdm
 from transformers import Qwen2_5OmniForConditionalGeneration, Qwen2_5OmniProcessor
 
+import numpy as np
+import pickle
+
+
 # interpretability
 qwen_token_1 = 16
 qwen_token_2 = 17
 
-local_hidden_states = {}
-local_mlp_states = {}
-local_attn_states = {}
+key_list = []
 
-global_hidden_states = {}
-global_mlp_states = {}
-global_attn_states = {}
+local_hidden_states = []
+local_mlp_states = []
+local_attn_states = []
 
-global_logit_lens = {}
+global_hidden_states = []
+global_mlp_states = []
+global_attn_states = []
+
 hooks = []
 
 
-def save_hidden_for_each_layer(layer_id, dict_store):
+def save_hidden_for_each_layer(layer_id, store_list):
     def inner(module, input, output):
         # only save the first token (in the ideal case, the token is the very first one!)
-        if layer_id not in dict_store:
-            hidden = output[0][0, -1].detach().float().cpu().numpy()
-            dict_store[layer_id] = hidden
+        if layer_id == len(store_list):
+            if isinstance(output, tuple): # block, attention
+                hidden = output[0][0, -1].detach().float().cpu().numpy()
+            else:
+                hidden = output[0, -1].detach().float().cpu().numpy()
+            store_list.append(hidden)
 
     return inner
 
@@ -45,7 +53,6 @@ class QwenOmniMCQExperiment:
             max_tokens: int,
             input_type: str = "original",
             word_group: str = "common",
-            is_debug: bool = False,
     ):
         self.model_path = model_path
         self.data_path = data_path
@@ -91,10 +98,10 @@ class QwenOmniMCQExperiment:
         results_file_path = f"{self.output_dir}/{self.data_path.split('/')[-1].replace('.json', '')}_{model_name}.json"
         print(f"Results will be saved to: {results_file_path}")
 
-        # logit lens path
-        logit_lens_dir = "./results/logit_lens"
-        os.makedirs(logit_lens_dir, exist_ok=True)
-        logit_lens_path = os.path.join(logit_lens_dir, f"{self.input_type}_{self.word_group}.json")
+        # mlp attn hidden states path
+        mlp_attn_hidden_states_dir = "./results/mlp_attn_hidden_states"
+        os.makedirs(mlp_attn_hidden_states_dir, exist_ok=True)
+        pickle_path = os.path.join(mlp_attn_hidden_states_dir, f"{self.input_type}_{self.word_group}.pkl")
 
         # check existing results
         existing_results = self.collect_already_done(results_file_path)
@@ -104,9 +111,9 @@ class QwenOmniMCQExperiment:
         all_results = []
         for query_idx, query in enumerate(tqdm(mcq_data)):
             # validate
-            local_hidden_states.clear()
-            local_mlp_states.clear()
-            local_attn_states.clear()
+            local_hidden_states = []
+            local_mlp_states = []
+            local_attn_states = []
             
             query_key = json.dumps(query['meta_data'], sort_keys=True)
             if query_key in existing_results:
@@ -167,10 +174,10 @@ class QwenOmniMCQExperiment:
             # save only for the ideal output
             if pure_out.shape[-1] == 3:
                 example_key = self._get_example_key(query)
-                global_hidden_states[example_key] = local_hidden_states.copy()
-                global_mlp_states[example_key] = local_mlp_states.copy()
-                global_attn_states[example_key] = local_attn_states.copy()
-                import pdb; pdb.set_trace()
+                key_list.append(example_key)
+                global_hidden_states.append(np.stack(local_hidden_states, axis=0))
+                global_mlp_states.append(np.stack(local_mlp_states, axis=0))
+                global_attn_states.append(np.stack(local_attn_states, axis=0))
 
 
             # save out
@@ -181,15 +188,20 @@ class QwenOmniMCQExperiment:
         for hook in hooks:
             hook.remove()
 
-        self.save_logit_lens(logit_lens_path)
+        global_hidden_states = np.stack(global_hidden_states, axis=0)
+        global_mlp_states = np.stack(global_mlp_states, axis=0)
+        global_attn_states = np.stack(global_attn_states, axis=0)
         
+        # save
         results = {
+            "key_list": key_list,
             "hidden_states": global_hidden_states,
             "mlp_states": global_mlp_states,
             "attn_states": global_attn_states,
         }
-        with open(logit_lens_path, 'w', encoding='utf-8') as f:
-            json.dump(results, f, ensure_ascii=False, indent=4)
+        
+        with open(pickle_path, 'wb') as f:
+            pickle.dump(results, f)
 
         # Clean up
         del self.model
@@ -229,10 +241,6 @@ class QwenOmniMCQExperiment:
                 except json.JSONDecodeError:
                     print("Warning: Could not decode JSON from results file. Starting from scratch.")
         return existing_results
-
-    def save_logit_lens(self, logit_lens_path):
-        with open(logit_lens_path, 'w', encoding='utf-8') as f:
-            json.dump(global_logit_lens, f, ensure_ascii=False, indent=4)
 
     def save_output(self, all_results, results_filename):
         correct_count = sum(1 for r in all_results if r["is_correct"])
@@ -286,58 +294,6 @@ class QwenOmniMCQExperiment:
             })
 
         return conversation
-
-    def _logit_lens_for_all_layers(self, local_hidden_states):
-        logit_lens_for_all_layers = {}
-        for layer_id, hidden_state in local_hidden_states.items():
-            print(f"Processing layer: {layer_id}")
-            logit_lens = self._logit_lens(hidden_state)
-            logit_lens_for_all_layers[layer_id] = logit_lens
-
-        print("======" * 20)
-
-        return logit_lens_for_all_layers
-
-    def _logit_lens(self, hidden_state):
-        hidden_state = torch.tensor(hidden_state, dtype=torch.bfloat16).to(self.model.device)
-
-        normalized = self.thinker_norm(hidden_state)
-        logits = self.thinker_lm_head(normalized)
-        prob = torch.nn.functional.softmax(logits, dim=-1)
-
-        # choice
-        choice_logits = logits[qwen_token_1: qwen_token_2 + 1].tolist()
-        choice_prob = prob[qwen_token_1: qwen_token_2 + 1].tolist()
-
-        # top
-        top_prob = torch.topk(prob, 1, dim=-1).values[0].tolist()
-        top_token_idx = torch.topk(logits, 1, dim=-1).indices[0].tolist()
-        top_word = self.processor.tokenizer.decode(top_token_idx)
-        top_logit = logits[top_token_idx].tolist()
-
-
-        output = {
-            "choice": {
-                "logit": choice_logits,
-                "prob": choice_prob,
-            },
-            "top": {
-                "logit": top_logit,
-                "prob": top_prob,
-                "token_idx": top_token_idx,
-                "word": top_word,
-            },
-        }
-
-        print(f"top prob      : {top_prob}")
-        print(f"top token idx : {top_token_idx}")
-        print(f"top word      : {top_word}")
-        print("")
-        print(f"choice prob   : {choice_prob}")
-
-        print("=========================================")
-
-        return output
 
     def _get_example_key(self, query):
         word = query['meta_data']['word']
