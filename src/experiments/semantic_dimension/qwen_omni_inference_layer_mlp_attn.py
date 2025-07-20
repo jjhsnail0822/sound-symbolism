@@ -18,28 +18,26 @@ import pickle
 qwen_token_1 = 16
 qwen_token_2 = 17
 
-key_list = []
+local_hidden_states = {}
+local_mlp_states = {}
+local_attn_states = {}
 
-local_hidden_states = []
-local_mlp_states = []
-local_attn_states = []
-
-global_hidden_states = []
-global_mlp_states = []
-global_attn_states = []
+global_hidden_states = {}
+global_mlp_states = {}
+global_attn_states = {}
 
 hooks = []
 
 
-def save_hidden_for_each_layer(layer_id, store_list):
+def save_hidden_for_each_layer(layer_id, dict_store):
     def inner(module, input, output):
         # only save the first token (in the ideal case, the token is the very first one!)
-        if layer_id == len(store_list):
+        if layer_id not in dict_store:
             if isinstance(output, tuple): # block, attention
                 hidden = output[0][0, -1].detach().float().cpu().numpy()
             else:
                 hidden = output[0, -1].detach().float().cpu().numpy()
-            store_list.append(hidden)
+            dict_store[layer_id] = hidden
 
     return inner
 
@@ -92,36 +90,20 @@ class QwenOmniMCQExperiment:
         print(f"Loaded {len(mcq_data)} questions.")
         mcq_data = mcq_data[:1000]
 
-        # output_path
-        model_name = os.path.basename(self.model_path)
-        os.makedirs(self.output_dir, exist_ok=True)
-        results_file_path = f"{self.output_dir}/{self.data_path.split('/')[-1].replace('.json', '')}_{model_name}.json"
-        print(f"Results will be saved to: {results_file_path}")
-
         # mlp attn hidden states path
         mlp_attn_hidden_states_dir = "./results/mlp_attn_hidden_states"
         os.makedirs(mlp_attn_hidden_states_dir, exist_ok=True)
         pickle_path = os.path.join(mlp_attn_hidden_states_dir, f"{self.input_type}_{self.word_group}.pkl")
-
-        # check existing results
-        existing_results = self.collect_already_done(results_file_path)
 
         # Run experiment
         print(f"Running MCQ experiment on {len(mcq_data)} questions...")
         all_results = []
         for query_idx, query in enumerate(tqdm(mcq_data)):
             # validate
-            local_hidden_states = []
-            local_mlp_states = []
-            local_attn_states = []
+            local_hidden_states = {}
+            local_mlp_states = {}
+            local_attn_states = {}
             
-            query_key = json.dumps(query['meta_data'], sort_keys=True)
-            if query_key in existing_results:
-                existing_result = existing_results[query_key]
-                if existing_result.get("model_answer") != "0":
-                    all_results.append(existing_result)
-                    # continue
-
             # input
             inputs = self.get_input_tensors(query)
 
@@ -174,27 +156,16 @@ class QwenOmniMCQExperiment:
             # save only for the ideal output
             if pure_out.shape[-1] == 3:
                 example_key = self._get_example_key(query)
-                key_list.append(example_key)
-                global_hidden_states.append(np.stack(local_hidden_states, axis=0))
-                global_mlp_states.append(np.stack(local_mlp_states, axis=0))
-                global_attn_states.append(np.stack(local_attn_states, axis=0))
-
-
-            # save out
-        self.save_output(all_results, results_file_path)
-        print(f"Results saved to: {results_file_path}")
+                global_hidden_states[example_key] = local_hidden_states.copy()
+                global_mlp_states[example_key] = local_mlp_states.copy()
+                global_attn_states[example_key] = local_attn_states.copy()
 
         # interpretability
         for hook in hooks:
             hook.remove()
 
-        global_hidden_states = np.stack(global_hidden_states, axis=0)
-        global_mlp_states = np.stack(global_mlp_states, axis=0)
-        global_attn_states = np.stack(global_attn_states, axis=0)
-        
         # save
-        results = {
-            "key_list": key_list,
+        results = { 
             "hidden_states": global_hidden_states,
             "mlp_states": global_mlp_states,
             "attn_states": global_attn_states,
