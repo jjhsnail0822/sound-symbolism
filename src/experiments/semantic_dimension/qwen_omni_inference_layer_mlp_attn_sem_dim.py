@@ -173,9 +173,10 @@ class QwenOmniMCQExperiment:
             "mlp_states": global_mlp_states,
             "attn_states": global_attn_states,
         }
-        
         with open(pickle_path, 'wb') as f:
             pickle.dump(results, f)
+            
+        print(f"Saved to {pickle_path}")
 
         # Clean up
         del self.model
