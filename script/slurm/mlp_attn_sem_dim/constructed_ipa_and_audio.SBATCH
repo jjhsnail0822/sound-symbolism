@@ -17,5 +17,5 @@ export PYTHONPATH=/home/gv_nlp/projects/sound-symbolism:$PYTHONPATH
 for sem_dim in "good" "beautiful" "pleasant" "strong" "big" "rugged" "active" "fast" "sharp" "realistic" "structured" "ordinary" "interesting" "simple" "abrupt" "exciting" "hard" "happy" "harsh" "heavy" "inhibited" "masculine" "solid" "tense" "dangerous"
 do
   echo "Processing semantic dimension: $sem_dim"
-  python src/experiments/semantic_dimension/qwen_omni_inference_layer_mlp_attn_sem_dim.py -w constructed -i ipa_and_audio -d "$sem_dim"
+  python src/experiments/semantic_dimension/qwen_omni_inference_layer_mlp_attn_sem_dim.py -w constructed -i ipa_and_audio -s "$sem_dim"
 done 
