@@ -96,12 +96,12 @@ class QwenOmniMCQExperiment:
             original_count = len(mcq_data)
             mcq_data = [q for q in mcq_data if q['meta_data']['dimension'].split("-")[0] == self.sem_dim]
             print(f"Filtered to {len(mcq_data)} questions with semantic dimension '{self.sem_dim}' (from {original_count}).")
-        else:
-            mcq_data = mcq_data[:100]
-            print(f"Using first 100 questions as no specific semantic dimension was provided.")
+
+        mcq_data = mcq_data[:100]
+        print(f"Using first 100 questions as no specific semantic dimension was provided.")
 
         # mlp attn hidden states path
-        mlp_attn_hidden_states_dir = "./results/mlp_attn_hidden_states"
+        mlp_attn_hidden_states_dir = "./results/mlp_attn_hidden_states_sem_dim"
         os.makedirs(mlp_attn_hidden_states_dir, exist_ok=True)
         
         # Add sem_dim to the filename if it's specified
@@ -109,6 +109,8 @@ class QwenOmniMCQExperiment:
             pickle_path = os.path.join(mlp_attn_hidden_states_dir, f"{self.input_type}_{self.word_group}_{self.sem_dim}.pkl")
         else:
             pickle_path = os.path.join(mlp_attn_hidden_states_dir, f"{self.input_type}_{self.word_group}.pkl")
+            
+        print(f"Saving to {pickle_path}")
 
         # Run experiment
         print(f"Running MCQ experiment on {len(mcq_data)} questions...")
@@ -176,8 +178,6 @@ class QwenOmniMCQExperiment:
         with open(pickle_path, 'wb') as f:
             pickle.dump(results, f)
             
-        print(f"Saved to {pickle_path}")
-
         # Clean up
         del self.model
         del self.processor
