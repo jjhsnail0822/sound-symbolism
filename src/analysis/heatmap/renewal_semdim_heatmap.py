@@ -1,6 +1,6 @@
 # Model : Qwen2.5-Omni-7B
-# python src/analysis/heatmap/batch_semdim_heatmap.py --max-samples 1 --data-type ipa --constructed --batch-size 1
-# python src/analysis/heatmap/batch_semdim_heatmap.py --max-samples 5 --data-type audio --constructed --batch-size 1
+# python src/analysis/heatmap/renewal_semdim_heatmap.py --max-samples 5 --data-type ipa --constructed
+# python src/analysis/heatmap/renewal_semdim_heatmap.py --max-samples 5 --data-type audio --constructed
 import json
 import re
 import os
@@ -193,13 +193,6 @@ class QwenOmniSemanticDimensionVisualizer:
         
         USE_AUDIO_IN_VIDEO = True
         text = self.processor.apply_chat_template(conversation, add_generation_prompt=True, tokenize=False)
-        
-        if self.data_type == "audio":
-            if self.constructed:
-                audio_path = f"data/processed/art/tts/{data['word']}.wav"
-            else:
-                audio_path = f'data/processed/nat/tts/{data["language"]}/{data["word"]}.wav'
-            
         audios, images, videos = process_mm_info(conversation, use_audio_in_video=USE_AUDIO_IN_VIDEO)
         
         inputs = self.processor(text=text, audio=audios, images=images, videos=videos, return_tensors="pt", padding=True, use_audio_in_video=USE_AUDIO_IN_VIDEO)
@@ -344,153 +337,6 @@ class QwenOmniSemanticDimensionVisualizer:
         with open(save_path, "wb") as f:
             pkl.dump(matrix_data, f)
 
-    def find_token_indices(self, tokens:list[str], target_tokens:list[str]):
-        indices = []
-        
-        def is_special_token(token):
-            return '<' in token and '>' in token
-        
-        for target in target_tokens:
-            if isinstance(target, str):
-                clean_target = self._clean_token(target)
-                
-                for idx, token in enumerate(tokens):
-                    clean_token_str = self._clean_token(token)
-                    if clean_target == clean_token_str:
-                        indices.append(idx)
-            
-            elif isinstance(target, list):
-                clean_targets = [self._clean_token(t) for t in target]
-                
-                for i in range(len(tokens) - len(clean_targets) + 1):
-                    match_found = True
-                    sequence_indices = []
-                    
-                    for j, clean_target in enumerate(clean_targets):
-                        current_token = tokens[i + j]
-                        clean_current = self._clean_token(current_token)
-                        
-                        if clean_current != clean_target or (j > 0 and is_special_token(current_token)):
-                            match_found = False
-                            break
-                        sequence_indices.append(i + j)
-                    
-                    if match_found:
-                        indices.extend(sequence_indices)
-                        break
-        
-        indices = sorted(list(set(indices)))
-        return indices
-
-    def inference_with_hooks_batch(self, words:list[str], langs:list[str], constructed_prompts:list[str], dim1s:list[str], dim2s:list[str], answers:list[str], datas:list[dict], dimension_names:list[str], batch_size:int=64, audio_align_data:list[dict]=None, align_key:dict=None):
-        num_samples = len(words)
-        results = []
-        for batch_start in range(0, num_samples, batch_size):
-            batch_end = min(batch_start + batch_size, num_samples)
-            batch_prompts = constructed_prompts[batch_start:batch_end]
-            batch_datas = datas[batch_start:batch_end]
-            batch_words = words[batch_start:batch_end]
-            batch_langs = langs[batch_start:batch_end]
-            batch_dim1s = dim1s[batch_start:batch_end]
-            batch_dim2s = dim2s[batch_start:batch_end]
-            batch_answers = answers[batch_start:batch_end]
-            batch_dimension_names = dimension_names[batch_start:batch_end]
-
-            # Prepare batch inputs
-            conversations = [self.create_conversation(prompt, data) for prompt, data in zip(batch_prompts, batch_datas)]
-            USE_AUDIO_IN_VIDEO = True
-            def ensure_str(x):
-                if isinstance(x, list):
-                    return ''.join(map(str, x))
-                return str(x)
-            texts = [
-                ensure_str(self.processor.apply_chat_template(conv, add_generation_prompt=True, tokenize=False))
-                for conv in conversations
-            ]
-            audios = []
-            images = []
-            videos = []
-            for conv, data in zip(conversations, batch_datas):
-                a, i, v = process_mm_info(conv, use_audio_in_video=USE_AUDIO_IN_VIDEO)
-                audios.append(a[0] if a and len(a) > 0 else None)
-                images.append(i[0] if i and len(i) > 0 else None)
-                videos.append(v[0] if v and len(v) > 0 else None)
-
-            inputs = self.processor(
-                text=texts,
-                audio=audios if self.data_type == "audio" else None,
-                images=images if any(images) else None,
-                videos=videos if any(videos) else None,
-                return_tensors="pt",
-                padding=True,
-                use_audio_in_video=USE_AUDIO_IN_VIDEO
-            )
-            inputs = inputs.to(self.model.device).to(self.model.dtype)
-            with torch.no_grad():
-                thinker_model = self.model.thinker.model
-                outputs = thinker_model(input_ids=inputs['input_ids'], attention_mask=inputs['attention_mask'], output_attentions=True, return_dict=True)
-            attentions = outputs.attentions
-            # tokens: list of list
-            tokens_batch = [self.processor.tokenizer.convert_ids_to_tokens(input_ids) for input_ids in inputs['input_ids']]
-            # For each sample in batch, do analysis and save
-            for i in range(batch_end - batch_start):
-                tokens = tokens_batch[i]
-                data = batch_datas[i]
-                word = batch_words[i]
-                if self.data_type == "audio":
-                    audio_to_phones = audio_align_data[align_key[data['word']]]["phones"]
-                    self.phones_to_ipa = [self.get_phone_to_ipa_mapping(phone) for phone in audio_to_phones]
-                lang = batch_langs[i]
-                dim1 = batch_dim1s[i]
-                dim2 = batch_dim2s[i]
-                answer = batch_answers[i]
-                dimension_name = batch_dimension_names[i]
-                if self.data_type == "audio":
-                    input_word = "<|AUDIO|>"
-                elif self.data_type == "original":
-                    input_word = data['word']
-                elif self.data_type == "ipa":
-                    input_word = data["ipa"]
-                elif self.data_type == "romanized":
-                    input_word = data["romanization"]
-                relevant_indices = self.extract_relevant_token_indices(tokens, dim1, dim2, input_word, word=data['word'])
-                if self.data_type == "audio":
-                    prev_idx = relevant_indices[0]-1
-                    for j, idx in enumerate(relevant_indices):
-                        if idx == prev_idx+1:
-                            prev_idx = idx
-                            continue
-                        else:
-                            flag_idx = j-2
-                            break
-                    for j in range(relevant_indices[0], relevant_indices[flag_idx]):
-                        tokens[j+1] = self.phones_to_ipa[j-relevant_indices[0]]
-                # Extract per-sample attention: [layer][i] shape [num_heads, seq, seq]
-                sample_attentions = [layer_attn[i] for layer_attn in attentions]  # list of [num_heads, seq, seq]
-                attn_filtered = torch.stack([
-                    attn[:, relevant_indices][:, :, relevant_indices] for attn in sample_attentions
-                ])  # [layer, num_heads, rel, rel]
-                self.save_matrix(attn_filtered, dim1, dim2, answer, data['word'], [dim1, dim2], "self", lang, tokens, relevant_indices, self.flip)
-                generation_attentions, generation_tokens, _, final_input_ids, response, input_length = self.get_generation_attention_matrix(
-                    batch_prompts[i], data, max_new_tokens=self.max_tokens
-                )
-                data_type_key = {"audio": "audio", "original": "word", "romanized": "romanization", "ipa": "ipa"}
-                if self.data_type != "audio":
-                    input_word = data[data_type_key[self.data_type]]
-                else:
-                    input_word = data["word"]
-                generation_analysis = self.extract_generation_attention_analysis(
-                    generation_attentions, generation_tokens, response, answer, lang, dim1, dim2, data['word'], input_word
-                )
-                self.save_generation_attention_matrix(
-                    generation_attentions, dim1, dim2, answer, data['word'], input_word, [dim1, dim2], lang, generation_tokens, final_input_ids, generation_tokens
-                )
-                self.save_generation_attention_analysis(
-                    generation_analysis, dim1, dim2, answer, data['word'], [dim1, dim2], lang, generation_tokens, response
-                )
-                results.append((data['word'], dim1, dim2))
-        return results
-
     def inference_with_hooks(self, word:str, lang:str, constructed_prompt:str, dim1:str, dim2:str, answer:str, data:dict, dimension_name:str, audio_align_data:list=None, align_key:dict=None):
         conversation = self.create_conversation(constructed_prompt, data)
         USE_AUDIO_IN_VIDEO = True
@@ -548,7 +394,7 @@ class QwenOmniSemanticDimensionVisualizer:
         attn_filtered = torch.stack([
             attn[:, relevant_indices][:, :, relevant_indices] for attn in sample_attentions
         ])  # [layer, num_heads, rel, rel]
-
+        
         self.save_matrix(attn_filtered, dim1, dim2, answer, data['word'], [dim1, dim2], ipa_tokens, "self", lang, tokens, relevant_indices, target_indices, self.flip)
         generation_attentions, generation_tokens, _, final_input_ids, response, input_length = self.get_generation_attention_matrix(
             constructed_prompt, data, max_new_tokens=self.max_tokens
@@ -563,7 +409,7 @@ class QwenOmniSemanticDimensionVisualizer:
         )
 
         self.save_generation_attention_analysis(
-            generation_analysis, dim1, dim2, answer, data['word'], [dim1, dim2], ipa_tokens, lang, generation_tokens, response, relevant_indices, target_indices
+            generation_analysis, dim1, dim2, answer, data['word'], [dim1, dim2], ipa_tokens, lang, generation_tokens, response, input_word, relevant_indices, target_indices
         )
         
     
@@ -642,22 +488,6 @@ class QwenOmniSemanticDimensionVisualizer:
         
         return all_attention_matrices, final_tokens, inputs, current_input_ids, response, input_length
 
-    def _analyze_generation_step_completeness(self, step_tokens:list[str], step_idx:int, dim1:str, dim2:str):
-        if not step_tokens:
-            return False, "Empty tokens"
-        
-        last_tokens = step_tokens[-1:] if len(step_tokens) >= 1 else step_tokens
-        eos_found = any(token in ['1', '2'] for token in last_tokens)
-        
-        if eos_found:
-            return True, "Complete with EOS"
-        
-        last_token = step_tokens[-1] if step_tokens else ""
-        if last_token in [dim1, dim2] or last_token.lower() in [dim1.lower(), dim2.lower()]:
-            return True, "Complete answer"
-        
-        return True, "Appears complete"
-
     def _find_target_tokens_in_step(self, step_tokens:list[str], word:str, dim1:str, dim2:str):
         target_indices = {"word": [], "dim1": [], "dim2": []}
         
@@ -679,13 +509,15 @@ class QwenOmniSemanticDimensionVisualizer:
             word_matches = remove_indices(word_matches, 60)
             for match in word_matches:
                 target_indices['word'].extend(match)
-                
+        token_option_matches = self.find_subtoken_sequence_indices(step_tokens, "OPTIONS")
         dim1_subtokens = self.processor.tokenizer.tokenize(dim1)
         dim1_matches = self.find_subtoken_sequence_indices(step_tokens, dim1_subtokens)
         if self.data_type == "audio":
-            dim1_matches = remove_indices(dim1_matches, 102)
+            # dim1_matches = remove_indices(dim1_matches, 102)
+            dim1_matches = remove_indices(dim1_matches, max(token_option_matches))
         elif self.data_type == "ipa":
-            dim1_matches = remove_indices(dim1_matches, 77)
+            # dim1_matches = remove_indices(dim1_matches, 77)
+            dim1_matches = remove_indices(dim1_matches, max(token_option_matches))
         for match in dim1_matches:
             target_indices['dim1'].extend(match)
         
@@ -693,6 +525,9 @@ class QwenOmniSemanticDimensionVisualizer:
         dim1_max_index = max(target_indices['dim1'])
         dim2_matches = self.find_subtoken_sequence_indices(step_tokens, dim2_subtokens)
         dim2_matches = remove_indices(dim2_matches, dim1_max_index)
+        
+        breakpoint()
+        
         for match in dim2_matches:
             target_indices['dim2'].extend(match)
         
@@ -734,36 +569,6 @@ class QwenOmniSemanticDimensionVisualizer:
 
         return total_score, valid_pairs
 
-    def _calculate_step_normalized_attention(self, attention_matrix, query_indices, key_indices):
-        total_query_attention = 0.0
-        target_attention = 0.0
-        seq_len = attention_matrix.shape[0]  # Should be equal to shape[1] for self-attention
-        
-        for q_idx in query_indices:
-            if q_idx < seq_len:
-                row_sum = attention_matrix[q_idx, :q_idx+1].sum().item()
-                total_query_attention += row_sum
-                for k_idx in key_indices:
-                    if k_idx < seq_len and k_idx <= q_idx:
-                        target_score = attention_matrix[q_idx, k_idx].item()
-                        target_attention += target_score
-        
-        if total_query_attention > 0:
-            return target_attention / total_query_attention
-        return 0.0
-
-    def _aggregate_step_scores(self, scores_matrix, aggregation_type):
-        if aggregation_type == "all":
-            return scores_matrix.mean().item()
-        elif aggregation_type == "layers":
-            return scores_matrix.mean(dim=0)
-        elif aggregation_type == "heads":
-            return scores_matrix.mean(dim=1)
-        elif aggregation_type == "individual":
-            return scores_matrix
-        else:
-            raise ValueError(f"Unknown aggregation type: {aggregation_type}")
-
     def extract_generation_attention_analysis(self, all_attention_matrices:list[tuple[torch.Tensor, ...]], tokens:list[str], response:str, answer:str, lang:str, dim1:str, dim2:str, word:str, input_word:str=None, relevant_indices:list[int]=None, target_indices:dict[list[int]]=None):
         response = "1." if answer == dim1 else "2."
         # Filter out incomplete generation steps
@@ -777,11 +582,8 @@ class QwenOmniSemanticDimensionVisualizer:
                 continue
             
             step_tokens = tokens[:seq_len]
-            is_complete, _ = self._analyze_generation_step_completeness(step_tokens, step_idx, dim1, dim2)
-            
-            if is_complete:
-                valid_steps.append(step_attentions)
-                step_tokens_list.append(step_tokens)
+            valid_steps.append(step_attentions)
+            step_tokens_list.append(step_tokens)
         
         if not valid_steps:
             return None
@@ -793,9 +595,7 @@ class QwenOmniSemanticDimensionVisualizer:
                     step_tokens[idx+step_idx] = self.phones_to_ipa[i]
             step_analysis = self._analyze_single_step_attention(step_attentions, step_tokens, target_indices, step_idx)
             step_analyses.append(step_analysis)
-        
-        final_analysis = self._aggregate_step_analyses(step_analyses, word, input_word, dim1, dim2, answer, response, tokens)
-        return final_analysis
+        return step_analyses
 
     def _analyze_single_step_attention(self, step_attentions:list[tuple[torch.Tensor, ...]], step_tokens:list[str], target_indices:dict[str, list[int]], step_idx:int):
         num_layers = len(step_attentions)  # 28 layers
@@ -813,8 +613,6 @@ class QwenOmniSemanticDimensionVisualizer:
         # Initialize matrices
         word_dim1_raw_matrix = torch.zeros(num_layers, num_heads)
         word_dim2_raw_matrix = torch.zeros(num_layers, num_heads)
-        word_dim1_norm_matrix = torch.zeros(num_layers, num_heads)
-        word_dim2_norm_matrix = torch.zeros(num_layers, num_heads)
         
         # Self-attention analysis
         for layer_idx in range(num_layers): # layer_attention shape: [batch, heads, seq, seq]
@@ -829,18 +627,10 @@ class QwenOmniSemanticDimensionVisualizer:
                 word_dim2_raw, _ = self._calculate_step_attention_scores(
                     head_attention, step_tokens, target_indices['dim2'], target_indices['word'], step_idx, head_idx
                 )
-                word_dim1_norm = self._calculate_step_normalized_attention(
-                    head_attention, target_indices['dim1'], target_indices['word']
-                )
-                word_dim2_norm = self._calculate_step_normalized_attention(
-                    head_attention, target_indices['dim2'], target_indices['word']
-                )
                 
                 # Store in matrices
                 word_dim1_raw_matrix[layer_idx, head_idx] = word_dim1_raw
                 word_dim2_raw_matrix[layer_idx, head_idx] = word_dim2_raw
-                word_dim1_norm_matrix[layer_idx, head_idx] = word_dim1_norm
-                word_dim2_norm_matrix[layer_idx, head_idx] = word_dim2_norm
         
         return {
             'step_idx': step_idx,
@@ -848,92 +638,9 @@ class QwenOmniSemanticDimensionVisualizer:
             'target_indices': target_indices,
             'word_dim1_raw_matrix': word_dim1_raw_matrix,
             'word_dim2_raw_matrix': word_dim2_raw_matrix,
-            'word_dim1_norm_matrix': word_dim1_norm_matrix,
-            'word_dim2_norm_matrix': word_dim2_norm_matrix,
         }
 
-    def _aggregate_step_analyses(self, step_analyses:list[dict], word:str, input_word:str, dim1:str, dim2:str, answer:str, response:str, tokens:list[str]):
-        if not step_analyses:
-            return None
-        
-        # Aggregate matrices across steps
-        num_steps = len(step_analyses)
-        num_layers = step_analyses[0]['word_dim1_raw_matrix'].shape[0]
-        num_heads = step_analyses[0]['word_dim1_raw_matrix'].shape[1]
-
-        # Initialize aggregated matrices
-        agg_word_dim1_raw = torch.zeros(num_layers, num_heads)
-        agg_word_dim2_raw = torch.zeros(num_layers, num_heads)
-        agg_word_dim1_norm = torch.zeros(num_layers, num_heads)
-        agg_word_dim2_norm = torch.zeros(num_layers, num_heads)
-        
-        # Sum across steps
-        for step_analysis in step_analyses:
-            agg_word_dim1_raw += step_analysis['word_dim1_raw_matrix']
-            agg_word_dim2_raw += step_analysis['word_dim2_raw_matrix']
-            agg_word_dim1_norm += step_analysis['word_dim1_norm_matrix']
-            agg_word_dim2_norm += step_analysis['word_dim2_norm_matrix']
-        
-        # Average across steps
-        agg_word_dim1_raw /= num_steps
-        agg_word_dim2_raw /= num_steps
-        agg_word_dim1_norm /= num_steps
-        agg_word_dim2_norm /= num_steps
-        
-        # Aggregate scores for different levels
-        aggregation_levels = ["all", "layers", "heads", "individual"]
-        
-        word_dim1_raw_agg = {level: self._aggregate_step_scores(agg_word_dim1_raw, level) for level in aggregation_levels}
-        word_dim2_raw_agg = {level: self._aggregate_step_scores(agg_word_dim2_raw, level) for level in aggregation_levels}
-        word_dim1_norm_agg = {level: self._aggregate_step_scores(agg_word_dim1_norm, level) for level in aggregation_levels}
-        word_dim2_norm_agg = {level: self._aggregate_step_scores(agg_word_dim2_norm, level) for level in aggregation_levels}
-        
-        # Create final analysis dictionary
-        final_analysis = {
-            'word': word,
-            'input_word': input_word,
-            'dimension1': dim1,
-            'dimension2': dim2,
-            'answer': answer,
-            'response': response,
-            'tokens': tokens,
-            'num_steps_analyzed': num_steps,
-            
-            # Self-attention raw scores
-            'word_dim1_raw_all': word_dim1_raw_agg['all'],
-            'word_dim1_raw_layers': word_dim1_raw_agg['layers'],
-            'word_dim1_raw_heads': word_dim1_raw_agg['heads'],
-            'word_dim1_raw_individual': word_dim1_raw_agg['individual'],
-            
-            'word_dim2_raw_all': word_dim2_raw_agg['all'],
-            'word_dim2_raw_layers': word_dim2_raw_agg['layers'],
-            'word_dim2_raw_heads': word_dim2_raw_agg['heads'],
-            'word_dim2_raw_individual': word_dim2_raw_agg['individual'],
-            
-            # Self-attention normalized scores
-            'word_dim1_norm_all': word_dim1_norm_agg['all'],
-            'word_dim1_norm_layers': word_dim1_norm_agg['layers'],
-            'word_dim1_norm_heads': word_dim1_norm_agg['heads'],
-            'word_dim1_norm_individual': word_dim1_norm_agg['individual'],
-            
-            'word_dim2_norm_all': word_dim2_norm_agg['all'],
-            'word_dim2_norm_layers': word_dim2_norm_agg['layers'],
-            'word_dim2_norm_heads': word_dim2_norm_agg['heads'],
-            'word_dim2_norm_individual': word_dim2_norm_agg['individual'],
-            
-            # Raw matrices for detailed analysis
-            'word_dim1_raw_matrix': agg_word_dim1_raw.cpu().numpy(),
-            'word_dim2_raw_matrix': agg_word_dim2_raw.cpu().numpy(),
-            'word_dim1_norm_matrix': agg_word_dim1_norm.cpu().numpy(),
-            'word_dim2_norm_matrix': agg_word_dim2_norm.cpu().numpy(),
-            
-            # Step-by-step analysis for debugging
-            'step_analyses': step_analyses,
-        }
-        
-        return final_analysis
-
-    def save_generation_attention_analysis(self, generation_analysis, dim1:str, dim2:str, answer:str, word_tokens:str, option_tokens:str, ipa_tokens:str, lang="en", tokens=None, response=None, relevant_indices:list[int]=None, target_indices:dict[list[int]]=None):
+    def save_generation_attention_analysis(self, generation_analysis, dim1:str, dim2:str, answer:str, word_tokens:str, option_tokens:str, ipa_tokens:str, lang="en", tokens=None, response=None, input_word:str=None, relevant_indices:list[int]=None, target_indices:dict[list[int]]=None):
         analysis_data = {
             "generation_analysis": generation_analysis,
             "dimension1": dim1,
@@ -944,11 +651,12 @@ class QwenOmniSemanticDimensionVisualizer:
             "ipa_tokens": ipa_tokens,
             "tokens": tokens,
             "response": response,
-            "input_word": generation_analysis.get('input_word', ''),
+            "input_word": input_word,
             "analysis_type": "generation_attention",
             "relevant_indices": relevant_indices,
             "target_indices": target_indices
         }
+
         output_dir = os.path.join(self.output_dir, self.exp_type, self.data_type, lang, "generation_attention")
         os.makedirs(output_dir, exist_ok=True)
         safe_word = re.sub(r'[^\w\-_.]', '_', str(word_tokens))
@@ -958,58 +666,6 @@ class QwenOmniSemanticDimensionVisualizer:
         with open(save_path, "wb") as f:
             pkl.dump(analysis_data, f)
         print(f"Generation attention analysis saved to: {save_path}")
-
-    def save_generation_attention_matrix(self, all_attention_matrices, dim1:str, dim2:str, answer:str, word_tokens:str, input_word:str, option_tokens:str, lang="en", tokens=None, current_input_ids=None, all_tokens=None, flip:bool=False, relevant_indices:list[int]=None, target_indices:dict[list[int]]=None):
-        if current_input_ids is not None and all_tokens is not None:
-            input_length = len(all_tokens)
-            input_ids = current_input_ids[0][:input_length]
-            response_ids = current_input_ids[0][input_length:]
-            input_text = self.processor.tokenizer.decode(input_ids)
-            response = self.processor.tokenizer.decode(response_ids)
-            full_text = self.processor.tokenizer.decode(current_input_ids[0])
-        else:
-            input_text = "unknown"
-            response = "unknown"
-            full_text = "unknown"
-        filtered_attention_matrices = []
-        for step, step_attentions in enumerate(all_attention_matrices):
-            layer_attention = step_attentions[0]
-            current_seq_len = layer_attention.shape[-1]
-            tmp_tokens = tokens[:current_seq_len]
-            filtered_step_attentions = []
-            for layer_idx, layer_attn in enumerate(step_attentions):
-                if len(relevant_indices) > 0:
-                    filtered_attn = layer_attn[:, :, relevant_indices][:, :, :, relevant_indices]
-                else:
-                    filtered_attn = layer_attn
-                filtered_step_attentions.append(filtered_attn)
-            filtered_attention_matrices.append(tuple(filtered_step_attentions))
-        breakpoint()
-        matrix_data = {
-            "attention_matrices": filtered_attention_matrices,
-            "relevant_indices": relevant_indices,
-            "target_indices": target_indices,
-            "dimension1": dim1,
-            "dimension2": dim2,
-            "answer": answer,
-            "word_tokens": word_tokens,
-            "option_tokens": option_tokens,
-            "tokens": tokens,
-            "input_text": input_text,
-            "response": response,
-            "full_text": full_text,
-            "analysis_type": "generation_attention_matrix"
-        }
-        output_dir = os.path.join(self.output_dir, self.exp_type, self.data_type, lang, "generation_attention", f"{dim1}_{dim2}")
-        os.makedirs(output_dir, exist_ok=True)
-        safe_word = re.sub(r'[^\w\-_.]', '_', str(word_tokens))
-        safe_dim1 = re.sub(r'[^\w\-_.]', '_', str(dim1))
-        safe_dim2 = re.sub(r'[^\w\-_.]', '_', str(dim2))
-        save_path = os.path.join(output_dir, f"{safe_word}_{safe_dim1}_{safe_dim2}.pkl")
-        with open(save_path, "wb") as f:
-            pkl.dump(matrix_data, f)
-        print(f"Generation attention matrix saved to: {save_path}")
-        return save_path
 
 if __name__ == "__main__":
     import argparse
@@ -1023,12 +679,11 @@ if __name__ == "__main__":
                        help="Data type to process")
     parser.add_argument('--max-tokens', type=int, default=32, help="Maximum tokens to generate")
     parser.add_argument('--temperature', type=float, default=0.0, help="Sampling temperature")
-    parser.add_argument('--start-index', type=int, default=0, help="Set index to initiate processing")
+    parser.add_argument('--start_index', type=int, default=0, help="Set index to initiate processing")
     parser.add_argument('--max-samples', type=int, default=None, help="Maximum number of samples to process (default: all)")
     parser.add_argument('--languages', nargs='+', default=["en", "fr", "ko", "ja"], help="Languages to process")
     parser.add_argument('--flip', action='store_true', help="Flip dim1 and dim2 in prompts and outputs")
     parser.add_argument('--constructed', '-c', action='store_true', help="Use constructed words as dataset")
-    parser.add_argument('--batch-size', type=int, default=64, help="Batch size for inference")
     args = parser.parse_args()
     max_samples:int = args.max_samples
     print(f"Data type: {args.data_type}")
@@ -1056,14 +711,12 @@ if __name__ == "__main__":
     else:
         # languages = ["en", "fr", "ja", "ko"]
         languages = args.languages
-    print(f"Processing languages: {languages}")
-    print(f"Data type: {args.data_type}, Flip: {args.flip}, Constructed: {args.constructed}")
+        print(f"Processing languages: {languages}")
     total_num_of_dimensions = 0
     total_num_of_words = 0
     total_num_of_words_per_language = {lang: 0 for lang in languages}
     start_index = args.start_index
 
-    batch_size = args.batch_size
     for lang in languages:
         print(f"\nProcessing language: {lang}")
         lang_data = visualizer.data[lang]
@@ -1086,7 +739,6 @@ if __name__ == "__main__":
             audio_align_data = None
             align_key = None
 
-        # Prepare batch lists
         for sample_idx, sample in tqdm(enumerate(lang_data), total=len(lang_data), desc="Processing samples"):
             for dimension_name in sample.get("dimensions", {}):
                 constructed_prompt, dim1, dim2, answer, word, dim_name = visualizer.prmpt_dims_answrs(
@@ -1104,6 +756,7 @@ if __name__ == "__main__":
                     audio_align_data=audio_align_data,
                     align_key=align_key
                 )
+
         total_num_of_words += len(lang_data)
         total_num_of_words_per_language[lang] += len(lang_data)
         gc.collect()
