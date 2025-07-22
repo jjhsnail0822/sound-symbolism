@@ -74,5 +74,5 @@ def plot_average_cosine_distances(json_file_path):
 
 if __name__ == '__main__':
     # The path to your JSON file
-    json_path = 'results/layer_divergence/distances_constructed_Qwen2.5-Omni-7B.json'
+    json_path = 'results/layer_divergence/distances_natural_Qwen2.5-Omni-3B.json'
     plot_average_cosine_distances(json_path)
