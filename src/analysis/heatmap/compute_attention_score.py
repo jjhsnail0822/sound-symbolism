@@ -4,7 +4,7 @@ import re
 import gc
 from typing import Union, Dict, List, Tuple
 
-from batch_semdim_heatmap import QwenOmniSemanticDimensionVisualizer as qwensemdim
+# from batch_semdim_heatmap import QwenOmniSemanticDimensionVisualizer as qwensemdim
 
 import numpy as np
 import pandas as pd
@@ -15,7 +15,7 @@ from tqdm import tqdm
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-# python src/analysis/heatmap/compute_attention_score.py --data-type audio --start-layer 0 --end-layer 27 --constructed
+# python src/analysis/heatmap/compute_attention_score.py --data-type audio --start-layer 18 --end-layer 27 --constructed
 # python src/analysis/heatmap/compute_attention_score.py --data-type ipa --start-layer 18 --end-layer 27 --constructed
 # python src/analysis/heatmap/compute_attention_score.py --data-type ipa
 # ipa_to_feature_map = json.load(open("./data/constructed_words/ipa_to_feature.json"))
@@ -1050,21 +1050,13 @@ class AttentionScoreCalculator:
         return stats
 
     def sample_single_word_response_condition(self, data_type:str, lang:str, start_layer:int=20, end_layer:int=27, num_samples:int=5):
-        """
-        For each sampled word, for each (dim1, dim2) in self.dim_pairs, for each IPA symbol in the word,
-        if the model's response and answer match (i.e., correct), compute the attention score as:
-        score = sum(correct) / (sum(correct) + sum(wrong)), where 'correct' is the region for the correct dimension,
-        and 'wrong' is the region for the other dimension. Only store the score for the correct dimension.
-        Store results as: word_stats[word][ipa][correct_dim] = score.
-        Print detailed debug info for each calculation.
-        """
         base_dir = os.path.join(self.output_dir, "semantic_dimension", data_type, lang)
         analysis_dir = os.path.join(base_dir, "generation_attention")
         if not os.path.exists(analysis_dir):
             print(f"Directory not found: {analysis_dir}")
             return None
-        # Collect all available files with valid response/answer
-        file_dim_pairs = []  # (word, dim1, dim2, filename, semdim_dir, [dim1, dim2])
+        file_dim_pairs = []
+        all_word_stats = {}
         for foldername in os.listdir(analysis_dir):
             if foldername.endswith('.pkl') or foldername.endswith(".json"):
                 continue
@@ -1091,17 +1083,202 @@ class AttentionScoreCalculator:
                     resp_num = "2"
                 if (resp_num == "1" and answer == dim1) or (resp_num == "2" and answer == dim2):
                     file_dim_pairs.append((word, dim1, dim2, filename, semdim_dir, [dim1, dim2]))
-        # Sample words
         all_words = list(set([f[0] for f in file_dim_pairs]))
-        sampled_words = all_words[:num_samples]
-        print(f"[DEBUG] Sampled words: {sampled_words}")
-        all_word_stats = {}
-        for word in sampled_words:
+        sampled_words = []
+        word_idx = 0
+        while len(sampled_words) < num_samples and word_idx < len(all_words):
+            word = all_words[word_idx]
+            word_idx += 1
             print(f"\n[DEBUG] Processing word: {word}")
             word_files = [f for f in file_dim_pairs if f[0] == word]
             if not word_files:
                 continue
-            # Use the first file for base info
+            _, dim1, dim2, filename, semdim_dir, _ = word_files[0]
+            if f"{dim1}_{dim2}" in semdim_dir:
+                semdim_dir = semdim_dir.rsplit("/", 1)[0]
+                filename = filename[:-4] + "_generation_analysis.pkl"
+            else:
+                semdim_dir = os.path.join(semdim_dir, f"{dim1}_{dim2}")
+            data = pkl.load(open(os.path.join(semdim_dir, filename), 'rb'))
+            if "ipa_tokens" not in data.keys():
+                continue
+            else:
+                print("Found data with ipa tokens. Continue your job")
+            
+            alt_data = pkl.load(open(os.path.join(analysis_dir, filename), 'rb'))
+            gen_analysis = alt_data.get("generation_analysis", {})
+            tokens = gen_analysis.get("tokens", [])
+            input_word = gen_analysis.get("input_word", "")
+            if data_type == "ipa":
+                ipa_list = input_word.split()
+            elif data_type == "audio":
+                ipa_list = data["ipa_tokens"]
+            if not ipa_list:
+                print(f"[DEBUG] No valid IPA symbols for word {word}")
+                continue
+            word_stats = {ipa:{} for ipa in ipa_list}
+            word_stats = {k: v for k, v in word_stats.items() if k != ""}
+            for dim1, dim2 in self.dim_pairs:
+                attn_file_path = None
+                for foldername in os.listdir(analysis_dir):
+                    if foldername.endswith('.pkl') or foldername.endswith(".json"):
+                        continue
+                    semdim_dir = os.path.join(analysis_dir, foldername)
+                    candidate = f"{word}_{dim1}_{dim2}.pkl"
+                    if candidate in os.listdir(semdim_dir):
+                        attn_file_path = os.path.join(semdim_dir, candidate)
+                        break
+                data = pkl.load(open(attn_file_path, 'rb'))
+                alt_data = pkl.load(open(os.path.join(analysis_dir, f"{word}_{dim1}_{dim2}_generation_analysis.pkl"), 'rb'))
+                gen_analysis = alt_data.get("generation_analysis", {})
+                gen_analysis, target_indices, input_word, wlen, d1len, d2len, response, answer, dim1_range, dim2_range, attention_matrices, tokens = self.get_attention_data(data, alt_data)
+                
+                first_dim1_from_tokens = tokens[target_indices['dim1'][0]:target_indices['dim1'][-1]+1]
+                flag_index = 0
+                for i, first_token in enumerate(first_dim1_from_tokens):
+                    if first_token == "OPTIONS":
+                        flag_index = i
+                        break
+                dim1_from_tokens = tokens[flag_index+3:target_indices['dim1'][-1]+1]
+                dim2_from_tokens = input_word[target_indices['dim2'][0]:target_indices['dim2'][-1]+1]
+                cleaned_dim1_from_tokens = [self._clean_token(token) for token in dim1_from_tokens]
+                cleaned_dim2_from_tokens = [self._clean_token(token) for token in dim2_from_tokens]
+                idx_to_remove_in_dim1 = []
+                for i, dim1_token in enumerate(cleaned_dim1_from_tokens):
+                    if dim1_token == "":
+                        d1len -= 1
+                        idx_to_remove_in_dim1.append(i)
+                for i in reversed(idx_to_remove_in_dim1):
+                    target_indices['dim1'].pop(i)
+                
+                idx_to_remove_in_dim2 = []
+                for i, dim2_token in enumerate(cleaned_dim2_from_tokens):
+                    if dim2_token == "":
+                        d2len -= 1
+                        idx_to_remove_in_dim2.append(i)
+                for i in reversed(idx_to_remove_in_dim2):
+                    target_indices['dim2'].pop(i)
+                
+                if ('1' in response and answer == dim1):
+                    correct_dim = dim1
+                    wrong_dim = dim2
+                    correct_range = range(wlen, wlen+d1len)
+                    wrong_range = range(wlen+d1len, wlen+d1len+d2len)
+                elif ('2' in response and answer == dim2):
+                    correct_dim = dim2
+                    wrong_dim = dim1
+                    correct_range = range(wlen+d1len, wlen+d1len+d2len)
+                    wrong_range = range(wlen, wlen+d1len)
+                else:
+                    continue
+
+                if isinstance(attention_matrices[0], (list, tuple)):
+                    attn_layers = attention_matrices[0]
+                else:
+                    attn_layers = attention_matrices[0]
+                    if attn_layers.ndim == 4:
+                        attn_layers = attn_layers[0]
+                n_layer = len(attn_layers)
+                layer = start_layer
+                attn = attn_layers[layer]
+                n_head = attn.shape[1]
+                if data_type == "ipa":
+                    for ipa_idx, ipa in enumerate(ipa_list):
+                        if ipa_idx >= wlen:
+                            continue
+                        correct_values = []
+                        wrong_values = []
+                        for layer in range(start_layer, min(end_layer+1, n_layer)):
+                            for head in range(n_head):
+                                layer_len = attn_layers[layer].shape[2]
+                                if layer_len != wlen+d1len+d2len:
+                                    print(f"Layer length mismatch: {layer_len} != {wlen+d1len+d2len}")
+                                    continue
+                                for d_idx in correct_range:
+                                    if d_idx < attn.shape[2] and ipa_idx < attn.shape[3]:
+                                        v = attn_layers[layer][0, head, d_idx, ipa_idx].item()
+                                        correct_values.append(v)
+                                for d_idx in wrong_range:
+                                    if d_idx < attn.shape[2] and ipa_idx < attn.shape[3]:
+                                        v = attn_layers[layer][0, head, d_idx, ipa_idx].item()
+                                        wrong_values.append(v)
+                        if len(correct_values) > 0 and len(wrong_values) > 0:
+                            mean_correct = sum(correct_values) / len(correct_values)
+                            mean_wrong = sum(wrong_values) / len(wrong_values)
+                            word_stats[ipa][correct_dim] = mean_correct
+                            word_stats[ipa][wrong_dim] = mean_wrong
+                elif data_type == "audio":
+                    ipa_runs = self.get_ipa_runs(ipa_list)
+                    for ipa, start_idx, end_idx in ipa_runs:
+                        if ipa == "":
+                            continue
+                        correct_values = []
+                        wrong_values = []
+                        for layer in range(start_layer, min(end_layer+1, n_layer)):
+                            for head in range(n_head):
+                                layer_len = attn_layers[layer].shape[2]
+                                if layer_len != wlen+d1len+d2len:
+                                    print(f"Layer length mismatch: {layer_len} != {wlen+d1len+d2len}")
+                                    continue
+                                sum_correct = 0.0
+                                for d_idx in correct_range:
+                                    for ipa_idx in range(start_idx, end_idx+1):
+                                        if d_idx < attn.shape[2] and ipa_idx < attn.shape[3]:
+                                            sum_correct += attn_layers[layer][0, head, d_idx, ipa_idx].item()
+                                correct_values.append(sum_correct)
+                                sum_wrong = 0.0
+                                for d_idx in wrong_range:
+                                    for ipa_idx in range(start_idx, end_idx+1):
+                                        if d_idx < attn.shape[2] and ipa_idx < attn.shape[3]:
+                                            sum_wrong += attn_layers[layer][0, head, d_idx, ipa_idx].item()
+                                wrong_values.append(sum_wrong)
+
+                        if len(correct_values) > 0 and len(wrong_values) > 0:
+                            mean_correct = sum(correct_values) / len(correct_values)
+                            mean_wrong = sum(wrong_values) / len(wrong_values)
+                            word_stats[ipa][correct_dim] = mean_correct
+                            word_stats[ipa][wrong_dim] = mean_wrong
+            # Only add word if enough valid dims
+            valid_dims = set()
+            for ipa in word_stats:
+                valid_dims.update(word_stats[ipa].keys())
+            if len(valid_dims) > 0:
+                sampled_words.append(word)
+                all_word_stats[word] = word_stats
+        return all_word_stats
+
+    def sample_single_word_response_condition_v2(self, data_type:str, lang:str, start_layer:int=20, end_layer:int=27, num_samples:int=5):
+        base_dir = os.path.join(self.output_dir, "semantic_dimension", data_type, lang)
+        analysis_dir = os.path.join(base_dir, "generation_attention")
+        all_word_stats = {}
+        if not os.path.exists(analysis_dir):
+            print(f"Directory not found: {analysis_dir}")
+            return None
+        file_dim_pairs = []
+        for foldername in os.listdir(analysis_dir):
+            if foldername.endswith('.pkl') or foldername.endswith(".json"):
+                continue
+            semdim_dir = os.path.join(analysis_dir, foldername)
+            for filename in os.listdir(semdim_dir):
+                if not filename.endswith('.pkl'):
+                    continue
+                word, dim1, dim2 = filename.rsplit("_", 2)
+                if dim2.endswith(".pkl"):
+                    dim2 = dim2[:-4]
+                gen_analysis_path = os.path.join(analysis_dir, f"{word}_{dim1}_{dim2}_generation_analysis.pkl")
+                if not os.path.exists(gen_analysis_path):
+                    continue
+                file_dim_pairs.append((word, dim1, dim2, filename, semdim_dir, [dim1, dim2]))
+        all_words = list(set([f[0] for f in file_dim_pairs]))
+        sampled_words = []
+        word_idx = 0
+        while len(sampled_words) < num_samples and word_idx < len(all_words):
+            word = all_words[word_idx]
+            word_idx += 1
+            print(f"\n[DEBUG] Processing word: {word}")
+            word_files = [f for f in file_dim_pairs if f[0] == word]
+            if not word_files:
+                continue
             _, dim1, dim2, filename, semdim_dir, _ = word_files[0]
             if f"{dim1}_{dim2}" in semdim_dir:
                 semdim_dir = semdim_dir.rsplit("/", 1)[0]
@@ -1116,12 +1293,14 @@ class AttentionScoreCalculator:
             if data_type == "ipa":
                 ipa_list = input_word.split()
             elif data_type == "audio":
-                breakpoint()
+                if "ipa_tokens" not in data.keys():
+                    continue
+                ipa_list = data["ipa_tokens"]
             if not ipa_list:
                 print(f"[DEBUG] No valid IPA symbols for word {word}")
                 continue
             word_stats = {ipa:{} for ipa in ipa_list}
-            # For each dim pair, only compute if response/answer match (correct)
+            word_stats = {k: v for k, v in word_stats.items() if k != ""}
             for dim1, dim2 in self.dim_pairs:
                 attn_file_path = None
                 for foldername in os.listdir(analysis_dir):
@@ -1134,29 +1313,39 @@ class AttentionScoreCalculator:
                         break
                 if not attn_file_path:
                     continue
-                # Load attention matrices and indices
                 data = pkl.load(open(attn_file_path, 'rb'))
                 alt_data = pkl.load(open(os.path.join(analysis_dir, f"{word}_{dim1}_{dim2}_generation_analysis.pkl"), 'rb'))
-                gen_analysis = alt_data.get("generation_analysis", {})
-                target_indices = gen_analysis['step_analyses'][0]['target_indices']
-                input_word:list[str] = alt_data["input_word"].split()
-                wlen = len(target_indices['word'])
-                d1len = len(target_indices['dim1'])
-                d2len = len(target_indices['dim2'])
-                response = gen_analysis['response']
-                answer = gen_analysis['answer']
-                # Only if response/answer match for this pair
-                if ('1' in response and answer == dim1):
-                    correct_dim = dim1
-                    correct_range = range(wlen, wlen+d1len)
-                    wrong_range = range(wlen+d1len, wlen+d1len+d2len)
-                elif ('2' in response and answer == dim2):
-                    correct_dim = dim2
-                    correct_range = range(wlen+d1len, wlen+d1len+d2len)
-                    wrong_range = range(wlen, wlen+d1len)
-                else:
-                    continue
-                attention_matrices = data['attention_matrices']
+                gen_analysis, target_indices, input_word, wlen, d1len, d2len, response, answer, dim1_range, dim2_range, attention_matrices, tokens = self.get_attention_data(data, alt_data)
+                dim1_from_tokens = tokens[target_indices['dim1'][0]:target_indices['dim1'][-1]+1]
+                dim2_from_tokens = tokens[target_indices['dim2'][0]:target_indices['dim2'][-1]+1]
+                cleaned_dim1_from_tokens = [self._clean_token(token) for token in dim1_from_tokens]
+                cleaned_dim2_from_tokens = [self._clean_token(token) for token in dim2_from_tokens]
+                idx_to_remove_in_dim1 = []
+                for i, dim1_token in enumerate(cleaned_dim1_from_tokens):
+                    print(f"i : {i}, dim1_token : '{dim1_token}', original token : '{dim1_from_tokens[i]}'")
+                    if dim1_token == "" or dim1_token == "1":
+                        idx_to_remove_in_dim1.append(i)
+                print(idx_to_remove_in_dim1)
+                print(len(target_indices['dim1']))
+                for i in reversed(idx_to_remove_in_dim1):
+                    print(i)
+                    d1len -= 1
+                    target_indices['dim1'].pop(i)
+                
+                idx_to_remove_in_dim2 = []
+                for i, dim2_token in enumerate(cleaned_dim2_from_tokens):
+                    print(f"i : {i}, dim2_token : {dim2_token}, original token : {dim2_from_tokens[i]}")
+                    if dim2_token == "":
+                        idx_to_remove_in_dim2.append(i)
+                print(idx_to_remove_in_dim2)
+                print(len(target_indices['dim2']))
+                for i in reversed(idx_to_remove_in_dim2):
+                    print(i)
+                    d2len -= 1
+                    target_indices['dim2'].pop(i)
+                    
+                dim1_range = range(wlen, wlen+d1len)
+                dim2_range = range(wlen+d1len, wlen+d1len+d2len)
                 if isinstance(attention_matrices[0], (list, tuple)):
                     attn_layers = attention_matrices[0]
                 else:
@@ -1164,81 +1353,106 @@ class AttentionScoreCalculator:
                     if attn_layers.ndim == 4:
                         attn_layers = attn_layers[0]
                 n_layer = len(attn_layers)
-                layer = start_layer
-                attn = attn_layers[layer]
-                if attn.ndim != 4:
-                    print(f"[WARN] Only 4D attention supported. attn.ndim={attn.ndim}")
-                    continue
-                n_head = attn.shape[1]
-                for ipa_idx, ipa in enumerate(ipa_list):
-                    if ipa_idx >= wlen:
-                        continue
-                    correct_values = []
-                    wrong_values = []
-                    for layer in range(start_layer, min(end_layer+1, n_layer)):
-                        for head in range(n_head):
-                            layer_len = attn_layers[layer].shape[2]
-                            if layer_len != wlen+d1len+d2len:
-                                print(f"[WARN] Layer length mismatch: {layer_len} != {wlen+d1len+d2len}")
-                                continue
-                            # correct
-                            for d_idx in correct_range:
-                                if d_idx < attn.shape[2] and ipa_idx < attn.shape[3]:
-                                    v = attn_layers[layer][0, head, d_idx, ipa_idx].item()
-                                    correct_values.append(v)
-                            # wrong
-                            for d_idx in wrong_range:
-                                if d_idx < attn.shape[2] and ipa_idx < attn.shape[3]:
-                                    v = attn_layers[layer][0, head, d_idx, ipa_idx].item()
-                                    wrong_values.append(v)
-                    sum_correct = float(np.sum(correct_values))
-                    sum_wrong = float(np.sum(wrong_values))
-                    denom = sum_correct + sum_wrong
-                    score = sum_correct / denom if denom > 0 else 0.0
-                    # Debug print
-                    print(f"[DEBUG] Word: {word}, IPA: {ipa}, Semantic Dim: {correct_dim}")
-                    print(f"        correct_indices: {list(correct_range)}")
-                    print(f"        wrong_indices: {list(wrong_range)}")
-                    print(f"        correct_values: {correct_values}")
-                    print(f"        wrong_values: {wrong_values}")
-                    print(f"        sum_correct: {sum_correct}, sum_wrong: {sum_wrong}, score: {score}")
-                    word_stats[ipa][correct_dim] = score
-            all_word_stats[word] = word_stats
+                n_head = attn_layers[0].shape[1] if n_layer > 0 else 0
+                if data_type == "ipa":
+                    for ipa_idx, ipa in enumerate(ipa_list):
+                        for dim, dim_range in [(dim1, dim1_range), (dim2, dim2_range)]:
+                            all_values = []
+                            for layer in range(start_layer, min(end_layer+1, n_layer)):
+                                for head in range(n_head):
+                                    layer_len = attn_layers[layer].shape[2]
+                                    if layer_len != wlen+d1len+d2len:
+                                        continue
+                                    for d_idx in dim_range:
+                                        if d_idx < attn_layers[layer].shape[2] and ipa_idx < attn_layers[layer].shape[3]:
+                                            v = attn_layers[layer][0, head, d_idx, ipa_idx].item()
+                                            all_values.append(v)
+                            mean_val = float(np.mean(all_values)) if all_values else np.nan
+                            word_stats[ipa][dim] = mean_val
+                            print(f"[DEBUG] Word: {word}, IPA: {ipa}, Dim: {dim}, Mean: {mean_val}, (answer: {answer}, response: {response})")
+                            
+                elif data_type == "audio":
+                    ipa_runs = self.get_ipa_runs(ipa_list)
+                    for ipa, start_idx, end_idx in ipa_runs:
+                        if ipa == "":
+                            continue
+                        for dim, dim_range in [(dim1, dim1_range), (dim2, dim2_range)]:
+                            all_values = []
+                            for layer in range(start_layer, min(end_layer+1, n_layer)):
+                                for head in range(n_head):
+                                    layer_len = attn_layers[layer].shape[2]
+                                    if layer_len != wlen+d1len+d2len:
+                                        breakpoint()
+                                        continue
+                                    for d_idx in dim_range:
+                                        for ipa_idx in range(start_idx, end_idx+1):
+                                            breakpoint()
+                                            if d_idx < attn_layers[layer].shape[2] and ipa_idx < attn_layers[layer].shape[3]:
+                                                v = attn_layers[layer][0, head, d_idx, ipa_idx].item()
+                                                all_values.append(v)
+                            mean_val = float(np.mean(all_values)) if all_values else np.nan
+                            word_stats[ipa][dim] = mean_val
+                            print(f"[DEBUG] Word: {word}, IPA: {ipa}, Dim: {dim}, Mean: {mean_val}, (answer: {answer}, response: {response})")
+
+            valid_dims = set()
+            for ipa in word_stats:
+                valid_dims.update(word_stats[ipa].keys())
+            if len(valid_dims) > 0:
+                sampled_words.append(word)
+                all_word_stats[word] = word_stats
         return all_word_stats
 
-    def plot_sampled_words_heatmaps(self, word_stats, data_type, start_layer, end_layer, lang, save_path=None):
+    def get_attention_data(self, data, alt_data):
+        gen_analysis = alt_data.get("generation_analysis", {})
+        target_indices = gen_analysis['step_analyses'][0]['target_indices']
+        input_word:list[str] = alt_data["input_word"].split()
+        wlen = len(target_indices['word'])
+        d1len = len(target_indices['dim1'])
+        d2len = len(target_indices['dim2'])
+        response = gen_analysis.get('response', None)
+        answer = gen_analysis.get('answer', None)
+        dim1_range = range(wlen, wlen+d1len)
+        dim2_range = range(wlen+d1len, wlen+d1len+d2len)
+        attention_matrices = data['attention_matrices']
+        tokens = data['tokens']
+        return gen_analysis, target_indices, input_word, wlen, d1len, d2len, response, answer, dim1_range, dim2_range, attention_matrices, tokens
+    
+    def plot_sampled_words_heatmaps(self, word_stats, data_type, start_layer, end_layer, lang, save_path=None, suffix:str=None):
         """
-        Plot heatmaps for each sampled word (X: ipa, Y: semantic dimension, value: 0-1 scaled)
+        Plot heatmaps for each sampled word (X: ipa, Y: semantic dimension, value: mean attention for both dims in each pair)
         """
         if save_path is None:
             save_path = 'results/plots/attention/sampled_words/'
         os.makedirs(save_path, exist_ok=True)
-        semdim_list = [d2 for d1, d2 in self.dim_pairs] + [d1 for d1, d2 in self.dim_pairs]
-        # To preserve order: first all d1, then all d2, or just flatten as needed
         semdim_list = [d for pair in self.dim_pairs for d in pair]
         for word, ipa_dict in word_stats.items():
             ipa_list = list(ipa_dict.keys())
-            # Only plot correct_dim for each pair (i.e., only those present in any ipa_dict[ipa])
-            present_dims = sorted(set(dim for ipa in ipa_dict for dim in ipa_dict[ipa]))
-            # To preserve pair order, filter semdim_list
-            y_dims = [d for d in semdim_list if d in present_dims]
-            matrix = np.zeros((len(y_dims), len(ipa_list)))
-            for i, semdim in enumerate(y_dims):
+            semdim_pairs_to_plot = []
+            for dim1, dim2 in self.dim_pairs:
+                found_dim1 = any(not np.isnan(ipa_dict[ipa].get(dim1, np.nan)) for ipa in ipa_list)
+                found_dim2 = any(not np.isnan(ipa_dict[ipa].get(dim2, np.nan)) for ipa in ipa_list)
+                if found_dim1 and found_dim2:
+                    semdim_pairs_to_plot.append((dim1, dim2))
+            if not semdim_pairs_to_plot:
+                continue
+            valid_dims = [d for pair in semdim_pairs_to_plot for d in pair]
+            matrix = np.full((len(valid_dims), len(ipa_list)), np.nan)
+            for i, semdim in enumerate(valid_dims):
                 for j, ipa in enumerate(ipa_list):
                     matrix[i, j] = ipa_dict[ipa].get(semdim, np.nan)
-            fig, ax = plt.subplots(figsize=(max(10, len(ipa_list)*0.3), max(8, len(y_dims)*0.3)))
+            fig, ax = plt.subplots(figsize=(max(10, len(ipa_list)*0.3), max(8, len(valid_dims)*0.3)))
             sns.heatmap(matrix, ax=ax, cmap='YlGnBu', cbar=True,
-                        xticklabels=ipa_list, yticklabels=y_dims, linewidths=0.2, linecolor='gray', square=False)
-            # Add thick horizontal lines every row (since each row is a different semantic dimension)
-            for i in range(1, len(y_dims)):
+                        xticklabels=ipa_list, yticklabels=valid_dims, linewidths=0.2, linecolor='gray', square=False)
+            # Add thick horizontal lines every 2 rows (for dim pairs)
+            for i in range(2, len(valid_dims), 2):
                 ax.axhline(i, color='black', linewidth=2)
             ax.set_xlabel('IPA Symbol', fontsize=12)
             ax.set_ylabel('Semantic Dimension', fontsize=12)
             ax.set_title(f'Sampled Word: {word}\nIPA-Semantic Dimension Attention Heatmap', fontsize=14, pad=15)
-            plt.setp(ax.get_xticklabels(), ha='right', rotation=45)
+            plt.setp(ax.get_xticklabels(), ha='right')
             plt.tight_layout()
             clean_word = re.sub(r'[^\w\-]', '_', word)
-            file_name = f"sampled_word_{clean_word}_{lang}_{data_type}_generation_attention_L{start_layer}_L{end_layer}.png"
+            file_name = f"sampled_word_{clean_word}_{lang}_{data_type}_generation_attention_L{start_layer}_L{end_layer}{suffix if suffix else ''}.png"
             file_path = os.path.join(save_path, file_name)
             plt.savefig(file_path, dpi=300, bbox_inches='tight')
             print(f"Sampled word heatmap saved to {file_path}")
@@ -1287,55 +1501,6 @@ class AttentionScoreCalculator:
                 condition_desc=condition_desc + (f' (all languages)' if lang == 'all' else '')
             )
 
-    def run(self, data_type: str, lang: str, langs: list = None, start_layer: int = 0, end_layer: int = 27):
-        print(f"Processing {data_type} data for language {lang}")
-        if langs is None:
-            langs = [lang]
-        all_stats_std = {}
-        # for l in langs:
-        #     stats = self.aggregate_scores_across_files_v2(
-        #         data_type, l, start_layer, end_layer
-        #     )
-        #     if stats:
-        #         all_stats_std[l] = stats
-                
-        # all_stats_resp_condition = {}
-        # for l in langs:
-        #     stats = self.aggregate_scores_with_response_condition(
-        #         data_type, l, start_layer, end_layer
-        #     )
-        #     if stats:
-        #         all_stats_resp_condition[l] = stats
-                
-        # for l, stats in all_stats_std.items():
-        #     print(f"[PLOT] Plotting standard mean for lang={l}")
-        #     self.plot_ipa_semdim_heatmap_with_layers(
-        #         stats, save_path='results/plots/attention/', lang=l,
-        #         data_type=data_type,
-        #         start_layer=start_layer, end_layer=end_layer,
-        #         condition_desc="Standard Mean Attention"
-        #     )
-            
-        # for l, stats in all_stats_resp_condition.items():
-        #     print(f"[PLOT] Plotting response-condition mean for lang={l}")
-        #     self.plot_ipa_semdim_heatmap_with_layers(
-        #         stats, save_path='results/plots/attention/', lang=l,
-        #         data_type=data_type,
-        #         start_layer=start_layer, end_layer=end_layer,
-        #         condition_desc="Response-Answer Match, Correct Only"
-        #     )
-        
-        # Add single word sampling if requested
-        for l in langs:
-            print(f"[SAMPLING] Sampling single words for lang={l}")
-            word_stats = self.sample_single_word_response_condition(
-                data_type, l, start_layer, end_layer, num_samples=5
-            )
-            if word_stats:
-                self.plot_sampled_words_heatmaps(
-                    word_stats, data_type, start_layer, end_layer, l
-                )
-
     def get_ipa_runs(self, ipa_list):
         """
         Given a list of IPA symbols, return a list of (ipa, start_idx, end_idx) for each run of the same IPA symbol.
@@ -1353,6 +1518,66 @@ class AttentionScoreCalculator:
                 start_idx = idx
         ipa_runs.append((prev_ipa, start_idx, len(ipa_list)-1))
         return ipa_runs
+    
+    def run(self, data_type: str, lang: str, langs: list = None, start_layer: int = 0, end_layer: int = 27):
+        print(f"Processing {data_type} data for language {lang}")
+        if langs is None:
+            langs = [lang]
+        all_stats_std = {}
+        for l in langs:
+            stats = self.aggregate_scores_across_files_v2(
+                data_type, l, start_layer, end_layer
+            )
+            if stats:
+                all_stats_std[l] = stats
+                
+        all_stats_resp_condition = {}
+        for l in langs:
+            stats = self.aggregate_scores_with_response_condition(
+                data_type, l, start_layer, end_layer
+            )
+            if stats:
+                all_stats_resp_condition[l] = stats
+                
+        for l, stats in all_stats_std.items():
+            print(f"[PLOT] Plotting standard mean for lang={l}")
+            self.plot_ipa_semdim_heatmap_with_layers(
+                stats, save_path='results/plots/attention/', lang=l,
+                data_type=data_type,
+                start_layer=start_layer, end_layer=end_layer,
+                condition_desc="Standard Mean Attention"
+            )
+            
+        for l, stats in all_stats_resp_condition.items():
+            print(f"[PLOT] Plotting response-condition mean for lang={l}")
+            self.plot_ipa_semdim_heatmap_with_layers(
+                stats, save_path='results/plots/attention/', lang=l,
+                data_type=data_type,
+                start_layer=start_layer, end_layer=end_layer,
+                condition_desc="Response-Answer Match, Correct Only"
+            )
+        
+        # Add single word sampling if requested
+        for l in langs:
+            print(f"[SAMPLING] Sampling single words for lang={l}")
+            word_stats = self.sample_single_word_response_condition(
+                data_type, l, start_layer, end_layer, num_samples=5
+            )
+            if word_stats:
+                self.plot_sampled_words_heatmaps(
+                    word_stats, data_type, start_layer, end_layer, l
+                )
+        
+        for l in langs:
+            print(f"[SAMPLING] Sampling single words for lang={l}")
+            word_stats = self.sample_single_word_response_condition_v2(
+                data_type, l, start_layer, end_layer, num_samples=5
+            )
+            if word_stats:
+                self.plot_sampled_words_heatmaps(
+                    word_stats, data_type, start_layer, end_layer, l, suffix="_v2"
+                )
+
 
 if __name__ == "__main__":
     import argparse
