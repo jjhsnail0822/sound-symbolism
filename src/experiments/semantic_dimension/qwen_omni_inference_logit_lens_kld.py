@@ -10,6 +10,8 @@ from qwen_omni_utils import process_mm_info
 from tqdm import tqdm
 from transformers import Qwen2_5OmniForConditionalGeneration, Qwen2_5OmniProcessor
 
+import pickle
+
 # interpretability
 qwen_token_1 = 16
 qwen_token_2 = 17
@@ -17,7 +19,7 @@ qwen_token_2 = 17
 local_hidden_states = {}
 global_hidden_states = {}
 
-global_logit_lens = {}
+global_kld = {}
 hooks = []
 
 
@@ -83,9 +85,9 @@ class QwenOmniMCQExperiment:
         print(f"Results will be saved to: {results_file_path}")
 
         # logit lens path
-        logit_lens_dir = "./results/logit_lens"
-        os.makedirs(logit_lens_dir, exist_ok=True)
-        logit_lens_path = os.path.join(logit_lens_dir, f"{self.input_type}_{self.word_group}.json")
+        kld_dir = "./results/kld"
+        os.makedirs(kld_dir, exist_ok=True)
+        kld_path = os.path.join(kld_dir, f"{self.input_type}_{self.word_group}.json")
 
         # check existing results
         existing_results = self.collect_already_done(results_file_path)
@@ -155,22 +157,14 @@ class QwenOmniMCQExperiment:
             # save only for the ideal output
             if pure_out.shape[-1] == 3:
                 example_key = self._get_example_key(query)
-                # not used at the moment
-                # global_hidden_states[query_idx] = local_hidden_states.copy()
-                logit_lens_for_all_layers = self._logit_lens_for_all_layers(local_hidden_states)
-                logit_lens_for_all_layers["is_correct"] = is_correct # subtle
+                logit_and_probs_for_all_layers = self._logit_and_probs_for_all_layers(local_hidden_states)
+                logit_and_probs_for_all_layers["is_correct"] = is_correct # subtle
 
-                global_logit_lens[example_key] = logit_lens_for_all_layers
+                global_kld[example_key] = logit_and_probs_for_all_layers
 
-        # save out
-        self.save_output(all_results, results_file_path)
-        print(f"Results saved to: {results_file_path}")
 
-        # interpretability
-        for hook in hooks:
-            hook.remove()
-
-        self.save_logit_lens(logit_lens_path)
+        with open(kld_path, 'wb') as f:
+            pickle.dump(global_kld, f)
 
         # Clean up
         del self.model
@@ -268,18 +262,18 @@ class QwenOmniMCQExperiment:
 
         return conversation
 
-    def _logit_lens_for_all_layers(self, local_hidden_states):
-        logit_lens_for_all_layers = {}
+    def _logit_and_probs_for_all_layers(self, local_hidden_states):
+        logit_and_probs_for_all_layers = {}
         for layer_id, hidden_state in local_hidden_states.items():
             print(f"Processing layer: {layer_id}")
-            logit_lens = self._logit_lens(hidden_state)
-            logit_lens_for_all_layers[layer_id] = logit_lens
+            logit_and_probs = self._get_logits_probs(hidden_state)
+            logit_and_probs_for_all_layers[layer_id] = logit_and_probs
 
         print("======" * 20)
 
-        return logit_lens_for_all_layers
+        return logit_and_probs_for_all_layers
 
-    def _logit_lens(self, hidden_state):
+    def _get_logits_probs(self, hidden_state):
         hidden_state = torch.tensor(hidden_state, dtype=torch.bfloat16).to(self.model.device)
 
         normalized = self.thinker_norm(hidden_state)
@@ -298,16 +292,8 @@ class QwenOmniMCQExperiment:
 
 
         output = {
-            "choice": {
-                "logit": choice_logits,
-                "prob": choice_prob,
-            },
-            "top": {
-                "logit": top_logit,
-                "prob": top_prob,
-                "token_idx": top_token_idx,
-                "word": top_word,
-            },
+           "logits" : logits,
+           "prob" : prob,
         }
 
         print(f"top prob      : {top_prob}")
