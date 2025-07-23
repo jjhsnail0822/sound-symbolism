@@ -354,6 +354,7 @@ if __name__ == "__main__":
         max_tokens=args.max_tokens,
         input_type=args.input_type,
         word_group=args.word_group,
+        sem_dim=args.sem_dim,
     )
 
     experiment.run_mcq_experiment()
