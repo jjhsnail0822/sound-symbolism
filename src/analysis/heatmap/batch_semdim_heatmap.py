@@ -1,6 +1,6 @@
 # Model : Qwen2.5-Omni-7B
 # python src/analysis/heatmap/batch_semdim_heatmap.py --max-samples 1 --data-type ipa --constructed --batch-size 1
-# python src/analysis/heatmap/batch_semdim_heatmap.py --max-samples 5 --data-type audio --constructed --batch-size 1
+# python src/analysis/heatmap/batch_semdim_heatmap.py --max-samples 3000 --data-type ipa --batch-size 1 --constructed --flip
 import json
 import re
 import os
@@ -561,11 +561,12 @@ class QwenOmniSemanticDimensionVisualizer:
         generation_analysis = self.extract_generation_attention_analysis(
             generation_attentions, generation_tokens, response, answer, lang, dim1, dim2, data['word'], input_word, relevant_indices, target_indices
         )
-
-        self.save_generation_attention_analysis(
-            generation_analysis, dim1, dim2, answer, data['word'], [dim1, dim2], ipa_tokens, lang, generation_tokens, response, relevant_indices, target_indices
+        self.save_generation_attention_matrix(
+            generation_attentions, attentions, dim1, dim2, answer, data['word'], input_word, [dim1, dim2], lang, generation_tokens, final_input_ids, generation_tokens, target_indices
         )
-        
+        self.save_generation_attention_analysis(
+            generation_analysis, attentions, dim1, dim2, answer, data['word'], [dim1, dim2], ipa_tokens, lang, generation_tokens, response, relevant_indices, target_indices
+        )
     
     def get_generation_attention_matrix(self, prompt:str, data:dict, max_new_tokens:int=32):
         conversation = self.create_conversation(prompt, data)
@@ -933,9 +934,10 @@ class QwenOmniSemanticDimensionVisualizer:
         
         return final_analysis
 
-    def save_generation_attention_analysis(self, generation_analysis, dim1:str, dim2:str, answer:str, word_tokens:str, option_tokens:str, ipa_tokens:str, lang="en", tokens=None, response=None, relevant_indices:list[int]=None, target_indices:dict[list[int]]=None):
+    def save_generation_attention_analysis(self, generation_analysis, attention_matrix, dim1:str, dim2:str, answer:str, word_tokens:str, option_tokens:str, ipa_tokens:str, lang="en", tokens=None, response=None, relevant_indices:list[int]=None, target_indices:dict[list[int]]=None):
         analysis_data = {
             "generation_analysis": generation_analysis,
+            "original_attention_matrix": attention_matrix,
             "dimension1": dim1,
             "dimension2": dim2,
             "answer": answer,
@@ -957,9 +959,9 @@ class QwenOmniSemanticDimensionVisualizer:
         save_path = os.path.join(output_dir, f"{safe_word}_{safe_dim1}_{safe_dim2}_generation_analysis.pkl")
         with open(save_path, "wb") as f:
             pkl.dump(analysis_data, f)
-        print(f"Generation attention analysis saved to: {save_path}")
+        # print(f"Generation attention analysis saved to: {save_path}")
 
-    def save_generation_attention_matrix(self, all_attention_matrices, dim1:str, dim2:str, answer:str, word_tokens:str, input_word:str, option_tokens:str, lang="en", tokens=None, current_input_ids=None, all_tokens=None, flip:bool=False, relevant_indices:list[int]=None, target_indices:dict[list[int]]=None):
+    def save_generation_attention_matrix(self, all_attention_matrices, attention_matrix, dim1:str, dim2:str, answer:str, word_tokens:str, input_word:str, option_tokens:str, lang="en", tokens=None, current_input_ids=None, all_tokens=None, target_indices:dict[list[int]]=None):
         if current_input_ids is not None and all_tokens is not None:
             input_length = len(all_tokens)
             input_ids = current_input_ids[0][:input_length]
@@ -972,6 +974,7 @@ class QwenOmniSemanticDimensionVisualizer:
             response = "unknown"
             full_text = "unknown"
         filtered_attention_matrices = []
+        relevant_indices = target_indices["word"]+target_indices["dim1"]+target_indices["dim2"]
         for step, step_attentions in enumerate(all_attention_matrices):
             layer_attention = step_attentions[0]
             current_seq_len = layer_attention.shape[-1]
@@ -984,9 +987,9 @@ class QwenOmniSemanticDimensionVisualizer:
                     filtered_attn = layer_attn
                 filtered_step_attentions.append(filtered_attn)
             filtered_attention_matrices.append(tuple(filtered_step_attentions))
-        breakpoint()
         matrix_data = {
             "attention_matrices": filtered_attention_matrices,
+            "original_attention_matrix": attention_matrix,
             "relevant_indices": relevant_indices,
             "target_indices": target_indices,
             "dimension1": dim1,
@@ -1008,7 +1011,7 @@ class QwenOmniSemanticDimensionVisualizer:
         save_path = os.path.join(output_dir, f"{safe_word}_{safe_dim1}_{safe_dim2}.pkl")
         with open(save_path, "wb") as f:
             pkl.dump(matrix_data, f)
-        print(f"Generation attention matrix saved to: {save_path}")
+        # print(f"Generation attention matrix saved to: {save_path}")
         return save_path
 
 if __name__ == "__main__":
@@ -1114,6 +1117,8 @@ if __name__ == "__main__":
     print(f"Total number of words: {total_num_of_words}")
     print(f"Total number of words per language: {total_num_of_words_per_language}")
     print(f"Results saved to: {args.output_dir}")
+    print(f"Index: {args.start_index} - {args.max_samples}")
+    print(f"Flip: {args.flip}, Constructed: {args.constructed}, Data type: {args.data_type}, Languages: {args.languages}")
     
     # Clean up
     del visualizer.model

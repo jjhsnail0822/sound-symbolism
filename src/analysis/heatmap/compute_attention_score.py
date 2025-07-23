@@ -4,8 +4,6 @@ import re
 import gc
 from typing import Union, Dict, List, Tuple
 
-# from batch_semdim_heatmap import QwenOmniSemanticDimensionVisualizer as qwensemdim
-
 import numpy as np
 import pandas as pd
 import torch
@@ -350,13 +348,14 @@ class AttentionScoreCalculator:
         analysis_dir = os.path.join(base_dir, "generation_attention")
         all_scores = {}  # (ipa, semdim, layer, head): [score, ...]
         num_of_files = 0
-        for foldername in os.listdir(analysis_dir):
+        for foldername in tqdm(os.listdir(analysis_dir), total=len(os.listdir(analysis_dir)), desc="Processing files"):
             if foldername.endswith('.pkl') or foldername.endswith(".json"):
                 continue
             semdim_dir = os.path.join(analysis_dir, foldername)
             for filename in os.listdir(semdim_dir):
                 num_of_files += 1
-                print(f"Processing {num_of_files:>7,}th file : {filename}")
+                if num_of_files % 1000 == 0:
+                    print(f"Processing {num_of_files:>7,}th file : {filename}")
                 data = pkl.load(open(os.path.join(semdim_dir, filename), 'rb'))
                 word, dim1, dim2 = filename.rsplit("_", 2)
                 if dim2.endswith(".pkl"):
@@ -868,7 +867,7 @@ class AttentionScoreCalculator:
         analysis_dir = os.path.join(base_dir, "generation_attention")
         all_scores:dict[tuple[str, str, int, int], list[float]] = {}  # (ipa, semdim, layer, head): [score, ...]
         num_of_files = 0
-        for foldername in os.listdir(analysis_dir):
+        for foldername in tqdm(os.listdir(analysis_dir), total=len(os.listdir(analysis_dir)), desc="Processing files"):
             if foldername.endswith('.pkl') or foldername.endswith(".json"):
                 continue
             semdim_dir = os.path.join(analysis_dir, foldername)
@@ -1057,7 +1056,7 @@ class AttentionScoreCalculator:
             return None
         file_dim_pairs = []
         all_word_stats = {}
-        for foldername in os.listdir(analysis_dir):
+        for foldername in tqdm(os.listdir(analysis_dir), total=len(os.listdir(analysis_dir)), desc="Processing files"):
             if foldername.endswith('.pkl') or foldername.endswith(".json"):
                 continue
             semdim_dir = os.path.join(analysis_dir, foldername)
@@ -1089,7 +1088,6 @@ class AttentionScoreCalculator:
         while len(sampled_words) < num_samples and word_idx < len(all_words):
             word = all_words[word_idx]
             word_idx += 1
-            print(f"\n[DEBUG] Processing word: {word}")
             word_files = [f for f in file_dim_pairs if f[0] == word]
             if not word_files:
                 continue
@@ -1101,6 +1099,7 @@ class AttentionScoreCalculator:
                 semdim_dir = os.path.join(semdim_dir, f"{dim1}_{dim2}")
             data = pkl.load(open(os.path.join(semdim_dir, filename), 'rb'))
             if "ipa_tokens" not in data.keys():
+                print(f"[DEBUG] No ipa tokens in {filename}")
                 continue
             else:
                 print("Found data with ipa tokens. Continue your job")
@@ -1118,7 +1117,7 @@ class AttentionScoreCalculator:
                 continue
             word_stats = {ipa:{} for ipa in ipa_list}
             word_stats = {k: v for k, v in word_stats.items() if k != ""}
-            for dim1, dim2 in self.dim_pairs:
+            for dim1, dim2 in tqdm(self.dim_pairs, total=len(self.dim_pairs), desc="Processing dim pairs"):
                 attn_file_path = None
                 for foldername in os.listdir(analysis_dir):
                     if foldername.endswith('.pkl') or foldername.endswith(".json"):
@@ -1128,7 +1127,11 @@ class AttentionScoreCalculator:
                     if candidate in os.listdir(semdim_dir):
                         attn_file_path = os.path.join(semdim_dir, candidate)
                         break
-                data = pkl.load(open(attn_file_path, 'rb'))
+                try:
+                    data = pkl.load(open(attn_file_path, 'rb'))
+                except Exception as e:
+                    print(f"[ERROR] Failed to load data from {attn_file_path}: {e}")
+                    breakpoint()
                 alt_data = pkl.load(open(os.path.join(analysis_dir, f"{word}_{dim1}_{dim2}_generation_analysis.pkl"), 'rb'))
                 gen_analysis = alt_data.get("generation_analysis", {})
                 gen_analysis, target_indices, input_word, wlen, d1len, d2len, response, answer, dim1_range, dim2_range, attention_matrices, tokens = self.get_attention_data(data, alt_data)
@@ -1150,14 +1153,17 @@ class AttentionScoreCalculator:
                         idx_to_remove_in_dim1.append(i)
                 for i in reversed(idx_to_remove_in_dim1):
                     target_indices['dim1'].pop(i)
-                
-                idx_to_remove_in_dim2 = []
-                for i, dim2_token in enumerate(cleaned_dim2_from_tokens):
-                    if dim2_token == "":
-                        d2len -= 1
-                        idx_to_remove_in_dim2.append(i)
-                for i in reversed(idx_to_remove_in_dim2):
-                    target_indices['dim2'].pop(i)
+                try:
+                    idx_to_remove_in_dim2 = []
+                    for i, dim2_token in enumerate(cleaned_dim2_from_tokens):
+                        if dim2_token == "":
+                            d2len -= 1
+                            idx_to_remove_in_dim2.append(i)
+                    for i in reversed(idx_to_remove_in_dim2):
+                        target_indices['dim2'].pop(i)
+                except Exception as e:
+                    print(f"[ERROR] Failed to load data from {attn_file_path}: {e}")
+                    breakpoint()
                 
                 if ('1' in response and answer == dim1):
                     correct_dim = dim1
@@ -1404,7 +1410,7 @@ class AttentionScoreCalculator:
 
     def get_attention_data(self, data, alt_data):
         gen_analysis = alt_data.get("generation_analysis", {})
-        target_indices = gen_analysis['step_analyses'][0]['target_indices']
+        target_indices:dict[list[int]] = gen_analysis['step_analyses'][0]['target_indices']
         input_word:list[str] = alt_data["input_word"].split()
         wlen = len(target_indices['word'])
         d1len = len(target_indices['dim1'])
@@ -1524,38 +1530,38 @@ class AttentionScoreCalculator:
         if langs is None:
             langs = [lang]
         all_stats_std = {}
-        for l in langs:
-            stats = self.aggregate_scores_across_files_v2(
-                data_type, l, start_layer, end_layer
-            )
-            if stats:
-                all_stats_std[l] = stats
+        # for l in langs:
+        #     stats = self.aggregate_scores_across_files_v2(
+        #         data_type, l, start_layer, end_layer
+        #     )
+        #     if stats:
+        #         all_stats_std[l] = stats
                 
-        all_stats_resp_condition = {}
-        for l in langs:
-            stats = self.aggregate_scores_with_response_condition(
-                data_type, l, start_layer, end_layer
-            )
-            if stats:
-                all_stats_resp_condition[l] = stats
+        # all_stats_resp_condition = {}
+        # for l in langs:
+        #     stats = self.aggregate_scores_with_response_condition(
+        #         data_type, l, start_layer, end_layer
+        #     )
+        #     if stats:
+        #         all_stats_resp_condition[l] = stats
                 
-        for l, stats in all_stats_std.items():
-            print(f"[PLOT] Plotting standard mean for lang={l}")
-            self.plot_ipa_semdim_heatmap_with_layers(
-                stats, save_path='results/plots/attention/', lang=l,
-                data_type=data_type,
-                start_layer=start_layer, end_layer=end_layer,
-                condition_desc="Standard Mean Attention"
-            )
+        # for l, stats in all_stats_std.items():
+        #     print(f"[PLOT] Plotting standard mean for lang={l}")
+        #     self.plot_ipa_semdim_heatmap_with_layers(
+        #         stats, save_path='results/plots/attention/', lang=l,
+        #         data_type=data_type,
+        #         start_layer=start_layer, end_layer=end_layer,
+        #         condition_desc="Standard Mean Attention"
+        #     )
             
-        for l, stats in all_stats_resp_condition.items():
-            print(f"[PLOT] Plotting response-condition mean for lang={l}")
-            self.plot_ipa_semdim_heatmap_with_layers(
-                stats, save_path='results/plots/attention/', lang=l,
-                data_type=data_type,
-                start_layer=start_layer, end_layer=end_layer,
-                condition_desc="Response-Answer Match, Correct Only"
-            )
+        # for l, stats in all_stats_resp_condition.items():
+        #     print(f"[PLOT] Plotting response-condition mean for lang={l}")
+        #     self.plot_ipa_semdim_heatmap_with_layers(
+        #         stats, save_path='results/plots/attention/', lang=l,
+        #         data_type=data_type,
+        #         start_layer=start_layer, end_layer=end_layer,
+        #         condition_desc="Response-Answer Match, Correct Only"
+        #     )
         
         # Add single word sampling if requested
         for l in langs:

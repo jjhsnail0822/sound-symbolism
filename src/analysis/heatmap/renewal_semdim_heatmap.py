@@ -526,8 +526,6 @@ class QwenOmniSemanticDimensionVisualizer:
         dim2_matches = self.find_subtoken_sequence_indices(step_tokens, dim2_subtokens)
         dim2_matches = remove_indices(dim2_matches, dim1_max_index)
         
-        breakpoint()
-        
         for match in dim2_matches:
             target_indices['dim2'].extend(match)
         
