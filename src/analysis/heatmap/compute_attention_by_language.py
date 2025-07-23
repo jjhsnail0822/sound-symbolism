@@ -1,4 +1,4 @@
-# python src/analysis/heatmap/compute_single_word_attention.py
+# python src/analysis/heatmap/compute_attention_by_language.py
 
 import json
 import os
@@ -19,13 +19,16 @@ from transformers import Qwen2_5OmniProcessor
 
 model_path = "Qwen/Qwen2.5-Omni-7B"
 data_type = "ipa"
-lang = "art"
-constructed = True
-word = "fah-sho"
-layer_start = 0
-layer_end = 8
+lang = "en"
+if lang in ["en", "fr", "ja", "ko"]:
+    constructed = False
+elif lang in ["art", "con"]:
+    constructed = True
+    lang = "art"
+layer_start = 18
+layer_end = 27
 CHECK_MODEL_RESPONSE = True
-COMPUTE_RULE = "fraction"
+COMPUTE_RULE = "vanilla"
 if constructed or (lang == "art") or (lang == "con"):
     lang = "art"
     data_path = "data/processed/art/semantic_dimension/semantic_dimension_binary_gt.json"
@@ -115,20 +118,17 @@ def get_word_list(lang:str=lang, data_path:str=data_path) -> list[str]:
     return word_list
     
 
-def show_arguments(model_name:str=model_path, data_type:str=data_type, lang:str=lang, layer_start:int=layer_start, layer_end:int=layer_end, constructed:bool=constructed, word:str=word, check_model_response:bool=CHECK_MODEL_RESPONSE, compute_rule:str=COMPUTE_RULE):
+def show_arguments(model_name:str=model_path, data_type:str=data_type, lang:str=lang, layer_start:int=layer_start, layer_end:int=layer_end, constructed:bool=constructed, check_model_response:bool=CHECK_MODEL_RESPONSE, compute_rule:str=COMPUTE_RULE):
     print(f"Model: {model_name}")
     print(f"Data type: {data_type}")
     print(f"Language: {lang}")
     print(f"Layer start: {layer_start}")
     print(f"Layer end: {layer_end}")
     print(f"Constructed: {constructed}")
-    print(f"Word: {word}")
     print(f"Check model response: {check_model_response}")
     print(f"Compute rule: {compute_rule}")
 
-
-def model_guessed_incorrectly(response, dim1, dim2, answer):
-    # print(f"Response: {response}, Dim1: {dim1}, Dim2: {dim2}, Answer: {answer}")
+def model_guessed_incorrectly(response, dim1, dim2, answer) -> bool:
     if dim1 == answer and response == "1":
         print(f"Model guessed incorrectly.")
         return False
@@ -138,7 +138,7 @@ def model_guessed_incorrectly(response, dim1, dim2, answer):
     print(f"Model guessed correctly.")
     return True
 
-def find_basic_info(word=word, output_dir=output_dir, dim_pairs=dim_pairs, word_stats=None):
+def find_basic_info(word, output_dir=output_dir, dim_pairs=dim_pairs, word_stats=None) -> tuple[list[str], dict]:
     for dim1, dim2 in dim_pairs:
         data_dir = os.path.join(output_dir, f"{dim1}_{dim2}", f"{word}_{dim1}_{dim2}.pkl")
         alt_dir = os.path.join(output_dir, f"{word}_{dim1}_{dim2}_generation_analysis.pkl")
@@ -390,7 +390,7 @@ def convert_ipa_tokens_to_ipa_string_per_token(ipa_tokens, processor=processor, 
     return symbol_for_token
 
 def compute_single_word_attention_score(
-        word:str=word,
+        word:str,
         data_type:str=data_type,
         lang:str=lang,
         start_layer:int=layer_start,
@@ -445,9 +445,9 @@ def compute_attention_by_language(lang:str=lang, data_type:str=data_type, data_p
     word_list = get_word_list(lang=lang, data_path=data_path)
     word_stats = {}
     for word in tqdm(word_list):
-        word_stats = compute_single_word_attention_score(word=word, data_type=data_type, lang=lang, layer_start=layer_start, layer_end=layer_end, dim_pairs=dim_pairs, data_path=data_path, output_dir=output_dir, word_stats=word_stats, check_model_response=check_model_response, compute_rule=compute_rule, model_path=model_path)
+        word_stats = compute_single_word_attention_score(data_type=data_type, lang=lang, layer_start=layer_start, layer_end=layer_end, dim_pairs=dim_pairs, data_path=data_path, output_dir=output_dir, word_stats=word_stats, check_model_response=check_model_response, compute_rule=compute_rule, model_path=model_path)
     return word_stats
 
 show_arguments()
 word_stats = compute_attention_by_language()
-plot_sampled_word_heatmap(word_stats, word, data_type, layer_start, layer_end, lang, compute_rule=COMPUTE_RULE, check_model_response=CHECK_MODEL_RESPONSE)
+plot_sampled_word_heatmap(word_stats, data_type, layer_start, layer_end, lang, compute_rule=COMPUTE_RULE, check_model_response=CHECK_MODEL_RESPONSE)
