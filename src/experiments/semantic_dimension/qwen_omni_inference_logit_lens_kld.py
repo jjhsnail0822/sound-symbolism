@@ -87,7 +87,7 @@ class QwenOmniMCQExperiment:
         # logit lens path
         kld_dir = "./results/kld"
         os.makedirs(kld_dir, exist_ok=True)
-        kld_path = os.path.join(kld_dir, f"{self.input_type}_{self.word_group}.pkl")
+        kld_path = os.path.join(kld_dir, f"{self.input_type}_{self.word_group}_{self.sem_dim}.pkl")
 
         # check existing results
         existing_results = self.collect_already_done(results_file_path)
