@@ -154,8 +154,6 @@ class QwenOmniMCQExperiment:
             }
             all_results.append(result)
 
-            if len(all_results) % 10 == 0:
-                self.save_output(all_results, results_file_path)
 
             # interpretability
             input_length = inputs["input_ids"].shape[-1]
@@ -211,10 +209,6 @@ class QwenOmniMCQExperiment:
                 except json.JSONDecodeError:
                     print("Warning: Could not decode JSON from results file. Starting from scratch.")
         return existing_results
-
-    def save_logit_lens(self, logit_lens_path):
-        with open(logit_lens_path, 'w', encoding='utf-8') as f:
-            json.dump(global_logit_lens, f, ensure_ascii=False, indent=4)
 
     def save_output(self, all_results, results_filename):
         correct_count = sum(1 for r in all_results if r["is_correct"])
@@ -287,29 +281,11 @@ class QwenOmniMCQExperiment:
         logits = self.thinker_lm_head(normalized)
         prob = torch.nn.functional.softmax(logits, dim=-1)
 
-        # choice
-        choice_logits = logits[qwen_token_1: qwen_token_2 + 1].tolist()
-        choice_prob = prob[qwen_token_1: qwen_token_2 + 1].tolist()
-
-        # top
-        top_prob = torch.topk(prob, 1, dim=-1).values[0].tolist()
-        top_token_idx = torch.topk(logits, 1, dim=-1).indices[0].tolist()
-        top_word = self.processor.tokenizer.decode(top_token_idx)
-        top_logit = logits[top_token_idx].tolist()
-
-
         output = {
-           "logits" : logits,
-           "prob" : prob,
+           "logits" : logits.detach().cpu().numpy(),
+           "prob" : prob.detach().cpu().numpy(),
         }
 
-        print(f"top prob      : {top_prob}")
-        print(f"top token idx : {top_token_idx}")
-        print(f"top word      : {top_word}")
-        print("")
-        print(f"choice prob   : {choice_prob}")
-
-        print("=========================================")
 
         return output
 
