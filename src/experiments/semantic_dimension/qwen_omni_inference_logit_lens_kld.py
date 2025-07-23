@@ -282,8 +282,8 @@ class QwenOmniMCQExperiment:
         prob = torch.nn.functional.softmax(logits, dim=-1)
 
         output = {
-           "logits" : logits.detach().cpu().numpy(),
-           "prob" : prob.detach().cpu().numpy(),
+           "logits" : logits.detach().float().cpu().numpy(),
+           "prob" : prob.detach().float().cpu().numpy(),
         }
 
 
