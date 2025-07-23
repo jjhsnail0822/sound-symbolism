@@ -42,7 +42,7 @@ class QwenOmniMCQExperiment:
             max_tokens: int,
             input_type: str = "original",
             word_group: str = "common",
-            is_debug: bool = False,
+            sem_dim: str = None,
     ):
         self.model_path = model_path
         self.data_path = data_path
@@ -50,7 +50,7 @@ class QwenOmniMCQExperiment:
         self.max_tokens = max_tokens
         self.input_type = input_type
         self.word_group = word_group
-
+        self.sem_dim = sem_dim
         # Load Qwen Omni model
         print(f"Loading Qwen Omni model from {self.model_path}")
         self.model = Qwen2_5OmniForConditionalGeneration.from_pretrained(
@@ -87,7 +87,7 @@ class QwenOmniMCQExperiment:
         # logit lens path
         kld_dir = "./results/kld"
         os.makedirs(kld_dir, exist_ok=True)
-        kld_path = os.path.join(kld_dir, f"{self.input_type}_{self.word_group}.json")
+        kld_path = os.path.join(kld_dir, f"{self.input_type}_{self.word_group}.pkl")
 
         # check existing results
         existing_results = self.collect_already_done(results_file_path)
@@ -95,6 +95,13 @@ class QwenOmniMCQExperiment:
         # Run experiment
         print(f"Running MCQ experiment on {len(mcq_data)} questions...")
         all_results = []
+        
+        if self.sem_dim:
+            original_count = len(mcq_data)
+            mcq_data = [q for q in mcq_data if q['meta_data']['dimension'].split("-")[0] == self.sem_dim]
+            print(f"Filtered to {len(mcq_data)} questions with semantic dimension '{self.sem_dim}' (from {original_count}).")
+
+        mcq_data = mcq_data[:20]
         for query_idx, query in enumerate(tqdm(mcq_data)):
             # validate
             local_hidden_states.clear()
@@ -332,6 +339,7 @@ if __name__ == "__main__":
     parser.add_argument("--model", '-m', type=str, default="Qwen/Qwen2.5-Omni-7B", help="Path to the Qwen Omni model")
     parser.add_argument("--input_type", "-i", type=str, choices=["original", "ipa", "audio", "original_and_audio", "ipa_and_audio"])
     parser.add_argument("--word_group", "-w", type=str, choices=["common", "rare", "constructed"])
+    parser.add_argument("--sem_dim", "-s", type=str, help="Specific semantic dimension to filter by")
     parser.add_argument("--max-tokens", type=int, default=32, help="Maximum tokens to generate")
 
     args = parser.parse_args()
