@@ -75,7 +75,7 @@ class AttentionScoreCalculator:
             'ʧ', 'ʨ', 'ʩ', 'ʪ', 'ʫ', 'ʬ', 'ʭ', 'ʮ', 'ʯ',
             'ɴ', 'ɕ', 'd͡ʑ', 't͡ɕ', 'ʑ', 'ɰ', 'ã', 'õ', 'ɯ̃', 'ĩ', 'ẽ', 'ɯː', 'aː', 'oː', 'iː', 'eː'
         ]
-        
+    
         # Define IPA sorting order: vowels first, then consonants by place of articulation
         # Vowels (front to back, high to low)
         self.vowels = [
@@ -122,10 +122,10 @@ class AttentionScoreCalculator:
     def load_matrix(self, data_type: str, word_tokens: str, dimension1: str, dimension2: str, lang: str) -> tuple[dict, str, str, str, list[str], list[str]]:
         file_path = os.path.join(self.output_dir, "semantic_dimension", data_type, lang, "generation_attention",
             f"{word_tokens}_{dimension1}_{dimension2}_generation_analysis.pkl")
-
+        
         with open(file_path, "rb") as f:
             data = pkl.load(f)
-        return data["attention_matrix"], dimension1, dimension2, data.get("answer"), word_tokens, [dimension1, dimension2]
+            return data["attention_matrix"], dimension1, dimension2, data.get("answer"), word_tokens, [dimension1, dimension2]
     
     def extract_ipa_attention_scores(self, attention_matrix, tokens, relevant_indices, dimension1, dimension2, answer=None) -> dict:
         if not isinstance(attention_matrix, torch.Tensor):
@@ -228,88 +228,88 @@ class AttentionScoreCalculator:
     
     def aggregate_scores_across_files(self, data_type: str, lang: str) -> dict:
         base_dir = os.path.join(self.output_dir, "semantic_dimension", data_type, lang)
-        analysis_dir = os.path.join(base_dir, "generation_attention")
+            analysis_dir = os.path.join(base_dir, "generation_attention")
         all_ipa_semdim_scores = {}
         
         for filename in os.listdir(analysis_dir):
             if not filename.endswith('.pkl'):
                 continue
-            file_path = os.path.join(analysis_dir, filename)
-            with open(file_path, "rb") as f:
+                file_path = os.path.join(analysis_dir, filename)
+                with open(file_path, "rb") as f:
                 data:dict = pkl.load(f)
             
-            generation_analysis = data["generation_analysis"]
-            dimension1 = data["dimension1"]
-            dimension2 = data["dimension2"]
+                        generation_analysis = data["generation_analysis"]
+                        dimension1 = data["dimension1"]
+                        dimension2 = data["dimension2"]
             answer = data.get("answer", "")
-            input_word = data.get("input_word", "") or generation_analysis.get("input_word", "")
-            step_analyses = generation_analysis.get('step_analyses', [])
+                        input_word = data.get("input_word", "") or generation_analysis.get("input_word", "")
+                            step_analyses = generation_analysis.get('step_analyses', [])
 
-            if step_analyses and len(step_analyses) > 0:
+                            if step_analyses and len(step_analyses) > 0:
                 step_analysis:dict = step_analyses[0]
-                word_dim1_raw_matrix = step_analysis.get('word_dim1_raw_matrix', None)
-                word_dim2_raw_matrix = step_analysis.get('word_dim2_raw_matrix', None)
+                                word_dim1_raw_matrix = step_analysis.get('word_dim1_raw_matrix', None)
+                                word_dim2_raw_matrix = step_analysis.get('word_dim2_raw_matrix', None)
                 breakpoint()
-                target_dimension = None
-                target_matrix = None
-                if answer == dimension1 and word_dim1_raw_matrix is not None:
-                    target_dimension = dimension1
-                    target_matrix = word_dim1_raw_matrix
-                elif answer == dimension2 and word_dim2_raw_matrix is not None:
-                    target_dimension = dimension2
-                    target_matrix = word_dim2_raw_matrix
-                
-                if target_dimension is not None and target_matrix is not None:
-                    avg_target_score = np.mean(target_matrix)
-                    if not input_word:
-                        input_word = generation_analysis.get("input_word", "")
-                    if input_word:
-                        ipa_symbols = []
-                        tokens = generation_analysis.get("tokens", [])
-                        if tokens:
-                            ipa_symbols = self.extract_ipa_from_tokens(tokens)
-                        else:
-                            for ipa_part in input_word.split():
-                                clean_ipa = self._clean_token(ipa_part)
-                                if clean_ipa and clean_ipa in self.ipa_symbols:
-                                    ipa_symbols.append(clean_ipa)
-                        
-                        if ipa_symbols:
-                            for ipa in ipa_symbols:
-                                key = (ipa, target_dimension)
-                                if key not in all_ipa_semdim_scores:
-                                    all_ipa_semdim_scores[key] = []
-                                all_ipa_semdim_scores[key].append(avg_target_score)
-            attention_matrix = data["attention_matrix"]
-            tokens = data.get("tokens", [])
-            dimension1 = data["dimension1"]
-            dimension2 = data["dimension2"]
+                                target_dimension = None
+                                target_matrix = None
+                                if answer == dimension1 and word_dim1_raw_matrix is not None:
+                                    target_dimension = dimension1
+                                    target_matrix = word_dim1_raw_matrix
+                                elif answer == dimension2 and word_dim2_raw_matrix is not None:
+                                    target_dimension = dimension2
+                                    target_matrix = word_dim2_raw_matrix
+                                
+                                if target_dimension is not None and target_matrix is not None:
+                                    avg_target_score = np.mean(target_matrix)
+                                    if not input_word:
+                                        input_word = generation_analysis.get("input_word", "")
+                                    if input_word:
+                                        ipa_symbols = []
+                                        tokens = generation_analysis.get("tokens", [])
+                                        if tokens:
+                                            ipa_symbols = self.extract_ipa_from_tokens(tokens)
+                                        else:
+                                            for ipa_part in input_word.split():
+                                                clean_ipa = self._clean_token(ipa_part)
+                                                if clean_ipa and clean_ipa in self.ipa_symbols:
+                                                    ipa_symbols.append(clean_ipa)
+                                        
+                                        if ipa_symbols:
+                                            for ipa in ipa_symbols:
+                                                key = (ipa, target_dimension)
+                                                if key not in all_ipa_semdim_scores:
+                                                    all_ipa_semdim_scores[key] = []
+                                                all_ipa_semdim_scores[key].append(avg_target_score)
+                        attention_matrix = data["attention_matrix"]
+                        tokens = data.get("tokens", [])
+                        dimension1 = data["dimension1"]
+                        dimension2 = data["dimension2"]
             answer = data.get("answer", "")
-            relevant_indices = data.get("relevant_indices", None)
-            input_word = data.get("input_word", "")
-            if not input_word and "word_tokens" in data:
-                input_word = data["word_tokens"]
-            
-            if answer in [dimension1, dimension2]:
-                ipa_scores = self.extract_ipa_attention_scores(
-                    attention_matrix, tokens, relevant_indices, dimension1, dimension2, answer
-                )
-                if ipa_scores:
-                    if answer == dimension1 and 'dim1_scores' in ipa_scores:
-                        target_scores = ipa_scores['dim1_scores']
-                    elif answer == dimension2 and 'dim2_scores' in ipa_scores:
-                        target_scores = ipa_scores['dim2_scores']
-                    else:
-                        target_scores = {}
-                    for ipa, scores in target_scores.items():
-                        key = (ipa, answer)
-                        if key not in all_ipa_semdim_scores:
-                            all_ipa_semdim_scores[key] = []
-                        all_ipa_semdim_scores[key].extend(scores)
+                        relevant_indices = data.get("relevant_indices", None)
+                        input_word = data.get("input_word", "")
+                        if not input_word and "word_tokens" in data:
+                            input_word = data["word_tokens"]
+                        
+                        if answer in [dimension1, dimension2]:
+                            ipa_scores = self.extract_ipa_attention_scores(
+                                attention_matrix, tokens, relevant_indices, dimension1, dimension2, answer
+                            )
+                            if ipa_scores:
+                                if answer == dimension1 and 'dim1_scores' in ipa_scores:
+                                    target_scores = ipa_scores['dim1_scores']
+                                elif answer == dimension2 and 'dim2_scores' in ipa_scores:
+                                    target_scores = ipa_scores['dim2_scores']
+                                else:
+                                    target_scores = {}
+                                for ipa, scores in target_scores.items():
+                                    key = (ipa, answer)
+                                    if key not in all_ipa_semdim_scores:
+                                        all_ipa_semdim_scores[key] = []
+                                    all_ipa_semdim_scores[key].extend(scores)
         stats = {}
         for (ipa, semdim), scores in all_ipa_semdim_scores.items():
             filtered_scores = [score for score in scores if score > 0.0]
-
+            
             if filtered_scores:
                 arr = np.array(filtered_scores)
                 stats.setdefault(semdim, {})[ipa] = {
@@ -323,17 +323,17 @@ class AttentionScoreCalculator:
                     'q75': float(np.percentile(arr, 75)),
                 }
 
-        all_semdims = sorted(stats.keys())
-        all_ipas = sorted(set(ipa for semdim in stats for ipa in stats[semdim]))
+            all_semdims = sorted(stats.keys())
+            all_ipas = sorted(set(ipa for semdim in stats for ipa in stats[semdim]))
         data:list = []
-        for ipa in all_ipas:
-            row = []
-            for semdim in all_semdims:
-                if ipa in stats[semdim]:
-                    row.append(stats[semdim][ipa]['mean'])
-                else:
-                    row.append(float('nan'))
-            data.append(row)
+            for ipa in all_ipas:
+                row = []
+                for semdim in all_semdims:
+                    if ipa in stats[semdim]:
+                        row.append(stats[semdim][ipa]['mean'])
+                    else:
+                        row.append(float('nan'))
+                data.append(row)
         
         all_semdims = []
         for d1, d2 in self.dim_pairs:
@@ -345,7 +345,7 @@ class AttentionScoreCalculator:
     
     def aggregate_scores_across_files_v2(self, data_type: str, lang: str, start_layer:int=0, end_layer:int=27):
         base_dir = os.path.join(self.output_dir, "semantic_dimension", data_type, lang)
-        analysis_dir = os.path.join(base_dir, "generation_attention")
+            analysis_dir = os.path.join(base_dir, "generation_attention")
         all_scores = {}  # (ipa, semdim, layer, head): [score, ...]
         num_of_files = 0
         for foldername in tqdm(os.listdir(analysis_dir), total=len(os.listdir(analysis_dir)), desc="Processing files"):
@@ -355,7 +355,7 @@ class AttentionScoreCalculator:
             for filename in os.listdir(semdim_dir):
                 num_of_files += 1
                 if num_of_files % 1000 == 0:
-                    print(f"Processing {num_of_files:>7,}th file : {filename}")
+                print(f"Processing {num_of_files:>7,}th file : {filename}")
                 data = pkl.load(open(os.path.join(semdim_dir, filename), 'rb'))
                 word, dim1, dim2 = filename.rsplit("_", 2)
                 if dim2.endswith(".pkl"):
@@ -753,7 +753,7 @@ class AttentionScoreCalculator:
         plt.close()
         
         return file_path
-
+    
     def plot_ipa_semdim_heatmap_with_layers(self, stats:dict, save_path:str, lang:str, data_type:str, start_layer:int, end_layer:int, condition_desc:str="") -> None:
         if not stats or not any(stats.values()):
             print(f"[WARN] No data to plot for lang={lang}, condition={condition_desc}")
@@ -822,7 +822,7 @@ class AttentionScoreCalculator:
                 else:
                     # Structure: stats[semdim][ipa] = float
                     matrix[i, j] = stats[semdim].get(ipa, 0.0)
-
+        
         fig, ax = plt.subplots(figsize=(max(12, len(sorted_ipa_list)*0.3), max(10, len(ordered_semdim_list)*0.3)))
         im = sns.heatmap(matrix, ax=ax, cmap='YlGnBu', cbar=True, 
                         xticklabels=sorted_ipa_list, yticklabels=ordered_semdim_list, 
@@ -864,7 +864,7 @@ class AttentionScoreCalculator:
 
     def aggregate_scores_with_response_condition(self, data_type:str, lang:str, start_layer:int=20, end_layer:int=27) -> dict[tuple[str, str, int, int], list[float]]:
         base_dir = os.path.join(self.output_dir, "semantic_dimension", data_type, lang)
-        analysis_dir = os.path.join(base_dir, "generation_attention")
+            analysis_dir = os.path.join(base_dir, "generation_attention")
         all_scores:dict[tuple[str, str, int, int], list[float]] = {}  # (ipa, semdim, layer, head): [score, ...]
         num_of_files = 0
         for foldername in tqdm(os.listdir(analysis_dir), total=len(os.listdir(analysis_dir)), desc="Processing files"):
@@ -1050,7 +1050,7 @@ class AttentionScoreCalculator:
 
     def sample_single_word_response_condition(self, data_type:str, lang:str, start_layer:int=20, end_layer:int=27, num_samples:int=5):
         base_dir = os.path.join(self.output_dir, "semantic_dimension", data_type, lang)
-        analysis_dir = os.path.join(base_dir, "generation_attention")
+            analysis_dir = os.path.join(base_dir, "generation_attention")
         if not os.path.exists(analysis_dir):
             print(f"Directory not found: {analysis_dir}")
             return None
@@ -1063,25 +1063,25 @@ class AttentionScoreCalculator:
             for filename in os.listdir(semdim_dir):
                 if not filename.endswith('.pkl'):
                     continue
-                word, dim1, dim2 = filename.rsplit("_", 2)
-                if dim2.endswith(".pkl"):
-                    dim2 = dim2[:-4]
-                gen_analysis_path = os.path.join(analysis_dir, f"{word}_{dim1}_{dim2}_generation_analysis.pkl")
-                if not os.path.exists(gen_analysis_path):
-                    continue
-                alt_data = pkl.load(open(gen_analysis_path, 'rb'))
-                gen_analysis = alt_data.get("generation_analysis", {})
-                answer = gen_analysis.get("answer", None)
-                response = gen_analysis.get("response", None)
-                if not (answer and response):
-                    continue
-                resp_num = None
-                if '1' in response:
-                    resp_num = "1"
-                elif '2' in response:
-                    resp_num = "2"
-                if (resp_num == "1" and answer == dim1) or (resp_num == "2" and answer == dim2):
-                    file_dim_pairs.append((word, dim1, dim2, filename, semdim_dir, [dim1, dim2]))
+                    word, dim1, dim2 = filename.rsplit("_", 2)
+                    if dim2.endswith(".pkl"):
+                        dim2 = dim2[:-4]
+                    gen_analysis_path = os.path.join(analysis_dir, f"{word}_{dim1}_{dim2}_generation_analysis.pkl")
+                    if not os.path.exists(gen_analysis_path):
+                        continue
+                    alt_data = pkl.load(open(gen_analysis_path, 'rb'))
+                    gen_analysis = alt_data.get("generation_analysis", {})
+                    answer = gen_analysis.get("answer", None)
+                    response = gen_analysis.get("response", None)
+                    if not (answer and response):
+                        continue
+                    resp_num = None
+                    if '1' in response:
+                        resp_num = "1"
+                    elif '2' in response:
+                        resp_num = "2"
+                    if (resp_num == "1" and answer == dim1) or (resp_num == "2" and answer == dim2):
+                        file_dim_pairs.append((word, dim1, dim2, filename, semdim_dir, [dim1, dim2]))
         all_words = list(set([f[0] for f in file_dim_pairs]))
         sampled_words = []
         word_idx = 0
@@ -1090,7 +1090,7 @@ class AttentionScoreCalculator:
             word_idx += 1
             word_files = [f for f in file_dim_pairs if f[0] == word]
             if not word_files:
-                continue
+                    continue
             _, dim1, dim2, filename, semdim_dir, _ = word_files[0]
             if f"{dim1}_{dim2}" in semdim_dir:
                 semdim_dir = semdim_dir.rsplit("/", 1)[0]
@@ -1191,7 +1191,7 @@ class AttentionScoreCalculator:
                 if data_type == "ipa":
                     for ipa_idx, ipa in enumerate(ipa_list):
                         if ipa_idx >= wlen:
-                            continue
+                        continue
                         correct_values = []
                         wrong_values = []
                         for layer in range(start_layer, min(end_layer+1, n_layer)):
@@ -1215,12 +1215,12 @@ class AttentionScoreCalculator:
                             word_stats[ipa][wrong_dim] = mean_wrong
                 elif data_type == "audio":
                     ipa_runs = self.get_ipa_runs(ipa_list)
-                    for ipa, start_idx, end_idx in ipa_runs:
+                        for ipa, start_idx, end_idx in ipa_runs:
                         if ipa == "":
                             continue
                         correct_values = []
                         wrong_values = []
-                        for layer in range(start_layer, min(end_layer+1, n_layer)):
+                            for layer in range(start_layer, min(end_layer+1, n_layer)):
                             for head in range(n_head):
                                 layer_len = attn_layers[layer].shape[2]
                                 if layer_len != wlen+d1len+d2len:
@@ -1228,13 +1228,13 @@ class AttentionScoreCalculator:
                                     continue
                                 sum_correct = 0.0
                                 for d_idx in correct_range:
-                                    for ipa_idx in range(start_idx, end_idx+1):
-                                        if d_idx < attn.shape[2] and ipa_idx < attn.shape[3]:
+                                            for ipa_idx in range(start_idx, end_idx+1):
+                                                if d_idx < attn.shape[2] and ipa_idx < attn.shape[3]:
                                             sum_correct += attn_layers[layer][0, head, d_idx, ipa_idx].item()
                                 correct_values.append(sum_correct)
                                 sum_wrong = 0.0
                                 for d_idx in wrong_range:
-                                    for ipa_idx in range(start_idx, end_idx+1):
+                                            for ipa_idx in range(start_idx, end_idx+1):
                                         if d_idx < attn.shape[2] and ipa_idx < attn.shape[3]:
                                             sum_wrong += attn_layers[layer][0, head, d_idx, ipa_idx].item()
                                 wrong_values.append(sum_wrong)
@@ -1263,7 +1263,7 @@ class AttentionScoreCalculator:
         file_dim_pairs = []
         for foldername in os.listdir(analysis_dir):
             if foldername.endswith('.pkl') or foldername.endswith(".json"):
-                continue
+                                    continue
             semdim_dir = os.path.join(analysis_dir, foldername)
             for filename in os.listdir(semdim_dir):
                 if not filename.endswith('.pkl'):
@@ -1289,7 +1289,7 @@ class AttentionScoreCalculator:
             if f"{dim1}_{dim2}" in semdim_dir:
                 semdim_dir = semdim_dir.rsplit("/", 1)[0]
                 filename = filename[:-4] + "_generation_analysis.pkl"
-            else:
+                    else:
                 semdim_dir = os.path.join(semdim_dir, f"{dim1}_{dim2}")
             data = pkl.load(open(os.path.join(semdim_dir, filename), 'rb'))
             alt_data = pkl.load(open(os.path.join(analysis_dir, filename), 'rb'))
@@ -1300,7 +1300,7 @@ class AttentionScoreCalculator:
                 ipa_list = input_word.split()
             elif data_type == "audio":
                 if "ipa_tokens" not in data.keys():
-                    continue
+                                continue
                 ipa_list = data["ipa_tokens"]
             if not ipa_list:
                 print(f"[DEBUG] No valid IPA symbols for word {word}")
@@ -1354,7 +1354,7 @@ class AttentionScoreCalculator:
                 dim2_range = range(wlen+d1len, wlen+d1len+d2len)
                 if isinstance(attention_matrices[0], (list, tuple)):
                     attn_layers = attention_matrices[0]
-                else:
+                                else:
                     attn_layers = attention_matrices[0]
                     if attn_layers.ndim == 4:
                         attn_layers = attn_layers[0]
@@ -1365,10 +1365,10 @@ class AttentionScoreCalculator:
                         for dim, dim_range in [(dim1, dim1_range), (dim2, dim2_range)]:
                             all_values = []
                             for layer in range(start_layer, min(end_layer+1, n_layer)):
-                                for head in range(n_head):
+                                    for head in range(n_head):
                                     layer_len = attn_layers[layer].shape[2]
                                     if layer_len != wlen+d1len+d2len:
-                                        continue
+                                    continue
                                     for d_idx in dim_range:
                                         if d_idx < attn_layers[layer].shape[2] and ipa_idx < attn_layers[layer].shape[3]:
                                             v = attn_layers[layer][0, head, d_idx, ipa_idx].item()
@@ -1381,7 +1381,7 @@ class AttentionScoreCalculator:
                     ipa_runs = self.get_ipa_runs(ipa_list)
                     for ipa, start_idx, end_idx in ipa_runs:
                         if ipa == "":
-                            continue
+                continue
                         for dim, dim_range in [(dim1, dim1_range), (dim2, dim2_range)]:
                             all_values = []
                             for layer in range(start_layer, min(end_layer+1, n_layer)):
@@ -1505,7 +1505,7 @@ class AttentionScoreCalculator:
                 data_type=data_type,
                 start_layer=start_layer, end_layer=end_layer,
                 condition_desc=condition_desc + (f' (all languages)' if lang == 'all' else '')
-            )
+                )
 
     def get_ipa_runs(self, ipa_list):
         """

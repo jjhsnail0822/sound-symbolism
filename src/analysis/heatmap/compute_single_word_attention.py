@@ -21,11 +21,11 @@ model_path = "Qwen/Qwen2.5-Omni-7B"
 data_type = "ipa"
 lang = "art"
 constructed = True
-word = "fah-sho"
-layer_start = 0
-layer_end = 8
+word = "zee-zay"
+layer_start = 18
+layer_end = 27
 CHECK_MODEL_RESPONSE = True
-COMPUTE_RULE = "fraction"
+COMPUTE_RULE = "vanilla"
 if constructed or (lang == "art") or (lang == "con"):
     lang = "art"
     data_path = "data/processed/art/semantic_dimension/semantic_dimension_binary_gt.json"
@@ -114,7 +114,7 @@ def show_arguments(model_name:str=model_path, data_type:str=data_type, lang:str=
 
 
 def model_guessed_incorrectly(response, dim1, dim2, answer):
-    print(f"Response: {response}, Dim1: {dim1}, Dim2: {dim2}, Answer: {answer}")
+    # print(f"Response: {response}, Dim1: {dim1}, Dim2: {dim2}, Answer: {answer}")
     # breakpoint()
     if dim1 == answer and response == "1":
         return False
@@ -129,7 +129,7 @@ def find_basic_info(word=word, output_dir=output_dir, dim_pairs=dim_pairs):
         if not os.path.exists(data_dir) or not os.path.exists(alt_dir):
             continue
         else:
-            print(f"Word: {word}, Dim1: {dim1}, Dim2: {dim2}")
+            # print(f"Word: {word}, Dim1: {dim1}, Dim2: {dim2}")
             alt = pkl.load(open(alt_dir, "rb"))
             ipa_tokens = alt["ipa_tokens"]
             converted_ipa_tokens = convert_ipa_tokens_to_ipa_string_per_token(ipa_tokens)
@@ -141,7 +141,7 @@ def find_basic_info(word=word, output_dir=output_dir, dim_pairs=dim_pairs):
         raise ValueError(f"No data found for word: {word}")
     return ipa_list, word_stats
 
-def plot_sampled_word_heatmap(word_stats, word, data_type, start_layer, end_layer, lang, save_path=None, suffix:str=None, compute_rule=COMPUTE_RULE, check_model_response=CHECK_MODEL_RESPONSE, dim_pairs=dim_pairs):
+def plot_sampled_word_heatmap(word_stats, word, data_type, start_layer, end_layer, lang, save_path=None, suffix:str=None, compute_rule=COMPUTE_RULE, check_model_response=CHECK_MODEL_RESPONSE, dim_pairs=dim_pairs, answer_list=None):
     if save_path is None:
         save_path = 'results/plots/attention/sampled_words/'
     os.makedirs(save_path, exist_ok=True)
@@ -183,6 +183,12 @@ def plot_sampled_word_heatmap(word_stats, word, data_type, start_layer, end_laye
     ax.set_title(title, fontsize=14, pad=15)
     plt.setp(ax.get_xticklabels(), ha='right')
     plt.tight_layout()
+    if answer_list is not None:
+        yticklabels = ax.get_yticklabels()
+        for i, label in enumerate(yticklabels):
+            if label.get_text() in answer_list:
+                label.set_fontweight('bold')
+        ax.set_yticklabels(yticklabels)
     clean_word = re.sub(r'[^\w\-]', '_', word)
     file_name = f"sampled_word_{clean_word}_{lang}_{data_type}_generation_attention_L{start_layer}_L{end_layer}"
     if compute_rule is not None:
@@ -380,20 +386,20 @@ def compute_single_word_attention_score(
         model_path:str=model_path,
     ) -> dict:
     ipa_list, word_stats = find_basic_info(word=word, output_dir=output_dir, dim_pairs=dim_pairs)
-    print(f"Word stats at start : {word_stats}")
-
+    # print(f"Word stats at start : {word_stats}")
+    answer_list = []
     for dim1, dim2 in dim_pairs:
         data_dir = os.path.join(output_dir, f"{dim1}_{dim2}", f"{word}_{dim1}_{dim2}.pkl")
         alt_dir = os.path.join(output_dir, f"{word}_{dim1}_{dim2}_generation_analysis.pkl")
         if not os.path.exists(data_dir) or not os.path.exists(alt_dir):
             continue
-        print(f"Found data for {word} {dim1}-{dim2}")
+        # print(f"Found data for {word} {dim1}-{dim2}")
         data = pkl.load(open(data_dir, "rb"))
         alt = pkl.load(open(alt_dir, "rb"))
         attention_matrices, relevant_indices, dim1, dim2, answer, word_tokens, option_tokens, tokens, ipa_tokens, response, input_word, target_indices, wlen, d1len, d2len, dim1_range, dim2_range = get_data(data, alt)
         if check_model_response and model_guessed_incorrectly(response, dim1, dim2, answer):
             continue
-            
+        answer_list.append(answer)
         cleaned_ipa_tokens = [clean_token(token) for token in ipa_tokens]
         converted_ipa_tokens = convert_ipa_tokens_to_ipa_string_per_token(ipa_tokens)
         ipa_list = converted_ipa_tokens
@@ -414,9 +420,9 @@ def compute_single_word_attention_score(
                 word_stats = compute_audio_semdim_score_with_fraction_rule(ipa_list, dim1, dim2, dim1_range, dim2_range, start_layer, end_layer, n_layer, n_head, wlen, d1len, d2len, attn_layers, word_stats)
         else:
             raise ValueError(f"Invalid data type: {data_type}")
-    print(word_stats)
-    return word_stats
+    # print(word_stats)
+    return word_stats, answer_list
 
 show_arguments()
-word_stats = compute_single_word_attention_score()
-plot_sampled_word_heatmap(word_stats, word, data_type, layer_start, layer_end, lang, compute_rule=COMPUTE_RULE, check_model_response=CHECK_MODEL_RESPONSE)
+word_stats, answer_list = compute_single_word_attention_score()
+plot_sampled_word_heatmap(word_stats, word, data_type, layer_start, layer_end, lang, compute_rule=COMPUTE_RULE, check_model_response=CHECK_MODEL_RESPONSE, answer_list=answer_list)

@@ -19,7 +19,7 @@ from transformers import Qwen2_5OmniProcessor
 
 model_path = "Qwen/Qwen2.5-Omni-7B"
 data_type = "ipa"
-lang = "en"
+lang = "art"
 if lang in ["en", "fr", "ja", "ko"]:
     constructed = False
 elif lang in ["art", "con"]:
@@ -130,15 +130,16 @@ def show_arguments(model_name:str=model_path, data_type:str=data_type, lang:str=
 
 def model_guessed_incorrectly(response, dim1, dim2, answer) -> bool:
     if dim1 == answer and response == "1":
-        print(f"Model guessed incorrectly.")
+        # print(f"Model guessed incorrectly.")
         return False
     elif dim2 == answer and response == "2":
-        print(f"Model guessed incorrectly.")
+        # print(f"Model guessed incorrectly.")
         return False
-    print(f"Model guessed correctly.")
+    # print(f"Model guessed correctly.")
     return True
 
 def find_basic_info(word, output_dir=output_dir, dim_pairs=dim_pairs, word_stats=None) -> tuple[list[str], dict]:
+    ipa_list = []
     for dim1, dim2 in dim_pairs:
         data_dir = os.path.join(output_dir, f"{dim1}_{dim2}", f"{word}_{dim1}_{dim2}.pkl")
         alt_dir = os.path.join(output_dir, f"{word}_{dim1}_{dim2}_generation_analysis.pkl")
@@ -153,11 +154,14 @@ def find_basic_info(word, output_dir=output_dir, dim_pairs=dim_pairs, word_stats
             word_stats = {ipa:{} for ipa in ipa_list}
             word_stats = {k: v for k, v in word_stats.items() if k != ""} # Remove empty text
             break
-    if ipa_list is None:
-        raise ValueError(f"No data found for word: {word}")
     return ipa_list, word_stats
 
-def plot_sampled_word_heatmap(word_stats:dict, data_type:str, start_layer:int, end_layer:int, lang:str, save_path:str=None, suffix:str=None, compute_rule:bool=COMPUTE_RULE, check_model_response:bool=CHECK_MODEL_RESPONSE, dim_pairs:list=dim_pairs):
+def plot_sampled_word_heatmap(word_stats, data_type, start_layer, end_layer, lang, save_path=None, suffix:str=None, compute_rule=COMPUTE_RULE, check_model_response=CHECK_MODEL_RESPONSE, dim_pairs=dim_pairs, answer_list=None):
+    import numpy as np
+    import matplotlib.pyplot as plt
+    import seaborn as sns
+    import os
+    import re
     if save_path is None:
         save_path = 'results/plots/attention/sampled_words/'
     os.makedirs(save_path, exist_ok=True)
@@ -188,6 +192,12 @@ def plot_sampled_word_heatmap(word_stats:dict, data_type:str, start_layer:int, e
         seen_pairs.add((dim1, dim2))
         seen_pairs.add((dim2, dim1))
     matrix = np.vstack(matrix_rows) if matrix_rows else np.zeros((0, len(ipa_list)))
+    print(f"semdim_list: {semdim_list}")
+    print(f"matrix shape: {matrix.shape}")
+    print(f"ipa_list: {ipa_list}")
+    if matrix.shape[0] == 0 or matrix.shape[1] == 0:
+        print(f"[WARN] Empty matrix for lang '{lang}'. Skipping heatmap.")
+        return
     fig, ax = plt.subplots(figsize=(max(10, len(ipa_list)*0.3), max(8, len(semdim_list)*0.3)))
     sns.heatmap(matrix, ax=ax, cmap='YlGnBu', cbar=True,
                 xticklabels=ipa_list, yticklabels=semdim_list, linewidths=0.2, linecolor='gray', square=False)
@@ -199,6 +209,12 @@ def plot_sampled_word_heatmap(word_stats:dict, data_type:str, start_layer:int, e
     ax.set_title(title, fontsize=14, pad=15)
     plt.setp(ax.get_xticklabels(), ha='right')
     plt.tight_layout()
+    if answer_list is not None:
+        yticklabels = ax.get_yticklabels()
+        for i, label in enumerate(yticklabels):
+            if label.get_text() in answer_list:
+                label.set_fontweight('bold')
+        ax.set_yticklabels(yticklabels)
     file_name = f"{lang.upper()}_{data_type}_generation_attention_L{start_layer}_L{end_layer}"
     if compute_rule is not None:
         file_name += f"_rule-{compute_rule}"
@@ -261,14 +277,15 @@ def compute_ipa_semdim_score_with_vanilla_rule(ipa_list, dim1, dim2, dim1_range,
                         if d_idx < attn_layers[layer].shape[2] and ipa_idx < attn_layers[layer].shape[3]:
                             v = attn_layers[layer][0, head, d_idx, ipa_idx].item()
                             all_values.append(v)
-            mean_val = float(np.mean(all_values)) if all_values else np.nan
-            word_stats[ipa][dim] = mean_val
+            if dim not in word_stats[ipa].keys():
+                word_stats[ipa][dim] = []
+            word_stats[ipa][dim].extend(all_values)
     return word_stats
 
 def compute_audio_semdim_score_with_vanilla_rule(ipa_list, dim1, dim2, dim1_range, dim2_range, start_layer, end_layer, n_layer, n_head, wlen, d1len, d2len, attn_layers, word_stats) -> dict:
     ipa_runs = get_ipa_runs(ipa_list)
     for ipa, start_idx, end_idx in ipa_runs:
-        if ipa == "":
+        if ipa == "" or ipa == " ":
             continue
         for dim, dim_range in [(dim1, dim1_range), (dim2, dim2_range)]:
             all_values = []
@@ -279,12 +296,15 @@ def compute_audio_semdim_score_with_vanilla_rule(ipa_list, dim1, dim2, dim1_rang
                         break
                         raise ValueError(f"Layer length mismatch: {layer_len} != {wlen+d1len+d2len}")
                     for d_idx in dim_range:
+                        sum_score = 0.0
                         for ipa_idx in range(start_idx, end_idx+1):
                             if d_idx < attn_layers[layer].shape[2] and ipa_idx < attn_layers[layer].shape[3]:
                                 v = attn_layers[layer][0, head, d_idx, ipa_idx].item()
-                                all_values.append(v)
-            mean_val = float(np.mean(all_values)) if all_values else np.nan
-            word_stats[ipa][dim] = mean_val
+                                sum_score += v
+                        all_values.append(sum_score)
+            if dim not in word_stats[ipa].keys():
+                word_stats[ipa][dim] = []
+            word_stats[ipa][dim].extend(all_values)
     return word_stats
 
 def compute_ipa_semdim_score_with_fraction_rule(ipa_list, dim1, dim2, dim1_range, dim2_range, start_layer, end_layer, n_layer, n_head, wlen, d1len, d2len, attn_layers, word_stats) -> dict:
@@ -377,7 +397,8 @@ def convert_ipa_tokens_to_ipa_string_per_token(ipa_tokens, processor=processor, 
         for j in range(min(len(ipa_tokens), i+4), i, -1):
             tmp_token = ipa_tokens[i:j]
             tmp_converted_str = processor.tokenizer.convert_tokens_to_string(tmp_token).strip()
-            if tmp_converted_str in ipa_symbols:
+            # Only accept if it's a single valid IPA symbol and not ''
+            if tmp_converted_str in ipa_symbols and tmp_converted_str != '':
                 for k in range(i, j):
                     symbol_for_token[k] = tmp_converted_str
                 i = j
@@ -385,7 +406,11 @@ def convert_ipa_tokens_to_ipa_string_per_token(ipa_tokens, processor=processor, 
                 break
         if not found:
             tmp_converted_str = processor.tokenizer.convert_tokens_to_string([ipa_tokens[i]]).strip()
-            symbol_for_token[i] = tmp_converted_str
+            # Only accept if it's a single valid IPA symbol and not ''
+            if tmp_converted_str in ipa_symbols and tmp_converted_str != '':
+                symbol_for_token[i] = tmp_converted_str
+            else:
+                symbol_for_token[i] = ''
             i += 1
     return symbol_for_token
 
@@ -404,14 +429,13 @@ def compute_single_word_attention_score(
         model_path:str=model_path,
     ) -> dict:
     ipa_list, word_stats = find_basic_info(word=word, output_dir=output_dir, dim_pairs=dim_pairs, word_stats=word_stats)
-    print(f"Word stats at start : {word_stats}")
 
     for dim1, dim2 in dim_pairs:
         data_dir = os.path.join(output_dir, f"{dim1}_{dim2}", f"{word}_{dim1}_{dim2}.pkl")
         alt_dir = os.path.join(output_dir, f"{word}_{dim1}_{dim2}_generation_analysis.pkl")
         if not os.path.exists(data_dir) or not os.path.exists(alt_dir):
             continue
-        print(f"Found data for {word} {dim1}-{dim2}")
+        # print(f"Found data for {word} {dim1}-{dim2}")
         data = pkl.load(open(data_dir, "rb"))
         alt = pkl.load(open(alt_dir, "rb"))
         attention_matrices, relevant_indices, dim1, dim2, answer, word_tokens, option_tokens, tokens, ipa_tokens, response, input_word, target_indices, wlen, d1len, d2len, dim1_range, dim2_range = get_data(data, alt)
@@ -438,15 +462,60 @@ def compute_single_word_attention_score(
                 word_stats = compute_audio_semdim_score_with_fraction_rule(ipa_list, dim1, dim2, dim1_range, dim2_range, start_layer, end_layer, n_layer, n_head, wlen, d1len, d2len, attn_layers, word_stats)
         else:
             raise ValueError(f"Invalid data type: {data_type}")
-    print(word_stats)
+    # print(word_stats)
     return word_stats
 
-def compute_attention_by_language(lang:str=lang, data_type:str=data_type, data_path:str=data_path, output_dir:str=output_dir, dim_pairs:list=dim_pairs, layer_start:int=layer_start, layer_end:int=layer_end, constructed:bool=constructed, compute_rule:str=COMPUTE_RULE, check_model_response:bool=CHECK_MODEL_RESPONSE):
+final_word_stats = {}
+
+def compute_attention_by_language(
+    lang: str = lang,
+    data_type: str = data_type,
+    data_path: str = data_path,
+    output_dir: str = output_dir,
+    dim_pairs: list = dim_pairs,
+    layer_start: int = layer_start,
+    layer_end: int = layer_end,
+    constructed: bool = constructed,
+    compute_rule: str = COMPUTE_RULE,
+    check_model_response: bool = CHECK_MODEL_RESPONSE
+):
+    global final_word_stats
+    semdim_set = set()
+    for dim1, dim2 in dim_pairs:
+        semdim_set.add(dim1)
+        semdim_set.add(dim2)
+    semdim_list = sorted(list(semdim_set))
     word_list = get_word_list(lang=lang, data_path=data_path)
-    word_stats = {}
+    word_count = 0
     for word in tqdm(word_list):
-        word_stats = compute_single_word_attention_score(data_type=data_type, lang=lang, layer_start=layer_start, layer_end=layer_end, dim_pairs=dim_pairs, data_path=data_path, output_dir=output_dir, word_stats=word_stats, check_model_response=check_model_response, compute_rule=compute_rule, model_path=model_path)
-    return word_stats
+        try:
+            word_stats = compute_single_word_attention_score(
+                word=word, data_type=data_type, lang=lang, start_layer=layer_start, end_layer=layer_end,
+                dim_pairs=dim_pairs, data_path=data_path, output_dir=output_dir,
+                check_model_response=check_model_response, compute_rule=compute_rule, model_path=model_path
+            )
+            for ipa, dim_scores in word_stats.items():
+                if not ipa or not dim_scores:
+                    print(f"No data to add for word '{word}' (ipa: '{ipa}')")
+                    continue
+                for dim, score in dim_scores.items():
+                    if ipa not in final_word_stats.keys():
+                        final_word_stats[ipa] = {}
+                    if dim not in final_word_stats[ipa].keys():
+                        final_word_stats[ipa][dim] = []
+                    final_word_stats[ipa][dim].extend(score)
+            # word_count += 1
+            # if word_count > 100:
+            #     break
+        except Exception as e:
+            print(f"Error processing word {word}: {e}")
+            continue
+        
+    for ipa, dim_scores in final_word_stats.items():
+        for dim, scores in dim_scores.items():
+            mean_score = sum(scores) / len(scores)
+            final_word_stats[ipa][dim] = mean_score
+    return final_word_stats
 
 show_arguments()
 word_stats = compute_attention_by_language()

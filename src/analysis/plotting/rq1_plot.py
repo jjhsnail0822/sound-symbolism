@@ -480,67 +480,6 @@ def plot_inputtype_performance(data, metric='macro_f1_score', save_path=None, fi
     file_name = f"inputtype_performance_{metric}{suffix}.png"
     save_plot(fig, save_path, file_name)
 
-def plot_inputtype_wordtype_scatter(data, metric='macro_f1_score', save_path=None, filter_constructed=False, constructed_dims=constructed_dims):
-    from collections import defaultdict
-    
-    input_type_scores = defaultdict(lambda: defaultdict(list))
-    input_type_words = defaultdict(lambda: defaultdict(list))
-    
-    for model_name, model_data in data.items():
-        for word_type, word_data in model_data.items():
-            for input_type, input_data in word_data.items():
-                if "romanized" in input_type:
-                    continue
-                dimensions = input_data.get('dimensions', {})
-                for sem_dim, entry in dimensions.items():
-                    if filter_constructed:
-                        if sem_dim not in constructed_dims:
-                            continue
-                    
-                    input_type_scores[input_type][word_type].append(extract_metric(entry, metric))
-                    input_type_words[input_type][word_type].append(extract_num_words(entry))
-    
-    input_type_avgs = {}
-    for input_type in ['original', 'original_and_audio', 'ipa', 'ipa_and_audio', 'audio']:
-        input_type_avgs[input_type] = {}
-        for word_type in ['constructed', 'rare', 'common']:
-            if word_type in input_type_scores[input_type]:
-                scores = input_type_scores[input_type][word_type]
-                weights = input_type_words[input_type][word_type]
-                avg = weighted_avg(scores, weights)
-                input_type_avgs[input_type][word_type] = avg
-            else:
-                input_type_avgs[input_type][word_type] = 0.0
-    
-    if not input_type_avgs:
-        return
-    
-    input_types = ['original', 'original_and_audio', 'ipa', 'ipa_and_audio', 'audio']
-    word_types = ['constructed', 'rare', 'common']
-    
-    fig, ax = plt.subplots(figsize=(12, 8))
-    
-    colors = ['#ffd43b', '#20c997', '#f06595']
-    markers = ['s', '^', 'o']
-    
-    for i, word_type in enumerate(word_types):
-        x_coords = []
-        y_coords = []
-        for j, input_type in enumerate(input_types):
-            if input_type in input_type_avgs and word_type in input_type_avgs[input_type]:
-                x_coords.append(j)
-                y_coords.append(input_type_avgs[input_type][word_type])
-        
-        ax.scatter(x_coords, y_coords, c=colors[i], marker=markers[i], s=100, 
-                  label=word_type, alpha=0.8, edgecolors='black', linewidth=1)
-    
-    set_ax_style(ax, xlabel='Input Types', ylabel=get_metric_label(metric), xticks=range(len(input_types)), ylim=(0, 1), y_major_locator=0.1, hline=0.5, hline_kwargs=dict(color='gray', linestyle='--', alpha=0.7, linewidth=1.5), grid=True, grid_alpha=0.3, legend=True, legend_kwargs=dict(fontsize=12), tight_layout=True)
-    ax.set_xticklabels(input_types, ha='right')
-    os.makedirs(save_path, exist_ok=True)
-    suffix = "_filter" if filter_constructed else ""
-    file_name = f"inputtype_wordtype_scatter_{metric}{suffix}.png"
-    save_plot(fig, save_path, file_name)
-
 def plot_inputtype_wordtype_modeltype_scatter(data, metric='macro_f1_score', save_path=None, filter_constructed=False, constructed_dims=constructed_dims):
     from collections import defaultdict
     
@@ -627,6 +566,7 @@ def plot_inputtype_wordtype_modeltype_scatter(data, metric='macro_f1_score', sav
     os.makedirs(save_path, exist_ok=True)
     suffix = "_filter" if filter_constructed else ""
     file_name = f"inputtype_wordtype_modeltype_scatter_{metric}{suffix}.png"
+    
     save_plot(fig, save_path, file_name)
 
 def plot_inputtype_wordtype_modeltype_semdim_scatter(data, metric='macro_f1_score', save_path=None, filter_constructed=False, constructed_dims=constructed_dims):
@@ -1976,24 +1916,23 @@ def main(json_path, metric='macro_f1_score', sem_dims=None, save_path=None, filt
             save_path=save_path, top_n=25, bottom_n=25, sem_dims=sem_dims, filter_constructed=filter_constructed
         )
     
-    # plot_wordtype_performance(data, metric, save_path=save_path, filter_constructed=filter_constructed)
-    # plot_inputtype_performance(data, metric, save_path=save_path, filter_constructed=filter_constructed)
-    # plot_inputtype_wordtype_scatter(data, metric, save_path=save_path, filter_constructed=filter_constructed)
-    # plot_inputtype_wordtype_modeltype_scatter(data, metric, save_path=save_path, filter_constructed=filter_constructed)
-    # plot_inputtype_wordtype_modeltype_semdim_scatter(data, metric, save_path=save_path, filter_constructed=filter_constructed)
-    # plot_inputtype_wordtype_modeltype_all_semdim_scatter(data, metric, save_path=save_path, filter_constructed=filter_constructed)
-    # plot_inputtype_modeltype_wordtype_all_semdim_scatter(data, metric, save_path=save_path, filter_constructed=filter_constructed)
-    # plot_inputtype_per_wordtype_all_models(data, metric, save_path=save_path, filter_constructed=filter_constructed)
+    plot_wordtype_performance(data, metric, save_path=save_path, filter_constructed=filter_constructed)
+    plot_inputtype_performance(data, metric, save_path=save_path, filter_constructed=filter_constructed)
+    plot_inputtype_wordtype_modeltype_scatter(data, metric, save_path=save_path, filter_constructed=filter_constructed)
+    plot_inputtype_wordtype_modeltype_semdim_scatter(data, metric, save_path=save_path, filter_constructed=filter_constructed)
+    plot_inputtype_wordtype_modeltype_all_semdim_scatter(data, metric, save_path=save_path, filter_constructed=filter_constructed)
+    plot_inputtype_modeltype_wordtype_all_semdim_scatter(data, metric, save_path=save_path, filter_constructed=filter_constructed)
+    plot_inputtype_per_wordtype_all_models(data, metric, save_path=save_path, filter_constructed=filter_constructed)
     
     # # Generate new requested plots
-    # plot_high_performance_semantic_dimensions(data, metric, save_path=save_path, filter_constructed=filter_constructed)
-    # plot_inference_results_by_input_model_word(data, metric, save_path=save_path, filter_constructed=filter_constructed)
-    # plot_inference_results_by_semantic_input_model_word(data, metric, save_path=save_path, filter_constructed=filter_constructed)
-    # plot_wordtype_semantic_dimension_bars(data, metric, save_path=save_path, filter_constructed=filter_constructed)
-    # plot_semantic_dimension_variance_by_wordtype(data, metric, save_path=save_path, filter_constructed=filter_constructed)
-    # plot_inputtype_wordtype_semdim_scatter(data, metric, save_path=save_path, filter_constructed=filter_constructed)
+    plot_high_performance_semantic_dimensions(data, metric, save_path=save_path, filter_constructed=filter_constructed)
+    plot_inference_results_by_input_model_word(data, metric, save_path=save_path, filter_constructed=filter_constructed)
+    plot_inference_results_by_semantic_input_model_word(data, metric, save_path=save_path, filter_constructed=filter_constructed)
+    plot_wordtype_semantic_dimension_bars(data, metric, save_path=save_path, filter_constructed=filter_constructed)
+    plot_semantic_dimension_variance_by_wordtype(data, metric, save_path=save_path, filter_constructed=filter_constructed)
+    plot_inputtype_wordtype_semdim_scatter(data, metric, save_path=save_path, filter_constructed=filter_constructed)
     plot_semantic_dimensions_by_input_type(data, input_type=input_type, metric=metric, save_path=save_path, filter_constructed=filter_constructed)
-    plot_lang_modeltype_inputype(data, metric=metric, save_path=save_path, input_type=input_type)
+    # plot_lang_modeltype_inputype(data, metric=metric, save_path=save_path, input_type=input_type)
 
 if __name__ == "__main__":
     import argparse
@@ -2011,3 +1950,4 @@ if __name__ == "__main__":
     if args.sem_dims:
         sem_dims = [s.strip() for s in args.sem_dims.split(',') if s.strip()]
     main(args.json_path, metric=args.metric, sem_dims=sem_dims, save_path=save_path, filter_constructed=args.filter_constructed, input_type=args.input_type)
+
