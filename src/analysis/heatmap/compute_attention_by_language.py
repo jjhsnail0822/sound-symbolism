@@ -19,16 +19,17 @@ from transformers import Qwen2_5OmniProcessor
 
 model_path = "Qwen/Qwen2.5-Omni-7B"
 data_type = "ipa"
-lang = "art"
+lang = "ja"
 if lang in ["en", "fr", "ja", "ko"]:
     constructed = False
 elif lang in ["art", "con"]:
     constructed = True
     lang = "art"
-layer_start = 18
-layer_end = 27
+layer_starts = [0, 9, 18]
+layer_ends = [8, 17,27]
 CHECK_MODEL_RESPONSE = True
-COMPUTE_RULE = "vanilla"
+COMPUTE_RULE = "fraction"
+USE_SOFTMAX = True
 if constructed or (lang == "art") or (lang == "con"):
     lang = "art"
     data_path = "data/processed/art/semantic_dimension/semantic_dimension_binary_gt.json"
@@ -48,30 +49,18 @@ semantic_dimension_map = [
     "dangerous", "safe"
 ]
 dim_pairs = [
-    ("abrupt", "continuous"), ("continuous", "abrupt"),
-    ("active", "passive"), ("passive", "active"),
-    ("beautiful", "ugly"), ("ugly", "beautiful"),
-    ("big", "small"), ("small", "big"),
-    ("dangerous", "safe"), ("safe", "dangerous"),
-    ("exciting", "calming"), ("calming", "exciting"),
-    ("fast", "slow"), ("slow", "fast"),
-    ("good", "bad"), ("bad", "good"),
-    ("happy", "sad"), ("sad", "happy"),
-    ("hard", "soft"), ("soft", "hard"),
-    ("harsh", "mellow"), ("mellow", "harsh"),
-    ("heavy", "light"), ("light", "heavy"),
-    ("inhibited", "free"), ("free", "inhibited"),
-    ("interesting", "uninteresting"), ("uninteresting", "interesting"),
-    ("masculine", "feminine"), ("feminine", "masculine"),
-    ("orginary", "unique"), ("unique", "orginary"),
-    ("pleasant", "unpleasant"), ("unpleasant", "pleasant"),
-    ("realistic", "fantastical"), ("fantastical", "realistic"),
-    ("rugged", "delicate"), ("delicate", "rugged"),
-    ("sharp", "round"), ("round", "sharp"),
-    ("simple", "complex"), ("complex", "simple"),
-    ("solid", "nonsolid"), ("nonsolid", "solid"),
-    ("strong", "weak"), ("weak", "strong"),
-    ("structured", "disorganized"), ("disorganized", "structured"),
+    ("abrupt", "continuous"), ("continuous", "abrupt"), ("active", "passive"), ("passive", "active"),
+    ("beautiful", "ugly"), ("ugly", "beautiful"), ("big", "small"), ("small", "big"),
+    ("dangerous", "safe"), ("safe", "dangerous"), ("exciting", "calming"), ("calming", "exciting"),
+    ("fast", "slow"), ("slow", "fast"), ("good", "bad"), ("bad", "good"),
+    ("happy", "sad"), ("sad", "happy"), ("hard", "soft"), ("soft", "hard"),
+    ("harsh", "mellow"), ("mellow", "harsh"), ("heavy", "light"), ("light", "heavy"),
+    ("inhibited", "free"), ("free", "inhibited"), ("interesting", "uninteresting"), ("uninteresting", "interesting"),
+    ("masculine", "feminine"), ("feminine", "masculine"), ("orginary", "unique"), ("unique", "orginary"),
+    ("pleasant", "unpleasant"), ("unpleasant", "pleasant"), ("realistic", "fantastical"), ("fantastical", "realistic"),
+    ("rugged", "delicate"), ("delicate", "rugged"), ("sharp", "round"), ("round", "sharp"),
+    ("simple", "complex"), ("complex", "simple"), ("solid", "nonsolid"), ("nonsolid", "solid"),
+    ("strong", "weak"), ("weak", "strong"), ("structured", "disorganized"), ("disorganized", "structured"),
     ("tense", "relaxed"), ("relaxed", "tense"),
 ]
 ipa_symbols = [
@@ -118,7 +107,7 @@ def get_word_list(lang:str=lang, data_path:str=data_path) -> list[str]:
     return word_list
     
 
-def show_arguments(model_name:str=model_path, data_type:str=data_type, lang:str=lang, layer_start:int=layer_start, layer_end:int=layer_end, constructed:bool=constructed, check_model_response:bool=CHECK_MODEL_RESPONSE, compute_rule:str=COMPUTE_RULE):
+def show_arguments(model_name:str=model_path, data_type:str=data_type, lang:str=lang, layer_start:int=0, layer_end:int=27, constructed:bool=constructed, check_model_response:bool=CHECK_MODEL_RESPONSE, compute_rule:str=COMPUTE_RULE):
     print(f"Model: {model_name}")
     print(f"Data type: {data_type}")
     print(f"Language: {lang}")
@@ -192,29 +181,13 @@ def plot_sampled_word_heatmap(word_stats, data_type, start_layer, end_layer, lan
         seen_pairs.add((dim1, dim2))
         seen_pairs.add((dim2, dim1))
     matrix = np.vstack(matrix_rows) if matrix_rows else np.zeros((0, len(ipa_list)))
-    print(f"semdim_list: {semdim_list}")
-    print(f"matrix shape: {matrix.shape}")
-    print(f"ipa_list: {ipa_list}")
+    # print(f"semdim_list: {semdim_list}")
+    # print(f"matrix shape: {matrix.shape}")
+    # print(f"ipa_list: {ipa_list}")
     if matrix.shape[0] == 0 or matrix.shape[1] == 0:
         print(f"[WARN] Empty matrix for lang '{lang}'. Skipping heatmap.")
         return
-    fig, ax = plt.subplots(figsize=(max(10, len(ipa_list)*0.3), max(8, len(semdim_list)*0.3)))
-    sns.heatmap(matrix, ax=ax, cmap='YlGnBu', cbar=True,
-                xticklabels=ipa_list, yticklabels=semdim_list, linewidths=0.2, linecolor='gray', square=False)
-    for i in range(2, len(semdim_list), 2):
-        ax.axhline(i, color='black', linewidth=2)
-    ax.set_xlabel('IPA Symbol', fontsize=12)
-    ax.set_ylabel('Semantic Dimension', fontsize=12)
     title = f'Lang: {lang} | rule: {compute_rule} | L{start_layer}-L{end_layer} | check_model_response: {check_model_response}\nIPA-Semantic Dimension Attention Heatmap'
-    ax.set_title(title, fontsize=14, pad=15)
-    plt.setp(ax.get_xticklabels(), ha='right')
-    plt.tight_layout()
-    if answer_list is not None:
-        yticklabels = ax.get_yticklabels()
-        for i, label in enumerate(yticklabels):
-            if label.get_text() in answer_list:
-                label.set_fontweight('bold')
-        ax.set_yticklabels(yticklabels)
     file_name = f"{lang.upper()}_{data_type}_generation_attention_L{start_layer}_L{end_layer}"
     if compute_rule is not None:
         file_name += f"_rule-{compute_rule}"
@@ -224,9 +197,111 @@ def plot_sampled_word_heatmap(word_stats, data_type, start_layer, end_layer, lan
         file_name += suffix
     file_name += ".png"
     file_path = os.path.join(save_path, file_name)
+    draw_plot(ipa_list, semdim_list, answer_list, matrix, title, file_path)
+    
+    # fig, ax = plt.subplots(figsize=(max(10, len(ipa_list)*0.3), max(8, len(semdim_list)*0.3)))
+    # sns.heatmap(matrix, ax=ax, cmap='YlGnBu', cbar=True,
+    #             xticklabels=ipa_list, yticklabels=semdim_list, linewidths=0.2, linecolor='gray', square=False)
+    # for i in range(2, len(semdim_list), 2):
+    #     ax.axhline(i, color='black', linewidth=2)
+    # ax.set_xlabel('IPA Symbol', fontsize=12)
+    # ax.set_ylabel('Semantic Dimension', fontsize=12)
+    
+    # ax.set_title(title, fontsize=14, pad=15)
+    # plt.setp(ax.get_xticklabels(), ha='right')
+    # plt.tight_layout()
+    # if answer_list is not None:
+    #     yticklabels = ax.get_yticklabels()
+    #     for i, label in enumerate(yticklabels):
+    #         if label.get_text() in answer_list:
+    #             label.set_fontweight('bold')
+    #     ax.set_yticklabels(yticklabels)
+    # plt.savefig(file_path, dpi=300, bbox_inches='tight')
+    # print(f"Sampled word heatmap saved to {file_path}")
+    # plt.close()
+
+def plot_by_stats_with_ipa_wise(word_stats, data_type, start_layer, end_layer, lang, save_path=None, suffix:str=None, compute_rule=COMPUTE_RULE, check_model_response=CHECK_MODEL_RESPONSE, dim_pairs=dim_pairs, answer_list=None, use_softmax=False):
+    import numpy as np
+    import matplotlib.pyplot as plt
+    import seaborn as sns
+    import os
+    import re
+    if save_path is None:
+        save_path = 'results/plots/attention/sampled_words/'
+    os.makedirs(save_path, exist_ok=True)
+
+    ipa_list = list(word_stats.keys())
+    semdim_set = set()
+    for dim1, dim2 in dim_pairs:
+        semdim_set.add(dim1)
+        semdim_set.add(dim2)
+    semdim_list = sorted(list(semdim_set))
+
+    matrix = np.zeros((len(semdim_list), len(ipa_list)))
+    for i, semdim in enumerate(semdim_list):
+        for j, ipa in enumerate(ipa_list):
+            score = word_stats[ipa].get(semdim, np.nan)
+            matrix[i, j] = score
+    scaled_matrix = scale_matrix_by_ipa(matrix, softmax=use_softmax)
+
+    # print(f"semdim_list: {semdim_list}")
+    # print(f"scaled_matrix shape: {scaled_matrix.shape}")
+    # print(f"ipa_list: {ipa_list}")
+    if scaled_matrix.shape[0] == 0 or scaled_matrix.shape[1] == 0:
+        print(f"[WARN] Empty matrix for lang '{lang}'. Skipping heatmap.")
+
+    title = f'Lang: {lang} | Data type: {data_type} | rule: {compute_rule} | L{start_layer}-L{end_layer} | check_model_response: {check_model_response}\nIPA-Semantic Dimension Attention IPA-wise Scaled Heatmap (softmax: {use_softmax})'
+    file_name = f"{lang.upper()}_{data_type}_attention_L{start_layer}_L{end_layer}_ipa_wise_scaled_softmax_{use_softmax}"
+    if compute_rule is not None:
+        file_name += f"_rule-{compute_rule}"
+    if check_model_response is not None:
+        file_name += f"_check-{check_model_response}"
+    if suffix:
+        file_name += suffix
+    file_name += ".png"
+    file_path = os.path.join(save_path, file_name)
+    draw_plot(ipa_list, semdim_list, answer_list, scaled_matrix, title, file_path)
+
+def draw_plot(ipa_list, semdim_list, answer_list, matrix, title, file_path):
+    fig, ax = plt.subplots(figsize=(max(10, len(ipa_list)*0.3), max(8, len(semdim_list)*0.3)))
+    sns.heatmap(matrix, ax=ax, cmap='YlGnBu', cbar=True,
+                xticklabels=ipa_list, yticklabels=semdim_list, linewidths=0.2, linecolor='gray', square=False)
+    for i in range(2, len(semdim_list), 2):
+        ax.axhline(i, color='black', linewidth=2)
+    ax.set_xlabel('IPA Symbol', fontsize=12)
+    ax.set_ylabel('Semantic Dimension', fontsize=12)
+    
+    ax.set_title(title, fontsize=14, pad=15)
+    plt.setp(ax.get_xticklabels(), ha='right')
+    plt.tight_layout()
+    if answer_list is not None:
+        yticklabels = ax.get_yticklabels()
+        for i, label in enumerate(yticklabels):
+            if label.get_text() in answer_list:
+                label.set_fontweight('bold')
+        ax.set_yticklabels(yticklabels)
     plt.savefig(file_path, dpi=300, bbox_inches='tight')
     print(f"Sampled word heatmap saved to {file_path}")
     plt.close()
+
+def scale_matrix_by_ipa(matrix, softmax=False):
+    scaled = np.zeros_like(matrix)
+    for j in range(matrix.shape[1]):
+        col = matrix[:, j]
+        col_no_nan = np.nan_to_num(col, nan=0.0)
+        s = np.sum(col_no_nan)
+        if softmax:
+            if s == 0:
+                scaled[:, j] = col_no_nan
+            else:
+                scaled[:, j] = np.exp(col_no_nan) / np.sum(np.exp(col_no_nan))
+        else:
+            if s == 0:
+                scaled[:, j] = col_no_nan
+            else:
+                scaled[:, j] = col_no_nan / s
+        # breakpoint()
+    return scaled
 
 def get_ipa_runs(ipa_list) -> list[tuple[str, int, int]]:
     """
@@ -258,7 +333,7 @@ def get_data(data:dict, alt:dict):
     dim2_range = range(wlen+d1len, wlen+d1len+d2len)
     return attention_matrices, relevant_indices, dim1, dim2, answer, word_tokens, option_tokens, tokens, ipa_tokens, response, input_word, target_indices, wlen, d1len, d2len, dim1_range, dim2_range
 
-def compute_ipa_semdim_score_with_vanilla_rule(ipa_list, dim1, dim2, dim1_range, dim2_range, start_layer, end_layer, n_layer, n_head, wlen, d1len, d2len, attn_layers, word_stats) -> dict:
+def compute_ipa_semdim_score_with_naive_rule(ipa_list, dim1, dim2, dim1_range, dim2_range, start_layer, end_layer, n_layer, n_head, wlen, d1len, d2len, attn_layers, word_stats) -> dict:
     # breakpoint()
     for ipa_idx, ipa in enumerate(ipa_list):
         if ipa == "":
@@ -282,7 +357,7 @@ def compute_ipa_semdim_score_with_vanilla_rule(ipa_list, dim1, dim2, dim1_range,
             word_stats[ipa][dim].extend(all_values)
     return word_stats
 
-def compute_audio_semdim_score_with_vanilla_rule(ipa_list, dim1, dim2, dim1_range, dim2_range, start_layer, end_layer, n_layer, n_head, wlen, d1len, d2len, attn_layers, word_stats) -> dict:
+def compute_audio_semdim_score_with_naive_rule(ipa_list, dim1, dim2, dim1_range, dim2_range, start_layer, end_layer, n_layer, n_head, wlen, d1len, d2len, attn_layers, word_stats) -> dict:
     ipa_runs = get_ipa_runs(ipa_list)
     for ipa, start_idx, end_idx in ipa_runs:
         if ipa == "" or ipa == " ":
@@ -418,8 +493,8 @@ def compute_single_word_attention_score(
         word:str,
         data_type:str=data_type,
         lang:str=lang,
-        start_layer:int=layer_start,
-        end_layer:int=layer_end,
+        start_layer:int=0,
+        end_layer:int=27,
         dim_pairs:list=dim_pairs,
         data_path:str=data_path,
         output_dir:str=output_dir,
@@ -449,15 +524,15 @@ def compute_single_word_attention_score(
         n_layer = len(attn_layers)
         n_head = attn_layers[0].shape[1]
         if data_type == "ipa":
-            if compute_rule == "vanilla":
-                # word_stats = compute_ipa_semdim_score_with_vanilla_rule(ipa_list, dim1, dim2, dim1_range, dim2_range, start_layer, end_layer, n_layer, n_head, wlen, d1len, d2len, attn_layers, word_stats)
-                word_stats = compute_audio_semdim_score_with_vanilla_rule(ipa_list, dim1, dim2, dim1_range, dim2_range, start_layer, end_layer, n_layer, n_head, wlen, d1len, d2len, attn_layers, word_stats)
+            if compute_rule == "naive":
+                # word_stats = compute_ipa_semdim_score_with_naive_rule(ipa_list, dim1, dim2, dim1_range, dim2_range, start_layer, end_layer, n_layer, n_head, wlen, d1len, d2len, attn_layers, word_stats)
+                word_stats = compute_audio_semdim_score_with_naive_rule(ipa_list, dim1, dim2, dim1_range, dim2_range, start_layer, end_layer, n_layer, n_head, wlen, d1len, d2len, attn_layers, word_stats)
             elif compute_rule == "fraction":
                 # word_stats = compute_ipa_semdim_score_with_fraction_rule(ipa_list, dim1, dim2, dim1_range, dim2_range, start_layer, end_layer, n_layer, n_head, wlen, d1len, d2len, attn_layers, word_stats)
                 word_stats = compute_audio_semdim_score_with_fraction_rule(ipa_list, dim1, dim2, dim1_range, dim2_range, start_layer, end_layer, n_layer, n_head, wlen, d1len, d2len, attn_layers, word_stats)
         elif data_type == "audio":
-            if compute_rule == "vanilla":
-                word_stats = compute_audio_semdim_score_with_vanilla_rule(ipa_list, dim1, dim2, dim1_range, dim2_range, start_layer, end_layer, n_layer, n_head, wlen, d1len, d2len, attn_layers, word_stats)
+            if compute_rule == "naive":
+                word_stats = compute_audio_semdim_score_with_naive_rule(ipa_list, dim1, dim2, dim1_range, dim2_range, start_layer, end_layer, n_layer, n_head, wlen, d1len, d2len, attn_layers, word_stats)
             elif compute_rule == "fraction":
                 word_stats = compute_audio_semdim_score_with_fraction_rule(ipa_list, dim1, dim2, dim1_range, dim2_range, start_layer, end_layer, n_layer, n_head, wlen, d1len, d2len, attn_layers, word_stats)
         else:
@@ -473,8 +548,8 @@ def compute_attention_by_language(
     data_path: str = data_path,
     output_dir: str = output_dir,
     dim_pairs: list = dim_pairs,
-    layer_start: int = layer_start,
-    layer_end: int = layer_end,
+    layer_start: int = 0,
+    layer_end: int = 27,
     constructed: bool = constructed,
     compute_rule: str = COMPUTE_RULE,
     check_model_response: bool = CHECK_MODEL_RESPONSE
@@ -518,5 +593,7 @@ def compute_attention_by_language(
     return final_word_stats
 
 show_arguments()
-word_stats = compute_attention_by_language()
-plot_sampled_word_heatmap(word_stats, data_type, layer_start, layer_end, lang, compute_rule=COMPUTE_RULE, check_model_response=CHECK_MODEL_RESPONSE)
+for layer_start, layer_end in zip(layer_starts, layer_ends):
+    word_stats = compute_attention_by_language()
+    plot_sampled_word_heatmap(word_stats, data_type, layer_start, layer_end, lang, compute_rule=COMPUTE_RULE, check_model_response=CHECK_MODEL_RESPONSE)
+    plot_by_stats_with_ipa_wise(word_stats, data_type, layer_start, layer_end, lang, compute_rule=COMPUTE_RULE, check_model_response=CHECK_MODEL_RESPONSE, use_softmax=USE_SOFTMAX)
