@@ -1,6 +1,6 @@
 # Model : Qwen2.5-Omni-7B
-# python src/analysis/heatmap/batch_semdim_heatmap.py --max-samples 1 --data-type ipa --constructed --batch-size 1
-# python src/analysis/heatmap/batch_semdim_heatmap.py --max-samples 3000 --data-type ipa --batch-size 1 --constructed --flip
+# python src/analysis/heatmap/batch_semdim_heatmap.py --data-type audio --language ko --max-samples --flip 500
+# python src/analysis/heatmap/batch_semdim_heatmap.py --max-samples 3000 --data-type ipa --batch-size 1 --language en
 import json
 import re
 import os
@@ -799,97 +799,18 @@ class QwenOmniSemanticDimensionVisualizer:
         return final_analysis
 
     def _analyze_single_step_attention(self, step_attentions:list[tuple[torch.Tensor, ...]], step_tokens:list[str], target_indices:dict[str, list[int]], step_idx:int):
-        num_layers = len(step_attentions)  # 28 layers
-        num_heads = step_attentions[0].shape[1] if step_attentions else 0  # 28 heads
-        seq_len = step_attentions[0].shape[-1] if step_attentions else 0  # sequence length for this step
-        
-        # Calculate sliding window offset
-        sliding_window_offset = 0
-        if len(step_tokens) > seq_len:
-            sliding_window_offset = len(step_tokens) - seq_len
-            step_tokens = step_tokens[sliding_window_offset:]
-        elif len(step_tokens) < seq_len:
-            step_tokens.extend([''] * (seq_len - len(step_tokens)))
-        
-        # Initialize matrices
-        word_dim1_raw_matrix = torch.zeros(num_layers, num_heads)
-        word_dim2_raw_matrix = torch.zeros(num_layers, num_heads)
-        word_dim1_norm_matrix = torch.zeros(num_layers, num_heads)
-        word_dim2_norm_matrix = torch.zeros(num_layers, num_heads)
-        
-        # Self-attention analysis
-        for layer_idx in range(num_layers): # layer_attention shape: [batch, heads, seq, seq]
-            layer_attention = step_attentions[layer_idx]
-            layer_attention = layer_attention[0]
-            
-            for head_idx in range(num_heads): # head_attention shape: [seq, seq]
-                head_attention = layer_attention[head_idx]
-                word_dim1_raw, _ = self._calculate_step_attention_scores(
-                    head_attention, step_tokens, target_indices['dim1'], target_indices['word'], step_idx, head_idx
-                )
-                word_dim2_raw, _ = self._calculate_step_attention_scores(
-                    head_attention, step_tokens, target_indices['dim2'], target_indices['word'], step_idx, head_idx
-                )
-                word_dim1_norm = self._calculate_step_normalized_attention(
-                    head_attention, target_indices['dim1'], target_indices['word']
-                )
-                word_dim2_norm = self._calculate_step_normalized_attention(
-                    head_attention, target_indices['dim2'], target_indices['word']
-                )
-                
-                # Store in matrices
-                word_dim1_raw_matrix[layer_idx, head_idx] = word_dim1_raw
-                word_dim2_raw_matrix[layer_idx, head_idx] = word_dim2_raw
-                word_dim1_norm_matrix[layer_idx, head_idx] = word_dim1_norm
-                word_dim2_norm_matrix[layer_idx, head_idx] = word_dim2_norm
-        
         return {
             'step_idx': step_idx,
             'step_tokens': step_tokens,
             'target_indices': target_indices,
-            'word_dim1_raw_matrix': word_dim1_raw_matrix,
-            'word_dim2_raw_matrix': word_dim2_raw_matrix,
-            'word_dim1_norm_matrix': word_dim1_norm_matrix,
-            'word_dim2_norm_matrix': word_dim2_norm_matrix,
         }
 
     def _aggregate_step_analyses(self, step_analyses:list[dict], word:str, input_word:str, dim1:str, dim2:str, answer:str, response:str, tokens:list[str]):
         if not step_analyses:
             return None
         
-        # Aggregate matrices across steps
         num_steps = len(step_analyses)
-        num_layers = step_analyses[0]['word_dim1_raw_matrix'].shape[0]
-        num_heads = step_analyses[0]['word_dim1_raw_matrix'].shape[1]
-
-        # Initialize aggregated matrices
-        agg_word_dim1_raw = torch.zeros(num_layers, num_heads)
-        agg_word_dim2_raw = torch.zeros(num_layers, num_heads)
-        agg_word_dim1_norm = torch.zeros(num_layers, num_heads)
-        agg_word_dim2_norm = torch.zeros(num_layers, num_heads)
         
-        # Sum across steps
-        for step_analysis in step_analyses:
-            agg_word_dim1_raw += step_analysis['word_dim1_raw_matrix']
-            agg_word_dim2_raw += step_analysis['word_dim2_raw_matrix']
-            agg_word_dim1_norm += step_analysis['word_dim1_norm_matrix']
-            agg_word_dim2_norm += step_analysis['word_dim2_norm_matrix']
-        
-        # Average across steps
-        agg_word_dim1_raw /= num_steps
-        agg_word_dim2_raw /= num_steps
-        agg_word_dim1_norm /= num_steps
-        agg_word_dim2_norm /= num_steps
-        
-        # Aggregate scores for different levels
-        aggregation_levels = ["all", "layers", "heads", "individual"]
-        
-        word_dim1_raw_agg = {level: self._aggregate_step_scores(agg_word_dim1_raw, level) for level in aggregation_levels}
-        word_dim2_raw_agg = {level: self._aggregate_step_scores(agg_word_dim2_raw, level) for level in aggregation_levels}
-        word_dim1_norm_agg = {level: self._aggregate_step_scores(agg_word_dim1_norm, level) for level in aggregation_levels}
-        word_dim2_norm_agg = {level: self._aggregate_step_scores(agg_word_dim2_norm, level) for level in aggregation_levels}
-        
-        # Create final analysis dictionary
         final_analysis = {
             'word': word,
             'input_word': input_word,
@@ -899,36 +820,6 @@ class QwenOmniSemanticDimensionVisualizer:
             'response': response,
             'tokens': tokens,
             'num_steps_analyzed': num_steps,
-            
-            # Self-attention raw scores
-            'word_dim1_raw_all': word_dim1_raw_agg['all'],
-            'word_dim1_raw_layers': word_dim1_raw_agg['layers'],
-            'word_dim1_raw_heads': word_dim1_raw_agg['heads'],
-            'word_dim1_raw_individual': word_dim1_raw_agg['individual'],
-            
-            'word_dim2_raw_all': word_dim2_raw_agg['all'],
-            'word_dim2_raw_layers': word_dim2_raw_agg['layers'],
-            'word_dim2_raw_heads': word_dim2_raw_agg['heads'],
-            'word_dim2_raw_individual': word_dim2_raw_agg['individual'],
-            
-            # Self-attention normalized scores
-            'word_dim1_norm_all': word_dim1_norm_agg['all'],
-            'word_dim1_norm_layers': word_dim1_norm_agg['layers'],
-            'word_dim1_norm_heads': word_dim1_norm_agg['heads'],
-            'word_dim1_norm_individual': word_dim1_norm_agg['individual'],
-            
-            'word_dim2_norm_all': word_dim2_norm_agg['all'],
-            'word_dim2_norm_layers': word_dim2_norm_agg['layers'],
-            'word_dim2_norm_heads': word_dim2_norm_agg['heads'],
-            'word_dim2_norm_individual': word_dim2_norm_agg['individual'],
-            
-            # Raw matrices for detailed analysis
-            'word_dim1_raw_matrix': agg_word_dim1_raw.cpu().numpy(),
-            'word_dim2_raw_matrix': agg_word_dim2_raw.cpu().numpy(),
-            'word_dim1_norm_matrix': agg_word_dim1_norm.cpu().numpy(),
-            'word_dim2_norm_matrix': agg_word_dim2_norm.cpu().numpy(),
-            
-            # Step-by-step analysis for debugging
             'step_analyses': step_analyses,
         }
         
@@ -947,7 +838,6 @@ class QwenOmniSemanticDimensionVisualizer:
             "tokens": tokens,
             "response": response,
             "input_word": generation_analysis.get('input_word', ''),
-            "analysis_type": "generation_attention",
             "relevant_indices": relevant_indices,
             "target_indices": target_indices
         }
@@ -1001,7 +891,6 @@ class QwenOmniSemanticDimensionVisualizer:
             "input_text": input_text,
             "response": response,
             "full_text": full_text,
-            "analysis_type": "generation_attention_matrix"
         }
         output_dir = os.path.join(self.output_dir, self.exp_type, self.data_type, lang, "generation_attention", f"{dim1}_{dim2}")
         os.makedirs(output_dir, exist_ok=True)
@@ -1067,12 +956,13 @@ if __name__ == "__main__":
     start_index = args.start_index
 
     batch_size = args.batch_size
+    # python src/analysis/heatmap/batch_semdim_heatmap.py --data-type audio --language ko --flip --max-samples 500
     for lang in languages:
         print(f"\nProcessing language: {lang}")
         lang_data = visualizer.data[lang]
         print(f"Found {len(lang_data)} samples for language {lang}")        
         if max_samples:
-            lang_data = lang_data[start_index:max_samples]
+            lang_data = lang_data[2000:max_samples]
             print(f"Limiting to {len(lang_data)} samples")
         
         if args.data_type == "audio":
