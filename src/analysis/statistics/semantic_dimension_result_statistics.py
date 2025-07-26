@@ -3,197 +3,110 @@ import os
 import re
 from collections import defaultdict
 from sklearn.metrics import accuracy_score, precision_recall_fscore_support
+import numpy as np
 
-def calculate_statistics_for_file(input_file_path: str):
-    """
-    Calculates classification metrics for a single experiment result file,
-    grouped by language.
+ROOT_DIRECTORY = "results/experiments/semantic_dimension/binary"
+OUTPUT_FILE = "results/statistics/semdim_stat.json"
 
-    Args:
-        input_file_path (str): The path to the input JSON file.
+# Regex to parse the filename
+# semantic_dimension_binary_{input_type}-{word_group}_{model_name}.json
+pattern = re.compile(r"semantic_dimension_binary_(?P<input_type>.+?)-(?P<word_group>.+?)_(?P<model_name>.+)\.json")
 
-    Returns:
-        dict: A dictionary containing the calculated statistics for the file,
-              with language as the top-level key.
-              Returns None if the file is empty or cannot be processed.
-    """
-    with open(input_file_path, 'r', encoding='utf-8') as f:
-        try:
-            data = json.load(f)
-        except json.JSONDecodeError:
-            print(f"Warning: Could not decode JSON from {input_file_path}. Skipping.")
-            return None
+# raw_data = {"model_name": {"word_group": {"input_type": {"dimension": {"language": {"y_true": [], "y_pred": []}}}}}}
+raw_data = defaultdict(lambda: defaultdict(lambda: defaultdict(lambda: defaultdict(lambda: defaultdict(lambda: {"y_true": [], "y_pred": []})))))
+for dirpath, _, filenames in os.walk(ROOT_DIRECTORY):
+    for filename in filenames:
+        if filename.startswith("semantic_dimension") and filename.endswith(".json"):
+            match = pattern.match(filename)
+            if match:
+                model_name = match.group('model_name')
+                word_group = match.group('word_group')
+                input_type = match.group('input_type')
 
-    results_list = data.get("results") if isinstance(data, dict) else data
-    if not results_list:
-        print(f"Warning: No results found in {input_file_path}. Skipping.")
-        return None
-
-    results_by_lang_dim = defaultdict(lambda: defaultdict(lambda: {"y_true": [], "y_pred": []}))
-
-    for result in results_list:
-        if not result or "meta_data" not in result:
-            continue
-
-        try:
-            # Use .get() for safe access to language key
-            language = result["meta_data"].get("language", "unknown")
-            dimension = result["meta_data"]["dimension"]
-            y_true = int(result["meta_data"]["answer"])
-            y_pred = int(result["model_answer"])
-            
-            if y_pred == 0:
-                y_pred = 2 if y_true == 1 else 1
-            
-            if y_pred in [1, 2]:
-                results_by_lang_dim[language][dimension]["y_true"].append(y_true)
-                results_by_lang_dim[language][dimension]["y_pred"].append(y_pred)
-                # Also add to 'all' category
-                results_by_lang_dim['all'][dimension]["y_true"].append(y_true)
-                results_by_lang_dim['all'][dimension]["y_pred"].append(y_pred)
-
-        except (ValueError, TypeError, KeyError):
-            continue
-
-    lang_statistics = {}
-    for lang, dimensions_data in results_by_lang_dim.items():
-        statistics = {}
-        all_y_true = []
-        all_y_pred = []
-        for dimension, values in dimensions_data.items():
-            y_true = values["y_true"]
-            y_pred = values["y_pred"]
-            all_y_true.extend(y_true)
-            all_y_pred.extend(y_pred)
-
-            precision, recall, f1, _ = precision_recall_fscore_support(
-                y_true, y_pred, average='macro', labels=[1, 2], zero_division=0
-            )
-            accuracy = accuracy_score(y_true, y_pred)
-
-            statistics[dimension] = {
-                "accuracy": accuracy,
-                "precision": precision,
-                "recall": recall,
-                "macro_f1_score": f1,
-                "count": len(y_true),
-                "y_true": y_true, # Temporarily store raw values
-                "y_pred": y_pred  # Temporarily store raw values
-            }
-
-        overall_accuracy = accuracy_score(all_y_true, all_y_pred) if all_y_true else 0
-
-        lang_statistics[lang] = {
-            "overall_accuracy": overall_accuracy,
-            "dimensions": statistics
-        }
-
-    return lang_statistics
-
-def aggregate_statistics(root_dir: str, output_file: str):
-    """
-    Aggregates statistics from all relevant JSON files into a single file.
-    Statistics are grouped by language, model, word type, and input type.
-    Also creates a 'natural' word group by combining 'common' and 'rare'.
-    """
-    # Structure: [language][model_name][word_type][input_type]
-    aggregated_results = defaultdict(lambda: defaultdict(lambda: defaultdict(lambda: defaultdict(dict))))
-
-    # Regex to parse the filename
-    # semantic_dimension_binary_{input_type}-{word_type}_{model_name}.json
-    pattern = re.compile(r"semantic_dimension_binary_(?P<input_type>.+?)-(?P<word_type>.+?)_(?P<model_name>.+)\.json")
-
-    for dirpath, _, filenames in os.walk(root_dir):
-        for filename in filenames:
-            if filename.startswith("semantic_dimension") and filename.endswith(".json"):
-                match = pattern.match(filename)
-                if not match:
-                    print(f"Warning: Filename format mismatch, skipping: {filename}")
-                    continue
-                
-                parts = match.groupdict()
-                model_name = parts["model_name"]
-                input_type = parts["input_type"]
-                word_type = parts["word_type"]
-                
                 file_path = os.path.join(dirpath, filename)
-                print(f"Processing {file_path}...")
-                
-                lang_stats = calculate_statistics_for_file(file_path)
-                
-                if lang_stats:
-                    for lang, stats in lang_stats.items():
-                        aggregated_results[lang][model_name][word_type][input_type] = stats
+                with open(file_path, 'r', encoding='utf-8') as f:
+                    data = json.load(f)
 
-    # Combine 'common' and 'rare' to create 'natural' word group for each language
-    for lang in aggregated_results:
-        for model_name, word_types in aggregated_results[lang].items():
-            # Check if both 'common' and 'rare' exist for this model
-            if "common" in word_types and "rare" in word_types:
-                for input_type, common_stats in word_types.get("common", {}).items():
-                    if input_type in word_types.get("rare", {}):
-                        rare_stats = word_types["rare"][input_type]
-                        
-                        natural_stats = {"dimensions": {}}
-                        all_y_true_natural = []
-                        all_y_pred_natural = []
+                for data_point in data['results']:
+                    if word_group == "common" or word_group == "rare":
+                        word_group = "natural"
+                    current_dimension = data_point['meta_data']['dimension']
+                    current_language = data_point['meta_data']['language']
+                    current_y_true = int(data_point['meta_data']['answer'])
+                    current_y_pred = int(data_point['model_answer'])
+                    if current_y_pred not in [1, 2]:
+                        current_y_pred = 1 if current_y_true == 2 else 2
 
-                        all_dims = set(common_stats["dimensions"].keys()) | set(rare_stats["dimensions"].keys())
+                    raw_data[model_name][word_group][input_type][current_dimension][current_language]["y_true"].append(current_y_true)
+                    raw_data[model_name][word_group][input_type][current_dimension][current_language]["y_pred"].append(current_y_pred)
 
-                        for dim in all_dims:
-                            y_true = common_stats["dimensions"].get(dim, {}).get("y_true", []) + rare_stats["dimensions"].get(dim, {}).get("y_true", [])
-                            y_pred = common_stats["dimensions"].get(dim, {}).get("y_pred", []) + rare_stats["dimensions"].get(dim, {}).get("y_pred", [])
-                            
-                            if not y_true:
-                                continue
+# Calculate macro-F1 scores and other statistics
+# statistics = {"input_type": {"word_group": {"model_name": {"dimension": {"language": {"accuracy": float, "precision": float, "recall": float, "macro_f1_score": float, "count": int}}}}}}
+statistics = defaultdict(lambda: defaultdict(lambda: defaultdict(lambda: defaultdict(lambda: defaultdict(dict)))))
 
-                            all_y_true_natural.extend(y_true)
-                            all_y_pred_natural.extend(y_pred)
+for model_name, word_groups in raw_data.items():
+    for word_group, input_types in word_groups.items():
+        for input_type, dimensions in input_types.items():
+            for dimension, languages in dimensions.items():
+                if model_name.startswith("gpt-4o"):
+                    model_name = "gpt-4o"
 
-                            precision, recall, f1, _ = precision_recall_fscore_support(
-                                y_true, y_pred, average='macro', labels=[1, 2], zero_division=0
-                            )
-                            accuracy = accuracy_score(y_true, y_pred)
+                for language, values in languages.items():
+                    y_true = values["y_true"]
+                    y_pred = values["y_pred"]
 
-                            natural_stats["dimensions"][dim] = {
-                                "accuracy": accuracy,
-                                "precision": precision,
-                                "recall": recall,
-                                "macro_f1_score": f1,
-                                "count": len(y_true)
-                            }
-                        
-                        if all_y_true_natural:
-                            natural_stats["overall_accuracy"] = accuracy_score(all_y_true_natural, all_y_pred_natural)
-                            if "natural" not in aggregated_results[lang][model_name]:
-                                aggregated_results[lang][model_name]["natural"] = {}
-                            aggregated_results[lang][model_name]["natural"][input_type] = natural_stats
+                    if not y_true or not y_pred:
+                        continue
 
-    # Clean up y_true/y_pred from the final output
-    for lang in aggregated_results:
-        for model_name in aggregated_results[lang]:
-            for word_type in aggregated_results[lang][model_name]:
-                for input_type in aggregated_results[lang][model_name][word_type]:
-                    if "dimensions" in aggregated_results[lang][model_name][word_type][input_type]:
-                        for dim in aggregated_results[lang][model_name][word_type][input_type]["dimensions"]:
-                            aggregated_results[lang][model_name][word_type][input_type]["dimensions"][dim].pop("y_true", None)
-                            aggregated_results[lang][model_name][word_type][input_type]["dimensions"][dim].pop("y_pred", None)
+                    precision, recall, f1, _ = precision_recall_fscore_support(
+                        y_true, y_pred, average='macro', labels=[1, 2], zero_division=0
+                    )
+                    accuracy = accuracy_score(y_true, y_pred)
 
-    # Ensure the output directory exists
-    os.makedirs(os.path.dirname(output_file), exist_ok=True)
+                    statistics[model_name][word_group][input_type][dimension][language] = {
+                        "accuracy": accuracy,
+                        "precision": precision,
+                        "recall": recall,
+                        "macro_f1_score": f1,
+                        "count": len(y_true)
+                    }
 
-    # Save the aggregated results to the output JSON file
-    with open(output_file, 'w', encoding='utf-8') as f:
-        json.dump(aggregated_results, f, indent=4)
+                statistics[model_name][word_group][input_type][dimension]["all"] = {
+                    "accuracy": np.mean([statistics[model_name][word_group][input_type][dimension][lang]["accuracy"] for lang in languages]),
+                    "precision": np.mean([statistics[model_name][word_group][input_type][dimension][lang]["precision"] for lang in languages]),
+                    "recall": np.mean([statistics[model_name][word_group][input_type][dimension][lang]["recall"] for lang in languages]),
+                    "macro_f1_score": np.mean([statistics[model_name][word_group][input_type][dimension][lang]["macro_f1_score"] for lang in languages]),
+                    "count": sum([statistics[model_name][word_group][input_type][dimension][lang]["count"] for lang in languages])
+                }
 
-    print(f"\nAggregation complete. Statistics saved to {output_file}")
+                # also calculate scores from mere sum of y_true and y_pred
 
-if __name__ == '__main__':
-    ROOT_DIRECTORY = "results/experiments/semantic_dimension/binary"
-    OUTPUT_FILE = "results/statistics/semdim_stat.json"
-    
-    if os.path.exists(ROOT_DIRECTORY):
-        aggregate_statistics(ROOT_DIRECTORY, OUTPUT_FILE)
-    else:
-        print(f"Error: Root directory not found at {ROOT_DIRECTORY}")
-        print("Please update the ROOT_DIRECTORY path in the script.")
+                all_y_true = []
+                all_y_pred = []
+                for lang in languages:
+                    for y in languages[lang]["y_true"]:
+                        all_y_true.append(y)
+                    for y in languages[lang]["y_pred"]:
+                        all_y_pred.append(y)
+                    if len(all_y_true) != len(all_y_pred):
+                        raise ValueError(f"Mismatch in counts for {model_name}, {word_group}, {input_type}, {dimension}, {lang}")
+                if all_y_true and all_y_pred:
+                    precision, recall, f1, _ = precision_recall_fscore_support(
+                        all_y_true, all_y_pred, average='macro', labels=[1, 2], zero_division=0
+                    )
+                    accuracy = accuracy_score(all_y_true, all_y_pred)
+
+                    statistics[model_name][word_group][input_type][dimension]["all_sum"] = {
+                        "accuracy": accuracy,
+                        "precision": precision,
+                        "recall": recall,
+                        "macro_f1_score": f1,
+                        "count": len(all_y_true)
+                    }
+
+os.makedirs(os.path.dirname(OUTPUT_FILE), exist_ok=True)
+
+with open(OUTPUT_FILE, 'w', encoding='utf-8') as f:
+    json.dump(statistics, f, indent=4, ensure_ascii=False)
+
+print(f"Statistics saved to {OUTPUT_FILE}")

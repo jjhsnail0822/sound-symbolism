@@ -1,31 +1,10 @@
 import json
-import pandas as pd
 import re
-from collections import defaultdict
+import pandas as pd
 
 def generate_latex_tables(data_path):
-    """
-    Loads statistics from a JSON file and generates a separate LaTeX table for each model.
-    """
     with open(data_path, 'r', encoding='utf-8') as f:
-        raw_data = json.load(f)
-
-    # Use data under the 'all' key which contains all languages
-    data = raw_data.get('all', {})
-
-    # Merge gpt-4o and gpt-4o-audio-preview into a single gpt-4o model
-    if "gpt-4o" in data and "gpt-4o-audio-preview" in data:
-        gpt4o_audio_data = data.pop("gpt-4o-audio-preview")
-        for freq, freq_data in gpt4o_audio_data.items():
-            if freq in data["gpt-4o"]:
-                # Deep merge dimensions data
-                for input_type, input_data in freq_data.items():
-                    if input_type in data["gpt-4o"][freq]:
-                         data["gpt-4o"][freq][input_type].update(input_data)
-                    else:
-                         data["gpt-4o"][freq][input_type] = input_data
-            else:
-                data["gpt-4o"][freq] = freq_data
+        data = json.load(f)
 
     # Define the order of dimensions and columns as in the LaTeX template
     dimensions_order = [
@@ -64,29 +43,32 @@ def generate_latex_tables(data_path):
     all_tables_latex_string = ""
 
     for model_name, model_data in data.items():
-        # Create a DataFrame to hold the scores for the current model
-        df = pd.DataFrame(index=dimensions_order, columns=pd.MultiIndex.from_product([input_types_order, freq_categories]))
+        # Create a DataFrame for the current model
+        # Columns will be a MultiIndex of (input_type, freq_category)
+        # but for simplicity we'll handle it as flat columns first.
+        columns = [f"{it}_{fc}" for it in input_types_order for fc in freq_categories]
+        df = pd.DataFrame(index=dimensions_order, columns=columns)
+        df.fillna("--", inplace=True) # Initialize with placeholder
 
-        # Populate the DataFrame
-        for freq in freq_categories:
-            for input_type in input_types_order:
-                for dim in dimensions_order:
+        # Fill the DataFrame with the data
+        for dim in dimensions_order:
+            # Handle reversed dimensions
+            lookup_dim = dimension_map.get(dim, dim)
+            
+            for it in input_types_order:
+                for fc in freq_categories:
                     try:
-                        # Normalize dimension names
-                        normalized_dim = dimension_map.get(dim, dim)
-                        
-                        score = model_data[freq][input_type]["dimensions"][normalized_dim]["macro_f1_score"]
-                        # Format score: multiply by 100, round to 1 decimal
-                        formatted_score = f"{score * 100:.1f}"
-                        df.loc[dim, (input_type, freq)] = formatted_score
+                        # Navigate through the data structure to get the score
+                        score = model_data[fc][it][lookup_dim]['all']['macro_f1_score']
+                        # Format the score to xx.x
+                        df.at[dim, f"{it}_{fc}"] = f"{score * 100:.1f}"
                     except KeyError:
-                        # Fill with '--' if data is missing
-                        df.loc[dim, (input_type, freq)] = "--"
+                        # If data is missing, the cell will retain its "--" value
+                        pass
         
         # Sanitize model name for LaTeX label
         safe_model_name_label = re.sub(r'[^a-zA-Z0-9]', '', model_name)
 
-        # Start table for the model
         # Generate multicolumn headers for input types
         input_type_headers = " & ".join([f"\\multicolumn{{{len(freq_categories)}}}{{c}}{{\\textbf{{{input_types_map[it]}}}}}" for it in input_types_order])
         
@@ -96,6 +78,7 @@ def generate_latex_tables(data_path):
 
         # Generate cmidrule ranges
         num_freq = len(freq_categories)
+        # The first column is the dimension label, so data columns start at index 2 in LaTeX
         cmidrules = " ".join([f"\\cmidrule(lr){{{2 + i*num_freq}-{2 + i*num_freq + num_freq - 1}}}" for i in range(len(input_types_order))])
 
         model_table_string = f"""% =====================  {model_name} =====================
@@ -112,8 +95,8 @@ def generate_latex_tables(data_path):
 """
         # Add data rows
         for index, row in df.iterrows():
-            dim_label = index
-            row_values = " & ".join(row.fillna("-"))
+            dim_label = index.replace('_', ' ')
+            row_values = " & ".join(row.values)
             model_table_string += f"{dim_label:<35} & {row_values} \\\\ \n"
 
         # End table
@@ -126,8 +109,10 @@ def generate_latex_tables(data_path):
         all_tables_latex_string += model_table_string + "\n\n"
 
     # Write the LaTeX string to a file
-    with open('results/statistics/semdim_latex_table.tex', 'w', encoding='utf-8') as f:
+    output_path = 'results/statistics/semdim_latex_table.tex'
+    with open(output_path, 'w', encoding='utf-8') as f:
         f.write(all_tables_latex_string)
+    print(f"LaTeX tables generated at: {output_path}")
 
 
 if __name__ == '__main__':

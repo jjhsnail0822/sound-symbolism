@@ -56,30 +56,91 @@ for item in raw_data_constructed:
         data_by_dim_and_source[dimension]['art'].append(item)
 
 data_prepared = {}
+used_words = set() # Track used words (lang, word) across all dimensions
 
-# choose 1 question per natural language and 4 questions from constructed language
-# for 8 questions per dimension, 4 of them are from natural language and 4 from constructed
+# For each dimension, sample 4 questions with answer 1 and 4 with answer 2.
+# Try to maintain a balance between natural and constructed languages.
 for dimension, sources in data_by_dim_and_source.items():
     if dimension not in sampling_dimensions:
         continue
-    
+
     questions = []
     
-    # Sample 1 question from each natural language
+    # Separate items by answer, source type, and language for natural languages
+    natural_by_lang_and_answer = defaultdict(lambda: defaultdict(list))
+    art_by_answer = defaultdict(list)
+
+    natural_languages = [lang for lang in sources.keys() if lang != 'art']
+    random.shuffle(natural_languages) # Ensure random selection of languages
+
     for lang, items in sources.items():
-        if lang != 'art':  # Skip constructed language for this part
-            sampled_items = random.sample(items, min(1, len(items)))
-            questions.extend(sampled_items)
+        random.shuffle(items) # Shuffle items for random sampling
+        for item in items:
+            answer = item['meta_data']['answer']
+            if lang == 'art':
+                art_by_answer[answer].append(item)
+            else:
+                natural_by_lang_and_answer[lang][answer].append(item)
+
+    # We need 4 questions for each answer (1 and 2)
+    # Let's try to get 2 from natural (from 2 different languages) and 2 from 'art' for each answer.
     
-    # Sample 4 questions from constructed language
-    if 'art' in sources:
-        sampled_items = random.sample(sources['art'], min(4, len(sources['art'])))
-        questions.extend(sampled_items)
+    sampled_questions_1 = []
+    sampled_questions_2 = []
+    
+    # Sample for answer 1
+    langs_for_1 = [lang for lang in natural_languages if natural_by_lang_and_answer[lang][1]]
+    used_langs_for_1 = []
+    for lang in langs_for_1:
+        if len(sampled_questions_1) >= 2:
+            break
+        for i, item in enumerate(natural_by_lang_and_answer[lang][1]):
+            word_tuple = (item['meta_data']['language'], item['meta_data']['word'])
+            if word_tuple not in used_words:
+                sampled_questions_1.append(item)
+                used_words.add(word_tuple)
+                used_langs_for_1.append(lang)
+                natural_by_lang_and_answer[lang][1].pop(i)
+                break
+    
+    num_art_needed = 4 - len(sampled_questions_1)
+    for i, item in enumerate(art_by_answer[1]):
+        if len(sampled_questions_1) >= 4:
+            break
+        word_tuple = (item['meta_data']['language'], item['meta_data']['word'])
+        if word_tuple not in used_words:
+            sampled_questions_1.append(item)
+            used_words.add(word_tuple)
+
+    # Sample for answer 2
+    langs_for_2 = [lang for lang in natural_languages if natural_by_lang_and_answer[lang][2] and lang not in used_langs_for_1]
+    for lang in langs_for_2:
+        if len(sampled_questions_2) >= 2:
+            break
+        for i, item in enumerate(natural_by_lang_and_answer[lang][2]):
+            word_tuple = (item['meta_data']['language'], item['meta_data']['word'])
+            if word_tuple not in used_words:
+                sampled_questions_2.append(item)
+                used_words.add(word_tuple)
+                natural_by_lang_and_answer[lang][2].pop(i)
+                break
+
+    num_art_needed = 4 - len(sampled_questions_2)
+    for i, item in enumerate(art_by_answer[2]):
+        if len(sampled_questions_2) >= 4:
+            break
+        word_tuple = (item['meta_data']['language'], item['meta_data']['word'])
+        if word_tuple not in used_words:
+            sampled_questions_2.append(item)
+            used_words.add(word_tuple)
+
+    questions.extend(sampled_questions_1)
+    questions.extend(sampled_questions_2)
     
     # Shuffle the questions to mix natural and constructed
     random.shuffle(questions)
     
-    data_prepared[dimension] = questions[:sampling_dimensions[dimension]]
+    data_prepared[dimension] = questions
 
 # Update the 'answer' field and add the 'audio' key
 for dimension, questions in data_prepared.items():

@@ -5,1741 +5,85 @@ id,prompt,answer,audio
 <AUDIO>
 
 [SEMANTIC DIMENSION]
-beautiful vs. ugly
+heavy vs. light
 
 [OPTIONS]
-1: beautiful
-2: ugly
-Answer with the number only. (1-2),2,/data/local-files/?d=tts/fr/beurk.wav
+1: heavy
+2: light
+Answer with the number only. (1-2),1,/data/local-files/?d=tts/fr/braou.wav
 2,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
 
 [WORD]
 <AUDIO>
 
 [SEMANTIC DIMENSION]
-heavy vs. light
+solid vs. nonsolid
 
 [OPTIONS]
-1: heavy
-2: light
-Answer with the number only. (1-2),1,/data/local-files/?d=tts/ja/ぶるん.wav
+1: solid
+2: nonsolid
+Answer with the number only. (1-2),2,/data/local-files/?d=tts/en/slumper.wav
 3,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
 
 [WORD]
 <AUDIO>
 
 [SEMANTIC DIMENSION]
-inhibited vs. free
+ordinary vs. unique
 
 [OPTIONS]
-1: inhibited
-2: free
-Answer with the number only. (1-2),1,/data/local-files/?d=tts/ko/땅.wav
+1: ordinary
+2: unique
+Answer with the number only. (1-2),1,/data/local-files/?d=tts/art/lah-mo.wav
 4,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
 
 [WORD]
 <AUDIO>
 
 [SEMANTIC DIMENSION]
-abrupt vs. continuous
+exciting vs. calming
 
 [OPTIONS]
-1: abrupt
-2: continuous
-Answer with the number only. (1-2),2,/data/local-files/?d=tts/fr/vrrr.wav
+1: exciting
+2: calming
+Answer with the number only. (1-2),1,/data/local-files/?d=tts/ko/파닥.wav
 5,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
 
 [WORD]
 <AUDIO>
 
 [SEMANTIC DIMENSION]
-hard vs. soft
+simple vs. complex
 
 [OPTIONS]
-1: hard
-2: soft
-Answer with the number only. (1-2),1,/data/local-files/?d=tts/art/kah-zah.wav
+1: simple
+2: complex
+Answer with the number only. (1-2),2,/data/local-files/?d=tts/art/they-day.wav
 6,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
 
 [WORD]
 <AUDIO>
 
 [SEMANTIC DIMENSION]
-heavy vs. light
+tense vs. relaxed
 
 [OPTIONS]
-1: heavy
-2: light
-Answer with the number only. (1-2),1,/data/local-files/?d=tts/ko/떼그럭떼그럭.wav
+1: tense
+2: relaxed
+Answer with the number only. (1-2),2,/data/local-files/?d=tts/ko/파니.wav
 7,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
 
 [WORD]
 <AUDIO>
 
 [SEMANTIC DIMENSION]
-solid vs. nonsolid
+tense vs. relaxed
 
 [OPTIONS]
-1: solid
-2: nonsolid
-Answer with the number only. (1-2),2,/data/local-files/?d=tts/en/puff.wav
+1: tense
+2: relaxed
+Answer with the number only. (1-2),1,/data/local-files/?d=tts/art/tay-toe.wav
 8,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
-
-[WORD]
-<AUDIO>
-
-[SEMANTIC DIMENSION]
-solid vs. nonsolid
-
-[OPTIONS]
-1: solid
-2: nonsolid
-Answer with the number only. (1-2),2,/data/local-files/?d=tts/art/lah-shah.wav
-9,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
-
-[WORD]
-<AUDIO>
-
-[SEMANTIC DIMENSION]
-dangerous vs. safe
-
-[OPTIONS]
-1: dangerous
-2: safe
-Answer with the number only. (1-2),2,/data/local-files/?d=tts/en/fubb.wav
-10,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
-
-[WORD]
-<AUDIO>
-
-[SEMANTIC DIMENSION]
-dangerous vs. safe
-
-[OPTIONS]
-1: dangerous
-2: safe
-Answer with the number only. (1-2),2,/data/local-files/?d=tts/art/mee-nah.wav
-11,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
-
-[WORD]
-<AUDIO>
-
-[SEMANTIC DIMENSION]
-heavy vs. light
-
-[OPTIONS]
-1: heavy
-2: light
-Answer with the number only. (1-2),2,/data/local-files/?d=tts/en/whoosh.wav
-12,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
-
-[WORD]
-<AUDIO>
-
-[SEMANTIC DIMENSION]
-tense vs. relaxed
-
-[OPTIONS]
-1: tense
-2: relaxed
-Answer with the number only. (1-2),1,/data/local-files/?d=tts/art/kah-ko.wav
-13,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
-
-[WORD]
-<AUDIO>
-
-[SEMANTIC DIMENSION]
-realistic vs. fantastical
-
-[OPTIONS]
-1: realistic
-2: fantastical
-Answer with the number only. (1-2),2,/data/local-files/?d=tts/ko/껄렁.wav
-14,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
-
-[WORD]
-<AUDIO>
-
-[SEMANTIC DIMENSION]
-masculine vs. feminine
-
-[OPTIONS]
-1: masculine
-2: feminine
-Answer with the number only. (1-2),2,/data/local-files/?d=tts/fr/clac cloc.wav
-15,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
-
-[WORD]
-<AUDIO>
-
-[SEMANTIC DIMENSION]
-happy vs. sad
-
-[OPTIONS]
-1: happy
-2: sad
-Answer with the number only. (1-2),1,/data/local-files/?d=tts/art/tay-they.wav
-16,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
-
-[WORD]
-<AUDIO>
-
-[SEMANTIC DIMENSION]
-strong vs. weak
-
-[OPTIONS]
-1: strong
-2: weak
-Answer with the number only. (1-2),2,/data/local-files/?d=tts/art/no-lah.wav
-17,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
-
-[WORD]
-<AUDIO>
-
-[SEMANTIC DIMENSION]
-dangerous vs. safe
-
-[OPTIONS]
-1: dangerous
-2: safe
-Answer with the number only. (1-2),1,/data/local-files/?d=tts/ja/ずばっ.wav
-18,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
-
-[WORD]
-<AUDIO>
-
-[SEMANTIC DIMENSION]
-harsh vs. mellow
-
-[OPTIONS]
-1: harsh
-2: mellow
-Answer with the number only. (1-2),2,/data/local-files/?d=tts/ja/おっとり.wav
-19,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
-
-[WORD]
-<AUDIO>
-
-[SEMANTIC DIMENSION]
-exciting vs. calming
-
-[OPTIONS]
-1: exciting
-2: calming
-Answer with the number only. (1-2),1,/data/local-files/?d=tts/art/ghee-pay.wav
-20,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
-
-[WORD]
-<AUDIO>
-
-[SEMANTIC DIMENSION]
-strong vs. weak
-
-[OPTIONS]
-1: strong
-2: weak
-Answer with the number only. (1-2),1,/data/local-files/?d=tts/ko/쨍.wav
-21,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
-
-[WORD]
-<AUDIO>
-
-[SEMANTIC DIMENSION]
-beautiful vs. ugly
-
-[OPTIONS]
-1: beautiful
-2: ugly
-Answer with the number only. (1-2),1,/data/local-files/?d=tts/art/lee-sho.wav
-22,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
-
-[WORD]
-<AUDIO>
-
-[SEMANTIC DIMENSION]
-strong vs. weak
-
-[OPTIONS]
-1: strong
-2: weak
-Answer with the number only. (1-2),1,/data/local-files/?d=tts/art/zee-zo.wav
-23,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
-
-[WORD]
-<AUDIO>
-
-[SEMANTIC DIMENSION]
-heavy vs. light
-
-[OPTIONS]
-1: heavy
-2: light
-Answer with the number only. (1-2),2,/data/local-files/?d=tts/fr/tchit.wav
-24,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
-
-[WORD]
-<AUDIO>
-
-[SEMANTIC DIMENSION]
-harsh vs. mellow
-
-[OPTIONS]
-1: harsh
-2: mellow
-Answer with the number only. (1-2),2,/data/local-files/?d=tts/art/lo-lah.wav
-25,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
-
-[WORD]
-<AUDIO>
-
-[SEMANTIC DIMENSION]
-inhibited vs. free
-
-[OPTIONS]
-1: inhibited
-2: free
-Answer with the number only. (1-2),1,/data/local-files/?d=tts/art/ko-tah.wav
-26,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
-
-[WORD]
-<AUDIO>
-
-[SEMANTIC DIMENSION]
-sharp vs. round
-
-[OPTIONS]
-1: sharp
-2: round
-Answer with the number only. (1-2),2,/data/local-files/?d=tts/fr/blub.wav
-27,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
-
-[WORD]
-<AUDIO>
-
-[SEMANTIC DIMENSION]
-abrupt vs. continuous
-
-[OPTIONS]
-1: abrupt
-2: continuous
-Answer with the number only. (1-2),2,/data/local-files/?d=tts/art/fay-mee.wav
-28,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
-
-[WORD]
-<AUDIO>
-
-[SEMANTIC DIMENSION]
-masculine vs. feminine
-
-[OPTIONS]
-1: masculine
-2: feminine
-Answer with the number only. (1-2),1,/data/local-files/?d=tts/ja/ぎすぎす.wav
-29,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
-
-[WORD]
-<AUDIO>
-
-[SEMANTIC DIMENSION]
-big vs. small
-
-[OPTIONS]
-1: big
-2: small
-Answer with the number only. (1-2),1,/data/local-files/?d=tts/art/no-vah.wav
-30,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
-
-[WORD]
-<AUDIO>
-
-[SEMANTIC DIMENSION]
-masculine vs. feminine
-
-[OPTIONS]
-1: masculine
-2: feminine
-Answer with the number only. (1-2),1,/data/local-files/?d=tts/art/kee-dah.wav
-31,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
-
-[WORD]
-<AUDIO>
-
-[SEMANTIC DIMENSION]
-beautiful vs. ugly
-
-[OPTIONS]
-1: beautiful
-2: ugly
-Answer with the number only. (1-2),1,/data/local-files/?d=tts/en/chirl.wav
-32,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
-
-[WORD]
-<AUDIO>
-
-[SEMANTIC DIMENSION]
-happy vs. sad
-
-[OPTIONS]
-1: happy
-2: sad
-Answer with the number only. (1-2),1,/data/local-files/?d=tts/art/they-day.wav
-33,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
-
-[WORD]
-<AUDIO>
-
-[SEMANTIC DIMENSION]
-dangerous vs. safe
-
-[OPTIONS]
-1: dangerous
-2: safe
-Answer with the number only. (1-2),1,/data/local-files/?d=tts/art/zay-pee.wav
-34,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
-
-[WORD]
-<AUDIO>
-
-[SEMANTIC DIMENSION]
-simple vs. complex
-
-[OPTIONS]
-1: simple
-2: complex
-Answer with the number only. (1-2),2,/data/local-files/?d=tts/art/go-vay.wav
-35,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
-
-[WORD]
-<AUDIO>
-
-[SEMANTIC DIMENSION]
-inhibited vs. free
-
-[OPTIONS]
-1: inhibited
-2: free
-Answer with the number only. (1-2),1,/data/local-files/?d=tts/art/ko-pay.wav
-36,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
-
-[WORD]
-<AUDIO>
-
-[SEMANTIC DIMENSION]
-abrupt vs. continuous
-
-[OPTIONS]
-1: abrupt
-2: continuous
-Answer with the number only. (1-2),1,/data/local-files/?d=tts/ja/ぶつぶつ.wav
-37,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
-
-[WORD]
-<AUDIO>
-
-[SEMANTIC DIMENSION]
-harsh vs. mellow
-
-[OPTIONS]
-1: harsh
-2: mellow
-Answer with the number only. (1-2),2,/data/local-files/?d=tts/en/toodle.wav
-38,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
-
-[WORD]
-<AUDIO>
-
-[SEMANTIC DIMENSION]
-abrupt vs. continuous
-
-[OPTIONS]
-1: abrupt
-2: continuous
-Answer with the number only. (1-2),2,/data/local-files/?d=tts/ko/쏠라닥쏠라닥.wav
-39,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
-
-[WORD]
-<AUDIO>
-
-[SEMANTIC DIMENSION]
-realistic vs. fantastical
-
-[OPTIONS]
-1: realistic
-2: fantastical
-Answer with the number only. (1-2),2,/data/local-files/?d=tts/art/bah-vo.wav
-40,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
-
-[WORD]
-<AUDIO>
-
-[SEMANTIC DIMENSION]
-dangerous vs. safe
-
-[OPTIONS]
-1: dangerous
-2: safe
-Answer with the number only. (1-2),1,/data/local-files/?d=tts/ko/뻥뻥.wav
-41,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
-
-[WORD]
-<AUDIO>
-
-[SEMANTIC DIMENSION]
-tense vs. relaxed
-
-[OPTIONS]
-1: tense
-2: relaxed
-Answer with the number only. (1-2),2,/data/local-files/?d=tts/art/nee-nah.wav
-42,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
-
-[WORD]
-<AUDIO>
-
-[SEMANTIC DIMENSION]
-beautiful vs. ugly
-
-[OPTIONS]
-1: beautiful
-2: ugly
-Answer with the number only. (1-2),2,/data/local-files/?d=tts/ko/억박적박.wav
-43,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
-
-[WORD]
-<AUDIO>
-
-[SEMANTIC DIMENSION]
-sharp vs. round
-
-[OPTIONS]
-1: sharp
-2: round
-Answer with the number only. (1-2),2,/data/local-files/?d=tts/art/lo-lay.wav
-44,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
-
-[WORD]
-<AUDIO>
-
-[SEMANTIC DIMENSION]
-inhibited vs. free
-
-[OPTIONS]
-1: inhibited
-2: free
-Answer with the number only. (1-2),2,/data/local-files/?d=tts/fr/sluirp.wav
-45,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
-
-[WORD]
-<AUDIO>
-
-[SEMANTIC DIMENSION]
-hard vs. soft
-
-[OPTIONS]
-1: hard
-2: soft
-Answer with the number only. (1-2),2,/data/local-files/?d=tts/art/nee-dah.wav
-46,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
-
-[WORD]
-<AUDIO>
-
-[SEMANTIC DIMENSION]
-solid vs. nonsolid
-
-[OPTIONS]
-1: solid
-2: nonsolid
-Answer with the number only. (1-2),1,/data/local-files/?d=tts/ko/우두둑우두둑.wav
-47,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
-
-[WORD]
-<AUDIO>
-
-[SEMANTIC DIMENSION]
-exciting vs. calming
-
-[OPTIONS]
-1: exciting
-2: calming
-Answer with the number only. (1-2),2,/data/local-files/?d=tts/ko/뻥글.wav
-48,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
-
-[WORD]
-<AUDIO>
-
-[SEMANTIC DIMENSION]
-ordinary vs. unique
-
-[OPTIONS]
-1: ordinary
-2: unique
-Answer with the number only. (1-2),2,/data/local-files/?d=tts/en/plung.wav
-49,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
-
-[WORD]
-<AUDIO>
-
-[SEMANTIC DIMENSION]
-happy vs. sad
-
-[OPTIONS]
-1: happy
-2: sad
-Answer with the number only. (1-2),1,/data/local-files/?d=tts/ko/싱끗싱끗.wav
-50,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
-
-[WORD]
-<AUDIO>
-
-[SEMANTIC DIMENSION]
-simple vs. complex
-
-[OPTIONS]
-1: simple
-2: complex
-Answer with the number only. (1-2),2,/data/local-files/?d=tts/ko/타시락타시락.wav
-51,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
-
-[WORD]
-<AUDIO>
-
-[SEMANTIC DIMENSION]
-heavy vs. light
-
-[OPTIONS]
-1: heavy
-2: light
-Answer with the number only. (1-2),2,/data/local-files/?d=tts/art/shee-may.wav
-52,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
-
-[WORD]
-<AUDIO>
-
-[SEMANTIC DIMENSION]
-fast vs. slow
-
-[OPTIONS]
-1: fast
-2: slow
-Answer with the number only. (1-2),1,/data/local-files/?d=tts/art/zee-shay.wav
-53,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
-
-[WORD]
-<AUDIO>
-
-[SEMANTIC DIMENSION]
-happy vs. sad
-
-[OPTIONS]
-1: happy
-2: sad
-Answer with the number only. (1-2),2,/data/local-files/?d=tts/ja/ぐたり.wav
-54,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
-
-[WORD]
-<AUDIO>
-
-[SEMANTIC DIMENSION]
-dangerous vs. safe
-
-[OPTIONS]
-1: dangerous
-2: safe
-Answer with the number only. (1-2),2,/data/local-files/?d=tts/art/no-no.wav
-55,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
-
-[WORD]
-<AUDIO>
-
-[SEMANTIC DIMENSION]
-masculine vs. feminine
-
-[OPTIONS]
-1: masculine
-2: feminine
-Answer with the number only. (1-2),2,/data/local-files/?d=tts/art/lee-zee.wav
-56,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
-
-[WORD]
-<AUDIO>
-
-[SEMANTIC DIMENSION]
-fast vs. slow
-
-[OPTIONS]
-1: fast
-2: slow
-Answer with the number only. (1-2),1,/data/local-files/?d=tts/ko/껑쭝껑쭝.wav
-57,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
-
-[WORD]
-<AUDIO>
-
-[SEMANTIC DIMENSION]
-exciting vs. calming
-
-[OPTIONS]
-1: exciting
-2: calming
-Answer with the number only. (1-2),1,/data/local-files/?d=tts/ja/ぴょいぴょい.wav
-58,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
-
-[WORD]
-<AUDIO>
-
-[SEMANTIC DIMENSION]
-hard vs. soft
-
-[OPTIONS]
-1: hard
-2: soft
-Answer with the number only. (1-2),1,/data/local-files/?d=tts/ja/がちり.wav
-59,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
-
-[WORD]
-<AUDIO>
-
-[SEMANTIC DIMENSION]
-fast vs. slow
-
-[OPTIONS]
-1: fast
-2: slow
-Answer with the number only. (1-2),2,/data/local-files/?d=tts/en/splodge.wav
-60,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
-
-[WORD]
-<AUDIO>
-
-[SEMANTIC DIMENSION]
-ordinary vs. unique
-
-[OPTIONS]
-1: ordinary
-2: unique
-Answer with the number only. (1-2),1,/data/local-files/?d=tts/art/nah-lo.wav
-61,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
-
-[WORD]
-<AUDIO>
-
-[SEMANTIC DIMENSION]
-fast vs. slow
-
-[OPTIONS]
-1: fast
-2: slow
-Answer with the number only. (1-2),2,/data/local-files/?d=tts/art/vah-lo.wav
-62,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
-
-[WORD]
-<AUDIO>
-
-[SEMANTIC DIMENSION]
-hard vs. soft
-
-[OPTIONS]
-1: hard
-2: soft
-Answer with the number only. (1-2),2,/data/local-files/?d=tts/en/tottle.wav
-63,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
-
-[WORD]
-<AUDIO>
-
-[SEMANTIC DIMENSION]
-masculine vs. feminine
-
-[OPTIONS]
-1: masculine
-2: feminine
-Answer with the number only. (1-2),2,/data/local-files/?d=tts/en/cluck.wav
-64,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
-
-[WORD]
-<AUDIO>
-
-[SEMANTIC DIMENSION]
-hard vs. soft
-
-[OPTIONS]
-1: hard
-2: soft
-Answer with the number only. (1-2),2,/data/local-files/?d=tts/ko/폭삭.wav
-65,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
-
-[WORD]
-<AUDIO>
-
-[SEMANTIC DIMENSION]
-harsh vs. mellow
-
-[OPTIONS]
-1: harsh
-2: mellow
-Answer with the number only. (1-2),1,/data/local-files/?d=tts/ko/뺘드득.wav
-66,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
-
-[WORD]
-<AUDIO>
-
-[SEMANTIC DIMENSION]
-heavy vs. light
-
-[OPTIONS]
-1: heavy
-2: light
-Answer with the number only. (1-2),2,/data/local-files/?d=tts/art/shay-bee.wav
-67,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
-
-[WORD]
-<AUDIO>
-
-[SEMANTIC DIMENSION]
-abrupt vs. continuous
-
-[OPTIONS]
-1: abrupt
-2: continuous
-Answer with the number only. (1-2),1,/data/local-files/?d=tts/en/snick.wav
-68,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
-
-[WORD]
-<AUDIO>
-
-[SEMANTIC DIMENSION]
-harsh vs. mellow
-
-[OPTIONS]
-1: harsh
-2: mellow
-Answer with the number only. (1-2),2,/data/local-files/?d=tts/art/mo-fay.wav
-69,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
-
-[WORD]
-<AUDIO>
-
-[SEMANTIC DIMENSION]
-harsh vs. mellow
-
-[OPTIONS]
-1: harsh
-2: mellow
-Answer with the number only. (1-2),1,/data/local-files/?d=tts/fr/beuh.wav
-70,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
-
-[WORD]
-<AUDIO>
-
-[SEMANTIC DIMENSION]
-happy vs. sad
-
-[OPTIONS]
-1: happy
-2: sad
-Answer with the number only. (1-2),2,/data/local-files/?d=tts/fr/ouille.wav
-71,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
-
-[WORD]
-<AUDIO>
-
-[SEMANTIC DIMENSION]
-solid vs. nonsolid
-
-[OPTIONS]
-1: solid
-2: nonsolid
-Answer with the number only. (1-2),1,/data/local-files/?d=tts/art/kee-kay.wav
-72,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
-
-[WORD]
-<AUDIO>
-
-[SEMANTIC DIMENSION]
-big vs. small
-
-[OPTIONS]
-1: big
-2: small
-Answer with the number only. (1-2),2,/data/local-files/?d=tts/art/lee-shee.wav
-73,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
-
-[WORD]
-<AUDIO>
-
-[SEMANTIC DIMENSION]
-solid vs. nonsolid
-
-[OPTIONS]
-1: solid
-2: nonsolid
-Answer with the number only. (1-2),2,/data/local-files/?d=tts/art/mo-ghee.wav
-74,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
-
-[WORD]
-<AUDIO>
-
-[SEMANTIC DIMENSION]
-simple vs. complex
-
-[OPTIONS]
-1: simple
-2: complex
-Answer with the number only. (1-2),2,/data/local-files/?d=tts/art/vay-fah.wav
-75,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
-
-[WORD]
-<AUDIO>
-
-[SEMANTIC DIMENSION]
-happy vs. sad
-
-[OPTIONS]
-1: happy
-2: sad
-Answer with the number only. (1-2),2,/data/local-files/?d=tts/art/lah-kah.wav
-76,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
-
-[WORD]
-<AUDIO>
-
-[SEMANTIC DIMENSION]
-realistic vs. fantastical
-
-[OPTIONS]
-1: realistic
-2: fantastical
-Answer with the number only. (1-2),2,/data/local-files/?d=tts/art/go-vah.wav
-77,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
-
-[WORD]
-<AUDIO>
-
-[SEMANTIC DIMENSION]
-beautiful vs. ugly
-
-[OPTIONS]
-1: beautiful
-2: ugly
-Answer with the number only. (1-2),2,/data/local-files/?d=tts/art/bo-gay.wav
-78,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
-
-[WORD]
-<AUDIO>
-
-[SEMANTIC DIMENSION]
-ordinary vs. unique
-
-[OPTIONS]
-1: ordinary
-2: unique
-Answer with the number only. (1-2),2,/data/local-files/?d=tts/art/though-zee.wav
-79,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
-
-[WORD]
-<AUDIO>
-
-[SEMANTIC DIMENSION]
-tense vs. relaxed
-
-[OPTIONS]
-1: tense
-2: relaxed
-Answer with the number only. (1-2),2,/data/local-files/?d=tts/en/yock.wav
-80,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
-
-[WORD]
-<AUDIO>
-
-[SEMANTIC DIMENSION]
-simple vs. complex
-
-[OPTIONS]
-1: simple
-2: complex
-Answer with the number only. (1-2),1,/data/local-files/?d=tts/art/tee-lay.wav
-81,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
-
-[WORD]
-<AUDIO>
-
-[SEMANTIC DIMENSION]
-simple vs. complex
-
-[OPTIONS]
-1: simple
-2: complex
-Answer with the number only. (1-2),1,/data/local-files/?d=tts/art/po-mee.wav
-82,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
-
-[WORD]
-<AUDIO>
-
-[SEMANTIC DIMENSION]
-sharp vs. round
-
-[OPTIONS]
-1: sharp
-2: round
-Answer with the number only. (1-2),2,/data/local-files/?d=tts/art/nay-fah.wav
-83,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
-
-[WORD]
-<AUDIO>
-
-[SEMANTIC DIMENSION]
-sharp vs. round
-
-[OPTIONS]
-1: sharp
-2: round
-Answer with the number only. (1-2),1,/data/local-files/?d=tts/art/vah-fee.wav
-84,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
-
-[WORD]
-<AUDIO>
-
-[SEMANTIC DIMENSION]
-big vs. small
-
-[OPTIONS]
-1: big
-2: small
-Answer with the number only. (1-2),2,/data/local-files/?d=tts/ja/ちっ.wav
-85,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
-
-[WORD]
-<AUDIO>
-
-[SEMANTIC DIMENSION]
-harsh vs. mellow
-
-[OPTIONS]
-1: harsh
-2: mellow
-Answer with the number only. (1-2),1,/data/local-files/?d=tts/art/kah-vah.wav
-86,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
-
-[WORD]
-<AUDIO>
-
-[SEMANTIC DIMENSION]
-tense vs. relaxed
-
-[OPTIONS]
-1: tense
-2: relaxed
-Answer with the number only. (1-2),1,/data/local-files/?d=tts/fr/pouêtte.wav
-87,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
-
-[WORD]
-<AUDIO>
-
-[SEMANTIC DIMENSION]
-tense vs. relaxed
-
-[OPTIONS]
-1: tense
-2: relaxed
-Answer with the number only. (1-2),2,/data/local-files/?d=tts/art/mee-mah.wav
-88,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
-
-[WORD]
-<AUDIO>
-
-[SEMANTIC DIMENSION]
-hard vs. soft
-
-[OPTIONS]
-1: hard
-2: soft
-Answer with the number only. (1-2),1,/data/local-files/?d=tts/art/kah-they.wav
-89,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
-
-[WORD]
-<AUDIO>
-
-[SEMANTIC DIMENSION]
-heavy vs. light
-
-[OPTIONS]
-1: heavy
-2: light
-Answer with the number only. (1-2),1,/data/local-files/?d=tts/art/tah-po.wav
-90,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
-
-[WORD]
-<AUDIO>
-
-[SEMANTIC DIMENSION]
-realistic vs. fantastical
-
-[OPTIONS]
-1: realistic
-2: fantastical
-Answer with the number only. (1-2),1,/data/local-files/?d=tts/art/fee-kee.wav
-91,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
-
-[WORD]
-<AUDIO>
-
-[SEMANTIC DIMENSION]
-tense vs. relaxed
-
-[OPTIONS]
-1: tense
-2: relaxed
-Answer with the number only. (1-2),2,/data/local-files/?d=tts/ko/굽실.wav
-92,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
-
-[WORD]
-<AUDIO>
-
-[SEMANTIC DIMENSION]
-ordinary vs. unique
-
-[OPTIONS]
-1: ordinary
-2: unique
-Answer with the number only. (1-2),2,/data/local-files/?d=tts/fr/toc-toc.wav
-93,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
-
-[WORD]
-<AUDIO>
-
-[SEMANTIC DIMENSION]
-beautiful vs. ugly
-
-[OPTIONS]
-1: beautiful
-2: ugly
-Answer with the number only. (1-2),1,/data/local-files/?d=tts/art/may-fay.wav
-94,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
-
-[WORD]
-<AUDIO>
-
-[SEMANTIC DIMENSION]
-big vs. small
-
-[OPTIONS]
-1: big
-2: small
-Answer with the number only. (1-2),1,/data/local-files/?d=tts/fr/proum.wav
-95,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
-
-[WORD]
-<AUDIO>
-
-[SEMANTIC DIMENSION]
-solid vs. nonsolid
-
-[OPTIONS]
-1: solid
-2: nonsolid
-Answer with the number only. (1-2),1,/data/local-files/?d=tts/fr/plin plan.wav
-96,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
-
-[WORD]
-<AUDIO>
-
-[SEMANTIC DIMENSION]
-happy vs. sad
-
-[OPTIONS]
-1: happy
-2: sad
-Answer with the number only. (1-2),1,/data/local-files/?d=tts/en/gawf.wav
-97,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
-
-[WORD]
-<AUDIO>
-
-[SEMANTIC DIMENSION]
-dangerous vs. safe
-
-[OPTIONS]
-1: dangerous
-2: safe
-Answer with the number only. (1-2),2,/data/local-files/?d=tts/fr/ouf.wav
-98,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
-
-[WORD]
-<AUDIO>
-
-[SEMANTIC DIMENSION]
-exciting vs. calming
-
-[OPTIONS]
-1: exciting
-2: calming
-Answer with the number only. (1-2),1,/data/local-files/?d=tts/fr/zouip.wav
-99,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
-
-[WORD]
-<AUDIO>
-
-[SEMANTIC DIMENSION]
-fast vs. slow
-
-[OPTIONS]
-1: fast
-2: slow
-Answer with the number only. (1-2),2,/data/local-files/?d=tts/fr/crouler.wav
-100,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
-
-[WORD]
-<AUDIO>
-
-[SEMANTIC DIMENSION]
-harsh vs. mellow
-
-[OPTIONS]
-1: harsh
-2: mellow
-Answer with the number only. (1-2),1,/data/local-files/?d=tts/art/zaythey.wav
-101,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
-
-[WORD]
-<AUDIO>
-
-[SEMANTIC DIMENSION]
-strong vs. weak
-
-[OPTIONS]
-1: strong
-2: weak
-Answer with the number only. (1-2),1,/data/local-files/?d=tts/art/vo-zee.wav
-102,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
-
-[WORD]
-<AUDIO>
-
-[SEMANTIC DIMENSION]
-ordinary vs. unique
-
-[OPTIONS]
-1: ordinary
-2: unique
-Answer with the number only. (1-2),1,/data/local-files/?d=tts/ko/꾸붓꾸붓.wav
-103,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
-
-[WORD]
-<AUDIO>
-
-[SEMANTIC DIMENSION]
-sharp vs. round
-
-[OPTIONS]
-1: sharp
-2: round
-Answer with the number only. (1-2),1,/data/local-files/?d=tts/ko/잘끈잘끈.wav
-104,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
-
-[WORD]
-<AUDIO>
-
-[SEMANTIC DIMENSION]
-hard vs. soft
-
-[OPTIONS]
-1: hard
-2: soft
-Answer with the number only. (1-2),1,/data/local-files/?d=tts/fr/paf.wav
-105,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
-
-[WORD]
-<AUDIO>
-
-[SEMANTIC DIMENSION]
-big vs. small
-
-[OPTIONS]
-1: big
-2: small
-Answer with the number only. (1-2),1,/data/local-files/?d=tts/en/swack.wav
-106,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
-
-[WORD]
-<AUDIO>
-
-[SEMANTIC DIMENSION]
-happy vs. sad
-
-[OPTIONS]
-1: happy
-2: sad
-Answer with the number only. (1-2),2,/data/local-files/?d=tts/art/zo-shah.wav
-107,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
-
-[WORD]
-<AUDIO>
-
-[SEMANTIC DIMENSION]
-simple vs. complex
-
-[OPTIONS]
-1: simple
-2: complex
-Answer with the number only. (1-2),2,/data/local-files/?d=tts/fr/badabraoum.wav
-108,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
-
-[WORD]
-<AUDIO>
-
-[SEMANTIC DIMENSION]
-inhibited vs. free
-
-[OPTIONS]
-1: inhibited
-2: free
-Answer with the number only. (1-2),1,/data/local-files/?d=tts/en/simper.wav
-109,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
-
-[WORD]
-<AUDIO>
-
-[SEMANTIC DIMENSION]
-fast vs. slow
-
-[OPTIONS]
-1: fast
-2: slow
-Answer with the number only. (1-2),2,/data/local-files/?d=tts/art/dah-bah.wav
-110,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
-
-[WORD]
-<AUDIO>
-
-[SEMANTIC DIMENSION]
-tense vs. relaxed
-
-[OPTIONS]
-1: tense
-2: relaxed
-Answer with the number only. (1-2),1,/data/local-files/?d=tts/ja/じろっ.wav
-111,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
-
-[WORD]
-<AUDIO>
-
-[SEMANTIC DIMENSION]
-masculine vs. feminine
-
-[OPTIONS]
-1: masculine
-2: feminine
-Answer with the number only. (1-2),1,/data/local-files/?d=tts/ko/뜸직뜸직.wav
-112,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
-
-[WORD]
-<AUDIO>
-
-[SEMANTIC DIMENSION]
-simple vs. complex
-
-[OPTIONS]
-1: simple
-2: complex
-Answer with the number only. (1-2),1,/data/local-files/?d=tts/ja/ぼちゃん.wav
-113,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
-
-[WORD]
-<AUDIO>
-
-[SEMANTIC DIMENSION]
-tense vs. relaxed
-
-[OPTIONS]
-1: tense
-2: relaxed
-Answer with the number only. (1-2),1,/data/local-files/?d=tts/art/pee-kah.wav
-114,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
-
-[WORD]
-<AUDIO>
-
-[SEMANTIC DIMENSION]
-masculine vs. feminine
-
-[OPTIONS]
-1: masculine
-2: feminine
-Answer with the number only. (1-2),1,/data/local-files/?d=tts/art/gah-bee.wav
-115,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
-
-[WORD]
-<AUDIO>
-
-[SEMANTIC DIMENSION]
-ordinary vs. unique
-
-[OPTIONS]
-1: ordinary
-2: unique
-Answer with the number only. (1-2),1,/data/local-files/?d=tts/art/lah-lo.wav
-116,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
-
-[WORD]
-<AUDIO>
-
-[SEMANTIC DIMENSION]
-inhibited vs. free
-
-[OPTIONS]
-1: inhibited
-2: free
-Answer with the number only. (1-2),2,/data/local-files/?d=tts/art/nay-mah.wav
-117,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
-
-[WORD]
-<AUDIO>
-
-[SEMANTIC DIMENSION]
-heavy vs. light
-
-[OPTIONS]
-1: heavy
-2: light
-Answer with the number only. (1-2),1,/data/local-files/?d=tts/art/bo-po.wav
-118,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
-
-[WORD]
-<AUDIO>
-
-[SEMANTIC DIMENSION]
-sharp vs. round
-
-[OPTIONS]
-1: sharp
-2: round
-Answer with the number only. (1-2),1,/data/local-files/?d=tts/ja/ぎりり.wav
-119,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
-
-[WORD]
-<AUDIO>
-
-[SEMANTIC DIMENSION]
-dangerous vs. safe
-
-[OPTIONS]
-1: dangerous
-2: safe
-Answer with the number only. (1-2),1,/data/local-files/?d=tts/art/they-vay.wav
-120,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
-
-[WORD]
-<AUDIO>
-
-[SEMANTIC DIMENSION]
-realistic vs. fantastical
-
-[OPTIONS]
-1: realistic
-2: fantastical
-Answer with the number only. (1-2),2,/data/local-files/?d=tts/art/zah-so.wav
-121,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
-
-[WORD]
-<AUDIO>
-
-[SEMANTIC DIMENSION]
-simple vs. complex
-
-[OPTIONS]
-1: simple
-2: complex
-Answer with the number only. (1-2),1,/data/local-files/?d=tts/en/yamph.wav
-122,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
-
-[WORD]
-<AUDIO>
-
-[SEMANTIC DIMENSION]
-strong vs. weak
-
-[OPTIONS]
-1: strong
-2: weak
-Answer with the number only. (1-2),1,/data/local-files/?d=tts/fr/blouf.wav
-123,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
-
-[WORD]
-<AUDIO>
-
-[SEMANTIC DIMENSION]
-inhibited vs. free
-
-[OPTIONS]
-1: inhibited
-2: free
-Answer with the number only. (1-2),2,/data/local-files/?d=tts/ja/ぼん.wav
-124,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
-
-[WORD]
-<AUDIO>
-
-[SEMANTIC DIMENSION]
-abrupt vs. continuous
-
-[OPTIONS]
-1: abrupt
-2: continuous
-Answer with the number only. (1-2),1,/data/local-files/?d=tts/art/pay-kah.wav
-125,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
-
-[WORD]
-<AUDIO>
-
-[SEMANTIC DIMENSION]
-exciting vs. calming
-
-[OPTIONS]
-1: exciting
-2: calming
-Answer with the number only. (1-2),1,/data/local-files/?d=tts/art/shay-vay.wav
-126,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
-
-[WORD]
-<AUDIO>
-
-[SEMANTIC DIMENSION]
-abrupt vs. continuous
-
-[OPTIONS]
-1: abrupt
-2: continuous
-Answer with the number only. (1-2),1,/data/local-files/?d=tts/art/po-though.wav
-127,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
-
-[WORD]
-<AUDIO>
-
-[SEMANTIC DIMENSION]
-realistic vs. fantastical
-
-[OPTIONS]
-1: realistic
-2: fantastical
-Answer with the number only. (1-2),1,/data/local-files/?d=tts/en/blumbering.wav
-128,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
-
-[WORD]
-<AUDIO>
-
-[SEMANTIC DIMENSION]
-big vs. small
-
-[OPTIONS]
-1: big
-2: small
-Answer with the number only. (1-2),2,/data/local-files/?d=tts/art/fee-mah.wav
-129,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
-
-[WORD]
-<AUDIO>
-
-[SEMANTIC DIMENSION]
-big vs. small
-
-[OPTIONS]
-1: big
-2: small
-Answer with the number only. (1-2),1,/data/local-files/?d=tts/art/kah-sah.wav
-130,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
-
-[WORD]
-<AUDIO>
-
-[SEMANTIC DIMENSION]
-exciting vs. calming
-
-[OPTIONS]
-1: exciting
-2: calming
-Answer with the number only. (1-2),2,/data/local-files/?d=tts/art/pah-mo.wav
-131,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
-
-[WORD]
-<AUDIO>
-
-[SEMANTIC DIMENSION]
-exciting vs. calming
-
-[OPTIONS]
-1: exciting
-2: calming
-Answer with the number only. (1-2),2,/data/local-files/?d=tts/en/lulla.wav
-132,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
-
-[WORD]
-<AUDIO>
-
-[SEMANTIC DIMENSION]
-big vs. small
-
-[OPTIONS]
-1: big
-2: small
-Answer with the number only. (1-2),2,/data/local-files/?d=tts/ko/찰가당찰가당.wav
-133,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
-
-[WORD]
-<AUDIO>
-
-[SEMANTIC DIMENSION]
-solid vs. nonsolid
-
-[OPTIONS]
-1: solid
-2: nonsolid
-Answer with the number only. (1-2),2,/data/local-files/?d=tts/ja/むんむ.wav
-134,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
-
-[WORD]
-<AUDIO>
-
-[SEMANTIC DIMENSION]
-realistic vs. fantastical
-
-[OPTIONS]
-1: realistic
-2: fantastical
-Answer with the number only. (1-2),1,/data/local-files/?d=tts/art/fay-tay.wav
-135,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
-
-[WORD]
-<AUDIO>
-
-[SEMANTIC DIMENSION]
-inhibited vs. free
-
-[OPTIONS]
-1: inhibited
-2: free
-Answer with the number only. (1-2),2,/data/local-files/?d=tts/art/nay-mo.wav
-136,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
-
-[WORD]
-<AUDIO>
-
-[SEMANTIC DIMENSION]
-realistic vs. fantastical
-
-[OPTIONS]
-1: realistic
-2: fantastical
-Answer with the number only. (1-2),1,/data/local-files/?d=tts/ja/いそいそ.wav
-137,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
-
-[WORD]
-<AUDIO>
-
-[SEMANTIC DIMENSION]
-abrupt vs. continuous
-
-[OPTIONS]
-1: abrupt
-2: continuous
-Answer with the number only. (1-2),2,/data/local-files/?d=tts/art/bah-nay.wav
-138,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
-
-[WORD]
-<AUDIO>
-
-[SEMANTIC DIMENSION]
-masculine vs. feminine
-
-[OPTIONS]
-1: masculine
-2: feminine
-Answer with the number only. (1-2),2,/data/local-files/?d=tts/art/bee-fay.wav
-139,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
-
-[WORD]
-<AUDIO>
-
-[SEMANTIC DIMENSION]
-ordinary vs. unique
-
-[OPTIONS]
-1: ordinary
-2: unique
-Answer with the number only. (1-2),2,/data/local-files/?d=tts/art/zay-though.wav
-140,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
-
-[WORD]
-<AUDIO>
-
-[SEMANTIC DIMENSION]
-beautiful vs. ugly
-
-[OPTIONS]
-1: beautiful
-2: ugly
-Answer with the number only. (1-2),1,/data/local-files/?d=tts/ja/ぽちゃぽちゃ.wav
-141,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
-
-[WORD]
-<AUDIO>
-
-[SEMANTIC DIMENSION]
-sharp vs. round
-
-[OPTIONS]
-1: sharp
-2: round
-Answer with the number only. (1-2),1,/data/local-files/?d=tts/art/zee-fee.wav
-142,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
-
-[WORD]
-<AUDIO>
-
-[SEMANTIC DIMENSION]
-hard vs. soft
-
-[OPTIONS]
-1: hard
-2: soft
-Answer with the number only. (1-2),2,/data/local-files/?d=tts/art/lah-bay.wav
-143,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
-
-[WORD]
-<AUDIO>
-
-[SEMANTIC DIMENSION]
-sharp vs. round
-
-[OPTIONS]
-1: sharp
-2: round
-Answer with the number only. (1-2),2,/data/local-files/?d=tts/en/splosh.wav
-144,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
-
-[WORD]
-<AUDIO>
-
-[SEMANTIC DIMENSION]
-exciting vs. calming
-
-[OPTIONS]
-1: exciting
-2: calming
-Answer with the number only. (1-2),2,/data/local-files/?d=tts/art/gah-may.wav
-145,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
-
-[WORD]
-<AUDIO>
-
-[SEMANTIC DIMENSION]
-fast vs. slow
-
-[OPTIONS]
-1: fast
-2: slow
-Answer with the number only. (1-2),1,/data/local-files/?d=tts/art/tee-zee.wav
-146,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
 
 [WORD]
 <AUDIO>
@@ -1751,19 +95,187 @@ strong vs. weak
 1: strong
 2: weak
 Answer with the number only. (1-2),2,/data/local-files/?d=tts/art/lo-lo.wav
-147,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
+9,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
 
 [WORD]
 <AUDIO>
 
 [SEMANTIC DIMENSION]
-fast vs. slow
+big vs. small
 
 [OPTIONS]
-1: fast
-2: slow
-Answer with the number only. (1-2),1,/data/local-files/?d=tts/ja/ぎくり.wav
-148,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
+1: big
+2: small
+Answer with the number only. (1-2),2,/data/local-files/?d=tts/ja/ちっちっ.wav
+10,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
+
+[WORD]
+<AUDIO>
+
+[SEMANTIC DIMENSION]
+sharp vs. round
+
+[OPTIONS]
+1: sharp
+2: round
+Answer with the number only. (1-2),2,/data/local-files/?d=tts/art/mo-mah.wav
+11,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
+
+[WORD]
+<AUDIO>
+
+[SEMANTIC DIMENSION]
+realistic vs. fantastical
+
+[OPTIONS]
+1: realistic
+2: fantastical
+Answer with the number only. (1-2),1,/data/local-files/?d=tts/ja/ぱぱっ.wav
+12,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
+
+[WORD]
+<AUDIO>
+
+[SEMANTIC DIMENSION]
+happy vs. sad
+
+[OPTIONS]
+1: happy
+2: sad
+Answer with the number only. (1-2),2,/data/local-files/?d=tts/art/kah-zo.wav
+13,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
+
+[WORD]
+<AUDIO>
+
+[SEMANTIC DIMENSION]
+strong vs. weak
+
+[OPTIONS]
+1: strong
+2: weak
+Answer with the number only. (1-2),1,/data/local-files/?d=tts/fr/boun.wav
+14,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
+
+[WORD]
+<AUDIO>
+
+[SEMANTIC DIMENSION]
+big vs. small
+
+[OPTIONS]
+1: big
+2: small
+Answer with the number only. (1-2),2,/data/local-files/?d=tts/art/may-nah.wav
+15,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
+
+[WORD]
+<AUDIO>
+
+[SEMANTIC DIMENSION]
+inhibited vs. free
+
+[OPTIONS]
+1: inhibited
+2: free
+Answer with the number only. (1-2),1,/data/local-files/?d=tts/art/ko-kay.wav
+16,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
+
+[WORD]
+<AUDIO>
+
+[SEMANTIC DIMENSION]
+sharp vs. round
+
+[OPTIONS]
+1: sharp
+2: round
+Answer with the number only. (1-2),1,/data/local-files/?d=tts/fr/zin zin.wav
+17,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
+
+[WORD]
+<AUDIO>
+
+[SEMANTIC DIMENSION]
+exciting vs. calming
+
+[OPTIONS]
+1: exciting
+2: calming
+Answer with the number only. (1-2),1,/data/local-files/?d=tts/en/zap.wav
+18,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
+
+[WORD]
+<AUDIO>
+
+[SEMANTIC DIMENSION]
+happy vs. sad
+
+[OPTIONS]
+1: happy
+2: sad
+Answer with the number only. (1-2),2,/data/local-files/?d=tts/en/channer.wav
+19,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
+
+[WORD]
+<AUDIO>
+
+[SEMANTIC DIMENSION]
+exciting vs. calming
+
+[OPTIONS]
+1: exciting
+2: calming
+Answer with the number only. (1-2),1,/data/local-files/?d=tts/ja/すくすく.wav
+20,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
+
+[WORD]
+<AUDIO>
+
+[SEMANTIC DIMENSION]
+hard vs. soft
+
+[OPTIONS]
+1: hard
+2: soft
+Answer with the number only. (1-2),2,/data/local-files/?d=tts/art/lay-fah.wav
+21,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
+
+[WORD]
+<AUDIO>
+
+[SEMANTIC DIMENSION]
+strong vs. weak
+
+[OPTIONS]
+1: strong
+2: weak
+Answer with the number only. (1-2),1,/data/local-files/?d=tts/art/vo-zah.wav
+22,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
+
+[WORD]
+<AUDIO>
+
+[SEMANTIC DIMENSION]
+hard vs. soft
+
+[OPTIONS]
+1: hard
+2: soft
+Answer with the number only. (1-2),1,/data/local-files/?d=tts/art/zo-tah.wav
+23,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
+
+[WORD]
+<AUDIO>
+
+[SEMANTIC DIMENSION]
+harsh vs. mellow
+
+[OPTIONS]
+1: harsh
+2: mellow
+Answer with the number only. (1-2),1,/data/local-files/?d=tts/en/pew.wav
+24,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
 
 [WORD]
 <AUDIO>
@@ -1774,8 +286,80 @@ ordinary vs. unique
 [OPTIONS]
 1: ordinary
 2: unique
-Answer with the number only. (1-2),1,/data/local-files/?d=tts/ja/ごとごと.wav
-149,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
+Answer with the number only. (1-2),1,/data/local-files/?d=tts/art/lah-lah.wav
+25,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
+
+[WORD]
+<AUDIO>
+
+[SEMANTIC DIMENSION]
+masculine vs. feminine
+
+[OPTIONS]
+1: masculine
+2: feminine
+Answer with the number only. (1-2),1,/data/local-files/?d=tts/art/fo-bo.wav
+26,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
+
+[WORD]
+<AUDIO>
+
+[SEMANTIC DIMENSION]
+masculine vs. feminine
+
+[OPTIONS]
+1: masculine
+2: feminine
+Answer with the number only. (1-2),1,/data/local-files/?d=tts/art/dee-bah.wav
+27,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
+
+[WORD]
+<AUDIO>
+
+[SEMANTIC DIMENSION]
+exciting vs. calming
+
+[OPTIONS]
+1: exciting
+2: calming
+Answer with the number only. (1-2),1,/data/local-files/?d=tts/art/tay-though.wav
+28,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
+
+[WORD]
+<AUDIO>
+
+[SEMANTIC DIMENSION]
+harsh vs. mellow
+
+[OPTIONS]
+1: harsh
+2: mellow
+Answer with the number only. (1-2),2,/data/local-files/?d=tts/art/mo-fo.wav
+29,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
+
+[WORD]
+<AUDIO>
+
+[SEMANTIC DIMENSION]
+sharp vs. round
+
+[OPTIONS]
+1: sharp
+2: round
+Answer with the number only. (1-2),1,/data/local-files/?d=tts/en/chock.wav
+30,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
+
+[WORD]
+<AUDIO>
+
+[SEMANTIC DIMENSION]
+realistic vs. fantastical
+
+[OPTIONS]
+1: realistic
+2: fantastical
+Answer with the number only. (1-2),1,/data/local-files/?d=tts/art/kah-pay.wav
+31,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
 
 [WORD]
 <AUDIO>
@@ -1786,8 +370,308 @@ solid vs. nonsolid
 [OPTIONS]
 1: solid
 2: nonsolid
-Answer with the number only. (1-2),1,/data/local-files/?d=tts/art/tee-pah.wav
-150,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
+Answer with the number only. (1-2),2,/data/local-files/?d=tts/art/lah-though.wav
+32,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
+
+[WORD]
+<AUDIO>
+
+[SEMANTIC DIMENSION]
+tense vs. relaxed
+
+[OPTIONS]
+1: tense
+2: relaxed
+Answer with the number only. (1-2),2,/data/local-files/?d=tts/ja/ぼくぼく.wav
+33,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
+
+[WORD]
+<AUDIO>
+
+[SEMANTIC DIMENSION]
+sharp vs. round
+
+[OPTIONS]
+1: sharp
+2: round
+Answer with the number only. (1-2),2,/data/local-files/?d=tts/art/doe-gah.wav
+34,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
+
+[WORD]
+<AUDIO>
+
+[SEMANTIC DIMENSION]
+happy vs. sad
+
+[OPTIONS]
+1: happy
+2: sad
+Answer with the number only. (1-2),2,/data/local-files/?d=tts/art/go-toe.wav
+35,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
+
+[WORD]
+<AUDIO>
+
+[SEMANTIC DIMENSION]
+simple vs. complex
+
+[OPTIONS]
+1: simple
+2: complex
+Answer with the number only. (1-2),1,/data/local-files/?d=tts/en/atishoo.wav
+36,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
+
+[WORD]
+<AUDIO>
+
+[SEMANTIC DIMENSION]
+exciting vs. calming
+
+[OPTIONS]
+1: exciting
+2: calming
+Answer with the number only. (1-2),1,/data/local-files/?d=tts/fr/et pan.wav
+37,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
+
+[WORD]
+<AUDIO>
+
+[SEMANTIC DIMENSION]
+exciting vs. calming
+
+[OPTIONS]
+1: exciting
+2: calming
+Answer with the number only. (1-2),2,/data/local-files/?d=tts/art/mo-fee.wav
+38,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
+
+[WORD]
+<AUDIO>
+
+[SEMANTIC DIMENSION]
+inhibited vs. free
+
+[OPTIONS]
+1: inhibited
+2: free
+Answer with the number only. (1-2),2,/data/local-files/?d=tts/fr/slup.wav
+39,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
+
+[WORD]
+<AUDIO>
+
+[SEMANTIC DIMENSION]
+big vs. small
+
+[OPTIONS]
+1: big
+2: small
+Answer with the number only. (1-2),2,/data/local-files/?d=tts/en/tit.wav
+40,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
+
+[WORD]
+<AUDIO>
+
+[SEMANTIC DIMENSION]
+fast vs. slow
+
+[OPTIONS]
+1: fast
+2: slow
+Answer with the number only. (1-2),1,/data/local-files/?d=tts/ja/ふつふつ.wav
+41,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
+
+[WORD]
+<AUDIO>
+
+[SEMANTIC DIMENSION]
+simple vs. complex
+
+[OPTIONS]
+1: simple
+2: complex
+Answer with the number only. (1-2),1,/data/local-files/?d=tts/art/po-may.wav
+42,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
+
+[WORD]
+<AUDIO>
+
+[SEMANTIC DIMENSION]
+simple vs. complex
+
+[OPTIONS]
+1: simple
+2: complex
+Answer with the number only. (1-2),2,/data/local-files/?d=tts/ko/들척들척.wav
+43,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
+
+[WORD]
+<AUDIO>
+
+[SEMANTIC DIMENSION]
+dangerous vs. safe
+
+[OPTIONS]
+1: dangerous
+2: safe
+Answer with the number only. (1-2),1,/data/local-files/?d=tts/en/pow.wav
+44,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
+
+[WORD]
+<AUDIO>
+
+[SEMANTIC DIMENSION]
+masculine vs. feminine
+
+[OPTIONS]
+1: masculine
+2: feminine
+Answer with the number only. (1-2),1,/data/local-files/?d=tts/fr/cocorikè.wav
+45,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
+
+[WORD]
+<AUDIO>
+
+[SEMANTIC DIMENSION]
+abrupt vs. continuous
+
+[OPTIONS]
+1: abrupt
+2: continuous
+Answer with the number only. (1-2),1,/data/local-files/?d=tts/art/zah-they.wav
+46,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
+
+[WORD]
+<AUDIO>
+
+[SEMANTIC DIMENSION]
+tense vs. relaxed
+
+[OPTIONS]
+1: tense
+2: relaxed
+Answer with the number only. (1-2),1,/data/local-files/?d=tts/en/woomph.wav
+47,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
+
+[WORD]
+<AUDIO>
+
+[SEMANTIC DIMENSION]
+dangerous vs. safe
+
+[OPTIONS]
+1: dangerous
+2: safe
+Answer with the number only. (1-2),1,/data/local-files/?d=tts/art/pah-they.wav
+48,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
+
+[WORD]
+<AUDIO>
+
+[SEMANTIC DIMENSION]
+masculine vs. feminine
+
+[OPTIONS]
+1: masculine
+2: feminine
+Answer with the number only. (1-2),2,/data/local-files/?d=tts/art/fah-nee.wav
+49,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
+
+[WORD]
+<AUDIO>
+
+[SEMANTIC DIMENSION]
+dangerous vs. safe
+
+[OPTIONS]
+1: dangerous
+2: safe
+Answer with the number only. (1-2),1,/data/local-files/?d=tts/art/vay-kee.wav
+50,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
+
+[WORD]
+<AUDIO>
+
+[SEMANTIC DIMENSION]
+fast vs. slow
+
+[OPTIONS]
+1: fast
+2: slow
+Answer with the number only. (1-2),1,/data/local-files/?d=tts/en/whing.wav
+51,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
+
+[WORD]
+<AUDIO>
+
+[SEMANTIC DIMENSION]
+ordinary vs. unique
+
+[OPTIONS]
+1: ordinary
+2: unique
+Answer with the number only. (1-2),2,/data/local-files/?d=tts/ko/깐딱.wav
+52,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
+
+[WORD]
+<AUDIO>
+
+[SEMANTIC DIMENSION]
+hard vs. soft
+
+[OPTIONS]
+1: hard
+2: soft
+Answer with the number only. (1-2),2,/data/local-files/?d=tts/en/snoach.wav
+53,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
+
+[WORD]
+<AUDIO>
+
+[SEMANTIC DIMENSION]
+big vs. small
+
+[OPTIONS]
+1: big
+2: small
+Answer with the number only. (1-2),1,/data/local-files/?d=tts/fr/badabing.wav
+54,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
+
+[WORD]
+<AUDIO>
+
+[SEMANTIC DIMENSION]
+tense vs. relaxed
+
+[OPTIONS]
+1: tense
+2: relaxed
+Answer with the number only. (1-2),1,/data/local-files/?d=tts/art/tay-kay.wav
+55,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
+
+[WORD]
+<AUDIO>
+
+[SEMANTIC DIMENSION]
+realistic vs. fantastical
+
+[OPTIONS]
+1: realistic
+2: fantastical
+Answer with the number only. (1-2),1,/data/local-files/?d=tts/art/fee-kee.wav
+56,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
+
+[WORD]
+<AUDIO>
+
+[SEMANTIC DIMENSION]
+ordinary vs. unique
+
+[OPTIONS]
+1: ordinary
+2: unique
+Answer with the number only. (1-2),2,/data/local-files/?d=tts/en/blip.wav
+57,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
 
 [WORD]
 <AUDIO>
@@ -1798,28 +682,1144 @@ beautiful vs. ugly
 [OPTIONS]
 1: beautiful
 2: ugly
-Answer with the number only. (1-2),2,/data/local-files/?d=tts/art/doe-bo.wav
+Answer with the number only. (1-2),2,/data/local-files/?d=tts/ja/にちゃにちゃ.wav
+58,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
+
+[WORD]
+<AUDIO>
+
+[SEMANTIC DIMENSION]
+happy vs. sad
+
+[OPTIONS]
+1: happy
+2: sad
+Answer with the number only. (1-2),2,/data/local-files/?d=tts/ko/와들와들.wav
+59,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
+
+[WORD]
+<AUDIO>
+
+[SEMANTIC DIMENSION]
+solid vs. nonsolid
+
+[OPTIONS]
+1: solid
+2: nonsolid
+Answer with the number only. (1-2),2,/data/local-files/?d=tts/art/see-nah.wav
+60,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
+
+[WORD]
+<AUDIO>
+
+[SEMANTIC DIMENSION]
+solid vs. nonsolid
+
+[OPTIONS]
+1: solid
+2: nonsolid
+Answer with the number only. (1-2),2,/data/local-files/?d=tts/ja/めちゃめちゃ.wav
+61,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
+
+[WORD]
+<AUDIO>
+
+[SEMANTIC DIMENSION]
+heavy vs. light
+
+[OPTIONS]
+1: heavy
+2: light
+Answer with the number only. (1-2),1,/data/local-files/?d=tts/art/ghee-dah.wav
+62,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
+
+[WORD]
+<AUDIO>
+
+[SEMANTIC DIMENSION]
+masculine vs. feminine
+
+[OPTIONS]
+1: masculine
+2: feminine
+Answer with the number only. (1-2),2,/data/local-files/?d=tts/ja/いじいじ.wav
+63,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
+
+[WORD]
+<AUDIO>
+
+[SEMANTIC DIMENSION]
+happy vs. sad
+
+[OPTIONS]
+1: happy
+2: sad
+Answer with the number only. (1-2),1,/data/local-files/?d=tts/fr/ha ha.wav
+64,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
+
+[WORD]
+<AUDIO>
+
+[SEMANTIC DIMENSION]
+strong vs. weak
+
+[OPTIONS]
+1: strong
+2: weak
+Answer with the number only. (1-2),1,/data/local-files/?d=tts/art/vahthey.wav
+65,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
+
+[WORD]
+<AUDIO>
+
+[SEMANTIC DIMENSION]
+abrupt vs. continuous
+
+[OPTIONS]
+1: abrupt
+2: continuous
+Answer with the number only. (1-2),1,/data/local-files/?d=tts/ko/서붓.wav
+66,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
+
+[WORD]
+<AUDIO>
+
+[SEMANTIC DIMENSION]
+beautiful vs. ugly
+
+[OPTIONS]
+1: beautiful
+2: ugly
+Answer with the number only. (1-2),1,/data/local-files/?d=tts/art/lay-nay.wav
+67,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
+
+[WORD]
+<AUDIO>
+
+[SEMANTIC DIMENSION]
+tense vs. relaxed
+
+[OPTIONS]
+1: tense
+2: relaxed
+Answer with the number only. (1-2),1,/data/local-files/?d=tts/art/pee-kah.wav
+68,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
+
+[WORD]
+<AUDIO>
+
+[SEMANTIC DIMENSION]
+fast vs. slow
+
+[OPTIONS]
+1: fast
+2: slow
+Answer with the number only. (1-2),1,/data/local-files/?d=tts/art/fee-they.wav
+69,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
+
+[WORD]
+<AUDIO>
+
+[SEMANTIC DIMENSION]
+heavy vs. light
+
+[OPTIONS]
+1: heavy
+2: light
+Answer with the number only. (1-2),1,/data/local-files/?d=tts/art/vo-vo.wav
+70,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
+
+[WORD]
+<AUDIO>
+
+[SEMANTIC DIMENSION]
+realistic vs. fantastical
+
+[OPTIONS]
+1: realistic
+2: fantastical
+Answer with the number only. (1-2),1,/data/local-files/?d=tts/ko/대그락.wav
+71,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
+
+[WORD]
+<AUDIO>
+
+[SEMANTIC DIMENSION]
+beautiful vs. ugly
+
+[OPTIONS]
+1: beautiful
+2: ugly
+Answer with the number only. (1-2),2,/data/local-files/?d=tts/fr/pflag.wav
+72,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
+
+[WORD]
+<AUDIO>
+
+[SEMANTIC DIMENSION]
+masculine vs. feminine
+
+[OPTIONS]
+1: masculine
+2: feminine
+Answer with the number only. (1-2),2,/data/local-files/?d=tts/ko/방긋.wav
+73,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
+
+[WORD]
+<AUDIO>
+
+[SEMANTIC DIMENSION]
+heavy vs. light
+
+[OPTIONS]
+1: heavy
+2: light
+Answer with the number only. (1-2),2,/data/local-files/?d=tts/en/zhoosh.wav
+74,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
+
+[WORD]
+<AUDIO>
+
+[SEMANTIC DIMENSION]
+harsh vs. mellow
+
+[OPTIONS]
+1: harsh
+2: mellow
+Answer with the number only. (1-2),2,/data/local-files/?d=tts/ko/씽긋씽긋.wav
+75,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
+
+[WORD]
+<AUDIO>
+
+[SEMANTIC DIMENSION]
+solid vs. nonsolid
+
+[OPTIONS]
+1: solid
+2: nonsolid
+Answer with the number only. (1-2),2,/data/local-files/?d=tts/art/maythey.wav
+76,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
+
+[WORD]
+<AUDIO>
+
+[SEMANTIC DIMENSION]
+sharp vs. round
+
+[OPTIONS]
+1: sharp
+2: round
+Answer with the number only. (1-2),1,/data/local-files/?d=tts/art/fo-vee.wav
+77,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
+
+[WORD]
+<AUDIO>
+
+[SEMANTIC DIMENSION]
+dangerous vs. safe
+
+[OPTIONS]
+1: dangerous
+2: safe
+Answer with the number only. (1-2),1,/data/local-files/?d=tts/fr/blang.wav
+78,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
+
+[WORD]
+<AUDIO>
+
+[SEMANTIC DIMENSION]
+abrupt vs. continuous
+
+[OPTIONS]
+1: abrupt
+2: continuous
+Answer with the number only. (1-2),1,/data/local-files/?d=tts/art/ko-vee.wav
+79,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
+
+[WORD]
+<AUDIO>
+
+[SEMANTIC DIMENSION]
+sharp vs. round
+
+[OPTIONS]
+1: sharp
+2: round
+Answer with the number only. (1-2),1,/data/local-files/?d=tts/ko/뜨끔.wav
+80,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
+
+[WORD]
+<AUDIO>
+
+[SEMANTIC DIMENSION]
+exciting vs. calming
+
+[OPTIONS]
+1: exciting
+2: calming
+Answer with the number only. (1-2),1,/data/local-files/?d=tts/art/zee-bay.wav
+81,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
+
+[WORD]
+<AUDIO>
+
+[SEMANTIC DIMENSION]
+big vs. small
+
+[OPTIONS]
+1: big
+2: small
+Answer with the number only. (1-2),1,/data/local-files/?d=tts/art/mo-go.wav
+82,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
+
+[WORD]
+<AUDIO>
+
+[SEMANTIC DIMENSION]
+inhibited vs. free
+
+[OPTIONS]
+1: inhibited
+2: free
+Answer with the number only. (1-2),2,/data/local-files/?d=tts/art/no-nay.wav
+83,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
+
+[WORD]
+<AUDIO>
+
+[SEMANTIC DIMENSION]
+inhibited vs. free
+
+[OPTIONS]
+1: inhibited
+2: free
+Answer with the number only. (1-2),2,/data/local-files/?d=tts/en/yum.wav
+84,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
+
+[WORD]
+<AUDIO>
+
+[SEMANTIC DIMENSION]
+strong vs. weak
+
+[OPTIONS]
+1: strong
+2: weak
+Answer with the number only. (1-2),2,/data/local-files/?d=tts/ko/자르랑.wav
+85,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
+
+[WORD]
+<AUDIO>
+
+[SEMANTIC DIMENSION]
+fast vs. slow
+
+[OPTIONS]
+1: fast
+2: slow
+Answer with the number only. (1-2),2,/data/local-files/?d=tts/art/sah-go.wav
+86,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
+
+[WORD]
+<AUDIO>
+
+[SEMANTIC DIMENSION]
+dangerous vs. safe
+
+[OPTIONS]
+1: dangerous
+2: safe
+Answer with the number only. (1-2),1,/data/local-files/?d=tts/art/zee-pay.wav
+87,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
+
+[WORD]
+<AUDIO>
+
+[SEMANTIC DIMENSION]
+abrupt vs. continuous
+
+[OPTIONS]
+1: abrupt
+2: continuous
+Answer with the number only. (1-2),2,/data/local-files/?d=tts/en/whoosh.wav
+88,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
+
+[WORD]
+<AUDIO>
+
+[SEMANTIC DIMENSION]
+strong vs. weak
+
+[OPTIONS]
+1: strong
+2: weak
+Answer with the number only. (1-2),1,/data/local-files/?d=tts/en/chunk.wav
+89,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
+
+[WORD]
+<AUDIO>
+
+[SEMANTIC DIMENSION]
+happy vs. sad
+
+[OPTIONS]
+1: happy
+2: sad
+Answer with the number only. (1-2),2,/data/local-files/?d=tts/art/though-pah.wav
+90,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
+
+[WORD]
+<AUDIO>
+
+[SEMANTIC DIMENSION]
+beautiful vs. ugly
+
+[OPTIONS]
+1: beautiful
+2: ugly
+Answer with the number only. (1-2),2,/data/local-files/?d=tts/en/caw.wav
+91,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
+
+[WORD]
+<AUDIO>
+
+[SEMANTIC DIMENSION]
+fast vs. slow
+
+[OPTIONS]
+1: fast
+2: slow
+Answer with the number only. (1-2),1,/data/local-files/?d=tts/fr/slac.wav
+92,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
+
+[WORD]
+<AUDIO>
+
+[SEMANTIC DIMENSION]
+realistic vs. fantastical
+
+[OPTIONS]
+1: realistic
+2: fantastical
+Answer with the number only. (1-2),1,/data/local-files/?d=tts/en/ran-tan.wav
+93,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
+
+[WORD]
+<AUDIO>
+
+[SEMANTIC DIMENSION]
+hard vs. soft
+
+[OPTIONS]
+1: hard
+2: soft
+Answer with the number only. (1-2),2,/data/local-files/?d=tts/ja/ぬっぺり.wav
+94,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
+
+[WORD]
+<AUDIO>
+
+[SEMANTIC DIMENSION]
+inhibited vs. free
+
+[OPTIONS]
+1: inhibited
+2: free
+Answer with the number only. (1-2),1,/data/local-files/?d=tts/art/tah-pee.wav
+95,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
+
+[WORD]
+<AUDIO>
+
+[SEMANTIC DIMENSION]
+ordinary vs. unique
+
+[OPTIONS]
+1: ordinary
+2: unique
+Answer with the number only. (1-2),2,/data/local-files/?d=tts/ja/しゅっしゅっ.wav
+96,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
+
+[WORD]
+<AUDIO>
+
+[SEMANTIC DIMENSION]
+harsh vs. mellow
+
+[OPTIONS]
+1: harsh
+2: mellow
+Answer with the number only. (1-2),1,/data/local-files/?d=tts/art/kah-toe.wav
+97,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
+
+[WORD]
+<AUDIO>
+
+[SEMANTIC DIMENSION]
+tense vs. relaxed
+
+[OPTIONS]
+1: tense
+2: relaxed
+Answer with the number only. (1-2),1,/data/local-files/?d=tts/fr/oye.wav
+98,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
+
+[WORD]
+<AUDIO>
+
+[SEMANTIC DIMENSION]
+solid vs. nonsolid
+
+[OPTIONS]
+1: solid
+2: nonsolid
+Answer with the number only. (1-2),2,/data/local-files/?d=tts/fr/vraou.wav
+99,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
+
+[WORD]
+<AUDIO>
+
+[SEMANTIC DIMENSION]
+big vs. small
+
+[OPTIONS]
+1: big
+2: small
+Answer with the number only. (1-2),1,/data/local-files/?d=tts/art/ghee-vo.wav
+100,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
+
+[WORD]
+<AUDIO>
+
+[SEMANTIC DIMENSION]
+tense vs. relaxed
+
+[OPTIONS]
+1: tense
+2: relaxed
+Answer with the number only. (1-2),1,/data/local-files/?d=tts/art/kee-pah.wav
+101,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
+
+[WORD]
+<AUDIO>
+
+[SEMANTIC DIMENSION]
+dangerous vs. safe
+
+[OPTIONS]
+1: dangerous
+2: safe
+Answer with the number only. (1-2),1,/data/local-files/?d=tts/art/kay-though.wav
+102,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
+
+[WORD]
+<AUDIO>
+
+[SEMANTIC DIMENSION]
+beautiful vs. ugly
+
+[OPTIONS]
+1: beautiful
+2: ugly
+Answer with the number only. (1-2),2,/data/local-files/?d=tts/art/bah-day.wav
+103,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
+
+[WORD]
+<AUDIO>
+
+[SEMANTIC DIMENSION]
+big vs. small
+
+[OPTIONS]
+1: big
+2: small
+Answer with the number only. (1-2),1,/data/local-files/?d=tts/art/though-ghee.wav
+104,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
+
+[WORD]
+<AUDIO>
+
+[SEMANTIC DIMENSION]
+big vs. small
+
+[OPTIONS]
+1: big
+2: small
+Answer with the number only. (1-2),2,/data/local-files/?d=tts/ko/뽀르르.wav
+105,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
+
+[WORD]
+<AUDIO>
+
+[SEMANTIC DIMENSION]
+fast vs. slow
+
+[OPTIONS]
+1: fast
+2: slow
+Answer with the number only. (1-2),1,/data/local-files/?d=tts/art/see-they.wav
+106,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
+
+[WORD]
+<AUDIO>
+
+[SEMANTIC DIMENSION]
+happy vs. sad
+
+[OPTIONS]
+1: happy
+2: sad
+Answer with the number only. (1-2),1,/data/local-files/?d=tts/ja/るんるん.wav
+107,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
+
+[WORD]
+<AUDIO>
+
+[SEMANTIC DIMENSION]
+beautiful vs. ugly
+
+[OPTIONS]
+1: beautiful
+2: ugly
+Answer with the number only. (1-2),1,/data/local-files/?d=tts/art/sho-may.wav
+108,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
+
+[WORD]
+<AUDIO>
+
+[SEMANTIC DIMENSION]
+inhibited vs. free
+
+[OPTIONS]
+1: inhibited
+2: free
+Answer with the number only. (1-2),1,/data/local-files/?d=tts/ko/비거걱.wav
+109,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
+
+[WORD]
+<AUDIO>
+
+[SEMANTIC DIMENSION]
+beautiful vs. ugly
+
+[OPTIONS]
+1: beautiful
+2: ugly
+Answer with the number only. (1-2),2,/data/local-files/?d=tts/art/day-gay.wav
+110,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
+
+[WORD]
+<AUDIO>
+
+[SEMANTIC DIMENSION]
+strong vs. weak
+
+[OPTIONS]
+1: strong
+2: weak
+Answer with the number only. (1-2),2,/data/local-files/?d=tts/art/nay-may.wav
+111,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
+
+[WORD]
+<AUDIO>
+
+[SEMANTIC DIMENSION]
+harsh vs. mellow
+
+[OPTIONS]
+1: harsh
+2: mellow
+Answer with the number only. (1-2),1,/data/local-files/?d=tts/ja/がしがし.wav
+112,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
+
+[WORD]
+<AUDIO>
+
+[SEMANTIC DIMENSION]
+simple vs. complex
+
+[OPTIONS]
+1: simple
+2: complex
+Answer with the number only. (1-2),1,/data/local-files/?d=tts/ja/にこにこ.wav
+113,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
+
+[WORD]
+<AUDIO>
+
+[SEMANTIC DIMENSION]
+fast vs. slow
+
+[OPTIONS]
+1: fast
+2: slow
+Answer with the number only. (1-2),2,/data/local-files/?d=tts/art/tah-mah.wav
+114,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
+
+[WORD]
+<AUDIO>
+
+[SEMANTIC DIMENSION]
+solid vs. nonsolid
+
+[OPTIONS]
+1: solid
+2: nonsolid
+Answer with the number only. (1-2),1,/data/local-files/?d=tts/ko/털거덩털거덩.wav
+115,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
+
+[WORD]
+<AUDIO>
+
+[SEMANTIC DIMENSION]
+abrupt vs. continuous
+
+[OPTIONS]
+1: abrupt
+2: continuous
+Answer with the number only. (1-2),2,/data/local-files/?d=tts/art/lay-sho.wav
+116,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
+
+[WORD]
+<AUDIO>
+
+[SEMANTIC DIMENSION]
+heavy vs. light
+
+[OPTIONS]
+1: heavy
+2: light
+Answer with the number only. (1-2),2,/data/local-files/?d=tts/ko/와싹와싹.wav
+117,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
+
+[WORD]
+<AUDIO>
+
+[SEMANTIC DIMENSION]
+strong vs. weak
+
+[OPTIONS]
+1: strong
+2: weak
+Answer with the number only. (1-2),2,/data/local-files/?d=tts/ja/ちくり.wav
+118,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
+
+[WORD]
+<AUDIO>
+
+[SEMANTIC DIMENSION]
+realistic vs. fantastical
+
+[OPTIONS]
+1: realistic
+2: fantastical
+Answer with the number only. (1-2),2,/data/local-files/?d=tts/art/sho-zah.wav
+119,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
+
+[WORD]
+<AUDIO>
+
+[SEMANTIC DIMENSION]
+heavy vs. light
+
+[OPTIONS]
+1: heavy
+2: light
+Answer with the number only. (1-2),1,/data/local-files/?d=tts/art/vah-tah.wav
+120,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
+
+[WORD]
+<AUDIO>
+
+[SEMANTIC DIMENSION]
+exciting vs. calming
+
+[OPTIONS]
+1: exciting
+2: calming
+Answer with the number only. (1-2),1,/data/local-files/?d=tts/art/gay-fay.wav
+121,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
+
+[WORD]
+<AUDIO>
+
+[SEMANTIC DIMENSION]
+inhibited vs. free
+
+[OPTIONS]
+1: inhibited
+2: free
+Answer with the number only. (1-2),2,/data/local-files/?d=tts/ja/ばーん.wav
+122,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
+
+[WORD]
+<AUDIO>
+
+[SEMANTIC DIMENSION]
+harsh vs. mellow
+
+[OPTIONS]
+1: harsh
+2: mellow
+Answer with the number only. (1-2),1,/data/local-files/?d=tts/art/ko-they.wav
+123,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
+
+[WORD]
+<AUDIO>
+
+[SEMANTIC DIMENSION]
+dangerous vs. safe
+
+[OPTIONS]
+1: dangerous
+2: safe
+Answer with the number only. (1-2),1,/data/local-files/?d=tts/ja/ぼいん.wav
+124,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
+
+[WORD]
+<AUDIO>
+
+[SEMANTIC DIMENSION]
+heavy vs. light
+
+[OPTIONS]
+1: heavy
+2: light
+Answer with the number only. (1-2),2,/data/local-files/?d=tts/ja/かちゃり.wav
+125,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
+
+[WORD]
+<AUDIO>
+
+[SEMANTIC DIMENSION]
+hard vs. soft
+
+[OPTIONS]
+1: hard
+2: soft
+Answer with the number only. (1-2),2,/data/local-files/?d=tts/ko/써걱써걱.wav
+126,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
+
+[WORD]
+<AUDIO>
+
+[SEMANTIC DIMENSION]
+harsh vs. mellow
+
+[OPTIONS]
+1: harsh
+2: mellow
+Answer with the number only. (1-2),1,/data/local-files/?d=tts/fr/chac.wav
+127,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
+
+[WORD]
+<AUDIO>
+
+[SEMANTIC DIMENSION]
+realistic vs. fantastical
+
+[OPTIONS]
+1: realistic
+2: fantastical
+Answer with the number only. (1-2),1,/data/local-files/?d=tts/fr/snif.wav
+128,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
+
+[WORD]
+<AUDIO>
+
+[SEMANTIC DIMENSION]
+hard vs. soft
+
+[OPTIONS]
+1: hard
+2: soft
+Answer with the number only. (1-2),1,/data/local-files/?d=tts/art/vah-though.wav
+129,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
+
+[WORD]
+<AUDIO>
+
+[SEMANTIC DIMENSION]
+simple vs. complex
+
+[OPTIONS]
+1: simple
+2: complex
+Answer with the number only. (1-2),1,/data/local-files/?d=tts/fr/brouaou.wav
+130,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
+
+[WORD]
+<AUDIO>
+
+[SEMANTIC DIMENSION]
+fast vs. slow
+
+[OPTIONS]
+1: fast
+2: slow
+Answer with the number only. (1-2),1,/data/local-files/?d=tts/ko/차랑차랑.wav
+131,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
+
+[WORD]
+<AUDIO>
+
+[SEMANTIC DIMENSION]
+hard vs. soft
+
+[OPTIONS]
+1: hard
+2: soft
+Answer with the number only. (1-2),1,/data/local-files/?d=tts/art/zay-vah.wav
+132,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
+
+[WORD]
+<AUDIO>
+
+[SEMANTIC DIMENSION]
+abrupt vs. continuous
+
+[OPTIONS]
+1: abrupt
+2: continuous
+Answer with the number only. (1-2),2,/data/local-files/?d=tts/ja/つつっ.wav
+133,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
+
+[WORD]
+<AUDIO>
+
+[SEMANTIC DIMENSION]
+realistic vs. fantastical
+
+[OPTIONS]
+1: realistic
+2: fantastical
+Answer with the number only. (1-2),1,/data/local-files/?d=tts/art/see-pee.wav
+134,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
+
+[WORD]
+<AUDIO>
+
+[SEMANTIC DIMENSION]
+sharp vs. round
+
+[OPTIONS]
+1: sharp
+2: round
+Answer with the number only. (1-2),1,/data/local-files/?d=tts/art/po-pay.wav
+135,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
+
+[WORD]
+<AUDIO>
+
+[SEMANTIC DIMENSION]
+dangerous vs. safe
+
+[OPTIONS]
+1: dangerous
+2: safe
+Answer with the number only. (1-2),1,/data/local-files/?d=tts/ko/몰씬몰씬.wav
+136,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
+
+[WORD]
+<AUDIO>
+
+[SEMANTIC DIMENSION]
+beautiful vs. ugly
+
+[OPTIONS]
+1: beautiful
+2: ugly
+Answer with the number only. (1-2),1,/data/local-files/?d=tts/ko/아로롱아로롱.wav
+137,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
+
+[WORD]
+<AUDIO>
+
+[SEMANTIC DIMENSION]
+inhibited vs. free
+
+[OPTIONS]
+1: inhibited
+2: free
+Answer with the number only. (1-2),2,/data/local-files/?d=tts/art/lah-nay.wav
+138,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
+
+[WORD]
+<AUDIO>
+
+[SEMANTIC DIMENSION]
+hard vs. soft
+
+[OPTIONS]
+1: hard
+2: soft
+Answer with the number only. (1-2),1,/data/local-files/?d=tts/fr/splach.wav
+139,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
+
+[WORD]
+<AUDIO>
+
+[SEMANTIC DIMENSION]
+happy vs. sad
+
+[OPTIONS]
+1: happy
+2: sad
+Answer with the number only. (1-2),1,/data/local-files/?d=tts/art/mee-vee.wav
+140,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
+
+[WORD]
+<AUDIO>
+
+[SEMANTIC DIMENSION]
+ordinary vs. unique
+
+[OPTIONS]
+1: ordinary
+2: unique
+Answer with the number only. (1-2),2,/data/local-files/?d=tts/art/zee-zah.wav
+141,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
+
+[WORD]
+<AUDIO>
+
+[SEMANTIC DIMENSION]
+simple vs. complex
+
+[OPTIONS]
+1: simple
+2: complex
+Answer with the number only. (1-2),2,/data/local-files/?d=tts/art/tay-zo.wav
+142,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
+
+[WORD]
+<AUDIO>
+
+[SEMANTIC DIMENSION]
+ordinary vs. unique
+
+[OPTIONS]
+1: ordinary
+2: unique
+Answer with the number only. (1-2),2,/data/local-files/?d=tts/art/vah-vee.wav
+143,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
+
+[WORD]
+<AUDIO>
+
+[SEMANTIC DIMENSION]
+simple vs. complex
+
+[OPTIONS]
+1: simple
+2: complex
+Answer with the number only. (1-2),1,/data/local-files/?d=tts/art/lo-day.wav
+144,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
+
+[WORD]
+<AUDIO>
+
+[SEMANTIC DIMENSION]
+solid vs. nonsolid
+
+[OPTIONS]
+1: solid
+2: nonsolid
+Answer with the number only. (1-2),2,/data/local-files/?d=tts/art/lee-lah.wav
+145,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
+
+[WORD]
+<AUDIO>
+
+[SEMANTIC DIMENSION]
+masculine vs. feminine
+
+[OPTIONS]
+1: masculine
+2: feminine
+Answer with the number only. (1-2),1,/data/local-files/?d=tts/art/bah-doe.wav
+146,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
+
+[WORD]
+<AUDIO>
+
+[SEMANTIC DIMENSION]
+masculine vs. feminine
+
+[OPTIONS]
+1: masculine
+2: feminine
+Answer with the number only. (1-2),1,/data/local-files/?d=tts/en/rufty-tufty.wav
+147,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
+
+[WORD]
+<AUDIO>
+
+[SEMANTIC DIMENSION]
+ordinary vs. unique
+
+[OPTIONS]
+1: ordinary
+2: unique
+Answer with the number only. (1-2),2,/data/local-files/?d=tts/fr/vran.wav
+148,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
+
+[WORD]
+<AUDIO>
+
+[SEMANTIC DIMENSION]
+abrupt vs. continuous
+
+[OPTIONS]
+1: abrupt
+2: continuous
+Answer with the number only. (1-2),1,/data/local-files/?d=tts/fr/ksi ksi.wav
+149,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
+
+[WORD]
+<AUDIO>
+
+[SEMANTIC DIMENSION]
+harsh vs. mellow
+
+[OPTIONS]
+1: harsh
+2: mellow
+Answer with the number only. (1-2),2,/data/local-files/?d=tts/art/lee-go.wav
+150,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
+
+[WORD]
+<AUDIO>
+
+[SEMANTIC DIMENSION]
+heavy vs. light
+
+[OPTIONS]
+1: heavy
+2: light
+Answer with the number only. (1-2),2,/data/local-files/?d=tts/art/say-fo.wav
 151,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
 
 [WORD]
 <AUDIO>
 
 [SEMANTIC DIMENSION]
-strong vs. weak
+sharp vs. round
 
 [OPTIONS]
-1: strong
-2: weak
-Answer with the number only. (1-2),2,/data/local-files/?d=tts/en/giggle.wav
+1: sharp
+2: round
+Answer with the number only. (1-2),2,/data/local-files/?d=tts/ja/のたりのたり.wav
 152,Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?
 
 [WORD]
 <AUDIO>
 
 [SEMANTIC DIMENSION]
-strong vs. weak
+abrupt vs. continuous
 
 [OPTIONS]
-1: strong
-2: weak
-Answer with the number only. (1-2),2,/data/local-files/?d=tts/ja/ぐんなり.wav
+1: abrupt
+2: continuous
+Answer with the number only. (1-2),2,/data/local-files/?d=tts/art/nay-sah.wav
