@@ -239,6 +239,98 @@ def plot_sampled_word_heatmap(word_stats, data_type, start_layer, end_layer, lan
     file_path = os.path.join(save_path, file_name)
     draw_plot(ipa_list, semdim_list, answer_list, matrix, title, file_path, dim_pairs)
 
+def plot_ranked_heatmap(word_stats, data_type, start_layer, end_layer, lang, save_path=None, suffix:str=None, compute_rule=COMPUTE_RULE, check_model_response=CHECK_MODEL_RESPONSE, dim_pairs=dim_pairs, answer_list=None, sampling_rate=1):
+    import numpy as np
+    import os
+    if save_path is None:
+        save_path = 'results/plots/attention/sampled_words/'
+    os.makedirs(save_path, exist_ok=True)
+    ipa_list = get_ordered_ipa_list(word_stats, vowels, consonants)
+    semdim_list, matrix = rank_matrix_by_semdim(word_stats, dim_pairs, ipa_list)
+    if matrix.shape[0] == 0 or matrix.shape[1] == 0:
+        print(f"[WARN] Empty matrix for lang '{lang}'. Skipping heatmap.")
+        return
+    title = f'Lang: {lang} | rule: {compute_rule} | L{start_layer}-L{end_layer} | check_model_response: {check_model_response} | sampling_rate: {sampling_rate}\nIPA-Semantic Dimension Attention Heatmap Ranked'
+    file_name = f"{lang.upper()}_{data_type}_generation_attention_L{start_layer}_L{end_layer}_sampling_{sampling_rate}_ranked"
+    if compute_rule is not None:
+        file_name += f"_rule-{compute_rule}"
+    if check_model_response is not None:
+        file_name += f"_check-{check_model_response}"
+    if suffix:
+        file_name += suffix
+    file_name += ".png"
+    file_path = os.path.join(save_path, file_name)
+    draw_plot(ipa_list, semdim_list, answer_list, matrix, title, file_path, dim_pairs, ranked=True)
+
+def rank_matrix_by_semdim(word_stats, dim_pairs, ipa_list):
+    """
+    Convert attention scores to ranks for each semantic dimension.
+    For each semantic dimension, rank IPA symbols by their attention scores.
+    Higher scores get lower rank numbers (1st, 2nd, etc.).
+    Missing values become nan.
+    Returns: (semdim_list, matrix) where matrix[i,j] = rank of IPA j for semantic dimension i
+    """
+    import numpy as np
+    from scipy.stats import rankdata
+    
+    # Get semantic dimension list in the same way as get_semdim_matrix_and_labels
+    seen_pairs = set()
+    semdim_list = []
+    matrix_rows = []
+    for dim1, dim2 in dim_pairs:
+        if (dim2, dim1) in seen_pairs:
+            continue
+        vals_dim1 = []
+        vals_dim2 = []
+        for ipa in ipa_list:
+            v1 = word_stats[ipa].get(dim1, np.nan)
+            v2 = word_stats[ipa].get(dim2, np.nan)
+            v1_rev = word_stats[ipa].get(dim2, np.nan)
+            v2_rev = word_stats[ipa].get(dim1, np.nan)
+            vals_dim1.append(np.nanmean([v1, v2_rev]))
+            vals_dim2.append(np.nanmean([v2, v1_rev]))
+        vals_dim1 = np.array(vals_dim1)
+        vals_dim2 = np.array(vals_dim2)
+        if not np.all(np.isnan(vals_dim1)):
+            semdim_list.append(f"{dim1}")
+            matrix_rows.append(vals_dim1)
+        if not np.all(np.isnan(vals_dim2)):
+            semdim_list.append(f"{dim2}")
+            matrix_rows.append(vals_dim2)
+        seen_pairs.add((dim1, dim2))
+        seen_pairs.add((dim2, dim1))
+    
+    if not matrix_rows:
+        return [], np.zeros((0, len(ipa_list)))
+    
+    # Convert scores to ranks for each semantic dimension
+    matrix = np.zeros((len(semdim_list), len(ipa_list)))
+    matrix[:] = np.nan  # Initialize with nan
+    
+    for i, semdim in enumerate(semdim_list):
+        # Get scores for this semantic dimension across all IPA symbols
+        scores = []
+        valid_indices = []
+        for j, ipa in enumerate(ipa_list):
+            score = word_stats[ipa].get(semdim, np.nan)
+            if not np.isnan(score):
+                scores.append(score)
+                valid_indices.append(j)
+            # else: keep as nan
+        
+        if len(scores) > 0:
+            # Convert scores to ranks (higher score = lower rank number)
+            # Use 'ordinal' method to handle ties by giving them the same rank
+            ranks = rankdata(scores, method='ordinal')
+            # Reverse ranks so higher scores get lower rank numbers
+            ranks = len(scores) - ranks + 1
+            
+            # Put ranks back in matrix
+            for rank, idx in zip(ranks, valid_indices):
+                matrix[i, idx] = rank
+    
+    return semdim_list, matrix
+
 def plot_by_stats_with_ipa_wise(word_stats, data_type, start_layer, end_layer, lang, save_path=None, suffix:str=None, compute_rule=COMPUTE_RULE, check_model_response=CHECK_MODEL_RESPONSE, dim_pairs=dim_pairs, answer_list=None, use_softmax=False, sampling_rate=1):
     import numpy as np
     import os
@@ -266,19 +358,23 @@ def plot_by_stats_with_ipa_wise(word_stats, data_type, start_layer, end_layer, l
     file_path = os.path.join(save_path, file_name)
     draw_plot(ipa_list, semdim_list, answer_list, scaled_matrix, title, file_path, dim_pairs)
 
-def draw_plot(ipa_list, semdim_list, answer_list, matrix, title, file_path, dim_pairs=None):
+def draw_plot(ipa_list, semdim_list, answer_list, matrix, title, file_path, dim_pairs=None, ranked=False):
     import matplotlib.pyplot as plt
     import seaborn as sns
     import numpy as np
     fig, ax = plt.subplots(figsize=(max(10, len(ipa_list)*0.5), max(8, len(semdim_list)*0.3)))
     mask = np.isnan(matrix)
+    if ranked:
+        fmt = '.0f'
+    else:
+        fmt = '.3f'
     sns.heatmap(
         matrix, ax=ax,
         cmap='vlag', # 'vlag', 'coolwarm', 'RdYlGn_r'
         cbar=True,
         xticklabels=ipa_list, yticklabels=semdim_list,
         linewidths=0.2, linecolor='gray', square=False,
-        annot=True, fmt='.3f', mask=mask, annot_kws={"size":8}
+        annot=True, fmt=fmt, mask=mask, annot_kws={"size":8}
     )
     
     if dim_pairs is not None:
@@ -780,13 +876,13 @@ def save_file(final_word_stats, file_path):
         pkl.dump(final_word_stats, f)
     return
 
-# layer_start, layer_end = layer_starts[1], layer_ends[1]
+# layer_start, layer_end = layer_starts[2], layer_ends[2]
 # lang = "art"
 # data_type = "ipa"
 # COMPUTE_RULE = "answer_only"
 # FRACTION_WHEN_ANSWER_ONLY = True
 # CHECK_MODEL_RESPONSE = True
-# sampling_rate = 200
+# sampling_rate = 20
 # constructed = get_constructed(lang)
 
 # final_word_stats = {}
@@ -798,60 +894,66 @@ def save_file(final_word_stats, file_path):
 #     os.makedirs(file_path, exist_ok=True)
 # file_name = f"{data_type}_{lang}_sampling_every_{sampling_rate}_{COMPUTE_RULE}_check_model_response_{CHECK_MODEL_RESPONSE}_{layer_start}_{layer_end}.pkl"
 # save_file(final_word_stats, os.path.join(file_path, file_name))
-# plot_sampled_word_heatmap(final_word_stats, data_type, layer_start, layer_end, lang, compute_rule=COMPUTE_RULE, check_model_response=CHECK_MODEL_RESPONSE)
+# plot_ranked_heatmap(final_word_stats, data_type, layer_start, layer_end, lang, compute_rule=COMPUTE_RULE, check_model_response=CHECK_MODEL_RESPONSE, sampling_rate=sampling_rate)
+# plot_sampled_word_heatmap(final_word_stats, data_type, layer_start, layer_end, lang, compute_rule=COMPUTE_RULE, check_model_response=CHECK_MODEL_RESPONSE, sampling_rate=sampling_rate)
 # USE_SOFTMAX = True
-# plot_by_stats_with_ipa_wise(final_word_stats, data_type, layer_start, layer_end, lang, compute_rule=COMPUTE_RULE, check_model_response=CHECK_MODEL_RESPONSE, use_softmax=USE_SOFTMAX)
+# plot_by_stats_with_ipa_wise(final_word_stats, data_type, layer_start, layer_end, lang, compute_rule=COMPUTE_RULE, check_model_response=CHECK_MODEL_RESPONSE, use_softmax=USE_SOFTMAX, sampling_rate=sampling_rate)
 # USE_SOFTMAX = False
-# plot_by_stats_with_ipa_wise(final_word_stats, data_type, layer_start, layer_end, lang, compute_rule=COMPUTE_RULE, check_model_response=CHECK_MODEL_RESPONSE, use_softmax=USE_SOFTMAX)
+# plot_by_stats_with_ipa_wise(final_word_stats, data_type, layer_start, layer_end, lang, compute_rule=COMPUTE_RULE, check_model_response=CHECK_MODEL_RESPONSE, use_softmax=USE_SOFTMAX, sampling_rate=sampling_rate)
 
 # exit()
 import time
 
-sampling_rate = 30
-constructed = True
-single_language = True
-for COMPUTE_RULE in ["answer_only", "fraction", "naive"]:
-    for data_type in ["ipa", "audio"]:
-        for layer_start, layer_end in zip(layer_starts, layer_ends):
-            start_time = time.time()
-            final_word_stats = {}
-            for lang in con_langs:
-                data_path, output_dir = get_data_path(lang, data_type)
-                show_arguments(data_type=data_type, lang=lang, compute_rule=COMPUTE_RULE, layer_start=layer_start, layer_end=layer_end, sampling_rate=sampling_rate)
-                final_word_stats = compute_attention_by_language(lang=lang, final_word_stats=final_word_stats, compute_rule=COMPUTE_RULE, check_model_response=CHECK_MODEL_RESPONSE, data_path=data_path, output_dir=output_dir, sampling_rate=sampling_rate, single_language=single_language)
-                file_path = "src/analysis/heatmap/results"
-            if not single_language:
-                final_word_stats = compute_mean_score(final_word_stats)
-            language = "Artificial"
-            file_name = f"{data_type}_{lang}_{COMPUTE_RULE}_check_model_response_{CHECK_MODEL_RESPONSE}_{layer_start}_{layer_end}.pkl"
-            save_file(final_word_stats, os.path.join(file_path, file_name))
-            plot_sampled_word_heatmap(final_word_stats, data_type, layer_start, layer_end, lang, compute_rule=COMPUTE_RULE, check_model_response=CHECK_MODEL_RESPONSE)
-            USE_SOFTMAX = True
-            plot_by_stats_with_ipa_wise(final_word_stats, data_type, layer_start, layer_end, lang, compute_rule=COMPUTE_RULE, check_model_response=CHECK_MODEL_RESPONSE, use_softmax=USE_SOFTMAX)
-            USE_SOFTMAX = False
-            plot_by_stats_with_ipa_wise(final_word_stats, data_type, layer_start, layer_end, lang, compute_rule=COMPUTE_RULE, check_model_response=CHECK_MODEL_RESPONSE, use_softmax=USE_SOFTMAX)
-            end_time = time.time()
-            print(f"Time taken: {end_time - start_time} seconds")
-
-# constructed = False
-# single_language = False
-# for data_type in ["ipa", "audio"]:
-#     for COMPUTE_RULE in ["fraction", "naive"]:
+# sampling_rate = 1
+# constructed = True
+# single_language = True
+# for COMPUTE_RULE in ["answer_only", "fraction", "naive"]:
+#     for data_type in ["ipa", "audio"]:
 #         for layer_start, layer_end in zip(layer_starts, layer_ends):
+#             start_time = time.time()
 #             final_word_stats = {}
-#             for lang in nat_langs:
+#             for lang in con_langs:
 #                 data_path, output_dir = get_data_path(lang, data_type)
-#                 show_arguments(data_type=data_type, lang=lang, compute_rule=COMPUTE_RULE, layer_start=layer_start, layer_end=layer_end)
-#                 final_word_stats = compute_attention_by_language(lang=lang, data_path=data_path, output_dir=output_dir, final_word_stats=final_word_stats, compute_rule=COMPUTE_RULE, check_model_response=CHECK_MODEL_RESPONSE, sampling_rate=sampling_rate, single_language=single_language)
+#                 show_arguments(data_type=data_type, lang=lang, compute_rule=COMPUTE_RULE, layer_start=layer_start, layer_end=layer_end, sampling_rate=sampling_rate)
+#                 final_word_stats = compute_attention_by_language(lang=lang, final_word_stats=final_word_stats, layer_start=layer_start, layer_end=layer_end, compute_rule=COMPUTE_RULE, check_model_response=CHECK_MODEL_RESPONSE, data_path=data_path, output_dir=output_dir, sampling_rate=sampling_rate, single_language=single_language)
 #                 file_path = "src/analysis/heatmap/results"
 #             if not single_language:
 #                 final_word_stats = compute_mean_score(final_word_stats)
-#             lang = "Natural"
+#             language = "Artificial"
 #             file_name = f"{data_type}_{lang}_{COMPUTE_RULE}_check_model_response_{CHECK_MODEL_RESPONSE}_{layer_start}_{layer_end}.pkl"
 #             save_file(final_word_stats, os.path.join(file_path, file_name))
+#             plot_ranked_heatmap(final_word_stats, data_type, layer_start, layer_end, lang, compute_rule=COMPUTE_RULE, check_model_response=CHECK_MODEL_RESPONSE, sampling_rate=sampling_rate)
 #             plot_sampled_word_heatmap(final_word_stats, data_type, layer_start, layer_end, lang, compute_rule=COMPUTE_RULE, check_model_response=CHECK_MODEL_RESPONSE, sampling_rate=sampling_rate)
 #             USE_SOFTMAX = True
 #             plot_by_stats_with_ipa_wise(final_word_stats, data_type, layer_start, layer_end, lang, compute_rule=COMPUTE_RULE, check_model_response=CHECK_MODEL_RESPONSE, use_softmax=USE_SOFTMAX, sampling_rate=sampling_rate)
 #             USE_SOFTMAX = False
 #             plot_by_stats_with_ipa_wise(final_word_stats, data_type, layer_start, layer_end, lang, compute_rule=COMPUTE_RULE, check_model_response=CHECK_MODEL_RESPONSE, use_softmax=USE_SOFTMAX, sampling_rate=sampling_rate)
+#             end_time = time.time()
+#             print(f"Time taken: {end_time - start_time} seconds")
+
+sampling_rate = 1
+constructed = False
+single_language = False
+FRACTION_WHEN_ANSWER_ONLY = True
+CHECK_MODEL_RESPONSE = True
+for COMPUTE_RULE in ["answer_only", "fraction", "naive"]:
+    for data_type in ["ipa", "audio"]:
+        for layer_start, layer_end in zip(layer_starts, layer_ends):
+            final_word_stats = {}
+            for lang in nat_langs:
+                data_path, output_dir = get_data_path(lang, data_type)
+                show_arguments(data_type=data_type, lang=lang, constructed=constructed, compute_rule=COMPUTE_RULE, layer_start=layer_start, layer_end=layer_end, sampling_rate=sampling_rate)
+                final_word_stats = compute_attention_by_language(lang=lang, data_path=data_path, layer_start=layer_start, layer_end=layer_end, output_dir=output_dir, final_word_stats=final_word_stats, compute_rule=COMPUTE_RULE, check_model_response=CHECK_MODEL_RESPONSE, sampling_rate=sampling_rate, single_language=single_language)
+                file_path = "src/analysis/heatmap/results"
+            if not single_language:
+                final_word_stats = compute_mean_score(final_word_stats)
+            lang = "Natural"
+            file_name = f"{data_type}_{lang}_{COMPUTE_RULE}_check_model_response_{CHECK_MODEL_RESPONSE}_{layer_start}_{layer_end}.pkl"
+            save_file(final_word_stats, os.path.join(file_path, file_name))
+            plot_ranked_heatmap(final_word_stats, data_type, layer_start, layer_end, lang, compute_rule=COMPUTE_RULE, check_model_response=CHECK_MODEL_RESPONSE, sampling_rate=sampling_rate)
+            plot_sampled_word_heatmap(final_word_stats, data_type, layer_start, layer_end, lang, compute_rule=COMPUTE_RULE, check_model_response=CHECK_MODEL_RESPONSE, sampling_rate=sampling_rate)
+            USE_SOFTMAX = True
+            plot_by_stats_with_ipa_wise(final_word_stats, data_type, layer_start, layer_end, lang, compute_rule=COMPUTE_RULE, check_model_response=CHECK_MODEL_RESPONSE, use_softmax=USE_SOFTMAX, sampling_rate=sampling_rate)
+            USE_SOFTMAX = False
+            plot_by_stats_with_ipa_wise(final_word_stats, data_type, layer_start, layer_end, lang, compute_rule=COMPUTE_RULE, check_model_response=CHECK_MODEL_RESPONSE, use_softmax=USE_SOFTMAX, sampling_rate=sampling_rate)
             
