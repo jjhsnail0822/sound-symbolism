@@ -1,5 +1,5 @@
 # Model : Qwen2.5-Omni-7B
-# python src/analysis/heatmap/batch_semdim_heatmap.py --data-type audio --language ko --max-samples --flip 500
+# python src/analysis/heatmap/batch_semdim_heatmap.py --data-type ipa --language en --max-samples 1000
 # python src/analysis/heatmap/batch_semdim_heatmap.py --max-samples 3000 --data-type ipa --batch-size 1 --language en
 import json
 import re
@@ -33,7 +33,7 @@ class QwenOmniSemanticDimensionVisualizer:
             self,
             model_path:str,
             data_path:str=data_path,
-            output_dir:str="results/experiments/understanding/attention_heatmap/nat",
+            output_dir:str="results/experiments/understanding/attention_heatmap/nat/qwen3B",
             exp_type:str="semantic_dimension",
             data_type:str="audio",
             max_tokens:int=32,
@@ -63,7 +63,7 @@ class QwenOmniSemanticDimensionVisualizer:
         self.load_base_prompt()
         self.processor = Qwen2_5OmniProcessor.from_pretrained(self.model_path)
         self.data = self.load_data()
-        self.model_name = "qwen-7B" if "7B" in self.model_path else "qwen-4B"
+        self.model_name = "qwen-7B" if "7B" in self.model_path else "qwen-3B"
     
     def load_base_prompt(self):
         self.prompts = prompts[self.exp_type][f"semantic_dimension_binary_{self.data_type}"]["user_prompt"]
@@ -906,10 +906,10 @@ class QwenOmniSemanticDimensionVisualizer:
 if __name__ == "__main__":
     import argparse
     parser = argparse.ArgumentParser(description="Qwen2.5-Omni Semantic Dimension Attention Heatmap Visualization")
-    parser.add_argument('--model', type=str, default="Qwen/Qwen2.5-Omni-7B", help="Model path (default: Qwen/Qwen2.5-Omni-7B)")
+    parser.add_argument('--model', type=str, default="Qwen/Qwen2.5-Omni-3B", help="Model path (default: Qwen/Qwen2.5-Omni-7B)")
     parser.add_argument('--data-path', type=str, default="data/processed/nat/semantic_dimension/semantic_dimension_binary_gt.json",
                        help="Path to semantic dimension data JSON file")
-    parser.add_argument('--output-dir', type=str, default="results/experiments/understanding/attention_heatmap/nat",
+    parser.add_argument('--output-dir', type=str, default="results/experiments/understanding/attention_heatmap/nat/qwen3B",
                        help="Output directory for heatmaps and matrices")
     parser.add_argument('--data-type', type=str, default="audio", choices=["audio", "original", "romanized", "ipa"],
                        help="Data type to process")
@@ -927,7 +927,7 @@ if __name__ == "__main__":
 
     if args.constructed:
         data_path = "data/processed/art/semantic_dimension/semantic_dimension_binary_gt.json"
-        output_dir = "results/experiments/understanding/attention_heatmap/con"
+        output_dir = "results/experiments/understanding/attention_heatmap/con/qwen3B"
     else:
         data_path = args.data_path
         output_dir = args.output_dir
@@ -953,7 +953,7 @@ if __name__ == "__main__":
     total_num_of_dimensions = 0
     total_num_of_words = 0
     total_num_of_words_per_language = {lang: 0 for lang in languages}
-    start_index = args.start_index
+    start_index = 1500
 
     batch_size = args.batch_size
     # python src/analysis/heatmap/batch_semdim_heatmap.py --data-type audio --language ko --flip --max-samples 500
@@ -962,7 +962,7 @@ if __name__ == "__main__":
         lang_data = visualizer.data[lang]
         print(f"Found {len(lang_data)} samples for language {lang}")        
         if max_samples:
-            lang_data = lang_data[2000:max_samples]
+            lang_data = lang_data[start_index:max_samples]
             print(f"Limiting to {len(lang_data)} samples")
         
         if args.data_type == "audio":

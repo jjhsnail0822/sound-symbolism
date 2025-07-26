@@ -21,12 +21,16 @@ model_path = "Qwen/Qwen2.5-Omni-7B"
 data_type = "audio"
 nat_langs = ["en", "fr", "ja", "ko"]
 con_langs = ["art"]
-lang = "en"
-if lang in ["en", "fr", "ja", "ko"]:
-    constructed = False
-elif lang in ["art", "con"]:
-    constructed = True
-    lang = "art"
+lang = "art"
+
+def get_constructed(language=lang):    
+    if language in ["en", "fr", "ja", "ko"]:
+        return False
+    elif language in ["art", "con"]:
+        global lang
+        lang = "art"
+        return True
+constructed = get_constructed(lang)
 layer_starts = [0, 9, 18]
 layer_ends = [8, 17,27]
 CHECK_MODEL_RESPONSE = True
@@ -120,7 +124,7 @@ def get_word_list(lang:str=lang, data_path:str=None) -> list[str]:
     print(f"Number of words: {len(word_list)}")
     return word_list
 
-def show_arguments(model_name:str=model_path, data_type:str=data_type, lang:str=lang, layer_start:int=0, layer_end:int=27, constructed:bool=constructed, check_model_response:bool=CHECK_MODEL_RESPONSE, compute_rule:str=COMPUTE_RULE):
+def show_arguments(model_name:str=model_path, data_type:str=data_type, lang:str=lang, layer_start:int=0, layer_end:int=27, constructed:bool=constructed, check_model_response:bool=CHECK_MODEL_RESPONSE, compute_rule:str=COMPUTE_RULE, sampling_rate:int=None):
     print(f"Model: {model_name}")
     print(f"Data type: {data_type}")
     print(f"Language: {lang}")
@@ -129,6 +133,7 @@ def show_arguments(model_name:str=model_path, data_type:str=data_type, lang:str=
     print(f"Constructed: {constructed}")
     print(f"Check model response: {check_model_response}")
     print(f"Compute rule: {compute_rule}")
+    print(f"Sampling rate: {sampling_rate}")
 
 def model_guessed_incorrectly(response, dim1, dim2, answer) -> bool:
     if dim1 == answer and response == "1":
@@ -232,7 +237,7 @@ def plot_sampled_word_heatmap(word_stats, data_type, start_layer, end_layer, lan
         file_name += suffix
     file_name += ".png"
     file_path = os.path.join(save_path, file_name)
-    draw_plot(ipa_list, semdim_list, answer_list, matrix, title, file_path)
+    draw_plot(ipa_list, semdim_list, answer_list, matrix, title, file_path, dim_pairs)
 
 def plot_by_stats_with_ipa_wise(word_stats, data_type, start_layer, end_layer, lang, save_path=None, suffix:str=None, compute_rule=COMPUTE_RULE, check_model_response=CHECK_MODEL_RESPONSE, dim_pairs=dim_pairs, answer_list=None, use_softmax=False, sampling_rate=1):
     import numpy as np
@@ -259,19 +264,59 @@ def plot_by_stats_with_ipa_wise(word_stats, data_type, start_layer, end_layer, l
         file_name += suffix
     file_name += ".png"
     file_path = os.path.join(save_path, file_name)
-    draw_plot(ipa_list, semdim_list, answer_list, scaled_matrix, title, file_path)
+    draw_plot(ipa_list, semdim_list, answer_list, scaled_matrix, title, file_path, dim_pairs)
 
-def draw_plot(ipa_list, semdim_list, answer_list, matrix, title, file_path):
+def draw_plot(ipa_list, semdim_list, answer_list, matrix, title, file_path, dim_pairs=None):
     import matplotlib.pyplot as plt
     import seaborn as sns
     import numpy as np
-    fig, ax = plt.subplots(figsize=(max(10, len(ipa_list)*0.6), max(8, len(semdim_list)*0.3)))
+    fig, ax = plt.subplots(figsize=(max(10, len(ipa_list)*0.5), max(8, len(semdim_list)*0.3)))
     mask = np.isnan(matrix)
-    sns.heatmap(matrix, ax=ax, cmap='vlag', cbar=True,
-                xticklabels=ipa_list, yticklabels=semdim_list, linewidths=0.2, linecolor='gray', square=False,
-                annot=True, fmt='.3f', mask=mask, annot_kws={"size":8})
-    for i in range(2, len(semdim_list), 2):
-        ax.axhline(i, color='black', linewidth=2)
+    sns.heatmap(
+        matrix, ax=ax,
+        cmap='vlag', # 'vlag', 'coolwarm', 'RdYlGn_r'
+        cbar=True,
+        xticklabels=ipa_list, yticklabels=semdim_list,
+        linewidths=0.2, linecolor='gray', square=False,
+        annot=True, fmt='.3f', mask=mask, annot_kws={"size":8}
+    )
+    
+    if dim_pairs is not None:
+        drawn = set()
+        for dim1, dim2 in dim_pairs:
+            try:
+                idx1 = semdim_list.index(dim1)
+            except ValueError:
+                idx1 = None
+            try:
+                idx2 = semdim_list.index(dim2)
+            except ValueError:
+                idx2 = None
+            # Avoid drawing the same line twice
+            if idx1 is not None and idx2 is not None:
+                top = min(idx1, idx2)
+                bottom = max(idx1, idx2)
+                if top not in drawn:
+                    ax.axhline(top, color='black', linewidth=2)
+                    drawn.add(top)
+                if (bottom+1) not in drawn:
+                    ax.axhline(bottom+1, color='black', linewidth=2)
+                    drawn.add(bottom+1)
+            elif idx1 is not None:
+                if idx1 not in drawn:
+                    ax.axhline(idx1, color='black', linewidth=2)
+                    drawn.add(idx1)
+                if (idx1+1) not in drawn:
+                    ax.axhline(idx1+1, color='black', linewidth=2)
+                    drawn.add(idx1+1)
+            elif idx2 is not None:
+                if idx2 not in drawn:
+                    ax.axhline(idx2, color='black', linewidth=2)
+                    drawn.add(idx2)
+                if (idx2+1) not in drawn:
+                    ax.axhline(idx2+1, color='black', linewidth=2)
+                    drawn.add(idx2+1)
+
     ax.set_xlabel('IPA Symbol', fontsize=12)
     ax.set_ylabel('Semantic Dimension', fontsize=12)
     ax.set_title(title, fontsize=14, pad=15)
@@ -303,7 +348,6 @@ def scale_matrix_by_ipa(matrix, softmax=False):
                 scaled[:, j] = col_no_nan
             else:
                 scaled[:, j] = col_no_nan / s
-        # breakpoint()
     return scaled
 
 def get_ipa_runs(ipa_list) -> list[tuple[str, int, int]]:
@@ -345,7 +389,6 @@ def add_to_word_stats(word_stats, ipa, dim, values, ipa_symbols=ipa_symbols):
     return word_stats
 
 def compute_ipa_semdim_score_with_naive_rule(ipa_list, dim1, dim2, dim1_range, dim2_range, start_layer, end_layer, n_layer, n_head, wlen, d1len, d2len, attn_layers, word_stats) -> dict:
-    # breakpoint()
     for ipa_idx, ipa in enumerate(ipa_list):
         if ipa == "":
             continue
@@ -356,7 +399,6 @@ def compute_ipa_semdim_score_with_naive_rule(ipa_list, dim1, dim2, dim1_range, d
                     layer_len = attn_layers[layer].shape[2]
                     if layer_len != wlen+d1len+d2len:
                         print(f"Layer length mismatch: {layer_len} != {wlen+d1len+d2len}")
-                        # breakpoint()
                         break
                         raise ValueError(f"Layer length mismatch: {layer_len} != {wlen+d1len+d2len}")
                     for d_idx in dim_range:
@@ -366,7 +408,7 @@ def compute_ipa_semdim_score_with_naive_rule(ipa_list, dim1, dim2, dim1_range, d
             word_stats = add_to_word_stats(word_stats, ipa, dim, all_values)
     return word_stats
 
-def compute_audio_semdim_score_with_naive_rule(ipa_list, dim1, dim2, dim1_range, dim2_range, start_layer, end_layer, n_layer, n_head, wlen, d1len, d2len, attn_layers, word_stats) -> dict:
+def compute_semdim_score_with_naive_rule(ipa_list, dim1, dim2, dim1_range, dim2_range, start_layer, end_layer, n_layer, n_head, wlen, d1len, d2len, attn_layers, word_stats) -> dict:
     ipa_runs = get_ipa_runs(ipa_list)
     for ipa, start_idx, end_idx in ipa_runs:
         if ipa == "" or ipa == " ":
@@ -387,6 +429,53 @@ def compute_audio_semdim_score_with_naive_rule(ipa_list, dim1, dim2, dim1_range,
                                 sum_score += v
                         all_values.append(sum_score)
             word_stats = add_to_word_stats(word_stats, ipa, dim, all_values)
+    return word_stats
+
+def compute_semdim_score_with_answer_only_rule(ipa_list, dim1, dim2, answer, dim1_range, dim2_range, start_layer, end_layer, n_layer, n_head, wlen, d1len, d2len, attn_layers, word_stats) -> dict:
+    ipa_runs = get_ipa_runs(ipa_list)
+    if dim1 == answer:
+        check_dim = dim1
+        check_dim_range = dim1_range
+        ignore_dim_range = dim2_range
+    elif dim2 == answer:
+        check_dim = dim2
+        check_dim_range = dim2_range
+        ignore_dim_range = dim1_range
+    else:
+        raise ValueError(f"Answer {answer} is not in dim1 or dim2")
+    for ipa_idx, ipa in enumerate(ipa_list):
+        if ipa == "":
+            continue
+        layer = start_layer
+        attn = attn_layers[layer]
+        final_check_values = []
+        check_values = []
+        ignore_values = []
+        for layer in range(start_layer, min(end_layer+1, n_layer)):
+            for head in range(n_head):
+                layer_len = attn_layers[layer].shape[2]
+                if layer_len != wlen+d1len+d2len:
+                    print(f"Layer length mismatch: {layer_len} != {wlen+d1len+d2len}")
+                    break
+                for d_idx in check_dim_range:
+                    if d_idx < attn.shape[2] and ipa_idx < attn.shape[3]:
+                        v = attn_layers[layer][0, head, d_idx, ipa_idx].item()
+                        check_values.append(v)
+                check_sum = sum(check_values)
+                
+                for d_idx in ignore_dim_range:
+                    if d_idx < attn.shape[2] and ipa_idx < attn.shape[3]:
+                        v = attn_layers[layer][0, head, d_idx, ipa_idx].item()
+                        ignore_values.append(v)
+                ignore_sum = sum(ignore_values)
+
+                denom = check_sum + ignore_sum
+                if denom == 0:
+                    frac_check = 0.0
+                else:
+                    frac_check = check_sum / denom
+                final_check_values.append(frac_check)
+        word_stats = add_to_word_stats(word_stats, ipa, check_dim, final_check_values)
     return word_stats
 
 def compute_ipa_semdim_score_with_fraction_rule(ipa_list, dim1, dim2, dim1_range, dim2_range, start_layer, end_layer, n_layer, n_head, wlen, d1len, d2len, attn_layers, word_stats) -> dict:
@@ -428,10 +517,9 @@ def compute_ipa_semdim_score_with_fraction_rule(ipa_list, dim1, dim2, dim1_range
                 final_dim2_values.append(frac_dim2)
         word_stats = add_to_word_stats(word_stats, ipa, dim1, final_dim1_values)
         word_stats = add_to_word_stats(word_stats, ipa, dim2, final_dim2_values)
-        # breakpoint()
     return word_stats
 
-def compute_audio_semdim_score_with_fraction_rule(ipa_list, dim1, dim2, dim1_range, dim2_range, start_layer, end_layer, n_layer, n_head, wlen, d1len, d2len, attn_layers, word_stats) -> dict:
+def compute_semdim_score_with_fraction_rule(ipa_list, dim1, dim2, dim1_range, dim2_range, start_layer, end_layer, n_layer, n_head, wlen, d1len, d2len, attn_layers, word_stats) -> dict:
     ipa_runs = get_ipa_runs(ipa_list)
     for ipa, start_idx, end_idx in ipa_runs:
         if ipa == "":
@@ -475,7 +563,6 @@ def compute_audio_semdim_score_with_fraction_rule(ipa_list, dim1, dim2, dim1_ran
                 final_dim2_values.append(frac_dim2)
         word_stats = add_to_word_stats(word_stats, ipa, dim1, final_dim1_values)
         word_stats = add_to_word_stats(word_stats, ipa, dim2, final_dim2_values)
-        # breakpoint()
     return word_stats
 
 def convert_ipa_tokens_to_ipa_string_per_token(ipa_tokens, processor=processor, ipa_symbols=ipa_symbols) -> list[str]:
@@ -508,7 +595,6 @@ def convert_ipa_tokens_to_ipa_string_per_token(ipa_tokens, processor=processor, 
 def first_load_data(word:str, load_dir:str):
     file_path = os.path.join(load_dir, f"{word}.pkl")
     if not os.path.exists(file_path):
-        breakpoint()
         return None
     else:
         data = pkl.load(open(file_path, "rb"))
@@ -543,13 +629,14 @@ def compute_single_word_attention_score(
         return word_stats
     
     load_dir = f"results/experiments/understanding/attention_heatmap/combined/{data_type}/{lang}"
-    # word_data = first_load_data(word=word, load_dir=load_dir)
+    # word_data = first_load_data(word=word, load_dir=load_dir) # TEST
     word_data = None
+    incorrect_count = 0
     
     for dim1, dim2 in dim_pairs:
         data, alt = None, None
-        # if word_data is not None:
-        #     data, alt = return_data_from_word_data(word_data, word, dim1, dim2)
+        # if word_data is not None: # TEST
+        #     data, alt = return_data_from_word_data(word_data, word, dim1, dim2) # TEST
 
         if data is None or alt is None or word_data is None:
             data_dir = os.path.join(output_dir, f"{dim1}_{dim2}", f"{word}_{dim1}_{dim2}.pkl")
@@ -559,9 +646,10 @@ def compute_single_word_attention_score(
             # print(f"Found data for {word} {dim1}-{dim2}")
             data = pkl.load(open(data_dir, "rb"))
             alt = pkl.load(open(alt_dir, "rb"))
-        # breakpoint()
         attention_matrices, relevant_indices, dim1, dim2, answer, word_tokens, option_tokens, tokens, ipa_tokens, response, input_word, target_indices, wlen, d1len, d2len, dim1_range, dim2_range = get_data(data, alt)
         if check_model_response and model_guessed_incorrectly(response, dim1, dim2, answer):
+            # print(f"Model guessed incorrectly for {word} {dim1}-{dim2}")
+            incorrect_count += 1
             continue
             
         cleaned_ipa_tokens = [clean_token(token) for token in ipa_tokens]
@@ -572,22 +660,29 @@ def compute_single_word_attention_score(
         n_head = attn_layers[0].shape[1]
         if data_type == "ipa":
             if compute_rule == "naive":
-                # word_stats = compute_ipa_semdim_score_with_naive_rule(ipa_list, dim1, dim2, dim1_range, dim2_range, start_layer, end_layer, n_layer, n_head, wlen, d1len, d2len, attn_layers, word_stats)
-                word_stats = compute_audio_semdim_score_with_naive_rule(ipa_list, dim1, dim2, dim1_range, dim2_range, start_layer, end_layer, n_layer, n_head, wlen, d1len, d2len, attn_layers, word_stats)
+                word_stats = compute_semdim_score_with_naive_rule(ipa_list, dim1, dim2, dim1_range, dim2_range, start_layer, end_layer, n_layer, n_head, wlen, d1len, d2len, attn_layers, word_stats)
             elif compute_rule == "fraction":
-                # word_stats = compute_ipa_semdim_score_with_fraction_rule(ipa_list, dim1, dim2, dim1_range, dim2_range, start_layer, end_layer, n_layer, n_head, wlen, d1len, d2len, attn_layers, word_stats)
-                word_stats = compute_audio_semdim_score_with_fraction_rule(ipa_list, dim1, dim2, dim1_range, dim2_range, start_layer, end_layer, n_layer, n_head, wlen, d1len, d2len, attn_layers, word_stats)
+                word_stats = compute_semdim_score_with_fraction_rule(ipa_list, dim1, dim2, dim1_range, dim2_range, start_layer, end_layer, n_layer, n_head, wlen, d1len, d2len, attn_layers, word_stats)
+            elif compute_rule == "answer_only":
+                word_stats = compute_semdim_score_with_answer_only_rule(ipa_list, dim1, dim2, answer, dim1_range, dim2_range, start_layer, end_layer, n_layer, n_head, wlen, d1len, d2len, attn_layers, word_stats)
         elif data_type == "audio":
             if compute_rule == "naive":
-                word_stats = compute_audio_semdim_score_with_naive_rule(ipa_list, dim1, dim2, dim1_range, dim2_range, start_layer, end_layer, n_layer, n_head, wlen, d1len, d2len, attn_layers, word_stats)
+                word_stats = compute_semdim_score_with_naive_rule(ipa_list, dim1, dim2, dim1_range, dim2_range, start_layer, end_layer, n_layer, n_head, wlen, d1len, d2len, attn_layers, word_stats)
             elif compute_rule == "fraction":
-                word_stats = compute_audio_semdim_score_with_fraction_rule(ipa_list, dim1, dim2, dim1_range, dim2_range, start_layer, end_layer, n_layer, n_head, wlen, d1len, d2len, attn_layers, word_stats)
+                word_stats = compute_semdim_score_with_fraction_rule(ipa_list, dim1, dim2, dim1_range, dim2_range, start_layer, end_layer, n_layer, n_head, wlen, d1len, d2len, attn_layers, word_stats)
+            elif compute_rule == "answer_only":
+                word_stats = compute_semdim_score_with_answer_only_rule(ipa_list, dim1, dim2, answer, dim1_range, dim2_range, start_layer, end_layer, n_layer, n_head, wlen, d1len, d2len, attn_layers, word_stats)
         else:
             raise ValueError(f"Invalid data type: {data_type}")
-        # word_data.clear()
-        # gc.collect()
-        # torch.cuda.empty_cache()
+        gc.collect()
+        torch.cuda.empty_cache()
         # print(word_stats)
+    # word_data.clear()
+    del word_data
+    gc.collect()
+    torch.cuda.empty_cache()
+    if len(dim_pairs) == incorrect_count:
+        print(f"Model guessed incorrectly for all {len(dim_pairs)} dimensions for {word}")
     return word_stats
 
 final_word_stats = {}
@@ -605,6 +700,7 @@ def compute_attention_by_language(
     final_word_stats:dict=final_word_stats,
     sampling_rate:int=1,
     single_language:bool=True,
+    fraction_when_answer_only:bool=False,
 ):
     semdim_set = set()
     for dim1, dim2 in dim_pairs:
@@ -624,9 +720,10 @@ def compute_attention_by_language(
                 dim_pairs=dim_pairs, data_path=data_path, output_dir=output_dir,
                 check_model_response=check_model_response, compute_rule=compute_rule, model_path=model_path
             )
+            if word_stats is None:
+                continue
             for ipa, dim_scores in word_stats.items():
                 if not ipa or not dim_scores:
-                    print(f"No data to add for word '{word}' (ipa: '{ipa}')")
                     continue
                 for dim, score in dim_scores.items():
                     if ipa not in final_word_stats.keys():
@@ -635,17 +732,46 @@ def compute_attention_by_language(
                         final_word_stats[ipa][dim] = []
                     final_word_stats[ipa][dim].extend(score)
             processed_words += 1
-            # if word_count > 20:
+            # if word_count > 100:
             #     break
         except Exception as e:
             print(f"Error processing word {word}: {e}")
             continue
     print(f"Processed {processed_words} words")
-    if single_language:
-        for ipa, dim_scores in final_word_stats.items():
-            for dim, scores in dim_scores.items():
-                mean_score = sum(scores) / len(scores)
-                final_word_stats[ipa][dim] = mean_score
+    # if single_language and not fraction_when_answer_only:
+    final_word_stats = compute_mean_score(final_word_stats)
+    # elif single_language and fraction_when_answer_only and COMPUTE_RULE == "answer_only":
+    #     final_word_stats = compute_fraction_mean_of_answer_only(final_word_stats)
+    return final_word_stats
+
+def compute_fraction_mean_of_answer_only(final_word_stats, dim_pairs=dim_pairs, ipa_symbols=ipa_symbols):
+    for ipa, dim_scores in final_word_stats.items():
+        dim_scores_key_list = list(dim_scores.keys())
+        for dim1, dim2 in dim_pairs:
+            if dim1 not in dim_scores_key_list or dim2 not in dim_scores_key_list:
+                continue
+            dim1_stats = dim_scores[dim1]
+            dim2_stats = dim_scores[dim2]
+            if len(dim1_stats) == 0 or len(dim2_stats) == 0:
+                continue
+            dim1_mean = sum(dim1_stats) / len(dim1_stats)
+            dim2_mean = sum(dim2_stats) / len(dim2_stats)
+            denom = dim1_mean + dim2_mean
+            if denom == 0:
+                dim1_mean = 0.0
+                dim2_mean = 0.0
+            else:
+                dim1_frac = dim1_mean / denom
+                dim2_frac = dim2_mean / denom
+            final_word_stats[ipa][dim1] = dim1_frac
+            final_word_stats[ipa][dim2] = dim2_frac
+    return final_word_stats
+
+def compute_mean_score(final_word_stats):
+    for ipa, dim_scores in final_word_stats.items():
+        for dim, scores in dim_scores.items():
+            mean_score = sum(scores) / len(scores)
+            final_word_stats[ipa][dim] = mean_score
     return final_word_stats
 
 def save_file(final_word_stats, file_path):
@@ -654,17 +780,19 @@ def save_file(final_word_stats, file_path):
         pkl.dump(final_word_stats, f)
     return
 
-# layer_start, layer_end = layer_starts[2], layer_ends[2]
-# lang = "en"
-# data_type = "audio"
-# COMPUTE_RULE = "fraction"
+# layer_start, layer_end = layer_starts[1], layer_ends[1]
+# lang = "art"
+# data_type = "ipa"
+# COMPUTE_RULE = "answer_only"
+# FRACTION_WHEN_ANSWER_ONLY = True
 # CHECK_MODEL_RESPONSE = True
-sampling_rate = 1
+# sampling_rate = 200
+# constructed = get_constructed(lang)
 
 # final_word_stats = {}
 # data_path, output_dir = get_data_path(lang, data_type)
-# show_arguments(data_type=data_type, lang=lang, compute_rule=COMPUTE_RULE, layer_start=0, layer_end=8)
-# final_word_stats = compute_attention_by_language(lang=lang, layer_start=layer_start, layer_end=layer_end, final_word_stats=final_word_stats, compute_rule=COMPUTE_RULE, check_model_response=CHECK_MODEL_RESPONSE, data_path=data_path, output_dir=output_dir, sampling_rate=sampling_rate)
+# show_arguments(data_type=data_type, lang=lang, compute_rule=COMPUTE_RULE, layer_start=layer_start, layer_end=layer_end, sampling_rate=sampling_rate)
+# final_word_stats = compute_attention_by_language(lang=lang, layer_start=layer_start, layer_end=layer_end, final_word_stats=final_word_stats, compute_rule=COMPUTE_RULE, check_model_response=CHECK_MODEL_RESPONSE, data_path=data_path, output_dir=output_dir, sampling_rate=sampling_rate, fraction_when_answer_only=FRACTION_WHEN_ANSWER_ONLY)
 # file_path = "src/analysis/heatmap/results"
 # if not os.path.exists(file_path):
 #     os.makedirs(file_path, exist_ok=True)
@@ -677,20 +805,23 @@ sampling_rate = 1
 # plot_by_stats_with_ipa_wise(final_word_stats, data_type, layer_start, layer_end, lang, compute_rule=COMPUTE_RULE, check_model_response=CHECK_MODEL_RESPONSE, use_softmax=USE_SOFTMAX)
 
 # exit()
+import time
+
+sampling_rate = 30
 constructed = True
-for data_type in ["ipa", "audio"]:
-    for COMPUTE_RULE in ["fraction", "naive"]:
+single_language = True
+for COMPUTE_RULE in ["answer_only", "fraction", "naive"]:
+    for data_type in ["ipa", "audio"]:
         for layer_start, layer_end in zip(layer_starts, layer_ends):
+            start_time = time.time()
             final_word_stats = {}
             for lang in con_langs:
                 data_path, output_dir = get_data_path(lang, data_type)
-                show_arguments(data_type=data_type, lang=lang, compute_rule=COMPUTE_RULE, layer_start=layer_start, layer_end=layer_end)
-                final_word_stats = compute_attention_by_language(lang=lang, final_word_stats=final_word_stats, compute_rule=COMPUTE_RULE, check_model_response=CHECK_MODEL_RESPONSE, data_path=data_path, output_dir=output_dir)
+                show_arguments(data_type=data_type, lang=lang, compute_rule=COMPUTE_RULE, layer_start=layer_start, layer_end=layer_end, sampling_rate=sampling_rate)
+                final_word_stats = compute_attention_by_language(lang=lang, final_word_stats=final_word_stats, compute_rule=COMPUTE_RULE, check_model_response=CHECK_MODEL_RESPONSE, data_path=data_path, output_dir=output_dir, sampling_rate=sampling_rate, single_language=single_language)
                 file_path = "src/analysis/heatmap/results"
-            for ipa, dim_scores in final_word_stats.items():
-                for dim, scores in dim_scores.items():
-                    mean_score = sum(scores) / len(scores)
-                    final_word_stats[ipa][dim] = mean_score
+            if not single_language:
+                final_word_stats = compute_mean_score(final_word_stats)
             language = "Artificial"
             file_name = f"{data_type}_{lang}_{COMPUTE_RULE}_check_model_response_{CHECK_MODEL_RESPONSE}_{layer_start}_{layer_end}.pkl"
             save_file(final_word_stats, os.path.join(file_path, file_name))
@@ -699,27 +830,28 @@ for data_type in ["ipa", "audio"]:
             plot_by_stats_with_ipa_wise(final_word_stats, data_type, layer_start, layer_end, lang, compute_rule=COMPUTE_RULE, check_model_response=CHECK_MODEL_RESPONSE, use_softmax=USE_SOFTMAX)
             USE_SOFTMAX = False
             plot_by_stats_with_ipa_wise(final_word_stats, data_type, layer_start, layer_end, lang, compute_rule=COMPUTE_RULE, check_model_response=CHECK_MODEL_RESPONSE, use_softmax=USE_SOFTMAX)
+            end_time = time.time()
+            print(f"Time taken: {end_time - start_time} seconds")
 
-constructed = False
-for data_type in ["ipa", "audio"]:
-    for COMPUTE_RULE in ["fraction", "naive"]:
-        for layer_start, layer_end in zip(layer_starts, layer_ends):
-            final_word_stats = {}
-            for lang in nat_langs:
-                data_path, output_dir = get_data_path(lang, data_type)
-                show_arguments(data_type=data_type, lang=lang, compute_rule=COMPUTE_RULE, layer_start=layer_start, layer_end=layer_end)
-                final_word_stats = compute_attention_by_language(lang=lang, data_path=data_path, output_dir=output_dir, final_word_stats=final_word_stats, compute_rule=COMPUTE_RULE, check_model_response=CHECK_MODEL_RESPONSE, sampling_rate=sampling_rate, single_language=False)
-                file_path = "src/analysis/heatmap/results"
-            for ipa, dim_scores in final_word_stats.items():
-                for dim, scores in dim_scores.items():
-                    mean_score = sum(scores) / len(scores)
-                    final_word_stats[ipa][dim] = mean_score
-            lang = "Natural"
-            file_name = f"{data_type}_{lang}_{COMPUTE_RULE}_check_model_response_{CHECK_MODEL_RESPONSE}_{layer_start}_{layer_end}.pkl"
-            save_file(final_word_stats, os.path.join(file_path, file_name))
-            plot_sampled_word_heatmap(final_word_stats, data_type, layer_start, layer_end, lang, compute_rule=COMPUTE_RULE, check_model_response=CHECK_MODEL_RESPONSE, sampling_rate=sampling_rate)
-            USE_SOFTMAX = True
-            plot_by_stats_with_ipa_wise(final_word_stats, data_type, layer_start, layer_end, lang, compute_rule=COMPUTE_RULE, check_model_response=CHECK_MODEL_RESPONSE, use_softmax=USE_SOFTMAX, sampling_rate=sampling_rate)
-            USE_SOFTMAX = False
-            plot_by_stats_with_ipa_wise(final_word_stats, data_type, layer_start, layer_end, lang, compute_rule=COMPUTE_RULE, check_model_response=CHECK_MODEL_RESPONSE, use_softmax=USE_SOFTMAX, sampling_rate=sampling_rate)
+# constructed = False
+# single_language = False
+# for data_type in ["ipa", "audio"]:
+#     for COMPUTE_RULE in ["fraction", "naive"]:
+#         for layer_start, layer_end in zip(layer_starts, layer_ends):
+#             final_word_stats = {}
+#             for lang in nat_langs:
+#                 data_path, output_dir = get_data_path(lang, data_type)
+#                 show_arguments(data_type=data_type, lang=lang, compute_rule=COMPUTE_RULE, layer_start=layer_start, layer_end=layer_end)
+#                 final_word_stats = compute_attention_by_language(lang=lang, data_path=data_path, output_dir=output_dir, final_word_stats=final_word_stats, compute_rule=COMPUTE_RULE, check_model_response=CHECK_MODEL_RESPONSE, sampling_rate=sampling_rate, single_language=single_language)
+#                 file_path = "src/analysis/heatmap/results"
+#             if not single_language:
+#                 final_word_stats = compute_mean_score(final_word_stats)
+#             lang = "Natural"
+#             file_name = f"{data_type}_{lang}_{COMPUTE_RULE}_check_model_response_{CHECK_MODEL_RESPONSE}_{layer_start}_{layer_end}.pkl"
+#             save_file(final_word_stats, os.path.join(file_path, file_name))
+#             plot_sampled_word_heatmap(final_word_stats, data_type, layer_start, layer_end, lang, compute_rule=COMPUTE_RULE, check_model_response=CHECK_MODEL_RESPONSE, sampling_rate=sampling_rate)
+#             USE_SOFTMAX = True
+#             plot_by_stats_with_ipa_wise(final_word_stats, data_type, layer_start, layer_end, lang, compute_rule=COMPUTE_RULE, check_model_response=CHECK_MODEL_RESPONSE, use_softmax=USE_SOFTMAX, sampling_rate=sampling_rate)
+#             USE_SOFTMAX = False
+#             plot_by_stats_with_ipa_wise(final_word_stats, data_type, layer_start, layer_end, lang, compute_rule=COMPUTE_RULE, check_model_response=CHECK_MODEL_RESPONSE, use_softmax=USE_SOFTMAX, sampling_rate=sampling_rate)
             
