@@ -838,7 +838,7 @@ def compute_attention_by_language(
     final_word_stats = compute_mean_score(final_word_stats)
     # elif single_language and fraction_when_answer_only and COMPUTE_RULE == "answer_only":
     #     final_word_stats = compute_fraction_mean_of_answer_only(final_word_stats)
-    return final_word_stats
+    return final_word_stats, processed_words
 
 def compute_fraction_mean_of_answer_only(final_word_stats, dim_pairs=dim_pairs, ipa_symbols=ipa_symbols):
     for ipa, dim_scores in final_word_stats.items():
@@ -915,12 +915,12 @@ import time
 #             for lang in con_langs:
 #                 data_path, output_dir = get_data_path(lang, data_type)
 #                 show_arguments(data_type=data_type, lang=lang, compute_rule=COMPUTE_RULE, layer_start=layer_start, layer_end=layer_end, sampling_rate=sampling_rate)
-#                 final_word_stats = compute_attention_by_language(lang=lang, final_word_stats=final_word_stats, layer_start=layer_start, layer_end=layer_end, compute_rule=COMPUTE_RULE, check_model_response=CHECK_MODEL_RESPONSE, data_path=data_path, output_dir=output_dir, sampling_rate=sampling_rate, single_language=single_language)
+#                 final_word_stats, processed_words = compute_attention_by_language(lang=lang, final_word_stats=final_word_stats, layer_start=layer_start, layer_end=layer_end, compute_rule=COMPUTE_RULE, check_model_response=CHECK_MODEL_RESPONSE, data_path=data_path, output_dir=output_dir, sampling_rate=sampling_rate, single_language=single_language)
 #                 file_path = "src/analysis/heatmap/results"
 #             if not single_language:
 #                 final_word_stats = compute_mean_score(final_word_stats)
-#             language = "Artificial"
-#             file_name = f"{data_type}_{lang}_{COMPUTE_RULE}_check_model_response_{CHECK_MODEL_RESPONSE}_{layer_start}_{layer_end}.pkl"
+#             lang = "Constructed"
+#             file_name = f"{data_type}_{lang}_{COMPUTE_RULE}_check_model_response_{CHECK_MODEL_RESPONSE}_{layer_start}_{layer_end}_sampling_every_{sampling_rate}_processed_words_{processed_words}.pkl"
 #             save_file(final_word_stats, os.path.join(file_path, file_name))
 #             plot_ranked_heatmap(final_word_stats, data_type, layer_start, layer_end, lang, compute_rule=COMPUTE_RULE, check_model_response=CHECK_MODEL_RESPONSE, sampling_rate=sampling_rate)
 #             plot_sampled_word_heatmap(final_word_stats, data_type, layer_start, layer_end, lang, compute_rule=COMPUTE_RULE, check_model_response=CHECK_MODEL_RESPONSE, sampling_rate=sampling_rate)
@@ -943,12 +943,12 @@ for COMPUTE_RULE in ["answer_only", "fraction", "naive"]:
             for lang in nat_langs:
                 data_path, output_dir = get_data_path(lang, data_type)
                 show_arguments(data_type=data_type, lang=lang, constructed=constructed, compute_rule=COMPUTE_RULE, layer_start=layer_start, layer_end=layer_end, sampling_rate=sampling_rate)
-                final_word_stats = compute_attention_by_language(lang=lang, data_path=data_path, layer_start=layer_start, layer_end=layer_end, output_dir=output_dir, final_word_stats=final_word_stats, compute_rule=COMPUTE_RULE, check_model_response=CHECK_MODEL_RESPONSE, sampling_rate=sampling_rate, single_language=single_language)
+                final_word_stats, processed_words = compute_attention_by_language(lang=lang, data_path=data_path, layer_start=layer_start, layer_end=layer_end, output_dir=output_dir, final_word_stats=final_word_stats, compute_rule=COMPUTE_RULE, check_model_response=CHECK_MODEL_RESPONSE, sampling_rate=sampling_rate, single_language=single_language)
                 file_path = "src/analysis/heatmap/results"
             if not single_language:
                 final_word_stats = compute_mean_score(final_word_stats)
             lang = "Natural"
-            file_name = f"{data_type}_{lang}_{COMPUTE_RULE}_check_model_response_{CHECK_MODEL_RESPONSE}_{layer_start}_{layer_end}.pkl"
+            file_name = f"{data_type}_{lang}_{COMPUTE_RULE}_check_model_response_{CHECK_MODEL_RESPONSE}_{layer_start}_{layer_end}_processed_words_{processed_words}.pkl"
             save_file(final_word_stats, os.path.join(file_path, file_name))
             plot_ranked_heatmap(final_word_stats, data_type, layer_start, layer_end, lang, compute_rule=COMPUTE_RULE, check_model_response=CHECK_MODEL_RESPONSE, sampling_rate=sampling_rate)
             plot_sampled_word_heatmap(final_word_stats, data_type, layer_start, layer_end, lang, compute_rule=COMPUTE_RULE, check_model_response=CHECK_MODEL_RESPONSE, sampling_rate=sampling_rate)

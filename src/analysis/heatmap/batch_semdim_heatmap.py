@@ -1,5 +1,5 @@
 # Model : Qwen2.5-Omni-7B
-# python src/analysis/heatmap/batch_semdim_heatmap.py --data-type ipa --language en --max-samples 1000
+# python src/analysis/heatmap/batch_semdim_heatmap.py --data-type ipa --language ko --max-samples 1000
 # python src/analysis/heatmap/batch_semdim_heatmap.py --max-samples 3000 --data-type ipa --batch-size 1 --language en
 import json
 import re
@@ -953,7 +953,7 @@ if __name__ == "__main__":
     total_num_of_dimensions = 0
     total_num_of_words = 0
     total_num_of_words_per_language = {lang: 0 for lang in languages}
-    start_index = 1500
+    start_index = 4000
 
     batch_size = args.batch_size
     # python src/analysis/heatmap/batch_semdim_heatmap.py --data-type audio --language ko --flip --max-samples 500
