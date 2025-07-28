@@ -102,20 +102,25 @@ def analyze_all_results(directory_path, output_json_path):
         dim: sum(scores) / len(scores) for dim, scores in dimension_f1_scores.items()
     }
 
+    # Calculate standard deviation for each dimension
+    std_dimension_scores = {
+        dim: pd.Series(scores).std() if len(scores) > 1 else 0 for dim, scores in dimension_f1_scores.items()
+    }
+
     # Sort dimensions by average F1 score in descending order
     ranked_dimensions = sorted(avg_dimension_scores.items(), key=lambda item: item[1], reverse=True)
     
     # Prepare final results for printing and saving
     final_results = {
         'ranked_dimensions': [
-            {'dimension': dim, 'average_f1_score': score} for dim, score in ranked_dimensions
+            {'dimension': dim, 'average_f1_score': score, 'std_dev': std_dimension_scores[dim]} for dim, score in ranked_dimensions
         ]
     }
 
     # Print the ranked results to the console
     print("\n--- Average F1 Score by Dimension (Ranked) ---")
     for result in final_results['ranked_dimensions']:
-        print(f"  - Dimension: {result['dimension']:<15} | Average F1: {result['average_f1_score']:.4f}")
+        print(f"  - Dimension: {result['dimension']:<15} | Average F1: {result['average_f1_score']:.4f} | Std Dev: {result['std_dev']:.4f}")
 
     # Save the results to a JSON file
     try:
