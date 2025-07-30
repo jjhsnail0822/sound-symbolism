@@ -23,6 +23,9 @@ def load_data_structures():
     """Load the required data structures from the main computation file"""
     # Load feature_to_score
     feature_to_score = json.load(open("data/processed/art/resources/feature_to_score.json", "r"))
+
+    # make keys be lowercase
+    feature_to_score = {k.lower(): v for k, v in feature_to_score.items()}
     
     # Load ipa_dict
     ipa_dict = {
@@ -52,7 +55,14 @@ def load_data_structures():
         ("strong", "weak"), ("weak", "strong"), ("structured", "disorganized"), ("disorganized", "structured"),
         ("tense", "relaxed"), ("relaxed", "tense"),
     ]
-    
+
+    # dim_pairs = [
+    #     # ("tense", "relaxed"), ("relaxed", "tense"),
+    #     # ("sharp", "round"), ("round", "sharp"),
+    #     # ("masculine", "feminine"), ("feminine", "masculine"),
+    #     # ("exciting", "calming"), ("calming", "exciting"),
+    # ]
+
     return feature_to_score, ipa_dict, dim_pairs
 
 def get_related_features_for_dim_pair(dim_pair: Tuple[str, str], feature_to_score: Dict) -> Dict[str, List[str]]:
@@ -72,7 +82,7 @@ def get_related_features_for_dim_pair(dim_pair: Tuple[str, str], feature_to_scor
             elif score < 0:  # Related to dim1 (first dimension)
                 related_features[dim1].append(feature)
             # score == 0 means no relationship, so we ignore
-    
+
     return related_features
 
 def get_ipa_symbols_for_features(features: List[str], ipa_dict: Dict) -> List[str]:
@@ -160,15 +170,14 @@ def plot_broken_line_graph(final_word_layer_stats: Dict,
             
             if not has_data:
                 continue
-            
+
             # Calculate scores for each layer
             layers = sorted([int(l) for l in final_word_layer_stats.keys()])
             scores = []
             
             for layer in layers:
-                layer_str = str(layer)
-                if layer_str in final_word_layer_stats:
-                    score = calculate_layer_average_score(final_word_layer_stats[layer_str], ipa_symbols, dimension)
+                if layer in final_word_layer_stats:
+                    score = calculate_layer_average_score(final_word_layer_stats[layer], ipa_symbols, dimension)
                     scores.append(score)
                 else:
                     scores.append(0.0)
@@ -191,14 +200,14 @@ def plot_broken_line_graph(final_word_layer_stats: Dict,
             line = ax.plot(layers, scores, linestyle=line_style, marker=marker, 
                           linewidth=2, markersize=6, label=label)
             
-            # Add value annotations
-            for i, (layer, score) in enumerate(zip(layers, scores)):
-                if score > 0:  # Only annotate if score is not zero
-                    # Format score as .XXX (remove leading 0)
-                    score_str = f"{score:.3f}".lstrip('0')
-                    ax.annotate(score_str, (layer, score), 
-                               xytext=(0, 10), textcoords='offset points',
-                               ha='center', va='bottom', fontsize=8)
+            # # Add value annotations
+            # for i, (layer, score) in enumerate(zip(layers, scores)):
+            #     if score > 0:  # Only annotate if score is not zero
+            #         # Format score as .XXX (remove leading 0)
+            #         score_str = f"{score:.3f}".lstrip('0')
+            #         ax.annotate(score_str, (layer, score), 
+            #                    xytext=(0, 10), textcoords='offset points',
+            #                    ha='center', va='bottom', fontsize=8)
     
     # Customize the plot
     ax.set_xlabel('Layer', fontsize=12)
@@ -267,9 +276,9 @@ def load_and_plot_from_file(file_path: str,
 # Example usage
 if __name__ == "__main__":
     # Example parameters
-    file_path = "src/analysis/heatmap/results/np_ipa_Natural_fraction_check_model_response_True_0_27_processed_words_123.pkl"
-    data_type = "ipa"
-    lang = "Natural"
+    file_path = "src/analysis/heatmap/results/np_audio_Constructed_fraction_check_model_response_True_0_27_sampling_every_1_processed_words_2665.pkl"
+    data_type = "audio"
+    lang = "Constructed"
     compute_rule = "fraction"
     layer_start = 0
     layer_end = 27

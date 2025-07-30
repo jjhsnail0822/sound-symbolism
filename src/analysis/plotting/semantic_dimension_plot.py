@@ -17,27 +17,15 @@ constructed_dims = [
     "solid-nonsolid", "inhibited-free"
 ]
 
+human_eval_json_path = 'results/experiments/semantic_dimension/human_eval/ranked_dimension_f1_scores.json'
+with open(human_eval_json_path, 'r', encoding='utf-8') as f:
+    human_eval_data = json.load(f)
+
 human_eval_result = {
-        "big-small": {"macro_f1_score": 0.8458},
-        "tense-relaxed": {"macro_f1_score": 0.8194},
-        "ordinary-unique": {"macro_f1_score": 0.7948},
-        "sharp-round": {"macro_f1_score": 0.7405},
-        "simple-complex": {"macro_f1_score": 0.7352},
-        "harsh-mellow": {"macro_f1_score": 0.7306},
-        "beautiful-ugly": {"macro_f1_score": 0.6944},
-        "abrupt-continuous": {"macro_f1_score": 0.6659},
-        "heavy-light": {"macro_f1_score": 0.6638},
-        "masculine-feminine": {"macro_f1_score": 0.6538},
-        "happy-sad": {"macro_f1_score": 0.6478},
-        "inhibited-free": {"macro_f1_score": 0.6458},
-        "dangerous-safe": {"macro_f1_score": 0.6247},
-        "fast-slow": {"macro_f1_score": 0.5875},
-        "exciting-calming": {"macro_f1_score": 0.5717},
-        "hard-soft": {"macro_f1_score": 0.5678},
-        "solid-nonsolid": {"macro_f1_score": 0.5652},
-        "strong-weak": {"macro_f1_score": 0.5637},
-        "realistic-fantastical": {"macro_f1_score": 0.4330},
+    item['dimension']: {'macro_f1_score': item['average_f1_score']}
+    for item in human_eval_data['ranked_dimensions']
 }
+
 
 def get_color(val):
     green = np.array(to_rgb("#5c940d"))
@@ -55,9 +43,9 @@ def get_model_colors(model_names):
     
     # Define base colors for model families
     family_colors = {
-        'gpt-4o': plt.cm.get_cmap('Blues'),
-        'Qwen': plt.cm.get_cmap('Reds'),
-        'gemini': plt.cm.get_cmap('Greens'),
+        'gpt-4o': plt.colormaps['Blues'],
+        'Qwen': plt.colormaps['Reds'],
+        'gemini': plt.colormaps['Greens'],
     }
     # Group models by family
     model_families = {}
@@ -82,7 +70,7 @@ def get_model_colors(model_names):
             color_map[member_name] = cmap(0.4 + (i / (len(members) -1 if len(members)>1 else 1)) * 0.5)
 
     # Assign colors to other models from a different colormap
-    other_cmap = plt.cm.get_cmap('plasma')
+    other_cmap = plt.colormaps['plasma']
     for i, model_name in enumerate(other_models):
         color_map[model_name] = other_cmap(i / len(other_models) if len(other_models) > 1 else 0.5)
         
@@ -254,6 +242,7 @@ def plot_bar_chart(llm_data, human_eval, save_path_prefix, metric='macro_f1_scor
                         plotted_labels.add(model_name)
 
         ax.set_xlim(0, 1)
+        ax.tick_params(axis='x', labelsize=two_stage_font_size)
         # ax.set_xlabel("Macro-F1 Score", fontsize=one_stage_font_size)
         ax.set_yticks(range(n))
         ax.set_yticklabels([d.replace('-', ' - ') for d in dims_sorted], fontsize=two_stage_font_size)
