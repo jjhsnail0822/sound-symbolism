@@ -4,6 +4,8 @@ import matplotlib.pyplot as plt
 from matplotlib.colors import to_rgb, ListedColormap
 from matplotlib.lines import Line2D
 from collections import defaultdict
+from scipy.stats import pearsonr
+from matplotlib.patches import Patch
 
 natural_languages = ["en", "fr", "ja", "ko"]
 constructed_languages = ["art"]
@@ -76,7 +78,7 @@ def get_model_colors(model_names):
         
     return color_map
 
-def aggregate_score_per_model(json_path, metric='macro_f1_score'):
+def aggregate_score_per_model(json_path, metric='macro_f1_score', target_input_types=None):
     with open(json_path, 'r', encoding='utf-8') as f:
         data = json.load(f)
 
@@ -87,6 +89,8 @@ def aggregate_score_per_model(json_path, metric='macro_f1_score'):
             if word_group not in ['natural', 'constructed']:
                 continue
             for input_type, type_data in group_data.items():
+                if target_input_types and input_type not in target_input_types:
+                    continue
                 for dimension, dim_data in type_data.items():
                     if dimension not in constructed_dims:
                         continue
@@ -133,6 +137,60 @@ def aggregate_score_by_input_type(json_path, metric='macro_f1_score'):
                     final_input_type_scores[input_type][word_group][model_name] = np.mean(scores)
 
     return final_input_type_scores
+
+def aggregate_scores_for_correlation(json_path, metric='macro_f1_score', target_input_types=None):
+    """
+    Aggregates scores for correlation analysis, creating combined groups for 
+    each word group and input type (e.g., 'Natural-Original').
+    """
+    with open(json_path, 'r', encoding='utf-8') as f:
+        data = json.load(f)
+
+    # Structure: scores[model_name][group_key][dimension] = score
+    # group_key will be like 'Natural-Original', 'Constructed-IPA'
+    final_scores = defaultdict(lambda: defaultdict(dict))
+
+    for model_name, model_data in data.items():
+        # Intermediate storage: aggregated_scores[group_key][dimension] = list_of_scores
+        aggregated_scores = defaultdict(lambda: defaultdict(list))
+
+        for word_group, group_data in model_data.items():
+            if word_group not in ['natural', 'constructed']:
+                continue
+            for input_type, type_data in group_data.items():
+                if target_input_types and input_type not in target_input_types:
+                    continue
+                
+                # Create a combined key with desired capitalization, e.g., "Natural-Original"
+                word_group_label_map = {
+                    'natural': 'Nat.',
+                    'constructed': 'Con.'
+                }
+                input_type_label_map = {
+                    'original': 'Original',
+                    'ipa': 'IPA',
+                    'audio': 'Audio',
+                    'original_and_audio': 'Original+Audio',
+                    'ipa_and_audio': 'IPA+Audio'
+                }
+                word_group_label = word_group_label_map.get(word_group, word_group.capitalize())
+                input_type_label = input_type_label_map.get(input_type, input_type)
+                group_key = f"{word_group_label}-{input_type_label}"
+
+                for dimension, dim_data in type_data.items():
+                    if dimension not in constructed_dims:
+                        continue
+                    score = dim_data.get('all', {}).get(metric)
+                    if score is not None:
+                        aggregated_scores[group_key][dimension].append(score)
+
+        # Calculate mean for the new aggregated groups
+        for group_key, dimensions in aggregated_scores.items():
+            for dim, scores in dimensions.items():
+                if scores:
+                    final_scores[model_name][group_key][dim] = np.mean(scores)
+                
+    return final_scores
 
 def plot_bar_chart(llm_data, human_eval, save_path_prefix, metric='macro_f1_score'):
     # Separate scores by word group and prepare for plotting
@@ -252,25 +310,170 @@ def plot_bar_chart(llm_data, human_eval, save_path_prefix, metric='macro_f1_scor
         ax.set_title(group, fontsize=one_stage_font_size, pad=10)
 
     handles, labels = [], []
+    model_display_name_map = {
+        'gpt-4o-2024-05-13': 'GPT-4o',
+        'Qwen2-72B-Instruct': 'Qwen2-72B',
+        'Qwen2-7B-Instruct': 'Qwen2-7B',
+        'Qwen2-1.5B-Instruct': 'Qwen2-1.5B',
+        'Qwen2-0.5B-Instruct': 'Qwen2-0.5B',
+        'gemini-1.5-pro-latest': 'Gemini 1.5 Pro',
+        'gemini-1.5-flash-latest': 'Gemini 1.5 Flash',
+        'gemini-1.0-pro': 'Gemini 1.0 Pro'
+    }
     for model_name in all_model_names:
         if model_name in model_marker_map:
+            display_name = model_display_name_map.get(model_name, model_name)
             handles.append(Line2D([0], [0], marker=model_marker_map[model_name], color='w', 
                                   markerfacecolor=model_name_to_color.get(model_name, 'grey'), 
-                                  markersize=10, label=model_name))
-            labels.append(model_name)
+                                  markersize=10, label=display_name))
+            labels.append(display_name)
     
     if handles:
-        sorted_handles_labels = sorted(zip(handles, labels), key=lambda x: all_model_names.index(x[1]))
-        handles, labels = zip(*sorted_handles_labels)
-        fig.legend(handles, labels, loc='upper center', bbox_to_anchor=(0.5, 0.08), ncol=len(handles), fontsize=one_stage_font_size-4)
+        # Sorting based on original names to maintain order, but using display names for labels
+        sorted_handles_labels = sorted(zip(handles, all_model_names), key=lambda x: all_model_names.index(x[1]))
+        handles, _ = zip(*sorted_handles_labels)
+        # Get display names in the new sorted order
+        sorted_labels = [model_display_name_map.get(name, name) for name in sorted(all_model_names)]
 
-    plt.tight_layout(rect=[0, 0.1, 1, 1])
+        fig.legend(handles, sorted_labels, loc='upper center', bbox_to_anchor=(0.5, 0.08), ncol=len(handles), fontsize=one_stage_font_size-4)
+
+    plt.tight_layout(rect=[0, 0.05, 1, 1])
     save_path = f"{save_path_prefix}_bar_comparison.png"
-    plt.savefig(save_path, bbox_inches='tight')
+    plt.savefig(save_path, bbox_inches='tight', dpi=300)
     print(f"Saved plot to {save_path}")
     save_path_pdf = f"{save_path_prefix}_bar_comparison.pdf"
-    plt.savefig(save_path_pdf, bbox_inches='tight')
+    plt.savefig(save_path_pdf, bbox_inches='tight', dpi=300)
     print(f"Saved plot to {save_path_pdf}")
+    plt.close()
+
+    return avg_natural_scores, avg_constructed_scores
+
+
+def plot_correlation_with_human(correlation_data, human_eval, save_path_prefix, metric='macro_f1_score'):
+    """
+    Calculates and plots Pearson correlation between model scores and human scores,
+    grouped by word group and input type.
+    """
+    all_model_names = sorted(correlation_data.keys())
+    dims = [d for d in constructed_dims if d in human_eval]
+    human_scores_list = [human_eval.get(dim, {}).get(metric, np.nan) for dim in dims]
+
+    # Define a fixed order and labels for the groups
+    group_order = [
+        'Nat.-Original', 'Nat.-IPA', 'Nat.-Audio',
+        'Con.-Original', 'Con.-IPA', 'Con.-Audio'
+    ]
+    
+    # Filter groups to only those present in the data
+    all_groups_present = set()
+    for model_data in correlation_data.values():
+        all_groups_present.update(model_data.keys())
+    plot_groups = [g for g in group_order if g in all_groups_present]
+
+    correlations = defaultdict(dict)
+
+    for model_name in all_model_names:
+        for group in plot_groups:
+            if group in correlation_data[model_name]:
+                model_scores = [correlation_data[model_name][group].get(dim, np.nan) for dim in dims]
+                valid_pairs = [(h, m) for h, m in zip(human_scores_list, model_scores) if not np.isnan(h) and not np.isnan(m)]
+                
+                if len(valid_pairs) > 1:
+                    h_scores, m_scores = zip(*valid_pairs)
+                    corr, _ = pearsonr(h_scores, m_scores)
+                    correlations[model_name][group] = corr
+                else:
+                    correlations[model_name][group] = np.nan
+
+    # --- Plotting ---
+    n_groups = len(plot_groups)
+    n_models = len(all_model_names)
+    fig, ax = plt.subplots(figsize=(8, 6))
+
+    index = np.arange(n_models)
+    bar_width = 0.8 / n_groups
+    
+    # Define a fixed order for models
+    model_order = [
+        'Qwen2.5-Omni-3B',
+        'Qwen2.5-Omni-7B',
+        'gemini-2.5-flash',
+        'gpt-4o',
+    ]
+    order_map = {name: i for i, name in enumerate(model_order)}
+    sorted_models = sorted(all_model_names, key=lambda m: order_map.get(m, len(model_order)))
+
+    model_display_name_map = {
+        'Qwen2.5-Omni-3B': 'Qwen-3B',
+        'Qwen2.5-Omni-7B': 'Qwen-7B',
+        'gemini-2.5-flash': 'Gemini',
+        'gpt-4o': 'GPT',
+    }
+
+    # --- Print correlations to terminal ---
+    print("\n--- Pearson Correlation with Human Scores ---")
+    for model_name in sorted_models:
+        display_name = model_display_name_map.get(model_name, model_name)
+        print(f"Model: {display_name}")
+        for group in plot_groups:
+            corr_value = correlations[model_name].get(group)
+            if corr_value is not None and not np.isnan(corr_value):
+                print(f"  - {group}: {corr_value:.3f}")
+            else:
+                print(f"  - {group}: N/A")
+    print("-----------------------------------------\n")
+
+    # Define colors and hatches for bars
+    natural_colors = plt.get_cmap('Greens')(np.linspace(0.4, 0.9, 3))
+    constructed_colors = plt.get_cmap('Oranges')(np.linspace(0.4, 0.9, 3))
+    color_map = {
+        'Nat.-Original': natural_colors[0], 'Nat.-IPA': natural_colors[1], 'Nat.-Audio': natural_colors[2],
+        'Con.-Original': constructed_colors[0], 'Con.-IPA': constructed_colors[1], 'Con.-Audio': constructed_colors[2]
+    }
+    hatch_map = {
+        'Nat.-Original': '',           # no hatch
+        'Nat.-IPA': '///',             # diagonal forward
+        'Nat.-Audio': 'xxx',           # cross
+        'Con.-Original': '\\\\\\', # diagonal backward
+        'Con.-IPA': '...',         # dots
+        'Con.-Audio': '++',        # plus
+    }
+
+    for i, group in enumerate(plot_groups):
+        corrs = [correlations[m].get(group, np.nan) for m in sorted_models]
+        pos = index - (bar_width * (n_groups - 1) / 2) + (i * bar_width)
+        ax.bar(pos, corrs, bar_width, label=group, 
+               color=color_map.get(group), 
+               hatch=hatch_map.get(group), 
+               edgecolor='black')
+
+    # ax.set_ylabel('Pearson Correlation with Human Scores', fontsize=16)
+    # ax.set_title('Model vs. Human Score Correlation by Group', fontsize=18, pad=20)
+    ax.set_xticks(index)
+    xtick_labels = [model_display_name_map.get(m, m) for m in sorted_models]
+    ax.set_xticklabels(xtick_labels, fontsize=20)
+    ax.tick_params(axis='y', labelsize=20)
+    ax.set_ylim(-0.4, 1.0)
+    ax.axhline(0, color='grey', linestyle='--', alpha=0.7)
+    ax.grid(True, axis='y', linestyle='--', alpha=0.6)
+
+    legend_elements = []
+    for group in plot_groups:
+        legend_elements.append(Patch(facecolor=color_map.get(group),
+                                     edgecolor='black',
+                                     hatch=hatch_map.get(group),
+                                     label=group))
+    
+    ax.legend(handles=legend_elements, fontsize=16, loc='upper left')
+
+    plt.tight_layout()
+
+    save_path = f"{save_path_prefix}_human_correlation_plot.png"
+    plt.savefig(save_path, dpi=300)
+    print(f"Saved correlation plot to {save_path}")
+    save_path_pdf = f"{save_path_prefix}_human_correlation_plot.pdf"
+    plt.savefig(save_path_pdf, dpi=300)
+    print(f"Saved correlation plot to {save_path_pdf}")
     plt.close()
 
 
@@ -366,14 +569,25 @@ def plot_input_type(llm_data, save_path_prefix, metric='macro_f1_score'):
             )
 
     # --- Legend ---
+    model_display_name_map = {
+        'gpt-4o-2024-05-13': 'GPT-4o',
+        'Qwen2-72B-Instruct': 'Qwen2-72B',
+        'Qwen2-7B-Instruct': 'Qwen2-7B',
+        'Qwen2-1.5B-Instruct': 'Qwen2-1.5B',
+        'Qwen2-0.5B-Instruct': 'Qwen2-0.5B',
+        'gemini-1.5-pro-latest': 'Gemini 1.5 Pro',
+        'gemini-1.5-flash-latest': 'Gemini 1.5 Flash',
+        'gemini-1.0-pro': 'Gemini 1.0 Pro'
+    }
     legend_elements = []
     # for word_type, color in word_type_colors.items():
     #     legend_elements.append(Line2D([0], [0], marker='o', color='w', label=word_type.title(),
     #                                   markerfacecolor=color, markersize=12))
     for model_name, marker in model_marker_map.items():
-        legend_elements.append(Line2D([0], [0], marker=marker, color='w', label=model_name,
+        display_name = model_display_name_map.get(model_name, model_name)
+        legend_elements.append(Line2D([0], [0], marker=marker, color='w', label=display_name,
                                       markerfacecolor='grey', markersize=10))
-    ax.legend(handles=legend_elements, loc='lower center', bbox_to_anchor=(0.5, 0.0), ncol=2, fontsize=two_stage_font_size - 2)
+    ax.legend(handles=legend_elements, loc='lower center', bbox_to_anchor=(0.5, -0.3), ncol=3, fontsize=two_stage_font_size - 4)
 
     # --- Axes and Grid ---
     ax.set_xticks(x_tick_pos)
@@ -389,10 +603,10 @@ def plot_input_type(llm_data, save_path_prefix, metric='macro_f1_score'):
     
     # --- Save Plot ---
     save_path_png = f"{save_path_prefix}_input_type_scatter.png"
-    plt.savefig(save_path_png, bbox_inches='tight', pad_inches=0.5)
+    plt.savefig(save_path_png, bbox_inches='tight', dpi=300)
     print(f"Saved scatter plot to {save_path_png}")
     save_path_pdf = f"{save_path_prefix}_input_type_scatter.pdf"
-    plt.savefig(save_path_pdf, bbox_inches='tight', pad_inches=0.5)
+    plt.savefig(save_path_pdf, bbox_inches='tight', dpi=300)
     print(f"Saved scatter plot to {save_path_pdf}")
     plt.close()
 
@@ -401,8 +615,16 @@ json_path = 'results/statistics/semdim_stat.json'
 save_path_prefix = 'results/plots/semantic_dimension'
 metric = 'macro_f1_score'
 
-results_per_model = aggregate_score_per_model(json_path, metric)
+target_types = [
+    'original',
+    # 'original_and_audio',
+    'ipa',
+    # 'ipa_and_audio',
+    'audio',
+    ]
+results_per_model = aggregate_score_per_model(json_path, metric, target_input_types=target_types)
 results_by_input_type = aggregate_score_by_input_type(json_path, metric)
+correlation_data = aggregate_scores_for_correlation(json_path, metric, target_input_types=target_types)
 
 # debug scores
 for model_name, word_groups in results_per_model.items():
@@ -411,6 +633,14 @@ for model_name, word_groups in results_per_model.items():
         print(f"  Word Group: {word_group}")
         for dim, score in dimensions.items():
             print(f"    {dim}: {score:.3f}")
-
-plot_bar_chart(results_per_model, human_eval_result, save_path_prefix)
+average_natural_scores, average_constructed_scores = plot_bar_chart(results_per_model, human_eval_result, save_path_prefix)
+plot_correlation_with_human(correlation_data, human_eval_result, save_path_prefix)
 plot_input_type(results_by_input_type, save_path_prefix)
+
+# debug average scores
+print("\nAverage Natural Scores:")
+for dim, score in average_natural_scores.items():
+    print(f"  {dim}: {score['macro_f1_score']:.3f}")
+print("\nAverage Constructed Scores:")
+for dim, score in average_constructed_scores.items():
+    print(f"  {dim}: {score['macro_f1_score']:.3f}")

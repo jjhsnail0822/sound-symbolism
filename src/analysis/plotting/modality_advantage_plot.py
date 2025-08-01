@@ -43,7 +43,7 @@ def print_stats(df):
 
 def plot_modality_advantage(df, lang, mod1, mod2, all_models_only=False):
     """
-    특정 언어와 두 가지 모달리티 간의 성능 비교를 시각화하는 함수
+    Function to visualize the performance comparison between two modalities for a specific language.
     :param df: DataFrame containing the data
     :param lang: Language to filter the DataFrame
     :param mod1: First modality to compare (e.g., 'audio')
@@ -124,10 +124,10 @@ def plot_modality_advantage(df, lang, mod1, mod2, all_models_only=False):
 
         difference_sorted = dfs_sorted[0] - dfs_sorted[1]
 
-        # 차이가 양수에서 음수로 바뀌는 지점 찾기
+        # Find the point where the difference changes from positive to negative
         for idx in range(len(difference_sorted) - 1):
             if difference_sorted.iloc[idx] > 0 and difference_sorted.iloc[idx + 1] < 0:
-                # 정확한 교차점 위치 계산 (선형 보간)
+                # Calculate the exact crossover point (linear interpolation)
                 cross_point = idx + difference_sorted.iloc[idx] / (difference_sorted.iloc[idx] - difference_sorted.iloc[idx + 1])
                 ax.axvline(x=cross_point, color='green', linestyle='--', linewidth=2, alpha=0.7, label='Crossover')
                 break
@@ -142,7 +142,7 @@ def plot_modality_advantage(df, lang, mod1, mod2, all_models_only=False):
         ax.set_xticks(x_positions)
         ax.set_xticklabels(sorted_dims, rotation=45, ha='right')
    
-    # 빈 서브플롯 제거 (모델 수가 홀수인 경우)
+    # Remove empty subplots (if the number of models is odd)
     if n_models < len(axes):
         for j in range(n_models, len(axes)):
             fig.delaxes(axes[j])
@@ -151,7 +151,8 @@ def plot_modality_advantage(df, lang, mod1, mod2, all_models_only=False):
                  f'Comparison of {mod1} and {mod2} modalities across models',
                     fontsize=14, fontweight='bold')
     plt.tight_layout()
-    plt.show()
+    plt.savefig(f'results/plots/modality_advantage_{lang}_{mod1}_{mod2}.pdf', dpi=300)
+    plt.savefig(f'results/plots/modality_advantage_{lang}_{mod1}_{mod2}.png', dpi=300)
 
 
 def statistical_significance_analysis(df, lang=None):
@@ -166,20 +167,20 @@ def statistical_significance_analysis(df, lang=None):
             print(f"Unknown language type: {lang}. Using all data.")
             
     
-    # 각 의미 차원별로 paired t-test 실시
+    # Perform paired t-test for each semantic dimension
     for dim in df['sem_dim'].unique():
         dim_data = df[df['sem_dim'] == dim]
         audio_scores = dim_data[dim_data['input_type']=='audio']['macro_f1'].values
         text_scores = dim_data[dim_data['input_type']=='original']['macro_f1'].values
         
         if len(audio_scores) > 0 and len(text_scores) > 0:
-            # Paired t-test (정규분포 가정)
+            # Paired t-test (assuming normal distribution)
             t_stat, p_value = ttest_rel(audio_scores, text_scores)
             
-            # Wilcoxon signed-rank test (비모수적)
+            # Wilcoxon signed-rank test (non-parametric)
             w_stat, w_p_value = wilcoxon(audio_scores, text_scores)
             
-            # 효과 크기 (Cohen's d)
+            # Effect size (Cohen's d)
             mean_diff = np.mean(audio_scores) - np.mean(text_scores)
             pooled_std = np.sqrt(((np.std(audio_scores)**2 + np.std(text_scores)**2) / 2))
             cohens_d = mean_diff / pooled_std if pooled_std > 0 else 0
@@ -197,7 +198,7 @@ def statistical_significance_analysis(df, lang=None):
 
 def modality_advantage_correlation(df, lang1, lang2, mod1, mod2, model=None):
     """
-    두 가지 모달리티 간의 차이의 언어에 따른 상관관계를 시각화하는 함수
+    Function to visualize the correlation of modality differences between two languages.
     :param df: DataFrame containing the data
     :param lang1: First language to compare
     :param lang2: Second language to compare
@@ -236,7 +237,7 @@ def modality_advantage_correlation(df, lang1, lang2, mod1, mod2, model=None):
         
         dfs.append(dfs_sorted)
 
-    # 두 언어의 모달리티 차이 비교
+    # Compare modality differences between the two languages
     lang1_dfs, lang2_dfs = dfs
     lang1_advantage = lang1_dfs[0] - lang1_dfs[1]
     lang2_advantage = lang2_dfs[0] - lang2_dfs[1]
@@ -246,12 +247,12 @@ def modality_advantage_correlation(df, lang1, lang2, mod1, mod2, model=None):
     lang1_advantage_values = lang1_advantage_common.values
     lang2_advantage_values = lang2_advantage_common.values
     
-    # 피어슨 상관계수 계산
+    # Calculate Pearson correlation coefficient
     pearson_corr, pearson_p = stats.pearsonr(lang1_advantage_values, lang2_advantage_values)    
-    # 스피어만 상관계수도 함께 계산 (참고용)
+    # Also calculate Spearman correlation (for reference)
     spearman_corr, spearman_p = stats.spearmanr(lang1_advantage_values, lang2_advantage_values) 
 
-    # 색상 설정 로직 수정: 두 언어의 패턴을 모두 고려
+    # Color setting logic: consider patterns of both languages
     dimension_groups = {
         'audio_dominant': [],
         'text_dominant': [],
@@ -265,74 +266,123 @@ def modality_advantage_correlation(df, lang1, lang2, mod1, mod2, model=None):
         val2 = lang2_advantage_values[i]
         
         if val1 > 0 and val2 > 0:
-            # 두 언어 모두 audio dominant
+            # Both languages are audio dominant
             colors.append('darkblue')
             dimension_groups['audio_dominant'].append(common_dims[i])
         elif val1 < 0 and val2 < 0:
-            # 두 언어 모두 text dominant  
+            # Both languages are text dominant  
             colors.append('darkred')
             dimension_groups['text_dominant'].append(common_dims[i])
         elif val1 > 0 and val2 < 0:
-            # lang1은 audio, lang2는 text dominant
+            # lang1 is audio, lang2 is text dominant
             colors.append('lightblue')
             dimension_groups['mixed_audio_text'].append(common_dims[i])
         elif val1 < 0 and val2 > 0:
-            # lang1은 text, lang2는 audio dominant
+            # lang1 is text, lang2 is audio dominant
             colors.append('lightcoral')
             dimension_groups['mixed_text_audio'].append(common_dims[i])
         else:
-            # 경계값 (0에 가까운 경우)
+            # Boundary values (close to 0)
             colors.append('gray')
             dimension_groups['neutral'].append(common_dims[i])
 
     # Plotting
-    plt.figure(figsize=(12, 10))
-    plt.scatter(lang1_advantage_values, lang2_advantage_values,
-                alpha=0.7, s=100, c=colors, edgecolors='black') 
+    plt.figure(figsize=(8, 6))
+
+    # Define dimensions to distinguish with a different marker
+    dims_to_annotate = [
+        'big-small',
+        'fast-slow',
+        'sharp-round',
+        'beautiful-ugly',
+        'happy-sad',
+    ]
     
-    for i, dim in enumerate(common_dims):
-        plt.annotate(dim, (lang1_advantage_values[i], lang2_advantage_values[i]), 
-                     xytext=(5, 5), textcoords='offset points', fontsize=10, alpha=0.9)
-    
+    # Separate data for plotting
+    annotated_indices = [i for i, dim in enumerate(common_dims) if dim in dims_to_annotate]
+    other_indices = [i for i, dim in enumerate(common_dims) if dim not in dims_to_annotate]
+
+    # Plot other dimensions
+    plt.scatter([lang1_advantage_values[i] for i in other_indices], 
+                [lang2_advantage_values[i] for i in other_indices],
+                alpha=0.6, s=100, c=[colors[i] for i in other_indices], 
+                edgecolors='black', marker='o', label='Other Dimensions')
+
+    # Plot annotated dimensions with a different marker and add to legend
+    markers = ['s', 'D', '^', 'v', '*']
+    for i, idx in enumerate(annotated_indices):
+        dim = common_dims[idx]
+        marker = markers[i % len(markers)]
+        plt.scatter(lang1_advantage_values[idx], lang2_advantage_values[idx],
+                    alpha=0.9, s=150, c=colors[idx], edgecolors='black', 
+                    marker=marker, label=dim)
+
     plt.axhline(y=0, color='gray', linestyle='-', alpha=0.5, linewidth=1)
     plt.axvline(x=0, color='gray', linestyle='-', alpha=0.5, linewidth=1)
-    
+
+    # font size of x and y axis
+    ax = plt.gca()
+    ax.tick_params(axis='both', which='major', labelsize=20)
+    ax.locator_params(axis='x', nbins=7)
+    ax.locator_params(axis='y', nbins=10)
+
     min_val = min(min(lang1_advantage_values), min(lang2_advantage_values))
     max_val = max(max(lang1_advantage_values), max(lang2_advantage_values))
     plt.plot([min_val, max_val], [min_val, max_val], 'black', linestyle='--', 
-             alpha=0.7, linewidth=2, label='Perfect correlation (y=x)')
+             alpha=0.7, linewidth=2)
     
     slope, intercept, r_value, p_value, std_err = stats.linregress(lang1_advantage_values, lang2_advantage_values)
     line_x = np.array([min_val, max_val])
     line_y = slope * line_x + intercept
     plt.plot(line_x, line_y, 'g-', alpha=0.8, linewidth=2, 
-             label=f'Regression line (R²={r_value**2:.3f})')      
-    
-    plt.xlabel(f'{lang1.upper()} {mod1.capitalize()} Advantage (F1 {mod1} - F1 {mod2})', fontsize=12)
-    plt.ylabel(f'{lang2.upper()} {mod1.capitalize()} Advantage (F1 {mod1} - F1 {mod2})', fontsize=12)
-    plt.title(f'{mod1.capitalize()} vs {mod2.capitalize()} Advantage: {lang1.upper()} vs {lang2.upper()}\n'
-              f'Pearson r = {pearson_corr:.3f}, p = {pearson_p:.3f}\n'
-              f'Spearman r = {spearman_corr:.3f}, p = {spearman_p:.3f}', fontsize=14)
+             label=f'Regression line\n(R²={r_value**2:.3f})')      
+
+    # plt.xlabel(f'{mod1.capitalize()} Advantage for {lang1.capitalize()}', fontsize=20)
+    # plt.ylabel(f'{mod1.capitalize()} Advantage for {lang2.capitalize()}', fontsize=20)
+    # plt.title(f'{mod1.capitalize()} Advantage over {mod2.capitalize()} Text Modality', fontsize=20)
+            #   f'Pearson r = {pearson_corr:.3f}, p = {pearson_p:.3f}\n'
+            #   f'Spearman r = {spearman_corr:.3f}, p = {spearman_p:.3f}', fontsize=20)
 
   
-    legend_elements = [
-        plt.Line2D([0], [0], color='black', linestyle='--', alpha=0.7, linewidth=2, 
-                   label='Perfect correlation'),
-        plt.Line2D([0], [0], color='g', alpha=0.8, linewidth=2, 
-                   label=f'Regression line (R²={r_value**2:.3f})'),
-        Patch(facecolor='darkblue', alpha=0.7, label='Both languages: Audio dominant'),
-        Patch(facecolor='darkred', alpha=0.7, label='Both languages: Text dominant'),
-        Patch(facecolor='lightblue', alpha=0.7, label=f'{lang1}: Audio, {lang2}: Text'),
-        Patch(facecolor='lightcoral', alpha=0.7, label=f'{lang1}: Text, {lang2}: Audio'),
-        Patch(facecolor='gray', alpha=0.7, label='Neutral/Mixed')
-    ]
-    plt.legend(handles=legend_elements, fontsize=10, loc='best')
+    # Re-create legend to include new markers
+    handles, labels = plt.gca().get_legend_handles_labels()
+    
+    # Order for the legend
+    order = []
+    # Find regression line and move to front
+    for i, label in enumerate(labels):
+        if 'Regression line' in label:
+            order.insert(0, i)
+        else:
+            order.append(i)
+
+    # Find 'Other Dimensions' and move to the end of the non-regression line items
+    try:
+        other_dims_idx = labels.index('Other Dimensions')
+        other_dims_order_idx = order.index(other_dims_idx)
+        order.pop(other_dims_order_idx)
+        order.append(other_dims_idx)
+        
+        # Set the legend marker color to gray
+        handles[other_dims_idx].set_facecolor('gray')
+    except (ValueError, IndexError):
+        # 'Other Dimensions' not found or already handled
+        pass
+
+    # Apply the new order
+    ordered_handles = [handles[i] for i in order]
+    ordered_labels = [labels[i] for i in order]
+
+    plt.legend(handles=ordered_handles, labels=ordered_labels, fontsize=20, loc='best')
     plt.grid(True, alpha=0.3)
     plt.tight_layout()
-    plt.show()
-    
-    # 패턴 분석 결과 출력
-    print(f"\n=== Pattenr Analysis ===")
+    # save into pdf 300dpi
+    # save into png 300dpi
+    plt.savefig(f'results/plots/modality_advantage_{lang1}_{lang2}_{mod1}_{mod2}.pdf', dpi=300)
+    plt.savefig(f'results/plots/modality_advantage_{lang1}_{lang2}_{mod1}_{mod2}.png', dpi=300)
+
+    # Print pattern analysis results
+    print(f"\n=== Pattern Analysis ===")
     print(f"Pearson correlation: {pearson_corr:.3f}, p-value: {pearson_p:.3f}")
     print(f"Spearman correlation: {spearman_corr:.3f}, p-value: {spearman_p:.3f}")
     print(f"Dimension groups:")
@@ -344,19 +394,13 @@ def modality_advantage_correlation(df, lang1, lang2, mod1, mod2, model=None):
     
     return pearson_corr, pearson_p, spearman_corr, spearman_p, dimension_groups
 
+json_path = 'results/statistics/semdim_stat.json'
+data = load_json(json_path)
+df = convert_to_dataframe(data)
 
-def main():
-    json_path = 'semdim_stat.json'
-    data = load_json(json_path)
-    df = convert_to_dataframe(data)
-        
-    df = df.drop(df[df['lang'] =='all'].index, axis=0)
-    df = df.drop(df[df['lang'] == 'all_sum'].index, axis=0)
+df = df.drop(df[df['lang'] =='all'].index, axis=0)
+df = df.drop(df[df['lang'] == 'all_sum'].index, axis=0)
 
-    print_stats(df)
+print_stats(df)
 
-    modality_advantage_correlation(df, lang1='constructed', lang2='natural', mod1='audio', mod2='original')
-
-
-
-
+modality_advantage_correlation(df, lang1='natural', lang2='constructed', mod1='audio', mod2='original')
