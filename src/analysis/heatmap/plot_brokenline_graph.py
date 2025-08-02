@@ -276,6 +276,21 @@ def load_and_plot_from_file(file_path: str,
 # Example usage
 if __name__ == "__main__":
     # Example parameters
+    base_file_path = "src/analysis/heatmap/results/np_{data_type}_{lang}_{compute_rule}_check_model_response_True_L{layer_start}_L{layer_end}_sampling_every_1_processed_words_{processed_words}{suffix}.pkl"
+    file_spec_list = [
+        # ("audio", "Constructed", "answer_only", 0, 27, 2678, ""),
+        ("audio", "Constructed", "fraction", 0, 27, 2665, "_layer_stats"),
+        ("ipa", "Natural", "fraction", 0, 27, 4981, "_layer_stats"),
+        ("ipa", "Natural", "fraction", 18, 27, 4981, "_layer_stats"),
+        ("ipa", "Natural", "fraction", 9, 17, 4981, "_layer_stats"),
+        ("ipa", "Natural", "fraction", 0, 8, 4981, "_layer_stats"),
+        ("ipa", "Constructed", "fraction", 0, 8, 2679, "_layer_stats"),
+        ("ipa", "Constructed", "fraction", 9, 17, 2679, "_layer_stats"),
+        ("ipa", "Constructed", "answer_only", 0, 27, 2672, "_layer_stats"),
+        ("ipa", "Constructed", "fraction", 9, 17, 2679, "_layer_stats"),
+        ("ipa", "Constructed", "fraction", 0, 27, 2606, "_layer_stats"),
+        ("ipa", "Constructed", "fraction", 0, 8, 2679, "_layer_stats"),
+    ]
     file_path = "src/analysis/heatmap/results/np_audio_Constructed_fraction_check_model_response_True_0_27_sampling_every_1_processed_words_2665.pkl"
     data_type = "audio"
     lang = "Constructed"

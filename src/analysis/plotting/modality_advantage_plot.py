@@ -43,14 +43,12 @@ def print_stats(df):
 
 def plot_modality_advantage(df, lang, mod1, mod2, all_models_only=False):
     """
-    특정 언어와 두 가지 모달리티 간의 성능 비교를 시각화하는 함수
     :param df: DataFrame containing the data
     :param lang: Language to filter the DataFrame
     :param mod1: First modality to compare (e.g., 'audio')
     :param mod2: Second modality to compare (e.g., 'original')  
     """
 
-    # Model list
     if all_models_only:
         models = ['ALL_MODELS']
     else:
@@ -58,7 +56,6 @@ def plot_modality_advantage(df, lang, mod1, mod2, all_models_only=False):
         models.append('ALL_MODELS') 
     n_models = len(models)
 
-    # Subplots
     if n_models > 1:
         n_cols = 2
         n_rows = (n_models + 1) // 2
@@ -78,16 +75,13 @@ def plot_modality_advantage(df, lang, mod1, mod2, all_models_only=False):
         axes = [axes] if n_cols == 1 else [axes[0]]
         
     
-    # Models
     for i, model in enumerate(models):
-        # Filtering DataFrame for the current model
         if model == 'ALL_MODELS':
             model_df = df
         else:
             model_df = df[df['model'] == model]
         # print(f'[DEBUG] Model DF Length : {len(model_df)}')
 
-        # Filtering by language or type
         if lang in ['en', 'ko', 'ja', 'fr', 'art']:
             model_df = model_df[model_df['lang'] == lang]
             # print(f"[DEBUG] Filtered by language: {lang}, remaining rows: {len(model_df)}")
@@ -97,7 +91,6 @@ def plot_modality_advantage(df, lang, mod1, mod2, all_models_only=False):
         else:
             print(f"Unknown language type: {lang}. Using all data.")
 
-        # Grouping by semantic dimension and calculating mean F1 scores
         dfs = []
         for input_type in [mod1, mod2]:
             input_df = model_df[model_df['input_type'] == input_type]
@@ -113,7 +106,6 @@ def plot_modality_advantage(df, lang, mod1, mod2, all_models_only=False):
         dfs_sorted = [df[sorted_dims] for df in dfs_common]
         
 
-        # Drawing the plots
         ax = axes[i]
         x_positions = range(len(sorted_dims))
 
@@ -124,10 +116,8 @@ def plot_modality_advantage(df, lang, mod1, mod2, all_models_only=False):
 
         difference_sorted = dfs_sorted[0] - dfs_sorted[1]
 
-        # 차이가 양수에서 음수로 바뀌는 지점 찾기
         for idx in range(len(difference_sorted) - 1):
             if difference_sorted.iloc[idx] > 0 and difference_sorted.iloc[idx + 1] < 0:
-                # 정확한 교차점 위치 계산 (선형 보간)
                 cross_point = idx + difference_sorted.iloc[idx] / (difference_sorted.iloc[idx] - difference_sorted.iloc[idx + 1])
                 ax.axvline(x=cross_point, color='green', linestyle='--', linewidth=2, alpha=0.7, label='Crossover')
                 break
@@ -142,7 +132,6 @@ def plot_modality_advantage(df, lang, mod1, mod2, all_models_only=False):
         ax.set_xticks(x_positions)
         ax.set_xticklabels(sorted_dims, rotation=45, ha='right')
    
-    # 빈 서브플롯 제거 (모델 수가 홀수인 경우)
     if n_models < len(axes):
         for j in range(n_models, len(axes)):
             fig.delaxes(axes[j])
@@ -165,21 +154,16 @@ def statistical_significance_analysis(df, lang=None):
         else:
             print(f"Unknown language type: {lang}. Using all data.")
             
-    
-    # 각 의미 차원별로 paired t-test 실시
     for dim in df['sem_dim'].unique():
         dim_data = df[df['sem_dim'] == dim]
         audio_scores = dim_data[dim_data['input_type']=='audio']['macro_f1'].values
         text_scores = dim_data[dim_data['input_type']=='original']['macro_f1'].values
         
         if len(audio_scores) > 0 and len(text_scores) > 0:
-            # Paired t-test (정규분포 가정)
             t_stat, p_value = ttest_rel(audio_scores, text_scores)
             
-            # Wilcoxon signed-rank test (비모수적)
             w_stat, w_p_value = wilcoxon(audio_scores, text_scores)
             
-            # 효과 크기 (Cohen's d)
             mean_diff = np.mean(audio_scores) - np.mean(text_scores)
             pooled_std = np.sqrt(((np.std(audio_scores)**2 + np.std(text_scores)**2) / 2))
             cohens_d = mean_diff / pooled_std if pooled_std > 0 else 0
@@ -197,7 +181,6 @@ def statistical_significance_analysis(df, lang=None):
 
 def modality_advantage_correlation(df, lang1, lang2, mod1, mod2, model=None):
     """
-    두 가지 모달리티 간의 차이의 언어에 따른 상관관계를 시각화하는 함수
     :param df: DataFrame containing the data
     :param lang1: First language to compare
     :param lang2: Second language to compare
@@ -207,10 +190,8 @@ def modality_advantage_correlation(df, lang1, lang2, mod1, mod2, model=None):
     dfs = []
     for lang in [lang1, lang2]:
         if model is not None:
-            # Filtering DataFrame for the current model
             df = df[df['model'] == model]
             print(f"[DEBUG] Filtered by model: {model}, remaining rows: {len(df)}")
-        # Filtering DataFrame for the current language
         if lang in ['en', 'ko', 'ja', 'fr', 'art']:
             lang_df = df[df['lang'] == lang]
         elif lang in ['constructed', 'natural']:
@@ -219,7 +200,6 @@ def modality_advantage_correlation(df, lang1, lang2, mod1, mod2, model=None):
             print(f"Unknown language type: {lang}. Using all data.")
             lang_df = df
 
-        # Grouping by semantic dimension and calculating mean F1 scores
         dfs_lang = []
         for input_type in [mod1, mod2]:
             input_df = lang_df[lang_df['input_type'] == input_type]
@@ -236,7 +216,6 @@ def modality_advantage_correlation(df, lang1, lang2, mod1, mod2, model=None):
         
         dfs.append(dfs_sorted)
 
-    # 두 언어의 모달리티 차이 비교
     lang1_dfs, lang2_dfs = dfs
     lang1_advantage = lang1_dfs[0] - lang1_dfs[1]
     lang2_advantage = lang2_dfs[0] - lang2_dfs[1]
@@ -246,12 +225,9 @@ def modality_advantage_correlation(df, lang1, lang2, mod1, mod2, model=None):
     lang1_advantage_values = lang1_advantage_common.values
     lang2_advantage_values = lang2_advantage_common.values
     
-    # 피어슨 상관계수 계산
     pearson_corr, pearson_p = stats.pearsonr(lang1_advantage_values, lang2_advantage_values)    
-    # 스피어만 상관계수도 함께 계산 (참고용)
     spearman_corr, spearman_p = stats.spearmanr(lang1_advantage_values, lang2_advantage_values) 
 
-    # 색상 설정 로직 수정: 두 언어의 패턴을 모두 고려
     dimension_groups = {
         'audio_dominant': [],
         'text_dominant': [],
@@ -265,27 +241,21 @@ def modality_advantage_correlation(df, lang1, lang2, mod1, mod2, model=None):
         val2 = lang2_advantage_values[i]
         
         if val1 > 0 and val2 > 0:
-            # 두 언어 모두 audio dominant
             colors.append('darkblue')
             dimension_groups['audio_dominant'].append(common_dims[i])
         elif val1 < 0 and val2 < 0:
-            # 두 언어 모두 text dominant  
             colors.append('darkred')
             dimension_groups['text_dominant'].append(common_dims[i])
         elif val1 > 0 and val2 < 0:
-            # lang1은 audio, lang2는 text dominant
             colors.append('lightblue')
             dimension_groups['mixed_audio_text'].append(common_dims[i])
         elif val1 < 0 and val2 > 0:
-            # lang1은 text, lang2는 audio dominant
             colors.append('lightcoral')
             dimension_groups['mixed_text_audio'].append(common_dims[i])
         else:
-            # 경계값 (0에 가까운 경우)
             colors.append('gray')
             dimension_groups['neutral'].append(common_dims[i])
 
-    # Plotting
     plt.figure(figsize=(12, 10))
     plt.scatter(lang1_advantage_values, lang2_advantage_values,
                 alpha=0.7, s=100, c=colors, edgecolors='black') 
@@ -331,8 +301,7 @@ def modality_advantage_correlation(df, lang1, lang2, mod1, mod2, model=None):
     plt.tight_layout()
     plt.show()
     
-    # 패턴 분석 결과 출력
-    print(f"\n=== Pattenr Analysis ===")
+    print(f"\n=== Pattern Analysis ===")
     print(f"Pearson correlation: {pearson_corr:.3f}, p-value: {pearson_p:.3f}")
     print(f"Spearman correlation: {spearman_corr:.3f}, p-value: {spearman_p:.3f}")
     print(f"Dimension groups:")
