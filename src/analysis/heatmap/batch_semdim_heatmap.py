@@ -1,6 +1,6 @@
-# Model : Qwen2.5-Omni-7B
-# python src/analysis/heatmap/batch_semdim_heatmap.py --data-type ipa --language ko --max-samples 1000
-# python src/analysis/heatmap/batch_semdim_heatmap.py --max-samples 3000 --data-type ipa --batch-size 1 --language en
+# Model : Qwen2.5-Omni-3B
+# python src/analysis/heatmap/batch_semdim_heatmap.py --data-type audio --language ko --max-samples 2000
+# python src/analysis/heatmap/batch_semdim_heatmap.py --max-samples 3000 --data-type ipa --batch-size 1 --language ko
 import json
 import re
 import os
@@ -63,7 +63,7 @@ class QwenOmniSemanticDimensionVisualizer:
         self.load_base_prompt()
         self.processor = Qwen2_5OmniProcessor.from_pretrained(self.model_path)
         self.data = self.load_data()
-        self.model_name = "qwen-7B" if "7B" in self.model_path else "qwen-3B"
+        self.model_name = "qwen-3B" if "3B" in self.model_path else "qwen-3B"
     
     def load_base_prompt(self):
         self.prompts = prompts[self.exp_type][f"semantic_dimension_binary_{self.data_type}"]["user_prompt"]
@@ -334,7 +334,7 @@ class QwenOmniSemanticDimensionVisualizer:
         target_indices['dim2'] = dim2_indices
         return relevant_indices, ipa_tokens, target_indices
     
-    def save_matrix(self, attention_matrix, dimension1:str, dimension2:str, answer:str, word_tokens:list[str], option_tokens:list[str], ipa_tokens:list[str], layer_type:str="self", lang:str="en", tokens:list[str]=None, relevant_indices:list[int]=None, target_indices:dict[list[int]]=None, flip:bool=False):
+    def save_matrix(self, attention_matrix:np.array, dimension1:str, dimension2:str, answer:str, word_tokens:list[str], option_tokens:list[str], ipa_tokens:list[str], layer_type:str="self", lang:str="en", tokens:list[str]=None, relevant_indices:list[int]=None, target_indices:dict[list[int]]=None, flip:bool=False):
         dim1, dim2 = dimension1, dimension2
         matrix_data = {"attention_matrix": attention_matrix, "dimension1": dim1, "dimension2": dim2, "answer": answer, "word_tokens": word_tokens, "option_tokens": option_tokens, "ipa_tokens": ipa_tokens, "tokens": tokens, "relevant_indices": relevant_indices, "target_indices": target_indices}
         output_dir = os.path.join(self.output_dir, self.exp_type, self.data_type, lang, "self_attention", f"{dim1}_{dim2}")
@@ -470,7 +470,7 @@ class QwenOmniSemanticDimensionVisualizer:
                 attn_filtered = torch.stack([
                     attn[:, relevant_indices][:, :, relevant_indices] for attn in sample_attentions
                 ])  # [layer, num_heads, rel, rel]
-                self.save_matrix(attn_filtered, dim1, dim2, answer, data['word'], [dim1, dim2], "self", lang, tokens, relevant_indices, self.flip)
+                # self.save_matrix(attn_filtered, dim1, dim2, answer, data['word'], [dim1, dim2], "self", lang, tokens, relevant_indices, self.flip)
                 generation_attentions, generation_tokens, _, final_input_ids, response, input_length = self.get_generation_attention_matrix(
                     batch_prompts[i], data, max_new_tokens=self.max_tokens
                 )
@@ -548,8 +548,9 @@ class QwenOmniSemanticDimensionVisualizer:
         attn_filtered = torch.stack([
             attn[:, relevant_indices][:, :, relevant_indices] for attn in sample_attentions
         ])  # [layer, num_heads, rel, rel]
+        attn_filtered_np = attn_filtered.cpu().float().numpy()
 
-        self.save_matrix(attn_filtered, dim1, dim2, answer, data['word'], [dim1, dim2], ipa_tokens, "self", lang, tokens, relevant_indices, target_indices, self.flip)
+        # self.save_matrix(attn_filtered_np, dim1, dim2, answer, data['word'], [dim1, dim2], ipa_tokens, "self", lang, tokens, relevant_indices, target_indices, self.flip)
         generation_attentions, generation_tokens, _, final_input_ids, response, input_length = self.get_generation_attention_matrix(
             constructed_prompt, data, max_new_tokens=self.max_tokens
         )
@@ -558,12 +559,13 @@ class QwenOmniSemanticDimensionVisualizer:
             input_word = data[data_type_key[self.data_type]]
         else:
             input_word = data["word"]
-        generation_analysis = self.extract_generation_attention_analysis(
-            generation_attentions, generation_tokens, response, answer, lang, dim1, dim2, data['word'], input_word, relevant_indices, target_indices
-        )
         self.save_generation_attention_matrix(
             generation_attentions, attentions, dim1, dim2, answer, data['word'], input_word, [dim1, dim2], lang, generation_tokens, final_input_ids, generation_tokens, target_indices
         )
+        generation_analysis = self.extract_generation_attention_analysis(
+            generation_attentions, generation_tokens, response, answer, lang, dim1, dim2, data['word'], input_word, relevant_indices, target_indices
+        )
+
         self.save_generation_attention_analysis(
             generation_analysis, attentions, dim1, dim2, answer, data['word'], [dim1, dim2], ipa_tokens, lang, generation_tokens, response, relevant_indices, target_indices
         )
@@ -825,10 +827,11 @@ class QwenOmniSemanticDimensionVisualizer:
         
         return final_analysis
 
-    def save_generation_attention_analysis(self, generation_analysis, attention_matrix, dim1:str, dim2:str, answer:str, word_tokens:str, option_tokens:str, ipa_tokens:str, lang="en", tokens=None, response=None, relevant_indices:list[int]=None, target_indices:dict[list[int]]=None):
+    def save_generation_attention_analysis(self, generation_analysis, attention_matrix:tuple[torch.tensor], dim1:str, dim2:str, answer:str, word_tokens:str, option_tokens:str, ipa_tokens:str, lang="en", tokens=None, response=None, relevant_indices:list[int]=None, target_indices:dict[list[int]]=None):
+        attention_matrix_np = tuple([tensor.cpu().float().numpy() for tensor in attention_matrix])
         analysis_data = {
             "generation_analysis": generation_analysis,
-            "original_attention_matrix": attention_matrix,
+            "original_attention_matrix": attention_matrix_np,
             "dimension1": dim1,
             "dimension2": dim2,
             "answer": answer,
@@ -851,7 +854,13 @@ class QwenOmniSemanticDimensionVisualizer:
             pkl.dump(analysis_data, f)
         # print(f"Generation attention analysis saved to: {save_path}")
 
-    def save_generation_attention_matrix(self, all_attention_matrices, attention_matrix, dim1:str, dim2:str, answer:str, word_tokens:str, input_word:str, option_tokens:str, lang="en", tokens=None, current_input_ids=None, all_tokens=None, target_indices:dict[list[int]]=None):
+    def save_generation_attention_matrix(self, all_attention_matrices, attention_matrix:tuple[torch.tensor], dim1:str, dim2:str, answer:str, word_tokens:str, input_word:str, option_tokens:str, lang="en", tokens=None, current_input_ids=None, all_tokens=None, target_indices:dict[list[int]]=None):
+        if isinstance(all_attention_matrices[0][0], torch.Tensor) \
+            and isinstance(all_attention_matrices[0], tuple) \
+            and isinstance(all_attention_matrices, list):
+            all_attention_matrices = [tuple([tensor.cpu().float().numpy() for tensor in layer]) for layer in all_attention_matrices]
+        
+        attention_matrix_np = tuple([tensor.cpu().float().numpy() for tensor in attention_matrix])
         if current_input_ids is not None and all_tokens is not None:
             input_length = len(all_tokens)
             input_ids = current_input_ids[0][:input_length]
@@ -867,19 +876,22 @@ class QwenOmniSemanticDimensionVisualizer:
         relevant_indices = target_indices["word"]+target_indices["dim1"]+target_indices["dim2"]
         for step, step_attentions in enumerate(all_attention_matrices):
             layer_attention = step_attentions[0]
+            # layer_attention = layer_attention.cpu().float().numpy()
             current_seq_len = layer_attention.shape[-1]
             tmp_tokens = tokens[:current_seq_len]
             filtered_step_attentions = []
             for layer_idx, layer_attn in enumerate(step_attentions):
+                # layer_attn_float = layer_attn.cpu().float().numpy()
                 if len(relevant_indices) > 0:
                     filtered_attn = layer_attn[:, :, relevant_indices][:, :, :, relevant_indices]
                 else:
                     filtered_attn = layer_attn
                 filtered_step_attentions.append(filtered_attn)
             filtered_attention_matrices.append(tuple(filtered_step_attentions))
+        # breakpoint()
         matrix_data = {
             "attention_matrices": filtered_attention_matrices,
-            "original_attention_matrix": attention_matrix,
+            "original_attention_matrix": attention_matrix_np, # Convert to numpy array DEMO
             "relevant_indices": relevant_indices,
             "target_indices": target_indices,
             "dimension1": dim1,
@@ -906,10 +918,10 @@ class QwenOmniSemanticDimensionVisualizer:
 if __name__ == "__main__":
     import argparse
     parser = argparse.ArgumentParser(description="Qwen2.5-Omni Semantic Dimension Attention Heatmap Visualization")
-    parser.add_argument('--model', type=str, default="Qwen/Qwen2.5-Omni-3B", help="Model path (default: Qwen/Qwen2.5-Omni-7B)")
+    parser.add_argument('--model', type=str, default="Qwen/Qwen2.5-Omni-3B", help="Model path (default: Qwen/Qwen2.5-Omni-3B)")
     parser.add_argument('--data-path', type=str, default="data/processed/nat/semantic_dimension/semantic_dimension_binary_gt.json",
                        help="Path to semantic dimension data JSON file")
-    parser.add_argument('--output-dir', type=str, default="results/experiments/understanding/attention_heatmap/nat/qwen3B",
+    parser.add_argument('--output-dir', type=str, default="results/experiments/understanding/attention_heatmap/nat/qwen3B/numpy",
                        help="Output directory for heatmaps and matrices")
     parser.add_argument('--data-type', type=str, default="audio", choices=["audio", "original", "romanized", "ipa"],
                        help="Data type to process")
@@ -927,7 +939,7 @@ if __name__ == "__main__":
 
     if args.constructed:
         data_path = "data/processed/art/semantic_dimension/semantic_dimension_binary_gt.json"
-        output_dir = "results/experiments/understanding/attention_heatmap/con/qwen3B"
+        output_dir = "results/experiments/understanding/attention_heatmap/con/qwen3B/numpy"
     else:
         data_path = args.data_path
         output_dir = args.output_dir
@@ -953,10 +965,11 @@ if __name__ == "__main__":
     total_num_of_dimensions = 0
     total_num_of_words = 0
     total_num_of_words_per_language = {lang: 0 for lang in languages}
-    start_index = 4000
+    start_index = 0
 
     batch_size = args.batch_size
-    # python src/analysis/heatmap/batch_semdim_heatmap.py --data-type audio --language ko --flip --max-samples 500
+    # python src/analysis/heatmap/batch_semdim_heatmap.py --data-type audio --constructed --max-samples 3000
+    # python src/analysis/heatmap/batch_semdim_heatmap.py --data-type ipa --languages ko --max-samples 3400
     for lang in languages:
         print(f"\nProcessing language: {lang}")
         lang_data = visualizer.data[lang]
@@ -1003,12 +1016,11 @@ if __name__ == "__main__":
         torch.cuda.empty_cache()
     
     print(f"\nProcessing completed!")
-    print(f"Total samples processed: {total_num_of_dimensions}")
     print(f"Total number of words: {total_num_of_words}")
     print(f"Total number of words per language: {total_num_of_words_per_language}")
     print(f"Results saved to: {args.output_dir}")
-    print(f"Index: {args.start_index} - {args.max_samples}")
-    print(f"Flip: {args.flip}, Constructed: {args.constructed}, Data type: {args.data_type}, Languages: {args.languages}")
+    print(f"Index: {start_index} - {max_samples}")
+    print(f"Flip: {args.flip}, Constructed: {args.constructed}, Data type: {args.data_type}, Languages: {languages}")
     
     # Clean up
     del visualizer.model

@@ -50,7 +50,6 @@ def plot_modality_advantage(df, lang, mod1, mod2, all_models_only=False):
     :param mod2: Second modality to compare (e.g., 'original')  
     """
 
-    # Model list
     if all_models_only:
         models = ['ALL_MODELS']
     else:
@@ -58,7 +57,6 @@ def plot_modality_advantage(df, lang, mod1, mod2, all_models_only=False):
         models.append('ALL_MODELS') 
     n_models = len(models)
 
-    # Subplots
     if n_models > 1:
         n_cols = 2
         n_rows = (n_models + 1) // 2
@@ -78,16 +76,13 @@ def plot_modality_advantage(df, lang, mod1, mod2, all_models_only=False):
         axes = [axes] if n_cols == 1 else [axes[0]]
         
     
-    # Models
     for i, model in enumerate(models):
-        # Filtering DataFrame for the current model
         if model == 'ALL_MODELS':
             model_df = df
         else:
             model_df = df[df['model'] == model]
         # print(f'[DEBUG] Model DF Length : {len(model_df)}')
 
-        # Filtering by language or type
         if lang in ['en', 'ko', 'ja', 'fr', 'art']:
             model_df = model_df[model_df['lang'] == lang]
             # print(f"[DEBUG] Filtered by language: {lang}, remaining rows: {len(model_df)}")
@@ -97,7 +92,6 @@ def plot_modality_advantage(df, lang, mod1, mod2, all_models_only=False):
         else:
             print(f"Unknown language type: {lang}. Using all data.")
 
-        # Grouping by semantic dimension and calculating mean F1 scores
         dfs = []
         for input_type in [mod1, mod2]:
             input_df = model_df[model_df['input_type'] == input_type]
@@ -113,7 +107,6 @@ def plot_modality_advantage(df, lang, mod1, mod2, all_models_only=False):
         dfs_sorted = [df[sorted_dims] for df in dfs_common]
         
 
-        # Drawing the plots
         ax = axes[i]
         x_positions = range(len(sorted_dims))
 
@@ -208,10 +201,8 @@ def modality_advantage_correlation(df, lang1, lang2, mod1, mod2, model=None):
     dfs = []
     for lang in [lang1, lang2]:
         if model is not None:
-            # Filtering DataFrame for the current model
             df = df[df['model'] == model]
             print(f"[DEBUG] Filtered by model: {model}, remaining rows: {len(df)}")
-        # Filtering DataFrame for the current language
         if lang in ['en', 'ko', 'ja', 'fr', 'art']:
             lang_df = df[df['lang'] == lang]
         elif lang in ['constructed', 'natural']:
@@ -220,7 +211,6 @@ def modality_advantage_correlation(df, lang1, lang2, mod1, mod2, model=None):
             print(f"Unknown language type: {lang}. Using all data.")
             lang_df = df
 
-        # Grouping by semantic dimension and calculating mean F1 scores
         dfs_lang = []
         for input_type in [mod1, mod2]:
             input_df = lang_df[lang_df['input_type'] == input_type]
@@ -286,7 +276,6 @@ def modality_advantage_correlation(df, lang1, lang2, mod1, mod2, model=None):
             colors.append('gray')
             dimension_groups['neutral'].append(common_dims[i])
 
-    # Plotting
     plt.figure(figsize=(8, 6))
 
     # Define dimensions to distinguish with a different marker
