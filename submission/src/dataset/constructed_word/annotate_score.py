@@ -1,5 +1,4 @@
 import json
-import pandas as pd
 from argparse import ArgumentParser
 from pathlib import Path
 from phoneme_data import PhonemeData

@@ -1,13 +1,10 @@
 import json
-import pandas as pd
-import matplotlib.pyplot as plt
-import seaborn as sns
-import scipy.stats as stats
-import matplotlib.pyplot as plt
 import numpy as np
-from scipy.stats import ttest_rel, wilcoxon
 import pandas as pd
-from matplotlib.patches import Patch
+import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt
+import scipy.stats as stats
+from scipy.stats import ttest_rel, wilcoxon
 
 def load_json(json_path):
     with open(json_path, 'r') as file:

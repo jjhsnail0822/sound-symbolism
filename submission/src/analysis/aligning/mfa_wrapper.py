@@ -3,9 +3,6 @@ import subprocess
 
 
 class MFAWrapper():
-    '''
-    CLI 도구인 MFA를 Python에서 Wrapping하여 명령어 실행 
-    '''
     LANGUAGE_MODEL_MAP = {
             'en': 'english_us_arpa',
             'fr': 'french_mfa',
