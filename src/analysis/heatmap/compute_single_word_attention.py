@@ -1,16 +1,10 @@
 # python src/analysis/heatmap/compute_single_word_attention.py
-
-import json
 import os
 import re
-import gc
-from typing import Union, Dict, List, Tuple
 from pprint import pprint
 
 import numpy as np
-import pandas as pd
 import torch
-import argparse
 import pickle as pkl
 from tqdm import tqdm
 import matplotlib.pyplot as plt
@@ -114,8 +108,6 @@ def show_arguments(model_name:str=model_path, data_type:str=data_type, lang:str=
 
 
 def model_guessed_incorrectly(response, dim1, dim2, answer):
-    # print(f"Response: {response}, Dim1: {dim1}, Dim2: {dim2}, Answer: {answer}")
-    # breakpoint()
     if dim1 == answer and response == "1":
         return False
     elif dim2 == answer and response == "2":
@@ -129,13 +121,12 @@ def find_basic_info(word=word, output_dir=output_dir, dim_pairs=dim_pairs):
         if not os.path.exists(data_dir) or not os.path.exists(alt_dir):
             continue
         else:
-            # print(f"Word: {word}, Dim1: {dim1}, Dim2: {dim2}")
             alt = pkl.load(open(alt_dir, "rb"))
             ipa_tokens = alt["ipa_tokens"]
             converted_ipa_tokens = convert_ipa_tokens_to_ipa_string_per_token(ipa_tokens)
             ipa_list = [clean_token(token) for token in converted_ipa_tokens]
             word_stats = {ipa:{} for ipa in ipa_list}
-            word_stats = {k: v for k, v in word_stats.items() if k != ""} # Remove empty text
+            word_stats = {k: v for k, v in word_stats.items() if k != ""}
             break
     if ipa_list is None:
         raise ValueError(f"No data found for word: {word}")
@@ -234,7 +225,6 @@ def get_data(data, alt):
     return attention_matrices, relevant_indices, dim1, dim2, answer, word_tokens, option_tokens, tokens, ipa_tokens, response, input_word, target_indices, wlen, d1len, d2len, dim1_range, dim2_range
 
 def compute_ipa_semdim_score_with_vanilla_rule(ipa_list, dim1, dim2, dim1_range, dim2_range, start_layer, end_layer, n_layer, n_head, wlen, d1len, d2len, attn_layers, word_stats):
-    # breakpoint()
     for ipa_idx, ipa in enumerate(ipa_list):
         if ipa == "":
             continue
@@ -245,9 +235,7 @@ def compute_ipa_semdim_score_with_vanilla_rule(ipa_list, dim1, dim2, dim1_range,
                     layer_len = attn_layers[layer].shape[2]
                     if layer_len != wlen+d1len+d2len:
                         print(f"Layer length mismatch: {layer_len} != {wlen+d1len+d2len}")
-                        # breakpoint()
-                        continue
-                        raise ValueError(f"Layer length mismatch: {layer_len} != {wlen+d1len+d2len}")
+                        break
                     for d_idx in dim_range:
                         if d_idx < attn_layers[layer].shape[2] and ipa_idx < attn_layers[layer].shape[3]:
                             v = attn_layers[layer][0, head, d_idx, ipa_idx].item()
@@ -256,7 +244,7 @@ def compute_ipa_semdim_score_with_vanilla_rule(ipa_list, dim1, dim2, dim1_range,
             word_stats[ipa][dim] = mean_val
     return word_stats
 
-def compute_audio_semdim_score_with_vanilla_rule(ipa_list, dim1, dim2, dim1_range, dim2_range, start_layer, end_layer, n_layer, n_head, wlen, d1len, d2len, attn_layers, word_stats):
+def compute_semdim_score_with_vanilla_rule(ipa_list, dim1, dim2, dim1_range, dim2_range, start_layer, end_layer, n_layer, n_head, wlen, d1len, d2len, attn_layers, word_stats):
     ipa_runs = get_ipa_runs(ipa_list)
     for ipa, start_idx, end_idx in ipa_runs:
         if ipa == "":
@@ -307,7 +295,7 @@ def compute_ipa_semdim_score_with_fraction_rule(ipa_list, dim1, dim2, dim1_range
             word_stats[ipa][dim2] = mean_dim2
     return word_stats
 
-def compute_audio_semdim_score_with_fraction_rule(ipa_list, dim1, dim2, dim1_range, dim2_range, start_layer, end_layer, n_layer, n_head, wlen, d1len, d2len, attn_layers, word_stats):
+def compute_semdim_score_with_fraction_rule(ipa_list, dim1, dim2, dim1_range, dim2_range, start_layer, end_layer, n_layer, n_head, wlen, d1len, d2len, attn_layers, word_stats):
     ipa_runs = get_ipa_runs(ipa_list)
     for ipa, start_idx, end_idx in ipa_runs:
         if ipa == "":
@@ -327,7 +315,6 @@ def compute_audio_semdim_score_with_fraction_rule(ipa_list, dim1, dim2, dim1_ran
                     for ipa_idx in range(start_idx, end_idx+1):
                         if d_idx < attn.shape[2] and ipa_idx < attn.shape[3]:
                             sum_dim1 += attn_layers[layer][0, head, d_idx, ipa_idx].item()
-                # dim1_values.append(sum_dim1)
                 sum_dim2 = 0.0
                 for d_idx in dim2_range:
                     for ipa_idx in range(start_idx, end_idx+1):
@@ -386,14 +373,12 @@ def compute_single_word_attention_score(
         model_path:str=model_path,
     ) -> dict:
     ipa_list, word_stats = find_basic_info(word=word, output_dir=output_dir, dim_pairs=dim_pairs)
-    # print(f"Word stats at start : {word_stats}")
     answer_list = []
     for dim1, dim2 in dim_pairs:
         data_dir = os.path.join(output_dir, f"{dim1}_{dim2}", f"{word}_{dim1}_{dim2}.pkl")
         alt_dir = os.path.join(output_dir, f"{word}_{dim1}_{dim2}_generation_analysis.pkl")
         if not os.path.exists(data_dir) or not os.path.exists(alt_dir):
             continue
-        # print(f"Found data for {word} {dim1}-{dim2}")
         data = pkl.load(open(data_dir, "rb"))
         alt = pkl.load(open(alt_dir, "rb"))
         attention_matrices, relevant_indices, dim1, dim2, answer, word_tokens, option_tokens, tokens, ipa_tokens, response, input_word, target_indices, wlen, d1len, d2len, dim1_range, dim2_range = get_data(data, alt)
@@ -406,18 +391,10 @@ def compute_single_word_attention_score(
         attn_layers = attention_matrices[0]
         n_layer = len(attn_layers)
         n_head = attn_layers[0].shape[1]
-        if data_type == "ipa":
-            if compute_rule == "vanilla":
-                # word_stats = compute_ipa_semdim_score_with_vanilla_rule(ipa_list, dim1, dim2, dim1_range, dim2_range, start_layer, end_layer, n_layer, n_head, wlen, d1len, d2len, attn_layers, word_stats)
-                word_stats = compute_audio_semdim_score_with_vanilla_rule(ipa_list, dim1, dim2, dim1_range, dim2_range, start_layer, end_layer, n_layer, n_head, wlen, d1len, d2len, attn_layers, word_stats)
-            elif compute_rule == "fraction":
-                # word_stats = compute_ipa_semdim_score_with_fraction_rule(ipa_list, dim1, dim2, dim1_range, dim2_range, start_layer, end_layer, n_layer, n_head, wlen, d1len, d2len, attn_layers, word_stats)
-                word_stats = compute_audio_semdim_score_with_fraction_rule(ipa_list, dim1, dim2, dim1_range, dim2_range, start_layer, end_layer, n_layer, n_head, wlen, d1len, d2len, attn_layers, word_stats)
-        elif data_type == "audio":
-            if compute_rule == "vanilla":
-                word_stats = compute_audio_semdim_score_with_vanilla_rule(ipa_list, dim1, dim2, dim1_range, dim2_range, start_layer, end_layer, n_layer, n_head, wlen, d1len, d2len, attn_layers, word_stats)
-            elif compute_rule == "fraction":
-                word_stats = compute_audio_semdim_score_with_fraction_rule(ipa_list, dim1, dim2, dim1_range, dim2_range, start_layer, end_layer, n_layer, n_head, wlen, d1len, d2len, attn_layers, word_stats)
+        if compute_rule == "vanilla":
+            word_stats = compute_semdim_score_with_vanilla_rule(ipa_list, dim1, dim2, dim1_range, dim2_range, start_layer, end_layer, n_layer, n_head, wlen, d1len, d2len, attn_layers, word_stats)
+        elif compute_rule == "fraction":
+            word_stats = compute_semdim_score_with_fraction_rule(ipa_list, dim1, dim2, dim1_range, dim2_range, start_layer, end_layer, n_layer, n_head, wlen, d1len, d2len, attn_layers, word_stats)
         else:
             raise ValueError(f"Invalid data type: {data_type}")
     # print(word_stats)

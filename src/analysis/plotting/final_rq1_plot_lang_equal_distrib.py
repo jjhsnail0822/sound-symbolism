@@ -581,7 +581,6 @@ def aggregate_macro_f1_by_inputtype(json_path, constructed_dims=constructed_dims
             grouped[key].append(model_data)
         return grouped
 
-    # --- Natural Languages Aggregation (언어별 가중치 동일 적용) ---
     lang_dim_scores = {lang: {} for lang in natural_languages}
     for lang in natural_languages:
         if lang not in data: continue
@@ -612,7 +611,6 @@ def aggregate_macro_f1_by_inputtype(json_path, constructed_dims=constructed_dims
         if valid_scores:
             natural_final_scores[dim] = {metric: np.mean(valid_scores)}
 
-    # --- Constructed Language Aggregation (final_rq1_plot.py와 동일한 방식) ---
     constructed_final_scores = {}
     if 'art' in data:
         grouped_models_data_art = group_models(data['art'])

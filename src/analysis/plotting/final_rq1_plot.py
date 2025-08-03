@@ -109,11 +109,9 @@ def plot_final_rq1_bar_comparison(human_eval, constructed, natural, constructed_
     }
     two_stage_font_size = 16
     one_stage_font_size = 20
-    # print(f"[DEBUG] group_data: {group_data}")
     group_names = list(group_data.keys())
     n_groups = len(group_names)
     fig, axes = plt.subplots(1, n_groups, figsize=(20, 8), sharey=False)
-    # fig, axes = plt.subplots(1, n_groups, figsize=(12, 8), sharey=False)
     if n_groups == 1:
         axes = [axes]
 
@@ -138,16 +136,13 @@ def plot_final_rq1_bar_comparison(human_eval, constructed, natural, constructed_
         n = len(dims_sorted)
         bars = ax.barh(range(n), scores_sorted, color=colors, edgecolor='black')
 
-        # Plot model average points, connecting points for the same dimension
         if group in model_scores_map:
             model_scores = model_scores_map[group]
             dim_to_y = {dim: i for i, dim in enumerate(dims_sorted)}
 
-            # Iterate through each dimension to draw a line connecting model scores
             for i, dim in enumerate(dims_sorted):
                 y_coord = i
                 
-                # Collect points for this dimension from all models
                 points_for_dim = []
                 for model_name in all_model_names:
                     model_data = model_scores.get(model_name, {})
@@ -159,18 +154,13 @@ def plot_final_rq1_bar_comparison(human_eval, constructed, natural, constructed_
                 if not points_for_dim:
                     continue
 
-                # Sort points by x-value to draw a connecting line
                 points_for_dim.sort(key=lambda p: p['x'])
                 
                 x_vals = [p['x'] for p in points_for_dim]
                 
-                # Plot the connecting line
                 if len(x_vals) > 1:
                     ax.plot(x_vals, [y_coord] * len(x_vals), color='gray', alpha=0.7, zorder=2, linewidth=1)
 
-            # Plot the individual model points on top, ensuring legend is created correctly
-            # We do this in a separate loop to ensure lines are drawn under all points
-            # and legend handles are created only once per model.
             plotted_labels = set()
             for model_name in all_model_names:
                 points_to_plot = []
@@ -199,16 +189,14 @@ def plot_final_rq1_bar_comparison(human_eval, constructed, natural, constructed_
         ax.set_title(group, fontsize=two_stage_font_size, pad=10)
 
     handles, labels = [], []
-    # Create custom legend handles
     for model_name in all_model_names:
-        if model_name in model_marker_map: # Ensure model is in map
+        if model_name in model_marker_map:
             handles.append(Line2D([0], [0], marker=model_marker_map[model_name], color='w', 
                                   markerfacecolor=model_name_to_color.get(model_name, 'grey'), 
                                   markersize=10, label=model_name))
             labels.append(model_name)
     
     if handles:
-        # Sort handles and labels to match all_model_names order
         sorted_handles_labels = sorted(zip(handles, labels), key=lambda x: all_model_names.index(x[1]))
         handles, labels = zip(*sorted_handles_labels)
         fig.legend(handles, labels, loc='upper center', bbox_to_anchor=(0.5, 0.08), ncol=len(handles), fontsize=one_stage_font_size-4)

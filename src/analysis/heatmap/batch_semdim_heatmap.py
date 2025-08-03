@@ -548,9 +548,7 @@ class QwenOmniSemanticDimensionVisualizer:
         attn_filtered = torch.stack([
             attn[:, relevant_indices][:, :, relevant_indices] for attn in sample_attentions
         ])  # [layer, num_heads, rel, rel]
-        attn_filtered_np = attn_filtered.cpu().float().numpy()
 
-        # self.save_matrix(attn_filtered_np, dim1, dim2, answer, data['word'], [dim1, dim2], ipa_tokens, "self", lang, tokens, relevant_indices, target_indices, self.flip)
         generation_attentions, generation_tokens, _, final_input_ids, response, input_length = self.get_generation_attention_matrix(
             constructed_prompt, data, max_new_tokens=self.max_tokens
         )
@@ -888,10 +886,9 @@ class QwenOmniSemanticDimensionVisualizer:
                     filtered_attn = layer_attn
                 filtered_step_attentions.append(filtered_attn)
             filtered_attention_matrices.append(tuple(filtered_step_attentions))
-        # breakpoint()
         matrix_data = {
             "attention_matrices": filtered_attention_matrices,
-            "original_attention_matrix": attention_matrix_np, # Convert to numpy array DEMO
+            "original_attention_matrix": attention_matrix_np,
             "relevant_indices": relevant_indices,
             "target_indices": target_indices,
             "dimension1": dim1,
@@ -912,7 +909,6 @@ class QwenOmniSemanticDimensionVisualizer:
         save_path = os.path.join(output_dir, f"{safe_word}_{safe_dim1}_{safe_dim2}.pkl")
         with open(save_path, "wb") as f:
             pkl.dump(matrix_data, f)
-        # print(f"Generation attention matrix saved to: {save_path}")
         return save_path
 
 if __name__ == "__main__":
@@ -968,8 +964,6 @@ if __name__ == "__main__":
     start_index = 0
 
     batch_size = args.batch_size
-    # python src/analysis/heatmap/batch_semdim_heatmap.py --data-type audio --constructed --max-samples 3000
-    # python src/analysis/heatmap/batch_semdim_heatmap.py --data-type ipa --languages ko --max-samples 3400
     for lang in languages:
         print(f"\nProcessing language: {lang}")
         lang_data = visualizer.data[lang]

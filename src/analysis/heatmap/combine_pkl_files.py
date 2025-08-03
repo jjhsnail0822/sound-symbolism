@@ -5,7 +5,7 @@ import torch
 import json
 from tqdm import tqdm
 import gc
-# python src/analysis/heatmap/combine_pkl_files.py --language ja --data_type audio
+# python src/analysis/heatmap/combine_pkl_files.py --language ja --data_type ipa
 
 NAT_LANGS = ["en", "fr", "ja", "ko"]
 CON_LANGS = ["art", "con"]
@@ -34,9 +34,7 @@ def combine_pkl_files(base_save_dir:str, load_dir:str, language:str, data_path:s
     word_list = load_word_list(data_path, language)
     for data_type in ["ipa", "audio"]:
         already_combined_count = 0
-        for i, word in tqdm(enumerate(word_list)):
-            # if i < 187:
-            #     continue
+        for i, word in tqdm(enumerate(word_list), total=len(word_list)):
             save_path = os.path.join(base_save_dir, data_type, language)
             save_file_name = os.path.join(save_path, f"{word}.pkl")
             if os.path.exists(save_file_name):
@@ -46,7 +44,6 @@ def combine_pkl_files(base_save_dir:str, load_dir:str, language:str, data_path:s
             combined = {}
             count = 0
             for dim1, dim2 in dim_pairs:
-                # load_dir
                 data_file_name = os.path.join(f"{dim1}_{dim2}", f"{word}_{dim1}_{dim2}.pkl")
                 alt_file_name = f"{word}_{dim1}_{dim2}_generation_analysis.pkl"
                 data_dir = os.path.join(load_dir.format(nat_or_con=nat_or_con, data_type=data_type, language=language), data_file_name)
@@ -82,6 +79,8 @@ def combine_pkl_files(base_save_dir:str, load_dir:str, language:str, data_path:s
                 if not os.path.exists(save_path):
                     os.makedirs(save_path, exist_ok=True)
                 save_file_name = os.path.join(save_path, f"{word}.pkl")
+                if os.path.exists(save_file_name):
+                    continue
                 with open(save_file_name, 'wb') as f:
                     pkl.dump(combined, f, protocol=pkl.HIGHEST_PROTOCOL)
                 print(f"Combined {count} files into {save_file_name}")
@@ -114,10 +113,7 @@ if __name__ == "__main__":
     dim_pairs = load_dim_pairs()
     language = args.language
     data_type = args.data_type
-    # nat_or_con = get_nat_or_con(language)
     data_path = f"data/processed/{get_nat_or_art(language)}/semantic_dimension/semantic_dimension_binary_gt.json"
-    # breakpoint()
-    load_dir = "results/experiments/understanding/attention_heatmap/{nat_or_con}/semantic_dimension/{data_type}/{language}/generation_attention"
-    base_save_dir = "results/experiments/understanding/attention_heatmap/combined"
-    # data_path = args.data_path
+    load_dir = "results/experiments/understanding/attention_heatmap/{nat_or_con}/qwen3B/semantic_dimension/{data_type}/{language}/generation_attention"
+    base_save_dir = "results/experiments/understanding/attention_heatmap/combined/qwen3B"
     combine_pkl_files(base_save_dir, load_dir, language, data_path, dim_pairs)
