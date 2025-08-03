@@ -27,8 +27,7 @@ class CVCVWordGenerator:
         cvcv_alphabet_list = [self.make_alphabet_word(cvcv) for cvcv in cvcv_ipa_list] 
 
         # Convert to list of strings
-        cvcv_ipa_list = [' '.join(cvcv) for cvcv in cvcv_ipa_list]
-        # cvcv_alphabet_list = [''.join(cvcv) for cvcv in cvcv_alphabet_list]
+        cvcv_ipa_list = [' '.join(cvcv) for cvcv in cvcv_ipa_list]t]
 
         # Ipa, Alphabet Pair 
         pairs_tuple = list(zip(cvcv_ipa_list, cvcv_alphabet_list))
@@ -88,18 +87,14 @@ class CVCVWordGenerator:
     def _is_exist(self, cvcv):
         cvcv = [unicodedata.normalize('NFKC', phoneme) for phoneme in cvcv]
         cvcv = ''.join(cvcv)
-        for lang, ipa_to_word in self.phoneme_data.ipa_to_word.items():
+        for _, ipa_to_word in self.phoneme_data.ipa_to_word.items():
             if cvcv in ipa_to_word:
-            #     print("is_exist", lang, cvcv, ipa_to_word[cvcv])
-            #     # with open('debug_filtered_out.csv', 'a', encoding="utf-8") as f:
-            #     #     f.write(f'{lang},{cvcv},{ipa_to_word[cvcv]}\n')
                 return True   
         return False
 
     def _is_valid(self, cvcv):
         
         cvcv = [unicodedata.normalize('NFKC', phoneme) for phoneme in cvcv]
-        # print(cvcv)
         # words starting with "ð", rather than "θ", are less common in English
         if cvcv[0] == "ð" and cvcv[1] == 'i':
             return False 
@@ -108,7 +103,6 @@ class CVCVWordGenerator:
         if cvcv[2] == "ð" and cvcv[3] == 'ɑ':
             return False 
 
-        
         return True
 
 def add_metadata(words:List[Dict[str, str]]):

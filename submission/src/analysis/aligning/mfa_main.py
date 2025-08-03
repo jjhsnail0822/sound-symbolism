@@ -65,7 +65,7 @@ def main(args):
         print(f'[INFO] Initial OOV # {len(oov)}')
         # print(f'[DEBUG] OOV: ', oov)
 
-        # 5. update custom dict: oov 없애기
+        # 5. update custom dict
         if oov:
             print(f'[INFO] Update custom dict')
             update_custom_dict(oov, dict_path, lang=lang)
