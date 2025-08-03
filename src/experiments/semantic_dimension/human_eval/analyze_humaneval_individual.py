@@ -94,6 +94,6 @@ def analyze_results(file_path):
 
 
 if __name__ == '__main__':
-    json_file_path = 'results/experiments/semantic_dimension/human_eval/humaneval_4.json'
+    json_file_path = 'results/experiments/semantic_dimension/human_eval/annotator_9.json'
 
     analyze_results(json_file_path)
