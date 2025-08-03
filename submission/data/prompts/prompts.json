@@ -1,0 +1,64 @@
+{
+    "semantic_dimension": {
+        "semantic_dimension_original": {
+            "user_prompt": "Given a [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\n{word}\n\n[SEMANTIC DIMENSION]\n{dimension1} vs. {dimension2}\n\n[OPTIONS]\n1: {dimension1}\n2: {dimension2}\n3: neither\nAnswer with the number only. (1-3)"
+        },
+        "semantic_dimension_romanized": {
+            "user_prompt": "Given a Romanized [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\n{word}\n\n[SEMANTIC DIMENSION]\n{dimension1} vs. {dimension2}\n\n[OPTIONS]\n1: {dimension1}\n2: {dimension2}\n3: neither\nAnswer with the number only. (1-3)"
+        },
+        "semantic_dimension_ipa": {
+            "user_prompt": "Given a IPA [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\n{word}\n\n[SEMANTIC DIMENSION]\n{dimension1} vs. {dimension2}\n\n[OPTIONS]\n1: {dimension1}\n2: {dimension2}\n3: neither\nAnswer with the number only. (1-3)"
+        },
+        "semantic_dimension_audio": {
+            "user_prompt": "Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\n{word}\n\n[SEMANTIC DIMENSION]\n{dimension1} vs. {dimension2}\n\n[OPTIONS]\n1: {dimension1}\n2: {dimension2}\n3: neither\nAnswer with the number only. (1-3)"
+        },
+        "semantic_dimension_binary_original": {
+            "user_prompt": "Given a [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\n{word}\n\n[SEMANTIC DIMENSION]\n{dimension1} vs. {dimension2}\n\n[OPTIONS]\n1: {dimension1}\n2: {dimension2}\nAnswer with the number only. (1-2)"
+        },
+        "semantic_dimension_binary_romanized": {
+            "user_prompt": "Given a Romanized [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\n{word}\n\n[SEMANTIC DIMENSION]\n{dimension1} vs. {dimension2}\n\n[OPTIONS]\n1: {dimension1}\n2: {dimension2}\nAnswer with the number only. (1-2)"
+        },
+        "semantic_dimension_binary_ipa": {
+            "user_prompt": "Given an IPA [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\n{word}\n\n[SEMANTIC DIMENSION]\n{dimension1} vs. {dimension2}\n\n[OPTIONS]\n1: {dimension1}\n2: {dimension2}\nAnswer with the number only. (1-2)"
+        },
+        "semantic_dimension_binary_audio": {
+            "user_prompt": "Given a spoken [WORD], which semantic feature best describes the word based on auditory impression?\n\n[WORD]\n{audio}\n\n[SEMANTIC DIMENSION]\n{dimension1} vs. {dimension2}\n\n[OPTIONS]\n1: {dimension1}\n2: {dimension2}\nAnswer with the number only. (1-2)"
+        },
+        "semantic_dimension_binary_original_and_audio": {
+            "user_prompt": "Given a [WORD] with its pronunciation audio, which semantic feature best describes the word based on auditory impression?\n\n[WORD]\n{word} (AUDIO: {audio})\n\n[SEMANTIC DIMENSION]\n{dimension1} vs. {dimension2}\n\n[OPTIONS]\n1: {dimension1}\n2: {dimension2}\nAnswer with the number only. (1-2)"
+        },
+        "semantic_dimension_binary_romanized_and_audio": {
+            "user_prompt": "Given a Romanized [WORD] with its pronunciation audio, which semantic feature best describes the word based on auditory impression?\n\n[WORD]\n{word} (AUDIO: {audio})\n\n[SEMANTIC DIMENSION]\n{dimension1} vs. {dimension2}\n\n[OPTIONS]\n1: {dimension1}\n2: {dimension2}\nAnswer with the number only. (1-2)"
+        },
+        "semantic_dimension_binary_ipa_and_audio": {
+            "user_prompt": "Given an IPA [WORD] with its pronunciation audio, which semantic feature best describes the word based on auditory impression?\n\n[WORD]\n{word} (AUDIO: {audio})\n\n[SEMANTIC DIMENSION]\n{dimension1} vs. {dimension2}\n\n[OPTIONS]\n1: {dimension1}\n2: {dimension2}\nAnswer with the number only. (1-2)"
+        }
+    },
+    "semantic_dimension_list": [
+        ["good", "bad"],
+        ["beautiful", "ugly"],
+        ["pleasant", "unpleasant"],
+        ["strong", "weak"],
+        ["big", "small"],
+        ["rugged", "delicate"],
+        ["active", "passive"],
+        ["fast", "slow"],
+        ["sharp", "round"],
+        ["realistic", "fantastical"],
+        ["structured", "disorganized"],
+        ["ordinary", "unique"],
+        ["interesting", "uninteresting"],
+        ["simple", "complex"],
+        ["abrupt", "continuous"],
+        ["exciting", "calming"],
+        ["hard", "soft"],
+        ["happy", "sad"],
+        ["harsh", "mellow"],
+        ["heavy", "light"],
+        ["inhibited", "free"],
+        ["masculine", "feminine"],
+        ["solid", "nonsolid"],
+        ["tense", "relaxed"],
+        ["dangerous", "safe"]
+    ]
+}
