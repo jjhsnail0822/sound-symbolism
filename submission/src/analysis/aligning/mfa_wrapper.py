@@ -3,16 +3,13 @@ import subprocess
 
 
 class MFAWrapper():
-    '''
-    CLI 도구인 MFA를 Python에서 Wrapping하여 명령어 실행 
-    '''
     LANGUAGE_MODEL_MAP = {
             'en': 'english_us_arpa',
             'fr': 'french_mfa',
             'ja': 'japanese_mfa',
             'ko': 'korean_mfa'
         }
-    def __init__(self, lang, dict_path=None, ensure_installed=False, ensure_downloaded=False ):
+    def __init__(self, lang, dict_path, ensure_installed=False, ensure_downloaded=False ):
         self.model_name = self.set_model_name(lang)
         self.dict_path = dict_path
 
@@ -24,12 +21,6 @@ class MFAWrapper():
             if not self.check_model_downloaded('acoustic'):
                 self.download_model('acoustic') 
 
-            if not self.check_model_downloaded('dictionary'):
-                if dict_path is None:
-                    self.download_model('dictionary')
-          
-
-
     def run(self, corpus_dir, textgrid_dir, validate=False, clean=True):
         if validate:
             print("[INFO] Validate Corpus")
@@ -38,10 +29,8 @@ class MFAWrapper():
 
         print("[INFO] Start Aligning")
         tic = time.time()
-        if self.dict_path is None:
-            result = self.align_with_pretrained_model(corpus_dir, textgrid_dir, clean)
-        else:
-            result = self.align_with_custom_dict(corpus_dir, self.dict_path, textgrid_dir, clean)
+         
+        result = self.align_with_custom_dict(corpus_dir, self.dict_path, textgrid_dir, clean)
 
         if result is None:
             print("[ERROR] Alignment Failed")
@@ -71,14 +60,11 @@ class MFAWrapper():
         return self.LANGUAGE_MODEL_MAP['en'] if lang == 'art' else self.LANGUAGE_MODEL_MAP[lang]
 
     def check_model_downloaded(self, model_type):
-        """모델이 다운로드되었는지 확인"""
         try:
-            # 실제로는 list 명령어를 사용해야 함
             command = ['mfa', 'model', 'list', model_type]
             result = self.run_mfa_command(command)
             
             if result is not None and result.returncode == 0:
-                # stdout에서 model_name이 있는지 확인
                 return self.model_name in result.stdout
             return False
         except Exception as e:
@@ -102,22 +88,6 @@ class MFAWrapper():
         if clean:
             command.append('--clean')
         
-        return self.run_mfa_command(command)
-    
-    
-    def align_with_pretrained_model(self, corpus_dir, textgrid_dir, clean):
-        '''
-        사전 훈련된 모델로 정렬하여 'word-ipa' 딕셔너리 필요 X
-        '''
-        if self.model_name is None:
-            print('call `set_model_name(lang)` method first.')
-            return 
-        
-        command = ['mfa', 'align', corpus_dir, self.model_name, self.model_name, str(textgrid_dir)]
-         
-        if clean:
-            command.append('--clean')
-
         return self.run_mfa_command(command)
     
     def run_mfa_command(self, command):

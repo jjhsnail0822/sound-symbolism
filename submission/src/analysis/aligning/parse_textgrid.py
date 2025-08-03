@@ -1,8 +1,6 @@
 import re
-import json
 import math
-from pathlib import Path
-import unicodedata 
+
 
 def parse_textgrid(textgrid_path:str):
     with open(textgrid_path, 'r', encoding='utf-8') as f:

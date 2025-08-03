@@ -9,7 +9,7 @@ args = parser.parse_args()
 
 data_dir = Path(args.data_dir)
 
-ipa_dicts =list( data_dir.glob('*.txt'))
+ipa_dicts =list(data_dir.glob('*.txt'))
 print("[INFO] ipa_dicts: ", [path.name for path in ipa_dicts])
 
 result_dicts = {}
