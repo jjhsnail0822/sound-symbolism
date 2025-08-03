@@ -349,10 +349,12 @@ def plot_bar_chart(llm_data, human_eval, save_path_prefix, metric='macro_f1_scor
     return avg_natural_scores, avg_constructed_scores
 
 
-def plot_correlation_with_human(correlation_data, human_eval, save_path_prefix, metric='macro_f1_score'):
+def plot_correlation_with_human(correlation_data, human_eval, save_path_prefix, metric='macro_f1_score', average_across_word_groups=False):
     """
     Calculates and plots Pearson correlation between model scores and human scores,
     grouped by word group and input type.
+    If average_across_word_groups is True, it first averages the scores for each dimension
+    across 'natural' and 'constructed' groups for each input type, then calculates correlation.
     """
     all_model_names = sorted(correlation_data.keys())
     dims = [d for d in constructed_dims if d in human_eval]
@@ -368,14 +370,48 @@ def plot_correlation_with_human(correlation_data, human_eval, save_path_prefix, 
     all_groups_present = set()
     for model_data in correlation_data.values():
         all_groups_present.update(model_data.keys())
+    
     plot_groups = [g for g in group_order if g in all_groups_present]
+    
+    if average_across_word_groups:
+        # New logic: Average scores across word groups for each input type first
+        input_type_order = ['Original', 'IPA', 'Audio']
+        present_input_types = set([g.split('-')[1] for g in plot_groups])
+        input_types = [it for it in input_type_order if it in present_input_types]
+        plot_groups = input_types # The new groups are the input types themselves
+        
+        averaged_data = defaultdict(lambda: defaultdict(dict))
+        for model_name in all_model_names:
+            for input_type in input_types:
+                nat_group = f'Nat.-{input_type}'
+                con_group = f'Con.-{input_type}'
+                
+                nat_scores_dim = correlation_data[model_name].get(nat_group, {})
+                con_scores_dim = correlation_data[model_name].get(con_group, {})
+                
+                present_dims = set(nat_scores_dim.keys()) | set(con_scores_dim.keys())
+                
+                for dim in dims:
+                    if dim in present_dims:
+                        nat_score = nat_scores_dim.get(dim, np.nan)
+                        con_score = con_scores_dim.get(dim, np.nan)
+                        # Use nanmean to correctly average if one score is NaN
+                        avg_score = np.nanmean([nat_score, con_score])
+                        if not np.isnan(avg_score):
+                            averaged_data[model_name][input_type][dim] = avg_score
+        
+        # The data to be used for correlation is the newly averaged data
+        data_for_corr = averaged_data
+    else:
+        # Original logic
+        data_for_corr = correlation_data
 
     correlations = defaultdict(dict)
 
     for model_name in all_model_names:
         for group in plot_groups:
-            if group in correlation_data[model_name]:
-                model_scores = [correlation_data[model_name][group].get(dim, np.nan) for dim in dims]
+            if group in data_for_corr[model_name]:
+                model_scores = [data_for_corr[model_name][group].get(dim, np.nan) for dim in dims]
                 valid_pairs = [(h, m) for h, m in zip(human_scores_list, model_scores) if not np.isnan(h) and not np.isnan(m)]
                 
                 if len(valid_pairs) > 1:
@@ -424,27 +460,29 @@ def plot_correlation_with_human(correlation_data, human_eval, save_path_prefix, 
     print("-----------------------------------------\n")
 
     # Define colors and hatches for bars
-    natural_colors = plt.get_cmap('Greens')(np.linspace(0.4, 0.9, 3))
-    constructed_colors = plt.get_cmap('Oranges')(np.linspace(0.4, 0.9, 3))
     color_map = {
-        'Nat.-Original': natural_colors[0], 'Nat.-IPA': natural_colors[1], 'Nat.-Audio': natural_colors[2],
-        'Con.-Original': constructed_colors[0], 'Con.-IPA': constructed_colors[1], 'Con.-Audio': constructed_colors[2]
+        'Original': plt.get_cmap('viridis')(0.2),
+        'IPA': plt.get_cmap('viridis')(0.5),
+        'Audio': plt.get_cmap('viridis')(0.8),
+        'Nat.-Original': plt.get_cmap('Greens')(0.4), 'Nat.-IPA': plt.get_cmap('Greens')(0.65), 'Nat.-Audio': plt.get_cmap('Greens')(0.9),
+        'Con.-Original': plt.get_cmap('Oranges')(0.4), 'Con.-IPA': plt.get_cmap('Oranges')(0.65), 'Con.-Audio': plt.get_cmap('Oranges')(0.9)
     }
     hatch_map = {
-        'Nat.-Original': '',           # no hatch
-        'Nat.-IPA': '///',             # diagonal forward
-        'Nat.-Audio': 'xxx',           # cross
-        'Con.-Original': '\\\\\\', # diagonal backward
-        'Con.-IPA': '...',         # dots
-        'Con.-Audio': '++',        # plus
+        'Original': '', 'IPA': '///', 'Audio': '+++',
+        'Nat.-Original': '', 'Nat.-IPA': '///', 'Nat.-Audio': '+++',
+        'Con.-Original': '...', 'Con.-IPA': '\\\\\\', 'Con.-Audio': 'xxx',
     }
 
     for i, group in enumerate(plot_groups):
         corrs = [correlations[m].get(group, np.nan) for m in sorted_models]
         pos = index - (bar_width * (n_groups - 1) / 2) + (i * bar_width)
+        
+        bar_color = color_map.get(group)
+        bar_hatch = hatch_map.get(group)
+
         ax.bar(pos, corrs, bar_width, label=group, 
-               color=color_map.get(group), 
-               hatch=hatch_map.get(group), 
+               color=bar_color, 
+               hatch=bar_hatch, 
                edgecolor='black')
 
     # ax.set_ylabel('Pearson Correlation with Human Scores', fontsize=16)
@@ -458,20 +496,36 @@ def plot_correlation_with_human(correlation_data, human_eval, save_path_prefix, 
     ax.grid(True, axis='y', linestyle='--', alpha=0.6)
 
     legend_elements = []
-    for group in plot_groups:
+    # Desired order for the legend
+    if average_across_word_groups:
+        legend_order = ['Original', 'IPA', 'Audio']
+    else:
+        legend_order = [
+            'Nat.-Original',
+            'Nat.-IPA',
+            'Nat.-Audio',
+            'Con.-Original',
+            'Con.-IPA',
+            'Con.-Audio',
+        ]
+    # Filter order to only include groups that are actually plotted
+    filtered_legend_order = [group for group in legend_order if group in plot_groups]
+
+    for group in filtered_legend_order:
         legend_elements.append(Patch(facecolor=color_map.get(group),
                                      edgecolor='black',
-                                     hatch=hatch_map.get(group),
+                                     hatch=hatch_map.get(group, ''),
                                      label=group))
-    
-    ax.legend(handles=legend_elements, fontsize=16, loc='upper left')
+
+    ax.legend(handles=legend_elements, fontsize=20, loc='upper left', ncol=3 if average_across_word_groups else 2)
 
     plt.tight_layout()
 
-    save_path = f"{save_path_prefix}_human_correlation_plot.png"
+    plot_suffix = "human_correlation_avg_plot" if average_across_word_groups else "human_correlation_plot"
+    save_path = f"{save_path_prefix}_{plot_suffix}.png"
     plt.savefig(save_path, dpi=300)
     print(f"Saved correlation plot to {save_path}")
-    save_path_pdf = f"{save_path_prefix}_human_correlation_plot.pdf"
+    save_path_pdf = f"{save_path_prefix}_{plot_suffix}.pdf"
     plt.savefig(save_path_pdf, dpi=300)
     print(f"Saved correlation plot to {save_path_pdf}")
     plt.close()
@@ -635,6 +689,7 @@ for model_name, word_groups in results_per_model.items():
             print(f"    {dim}: {score:.3f}")
 average_natural_scores, average_constructed_scores = plot_bar_chart(results_per_model, human_eval_result, save_path_prefix)
 plot_correlation_with_human(correlation_data, human_eval_result, save_path_prefix)
+plot_correlation_with_human(correlation_data, human_eval_result, save_path_prefix, average_across_word_groups=True)
 plot_input_type(results_by_input_type, save_path_prefix)
 
 # debug average scores

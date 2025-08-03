@@ -179,6 +179,16 @@ def plot_broken_line_graph(stats_data: Dict[str, Dict],
             avg_scores = np.array([np.mean(all_dims_scores_by_layer[l]) if all_dims_scores_by_layer[l] else 0 for l in layers])
             std_scores = np.array([np.std(all_dims_scores_by_layer[l]) if all_dims_scores_by_layer[l] else 0 for l in layers])
             
+            print(f"Average scores for {data_type}:")
+            for layer, score in zip(layers, avg_scores):
+                if score > 0:
+                    print(f"  Layer {layer}: {score:.4f}")
+
+            # Calculate and print the overall average score across all layers
+            overall_avg = np.mean(avg_scores[avg_scores > 0]) if any(avg_scores > 0) else 0
+            if overall_avg > 0:
+                print(f"Overall average for {data_type}: {overall_avg:.4f}\n")
+
             color = colors[i % len(colors)]
             linestyle = line_styles[i % len(line_styles)]
             marker = markers[i % len(markers)]
@@ -280,14 +290,16 @@ def plot_broken_line_graph(stats_data: Dict[str, Dict],
                 p = np.poly1d(z)
                 ax.plot(layers, p(layers), color=line[0].get_color(), linestyle='--', alpha=0.7, zorder=2)
 
-            # # Add value annotations
-            # for i, (layer, score) in enumerate(zip(layers, scores)):
-            #     if score > 0:  # Only annotate if score is not zero
-            #         # Format score as .XXX (remove leading 0)
-            #         score_str = f"{score:.3f}".lstrip('0')
-            #         ax.annotate(score_str, (layer, score), 
-            #                    xytext=(0, 10), textcoords='offset points',
-            #                    ha='center', va='bottom', fontsize=8)
+            # Add value annotations
+            print(f"Scores for {label}:")
+            for i, (layer, score) in enumerate(zip(layers, scores)):
+                if score > 0:  # Only annotate if score is not zero
+                    # Format score as .XXX (remove leading 0)
+                    score_str = f"{score:.3f}".lstrip('0')
+                    print(f"  Layer {layer}: {score:.4f}")
+                    ax.annotate(score_str, (layer, score), 
+                               xytext=(0, 10), textcoords='offset points',
+                               ha='center', va='bottom', fontsize=8)
         
         # Add legend
         ax.legend(bbox_to_anchor=(1.05, 1), loc='upper left', fontsize=10)
@@ -367,8 +379,8 @@ def load_and_plot_from_files(file_paths: Dict[str, str],
 if __name__ == "__main__":
     # Example parameters
     file_paths = {
-        "ipa": "src/analysis/heatmap/results/np_ipa_Constructed_fraction_check_model_response_True_0_27_sampling_every_1_processed_words_2679.pkl",
-        "audio": "src/analysis/heatmap/results/np_audio_Constructed_fraction_check_model_response_True_0_27_sampling_every_1_processed_words_2665.pkl"
+        "ipa": "src/analysis/heatmap/results/constructed_ipa_fraction.pkl",
+        "audio": "src/analysis/heatmap/results/constructed_audio_fraction.pkl"
     }
     lang = "Constructed"
     compute_rule = "fraction"
