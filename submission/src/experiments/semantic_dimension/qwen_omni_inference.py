@@ -111,34 +111,6 @@ class QwenOmniMCQExperiment:
                             ],
                         },
                     ]
-                # else: # meaning -> word
-                #     question_parts = re.split(r'<AUDIO: .*?>', query['question'])
-                #     option_audio_paths = []
-                #     for option in query['options_info']:
-                #         option_audio_paths.append(f'data/processed/nat/tts/{option["language"]}/{option["text"]}.wav')
-                #         # check if the audio file exists
-                #         if not os.path.exists(option_audio_paths[-1]):
-                #             raise FileNotFoundError(f"Audio file not found: {option_audio_paths[-1]}")
-
-                #     # Build content list dynamically
-                #     content = [{"type": "text", "text": question_parts[0]}]
-                #     for i in range(len(option_audio_paths)):
-                #         content.append({"type": "audio", "audio": option_audio_paths[i]})
-                #         if i + 1 < len(question_parts):
-                #             content.append({"type": "text", "text": question_parts[i + 1]})
-
-                #     conversation = [
-                #         {
-                #             "role": "system",
-                #             "content": [
-                #                 {"type": "text", "text": "You are Qwen, a virtual human developed by the Qwen Team, Alibaba Group, capable of perceiving auditory and visual inputs, as well as generating text and speech."}
-                #             ],
-                #         },
-                #         {
-                #             "role": "user",
-                #             "content": content,
-                #         },
-                #     ]
             else: # text experiment
                 conversation = [
                     {

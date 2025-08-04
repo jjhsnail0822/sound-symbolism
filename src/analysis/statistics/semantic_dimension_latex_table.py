@@ -25,28 +25,29 @@ def generate_latex_tables(data_path):
 
     freq_categories = ["natural", "constructed"]
     freq_categories_map = {
-        "natural": "Nat.",
-        "constructed": "Con."
+        "natural": "Natural",
+        "constructed": "Constructed"
     }
     
     # Map JSON keys to LaTeX column headers
     input_types_map = {
         "original": "Original",
-        "original_and_audio": "Original + Audio",
         "ipa": "IPA",
-        "ipa_and_audio": "IPA + Audio",
         "audio": "Audio"
     }
     input_types_order = list(input_types_map.keys())
+    metrics = ["accuracy", "macro_f1_score"]
+    metrics_map = {
+        "accuracy": "Acc.",
+        "macro_f1_score": "F1"
+    }
 
     # Initialize an empty string to hold all tables
     all_tables_latex_string = ""
 
     for model_name, model_data in data.items():
         # Create a DataFrame for the current model
-        # Columns will be a MultiIndex of (input_type, freq_category)
-        # but for simplicity we'll handle it as flat columns first.
-        columns = [f"{it}_{fc}" for it in input_types_order for fc in freq_categories]
+        columns = [f"{fc}_{it}_{m}" for fc in freq_categories for it in input_types_order for m in metrics]
         df = pd.DataFrame(index=dimensions_order, columns=columns)
         df.fillna("--", inplace=True) # Initialize with placeholder
 
@@ -55,54 +56,64 @@ def generate_latex_tables(data_path):
             # Handle reversed dimensions
             lookup_dim = dimension_map.get(dim, dim)
             
-            for it in input_types_order:
-                for fc in freq_categories:
-                    try:
-                        # Navigate through the data structure to get the score
-                        score = model_data[fc][it][lookup_dim]['all']['macro_f1_score']
-                        # Format the score to xx.x
-                        df.at[dim, f"{it}_{fc}"] = f"{score * 100:.1f}"
-                    except KeyError:
-                        # If data is missing, the cell will retain its "--" value
-                        pass
+            for fc in freq_categories:
+                for it in input_types_order:
+                    for m_key in metrics:
+                        try:
+                            # Navigate through the data structure to get the score
+                            score = model_data[fc][it][lookup_dim]['all'][m_key]
+                            # Format the score to xx.x
+                            df.at[dim, f"{fc}_{it}_{m_key}"] = f"{score * 100:.1f}"
+                        except KeyError:
+                            # If data is missing, the cell will retain its "--" value
+                            pass
         
         # Sanitize model name for LaTeX label
         safe_model_name_label = re.sub(r'[^a-zA-Z0-9]', '', model_name)
 
-        # Generate multicolumn headers for input types
-        input_type_headers = " & ".join([f"\\multicolumn{{{len(freq_categories)}}}{{c}}{{\\textbf{{{input_types_map[it]}}}}}" for it in input_types_order])
+        # Generate multicolumn headers for frequency categories
+        num_metrics = len(metrics)
+        num_input_types = len(input_types_order)
+        freq_cat_headers = " & ".join([f"\\multicolumn{{{num_input_types * num_metrics}}}{{c}}{{\\textbf{{{freq_categories_map[fc]}}}}}" for fc in freq_categories])
         
-        # Generate subheaders for frequency categories, repeated for each input type
-        freq_headers = " & ".join(freq_categories_map.values())
-        repeated_freq_headers = " & ".join([freq_headers] * len(input_types_order))
+        # Generate subheaders for input types, repeated for each freq category
+        input_type_headers_list = [f"\\multicolumn{{{num_metrics}}}{{c}}{{{input_types_map[it]}}}" for it in input_types_order]
+        repeated_input_type_headers = " & ".join(input_type_headers_list * len(freq_categories))
+
+        # Generate sub-subheaders for metrics
+        metric_headers = " & ".join(metrics_map.values())
+        repeated_metric_headers = " & ".join([metric_headers] * (num_input_types * len(freq_categories)))
 
         # Generate cmidrule ranges
-        num_freq = len(freq_categories)
-        # The first column is the dimension label, so data columns start at index 2 in LaTeX
-        cmidrules = " ".join([f"\\cmidrule(lr){{{2 + i*num_freq}-{2 + i*num_freq + num_freq - 1}}}" for i in range(len(input_types_order))])
+        # Top level (for freq categories)
+        cmidrules_top = " ".join([f"\\cmidrule(lr){{{2 + i*num_input_types*num_metrics}-{2 + (i+1)*num_input_types*num_metrics - 1}}}" for i in range(len(freq_categories))])
+        # Second level (for input types)
+        cmidrules_mid = " ".join([f"\\cmidrule(lr){{{2 + i*num_metrics}-{2 + (i+1)*num_metrics - 1}}}" for i in range(num_input_types * len(freq_categories))])
 
+        total_cols = len(df.columns)
         model_table_string = f"""% =====================  {model_name} =====================
 \\begin{{table*}}[ht]
 \\centering
-\\small
-\\begin{{tabular}}{{l*{{{len(input_types_order) * len(freq_categories)}}}{{c}}}}
+\\begin{{tabular}}{{l*{{{total_cols}}}{{c}}}}
 \\toprule
-\\multirow{{2}}{{*}}{{\\textbf{{Dimension}}}} 
-& {input_type_headers} \\\\
-{cmidrules}
-& {repeated_freq_headers} \\\\
+\\multirow{{3}}{{*}}{{\\textbf{{Dimension}}}} 
+& {freq_cat_headers} \\\\
+{cmidrules_top}
+& {repeated_input_type_headers} \\\\
+{cmidrules_mid}
+& {repeated_metric_headers} \\\\
 \\midrule
 """
         # Add data rows
         for index, row in df.iterrows():
-            dim_label = index.replace('_', ' ')
+            dim_label = index
             row_values = " & ".join(row.values)
             model_table_string += f"{dim_label:<35} & {row_values} \\\\ \n"
 
         # End table
         model_table_string += f"""\\bottomrule
 \\end{{tabular}}
-\\caption{{Detailed semantic dimension macro-F1 score results for {model_name}. ``--'' denotes a dimension where all ground truth features are classified as ``neither'' thus removed.}}
+\\caption{{Detailed semantic dimension prediction accuracy and macro-F1 score results for {model_name}.}}
 \\label{{tab:semdim_detailed_{safe_model_name_label}}}
 \\end{{table*}}
 """

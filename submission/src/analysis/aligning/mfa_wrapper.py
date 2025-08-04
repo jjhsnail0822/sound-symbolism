@@ -4,7 +4,7 @@ import subprocess
 
 class MFAWrapper():
     '''
-    CLI 도구인 MFA를 Python에서 Wrapping하여 명령어 실행 
+    Wraps the CLI tool MFA to execute commands from Python
     '''
     LANGUAGE_MODEL_MAP = {
             'en': 'english_us_arpa',
@@ -71,14 +71,14 @@ class MFAWrapper():
         return self.LANGUAGE_MODEL_MAP['en'] if lang == 'art' else self.LANGUAGE_MODEL_MAP[lang]
 
     def check_model_downloaded(self, model_type):
-        """모델이 다운로드되었는지 확인"""
+        """Check if the model is downloaded"""
         try:
-            # 실제로는 list 명령어를 사용해야 함
+            # Actually, should use the list command
             command = ['mfa', 'model', 'list', model_type]
             result = self.run_mfa_command(command)
             
             if result is not None and result.returncode == 0:
-                # stdout에서 model_name이 있는지 확인
+                # Check if model_name is in stdout
                 return self.model_name in result.stdout
             return False
         except Exception as e:
@@ -107,7 +107,7 @@ class MFAWrapper():
     
     def align_with_pretrained_model(self, corpus_dir, textgrid_dir, clean):
         '''
-        사전 훈련된 모델로 정렬하여 'word-ipa' 딕셔너리 필요 X
+        Align with a pretrained model, no need for 'word-ipa' dictionary
         '''
         if self.model_name is None:
             print('call `set_model_name(lang)` method first.')
@@ -135,4 +135,3 @@ class MFAWrapper():
         except Exception as e:
             print('ERROR', command)
             return None
-   

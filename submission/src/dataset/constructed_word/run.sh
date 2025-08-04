@@ -25,6 +25,6 @@ python3 annotate_score.py \
     --json_path=$WORDS_PATH \
     --output_dir=$SEMANTIC_DIM_PATH
 
-python3 ../audio/tts_generation_google.py \
+python3 src/dataset/audio/tts_generation_google.py \
     --word_type='art' \
     --base_dir="${ROOT}/data/processed"

@@ -1,7 +1,7 @@
 import json
 import numpy as np
 import matplotlib.pyplot as plt
-from matplotlib.colors import to_rgb
+from matplotlib.colors import to_rgb, ListedColormap
 from matplotlib.lines import Line2D
 from collections import defaultdict
 from scipy.stats import pearsonr
@@ -543,9 +543,9 @@ def plot_input_type(llm_data, save_path_prefix, metric='macro_f1_score'):
     one_stage_font_size = 24
     input_type_labels = {
         'original': 'Original',
-        'original_and_audio': 'Original\n+ Audio',
+        # 'original_and_audio': 'Original\n+ Audio',
         'ipa': 'IPA',
-        'ipa_and_audio': 'IPA\n+ Audio',
+        # 'ipa_and_audio': 'IPA\n+ Audio',
         'audio': 'Audio'
     }
     input_types_ordered = list(input_type_labels.keys())
@@ -593,14 +593,14 @@ def plot_input_type(llm_data, save_path_prefix, metric='macro_f1_score'):
                         'model': model_name
                     })
 
-    # --- Highlight background for major input types ---
-    highlight_input_types = ['original', 'ipa', 'audio']
-    for i, input_type in enumerate(input_types_ordered):
-        if input_type in highlight_input_types:
-            base = i * group_gap
-            rect = plt.Rectangle((base - group_gap/2, 0), group_gap, 1,
-                               facecolor='lightgray', alpha=0.2, edgecolor='none', zorder=0)
-            ax.add_patch(rect)
+    # # --- Highlight background for major input types ---
+    # highlight_input_types = ['original', 'ipa', 'audio']
+    # for i, input_type in enumerate(input_types_ordered):
+    #     if input_type in highlight_input_types:
+    #         base = i * group_gap
+    #         rect = plt.Rectangle((base - group_gap/2, 0), group_gap, 1,
+    #                            facecolor='lightgray', alpha=0.2, edgecolor='none', zorder=0)
+    #         ax.add_patch(rect)
 
     # --- Draw vertical connecting lines ---
     points_by_x = defaultdict(list)
@@ -624,14 +624,10 @@ def plot_input_type(llm_data, save_path_prefix, metric='macro_f1_score'):
 
     # --- Legend ---
     model_display_name_map = {
-        'gpt-4o-2024-05-13': 'GPT-4o',
-        'Qwen2-72B-Instruct': 'Qwen2-72B',
-        'Qwen2-7B-Instruct': 'Qwen2-7B',
-        'Qwen2-1.5B-Instruct': 'Qwen2-1.5B',
-        'Qwen2-0.5B-Instruct': 'Qwen2-0.5B',
-        'gemini-1.5-pro-latest': 'Gemini 1.5 Pro',
-        'gemini-1.5-flash-latest': 'Gemini 1.5 Flash',
-        'gemini-1.0-pro': 'Gemini 1.0 Pro'
+        'gpt-4o': 'GPT-4o',
+        'Qwen2.5-Omni-3B': 'Qwen-3B',
+        'Qwen2.5-Omni-7B': 'Qwen-7B',
+        'gemini-2.5-flash': 'Gemini',
     }
     legend_elements = []
     # for word_type, color in word_type_colors.items():
@@ -641,7 +637,7 @@ def plot_input_type(llm_data, save_path_prefix, metric='macro_f1_score'):
         display_name = model_display_name_map.get(model_name, model_name)
         legend_elements.append(Line2D([0], [0], marker=marker, color='w', label=display_name,
                                       markerfacecolor='grey', markersize=10))
-    ax.legend(handles=legend_elements, loc='lower center', bbox_to_anchor=(0.5, -0.3), ncol=3, fontsize=two_stage_font_size - 4)
+    ax.legend(handles=legend_elements, loc='best', fontsize=two_stage_font_size)
 
     # --- Axes and Grid ---
     ax.set_xticks(x_tick_pos)
@@ -653,7 +649,7 @@ def plot_input_type(llm_data, save_path_prefix, metric='macro_f1_score'):
     ax.grid(True, which='major', axis='y', linestyle='--', alpha=0.7)
     ax.axhline(0.5, color='grey', linestyle='--', alpha=0.7, zorder=1)
 
-    plt.tight_layout(rect=[0, 0.1, 1, 1])
+    plt.tight_layout()
     
     # --- Save Plot ---
     save_path_png = f"{save_path_prefix}_input_type_scatter.png"
@@ -690,7 +686,7 @@ for model_name, word_groups in results_per_model.items():
 average_natural_scores, average_constructed_scores = plot_bar_chart(results_per_model, human_eval_result, save_path_prefix)
 plot_correlation_with_human(correlation_data, human_eval_result, save_path_prefix)
 plot_correlation_with_human(correlation_data, human_eval_result, save_path_prefix, average_across_word_groups=True)
-# plot_input_type(results_by_input_type, save_path_prefix)
+plot_input_type(results_by_input_type, save_path_prefix)
 
 # debug average scores
 print("\nAverage Natural Scores:")
