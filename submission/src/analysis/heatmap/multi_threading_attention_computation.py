@@ -469,18 +469,9 @@ def get_ipa_runs(ipa_list) -> list[tuple[str, int, int]]:
     return ipa_runs
 
 def get_data(data:dict, alt:dict):
-    # attention_matrices = data["attention_matrices"]
-    # relevant_indices = data["relevant_indices"]
-    # dim1, dim2 = data["dimension1"], data["dimension2"]
-    # answer, word_tokens, option_tokens, tokens = data["answer"], data["word_tokens"], data["option_tokens"], data["tokens"]
-    # ipa_tokens = alt["ipa_tokens"]
-    # response, input_word, target_indices = alt["response"], alt["input_word"], alt["target_indices"]
     target_indices = alt["target_indices"]
     wlen, d1len, d2len = len(target_indices["word"]), len(target_indices["dim1"]), len(target_indices["dim2"])
-    # dim1_range = range(wlen, wlen+d1len)
-    # dim2_range = range(wlen+d1len, wlen+d1len+d2len)
     return data["attention_matrices"], data["relevant_indices"], data["dimension1"], data["dimension2"], data["answer"], data["word_tokens"], data["option_tokens"], data["tokens"], alt["ipa_tokens"], alt["response"], alt["input_word"], alt["target_indices"], len(target_indices["word"]), len(target_indices["dim1"]), len(target_indices["dim2"]), range(wlen, wlen+d1len), range(wlen+d1len, wlen+d1len+d2len)
-    # return attention_matrices, relevant_indices, dim1, dim2, answer, word_tokens, option_tokens, tokens, ipa_tokens, response, input_word, target_indices, wlen, d1len, d2len, dim1_range, dim2_range
 
 def add_to_word_stats(word_stats, ipa, dim, values, ipa_symbols=ipa_symbols):
     if ipa in ipa_symbols and ipa not in word_stats.keys():
@@ -692,7 +683,6 @@ def compute_single_word_attention_score(
         alt = pkl.load(open(alt_dir, "rb"))
         attention_matrices, _, dim1, dim2, answer, word_tokens, option_tokens, tokens, ipa_tokens, response, input_word, target_indices, wlen, d1len, d2len, dim1_range, dim2_range = get_data(data, alt)
         if check_model_response and model_guessed_incorrectly(response, dim1, dim2, answer):
-            # print(f"Model guessed incorrectly for {word} {dim1}-{dim2}")
             incorrect_count += 1
             continue
         
@@ -865,169 +855,129 @@ def save_file(final_word_stats, file_path, final_word_layer_stats=None):
             pkl.dump(final_word_layer_stats, f)
     return
 
-layer_start, layer_end = layer_starts[0], layer_ends[2]
-lang = "art"
-data_type = "audio"
-COMPUTE_RULE = "fraction"
+sampling_rate = 1
+constructed = True
+single_language = True
+layer_starts = [0]
+layer_ends = [27]
+for COMPUTE_RULE in ["fraction", "answer_only", "naive"]:
+    for data_type in ["ipa", "audio"]:
+        for layer_start, layer_end in zip(layer_starts, layer_ends):
+            final_word_stats = {}
+            for lang in con_langs:
+                data_path, output_dir = get_data_path(lang, data_type)
+                show_arguments(data_type=data_type, lang=lang, compute_rule=COMPUTE_RULE, layer_start=layer_start, layer_end=layer_end, sampling_rate=sampling_rate)
+                temp_word_stats, temp_word_layer_stats, processed_words = compute_attention_by_language(
+                    lang=lang, 
+                    layer_start=layer_start, 
+                    layer_end=layer_end, 
+                    final_word_stats={}, 
+                    final_word_layer_stats={},
+                    compute_rule=COMPUTE_RULE, 
+                    check_model_response=CHECK_MODEL_RESPONSE, 
+                    data_path=data_path, 
+                    output_dir=output_dir, 
+                    sampling_rate=sampling_rate, 
+                    single_language=single_language,
+                    max_workers=8
+                )
+                # Merge results
+                for ipa, dim_scores in temp_word_stats.items():
+                    if ipa not in final_word_stats:
+                        final_word_stats[ipa] = {}
+                    for dim, scores in dim_scores.items():
+                        if dim not in final_word_stats[ipa]:
+                            final_word_stats[ipa][dim] = []
+                        final_word_stats[ipa][dim].extend(scores)
+                
+                for layer, layer_stats in temp_word_layer_stats.items():
+                    if layer not in final_word_layer_stats:
+                        final_word_layer_stats[layer] = {}
+                    for ipa, dim_scores in layer_stats.items():
+                        if ipa not in final_word_layer_stats[layer]:
+                            final_word_layer_stats[layer][ipa] = {}
+                        for dim, scores in dim_scores.items():
+                            if dim not in final_word_layer_stats[layer][ipa]:
+                                final_word_layer_stats[layer][ipa][dim] = []
+                            final_word_layer_stats[layer][ipa][dim].extend(scores)
+                file_path = "src/analysis/heatmap/results"
+            
+            # Compute mean scores after all languages are processed
+            final_word_stats = compute_mean_score(final_word_stats)
+            final_word_layer_stats = compute_mean_score_by_layer(final_word_layer_stats)
+            lang = "Constructed"
+            file_name = f"np_{data_type}_{lang}_{COMPUTE_RULE}_check_model_response_{CHECK_MODEL_RESPONSE}_{layer_start}_{layer_end}_sampling_every_{sampling_rate}_processed_words_{processed_words}.pkl"
+            save_file(final_word_stats, os.path.join(file_path, file_name), final_word_layer_stats)
+            plot_ranked_heatmap(final_word_stats, data_type, layer_start, layer_end, lang, compute_rule=COMPUTE_RULE, check_model_response=CHECK_MODEL_RESPONSE, sampling_rate=sampling_rate)
+            plot_sampled_word_heatmap(final_word_stats, data_type, layer_start, layer_end, lang, compute_rule=COMPUTE_RULE, check_model_response=CHECK_MODEL_RESPONSE, sampling_rate=sampling_rate)
+            USE_SOFTMAX = True
+            plot_by_stats_with_ipa_wise(final_word_stats, data_type, layer_start, layer_end, lang, compute_rule=COMPUTE_RULE, check_model_response=CHECK_MODEL_RESPONSE, use_softmax=USE_SOFTMAX, sampling_rate=sampling_rate)
+            USE_SOFTMAX = False
+            plot_by_stats_with_ipa_wise(final_word_stats, data_type, layer_start, layer_end, lang, compute_rule=COMPUTE_RULE, check_model_response=CHECK_MODEL_RESPONSE, use_softmax=USE_SOFTMAX, sampling_rate=sampling_rate)
+
+sampling_rate = 1
+constructed = False
+single_language = False
 FRACTION_WHEN_ANSWER_ONLY = True
 CHECK_MODEL_RESPONSE = True
-sampling_rate = 1
-constructed = get_constructed(lang)
-single_language = True
-final_word_stats = {}
-data_path, output_dir = get_data_path(lang, data_type)
-show_arguments(data_type=data_type, lang=lang, compute_rule=COMPUTE_RULE, layer_start=layer_start, layer_end=layer_end, sampling_rate=sampling_rate)
-final_word_stats, final_word_layer_stats, processed_words = compute_attention_by_language(
-    lang=lang, 
-    layer_start=layer_start, 
-    layer_end=layer_end, 
-    final_word_stats=final_word_stats, 
-    compute_rule=COMPUTE_RULE, 
-    check_model_response=CHECK_MODEL_RESPONSE, 
-    data_path=data_path, 
-    output_dir=output_dir, 
-    sampling_rate=sampling_rate, 
-    single_language=single_language,
-    max_workers=24
-)
-file_path = "src/analysis/heatmap/results"
-if not os.path.exists(file_path):
-    os.makedirs(file_path, exist_ok=True)
-lang = "Constructed"
-file_name = f"np_{data_type}_{lang}_sampling_every_{sampling_rate}_{COMPUTE_RULE}_check_model_response_{CHECK_MODEL_RESPONSE}_{layer_start}_{layer_end}_processed_words_{processed_words}.pkl"
-save_file(final_word_stats, os.path.join(file_path, file_name), final_word_layer_stats)
-plot_ranked_heatmap(final_word_stats, data_type, layer_start, layer_end, lang, compute_rule=COMPUTE_RULE, check_model_response=CHECK_MODEL_RESPONSE, sampling_rate=sampling_rate)
-plot_sampled_word_heatmap(final_word_stats, data_type, layer_start, layer_end, lang, compute_rule=COMPUTE_RULE, check_model_response=CHECK_MODEL_RESPONSE, sampling_rate=sampling_rate)
-USE_SOFTMAX = True
-plot_by_stats_with_ipa_wise(final_word_stats, data_type, layer_start, layer_end, lang, compute_rule=COMPUTE_RULE, check_model_response=CHECK_MODEL_RESPONSE, use_softmax=USE_SOFTMAX, sampling_rate=sampling_rate)
-USE_SOFTMAX = False
-plot_by_stats_with_ipa_wise(final_word_stats, data_type, layer_start, layer_end, lang, compute_rule=COMPUTE_RULE, check_model_response=CHECK_MODEL_RESPONSE, use_softmax=USE_SOFTMAX, sampling_rate=sampling_rate)
-
-# exit()
-
-# sampling_rate = 1
-# constructed = True
-# single_language = True
-# layer_starts = [0]
-# layer_ends = [27]
-# for COMPUTE_RULE in ["fraction", "answer_only", "naive"]:
-#     for data_type in ["ipa", "audio"]:
-#         for layer_start, layer_end in zip(layer_starts, layer_ends):
-#             final_word_stats = {}
-#             for lang in con_langs:
-#                 data_path, output_dir = get_data_path(lang, data_type)
-#                 show_arguments(data_type=data_type, lang=lang, compute_rule=COMPUTE_RULE, layer_start=layer_start, layer_end=layer_end, sampling_rate=sampling_rate)
-#                 temp_word_stats, temp_word_layer_stats, processed_words = compute_attention_by_language(
-#                     lang=lang, 
-#                     layer_start=layer_start, 
-#                     layer_end=layer_end, 
-#                     final_word_stats={}, 
-#                     final_word_layer_stats={},
-#                     compute_rule=COMPUTE_RULE, 
-#                     check_model_response=CHECK_MODEL_RESPONSE, 
-#                     data_path=data_path, 
-#                     output_dir=output_dir, 
-#                     sampling_rate=sampling_rate, 
-#                     single_language=single_language,
-#                     max_workers=8
-#                 )
-#                 # Merge results
-#                 for ipa, dim_scores in temp_word_stats.items():
-#                     if ipa not in final_word_stats:
-#                         final_word_stats[ipa] = {}
-#                     for dim, scores in dim_scores.items():
-#                         if dim not in final_word_stats[ipa]:
-#                             final_word_stats[ipa][dim] = []
-#                         final_word_stats[ipa][dim].extend(scores)
-#                 
-#                 for layer, layer_stats in temp_word_layer_stats.items():
-#                     if layer not in final_word_layer_stats:
-#                         final_word_layer_stats[layer] = {}
-#                     for ipa, dim_scores in layer_stats.items():
-#                         if ipa not in final_word_layer_stats[layer]:
-#                             final_word_layer_stats[layer][ipa] = {}
-#                         for dim, scores in dim_scores.items():
-#                             if dim not in final_word_layer_stats[layer][ipa]:
-#                                 final_word_layer_stats[layer][ipa][dim] = []
-#                             final_word_layer_stats[layer][ipa][dim].extend(scores)
-#                 file_path = "src/analysis/heatmap/results"
-#             
-#             # Compute mean scores after all languages are processed
-#             final_word_stats = compute_mean_score(final_word_stats)
-#             final_word_layer_stats = compute_mean_score_by_layer(final_word_layer_stats)
-#             lang = "Constructed"
-#             file_name = f"np_{data_type}_{lang}_{COMPUTE_RULE}_check_model_response_{CHECK_MODEL_RESPONSE}_{layer_start}_{layer_end}_sampling_every_{sampling_rate}_processed_words_{processed_words}.pkl"
-#             save_file(final_word_stats, os.path.join(file_path, file_name), final_word_layer_stats)
-#             plot_ranked_heatmap(final_word_stats, data_type, layer_start, layer_end, lang, compute_rule=COMPUTE_RULE, check_model_response=CHECK_MODEL_RESPONSE, sampling_rate=sampling_rate)
-#             plot_sampled_word_heatmap(final_word_stats, data_type, layer_start, layer_end, lang, compute_rule=COMPUTE_RULE, check_model_response=CHECK_MODEL_RESPONSE, sampling_rate=sampling_rate)
-#             USE_SOFTMAX = True
-#             plot_by_stats_with_ipa_wise(final_word_stats, data_type, layer_start, layer_end, lang, compute_rule=COMPUTE_RULE, check_model_response=CHECK_MODEL_RESPONSE, use_softmax=USE_SOFTMAX, sampling_rate=sampling_rate)
-#             USE_SOFTMAX = False
-#             plot_by_stats_with_ipa_wise(final_word_stats, data_type, layer_start, layer_end, lang, compute_rule=COMPUTE_RULE, check_model_response=CHECK_MODEL_RESPONSE, use_softmax=USE_SOFTMAX, sampling_rate=sampling_rate)
-
-# sampling_rate = 1
-# constructed = False
-# single_language = False
-# FRACTION_WHEN_ANSWER_ONLY = True
-# CHECK_MODEL_RESPONSE = True
-# layer_starts = [0]
-# layer_ends = [27]
-# for data_type in ["ipa", "audio"]:
-#     # for COMPUTE_RULE in ["fraction", "answer_only", "naive"]:
-#     for COMPUTE_RULE in ["fraction", "answer_only"]:
-#         for layer_start, layer_end in zip(layer_starts, layer_ends):
-#             final_word_stats = {}
-#             final_word_layer_stats = {}
-#             for lang in nat_langs:
-#                 data_path, output_dir = get_data_path(lang, data_type)
-#                 show_arguments(data_type=data_type, lang=lang, constructed=constructed, compute_rule=COMPUTE_RULE, layer_start=layer_start, layer_end=layer_end, sampling_rate=sampling_rate)
-#                 temp_word_stats, temp_word_layer_stats, processed_words = compute_attention_by_language(lang=lang, data_path=data_path, layer_start=layer_start, layer_end=layer_end, output_dir=output_dir, final_word_stats={}, final_word_layer_stats={}, compute_rule=COMPUTE_RULE, check_model_response=CHECK_MODEL_RESPONSE, sampling_rate=sampling_rate, single_language=True)
-#                 # Merge results
-#                 for ipa, dim_scores in temp_word_stats.items():
-#                     if ipa not in final_word_stats:
-#                         final_word_stats[ipa] = {}
-#                     for dim, scores in dim_scores.items():
-#                         if dim not in final_word_stats[ipa]:
-#                             final_word_stats[ipa][dim] = []
-#                         final_word_stats[ipa][dim].extend(scores)
+layer_starts = [0]
+layer_ends = [27]
+for data_type in ["ipa", "audio"]:
+    # for COMPUTE_RULE in ["fraction", "answer_only", "naive"]:
+    for COMPUTE_RULE in ["fraction", "answer_only"]:
+        for layer_start, layer_end in zip(layer_starts, layer_ends):
+            final_word_stats = {}
+            final_word_layer_stats = {}
+            for lang in nat_langs:
+                data_path, output_dir = get_data_path(lang, data_type)
+                show_arguments(data_type=data_type, lang=lang, constructed=constructed, compute_rule=COMPUTE_RULE, layer_start=layer_start, layer_end=layer_end, sampling_rate=sampling_rate)
+                temp_word_stats, temp_word_layer_stats, processed_words = compute_attention_by_language(lang=lang, data_path=data_path, layer_start=layer_start, layer_end=layer_end, output_dir=output_dir, final_word_stats={}, final_word_layer_stats={}, compute_rule=COMPUTE_RULE, check_model_response=CHECK_MODEL_RESPONSE, sampling_rate=sampling_rate, single_language=True)
+                # Merge results
+                for ipa, dim_scores in temp_word_stats.items():
+                    if ipa not in final_word_stats:
+                        final_word_stats[ipa] = {}
+                    for dim, scores in dim_scores.items():
+                        if dim not in final_word_stats[ipa]:
+                            final_word_stats[ipa][dim] = []
+                        final_word_stats[ipa][dim].extend(scores)
                 
-#                 for layer, layer_stats in temp_word_layer_stats.items():
-#                     if layer not in final_word_layer_stats:
-#                         final_word_layer_stats[layer] = {}
-#                     for ipa, dim_scores in layer_stats.items():
-#                         if ipa not in final_word_layer_stats[layer]:
-#                             final_word_layer_stats[layer][ipa] = {}
-#                         for dim, scores in dim_scores.items():
-#                             if dim not in final_word_layer_stats[layer][ipa]:
-#                                 final_word_layer_stats[layer][ipa][dim] = []
-#                             final_word_layer_stats[layer][ipa][dim].extend(scores)
-#                 file_path = "src/analysis/heatmap/results"
+                for layer, layer_stats in temp_word_layer_stats.items():
+                    if layer not in final_word_layer_stats:
+                        final_word_layer_stats[layer] = {}
+                    for ipa, dim_scores in layer_stats.items():
+                        if ipa not in final_word_layer_stats[layer]:
+                            final_word_layer_stats[layer][ipa] = {}
+                        for dim, scores in dim_scores.items():
+                            if dim not in final_word_layer_stats[layer][ipa]:
+                                final_word_layer_stats[layer][ipa][dim] = []
+                            final_word_layer_stats[layer][ipa][dim].extend(scores)
+                file_path = "src/analysis/heatmap/results"
             
-#             # Compute mean scores after all languages are processed
-#             final_word_stats = compute_mean_score(final_word_stats)
-#             final_word_layer_stats = compute_mean_score_by_layer(final_word_layer_stats)
-#             lang = "Natural"
-#             file_name = f"np_{data_type}_{lang}_{COMPUTE_RULE}_check_model_response_{CHECK_MODEL_RESPONSE}_{layer_start}_{layer_end}_processed_words_{processed_words}.pkl"
-#             save_file(final_word_stats, os.path.join(file_path, file_name), final_word_layer_stats)
-#             plot_ranked_heatmap(final_word_stats, data_type, layer_start, layer_end, lang, compute_rule=COMPUTE_RULE, check_model_response=CHECK_MODEL_RESPONSE, sampling_rate=sampling_rate)
-#             plot_sampled_word_heatmap(final_word_stats, data_type, layer_start, layer_end, lang, compute_rule=COMPUTE_RULE, check_model_response=CHECK_MODEL_RESPONSE, sampling_rate=sampling_rate)
-#             USE_SOFTMAX = True
-#             plot_by_stats_with_ipa_wise(final_word_stats, data_type, layer_start, layer_end, lang, compute_rule=COMPUTE_RULE, check_model_response=CHECK_MODEL_RESPONSE, use_softmax=USE_SOFTMAX, sampling_rate=sampling_rate)
-#             USE_SOFTMAX = False
-#             plot_by_stats_with_ipa_wise(final_word_stats, data_type, layer_start, layer_end, lang, compute_rule=COMPUTE_RULE, check_model_response=CHECK_MODEL_RESPONSE, use_softmax=USE_SOFTMAX, sampling_rate=sampling_rate)
+            # Compute mean scores after all languages are processed
+            final_word_stats = compute_mean_score(final_word_stats)
+            final_word_layer_stats = compute_mean_score_by_layer(final_word_layer_stats)
+            lang = "Natural"
+            file_name = f"np_{data_type}_{lang}_{COMPUTE_RULE}_check_model_response_{CHECK_MODEL_RESPONSE}_{layer_start}_{layer_end}_processed_words_{processed_words}.pkl"
+            save_file(final_word_stats, os.path.join(file_path, file_name), final_word_layer_stats)
+            plot_ranked_heatmap(final_word_stats, data_type, layer_start, layer_end, lang, compute_rule=COMPUTE_RULE, check_model_response=CHECK_MODEL_RESPONSE, sampling_rate=sampling_rate)
+            plot_sampled_word_heatmap(final_word_stats, data_type, layer_start, layer_end, lang, compute_rule=COMPUTE_RULE, check_model_response=CHECK_MODEL_RESPONSE, sampling_rate=sampling_rate)
+            USE_SOFTMAX = True
+            plot_by_stats_with_ipa_wise(final_word_stats, data_type, layer_start, layer_end, lang, compute_rule=COMPUTE_RULE, check_model_response=CHECK_MODEL_RESPONSE, use_softmax=USE_SOFTMAX, sampling_rate=sampling_rate)
+            USE_SOFTMAX = False
+            plot_by_stats_with_ipa_wise(final_word_stats, data_type, layer_start, layer_end, lang, compute_rule=COMPUTE_RULE, check_model_response=CHECK_MODEL_RESPONSE, use_softmax=USE_SOFTMAX, sampling_rate=sampling_rate)
             
-#             # Generate broken line graph
-#             try:
-#                 from src.analysis.heatmap.plot_brokenline_graph import load_and_plot_from_file
-#                 load_and_plot_from_file(
-#                     file_path=os.path.join(file_path, file_name),
-#                     data_type=data_type,
-#                     lang=lang,
-#                     compute_rule=COMPUTE_RULE,
-#                     layer_start=layer_start,
-#                     layer_end=layer_end,
-#                     check_model_response=CHECK_MODEL_RESPONSE,
-#                     sampling_rate=sampling_rate
-#                 )
-#             except Exception as e:
-#                 print(f"Error generating broken line graph: {e}")
+            # Generate broken line graph
+            try:
+                from src.analysis.heatmap.plot_brokenline_graph import load_and_plot_from_file
+                load_and_plot_from_file(
+                    file_path=os.path.join(file_path, file_name),
+                    data_type=data_type,
+                    lang=lang,
+                    compute_rule=COMPUTE_RULE,
+                    layer_start=layer_start,
+                    layer_end=layer_end,
+                    check_model_response=CHECK_MODEL_RESPONSE,
+                    sampling_rate=sampling_rate
+                )
+            except Exception as e:
+                print(f"Error generating broken line graph: {e}")
