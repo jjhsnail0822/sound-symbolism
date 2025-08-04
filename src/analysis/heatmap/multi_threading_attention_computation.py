@@ -247,6 +247,53 @@ def plot_ranked_heatmap(word_stats, data_type, start_layer, end_layer, lang, sav
     file_name += ".png"
     file_path = os.path.join(save_path, file_name)
     draw_plot(ipa_list, semdim_list, answer_list, matrix, title, file_path, dim_pairs, ranked=True)
+    
+    # Generate additional LaTeX output for ranked heatmap
+    print("\n" + "="*80)
+    print("LATEX CODE FOR RANKED HEATMAP")
+    print("="*80)
+    
+    # Create LaTeX code for ranked table
+    latex_code = []
+    latex_code.append("\\begin{table}[t]")
+    latex_code.append("\\centering")
+    latex_code.append("\\begin{tabular}{l|" + "c" * len(ipa_list) + "}")
+    latex_code.append("\\hline")
+    
+    # Header row with IPA symbols
+    header_row = "Semantic Dimension"
+    for ipa in ipa_list:
+        header_row += f" & \\textipa{{{ipa}}}"
+    header_row += " \\\\"
+    latex_code.append(header_row)
+    latex_code.append("\\hline")
+    
+    # Data rows with ranks
+    for i, semdim in enumerate(semdim_list):
+        row = f"\\textbf{{{semdim}}}"
+        for j, ipa in enumerate(ipa_list):
+            if not np.isnan(matrix[i, j]):
+                rank = int(matrix[i, j])
+                row += f" & {rank}"
+            else:
+                row += " & --"
+        row += " \\\\"
+        latex_code.append(row)
+    
+    # End table
+    latex_code.append("\\hline")
+    latex_code.append("\\end{tabular}")
+    latex_code.append("\\caption{IPA-Semantic Dimension Attention Ranks (1 = highest attention)}")
+    latex_code.append("\\label{tab:ipa_semdim_ranks}")
+    latex_code.append("\\end{table}")
+    
+    # Print LaTeX code
+    for line in latex_code:
+        print(line)
+    
+    print("\n" + "="*80)
+    print("LATEX CODE END")
+    print("="*80)
 
 def rank_matrix_by_semdim(word_stats, dim_pairs, ipa_list):
     import numpy as np
@@ -391,7 +438,7 @@ def draw_plot(ipa_list, semdim_list, answer_list, matrix, title, file_path, dim_
                     drawn.add(idx2+1)
 
     ax.set_xlabel('IPA Symbol', fontsize=12)
-    ax.set_ylabel('Semantic Dimension', fontsize=12)
+    ax.set_ylabel('Dimension', fontsize=12)
     ax.set_title(title, fontsize=14, pad=15)
     plt.setp(ax.get_xticklabels(), ha='right')
     plt.tight_layout()
@@ -404,7 +451,71 @@ def draw_plot(ipa_list, semdim_list, answer_list, matrix, title, file_path, dim_
     plt.savefig(file_path, dpi=300, bbox_inches='tight')
     print(f"Sampled word heatmap saved to {file_path}")
     plt.close()
+    
+    # Generate LaTeX output for AAAI appendix
+    print("\n" + "="*80)
+    print("LATEX CODE FOR AAAI APPENDIX")
+    print("="*80)
 
+    def clean_number(val_str):
+        # Remove leading '0.' to make it '.123'
+        if val_str.startswith("0."):
+            return "." + val_str[2:]
+        elif val_str.startswith("-0."):
+            return "-." + val_str[3:]
+        return val_str
+
+    max_cols = 14
+    num_splits = (len(ipa_list) + max_cols - 1) // max_cols
+
+    for split_idx in range(num_splits):
+        start = split_idx * max_cols
+        end = min((split_idx + 1) * max_cols, len(ipa_list))
+        ipa_chunk = ipa_list[start:end]
+
+        latex_code = []
+        latex_code.append("\\begin{table}[t]")
+        latex_code.append("\\centering")
+        latex_code.append("\\begin{tabular}{l|" + "c" * len(ipa_chunk) + "}")
+        latex_code.append("\\hline")
+
+        header_row = "\\textbf{Dimension}"
+        for ipa in ipa_chunk:
+            header_row += f" & \\textipa{{{ipa}}}"
+        header_row += " \\\\"
+        latex_code.append(header_row)
+        latex_code.append("\\hline")
+
+        for i, semdim in enumerate(semdim_list):
+            row = f"{semdim}"
+            for j in range(start, end):
+                if not np.isnan(matrix[i, j]):
+                    value = matrix[i, j]
+                    if ranked:
+                        formatted = f"{value:.0f}"
+                    else:
+                        formatted = f"{value:.3f}"
+                    row += f" & {clean_number(formatted)}"
+                else:
+                    row += " & --"
+            row += " \\\\"
+            latex_code.append(row)
+
+        latex_code.append("\\hline")
+        latex_code.append("\\end{tabular}")
+        caption_text = f"IPA-Semantic Dimension Attention Scores (Part {split_idx+1})"
+        latex_code.append(f"\\caption{{{caption_text}}}")
+        latex_code.append(f"\\label{{tab:ipa_semdim_attention_part{split_idx+1}}}")
+        latex_code.append("\\end{table}")
+
+        for line in latex_code:
+            print(line)
+        print()
+
+    print("="*80)
+    print("LATEX CODE END")
+    print("="*80)
+    
 def paper_plot(word_stats_list, data_type_list, lang_list, save_path=None, 
                compute_rule_list=None, 
                dim_pairs=dim_pairs, answer_list=None, 
@@ -616,6 +727,73 @@ def paper_plot(word_stats_list, data_type_list, lang_list, save_path=None,
     plt.savefig(png_file_path, dpi=300, bbox_inches='tight')
     print(f"Combined paper plot saved to {png_file_path}")
     plt.close()
+    
+    # Generate LaTeX output for combined paper plot
+    print("\n" + "="*80)
+    print("LATEX CODE FOR COMBINED PAPER PLOT")
+    print("="*80)
+    
+    # Create LaTeX code for combined table
+    latex_code = []
+    latex_code.append("\\begin{table*}[t]")
+    latex_code.append("\\centering")
+    latex_code.append("\\begin{tabular}{l|" + "c" * len(ipa_list) + "|" + "c" * len(ipa_list) + "|" + "c" * len(ipa_list) + "|" + "c" * len(ipa_list) + "}")
+    latex_code.append("\\hline")
+    
+    # Header row with language and modality labels
+    header_row = "Semantic Dimension"
+    for lang, data_type in zip(lang_list, data_type_list):
+        header_row += f" & \\multicolumn{{{len(ipa_list)}}}{{c}}{{{lang.capitalize()} - {data_type.capitalize()}}}"
+    header_row += " \\\\"
+    latex_code.append(header_row)
+    latex_code.append("\\hline")
+    
+    # Sub-header with IPA symbols
+    sub_header = ""
+    for _ in range(4):  # 4 subplots
+        for ipa in ipa_list:
+            sub_header += f" & \\textipa{{{ipa}}}"
+    sub_header += " \\\\"
+    latex_code.append(sub_header)
+    latex_code.append("\\hline")
+    
+    # Data rows
+    for i, semdim in enumerate(semdim_list):
+        row = f"\\textbf{{{semdim}}}"
+        for word_stats, data_type, lang in zip(word_stats_list, data_type_list, lang_list):
+            current_ipa_list = [ipa for ipa in ipa_list if ipa in word_stats]
+            for ipa in ipa_list:
+                if ipa in word_stats and semdim in word_stats[ipa]:
+                    score = word_stats[ipa][semdim]
+                    if isinstance(score, (list, np.ndarray)):
+                        if len(score) > 0:
+                            score = np.mean(score)
+                        else:
+                            score = np.nan
+                    
+                    if not np.isnan(score):
+                        row += f" & {score:.3f}"
+                    else:
+                        row += " & --"
+                else:
+                    row += " & --"
+        row += " \\\\"
+        latex_code.append(row)
+    
+    # End table
+    latex_code.append("\\hline")
+    latex_code.append("\\end{tabular}")
+    latex_code.append("\\caption{IPA-Semantic Dimension Attention Scores Across Languages and Modalities}")
+    latex_code.append("\\label{tab:combined_ipa_semdim_attention}")
+    latex_code.append("\\end{table*}")
+    
+    # Print LaTeX code
+    for line in latex_code:
+        print(line)
+    
+    print("\n" + "="*80)
+    print("LATEX CODE END")
+    print("="*80)
 
 def scale_matrix_by_ipa(matrix, softmax=False):
     scaled = np.zeros_like(matrix)
@@ -1172,12 +1350,25 @@ def save_file(final_word_stats, file_path, final_word_layer_stats=None):
 # Generate combined paper plot
 # paper_plot(word_stats_list, data_type_list, lang_list, compute_rule_list=compute_rule_list, show_y_labels=True)
 # file1_path = "src/analysis/heatmap/results/npen_ipa_Natural_fraction_check_model_response_True_0_27_processed_words_4981.pkl"
-file2_path = "src/analysis/heatmap/results/np_ipa_Natural_fraction_check_model_response_True_0_27_processed_words_4981.pkl"
-# with open(file1_path, "rb") as f:
-#     final_word_stats1 = pkl.load(f)
-with open(file2_path, "rb") as f:
-    final_word_stats2 = pkl.load(f)
-plot_sampled_word_heatmap(final_word_stats2, "ipa", 0, 27, "Natural", compute_rule="fraction", check_model_response=True, sampling_rate=1)
+file_path = "src/analysis/heatmap/results/np_ipa_Natural_fraction_check_model_response_True_0_27_processed_words_4981.pkl"
+with open(file_path, "rb") as f:
+    final_word_stats = pkl.load(f)
+plot_sampled_word_heatmap(final_word_stats, "ipa", 0, 27, "Natural", compute_rule="fraction", check_model_response=True, sampling_rate=1)
+
+file_path = "src/analysis/heatmap/results/np_audio_Natural_fraction_check_model_response_True_0_27_processed_words_4981.pkl"
+with open(file_path, "rb") as f:
+    final_word_stats = pkl.load(f)
+plot_sampled_word_heatmap(final_word_stats, "audio", 0, 27, "Natural", compute_rule="fraction", check_model_response=True, sampling_rate=1)
+
+file_path = "src/analysis/heatmap/results/np_ipa_Constructed_fraction_check_model_response_True_0_27_sampling_every_1_processed_words_2679.pkl"
+with open(file_path, "rb") as f:
+    final_word_stats = pkl.load(f)
+plot_sampled_word_heatmap(final_word_stats, "ipa", 0, 27, "Constructed", compute_rule="fraction", check_model_response=True, sampling_rate=1)
+
+file_path = "src/analysis/heatmap/results/np_audio_Constructed_fraction_check_model_response_True_0_27_sampling_every_1_processed_words_2679.pkl"
+with open(file_path, "rb") as f:
+    final_word_stats = pkl.load(f)
+plot_sampled_word_heatmap(final_word_stats, "audio", 0, 27, "Constructed", compute_rule="fraction", check_model_response=True, sampling_rate=1)
 
 # exit()
 

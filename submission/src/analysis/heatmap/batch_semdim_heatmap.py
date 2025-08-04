@@ -915,7 +915,6 @@ if __name__ == "__main__":
                        help="Data type to process")
     parser.add_argument('--max-tokens', type=int, default=32, help="Maximum tokens to generate")
     parser.add_argument('--temperature', type=float, default=0.0, help="Sampling temperature")
-    parser.add_argument('--start-index', type=int, default=0, help="Set index to initiate processing")
     parser.add_argument('--max-samples', type=int, default=None, help="Maximum number of samples to process (default: all)")
     parser.add_argument('--languages', nargs='+', default=["en", "fr", "ko", "ja"], help="Languages to process")
     parser.add_argument('--flip', action='store_true', help="Flip dim1 and dim2 in prompts and outputs")
@@ -953,10 +952,9 @@ if __name__ == "__main__":
     total_num_of_dimensions = 0
     total_num_of_words = 0
     total_num_of_words_per_language = {lang: 0 for lang in languages}
-    start_index = 4000
+    start_index = 0
 
     batch_size = args.batch_size
-    # python src/analysis/heatmap/batch_semdim_heatmap.py --data-type audio --language ko --flip --max-samples 500
     for lang in languages:
         print(f"\nProcessing language: {lang}")
         lang_data = visualizer.data[lang]
@@ -1007,7 +1005,7 @@ if __name__ == "__main__":
     print(f"Total number of words: {total_num_of_words}")
     print(f"Total number of words per language: {total_num_of_words_per_language}")
     print(f"Results saved to: {args.output_dir}")
-    print(f"Index: {args.start_index} - {args.max_samples}")
+    print(f"Index: {start_index} - {args.max_samples}")
     print(f"Flip: {args.flip}, Constructed: {args.constructed}, Data type: {args.data_type}, Languages: {args.languages}")
     
     # Clean up
