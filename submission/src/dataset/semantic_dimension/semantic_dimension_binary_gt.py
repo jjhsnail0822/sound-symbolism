@@ -51,7 +51,7 @@ def determine_final_gt(combined_words_list, gpt4_data, gemma_data, qwen_data, ge
         
         # 'word_group' if present in 'item' is already carried over by deepcopy.
         # Other fields like "meaning", "ipa", "ref", "url", "found", 
-        # "ipa_source", "romanization", "en_meaning", "infinigram_count" 
+        # "ipa_source", "romanization", "en_meaning"
         # from 'item' are also preserved.
 
         final_gt[lang].append(current_word_obj_for_final_gt)
