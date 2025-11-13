@@ -1,4 +1,4 @@
-# Do Language Models Associate Sound with Meaning? A Multimodal Study of Sound Symbolism
+# [AAAI-26] Do Language Models Associate Sound with Meaning? A Multimodal Study of Sound Symbolism
 - Code and data for _“Do Language Models Associate Sound with Meaning? A Multimodal Study of Sound Symbolism”_ (AAAI 2026, Oral).
 - Short intro: research code + dataset (LEX-ICON) + evaluation & attention-analysis scripts
 
@@ -242,11 +242,6 @@ sound-symbolism/
 ## :bookmark: Citation
 If this repository supports your research, please cite:
 ```
-@inproceedings{jeong2026soundsymbolism,
-  title     = {Do Language Models Associate Sound with Meaning? A Multimodal Study of Sound Symbolism},
-  author    = {Jinhong Jeong, Sunghyun Lee, Jaeyoung Lee, Seonah Han, Youngjae Yu},
-  booktitle = {Proceedings of the AAAI Conference on Artificial Intelligence},
-  year      = {2026}
-}
+TBD
 ```
 For any questions or issues, feel free to open an issue on this repository!
