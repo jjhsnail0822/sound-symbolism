@@ -1,4 +1,0 @@
-# Natural Word Group
-data/processed/nat/semantic_dimension/semantic_dimension_binary_gt.json
-# Constructed Word Group
-data/processed/art/semantic_dimension/semantic_dimension_binary_gt.json
