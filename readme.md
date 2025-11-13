@@ -49,16 +49,13 @@ cd sound-symbolism
 
 2. Create the curated conda environment (includes CUDA, audio, and visualization deps)
 ```bash
-cd submission
 conda env create -f environment.yml
 conda activate symbolism
-cd ..
 ```
    - If you prefer `pip`, you can fall back to `pip install -r requirements.txt` from the repo root, but several audio dependencies are easier with conda.
 
 **Dataset refresh (optional; processed JSON + audio already included)**
 ```bash
-# requires raw IPA dictionaries and word lists under data/raw (not part of the bundle)
 bash src/dataset/constructed_word/run.sh
 python src/dataset/prompt_generation/semantic_dimension/semantic_dimension.py --output data/prompts/semantic_dimension
 ```
@@ -108,11 +105,9 @@ python src/analysis/plotting/semantic_dimension_plot.py --stats-path results/sta
    ```
 2. Create and activate the research environment:
    ```bash
-   cd submission
    conda env create -f environment.yml
    conda activate symbolism
    export PYTHONPATH=$(pwd)/src  # add to your shell profile for convenience
-   cd ..
    ```
 3. Create a feature branch:
    ```bash
@@ -237,12 +232,12 @@ sound-symbolism/
 
 | Path | Purpose |
 |------|---------|
-| `submission/data/processed` | Canonical LEX-ICON subsets (natural + constructed) used in AAAI-26 experiments. |
-| `submission/data/prompts` | Prompt templates and multiple-choice questions delivered to the models. |
-| `submission/src/dataset` | Scripts for regenerating phonetic resources, prompts, and TTS wav files. |
-| `submission/src/experiments` | Entry points for MCQ inference, human evaluation parsing, and API integrations. |
-| `submission/src/analysis` | Attention alignment, visualization, and statistics utilities. |
-| `submission/results` | Default output directory for metrics, figures, and serialized attention scores. |
+| `data/processed` | Canonical LEX-ICON subsets (natural + constructed) used in AAAI-26 experiments. |
+| `data/prompts` | Prompt templates and multiple-choice questions delivered to the models. |
+| `src/dataset` | Scripts for regenerating phonetic resources, prompts, and TTS wav files. |
+| `src/experiments` | Entry points for MCQ inference, human evaluation parsing, and API integrations. |
+| `src/analysis` | Attention alignment, visualization, and statistics utilities. |
+| `results` | Default output directory for metrics, figures, and serialized attention scores. |
 
 ## :bookmark: Citation
 If this repository supports your research, please cite:
