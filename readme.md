@@ -3,7 +3,7 @@ Code and data for _“Do Language Models Associate Sound with Meaning? A Multimo
 - Venue: AAAI 2026 Main Technical Track (Oral)
 - Authors: Jinhong Jeong*, Sunghyun Lee*, Jaeyoung Lee, Seonah Han, Youngjae Yu
 
-## :ledger: Index
+## Index
 
 - [About](#about)
 - [Overview](#overview)
