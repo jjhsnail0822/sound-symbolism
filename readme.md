@@ -26,7 +26,7 @@ This artifact packages everything needed to verify the AAAI-26 paper results: th
 - Provides plotting utilities for semantic-dimension trends, modality advantages, and layer-wise attention.
 
 ## :bookmark_tabs: Paper
-**Title:** _Do Language Models Associate Sound with Meaning? A Multimodal Study of Sound Symbolism_  
+**Title:** [_Do Language Models Associate Sound with Meaning? A Multimodal Study of Sound Symbolism_](https://arxiv.org/abs/2511.10045)  
 
 **Venue:** AAAI-26 (Oral)  
 
