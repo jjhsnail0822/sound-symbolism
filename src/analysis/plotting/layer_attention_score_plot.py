@@ -377,6 +377,9 @@ def load_and_plot_from_files(file_paths: Dict[str, str],
 
 # Example usage
 if __name__ == "__main__":
+    plt.rcParams['pdf.fonttype'] = 42
+    plt.rcParams['ps.fonttype'] = 42
+    
     # Example parameters
     file_paths = {
         "ipa": "src/analysis/heatmap/results/constructed_ipa_fraction.pkl",
