@@ -9,6 +9,9 @@ from scipy.stats import ttest_rel, wilcoxon
 import pandas as pd
 from matplotlib.patches import Patch
 
+plt.rcParams['pdf.fonttype'] = 42
+plt.rcParams['ps.fonttype'] = 42
+
 def load_json(json_path):
     with open(json_path, 'r') as file:
         data = json.load(file)
