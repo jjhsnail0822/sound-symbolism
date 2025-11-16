@@ -7,6 +7,9 @@ from collections import defaultdict
 from scipy.stats import pearsonr
 from matplotlib.patches import Patch
 
+plt.rcParams['pdf.fonttype'] = 42
+plt.rcParams['ps.fonttype'] = 42
+
 natural_languages = ["en", "fr", "ja", "ko"]
 constructed_languages = ["art"]
 
